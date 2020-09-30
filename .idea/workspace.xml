@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="690ba5aa-fa04-4454-baba-f01d1b7aec7f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/react/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react/divider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/react/divider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/react/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react/message.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/react/message.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/button.css.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/button.css.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/consts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/consts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/typography.css.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/typography.css.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BptXx40mdFAfWdQJcGXjvBUldW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/benehiko/Documents/themes/public&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/benehiko/Documents/themes/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/benehiko/Documents/themes/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/stories/DarkTheme" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/html" />
+      <recent name="$PROJECT_DIR$/src/react" />
+      <recent name="$PROJECT_DIR$/src/stories/LightTheme" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="690ba5aa-fa04-4454-baba-f01d1b7aec7f" name="Changes" comment="" />
+      <created>1657614897486</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657614897486</updated>
+      <workItem from="1657614898639" duration="13545000" />
+      <workItem from="1657698609066" duration="17517000" />
+      <workItem from="1657792074584" duration="8197000" />
+      <workItem from="1657871351513" duration="12722000" />
+      <workItem from="1658301695762" duration="22870000" />
+      <workItem from="1658397367078" duration="7091000" />
+      <workItem from="1658734839753" duration="23171000" />
+      <workItem from="1658821709202" duration="15151000" />
+      <workItem from="1659340213906" duration="11000" />
+      <workItem from="1659350030451" duration="6000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/helpers/express.d.ts" />
+      </list>
+    </option>
+  </component>
+</project>
