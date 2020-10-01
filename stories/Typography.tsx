@@ -2,21 +2,24 @@ import React, { HTMLAttributes, ReactNode } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import {
   theme,
-  typographyBodyStyles,
-  typographyCaptionStyles,
   typographyH1Styles,
   typographyH2Styles,
   typographyH3Styles,
-  typographyLinkStyles,
+  typographyLeadStyles,
   typographyParagraphStyles,
+  typographyButtonStyles,
+  typographyCodeStyles,
+  typographyCaptionStyles,
+  typographyLinkStyles,
 } from '../theme'
 
 const StyledH1 = styled.h1(typographyH1Styles)
 const StyledH2 = styled.h2(typographyH2Styles)
 const StyledH3 = styled.h3(typographyH3Styles)
-const StyledSpan = styled.span(typographyBodyStyles)
-const StyledParagraph = styled.span(typographyParagraphStyles)
-const StyledCode = styled.span(typographyParagraphStyles)
+const StyledLead = styled.span(typographyLeadStyles)
+const StyledParagraph = styled.p(typographyParagraphStyles)
+const StyledButtonTypography = styled.span(typographyButtonStyles)
+const StyledCode = styled.span(typographyCodeStyles)
 const StyledCaption = styled.span(typographyCaptionStyles)
 const StyledAnchor = styled.a(typographyLinkStyles)
 
@@ -60,18 +63,21 @@ export const H3 = (props: HeadingProps) => (
   </ThemeProvider>
 )
 
-// @jfcurran where is this being used? I think it should be renamed because
-// it resembles the `<body>` but I would assume the `<body>` style to equal the
-// `<p>` style.
-export const Body = (props: SpanProps) => (
+export const Lead = (props: SpanProps) => (
   <ThemeProvider theme={theme}>
-    <StyledSpan {...props} />
+    <StyledLead {...props} />
   </ThemeProvider>
 )
 
 export const P = (props: ParagraphProps) => (
   <ThemeProvider theme={theme}>
     <StyledParagraph {...props} />
+  </ThemeProvider>
+)
+
+export const B = (props: SpanProps) => (
+  <ThemeProvider theme={theme}>
+    <StyledButtonTypography {...props} />
   </ThemeProvider>
 )
 

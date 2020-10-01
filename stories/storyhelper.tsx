@@ -14,7 +14,7 @@ export const Spacer = ({ children }: { children: ReactNode }) => (
 )
 
 export const Container = ({ children }: { children: ReactNode }) => (
-  <div style={{ width: '224px', margin: '0 auto' }}>
+  <div style={{ width: '260px', margin: '0 auto' }}>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {children}
@@ -29,7 +29,7 @@ export const HR = () => (
       outline: 'none',
       background: '#bbb',
       height: '1px',
-      margin: '24px 32px',
+      margin: '16px 0',
     }}
   />
 )
