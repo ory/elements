@@ -1,10 +1,13 @@
-import { Theme } from './index';
+import { Theme } from './index'
 
 export interface ButtonStyles {
-  big?: boolean,
+  big?: boolean
 }
 
-export const buttonStyles = ({ big, theme }: ButtonStyles & { theme: Theme }) => `
+export const buttonStyles = ({
+  big,
+  theme,
+}: ButtonStyles & { theme: Theme }) => `
 font-family: ${theme.fontFamily};
 font-style: normal;
 font-weight: normal;
@@ -44,4 +47,4 @@ background-color: ${theme.pink60};
   outline: none;
   border: 2px solid transparent;
 }
-`;
+`
