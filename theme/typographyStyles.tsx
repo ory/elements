@@ -63,18 +63,17 @@ text-decoration: none;
 
 color: ${theme.primary60};
 
-&:visited,
-&.fake-visited {
+&.fake-visited, 
+&:visited {
   color: ${theme.primary70};
 }
 
-&:hover,
-&.fake-hover {
+&.fake-hover,
+&:hover {
   color: ${theme.primary30};
 }
-
-&:active,
-&.fake-active {
+&.fake-active, 
+&:active {
   color: ${theme.primary70};
 }
 `
