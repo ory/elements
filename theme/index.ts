@@ -1,4 +1,5 @@
-export * from './buttonStyles';
+export * from './buttonStyles'
+export * from './typographyStyles'
 
 export const theme = {
   pink30: '#F6A8C2',
@@ -13,7 +14,7 @@ export const theme = {
   // @john add all colors here
 
   borderRadius: '4px',
-  fontFamily: '\'Rubik\', sans-serif',
-};
+  fontFamily: "'Rubik', sans-serif",
+}
 
-export type Theme = typeof theme;
+export type Theme = typeof theme
