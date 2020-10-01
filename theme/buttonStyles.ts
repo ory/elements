@@ -1,4 +1,4 @@
-import { Theme } from './index'
+import { Theme, typographyButtonStyles } from './index';
 
 export interface ButtonStyles {
   big?: boolean
@@ -8,10 +8,7 @@ export const buttonStyles = ({
   big,
   theme,
 }: ButtonStyles & { theme: Theme }) => `
-font-family: ${theme.fontFamily};
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
+${typographyButtonStyles({theme})}
 line-height: ${!big ? '20px' : '30px'};
 color: ${theme.grey0};
 border-radius: ${theme.borderRadius};

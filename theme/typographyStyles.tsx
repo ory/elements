@@ -1,51 +1,80 @@
-import { Theme } from './index'
+import { Theme } from './index';
 
-export const typographyH1Styles = () => `
-font-family: 'Rubik', sans-serif;
+const defaultTypography = (sheet: string) => ({theme}: {theme:Theme}) => `
+font-family: ${theme.fontFamily};
+font-style: normal;
+font-weight: normal;
+${sheet}
 `
 
-export const typographyH2Styles = () => `
-font-family: 'Rubik', sans-serif;
-`
+export const typographyH1Styles = defaultTypography(`
+font-weight: 500;
+font-size: 32px;
+line-height: 40px;
+`)
 
-export const typographyH3Styles = () => `
-font-family: 'Rubik', sans-serif;
-`
+export const typographyH2Styles = defaultTypography(`
+font-size: 16px;
+line-height: 24px;
+`)
 
-// @jfcurran where is this being used? I think it should be renamed because
-// it resembles the `<body>` but I would assume the `<body>` style to equal the
-// `<p>` style.
-export const typographyBodyStyles = () => `
-font-family: 'Rubik', sans-serif;
-`
+export const typographyH3Styles = defaultTypography(`
+font-size: 14px;
+line-height: 20px;
+`)
 
-export const typographyParagraphStyles = () => `
-font-family: 'Rubik', sans-serif;
-`
+export const typographyLeadStyles = defaultTypography(`
+font-weight: 300;
+font-size: 16px;
+line-height: 24px;
+`)
 
-export const typographyCodeStyles = () => `
-font-family: 'Rubik', sans-serif;
-`
+export const typographyParagraphStyles = defaultTypography(`
+font-weight: 300;
+font-size: 14px;
+line-height: 20px;
+`)
 
-export const typographyCaptionStyles = () => `
-font-family: 'Rubik', sans-serif;
-`
+export const typographyButtonStyles = defaultTypography(`
+font-weight: 300;
+font-size: 14px;
+line-height: 20px;
+`)
 
-export const typographyLinkStyles = () => `
-font-family: 'Rubik', sans-serif;
+
+export const typographyCodeStyles = defaultTypography(`
+font-family: Roboto Mono;
+font-size: 14px;
+line-height: 20px;
+`)
+
+export const typographyCaptionStyles = defaultTypography(`
+font-weight: 300;
+font-size: 12px;
+line-height: 18px;
+`)
+
+export const typographyLinkStyles = ({theme}: {theme: Theme}) => `
+${defaultTypography('')({theme})}
+font-size: 12px;
+line-height: 18px;
+
+text-decoration: none;
+
+color: ${theme.primary60};
 
 &:visited,
 &.fake-visited {
-  color: green;
+  color: ${theme.primary70};
 }
 
 &:hover,
 &.fake-hover {
-  color: yellow;
+  color: ${theme.primary30};
 }
 
 &:active,
 &.fake-active {
-  color: red;
+  color: ${theme.primary70};
 }
 `

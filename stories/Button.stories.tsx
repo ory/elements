@@ -4,6 +4,7 @@ import { Story } from '@storybook/react/types-6-0'
 
 import Button, { ButtonProps } from './Button'
 import { Container, Spacer } from './storyhelper'
+import { Caption } from './Typography';
 
 const meta: Meta = {
   title: 'Button',
@@ -86,21 +87,21 @@ export const Disabled = () => (
 
 export const Helper = () => {
   const message = (
-    <p>
+    <Caption>
       By creating an account, you agree to the Terms of Service. For more
       information about privacy practices, see the Privacy Statement.
-    </p>
+    </Caption>
   )
 
   return (
     <Container>
       <Spacer>
-        <Button className="fake-focus" helper={message}>
+        <Button helper={message}>
           Helper
         </Button>
       </Spacer>
       <Spacer>
-        <Button big className="fake-focus" helper={message}>
+        <Button big helper={message}>
           Helper
         </Button>
       </Spacer>
