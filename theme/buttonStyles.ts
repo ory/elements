@@ -22,7 +22,7 @@ padding: 5px 12px;
 border: 2px solid transparent;
 outline: none;
 
-background-color: ${theme.pink60};
+background-color: ${theme.primary60};
 
 &:disabled {
   color: ${theme.grey30};
@@ -31,19 +31,19 @@ background-color: ${theme.pink60};
 
 &.fake-hover,
 &:hover {
-  background-color: ${theme.pink30};
+  background-color: ${theme.primary30};
 }
 
 &.fake-focus,
 &:focus {
-  background-color: ${theme.pink60};
+  background-color: ${theme.primary60};
   border: 2px solid ${theme.blue30};
   outline: none;
 }
 
 &.fake-click,
 &:active {
-  background-color: ${theme.pink70};
+  background-color: ${theme.primary70};
   outline: none;
   border: 2px solid transparent;
 }
