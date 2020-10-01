@@ -2,16 +2,34 @@ export * from './buttonStyles'
 export * from './typographyStyles'
 
 export const theme = {
-  pink30: '#F6A8C2',
-  pink60: '#EC407A',
-  pink70: '#C23564',
-
-  blue30: '#9DC2FF',
-
   grey0: '#F9F9FA',
+  grey5: '#F0F0F1',
   grey10: '#E1E1E3',
   grey30: '#B4B4BB',
-  // @john add all colors here
+  grey60: '#5A5B6A',
+  grey70: '#4A4B57',
+  grey100: '#19191D',
+
+  blue30: '#9DC2FF',
+  blue60: '#2979FF',
+  blue70: '#2264D1',
+
+  green30: '#A9D3AB',
+  green60: '#43A047',
+  green70: '#37833B',
+
+  red30: '#FAA9A3',
+  red60: '#F44336',
+  red70: '#C8372D',
+
+  bluegrey30: '#B4BBE2',
+  bluegrey60: '#97A0D6',
+
+  primaryaccent: '#FF80FF',
+
+  primary30: '#F6A8C2',
+  primary60: '#EC407A',
+  primary70: '#C23564',
 
   borderRadius: '4px',
   fontFamily: "'Rubik', sans-serif",
