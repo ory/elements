@@ -7,8 +7,8 @@ const StyledButton = styled.input(buttonStyles);
 export interface ButtonProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     ButtonStyles {
-  helper?: ReactNode
-  children: string
+  helper?: ReactNode;
+  children: string;
 }
 
 const Button = ({ helper, children, ...props }: ButtonProps) => (

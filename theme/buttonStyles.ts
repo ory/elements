@@ -1,14 +1,15 @@
-import { Theme, typographyButtonStyles } from './index'
+import { Theme, typographyButtonStyles } from './index';
 
 export interface ButtonStyles {
-  big?: boolean
+  big?: boolean;
 }
 
 export const buttonStyles = ({
   big,
-  theme,
+  theme
 }: ButtonStyles & { theme: Theme }) => `
 ${typographyButtonStyles({ theme })}
+
 line-height: ${!big ? '20px' : '30px'};
 color: ${theme.grey0};
 border-radius: ${theme.borderRadius};
@@ -45,4 +46,4 @@ background-color: ${theme.primary60};
   outline: none;
   border: 2px solid transparent;
 }
-`
+`;
