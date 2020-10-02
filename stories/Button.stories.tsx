@@ -1,26 +1,26 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { Story } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Meta } from '@storybook/react';
+import { Story } from '@storybook/react/types-6-0';
 
-import Button, { ButtonProps } from './Button'
-import { Container, Spacer } from './storyhelper'
-import { Caption, Link as StyledLink } from './Typography'
+import Button, { ButtonProps } from './Button';
+import { Container, Spacer } from './storyhelper';
+import { Caption, Link as StyledLink } from './Typography';
 
 const meta: Meta = {
   title: 'Button',
-  component: Button,
-}
+  component: Button
+};
 
 const Template: Story<ButtonProps> = (args: ButtonProps) => (
   <Container>
     <Button {...args} />
   </Container>
-)
+);
 
-export const Playground = Template.bind({})
+export const Playground = Template.bind({});
 Playground.args = {
-  children: 'Default Text',
-}
+  children: 'Default Text'
+};
 
 export const Size = () => (
   <Container>
@@ -31,7 +31,7 @@ export const Size = () => (
       <Button big>Big</Button>
     </Spacer>
   </Container>
-)
+);
 
 export const Hover = () => (
   <Container>
@@ -44,7 +44,7 @@ export const Hover = () => (
       </Button>
     </Spacer>
   </Container>
-)
+);
 
 export const Click = () => (
   <Container>
@@ -57,7 +57,7 @@ export const Click = () => (
       </Button>
     </Spacer>
   </Container>
-)
+);
 
 export const Focus = () => (
   <Container>
@@ -70,7 +70,7 @@ export const Focus = () => (
       </Button>
     </Spacer>
   </Container>
-)
+);
 
 export const Disabled = () => (
   <Container>
@@ -83,7 +83,7 @@ export const Disabled = () => (
       </Button>
     </Spacer>
   </Container>
-)
+);
 
 export const Helper = () => {
   const message = (
@@ -106,7 +106,7 @@ export const Helper = () => {
       </StyledLink>
       .
     </Caption>
-  )
+  );
 
   return (
     <Container>
@@ -119,7 +119,7 @@ export const Helper = () => {
         </Button>
       </Spacer>
     </Container>
-  )
-}
+  );
+};
 
-export default meta
+export default meta;

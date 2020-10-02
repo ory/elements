@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 export default css`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -352,4 +352,4 @@ export default css`
   [hidden] {
     display: none;
   }
-`
+`;

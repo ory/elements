@@ -1,5 +1,6 @@
-export * from './buttonStyles'
-export * from './typographyStyles'
+export * from './buttonStyles';
+export * from './typographyStyles';
+export * from './textInputStyles';
 
 export const theme = {
   grey0: '#F9F9FA',
@@ -32,7 +33,7 @@ export const theme = {
   primary70: '#C23564',
 
   borderRadius: '4px',
-  fontFamily: "'Rubik', sans-serif",
-}
+  fontFamily: "'Rubik', sans-serif"
+};
 
-export type Theme = typeof theme
+export type Theme = typeof theme;

@@ -1,17 +1,17 @@
-import React, { ReactNode } from 'react'
-import { GlobalStyle } from '../theme/globalStyles'
-import { ThemeProvider } from 'styled-components'
-import { theme } from '../theme'
+import React, { ReactNode } from 'react';
+import { GlobalStyle } from '../theme/globalStyles';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../theme';
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
   <div
     style={{
-      marginBottom: '20px',
+      marginBottom: '20px'
     }}
   >
     {children}
   </div>
-)
+);
 
 export const Container = ({ children }: { children: ReactNode }) => (
   <div style={{ width: '260px', margin: '0 auto' }}>
@@ -20,7 +20,7 @@ export const Container = ({ children }: { children: ReactNode }) => (
       {children}
     </ThemeProvider>
   </div>
-)
+);
 
 export const HR = () => (
   <hr
@@ -29,7 +29,7 @@ export const HR = () => (
       outline: 'none',
       background: '#bbb',
       height: '1px',
-      margin: '16px 0',
+      margin: '16px 0'
     }}
   />
-)
+);
