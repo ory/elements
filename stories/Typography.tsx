@@ -37,7 +37,7 @@ export interface ParagraphProps
 }
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export interface AnchorProps
