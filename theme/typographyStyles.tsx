@@ -1,6 +1,7 @@
 import { Theme } from './index';
 
 const defaultTypography = (sheet: string) => ({ theme }: { theme: Theme }) => `
+text-rendering: geometricPrecision; 
 font-family: ${theme.fontFamily};
 font-style: normal;
 font-weight: normal;
