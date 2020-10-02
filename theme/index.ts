@@ -1,6 +1,7 @@
 export * from './buttonStyles';
 export * from './typographyStyles';
 export * from './textInputStyles';
+export * from './checkboxStyles';
 
 export const theme = {
   grey0: '#F9F9FA',
