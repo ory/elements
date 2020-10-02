@@ -4,7 +4,7 @@ import { Story } from '@storybook/react/types-6-0'
 
 import Button, { ButtonProps } from './Button'
 import { Container, Spacer } from './storyhelper'
-import { Caption, Link as StyledLink } from './Typography';
+import { Caption, Link as StyledLink } from './Typography'
 
 const meta: Meta = {
   title: 'Button',
@@ -88,17 +88,30 @@ export const Disabled = () => (
 export const Helper = () => {
   const message = (
     <Caption>
-      By creating an account, you agree to the <StyledLink href="https://www.ory.sh/" target="_blank" rel="noreferrer noopener">Terms of Service</StyledLink>. For more
-      information about privacy practices, see the <StyledLink href="https://www.ory.sh/" target="_blank" rel="noreferrer noopener">Privacy Statement</StyledLink>.
+      By creating an account, you agree to the{' '}
+      <StyledLink
+        href="https://www.ory.sh/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        Terms of Service
+      </StyledLink>
+      . For more information about privacy practices, see the{' '}
+      <StyledLink
+        href="https://www.ory.sh/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        Privacy Statement
+      </StyledLink>
+      .
     </Caption>
   )
 
   return (
     <Container>
       <Spacer>
-        <Button helper={message}>
-          Helper
-        </Button>
+        <Button helper={message}>Helper</Button>
       </Spacer>
       <Spacer>
         <Button big helper={message}>
