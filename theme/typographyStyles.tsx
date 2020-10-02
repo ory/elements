@@ -1,6 +1,6 @@
-import { Theme } from './index';
+import { Theme } from './index'
 
-const defaultTypography = (sheet: string) => ({theme}: {theme:Theme}) => `
+const defaultTypography = (sheet: string) => ({ theme }: { theme: Theme }) => `
 font-family: ${theme.fontFamily};
 font-style: normal;
 font-weight: normal;
@@ -41,7 +41,6 @@ font-size: 14px;
 line-height: 20px;
 `)
 
-
 export const typographyCodeStyles = defaultTypography(`
 font-family: Roboto Mono;
 font-size: 14px;
@@ -54,8 +53,8 @@ font-size: 12px;
 line-height: 18px;
 `)
 
-export const typographyLinkStyles = ({theme}: {theme: Theme}) => `
-${defaultTypography('')({theme})}
+export const typographyLinkStyles = ({ theme }: { theme: Theme }) => `
+${defaultTypography('')({ theme })}
 font-size: 12px;
 line-height: 18px;
 

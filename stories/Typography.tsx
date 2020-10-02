@@ -19,7 +19,7 @@ const StyledH3 = styled.h3(typographyH3Styles)
 const StyledLead = styled.span(typographyLeadStyles)
 const StyledParagraph = styled.p(typographyParagraphStyles)
 const StyledButtonTypography = styled.span(typographyButtonStyles)
-const StyledCode = styled.span(typographyCodeStyles)
+const StyledCode = styled.code(typographyCodeStyles)
 const StyledCaption = styled.span(typographyCaptionStyles)
 const StyledAnchor = styled.a(typographyLinkStyles)
 
@@ -36,7 +36,7 @@ export interface ParagraphProps
   children: ReactNode
 }
 
-export interface CodeProps extends React.HTMLAttributes<CodeProps> {
+export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode
 }
 
@@ -45,56 +45,20 @@ export interface AnchorProps
   children: ReactNode
 }
 
-export const H1 = (props: HeadingProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledH1 {...props} />
-  </ThemeProvider>
-)
+export const H1 = (props: HeadingProps) => <StyledH1 {...props} />
 
-export const H2 = (props: HeadingProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledH2 {...props} />
-  </ThemeProvider>
-)
+export const H2 = (props: HeadingProps) => <StyledH2 {...props} />
 
-export const H3 = (props: HeadingProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledH3 {...props} />
-  </ThemeProvider>
-)
+export const H3 = (props: HeadingProps) => <StyledH3 {...props} />
 
-export const Lead = (props: SpanProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledLead {...props} />
-  </ThemeProvider>
-)
+export const Lead = (props: SpanProps) => <StyledLead {...props} />
 
-export const P = (props: ParagraphProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledParagraph {...props} />
-  </ThemeProvider>
-)
+export const P = (props: ParagraphProps) => <StyledParagraph {...props} />
 
-export const B = (props: SpanProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledButtonTypography {...props} />
-  </ThemeProvider>
-)
+export const B = (props: SpanProps) => <StyledButtonTypography {...props} />
 
-export const Code = (props: HeadingProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledCode {...props} />
-  </ThemeProvider>
-)
+export const Code = (props: CodeProps) => <StyledCode {...props} />
 
-export const Caption = (props: SpanProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledCaption {...props} />
-  </ThemeProvider>
-)
+export const Caption = (props: SpanProps) => <StyledCaption {...props} />
 
-export const Link = (props: AnchorProps) => (
-  <ThemeProvider theme={theme}>
-    <StyledAnchor {...props} />
-  </ThemeProvider>
-)
+export const Link = (props: AnchorProps) => <StyledAnchor {...props} />
