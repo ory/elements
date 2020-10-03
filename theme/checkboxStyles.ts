@@ -1,4 +1,8 @@
-import { ThemeProps, typographyH3Styles, typographyParagraphStyles } from './index';
+import {
+  ThemeProps,
+  typographyH3Styles,
+  typographyParagraphStyles
+} from './index';
 
 export const checkboxStyles = ({ theme }: ThemeProps) => `
 & .checkbox-title {

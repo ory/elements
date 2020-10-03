@@ -25,13 +25,13 @@ Cookie: Yummy!`
 export const CheckboxWithTitleDescription = () => (
   <Container>
     <Spacer>
-      <CodeBox code={`HTTP 1.0 /example
+      <CodeBox
+        code={`HTTP 1.0 /example
 Authorization: foo-bar
 Cookie: Yummy!`}
       />
     </Spacer>
   </Container>
 );
-
 
 export default meta;

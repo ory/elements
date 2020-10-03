@@ -1,6 +1,8 @@
 import { ThemeProps } from './index';
 
-const defaultTypography = (sheet: (p: ThemeProps) => string) => ({ theme }: ThemeProps) => `
+const defaultTypography = (sheet: (p: ThemeProps) => string) => ({
+  theme
+}: ThemeProps) => `
 text-rendering: geometricPrecision; 
 font-family: ${theme.fontFamily};
 font-style: normal;
@@ -8,54 +10,71 @@ font-weight: normal;
 ${sheet({ theme })}
 `;
 
-export const typographyH1Styles = defaultTypography(() => `
+export const typographyH1Styles = defaultTypography(
+  () => `
 font-weight: 500;
 font-size: 32px;
 line-height: 40px;
-`);
+`
+);
 
-export const typographyH2Styles = defaultTypography(() => `
+export const typographyH2Styles = defaultTypography(
+  () => `
 font-size: 16px;
 line-height: 24px;
-`);
+`
+);
 
-export const typographyH3Styles = defaultTypography(() => `
+export const typographyH3Styles = defaultTypography(
+  () => `
 font-size: 14px;
 line-height: 20px;
-`);
+`
+);
 
-export const typographyLeadStyles = defaultTypography(() => `
+export const typographyLeadStyles = defaultTypography(
+  () => `
 font-weight: 300;
 font-size: 16px;
 line-height: 24px;
-`);
+`
+);
 
-export const typographyParagraphStyles = defaultTypography(() => `
+export const typographyParagraphStyles = defaultTypography(
+  () => `
 font-weight: 300;
 font-size: 14px;
 line-height: 20px;
-`);
+`
+);
 
-export const typographyButtonStyles = defaultTypography(() => `
+export const typographyButtonStyles = defaultTypography(
+  () => `
 font-weight: 300;
 font-size: 14px;
 line-height: 20px;
-`);
+`
+);
 
-export const typographyCodeStyles = defaultTypography(({ theme }: ThemeProps) => `
+export const typographyCodeStyles = defaultTypography(
+  ({ theme }: ThemeProps) => `
 font-family: "Roboto Mono";
 font-size: 14px;
 line-height: 20px;
 color: ${theme.grey70}
-`);
+`
+);
 
-export const typographyCaptionStyles = defaultTypography(() => `
+export const typographyCaptionStyles = defaultTypography(
+  () => `
 font-weight: 300;
 font-size: 12px;
 line-height: 18px;
-`);
+`
+);
 
-export const typographyLinkStyles = defaultTypography(({ theme }: ThemeProps) => `
+export const typographyLinkStyles = defaultTypography(
+  ({ theme }: ThemeProps) => `
 font-size: 12px;
 line-height: 18px;
 
@@ -76,4 +95,5 @@ color: ${theme.primary60};
 &:active {
   color: ${theme.primary70};
 }
-`);
+`
+);
