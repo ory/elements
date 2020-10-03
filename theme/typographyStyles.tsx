@@ -1,4 +1,4 @@
-import { Theme, ThemeProps } from './index';
+import { ThemeProps } from './index';
 
 const defaultTypography = (sheet: (p: ThemeProps) => string) => ({ theme }: ThemeProps) => `
 text-rendering: geometricPrecision; 

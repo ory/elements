@@ -1,8 +1,6 @@
-import { Theme } from './index';
-
 export interface TextInputStyles {}
 
-export const textInputStyles = ({ theme }: { theme: Theme }) => `
+export const textInputStyles = () => `
 color: black;
 
 &:hover,

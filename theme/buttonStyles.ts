@@ -1,13 +1,10 @@
-import { Theme, typographyButtonStyles } from './index';
+import { ThemeProps, typographyButtonStyles } from './index';
 
-export interface ButtonStyles {
+export interface ButtonStyles extends ThemeProps {
   big?: boolean;
 }
 
-export const buttonStyles = ({
-  big,
-  theme
-}: ButtonStyles & { theme: Theme }) => `
+export const buttonStyles = ({ big, theme }: ButtonStyles) => `
 ${typographyButtonStyles({ theme })}
 
 line-height: ${!big ? '20px' : '30px'};
