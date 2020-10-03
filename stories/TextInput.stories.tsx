@@ -21,15 +21,15 @@ Playground.args = {
   value: 'Default Text'
 };
 
-export const Active = () => (
-  <Container>
-    <TextInput title="Active Input" value="Active" className="fake-active" />
-  </Container>
-);
-
 export const Default = () => (
   <Container>
     <TextInput title="Default Input" value="Default" />
+  </Container>
+);
+
+export const Hover = () => (
+  <Container>
+    <TextInput title="Focus Input" value="Focus" className="fake-hover" />
   </Container>
 );
 
@@ -60,6 +60,7 @@ export const Disabled = () => (
 export const InputWithSubtitle = () => (
   <Container>
     <TextInput
+      help
       title="Input with subtitle"
       value="Input"
       subtitle="A good password has at least 15 characters."
@@ -70,6 +71,7 @@ export const InputWithSubtitle = () => (
 export const InputWithSubtitleAndState = () => (
   <Container>
     <TextInput
+      help
       title="Input with subtitle and state"
       value="Error input"
       subtitle="A good password has at least 15 characters."
