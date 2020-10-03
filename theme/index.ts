@@ -1,3 +1,5 @@
+import {ThemeProps as StyledThemeProps} from 'styled-components';
+
 export * from './buttonStyles';
 export * from './typographyStyles';
 export * from './textInputStyles';
@@ -40,4 +42,4 @@ export const theme = {
 
 export type Theme = typeof theme;
 
-export type ThemeProps = { theme: Theme }
+export type ThemeProps = StyledThemeProps<Theme>
