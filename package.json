@@ -1,24 +1,23 @@
 {
   "name": "@oryd/themes",
-  "version": "1.0.0",
-  "description": "",
-  "main": "theme/index.ts",
+  "version": "0.0.0",
+  "main": "lib/theme/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "format": "prettier --write \"{theme,stories}/**/*.{js,ts,tsx}\""
+    "format": "prettier --write \"{theme,stories}/**/*.{js,ts,tsx}\"",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ory-corp/mui-ory.git"
+    "url": "git+https://github.com/ory/theme.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/ory-corp/mui-ory/issues"
+    "url": "https://github.com/ory/theme/issues"
   },
-  "homepage": "https://github.com/ory-corp/mui-ory#readme",
+  "homepage": "https://github.com/ory/theme#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
