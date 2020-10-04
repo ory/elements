@@ -13,6 +13,7 @@
     "jsx": "preserve",
     "outDir": "./lib",
     "rootDir": ".",
+    "declaration": true,
     "lib": [
       "dom",
       "dom.iterable",
