@@ -11,12 +11,7 @@ export interface ButtonProps
 
 const Button = ({ helper, children, className, ...props }: ButtonProps) => (
   <div className={className}>
-    <input
-      type="button"
-      className="button"
-      {...props}
-      value={children}
-    />
+    <input type="button" className="button" {...props} value={children} />
     {helper && <span className="button-helper">{helper}</span>}
   </div>
 );

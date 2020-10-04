@@ -4,6 +4,7 @@ import {
   typographyH3Styles,
   typographyParagraphStyles
 } from './index';
+import { textInputStyles as nativeTextInputStyles } from './native/textInputStyles';
 
 export interface TextInputStyles extends ThemeProps {
   help?: boolean;
@@ -20,18 +21,8 @@ export const textInputStyles = ({ help, theme }: TextInputStyles) => `
                              
 & .text-input {
   ${typographyParagraphStyles({ theme })}
-  
-  color: ${theme.grey70}; 
-  border-radius: ${theme.borderRadius};
-  width: 100%;
-  padding: 5px 12px;
-  
-  margin-top: 7px;
-  margin-bottom: ${!help ? '15px' : '7px'};
-  border: 1px solid ${theme.grey10};
+  ${nativeTextInputStyles({ help, theme })}
   outline: none;
-  
-  background-color: ${theme.grey0};
 }
 
 &.fake-hover .text-input,
