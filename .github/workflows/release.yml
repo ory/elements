@@ -11,10 +11,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: npm i -g npm@latest
       - run: npm ci
       - run: npm version --no-git-tag-version ${{ github.event.release.tag_name }}
       - run: npm run build
       - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_AENEASR }}
