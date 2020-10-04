@@ -14,6 +14,7 @@ jobs:
       - run: npm ci
       - run: npm version --no-git-tag-version ${{ github.event.release.tag_name }}
       - run: npm run build
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR }}" > ~/.npmrc
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_AENEASR }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_AENEASR }}
