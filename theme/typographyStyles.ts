@@ -1,80 +1,68 @@
 import { ThemeProps } from './index';
+import {
+  typographyH1Styles as nativeTypographyH1Styles,
+  typographyH2Styles as nativeTypographyH2Styles,
+  typographyH3Styles as nativeTypographyH3Styles,
+  typographyLeadStyles as nativeTypographyLeadStyles,
+  typographyParagraphStyles as nativeTypographyParagraphStyles,
+  typographyButtonStyles as nativeTypographyButtonStyles,
+  typographyCodeStyles as nativeTypographyCodeStyles,
+  typographyCaptionStyles as nativeTypographyCaptionStyles,
+  typographyLinkStyles as nativeTypographyLinkStyles
+} from './native/typographyStyles';
 
-const defaultTypography = (sheet: (p: ThemeProps) => string) => ({
-  theme
-}: ThemeProps) => `
+const defaultTypography = ({ theme }: ThemeProps) => `
 text-rendering: geometricPrecision; 
 font-family: ${theme.fontFamily};
-font-style: normal;
-font-weight: normal;
-${sheet({ theme })}
 `;
 
-export const typographyH1Styles = defaultTypography(
-  () => `
-font-weight: 500;
-font-size: 32px;
-line-height: 40px;
-`
-);
+export const typographyH1Styles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyH1Styles}
+`;
 
-export const typographyH2Styles = defaultTypography(
-  () => `
-font-size: 16px;
-line-height: 24px;
-`
-);
+export const typographyH2Styles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyH2Styles}
+`;
 
-export const typographyH3Styles = defaultTypography(
-  () => `
-font-size: 14px;
-line-height: 20px;
-`
-);
+export const typographyH3Styles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyH3Styles}
+`;
 
-export const typographyLeadStyles = defaultTypography(
-  () => `
-font-weight: 300;
-font-size: 16px;
-line-height: 24px;
-`
-);
+export const typographyLeadStyles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyLeadStyles()}
+`;
 
-export const typographyParagraphStyles = defaultTypography(
-  () => `
-font-weight: 300;
-font-size: 14px;
-line-height: 20px;
-`
-);
+export const typographyParagraphStyles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyParagraphStyles()}
+`;
 
-export const typographyButtonStyles = defaultTypography(
-  () => `
-font-weight: 300;
-font-size: 14px;
-line-height: 20px;
-`
-);
+export const typographyButtonStyles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyButtonStyles()}
+`;
 
-export const typographyCodeStyles = defaultTypography(
-  ({ theme }: ThemeProps) => `
+export const typographyCodeStyles = ({ theme }: ThemeProps) => `
+${defaultTypography({ theme })}
+${nativeTypographyCodeStyles({ theme })}
 font-family: "Roboto Mono";
-font-size: 14px;
-line-height: 20px;
-color: ${theme.grey70}
-`
-);
+`;
 
-export const typographyCaptionStyles = defaultTypography(
-  () => `
+export const typographyCaptionStyles = (props: ThemeProps) => `
+${defaultTypography(props)}
+${nativeTypographyCaptionStyles()}
 font-weight: 300;
 font-size: 12px;
 line-height: 18px;
-`
-);
+`;
 
-export const typographyLinkStyles = defaultTypography(
-  ({ theme }: ThemeProps) => `
+export const typographyLinkStyles = ({ theme }: ThemeProps) => `
+${defaultTypography({ theme })}
+${nativeTypographyLinkStyles({ theme })}
 font-size: 12px;
 line-height: 18px;
 
@@ -95,5 +83,4 @@ color: ${theme.primary60};
 &:active {
   color: ${theme.primary70};
 }
-`
-);
+`;
