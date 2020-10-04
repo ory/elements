@@ -10,14 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ory/theme.git"
+    "url": "git://github.com/ory/themes.git"
   },
-  "author": "",
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/ory/theme/issues"
+    "url": "https://github.com/ory/themes/issues"
   },
-  "homepage": "https://github.com/ory/theme#readme",
+  "homepage": "https://github.com/ory/themes#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
