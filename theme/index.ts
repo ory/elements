@@ -5,6 +5,8 @@ export * from './typographyStyles';
 export * from './textInputStyles';
 export * from './checkboxStyles';
 export * from './codeBoxStyles';
+export * from './messageStyles';
+export * from './forkMeStyles';
 
 export const theme = {
   grey0: '#F9F9FA',
@@ -27,19 +29,25 @@ export const theme = {
   red60: '#F44336',
   red70: '#C8372D',
 
-  bluegrey30: '#B4BBE2',
-  bluegrey60: '#97A0D6',
+  blueGrey30: '#B4BBE2',
+  blueGrey60: '#97A0D6',
 
-  primaryaccent: '#FF80FF',
+  primaryAccent: '#FF80FF',
 
   primary30: '#F6A8C2',
   primary60: '#EC407A',
   primary70: '#C23564',
 
   borderRadius: '4px',
-  fontFamily: "'Rubik', sans-serif"
+
+  regularFont300: "'Rubik', sans-serif",
+  regularFont400: "'Rubik', sans-serif",
+  regularFont500: "'Rubik', sans-serif",
+  codeFont400: "'Roboto Mono', sans-serif"
 };
 
-export type Theme = typeof theme;
+export type Theme = typeof theme & {
+  platform?: 'react-native' | 'react';
+};
 
 export type ThemeProps = StyledThemeProps<Theme>;

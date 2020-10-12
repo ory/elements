@@ -13,8 +13,14 @@ export const Spacer = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
-export const Container = ({ children }: { children: ReactNode }) => (
-  <div style={{ width: '260px', margin: '0 auto' }}>
+export const Container = ({
+  children,
+  width = 260
+}: {
+  children: ReactNode;
+  width?: number;
+}) => (
+  <div style={{ width, margin: '0 auto' }}>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {children}

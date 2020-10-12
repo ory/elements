@@ -1,27 +1,64 @@
-import React, { ReactNode } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { textInputStyles, TextInputStyles, theme } from '../theme';
+import React, { ComponentType, InputHTMLAttributes, ReactNode } from 'react';
+import styled, { StyledComponent } from 'styled-components';
+import {
+  textInputStyles,
+  typographyCaptionStyles,
+  typographyH3Styles,
+  ThemeProps,
+  TextInputProps as StyledTextInputProps
+} from '../theme';
 
 export interface TextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    TextInputStyles {
+    StyledTextInputProps {
   subtitle?: ReactNode;
   helper?: ReactNode;
-  state?: 'success' | 'error';
 }
+
+const Field: StyledComponent<
+  ComponentType<
+    ThemeProps & InputHTMLAttributes<HTMLInputElement> & StyledTextInputProps
+  >,
+  any
+> = styled.input(textInputStyles);
+
+const Subtitle: StyledComponent<
+  ComponentType<StyledTextInputProps & React.HTMLAttributes<HTMLDivElement>>,
+  any
+> = styled.div(typographyCaptionStyles);
+
+const Title: StyledComponent<
+  ComponentType<StyledTextInputProps & React.HTMLAttributes<HTMLDivElement>>,
+  any
+> = styled.div(typographyH3Styles);
 
 const TextInput = ({
   className,
   title,
   subtitle,
-  state,
+  disabled,
   ...props
-}: TextInputProps) => (
-  <div className={`${className} ${state ? `state-${state}` : ''}`}>
-    {title && <div className="text-input-title">{title}</div>}
-    <input type="text" className="text-input" {...props} />
-    {subtitle && <div className="text-input-subtitle">{subtitle}</div>}
-  </div>
-);
+}: TextInputProps) => {
+  let state = props.state;
+  if (disabled) {
+    state = 'disabled';
+  }
 
-export default styled(TextInput)(textInputStyles);
+  return (
+    <div>
+      {title && (
+        <Title state={state} className={className}>
+          {title}
+        </Title>
+      )}
+      <Field {...props} state={state} type="text" className={className} />
+      {subtitle && (
+        <Subtitle state={state} className={className}>
+          {subtitle}
+        </Subtitle>
+      )}
+    </div>
+  );
+};
+
+export default TextInput;
