@@ -1,5 +1,9 @@
 {
-  "name": "@oryd/themes",
+  "name": "@ory/themes",
+  "publishConfig": {
+    "access": "public"
+  },
+  "access": "public"
   "version": "0.0.0",
   "main": "lib/theme/index.js",
   "scripts": {
