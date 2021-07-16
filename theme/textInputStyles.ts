@@ -1,7 +1,9 @@
 import {
+  messageStyles,
   ThemeProps,
   typographyCaptionStyles,
-  typographyH3Styles
+  typographyH3Styles,
+  wrapCss
 } from './index';
 
 export interface TextInputProps {
@@ -46,11 +48,16 @@ export const textInputTitleStyles: ColorFunc = (props) => `
   ${textColorForState(props)}
 `;
 
+export const cssTextInputTitleStyles = (props: ThemeProps) =>
+  wrapCss('text-input-title', textInputTitleStyles(props));
+
 export const textInputSubtitleStyles: ColorFunc = (props) => `
   ${typographyCaptionStyles(props)}
   ${textColorForState(props)}
   margin-bottom: 15px;
 `;
+export const cssTextInputSubtitleStyles = (props: ThemeProps) =>
+  wrapCss('text-input-subtitle', textInputSubtitleStyles(props));
 
 export const textInputStyles: ColorFunc = (props) => {
   const { theme, help, state } = props;
@@ -95,3 +102,6 @@ export const textInputStyles: ColorFunc = (props) => {
 
   return css;
 };
+
+export const cssTextInputStyles = (props: ThemeProps) =>
+  wrapCss('text-input', textInputStyles(props));

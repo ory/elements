@@ -1,7 +1,8 @@
 import {
   ThemeProps,
   typographyH3Styles,
-  typographyParagraphStyles
+  typographyParagraphStyles,
+  wrapCss
 } from './index';
 
 export const checkboxStyles = ({ theme }: ThemeProps) => `
@@ -59,3 +60,6 @@ export const checkboxStyles = ({ theme }: ThemeProps) => `
   margin-left: 16px;
 }
 `;
+
+export const cssCheckboxStyles = (props: ThemeProps) =>
+  wrapCss('checkbox', checkboxStyles(props));

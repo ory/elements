@@ -1,4 +1,4 @@
-import { ThemeProps, typographyButtonStyles } from './index';
+import { ThemeProps, typographyButtonStyles, wrapCss } from './index';
 
 export interface ButtonStyles extends ThemeProps {
   big?: boolean;
@@ -48,3 +48,9 @@ ${typographyButtonStyles({ theme })}
   border: 2px solid transparent;
 }
 `;
+
+export const cssButtonStyles = (props: ThemeProps) =>
+  wrapCss('input-button', buttonStyles(props));
+
+export const cssButtonStylesBig = (props: ThemeProps) =>
+  wrapCss('input-button-big', buttonStyles({ ...props, big: true }));
