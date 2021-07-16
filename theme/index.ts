@@ -52,8 +52,8 @@ export type Theme = typeof theme & {
 
 export type ThemeProps = StyledThemeProps<Theme>;
 
-export function wrapCss(className: string,css: string ) {
-  return `${className} {
-  ${css.replace('&', className)}
-}`
+export function wrapCss(className: string, css: string) {
+  return `${'.' + className} {
+  ${css}
+}`;
 }

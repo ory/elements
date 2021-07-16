@@ -1,4 +1,9 @@
-import { ThemeProps, typographyH3Styles } from './index';
+import {
+  codeBoxStyles,
+  ThemeProps,
+  typographyH3Styles,
+  wrapCss
+} from './index';
 
 export const messageStyles = (props: ThemeProps) => `
   ${typographyH3Styles(props)}
@@ -9,3 +14,6 @@ export const messageStyles = (props: ThemeProps) => `
   text-align: center;
   margin-bottom: 32px;
 `;
+
+export const cssMessageStyles = (props: ThemeProps) =>
+  wrapCss('message', messageStyles(props));
