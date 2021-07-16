@@ -1,4 +1,4 @@
-import { ThemeProps, typographyH3Styles, typographyLinkStyles } from './index';
+import { ThemeProps, typographyH3Styles, typographyLinkStyles, wrapCss } from "./index";
 
 export const forkMeStylesText = (props: ThemeProps) => `
   ${typographyH3Styles(props)}
@@ -6,16 +6,25 @@ export const forkMeStylesText = (props: ThemeProps) => `
   display: flex;  
 `;
 
+export const cssForkMeStylesText = (props: ThemeProps) =>
+  wrapCss("fork-me-text", forkMeStylesText(props));
+
 export const forkMeStylesImages = () => `
   padding: 9px;
   height: 18px;
   width: 38px;
 `;
 
+export const cssForkMeStylesImages = (props: ThemeProps) =>
+  wrapCss("fork-me-image", forkMeStylesImages());
+
 export const forkMeStylesFork = () => `
   height: 14px;
   width: 14px;
 `;
+
+export const cssForkMeStylesFork = (props: ThemeProps) =>
+  wrapCss("fork-me-fork", forkMeStylesImages());
 
 export const forkMeStylesLink = (props: ThemeProps) => {
   let css = `
@@ -34,7 +43,7 @@ export const forkMeStylesLink = (props: ThemeProps) => {
   flex-direction: row;
 `;
 
-  if (props.theme.platform !== 'react-native') {
+  if (props.theme.platform !== "react-native") {
     css += `
   &.fake-visited, 
   &:visited {
@@ -55,6 +64,9 @@ export const forkMeStylesLink = (props: ThemeProps) => {
   return css;
 };
 
+export const cssForkMeStylesLink = (props: ThemeProps) =>
+  wrapCss("fork-me-link", forkMeStylesLink(props));
+
 export const forkMeStyles = ({ theme }: ThemeProps) => `
   background-color: ${theme.primary60};
   padding: 8px 32px;
@@ -64,3 +76,6 @@ export const forkMeStyles = ({ theme }: ThemeProps) => `
   justify-content: space-between;
   flex-direction: row;
 `;
+
+export const cssForkMeStyles = (props: ThemeProps) =>
+  wrapCss("fork-me", forkMeStyles(props));
