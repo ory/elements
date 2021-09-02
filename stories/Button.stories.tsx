@@ -2,9 +2,9 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 
-import Button, { ButtonProps } from './Button';
+import Button, { ButtonProps } from '../src/components/Button';
 import { Container, Spacer } from './storyhelper';
-import { Caption, Link as StyledLink } from './Typography';
+import { Caption, Link as StyledLink } from '../src/components/Typography';
 
 const meta: Meta = {
   title: 'Button',

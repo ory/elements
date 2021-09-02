@@ -13,7 +13,7 @@ import {
   P,
   B,
   Lead
-} from './Typography';
+} from '../src/components/Typography';
 
 const meta: Meta = {
   title: 'Typography'

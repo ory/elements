@@ -1,13 +1,5 @@
 import { ThemeProps as StyledThemeProps } from 'styled-components';
 
-export * from './buttonStyles';
-export * from './typographyStyles';
-export * from './textInputStyles';
-export * from './checkboxStyles';
-export * from './codeBoxStyles';
-export * from './messageStyles';
-export * from './forkMeStyles';
-
 export const theme = {
   grey0: '#F9F9FA',
   grey5: '#F0F0F1',
