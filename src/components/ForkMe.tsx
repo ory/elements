@@ -17,11 +17,11 @@ const Link = styled.a(forkMeStylesLink);
 
 const ForkMe = ({ className }: ForkMeProps) => (
   <div className={className}>
-    <Image src={require('../stories/assets/ory.png')} />
+    <Image src={require('../../stories/assets/ory.png')} />
     <Text>
       Fork this example project on{' '}
       <Link href={'https://github.com/ory'}>
-        <Fork src={require('../stories/assets/repo-forked.png')} />
+        <Fork src={require('../../stories/assets/repo-forked.png')} />
         GitHub!
       </Link>
     </Text>

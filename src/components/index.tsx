@@ -1,6 +1,14 @@
-export * as Button from './Button';
-export * as Checkbox from './Checkbox';
-export * as CodeBox from './CodeBox';
-export * as ForkMe from './ForkMe';
-export * as TextInput from './TextInput';
-export * as Typography from './Typography';
+import Button from './Button';
+import Checkbox from './Checkbox';
+import CodeBox from './CodeBox';
+import ForkMe from './ForkMe';
+import TextInput from './TextInput';
+export * from './Typography';
+
+export {
+  Button,
+  Checkbox,
+  CodeBox,
+  ForkMe,
+  TextInput
+};
