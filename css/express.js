@@ -25,7 +25,7 @@ const {
   cssTypographyLinkStyles,
   cssTypographyParagraphStyles,
   theme: t
-} = require('../lib/theme');
+} = require('../lib');
 const { cssNormalize } = require('../lib/theme/normalizeStyles');
 
 function cssVars(tt) {

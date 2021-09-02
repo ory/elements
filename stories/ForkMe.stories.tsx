@@ -2,8 +2,8 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 import { Container, Spacer } from './storyhelper';
-import CodeBox, { CodeBoxProps } from './CodeBox';
-import ForkMe, { ForkMeProps } from './ForkMe';
+import CodeBox, { CodeBoxProps } from '../src/components/CodeBox';
+import ForkMe, { ForkMeProps } from '../src/components/ForkMe';
 
 const meta: Meta = {
   title: 'Fork Me',
