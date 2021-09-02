@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 import { Container, Spacer } from './storyhelper';
-import Checkbox, { CheckboxProps } from '../src/components/Checkbox';
+import Checkbox, { CheckboxProps } from '../components/Checkbox';
 
 const meta: Meta = {
   title: 'Checkbox',

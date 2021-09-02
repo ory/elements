@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "es5",
+    "outDir": "lib",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "declaration": true,
+    "declarationDir": "lib",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -10,18 +18,15 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react",
-    "outDir": "./lib",
-    "rootDir": ".",
-    "declaration": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
   },
   "include": [
-    "src",
-    "stories"
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
   ]
 }
