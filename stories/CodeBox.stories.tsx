@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 import { Container, Spacer } from './storyhelper';
-import CodeBox, { CodeBoxProps } from '../components/CodeBox';
+import CodeBox, { CodeBoxProps } from '../src/components/CodeBox';
 
 const meta: Meta = {
   title: 'CodeBox',

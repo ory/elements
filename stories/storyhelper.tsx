@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { GlobalStyle } from '../theme/globalStyles';
+import { GlobalStyle } from '../src/theme/globalStyles';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
+import { theme } from '../src/theme';
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
   <div
