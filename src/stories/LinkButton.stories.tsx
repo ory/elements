@@ -2,18 +2,18 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 
-import Button, { ButtonProps } from '../src/components/Button';
+import LinkButton, { LinkButtonProps } from '../components/LinkButton';
 import { Container, Spacer } from './storyhelper';
-import { Caption, Link as StyledLink } from '../src/components/Typography';
+import { Caption, Link as StyledLink } from '../components/Typography';
 
 const meta: Meta = {
-  title: 'Button',
-  component: Button
+  title: 'LinkButton',
+  component: LinkButton
 };
 
-const Template: Story<ButtonProps> = (args: ButtonProps) => (
+const Template: Story<LinkButtonProps> = (args: LinkButtonProps) => (
   <Container>
-    <Button {...args} />
+    <LinkButton {...args} />
   </Container>
 );
 
@@ -25,10 +25,10 @@ Playground.args = {
 export const Size = () => (
   <Container>
     <Spacer>
-      <Button>Regular</Button>
-    </Spacer>
-    <Spacer>
-      <Button big>Big</Button>
+      <LinkButton href="#">Regular</LinkButton>
+      <LinkButton href="#" big>
+        Big
+      </LinkButton>
     </Spacer>
   </Container>
 );
@@ -36,12 +36,14 @@ export const Size = () => (
 export const Hover = () => (
   <Container>
     <Spacer>
-      <Button className="fake-hover">Hover</Button>
+      <LinkButton href="#" className="fake-hover">
+        Hover
+      </LinkButton>
     </Spacer>
     <Spacer>
-      <Button big className="fake-hover">
+      <LinkButton href="#" big className="fake-hover">
         Hover
-      </Button>
+      </LinkButton>
     </Spacer>
   </Container>
 );
@@ -49,12 +51,14 @@ export const Hover = () => (
 export const Click = () => (
   <Container>
     <Spacer>
-      <Button className="fake-click">Click</Button>
+      <LinkButton href="#" className="fake-click">
+        Click
+      </LinkButton>
     </Spacer>
     <Spacer>
-      <Button big className="fake-click">
+      <LinkButton href="#" big className="fake-click">
         Click
-      </Button>
+      </LinkButton>
     </Spacer>
   </Container>
 );
@@ -62,12 +66,14 @@ export const Click = () => (
 export const Focus = () => (
   <Container>
     <Spacer>
-      <Button className="fake-focus">Focus</Button>
+      <LinkButton href="#" className="fake-focus">
+        Focus
+      </LinkButton>
     </Spacer>
     <Spacer>
-      <Button big className="fake-focus">
+      <LinkButton href="#" big className="fake-focus">
         Focus
-      </Button>
+      </LinkButton>
     </Spacer>
   </Container>
 );
@@ -75,12 +81,14 @@ export const Focus = () => (
 export const Disabled = () => (
   <Container>
     <Spacer>
-      <Button disabled={true}>Disabled</Button>
+      <LinkButton href="#" disabled={true}>
+        Disabled
+      </LinkButton>
     </Spacer>
     <Spacer>
-      <Button big disabled={true}>
+      <LinkButton href="#" big disabled={true}>
         Disabled
-      </Button>
+      </LinkButton>
     </Spacer>
   </Container>
 );
@@ -111,12 +119,12 @@ export const Helper = () => {
   return (
     <Container>
       <Spacer>
-        <Button helper={message}>Helper</Button>
+        <LinkButton helper={message}>Helper</LinkButton>
       </Spacer>
       <Spacer>
-        <Button big helper={message}>
+        <LinkButton big helper={message}>
           Helper
-        </Button>
+        </LinkButton>
       </Spacer>
     </Container>
   );

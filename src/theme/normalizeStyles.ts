@@ -354,6 +354,4 @@ export const cssNormalize = `
   }
 `;
 
-export default css`
-  ${cssNormalize}
-`;
+export default css(() => cssNormalize);

@@ -37,6 +37,7 @@ const TextInput = ({
   title,
   subtitle,
   disabled,
+  type = 'text',
   ...props
 }: TextInputProps) => {
   let state = props.state;
@@ -45,13 +46,13 @@ const TextInput = ({
   }
 
   return (
-    <div>
+    <div className={className}>
       {title && (
         <Title state={state} className={className}>
           {title}
         </Title>
       )}
-      <Field {...props} state={state} type="text" className={className} />
+      <Field {...props} state={state} type={type} className={className} />
       {subtitle && (
         <Subtitle state={state} className={className}>
           {subtitle}

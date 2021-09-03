@@ -6,11 +6,17 @@ import {
 } from './index';
 
 export const checkboxStyles = ({ theme }: ThemeProps) => `
+margin-bottom: 14px;
+  
 & .checkbox-title {
   ${typographyH3Styles({ theme })};
   color: ${theme.grey70};
   display: block;
   margin-bottom: 6px;
+}
+
+& .checkbox-subtitle {
+  margin-top: 7px;
 }
 
 & .checkbox-inner {

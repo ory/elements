@@ -63,6 +63,8 @@ export const textInputStyles: ColorFunc = (props) => {
   const { theme, help, state } = props;
 
   let css = `
+  box-sizing: border-box;
+    
   /* We use custom text definitions it breaks React Native form inputs: */
   font-family: ${props.theme.regularFont300};
   font-weight: 300;
