@@ -99,6 +99,7 @@ font-weight: 300;
 font-style: normal;
 font-size: 12px;
 line-height: 18px;
+margin-bottom: 14px;
 `;
 
 export const cssTypographyCaptionStyles = (props: ThemeProps) =>

@@ -2,6 +2,7 @@ import { ThemeProps, typographyButtonStyles, wrapCss } from './index';
 
 export interface ButtonStyles extends ThemeProps {
   big?: boolean;
+  disabled?: boolean;
 }
 
 export const buttonStyles = ({ big, theme }: ButtonStyles) => `

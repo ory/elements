@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { buttonStyles, ButtonStyles } from '../theme';
 
 export interface ButtonProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonStyles {
   helper?: ReactNode;
   children: string;
 }
 
-const Button = ({ helper, children, className, ...props }: ButtonProps) => (
+const Button = ({ helper, className, ...props }: ButtonProps) => (
   <div className={className}>
-    <input type="button" className="button" {...props} value={children} />
+    <button className="button" {...props} />
     {helper && <span className="button-helper">{helper}</span>}
   </div>
 );
