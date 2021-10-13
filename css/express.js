@@ -26,7 +26,7 @@ const {
   cssTypographyParagraphStyles,
   theme: t
 } = require('../lib');
-const { cssNormalize } = require('../lib/theme/normalizeStyles');
+const { cssNormalize } = require('../lib');
 
 function cssVars(tt) {
   const result = [];
