@@ -6,18 +6,21 @@ export interface CardStyles extends ThemeProps {
 
 export const cardStyles = ({ theme, wide }: CardStyles) => `
 background: white;
-border: 1px solid ${theme.grey10};
+border: 1px solid ${theme.palettes.light.border.def};
+border-radius: ${theme.cards.borderRadius};
+
+color: ${theme.palettes.light.text.def};
 
 display: flex;
 flex-direction: column;
 align-items: stretch;
-width:  ${wide ? '680' : '336'}px;
+minWidth:  ${wide ? '432px' : '100%'};
 margin: 0 auto;
-padding: 20px;
+padding: 48px;
 `;
 
 export const cardTitleStyles = ({ theme }: CardStyles) => `
-color: ${theme.primary60};
+color: ${theme.palettes.light.text.def};
 text-align: center;
 margin-bottom: 15px;
 `;

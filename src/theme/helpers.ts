@@ -1,6 +1,86 @@
 import { ThemeProps as StyledThemeProps } from 'styled-components';
 
+export const palettes = {
+  light: {
+    accent: {
+      def: '#3D53F5',
+      muted: '#6475F7',
+      emphasis: '#3142C4',
+      disabled: '#E0E0E0'
+    },
+    foreground: {
+      def: '#17171717'
+    },
+    border: {
+      def: '#EEEEEE'
+    },
+    text: {
+      def: '#FFFFFF',
+      disabled: '#757575'
+    }
+  }
+}
+
+type fonts = {
+  fontWeight: number,
+  fontSize: string,
+  lineHeight: string,
+  fontFamily: string,
+  fontStyle: string
+}
+
+export type sizes = {
+  small: string,
+  medium: string,
+  large: string
+}
+
+type typographySizes = {
+  [Property in keyof sizes]: fonts
+}
+
+export const defaultFont = {
+  fontFamily: "'Inter'",
+  fontStyle: "normal"
+}
+
+export const typography: {
+  button: typographySizes
+} = {
+  button: {
+    large: {
+      fontSize: '18px',
+      lineHeight: '32px',
+      fontWeight: 600,
+      ...defaultFont
+    },
+    medium: {
+      fontSize: '16px',
+      lineHeight: '28px',
+      fontWeight: 600,
+      ...defaultFont
+    },
+    small: {
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: 600,
+      ...defaultFont
+    }
+  },
+}
+
 export const theme = {
+  palettes: palettes,
+  typography: typography,
+  
+  cards: {
+    borderRadius: '16px'
+  },
+  
+  buttons: {
+    borderRadius: '4px'
+  },
+  
   grey0: '#F9F9FA',
   grey5: '#F0F0F1',
   grey10: '#E1E1E3',
@@ -23,14 +103,10 @@ export const theme = {
 
   blueGrey30: '#B4BBE2',
   blueGrey60: '#97A0D6',
-
-  primaryAccent: '#FF80FF',
-
+  
   primary30: '#F6A8C2',
   primary60: '#EC407A',
   primary70: '#C23564',
-
-  borderRadius: '4px',
 
   regularFont300: "'Rubik', sans-serif",
   regularFont400: "'Rubik', sans-serif",
