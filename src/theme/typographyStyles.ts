@@ -66,14 +66,17 @@ line-height: 20px;
 export const cssTypographyParagraphStyles = (props: ThemeProps) =>
   wrapCss('typography-paragraph', typographyParagraphStyles(props));
 
-export const typographyButtonStyles = (props: ThemeProps) => `
+export const typographyButtonStyles = (props: ThemeProps, size?: 'small' | 'medium' | 'large') => {
+  size = size || 'medium';
+  return `
 ${geometricPrecision(props)}
-font-family: ${props.theme.regularFont300};
-font-weight: 300;
-font-style: normal;
-font-size: 14px;
-line-height: 20px;
+font-family: ${props.theme.typography.button[size].fontFamily};
+font-weight: ${props.theme.typography.button[size].fontWeight};
+font-style: ${props.theme.typography.button[size].fontStyle};
+font-size: ${props.theme.typography.button[size].fontSize};
+line-height: ${props.theme.typography.button[size].lineHeight};
 `;
+}
 
 export const cssTypographyButtonStyles = (props: ThemeProps) =>
   wrapCss('typography-button', typographyButtonStyles(props));
@@ -119,7 +122,7 @@ color: ${theme.primary60};
 
   if (theme.platform !== 'react-native') {
     css += `
-&.fake-visited, 
+&.fake-visited,
 &:visited {
   color: ${theme.primary70};
 }
@@ -128,7 +131,7 @@ color: ${theme.primary60};
 &:hover {
   color: ${theme.primary30};
 }
-&.fake-active, 
+&.fake-active,
 &:active {
   color: ${theme.primary70};
 }

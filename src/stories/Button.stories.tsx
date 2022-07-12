@@ -25,10 +25,13 @@ Playground.args = {
 export const Size = () => (
   <Container>
     <Spacer>
+      <Button size={"small"}>Small</Button>
+    </Spacer>
+    <Spacer>
       <Button>Regular</Button>
     </Spacer>
     <Spacer>
-      <Button big>Big</Button>
+      <Button size={"large"}>Large</Button>
     </Spacer>
   </Container>
 );
@@ -36,11 +39,16 @@ export const Size = () => (
 export const Hover = () => (
   <Container>
     <Spacer>
-      <Button className="fake-hover">Hover</Button>
+      <Button size={"small"} className="fake-hover">
+        Small Hover
+      </Button>
     </Spacer>
     <Spacer>
-      <Button big className="fake-hover">
-        Hover
+      <Button className="fake-hover">Medium Hover</Button>
+    </Spacer>
+    <Spacer>
+      <Button size={"large"} className="fake-hover">
+        Large Hover
       </Button>
     </Spacer>
   </Container>
@@ -52,7 +60,7 @@ export const Click = () => (
       <Button className="fake-click">Click</Button>
     </Spacer>
     <Spacer>
-      <Button big className="fake-click">
+      <Button className="fake-click">
         Click
       </Button>
     </Spacer>
@@ -65,7 +73,7 @@ export const Focus = () => (
       <Button className="fake-focus">Focus</Button>
     </Spacer>
     <Spacer>
-      <Button big className="fake-focus">
+      <Button className="fake-focus">
         Focus
       </Button>
     </Spacer>
@@ -75,10 +83,15 @@ export const Focus = () => (
 export const Disabled = () => (
   <Container>
     <Spacer>
-      <Button disabled={true}>Disabled</Button>
+      <Button size={"small"} disabled={true}>
+        Disabled
+      </Button>
     </Spacer>
     <Spacer>
-      <Button big disabled={true}>
+      <Button size={"medium"} disabled={true}>Disabled</Button>
+    </Spacer>
+    <Spacer>
+      <Button size={"large"} disabled={true}>
         Disabled
       </Button>
     </Spacer>
@@ -114,7 +127,7 @@ export const Helper = () => {
         <Button helper={message}>Helper</Button>
       </Spacer>
       <Spacer>
-        <Button big helper={message}>
+        <Button helper={message}>
           Helper
         </Button>
       </Spacer>

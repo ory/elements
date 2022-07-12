@@ -1,57 +1,61 @@
-import { ThemeProps, typographyButtonStyles, wrapCss } from './index';
+import {ThemeProps, typographyButtonStyles, wrapCss} from './index';
 
 export interface ButtonStyles extends ThemeProps {
-  big?: boolean;
   disabled?: boolean;
+  size?: 'small' | 'medium' | 'large';
 }
 
-export const buttonStyles = ({ big, theme }: ButtonStyles) => `
-${typographyButtonStyles({ theme })}
+export const buttonStyles = ({theme, size}: ButtonStyles) => {
+  size = size || 'medium';
+  return `
+${typographyButtonStyles({theme}, size)}
 
 & .button {
-  line-height: ${!big ? '20px' : '30px'};
-  color: ${theme.grey0};
-  border-radius: ${theme.borderRadius};
+  color: ${theme.palettes.light.text.def};
+  border-radius: ${theme.cards.borderRadius};
   
   width: 100%;
+  height: ${size === 'large' ? '64px' : size === 'small' ? '40px' : '48px'};
   
-  padding: 5px 12px;
-  margin: 7px 0;
-  border: 2px solid transparent;
+  border: 4px solid transparent;
+  padding: ${size === 'large' || size === 'medium' ? '16px 24px' : '10px 16px'};
   outline: none;
   
-  background-color: ${theme.primary60};
+  background-color: ${theme.palettes.light.accent.def};
  
   cursor: pointer;
 }
 
 & .button:disabled, & .button:hover:disabled {
-  color: ${theme.grey30};
-  background-color: ${theme.grey10};
+  color: ${theme.palettes.light.text.disabled};
+  background-color: ${theme.palettes.light.accent.disabled};
 }
 
 & .button.fake-hover,
 & .button:hover {
-  background-color: ${theme.primary30};
+  background-color: ${theme.palettes.light.accent.muted};
 }
 
 & .button.fake-focus,
 & .button:focus {
-  background-color: ${theme.primary60};
-  border: 2px solid ${theme.blue30};
+  background-color: ${theme.palettes.light.accent.def};
+  border-color: ${theme.palettes.light.accent.muted};
   outline: none;
 }
 
 & .button.fake-click,
 & .button:active {
-  background-color: ${theme.primary70};
+  background-color: ${theme.palettes.light.accent.emphasis};
   outline: none;
-  border: 2px solid transparent;
 }
 `;
+}
 
 export const cssButtonStyles = (props: ThemeProps) =>
-  wrapCss('input-button', buttonStyles(props));
+  wrapCss('input-button', buttonStyles({...props, size: 'medium'}));
 
-export const cssButtonStylesBig = (props: ThemeProps) =>
-  wrapCss('input-button-big', buttonStyles({ ...props, big: true }));
+export const cssButtonStylesLarge = (props: ThemeProps) =>
+  wrapCss('input-button-large', buttonStyles({...props, size: 'large'}));
+
+export const cssButtonStylesSmall = (props: ThemeProps) =>
+  wrapCss('input-button-small', buttonStyles({...props, size: 'small'}));
