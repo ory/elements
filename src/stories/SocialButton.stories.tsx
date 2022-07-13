@@ -51,6 +51,9 @@ export const Brands = () => (
     <Spacer>
       <SocialButton brand={"discord"}>Discord</SocialButton>
     </Spacer>
+    <Spacer>
+      <SocialButton brand={"github"}>GitHub</SocialButton>
+    </Spacer>
   </Container>
 )
 
