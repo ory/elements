@@ -1,5 +1,7 @@
 import { ThemeProps as StyledThemeProps } from 'styled-components';
 
+export const pxToRem = (...px: number[]) => px.map((x) => `${x / 16}rem`).join(' ');
+
 export const palettes = {
   light: {
     accent: {
@@ -9,7 +11,11 @@ export const palettes = {
       disabled: '#E0E0E0'
     },
     foreground: {
-      def: '#17171717'
+      def: '#17171717',
+      muted: '#616161',
+      subtle: '#9E9E9E',
+      disabled: '#BDBDBD',
+      onDark: '#FFFFFF'
     },
     border: {
       def: '#EEEEEE'
@@ -49,20 +55,20 @@ export const typography: {
 } = {
   button: {
     large: {
-      fontSize: '18px',
-      lineHeight: '32px',
+      fontSize: pxToRem(18),
+      lineHeight: pxToRem(32),
       fontWeight: 600,
       ...defaultFont
     },
     medium: {
-      fontSize: '16px',
-      lineHeight: '28px',
+      fontSize: pxToRem(16),
+      lineHeight: pxToRem(28),
       fontWeight: 600,
       ...defaultFont
     },
     small: {
-      fontSize: '14px',
-      lineHeight: '20px',
+      fontSize: pxToRem(14),
+      lineHeight: pxToRem(20),
       fontWeight: 600,
       ...defaultFont
     }

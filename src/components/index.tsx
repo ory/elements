@@ -8,6 +8,7 @@ import CardTitle from './CardTitle';
 import TextInput from './TextInput';
 import Alert from './Alert';
 import AlertContent from './AlertContent';
+import SocialButton from './SocialButton';
 
 export * from './Typography';
 
@@ -21,5 +22,6 @@ export {
   TextInput,
   Alert,
   LinkButton,
-  AlertContent
+  AlertContent,
+  SocialButton
 };
