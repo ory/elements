@@ -7,13 +7,13 @@ export interface LinkButtonStyles extends ThemeProps {
 
 export const linkButtonStyles = ({ big, theme }: LinkButtonStyles) => `
 box-sizing: border-box;
-  
+
 & .linkButton {
   box-sizing: border-box;
   
   line-height: ${!big ? '20px' : '30px'};
   color: ${theme.grey0};
-  border-radius: ${theme.borderRadius};
+  border-radius: ${theme.buttons.borderRadius};
   
   width: 100%;
   

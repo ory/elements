@@ -64,14 +64,14 @@ export const textInputStyles: ColorFunc = (props) => {
 
   let css = `
   box-sizing: border-box;
-    
+  
   /* We use custom text definitions it breaks React Native form inputs: */
   font-family: ${props.theme.regularFont300};
   font-weight: 300;
   font-style: normal;
   font-size: 14px;
   
-  color: ${state === 'disabled' ? theme.grey30 : theme.grey70}; 
+  color: ${state === 'disabled' ? theme.grey30 : theme.grey70};
 
   width: 100%;
   padding: 5px 12px;
@@ -80,7 +80,7 @@ export const textInputStyles: ColorFunc = (props) => {
   margin-bottom: ${!help ? '14px' : '7px'};
   
   border: 1px solid ${borderColorForState(props)};
-  border-radius: ${theme.borderRadius};
+  border-radius: ${theme.cards.borderRadius};
   
   background-color: ${backgroundColorForState(props)};
   overflow: visible;

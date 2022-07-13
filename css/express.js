@@ -3,7 +3,8 @@ const postcssPresetEnv = require('postcss-preset-env');
 
 const {
   cssButtonStyles,
-  cssButtonStylesBig,
+  cssButtonStylesLarge,
+  cssButtonStylesSmall,
   cssCheckboxStyles,
   cssCodeBoxStyles,
   cssForkMeStyles,
@@ -24,6 +25,9 @@ const {
   cssTypographyLeadStyles,
   cssTypographyLinkStyles,
   cssTypographyParagraphStyles,
+  cssSocialButtonStyles,
+  cssSocialButtonStylesSmall,
+  cssSocialButtonStylesLarge,
   theme: t
 } = require('../lib');
 const { cssNormalize } = require('../lib');
@@ -54,11 +58,16 @@ module.exports = {
 :root {
 ${cssVars(theme || t)}
 }
-  
+
 ${cssNormalize}
 
 ${cssButtonStyles(ct)}
-${cssButtonStylesBig(ct)}
+${cssButtonStylesLarge(ct)}
+${cssButtonStylesSmall(ct)}
+
+${cssSocialButtonStyles(ct)}
+${cssSocialButtonStylesSmall(ct)}
+${cssSocialButtonStylesLarge(ct)}
 
 ${cssCheckboxStyles(ct)}
 

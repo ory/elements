@@ -11,3 +11,4 @@ export * from './normalizeStyles';
 export * from './globalStyles';
 export * from './alertStyles';
 export * from './cardStyles';
+export * from './socialButtonStyles'

@@ -1,4 +1,4 @@
-import {ThemeProps, typographyButtonStyles, wrapCss} from './index';
+import {pxToRem, ThemeProps, typographyButtonStyles, wrapCss} from './index';
 
 export interface ButtonStyles extends ThemeProps {
   disabled?: boolean;
@@ -8,17 +8,17 @@ export interface ButtonStyles extends ThemeProps {
 export const buttonStyles = ({theme, size}: ButtonStyles) => {
   size = size || 'medium';
   return `
-${typographyButtonStyles({theme}, size)}
 
 & .button {
+  ${typographyButtonStyles({theme}, size)}
   color: ${theme.palettes.light.text.def};
   border-radius: ${theme.cards.borderRadius};
   
   width: 100%;
-  height: ${size === 'large' ? '64px' : size === 'small' ? '40px' : '48px'};
+  min-height: ${pxToRem(size === 'large' ? 64 : size === 'small' ? 40 : 48)};
   
   border: 4px solid transparent;
-  padding: ${size === 'large' || size === 'medium' ? '16px 24px' : '10px 16px'};
+  padding: ${size === 'small' || size === 'medium' ? pxToRem(10, 16) : pxToRem(16, 24)};
   outline: none;
   
   background-color: ${theme.palettes.light.accent.def};
@@ -48,8 +48,13 @@ ${typographyButtonStyles({theme}, size)}
   background-color: ${theme.palettes.light.accent.emphasis};
   outline: none;
 }
-`;
+
+& .button-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
+`}
 
 export const cssButtonStyles = (props: ThemeProps) =>
   wrapCss('input-button', buttonStyles({...props, size: 'medium'}));
