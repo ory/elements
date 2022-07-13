@@ -12,8 +12,7 @@
     "build-storybook": "build-storybook",
     "format": "prettier --write \"src/{**/,}*.{js,ts,tsx}\"",
     "build": "rm -rf lib && rollup -c",
-    "p": "npm run build && npm version patch --git-tag-version false && npm publish",
-    "chromatic": "npx chromatic --project-token=96590d3acee5"
+    "p": "npm run build && npm version patch --git-tag-version false && npm publish"
   },
   "repository": {
     "type": "git",
