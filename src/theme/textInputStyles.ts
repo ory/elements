@@ -1,5 +1,5 @@
 import {
-  messageStyles,
+  pxToRem, variations,
   ThemeProps,
   typographyCaptionStyles,
   typographyH3Styles,
@@ -9,6 +9,7 @@ import {
 export interface TextInputProps {
   help?: boolean;
   state?: 'success' | 'error' | 'disabled';
+  variation?: variations
 }
 
 type ColorFunc = (props: ThemeProps & TextInputProps) => string;
@@ -60,27 +61,29 @@ export const cssTextInputSubtitleStyles = (props: ThemeProps) =>
   wrapCss('text-input-subtitle', textInputSubtitleStyles(props));
 
 export const textInputStyles: ColorFunc = (props) => {
-  const { theme, help, state } = props;
-
+  const {theme, state, help} = props;
+  const size = props.variation || 'medium';
+  
   let css = `
   box-sizing: border-box;
   
   /* We use custom text definitions it breaks React Native form inputs: */
-  font-family: ${props.theme.regularFont300};
-  font-weight: 300;
-  font-style: normal;
-  font-size: 14px;
+  font-family: ${theme.typography.input[size].fontFamily};
+  font-weight: ${theme.typography.input[size].fontWeight};
+  font-style: ${theme.typography.input[size].fontStyle};
+  font-size: ${theme.typography.input[size].fontSize};
   
-  color: ${state === 'disabled' ? theme.grey30 : theme.grey70};
+  color: ${state === 'disabled' ? theme.palettes.light.input.disabled : theme.palettes.light.input.placeholder};
 
   width: 100%;
-  padding: 5px 12px;
+  padding: ${pxToRem(16, 24)};
   
-  margin-top: 7px;
-  margin-bottom: ${!help ? '14px' : '7px'};
+  padding: ${size === 'small' ? pxToRem(8, 16) : size === 'medium' ? pxToRem(12, 24) : pxToRem(16, 24)};
+  
+  min-height: ${pxToRem(size === 'large' ? 64 : size === 'small' ? 40 : 48)};
   
   border: 1px solid ${borderColorForState(props)};
-  border-radius: ${theme.cards.borderRadius};
+  border-radius: ${theme.inputs.borderRadius};
   
   background-color: ${backgroundColorForState(props)};
   overflow: visible;
@@ -92,12 +95,13 @@ export const textInputStyles: ColorFunc = (props) => {
 
   &.fake-hover,
   &:hover {
-    border: 1px solid ${theme.primary30};
+    border: 1px solid ${theme.palettes.light.accent.def};
   }
 
   &.fake-focus,
   &:focus {
-    border: 1px solid ${theme.primary60};
+    border: 4px solid ${theme.palettes.light.accent.muted};
+    color: ${theme.palettes.light.input.text};
   }
 `;
   }

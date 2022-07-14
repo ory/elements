@@ -23,6 +23,11 @@ export const palettes = {
     text: {
       def: '#FFFFFF',
       disabled: '#757575'
+    },
+    input: {
+      disabled: '#E0E0E0',
+      placeholder: '#9E9E9E',
+      text: '#424242'
     }
   }
 }
@@ -35,14 +40,16 @@ type fonts = {
   fontStyle: string
 }
 
-export type sizes = {
+type variationMap = {
   small: string,
   medium: string,
   large: string
 }
 
+export type variations = keyof variationMap;
+
 type typographySizes = {
-  [Property in keyof sizes]: fonts
+  [Property in keyof variationMap]: fonts
 }
 
 export const defaultFont = {
@@ -51,7 +58,8 @@ export const defaultFont = {
 }
 
 export const typography: {
-  button: typographySizes
+  button: typographySizes,
+  input: typographySizes,
 } = {
   button: {
     large: {
@@ -73,6 +81,26 @@ export const typography: {
       ...defaultFont
     }
   },
+  input: {
+    small: {
+      fontSize: pxToRem(16),
+      lineHeight: pxToRem(24),
+      fontWeight: 400,
+      ...defaultFont
+    },
+    medium: {
+      fontSize: pxToRem(16),
+      lineHeight: pxToRem(24),
+      fontWeight: 400,
+      ...defaultFont
+    },
+    large: {
+      fontSize: pxToRem(18),
+      lineHeight: pxToRem(32),
+      fontWeight: 400,
+      ...defaultFont
+    }
+  }
 }
 
 export const theme = {
@@ -84,6 +112,10 @@ export const theme = {
   },
   
   buttons: {
+    borderRadius: '4px'
+  },
+  
+  inputs : {
     borderRadius: '4px'
   },
   

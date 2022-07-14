@@ -1,8 +1,8 @@
-import {pxToRem, ThemeProps, typographyButtonStyles, wrapCss} from './index';
+import {pxToRem, variations, ThemeProps, typographyButtonStyles, wrapCss} from './index';
 
 export interface ButtonStyles extends ThemeProps {
   disabled?: boolean;
-  size?: 'small' | 'medium' | 'large';
+  size?: variations
 }
 
 export const buttonStyles = ({theme, size}: ButtonStyles) => {

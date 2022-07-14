@@ -37,6 +37,10 @@ font-weight: 400;
 font-style: normal;
 font-size: 14px;
 line-height: 20px;
+
+& .required {
+  color: ${props.theme.palettes.light.accent.def};
+}
 `;
 
 export const cssTypographyH3Styles = (props: ThemeProps) =>

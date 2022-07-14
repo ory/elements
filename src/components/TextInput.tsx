@@ -5,7 +5,7 @@ import {
   typographyCaptionStyles,
   typographyH3Styles,
   ThemeProps,
-  TextInputProps as StyledTextInputProps
+  TextInputProps as StyledTextInputProps, variations
 } from '../theme';
 
 export interface TextInputProps
@@ -13,6 +13,8 @@ export interface TextInputProps
     StyledTextInputProps {
   subtitle?: ReactNode;
   helper?: ReactNode;
+  required?: boolean;
+  variations?: variations
 }
 
 const Field: StyledComponent<
@@ -49,7 +51,7 @@ const TextInput = ({
     <div className={className}>
       {title && (
         <Title state={state} className={className}>
-          {title}
+          {title} {props.required && <span className={"required"}>*</span>}
         </Title>
       )}
       <Field {...props} state={state} type={type} className={className} />
