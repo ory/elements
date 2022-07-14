@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { Container } from './storyhelper';
+import {Container, Spacer} from './storyhelper';
 import TextInput, { TextInputProps } from '../components/TextInput';
 
 const meta: Meta = {
@@ -98,5 +98,29 @@ export const InputWithSubtitleAndState = () => (
     />
   </Container>
 );
+
+export const InputWithRequiredFields = () => (
+  <Container>
+    <TextInput
+      required
+      title="Input with required fields"
+      value="Input"
+      subtitle="A good password has at least 15 characters."
+    />
+  </Container>
+)
+
+export const InputSizes = () => (
+  <Container>
+    <Spacer>
+      <TextInput
+        title="Small Input"
+        variation={'small'}
+        value={"Small Input"}
+        subtitle={"A small input field"}
+        />
+    </Spacer>
+  </Container>
+)
 
 export default meta;
