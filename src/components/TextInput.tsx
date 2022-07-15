@@ -46,6 +46,9 @@ const TextInput = ({
   if (disabled) {
     state = 'disabled';
   }
+  if (!state && props.value !== '') {
+    state = 'active';
+  }
 
   return (
     <div className={className}>
