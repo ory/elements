@@ -32,6 +32,7 @@ export const palettes = {
       disabled: '#757575'
     },
     input: {
+      background: '#FFFFFF',
       disabled: '#E0E0E0',
       placeholder: '#9E9E9E',
       text: '#424242'
@@ -65,9 +66,37 @@ export const defaultFont = {
 }
 
 export const typography: {
+  h1: fonts,
+  h2: fonts,
+  h3: fonts,
+  paragraph: fonts,
   button: typographySizes,
   input: typographySizes,
 } = {
+  h1: {
+    fontWeight: 500,
+    lineHeight: pxToRem(40),
+    fontSize: pxToRem(32),
+    ...defaultFont
+  },
+  h2: {
+    fontWeight: 400,
+    lineHeight: pxToRem(24),
+    fontSize: pxToRem(16),
+    ...defaultFont
+  },
+  h3: {
+    fontWeight: 400,
+    lineHeight: pxToRem(20),
+    fontSize: pxToRem(14),
+    ...defaultFont
+  },
+  paragraph: {
+    fontWeight: 300,
+    fontSize: pxToRem(14),
+    lineHeight: pxToRem(20),
+    ...defaultFont
+  },
   button: {
     large: {
       fontSize: pxToRem(18),

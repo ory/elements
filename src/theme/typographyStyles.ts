@@ -8,11 +8,11 @@ const geometricPrecision = ({ theme }: ThemeProps) =>
 
 export const typographyH1Styles = (props: ThemeProps) => `
 ${geometricPrecision(props)}
-font-family: ${props.theme.regularFont500};
-font-weight: 500;
-font-style: normal;
-font-size: 32px;
-line-height: 40px;
+font-family: ${props.theme.typography.h1.fontFamily};
+font-weight: ${props.theme.typography.h1.fontWeight};
+font-style: ${props.theme.typography.h1.fontStyle};
+font-size: ${props.theme.typography.h1.fontSize};
+line-height: ${props.theme.typography.h1.lineHeight};
 `;
 
 export const cssTypographyH1Styles = (props: ThemeProps) =>
@@ -20,11 +20,11 @@ export const cssTypographyH1Styles = (props: ThemeProps) =>
 
 export const typographyH2Styles = (props: ThemeProps) => `
 ${geometricPrecision(props)}
-font-family: ${props.theme.regularFont400};
-font-weight: 400;
-font-style: normal;
-font-size: 16px;
-line-height: 24px;
+font-family: ${props.theme.typography.h2.fontFamily};
+font-weight: ${props.theme.typography.h2.fontWeight};
+font-style: ${props.theme.typography.h2.fontStyle};
+font-size: ${props.theme.typography.h2.fontSize};
+line-height: ${props.theme.typography.h2.lineHeight};
 `;
 
 export const cssTypographyH2Styles = (props: ThemeProps) =>
@@ -32,11 +32,11 @@ export const cssTypographyH2Styles = (props: ThemeProps) =>
 
 export const typographyH3Styles = (props: ThemeProps) => `
 ${geometricPrecision(props)}
-font-family: ${props.theme.regularFont400};
-font-weight: 400;
-font-style: normal;
-font-size: 14px;
-line-height: 20px;
+font-family: ${props.theme.typography.h3.fontFamily};
+font-weight: ${props.theme.typography.h3.fontWeight};
+font-style: ${props.theme.typography.h3.fontStyle};
+font-size: ${props.theme.typography.h3.fontSize};
+line-height: ${props.theme.typography.h3.lineHeight};
 
 & .required {
   color: ${props.theme.palettes.light.accent.def};
@@ -60,11 +60,11 @@ export const cssTypographyLeadStyles = (props: ThemeProps) =>
 
 export const typographyParagraphStyles = (props: ThemeProps) => `
 ${geometricPrecision(props)}
-font-family: ${props.theme.regularFont300};
-font-weight: 300;
-font-style: normal;
-font-size: 14px;
-line-height: 20px;
+font-family: ${props.theme.typography.paragraph.fontFamily};
+font-weight: ${props.theme.typography.paragraph.fontWeight};
+font-style: ${props.theme.typography.paragraph.fontStyle};
+font-size: ${props.theme.typography.paragraph.fontSize};
+line-height: ${props.theme.typography.paragraph.lineHeight};
 `;
 
 export const cssTypographyParagraphStyles = (props: ThemeProps) =>

@@ -79,7 +79,7 @@ export const textInputStyles: ColorFunc = (props) => {
   border: 1px solid ${borderColorForState(props)};
   border-radius: ${theme.inputs.borderRadius};
   
-  background-color: inherit;
+  background-color: ${theme.palettes.light.input.background};
   overflow: visible;
 `;
 
