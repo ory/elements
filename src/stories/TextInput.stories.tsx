@@ -127,6 +127,22 @@ export const InputSizes = () => (
         subtitle={"A small input field"}
         />
     </Spacer>
+    <Spacer>
+      <TextInput
+        title="Regular Input"
+        variation={'medium'}
+        value={"Regular Input"}
+        subtitle={"A regular input field"}
+      />
+    </Spacer>
+    <Spacer>
+      <TextInput
+        title="Large Input"
+        variation={'large'}
+        value={"Large Input"}
+        subtitle={"A large input field"}
+      />
+    </Spacer>
   </Container>
 )
 
