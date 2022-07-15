@@ -28,6 +28,7 @@ const {
   cssSocialButtonStyles,
   cssSocialButtonStylesSmall,
   cssSocialButtonStylesLarge,
+  cssCardStyles,
   theme: t
 } = require('../lib');
 const { cssNormalize } = require('../lib');
@@ -60,6 +61,8 @@ ${cssVars(theme || t)}
 }
 
 ${cssNormalize}
+
+${cssCardStyles(ct)}
 
 ${cssButtonStyles(ct)}
 ${cssButtonStylesLarge(ct)}
