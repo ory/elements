@@ -23,45 +23,52 @@ Playground.args = {
 
 export const Default = () => (
   <Container>
-    <TextInput title="Default Input" value="Default" />
-    <TextInput title="Default Input" value="Default" />
+    <TextInput title="Default Input" placeholder="Default" />
+    <TextInput title="Default Input" placeholder="Default" />
   </Container>
 );
 
 export const Hover = () => (
   <Container>
-    <TextInput title="Focus Input" value="Focus" className="fake-hover" />
-    <TextInput title="Focus Input" value="Focus" className="fake-hover" />
+    <TextInput title="Focus Input" placeholder="Hover" className="fake-hover" />
+    <TextInput title="Focus Input" placeholder="Hover" className="fake-hover" />
   </Container>
 );
 
 export const Focus = () => (
   <Container>
-    <TextInput title="Focus Input" value="Focus" className="fake-focus" />
-    <TextInput title="Focus Input" value="Focus" className="fake-focus" />
+    <TextInput title="Focus Input" placeholder="Focus" className="fake-focus" />
+    <TextInput title="Focus Input" placeholder="Focus" className="fake-focus" />
   </Container>
 );
 
 export const Error = () => (
   <Container>
-    <TextInput title="Error Input" value="Error" state="error" />
-    <TextInput title="Error Input" value="Error" state="error" />
+    <TextInput title="Error Input" placeholder="Error" state="error" />
+    <TextInput title="Error Input" placeholder="Error" state="error" />
   </Container>
 );
 
 export const Success = () => (
   <Container>
-    <TextInput title="Success Input" value="Success" state="success" />
-    <TextInput title="Success Input" value="Success" state="success" />
+    <TextInput title="Success Input" placeholder="Success" state="success" />
+    <TextInput title="Success Input" placeholder="Success" state="success" />
   </Container>
 );
 
 export const Disabled = () => (
   <Container>
-    <TextInput title="Disabled Input" value="Disabled" disabled />
-    <TextInput title="Disabled Input" value="Disabled" disabled />
+    <TextInput title="Disabled Input" placeholder="Disabled" disabled />
+    <TextInput title="Disabled Input" placeholder="Disabled" disabled />
   </Container>
 );
+
+export const Active = () => (
+  <Container>
+    <TextInput title="Active State Input" value="Active by state" state={"active"}/>
+    <TextInput title="Active Value Input" value="Active by value" />
+  </Container>
+)
 
 export const InputWithSubtitle = () => (
   <Container>

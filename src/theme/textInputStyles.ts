@@ -8,7 +8,7 @@ import {
 
 export interface TextInputProps {
   help?: boolean;
-  state?: 'success' | 'error' | 'disabled';
+  state?: 'success' | 'error' | 'disabled' | 'active';
   variation?: variations
 }
 
@@ -17,9 +17,9 @@ type ColorFunc = (props: ThemeProps & TextInputProps) => string;
 const textColorForState: ColorFunc = ({ state, theme }) => {
   switch (state) {
     case 'success':
-      return `color: ${theme.green60};`;
+      return `color: ${theme.palettes.light.success.emphasis};`;
     case 'error':
-      return `color: ${theme.red60};`;
+      return `color: ${theme.palettes.light.error.emphasis};`;
   }
   return '';
 };
@@ -27,21 +27,15 @@ const textColorForState: ColorFunc = ({ state, theme }) => {
 const borderColorForState: ColorFunc = ({ state, theme }) => {
   switch (state) {
     case 'disabled':
-      return 'transparent';
+      return theme.palettes.light.border.disabled;
     case 'success':
-      return theme.green60;
+      return theme.palettes.light.success.emphasis;
+    case 'active':
+      return theme.palettes.light.accent.emphasis;
     case 'error':
-      return theme.red60;
+      return theme.palettes.light.error.emphasis;
   }
-  return theme.grey30;
-};
-
-const backgroundColorForState: ColorFunc = ({ state, theme }) => {
-  switch (state) {
-    case 'disabled':
-      return theme.grey10;
-  }
-  return 'transparent';
+  return theme.palettes.light.border.def;
 };
 
 export const textInputTitleStyles: ColorFunc = (props) => `
@@ -74,7 +68,7 @@ export const textInputStyles: ColorFunc = (props) => {
   font-size: ${theme.typography.input[size].fontSize};
   
   color: ${state === 'disabled' ? theme.palettes.light.input.disabled : theme.palettes.light.input.placeholder};
-
+  
   width: 100%;
   padding: ${pxToRem(16, 24)};
   
@@ -85,22 +79,22 @@ export const textInputStyles: ColorFunc = (props) => {
   border: 1px solid ${borderColorForState(props)};
   border-radius: ${theme.inputs.borderRadius};
   
-  background-color: ${backgroundColorForState(props)};
+  background-color: inherit;
   overflow: visible;
 `;
 
   if (theme.platform !== 'react-native') {
     css += `
   outline: none;
-
+  
   &.fake-hover,
   &:hover {
-    border: 1px solid ${theme.palettes.light.accent.def};
+    cursor: caret;
   }
-
+  
   &.fake-focus,
   &:focus {
-    border: 4px solid ${theme.palettes.light.accent.muted};
+    border: 1px solid ${theme.palettes.light.accent.emphasis};
     color: ${theme.palettes.light.input.text};
   }
 `;
