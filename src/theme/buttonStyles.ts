@@ -12,7 +12,7 @@ export const buttonStyles = ({theme, size}: ButtonStyles) => {
 & .button {
   ${typographyButtonStyles({theme}, size)}
   color: ${theme.palettes.light.text.def};
-  border-radius: ${theme.cards.borderRadius};
+  border-radius: ${theme.buttons.borderRadius};
   
   width: 100%;
   min-height: ${pxToRem(size === 'large' ? 64 : size === 'small' ? 40 : 48)};

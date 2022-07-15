@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode} from 'react';
 import styled from 'styled-components';
-import { buttonStyles, ButtonStyles } from '../theme';
+import {buttonStyles, ButtonStyles} from '../theme';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -9,9 +9,11 @@ export interface ButtonProps
   children: string;
 }
 
-const Button = ({ helper, className, ...props }: ButtonProps) => (
+const Button = ({helper, className, ...props}: ButtonProps) => (
   <div className={className}>
-    <button className="button" {...props} />
+    <button className="button" {...props}>
+      <div className={"button-text"}>{props.children}</div>
+    </button>
     {helper && <span className="button-helper">{helper}</span>}
   </div>
 );

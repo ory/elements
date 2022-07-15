@@ -17,6 +17,10 @@ export const palettes = {
       disabled: '#BDBDBD',
       onDark: '#FFFFFF'
     },
+    background: {
+      surface: '#FFFFFF',
+      canvas: '#FCFCFC',
+    },
     error: {
       emphasis: '#DF1642'
     },
