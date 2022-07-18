@@ -33,10 +33,17 @@ const {
 } = require('../lib');
 const { cssNormalize } = require('../lib');
 
-function cssVars(tt) {
-  const result = [];
+function cssVars(tt, parent = '', result = []) {
   for (let [k, v] of Object.entries(tt)) {
-    result.push(`  --${k}: ${v};`);
+    let key = k;
+    if (parent !== '') {
+      key = `${parent}-${k}`;
+    }
+    if (typeof v === 'string') {
+      result.push(`  --${key}: ${v};`);
+    } else {
+      cssVars(v, key, result);
+    }
   }
   return result.join('\n');
 }
