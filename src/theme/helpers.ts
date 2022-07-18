@@ -74,6 +74,7 @@ export const typography: {
   h2: fonts,
   h3: fonts,
   paragraph: fonts,
+  caption: fonts,
   button: typographySizes,
   input: typographySizes,
 } = {
@@ -97,6 +98,12 @@ export const typography: {
   },
   paragraph: {
     fontWeight: 300,
+    fontSize: pxToRem(14),
+    lineHeight: pxToRem(20),
+    ...defaultFont
+  },
+  caption: {
+    fontWeight: 400,
     fontSize: pxToRem(14),
     lineHeight: pxToRem(20),
     ...defaultFont
