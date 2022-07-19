@@ -70,7 +70,10 @@ line-height: ${props.theme.typography.paragraph.lineHeight};
 export const cssTypographyParagraphStyles = (props: ThemeProps) =>
   wrapCss('typography-paragraph', typographyParagraphStyles(props));
 
-export const typographyButtonStyles = (props: ThemeProps, size?: 'small' | 'medium' | 'large') => {
+export const typographyButtonStyles = (
+  props: ThemeProps,
+  size?: 'small' | 'medium' | 'large'
+) => {
   size = size || 'medium';
   return `
 ${geometricPrecision(props)}
@@ -80,7 +83,7 @@ font-style: ${props.theme.typography.button[size].fontStyle};
 font-size: ${props.theme.typography.button[size].fontSize};
 line-height: ${props.theme.typography.button[size].lineHeight};
 `;
-}
+};
 
 export const cssTypographyButtonStyles = (props: ThemeProps) =>
   wrapCss('typography-button', typographyButtonStyles(props));

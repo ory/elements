@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 
-import {Container, Spacer} from './storyhelper';
+import { Container, Spacer } from './storyhelper';
 import TextInput, { TextInputProps } from '../components/TextInput';
 
 const meta: Meta = {
@@ -65,10 +65,14 @@ export const Disabled = () => (
 
 export const Active = () => (
   <Container>
-    <TextInput title="Active State Input" value="Active by state" state={"active"}/>
+    <TextInput
+      title="Active State Input"
+      value="Active by state"
+      state={'active'}
+    />
     <TextInput title="Active Value Input" value="Active by value" />
   </Container>
-)
+);
 
 export const InputWithSubtitle = () => (
   <Container>
@@ -115,7 +119,7 @@ export const InputWithRequiredFields = () => (
       subtitle="A good password has at least 15 characters."
     />
   </Container>
-)
+);
 
 export const InputSizes = () => (
   <Container>
@@ -123,27 +127,27 @@ export const InputSizes = () => (
       <TextInput
         title="Small Input"
         variation={'small'}
-        value={"Small Input"}
-        subtitle={"A small input field"}
-        />
+        value={'Small Input'}
+        subtitle={'A small input field'}
+      />
     </Spacer>
     <Spacer>
       <TextInput
         title="Regular Input"
         variation={'medium'}
-        value={"Regular Input"}
-        subtitle={"A regular input field"}
+        value={'Regular Input'}
+        subtitle={'A regular input field'}
       />
     </Spacer>
     <Spacer>
       <TextInput
         title="Large Input"
         variation={'large'}
-        value={"Large Input"}
-        subtitle={"A large input field"}
+        value={'Large Input'}
+        subtitle={'A large input field'}
       />
     </Spacer>
   </Container>
-)
+);
 
 export default meta;

@@ -25,13 +25,13 @@ Playground.args = {
 export const Size = () => (
   <Container>
     <Spacer>
-      <Button size={"small"}>Small</Button>
+      <Button size={'small'}>Small</Button>
     </Spacer>
     <Spacer>
       <Button>Regular</Button>
     </Spacer>
     <Spacer>
-      <Button size={"large"}>Large</Button>
+      <Button size={'large'}>Large</Button>
     </Spacer>
   </Container>
 );
@@ -39,7 +39,7 @@ export const Size = () => (
 export const Hover = () => (
   <Container>
     <Spacer>
-      <Button size={"small"} className="fake-hover">
+      <Button size={'small'} className="fake-hover">
         Small Hover
       </Button>
     </Spacer>
@@ -47,7 +47,7 @@ export const Hover = () => (
       <Button className="fake-hover">Medium Hover</Button>
     </Spacer>
     <Spacer>
-      <Button size={"large"} className="fake-hover">
+      <Button size={'large'} className="fake-hover">
         Large Hover
       </Button>
     </Spacer>
@@ -60,9 +60,7 @@ export const Click = () => (
       <Button className="fake-click">Click</Button>
     </Spacer>
     <Spacer>
-      <Button className="fake-click">
-        Click
-      </Button>
+      <Button className="fake-click">Click</Button>
     </Spacer>
   </Container>
 );
@@ -73,9 +71,7 @@ export const Focus = () => (
       <Button className="fake-focus">Focus</Button>
     </Spacer>
     <Spacer>
-      <Button className="fake-focus">
-        Focus
-      </Button>
+      <Button className="fake-focus">Focus</Button>
     </Spacer>
   </Container>
 );
@@ -83,15 +79,17 @@ export const Focus = () => (
 export const Disabled = () => (
   <Container>
     <Spacer>
-      <Button size={"small"} disabled={true}>
+      <Button size={'small'} disabled={true}>
         Disabled
       </Button>
     </Spacer>
     <Spacer>
-      <Button size={"medium"} disabled={true}>Disabled</Button>
+      <Button size={'medium'} disabled={true}>
+        Disabled
+      </Button>
     </Spacer>
     <Spacer>
-      <Button size={"large"} disabled={true}>
+      <Button size={'large'} disabled={true}>
         Disabled
       </Button>
     </Spacer>
@@ -127,9 +125,7 @@ export const Helper = () => {
         <Button helper={message}>Helper</Button>
       </Spacer>
       <Spacer>
-        <Button helper={message}>
-          Helper
-        </Button>
+        <Button helper={message}>Helper</Button>
       </Spacer>
     </Container>
   );

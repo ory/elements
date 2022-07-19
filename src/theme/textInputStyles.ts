@@ -1,5 +1,6 @@
 import {
-  pxToRem, variations,
+  pxToRem,
+  variations,
   ThemeProps,
   typographyCaptionStyles,
   typographyH3Styles,
@@ -9,7 +10,7 @@ import {
 export interface TextInputProps {
   help?: boolean;
   state?: 'success' | 'error' | 'disabled' | 'active';
-  variation?: variations
+  variation?: variations;
 }
 
 type ColorFunc = (props: ThemeProps & TextInputProps) => string;
@@ -55,9 +56,9 @@ export const cssTextInputSubtitleStyles = (props: ThemeProps) =>
   wrapCss('text-input-subtitle', textInputSubtitleStyles(props));
 
 export const textInputStyles: ColorFunc = (props) => {
-  const {theme, state, help} = props;
+  const { theme, state, help } = props;
   const size = props.variation || 'medium';
-  
+
   let css = `
   box-sizing: border-box;
   
@@ -67,12 +68,22 @@ export const textInputStyles: ColorFunc = (props) => {
   font-style: ${theme.typography.input[size].fontStyle};
   font-size: ${theme.typography.input[size].fontSize};
   
-  color: ${state === 'disabled' ? theme.palettes.light.input.disabled : theme.palettes.light.input.placeholder};
+  color: ${
+    state === 'disabled'
+      ? theme.palettes.light.input.disabled
+      : theme.palettes.light.input.placeholder
+  };
   
   width: 100%;
   padding: ${pxToRem(16, 24)};
   
-  padding: ${size === 'small' ? pxToRem(8, 16) : size === 'medium' ? pxToRem(12, 24) : pxToRem(16, 24)};
+  padding: ${
+    size === 'small'
+      ? pxToRem(8, 16)
+      : size === 'medium'
+      ? pxToRem(12, 24)
+      : pxToRem(16, 24)
+  };
   
   min-height: ${pxToRem(size === 'large' ? 64 : size === 'small' ? 40 : 48)};
   
