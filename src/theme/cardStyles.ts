@@ -1,4 +1,4 @@
-import {pxToRem, ThemeProps, wrapCss} from './index';
+import { pxToRem, ThemeProps, wrapCss } from './index';
 
 export interface CardStyles extends ThemeProps {
   wide?: boolean;
@@ -26,4 +26,4 @@ margin-bottom: 15px;
 `;
 
 export const cssCardStyles = (props: CardStyles) =>
-  wrapCss('card', cardStyles({...props}));
+  wrapCss('card', cardStyles({ ...props }));

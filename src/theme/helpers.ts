@@ -1,6 +1,7 @@
 import { ThemeProps as StyledThemeProps } from 'styled-components';
 
-export const pxToRem = (...px: number[]) => px.map((x) => `${x / 16}rem`).join(' ');
+export const pxToRem = (...px: number[]) =>
+  px.map((x) => `${x / 16}rem`).join(' ');
 
 export const palettes = {
   light: {
@@ -19,7 +20,7 @@ export const palettes = {
     },
     background: {
       surface: '#FFFFFF',
-      canvas: '#FCFCFC',
+      canvas: '#FCFCFC'
     },
     error: {
       emphasis: '#DF1642'
@@ -42,41 +43,41 @@ export const palettes = {
       text: '#424242'
     }
   }
-}
+};
 
 type fonts = {
-  fontWeight: number,
-  fontSize: string,
-  lineHeight: string,
-  fontFamily: string,
-  fontStyle: string
-}
+  fontWeight: number;
+  fontSize: string;
+  lineHeight: string;
+  fontFamily: string;
+  fontStyle: string;
+};
 
 type variationMap = {
-  small: string,
-  medium: string,
-  large: string
-}
+  small: string;
+  medium: string;
+  large: string;
+};
 
 export type variations = keyof variationMap;
 
 type typographySizes = {
-  [Property in keyof variationMap]: fonts
-}
+  [Property in keyof variationMap]: fonts;
+};
 
 export const defaultFont = {
   fontFamily: "'Inter'",
-  fontStyle: "normal"
-}
+  fontStyle: 'normal'
+};
 
 export const typography: {
-  h1: fonts,
-  h2: fonts,
-  h3: fonts,
-  paragraph: fonts,
-  caption: fonts,
-  button: typographySizes,
-  input: typographySizes,
+  h1: fonts;
+  h2: fonts;
+  h3: fonts;
+  paragraph: fonts;
+  caption: fonts;
+  button: typographySizes;
+  input: typographySizes;
 } = {
   h1: {
     fontWeight: 500,
@@ -148,24 +149,24 @@ export const typography: {
       ...defaultFont
     }
   }
-}
+};
 
 export const theme = {
   palettes: palettes,
   typography: typography,
-  
+
   cards: {
     borderRadius: '16px'
   },
-  
+
   buttons: {
     borderRadius: '4px'
   },
-  
-  inputs : {
+
+  inputs: {
     borderRadius: '4px'
   },
-  
+
   grey0: '#F9F9FA',
   grey5: '#F0F0F1',
   grey10: '#E1E1E3',
@@ -188,7 +189,7 @@ export const theme = {
 
   blueGrey30: '#B4BBE2',
   blueGrey60: '#97A0D6',
-  
+
   primary30: '#F6A8C2',
   primary60: '#EC407A',
   primary70: '#C23564',

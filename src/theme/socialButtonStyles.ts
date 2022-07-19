@@ -1,5 +1,5 @@
-import {ButtonStyles} from "./buttonStyles";
-import {pxToRem, ThemeProps, typographyButtonStyles, wrapCss} from "./index";
+import { ButtonStyles } from './buttonStyles';
+import { pxToRem, ThemeProps, typographyButtonStyles, wrapCss } from './index';
 
 export interface SocialButtonStyles extends ThemeProps {
   disabled?: boolean;
@@ -7,12 +7,12 @@ export interface SocialButtonStyles extends ThemeProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-export const socialButtonStyles = ({theme, size}: ButtonStyles) => {
-  size = size || 'medium'
+export const socialButtonStyles = ({ theme, size }: ButtonStyles) => {
+  size = size || 'medium';
   return `
   
 & .button {
-  ${typographyButtonStyles({theme}, size)}
+  ${typographyButtonStyles({ theme }, size)}
   color: ${theme.palettes.light.foreground.muted};
   border-radius: ${theme.buttons.borderRadius};
   
@@ -20,7 +20,9 @@ export const socialButtonStyles = ({theme, size}: ButtonStyles) => {
   min-height: ${pxToRem(size === 'large' ? 64 : size === 'small' ? 40 : 48)};
   
   border: 1px solid ${theme.palettes.light.foreground.muted};
-  padding: ${size === 'small' || size === 'medium' ? pxToRem(10, 16) : pxToRem(16, 24)};
+  padding: ${
+    size === 'small' || size === 'medium' ? pxToRem(10, 16) : pxToRem(16, 24)
+  };
   outline: none;
   
   background-color: inherit;
@@ -57,13 +59,22 @@ export const socialButtonStyles = ({theme, size}: ButtonStyles) => {
 }
 
 `;
-}
+};
 
 export const cssSocialButtonStyles = (props: SocialButtonStyles) =>
-  wrapCss('input-social-button', socialButtonStyles({...props, size: 'medium'}));
+  wrapCss(
+    'input-social-button',
+    socialButtonStyles({ ...props, size: 'medium' })
+  );
 
 export const cssSocialButtonStylesSmall = (props: SocialButtonStyles) =>
-  wrapCss('input-social-button-small', socialButtonStyles({...props, size: 'small'}));
+  wrapCss(
+    'input-social-button-small',
+    socialButtonStyles({ ...props, size: 'small' })
+  );
 
 export const cssSocialButtonStylesLarge = (props: SocialButtonStyles) =>
-  wrapCss('input-social-button-large', socialButtonStyles({...props, size: 'large'}));
+  wrapCss(
+    'input-social-button-large',
+    socialButtonStyles({ ...props, size: 'large' })
+  );
