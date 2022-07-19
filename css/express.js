@@ -1,5 +1,7 @@
 const postcss = require('postcss');
 const postcssPresetEnv = require('postcss-preset-env');
+const path = require('path');
+const fs = require('fs');
 
 const {
   cssButtonStyles,
@@ -31,6 +33,7 @@ const {
   cssCardStyles,
   theme: t
 } = require('../lib');
+
 const { cssNormalize } = require('../lib');
 
 function cssVars(tt, parent = '', result = []) {
@@ -57,6 +60,10 @@ const themeContext = (theme) => {
 };
 
 module.exports = {
+  staticAssets: () => (req, res, next) => {
+    res.header('Content-Type', 'text/css');
+    res.sendfile(path.join(__dirname, '../lib/css/assets.css'));
+  },
   expressHandler: function (theme) {
     return function (req, res, next) {
       const ct = themeContext(theme);
