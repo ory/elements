@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 import { Container, Spacer } from './storyhelper';
-import { CardTitle, Card, H3 } from '../components';
+import { CardTitle, Card } from '../components';
 import { P } from '../components';
 import { CardProps } from '../components/Card';
 import Alert from '../components/Alert';
