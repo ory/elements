@@ -31,6 +31,8 @@ const {
   cssSocialButtonStylesSmall,
   cssSocialButtonStylesLarge,
   cssCardStyles,
+  cssDividerStyles,
+  card,
   theme: t
 } = require('../lib');
 
@@ -74,7 +76,11 @@ module.exports = {
 ${cssVars(theme || t)}
 }
 
+${card}
+
 ${cssNormalize}
+
+${cssDividerStyles(ct)}
 
 ${cssCardStyles(ct)}
 

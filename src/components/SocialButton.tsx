@@ -4,7 +4,7 @@ import {
   socialButtonStyles
 } from '../theme/socialButtonStyles';
 import styled from 'styled-components';
-import '../css/webfonts/brands.min.css';
+import '../styles/webfonts/brands.min.css';
 
 export interface SocialButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
