@@ -1,9 +1,8 @@
 import {recipe, RecipeVariants} from '@vanilla-extract/recipes';
 import {pxToRem} from "../utils";
 import {backgroundSurfaceColor, foregroundDefaultColor} from "./theme.css";
-import {style} from "@vanilla-extract/css";
 
-export const card = recipe({
+export const cardStyle = recipe({
   base: {
     display: 'flex',
     flexDirection: 'column',
@@ -24,4 +23,4 @@ export const card = recipe({
   }
 })
 
-export type CardVariants = RecipeVariants<typeof card>;
+export type CardVariants = RecipeVariants<typeof cardStyle>;
