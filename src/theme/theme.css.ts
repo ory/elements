@@ -1,51 +1,20 @@
-import {createGlobalThemeContract} from "@vanilla-extract/css";
-import { pxToRem } from "../utils";
+import {
+  createGlobalTheme,
+  createGlobalThemeContract, createTheme, createThemeContract,
+  createVar,
+  fallbackVar,
+  globalStyle,
+  styleVariants
+} from "@vanilla-extract/css";
+import {pxToRem} from "../utils";
 
-export const defaultFont = {
+globalStyle('html, body', {
+  textRendering: "geometricPrecision",
+});
+
+const defaultFont = {
   fontFamily: "'Inter'",
   fontStyle: 'normal'
-};
-
-export const palettes = {
-  light: {
-    accent: {
-      def: '#3D53F5',
-      muted: '#6475F7',
-      emphasis: '#3142C4',
-      disabled: '#E0E0E0'
-    },
-    foreground: {
-      def: '#171717',
-      muted: '#616161',
-      subtle: '#9E9E9E',
-      disabled: '#BDBDBD',
-      onDark: '#FFFFFF'
-    },
-    background: {
-      surface: '#FFFFFF',
-      canvas: '#FCFCFC'
-    },
-    error: {
-      emphasis: '#DF1642'
-    },
-    success: {
-      emphasis: '#18A957'
-    },
-    border: {
-      def: '#E0E0E0',
-      disabled: '#EEEEEE'
-    },
-    text: {
-      def: '#FFFFFF',
-      disabled: '#757575'
-    },
-    input: {
-      background: '#FFFFFF',
-      disabled: '#E0E0E0',
-      placeholder: '#9E9E9E',
-      text: '#424242'
-    }
-  }
 };
 
 type fonts = {
@@ -62,13 +31,13 @@ type variationMap = {
   large: string;
 };
 
-export type variations = keyof variationMap;
+type variations = keyof variationMap;
 
 type typographySizes = {
   [Property in keyof variationMap]: fonts;
 };
 
-export type typography = {
+type typography = {
   h1: fonts;
   h2: fonts;
   h3: fonts;
@@ -78,7 +47,130 @@ export type typography = {
   input: typographySizes;
 }
 
-export const typography: typography = {
+type mediaQueries<T> = {
+  xs: T
+  sm: T
+  md: T
+  lg: T
+  xl: T
+}
+
+const breakpoints: {
+  [Property in keyof mediaQueries<string>]: string;
+} = {
+  xs: pxToRem(0),
+  sm: pxToRem(600),
+  md: pxToRem(960),
+  lg: pxToRem(1280),
+  xl: pxToRem(1920)
+}
+
+export const colorMode = createVar();
+
+export const accentDefaultColor = createVar();
+export const accentMutedColor = createVar();
+export const accentEmphasisColor = createVar();
+export const accentDisabledColor = createVar();
+
+export const foregroundDefaultColor = createVar();
+export const foregroundMutedColor = createVar();
+export const foregroundSubtleColor = createVar();
+export const foregroundDisabledColor = createVar();
+export const foregroundOnDarkColor = createVar();
+
+export const backgroundSurfaceColor = createVar();
+export const backgroundCanvasColor = createVar();
+
+export const errorEmphasisColor = createVar();
+export const successEmphasisColor = createVar();
+
+export const borderDefaultColor = createVar();
+export const borderDisabledColor = createVar();
+
+export const textDefaultColor = createVar();
+export const textDisabledColor = createVar();
+
+const colorsContract = createThemeContract({
+  accent: {
+    default: null,
+    muted: null,
+    emphasis: null,
+    disabled: null
+  },
+  foreground: {
+    default: null,
+    muted: null,
+    subtle: null,
+    disabled: null,
+    onDark: null
+  },
+  background: {
+    surface: null,
+    canvas: null
+  },
+  error: {
+    emphasis: null
+  },
+  success: {
+    emphasis: null
+  },
+  border: {
+    default: null,
+    disabled: null
+  },
+  text: {
+    default: null,
+    disabled: null
+  },
+  input: {
+    background: null,
+    disabled: null,
+    placeholder: null,
+    text: null
+  }
+})
+
+const lightTheme = createTheme(colorsContract, {
+  accent: {
+    default: fallbackVar(accentDefaultColor, '#3D53F5'),
+    muted: fallbackVar(accentMutedColor, '#6475F7'),
+    emphasis: fallbackVar(accentEmphasisColor, '#3142C4'),
+    disabled: fallbackVar(accentDisabledColor, '#E0E0E0'),
+  },
+  foreground: {
+    default: fallbackVar(foregroundDefaultColor, '#171717'),
+    muted: fallbackVar(foregroundMutedColor, '#616161'),
+    subtle: fallbackVar(foregroundSubtleColor, '#9E9E9E'),
+    disabled: fallbackVar(foregroundDisabledColor, '#BDBDBD'),
+    onDark: fallbackVar(foregroundOnDarkColor, '#FFFFFF'),
+  },
+  background: {
+    surface: fallbackVar(backgroundSurfaceColor, '#FFFFFF'),
+    canvas: fallbackVar(backgroundCanvasColor, '#FCFCFC'),
+  },
+  error: {
+    emphasis: fallbackVar(errorEmphasisColor, '#DF1642'),
+  },
+  success: {
+    emphasis: fallbackVar(successEmphasisColor, '#18A957'),
+  },
+  border: {
+    default: fallbackVar(borderDefaultColor, '#E0E0E0'),
+    disabled: fallbackVar(borderDisabledColor, '#EEEEEE')
+  },
+  text: {
+    default: fallbackVar(textDefaultColor, '#FFFFFF'),
+    disabled: fallbackVar(textDisabledColor, '#757575')
+  },
+  input: {
+    background: createVar('#FFFFFF'),
+    disabled: createVar('#E0E0E0'),
+    placeholder: createVar('#9E9E9E'),
+    text: createVar('#424242')
+  }
+})
+
+/*const typographyTheme = createTheme({
   h1: {
     fontWeight: 500,
     lineHeight: pxToRem(40),
@@ -149,27 +241,10 @@ export const typography: typography = {
       ...defaultFont
     }
   }
-};
+})*/
 
-export type mediaQueries<T> = {
-  xs: T
-  sm: T
-  md: T
-  lg: T
-  xl: T
-}
-
-export const breakpoints: {
-  [Property in keyof mediaQueries<string>]: string;
-} = {
-  xs: pxToRem(0),
-  sm: pxToRem(600),
-  md: pxToRem(960),
-  lg: pxToRem(1280),
-  xl: pxToRem(1920)
-}
-
-export const theme = createGlobalThemeContract({
-  palettes,
-  breakpoints,
+const root = createGlobalTheme(':root', {
+  themeMode: fallbackVar(colorMode, 'light'),
 })
+
+export const theme = {...root, light: lightTheme};

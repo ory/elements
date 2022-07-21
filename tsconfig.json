@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "outDir": "lib",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es6",
+      "es2016",
+      "es2017"
     ],
     "declaration": true,
     "declarationDir": "lib",
@@ -20,7 +23,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   },
   "include": [
     "src"

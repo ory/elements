@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
-import SocialButton, { SocialButtonProps } from '../components/SocialButton';
+import SocialButton, { SocialButtonProps } from '../../components/SocialButton';
 import { Container, Spacer } from './storyhelper';
 
 const meta: Meta = {

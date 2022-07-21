@@ -1,3 +1,5 @@
+const ReactDOMServer = require("react-dom/server");
+
 const postcss = require('postcss');
 const postcssPresetEnv = require('postcss-preset-env');
 const path = require('path');
@@ -37,6 +39,7 @@ const {
 } = require('../lib');
 
 const { cssNormalize } = require('../lib');
+const {Card} = require("../components");
 
 function cssVars(tt, parent = '', result = []) {
   for (let [k, v] of Object.entries(tt)) {
@@ -66,7 +69,11 @@ module.exports = {
     res.header('Content-Type', 'text/css');
     res.sendfile(path.join(__dirname, '../lib/css/assets.css'));
   },
-  expressHandler: function (theme) {
+  expressHandler: () => (req, res, next) => {
+    res.header('Content-Type', 'text/html');
+    res.send(ReactDOMServer.renderToString(<Card ><h1>Something</h1></Card>));
+  },
+  expressHandlers: function (theme) {
     return function (req, res, next) {
       const ct = themeContext(theme);
 

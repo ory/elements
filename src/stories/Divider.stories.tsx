@@ -1,5 +1,5 @@
 import React from "react";
-import Divider, {DividerProps} from "../components/Divider";
+import Divider, {DividerProps} from "../../components/Divider";
 import {Story} from "@storybook/react/types-6-0";
 import {Container, Spacer} from "./storyhelper";
 import {Meta} from "@storybook/react";
