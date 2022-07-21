@@ -1,1 +1,2 @@
-export * from './Card.solid';
+export * from './card';
+export * from './card.base';

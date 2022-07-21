@@ -1,10 +1,10 @@
 import {
   createGlobalTheme,
-  createGlobalThemeContract, createTheme, createThemeContract,
+  createTheme,
+  createThemeContract,
   createVar,
   fallbackVar,
   globalStyle,
-  styleVariants
 } from "@vanilla-extract/css";
 import {pxToRem} from "../utils";
 
@@ -81,11 +81,14 @@ export const foregroundOnDarkColor = createVar();
 export const backgroundSurfaceColor = createVar();
 export const backgroundCanvasColor = createVar();
 
+export const errorDefaultColor = createVar();
 export const errorEmphasisColor = createVar();
+export const errorSubtleColor = createVar();
+export const errorMutedColor = createVar();
+
 export const successEmphasisColor = createVar();
 
 export const borderDefaultColor = createVar();
-export const borderDisabledColor = createVar();
 
 export const textDefaultColor = createVar();
 export const textDisabledColor = createVar();
@@ -95,28 +98,33 @@ const colorsContract = createThemeContract({
     default: null,
     muted: null,
     emphasis: null,
-    disabled: null
+    disabled: null,
+    subtle: null
   },
   foreground: {
     default: null,
     muted: null,
     subtle: null,
     disabled: null,
-    onDark: null
+    onDark: null,
+    onDisabled: null,
+    onAccent: null
   },
   background: {
     surface: null,
     canvas: null
   },
   error: {
+    default: null,
+    subtle: null,
+    muted: null,
     emphasis: null
   },
   success: {
     emphasis: null
   },
   border: {
-    default: null,
-    disabled: null
+    default: null
   },
   text: {
     default: null,
@@ -130,12 +138,40 @@ const colorsContract = createThemeContract({
   }
 })
 
+const typographyContract = createThemeContract({
+  tiny: {
+    bold: null,
+    regular: null
+  },
+  xsmall: {
+    bold: null,
+    regular: null
+  },
+  small: {
+    bold: null,
+    regular: null
+  },
+  caption: {
+    bold: null,
+    regular: null
+  },
+  body: {
+    bold: null,
+    regular: null
+  },
+  lead: {
+    bold: null,
+    regular: null
+  }
+})
+
 const lightTheme = createTheme(colorsContract, {
   accent: {
     default: fallbackVar(accentDefaultColor, '#3D53F5'),
     muted: fallbackVar(accentMutedColor, '#6475F7'),
     emphasis: fallbackVar(accentEmphasisColor, '#3142C4'),
     disabled: fallbackVar(accentDisabledColor, '#E0E0E0'),
+    subtle: fallbackVar(accentDisabledColor, '#eceefe')
   },
   foreground: {
     default: fallbackVar(foregroundDefaultColor, '#171717'),
@@ -143,20 +179,24 @@ const lightTheme = createTheme(colorsContract, {
     subtle: fallbackVar(foregroundSubtleColor, '#9E9E9E'),
     disabled: fallbackVar(foregroundDisabledColor, '#BDBDBD'),
     onDark: fallbackVar(foregroundOnDarkColor, '#FFFFFF'),
+    onAccent: fallbackVar(foregroundOnDarkColor, '#FFFFFF'),
+    onDisabled: fallbackVar(foregroundOnDarkColor, '#e0e0e0'),
   },
   background: {
     surface: fallbackVar(backgroundSurfaceColor, '#FFFFFF'),
     canvas: fallbackVar(backgroundCanvasColor, '#FCFCFC'),
   },
   error: {
+    default: fallbackVar(errorDefaultColor, '#9c0f2e'),
+    subtle: fallbackVar(errorSubtleColor, '#fce8ec'),
+    muted: fallbackVar(errorMutedColor, '#e95c7b'),
     emphasis: fallbackVar(errorEmphasisColor, '#DF1642'),
   },
   success: {
     emphasis: fallbackVar(successEmphasisColor, '#18A957'),
   },
   border: {
-    default: fallbackVar(borderDefaultColor, '#E0E0E0'),
-    disabled: fallbackVar(borderDisabledColor, '#EEEEEE')
+    default: fallbackVar(borderDefaultColor, '#E0E0E0')
   },
   text: {
     default: fallbackVar(textDefaultColor, '#FFFFFF'),
@@ -167,6 +207,51 @@ const lightTheme = createTheme(colorsContract, {
     disabled: createVar('#E0E0E0'),
     placeholder: createVar('#9E9E9E'),
     text: createVar('#424242')
+  }
+})
+
+const darkTheme = createTheme(colorsContract, {
+  accent: {
+    default: fallbackVar(accentDefaultColor, '#6475f7'),
+    disabled: fallbackVar(accentDisabledColor, '#757575'),
+    muted: fallbackVar(accentMutedColor, '#3142c4'),
+    emphasis: fallbackVar(accentEmphasisColor, '#3d53f5'),
+    subtle: fallbackVar(accentDisabledColor, '#0c1131')
+  },
+  foreground: {
+    default: fallbackVar(foregroundDefaultColor, '#FFFFFF'),
+    muted: fallbackVar(foregroundMutedColor, '#ddd9f7'),
+    subtle: fallbackVar(foregroundSubtleColor, '#9a8ce8'),
+    onDark: fallbackVar(foregroundOnDarkColor, '#FFFFFF'),
+    onAccent: fallbackVar(foregroundOnDarkColor, '#FFFFFF'),
+    onDisabled: fallbackVar(foregroundOnDarkColor, '#e0e0e0'),
+    disabled: fallbackVar(foregroundDisabledColor, '#bdbdbd')
+  },
+  background: {
+    surface: fallbackVar(backgroundSurfaceColor, '#110d2b'),
+    canvas: fallbackVar(backgroundCanvasColor, '#090616')
+  },
+  border: {
+    default: fallbackVar(borderDefaultColor, '#221956'),
+  },
+  error: {
+    default: fallbackVar(errorDefaultColor, '#e95c7b'),
+    subtle: fallbackVar(errorSubtleColor, '#2d040d'),
+    muted: fallbackVar(errorMutedColor, '#9c0f2e'),
+    emphasis: fallbackVar(errorEmphasisColor, '#df1642'),
+  },
+  success: {
+    emphasis: fallbackVar(successEmphasisColor, '#18a957'),
+  },
+  input: {
+    background: fallbackVar(backgroundSurfaceColor, '#FFFFFF'),
+    text: fallbackVar(textDefaultColor, '#424242'),
+    placeholder: fallbackVar(textDefaultColor, '#9e9e9e'),
+    disabled: fallbackVar(textDisabledColor, '#eeeeee')
+  },
+  text: {
+    default: fallbackVar(textDefaultColor, '#FFFFFF'),
+    disabled: fallbackVar(textDisabledColor, '#757575')
   }
 })
 
@@ -247,4 +332,4 @@ const root = createGlobalTheme(':root', {
   themeMode: fallbackVar(colorMode, 'light'),
 })
 
-export const theme = {...root, light: lightTheme};
+export const theme = {...root, light: lightTheme, dark: darkTheme};
