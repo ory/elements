@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 
 import { Container, Spacer } from './storyhelper';
-import TextInput, { TextInputProps } from '../components/TextInput';
+import TextInput, { TextInputProps } from '../../components/TextInput';
 
 const meta: Meta = {
   title: 'TextInput',

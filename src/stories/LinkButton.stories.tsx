@@ -2,9 +2,9 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
 
-import LinkButton, { LinkButtonProps } from '../components/LinkButton';
+import LinkButton, { LinkButtonProps } from '../../components/LinkButton';
 import { Container, Spacer } from './storyhelper';
-import { Caption, Link as StyledLink } from '../components/Typography';
+import { Caption, Link as StyledLink } from '../../components/Typography';
 
 const meta: Meta = {
   title: 'LinkButton',
