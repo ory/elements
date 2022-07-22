@@ -10,12 +10,14 @@ export default defineConfig({
   plugins: [vanillaExtractPlugin(), react(), dts({insertTypesEntry: true})],
   build: {
     minify: 'esbuild',
+    sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'ory/themes',
       fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
+      treeshake: "recommended",
       external: ["react", "react-dom", "storybook"],
       output: {
         globals: {

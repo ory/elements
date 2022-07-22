@@ -1,28 +1,42 @@
-import {recipe, RecipeVariants} from '@vanilla-extract/recipes';
+import {style} from "@vanilla-extract/css";
 import {pxToRem} from "../utils";
-import {lightTheme} from "./theme.css";
+import {darkTheme, lightTheme} from "./theme.css";
+import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
 
+// the base card style with media queries
+const card = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'stretch',
+  border: `${pxToRem(1)} solid`,
+  borderRadius: pxToRem(16),
+  padding: pxToRem(48),
+  '@media': {
+    'screen and (max-width: 768px)': {
+      border: '0px',
+      borderRadius: '0px',
+      padding: `0px 0px ${pxToRem(32)}`,
+    }
+  }
+});
+
+// recipe for the card style
+// this ensures we have themeable variations for the card
 export const cardStyle = recipe({
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    // @ts-ignore
-    background: lightTheme.background.surface,
-    // @ts-ignore
-    color: lightTheme.foreground.default,
-    width: '100%',
-    padding: pxToRem(48),
-    borderRadius: pxToRem(16),
-    border: `${pxToRem(1)} solid ${lightTheme.border.default}`,
-  },
+  base: card,
   variants: {
-    size: {
-      wide: {
-        width: pxToRem(432),
+    theme: {
+      light: {
+        background: lightTheme.background.surface,
+        borderColor: lightTheme.border.default,
+      },
+      dark: {
+        background: darkTheme.background.surface,
+        borderColor: darkTheme.border.default,
       }
     }
   }
-})
+});
 
-export type CardVariants = RecipeVariants<typeof cardStyle>;
+// Get the type
+export type CardStyle = RecipeVariants<typeof cardStyle>;
