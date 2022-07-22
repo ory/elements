@@ -1,12 +1,9 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { Story } from '@storybook/react/types-6-0';
-import { Container, Spacer } from './storyhelper';
-import { CardTitle, Card } from '../../components';
-import { P } from '../../components';
-import { CardProps } from '../../components/Card';
-import Alert from '../../components/Alert';
-import AlertContent from '../../components/AlertContent';
+import {Meta} from '@storybook/react';
+import {Story} from '@storybook/react/types-6-0';
+import {Container, Spacer} from './storyhelper';
+import {Card, CardProps} from "../components";
+import {Message} from "../components/message";
 
 const meta: Meta = {
   title: 'Card',
@@ -26,32 +23,11 @@ Playground.args = {};
 export const NarrowCard = () => (
   <Container>
     <Spacer>
-      <Card>
-        <CardTitle>Sign in</CardTitle>
-        <Alert severity="error">
-          <AlertContent>
-            The provided credentials are invalid. Check for spelling mistakes in
-            your password, username, email address or phone number.
-          </AlertContent>
-        </Alert>
-        <P>Some text</P>
-        <Alert severity="info">
-          <AlertContent>
-            The provided credentials are invalid. Check for spelling mistakes in
-            your password, username, email address or phone number.
-          </AlertContent>
-        </Alert>
-      </Card>
-    </Spacer>
-  </Container>
-);
-
-export const WideCard = () => (
-  <Container>
-    <Spacer>
-      <Card wide>
-        <CardTitle>Sign in</CardTitle>
-        <P>Some text</P>
+      <Card title={"Sign in"}>
+        <Message severity="error"
+                 message={`The provided credentials are invalid. Check for spelling mistakes in your password, username, email address or phone number.`}/>
+        <Message severity="info"
+                 message={`The provided credentials are invalid. Check for spelling mistakes in your password, username, email address or phone number.`}/>
       </Card>
     </Spacer>
   </Container>

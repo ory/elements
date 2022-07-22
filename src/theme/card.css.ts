@@ -1,6 +1,6 @@
 import {recipe, RecipeVariants} from '@vanilla-extract/recipes';
 import {pxToRem} from "../utils";
-import {backgroundSurfaceColor, foregroundDefaultColor} from "./theme.css";
+import {lightTheme} from "./theme.css";
 
 export const cardStyle = recipe({
   base: {
@@ -8,11 +8,13 @@ export const cardStyle = recipe({
     flexDirection: 'column',
     alignItems: 'stretch',
     // @ts-ignore
-    background: backgroundSurfaceColor,
+    background: lightTheme.background.surface,
     // @ts-ignore
-    color: foregroundDefaultColor,
+    color: lightTheme.foreground.default,
     width: '100%',
     padding: pxToRem(48),
+    borderRadius: pxToRem(16),
+    border: `${pxToRem(1)} solid ${lightTheme.border.default}`,
   },
   variants: {
     size: {

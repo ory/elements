@@ -1,12 +1,14 @@
 import {
+  assignVars,
   createGlobalTheme,
   createTheme,
   createThemeContract,
   createVar,
   fallbackVar,
-  globalStyle,
+  globalStyle, style, styleVariants,
 } from "@vanilla-extract/css";
 import {pxToRem} from "../utils";
+import {recipe} from "@vanilla-extract/recipes";
 
 globalStyle('html, body', {
   textRendering: "geometricPrecision",
@@ -81,19 +83,21 @@ export const foregroundOnDarkColor = createVar();
 export const backgroundSurfaceColor = createVar();
 export const backgroundCanvasColor = createVar();
 
-export const errorDefaultColor = createVar();
-export const errorEmphasisColor = createVar();
-export const errorSubtleColor = createVar();
-export const errorMutedColor = createVar();
+export const errorDefaultColor = createVar("errorDefaultColor");
+export const errorEmphasisColor = createVar("errorEmphasisColor");
+export const errorSubtleColor = createVar("errorSubtleColor");
+export const errorMutedColor = createVar("errorMutedColor");
 
-export const successEmphasisColor = createVar();
+export const successEmphasisColor = createVar("successEmphasisColor");
 
-export const borderDefaultColor = createVar();
+export const borderDefaultColor = createVar("borderDefaultColor");
 
-export const textDefaultColor = createVar();
-export const textDisabledColor = createVar();
+export const textDefaultColor = createVar("textDefaultColor");
+export const textDisabledColor = createVar("textDisabledColor");
 
-const colorsContract = createThemeContract({
+export const typographyCaptionRegularFontWeight = createVar("typographyCaptionRegularFontWeight");
+
+export const colorsContract = createThemeContract({
   accent: {
     default: null,
     muted: null,
@@ -139,33 +143,23 @@ const colorsContract = createThemeContract({
 })
 
 const typographyContract = createThemeContract({
-  tiny: {
-    bold: null,
-    regular: null
-  },
-  xsmall: {
-    bold: null,
-    regular: null
-  },
-  small: {
-    bold: null,
-    regular: null
-  },
   caption: {
-    bold: null,
-    regular: null
+    regular: {
+      fontWeight: null,
+      fontSize: null,
+      lineHeight: null,
+      fontStyle: null
+    },
+    bold: {
+      fontWeight: null,
+      fontSize: null,
+      lineHeight: null,
+      fontStyle: null
+    }
   },
-  body: {
-    bold: null,
-    regular: null
-  },
-  lead: {
-    bold: null,
-    regular: null
-  }
 })
 
-const lightTheme = createTheme(colorsContract, {
+export const lightTheme = createGlobalTheme(":root", {
   accent: {
     default: fallbackVar(accentDefaultColor, '#3D53F5'),
     muted: fallbackVar(accentMutedColor, '#6475F7'),
@@ -174,7 +168,7 @@ const lightTheme = createTheme(colorsContract, {
     subtle: fallbackVar(accentDisabledColor, '#eceefe')
   },
   foreground: {
-    default: fallbackVar(foregroundDefaultColor, '#171717'),
+    default: '#171717',
     muted: fallbackVar(foregroundMutedColor, '#616161'),
     subtle: fallbackVar(foregroundSubtleColor, '#9E9E9E'),
     disabled: fallbackVar(foregroundDisabledColor, '#BDBDBD'),
@@ -183,7 +177,7 @@ const lightTheme = createTheme(colorsContract, {
     onDisabled: fallbackVar(foregroundOnDarkColor, '#e0e0e0'),
   },
   background: {
-    surface: fallbackVar(backgroundSurfaceColor, '#FFFFFF'),
+    surface: '#FFFFFF',
     canvas: fallbackVar(backgroundCanvasColor, '#FCFCFC'),
   },
   error: {
@@ -210,7 +204,7 @@ const lightTheme = createTheme(colorsContract, {
   }
 })
 
-const darkTheme = createTheme(colorsContract, {
+export const darkTheme = createTheme(colorsContract, {
   accent: {
     default: fallbackVar(accentDefaultColor, '#6475f7'),
     disabled: fallbackVar(accentDisabledColor, '#757575'),
@@ -332,4 +326,8 @@ const root = createGlobalTheme(':root', {
   themeMode: fallbackVar(colorMode, 'light'),
 })
 
-export const theme = {...root, light: lightTheme, dark: darkTheme};
+export const theme: {
+  //[Property in keyof typeof root]: root[Property],
+  light: typeof lightTheme,
+  dark: typeof darkTheme,
+} = {...root, light: lightTheme, dark: darkTheme};
