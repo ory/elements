@@ -3,12 +3,10 @@ import {
   accentEmphasisColor,
   accentMutedColor,
   textDefaultColor,
-  textDisabledColor,
-  theme
+  textDisabledColor
 } from "./theme.css";
 import {pxToRem} from "../utils";
 import {recipe} from "@vanilla-extract/recipes";
-import {style} from "@vanilla-extract/css";
 
 export const button = recipe({
   base: {

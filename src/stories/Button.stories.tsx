@@ -1,134 +1,41 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { Story } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button, { ButtonProps } from '../../components/Button';
-import { Container, Spacer } from './storyhelper';
-import { Caption, Link as StyledLink } from '../../components/Typography';
+import { Button } from './Button';
 
-const meta: Meta = {
-  title: 'Button',
-  component: Button
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export default {
+  title: 'Example/Button',
+  component: Button,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof Button>;
+
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Primary.args = {
+  primary: true,
+  label: 'Button',
 };
 
-const Template: Story<ButtonProps> = (args: ButtonProps) => (
-  <Container>
-    <Button {...args} />
-  </Container>
-);
-
-export const Playground = Template.bind({});
-Playground.args = {
-  children: 'Default Text'
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'Button',
 };
 
-export const Size = () => (
-  <Container>
-    <Spacer>
-      <Button size={'small'}>Small</Button>
-    </Spacer>
-    <Spacer>
-      <Button>Regular</Button>
-    </Spacer>
-    <Spacer>
-      <Button size={'large'}>Large</Button>
-    </Spacer>
-  </Container>
-);
-
-export const Hover = () => (
-  <Container>
-    <Spacer>
-      <Button size={'small'} className="fake-hover">
-        Small Hover
-      </Button>
-    </Spacer>
-    <Spacer>
-      <Button className="fake-hover">Medium Hover</Button>
-    </Spacer>
-    <Spacer>
-      <Button size={'large'} className="fake-hover">
-        Large Hover
-      </Button>
-    </Spacer>
-  </Container>
-);
-
-export const Click = () => (
-  <Container>
-    <Spacer>
-      <Button className="fake-click">Click</Button>
-    </Spacer>
-    <Spacer>
-      <Button className="fake-click">Click</Button>
-    </Spacer>
-  </Container>
-);
-
-export const Focus = () => (
-  <Container>
-    <Spacer>
-      <Button className="fake-focus">Focus</Button>
-    </Spacer>
-    <Spacer>
-      <Button className="fake-focus">Focus</Button>
-    </Spacer>
-  </Container>
-);
-
-export const Disabled = () => (
-  <Container>
-    <Spacer>
-      <Button size={'small'} disabled={true}>
-        Disabled
-      </Button>
-    </Spacer>
-    <Spacer>
-      <Button size={'medium'} disabled={true}>
-        Disabled
-      </Button>
-    </Spacer>
-    <Spacer>
-      <Button size={'large'} disabled={true}>
-        Disabled
-      </Button>
-    </Spacer>
-  </Container>
-);
-
-export const Helper = () => {
-  const message = (
-    <Caption>
-      By creating an account, you agree to the{' '}
-      <StyledLink
-        href="https://www.ory.sh/"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        Terms of Service
-      </StyledLink>
-      . For more information about privacy practices, see the{' '}
-      <StyledLink
-        href="https://www.ory.sh/"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        Privacy Statement
-      </StyledLink>
-      .
-    </Caption>
-  );
-
-  return (
-    <Container>
-      <Spacer>
-        <Button helper={message}>Helper</Button>
-      </Spacer>
-      <Spacer>
-        <Button helper={message}>Helper</Button>
-      </Spacer>
-    </Container>
-  );
+export const Large = Template.bind({});
+Large.args = {
+  size: 'large',
+  label: 'Button',
 };
 
-export default meta;
+export const Small = Template.bind({});
+Small.args = {
+  size: 'small',
+  label: 'Button',
+};
