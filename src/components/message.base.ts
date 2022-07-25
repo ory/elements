@@ -1,4 +1,4 @@
-import {messageStyle, MessageVariants} from "../theme/message.css";
+import {messageStyle, MessageVariants} from "../theme";
 import {Children} from "./types";
 
 export type MessageProps = {

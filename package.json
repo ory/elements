@@ -23,8 +23,8 @@
     "url": "https://github.com/ory/themes/issues"
   },
   "homepage": "https://github.com/ory/themes#readme",
-  "dependencies": {
-    "@vanilla-extract/dynamic": "^2.0.2",
+  "dependencies": {},
+  "peerDependencies": {
     "express": "^4.18.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -43,6 +43,7 @@
     "@types/react": "^17.0.47",
     "@types/react-dom": "^17.0.17",
     "@vanilla-extract/css": "^1.7.2",
+    "@vanilla-extract/dynamic": "^2.0.2",
     "@vanilla-extract/recipes": "^0.2.5",
     "@vanilla-extract/sprinkles": "^1.4.1",
     "@vanilla-extract/vite-plugin": "^3.2.1",
@@ -50,9 +51,12 @@
     "babel-loader": "^8.2.5",
     "typescript": "^4.7.4",
     "vite": "^2.9.14",
-    "vite-plugin-dts": "^1.4.0"
+    "vite-plugin-dts": "^1.4.0",
+    "react": "^17.0.2"
   },
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -60,7 +64,7 @@
     },
     "./helpers/express": "./helpers/express.ts",
     "./style.css": "./dist/style.css",
-    "./inter-font.css":"./dist/inter-font.css",
+    "./inter-font.css": "./dist/inter-font.css",
     "./brands-icons.min.css": "./dist/brands-icons.min.css"
   },
   "readme": "ERROR: No README data found!",

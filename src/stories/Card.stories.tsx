@@ -2,8 +2,8 @@ import React from 'react';
 import {Meta} from '@storybook/react';
 import {Story} from '@storybook/react/types-6-0';
 import {Container, Spacer} from './storyhelper';
-import {Card, CardProps} from "../components";
 import {Message} from "../components/message";
+import {Card, CardProps} from "../components/";
 
 const meta: Meta = {
   title: 'Card',

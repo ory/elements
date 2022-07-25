@@ -1,14 +1,9 @@
 import {
-  assignVars,
   createGlobalTheme,
-  createTheme,
   createThemeContract,
   createVar,
-  fallbackVar,
-  globalStyle, style, styleVariants,
+  globalStyle,
 } from "@vanilla-extract/css";
-import {pxToRem} from "../utils";
-import {recipe} from "@vanilla-extract/recipes";
 import {defaultDarkTheme, defaultLightTheme} from "./consts";
 
 globalStyle('html, body', {
