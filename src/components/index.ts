@@ -1,2 +1,2 @@
 export * from './card';
-export * from './card.base';
+export * from './card.server';
