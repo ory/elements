@@ -1,6 +1,62 @@
 import {pxToRem} from "../utils";
 
-export const defaultLightTheme = {
+export type Font = {
+  fontFamily: string,
+  fontStyle: string
+}
+
+export type Theme = {
+  accent: {
+    default: string,
+    muted: string,
+    emphasis: string,
+    disabled: string,
+    subtle: string
+  },
+  foreground: {
+    default: string,
+    muted: string,
+    subtle: string,
+    disabled: string,
+    onDark: string,
+    onAccent: string,
+    onDisabled: string,
+  },
+  background: {
+    surface: string,
+    canvas: string,
+  },
+  error: {
+    default: string,
+    subtle: string,
+    muted: string,
+    emphasis: string,
+  },
+  success: {
+    emphasis: string,
+  },
+  border: {
+    default: string
+  },
+  text: {
+    default: string,
+    disabled: string
+  },
+  input: {
+    background: string,
+    disabled: string,
+    placeholder: string,
+    text: string
+  }
+} & Font
+
+export const defaultFont = {
+  fontFamily: 'Inter',
+  fontStyle: 'normal'
+};
+
+export const defaultLightTheme: Theme = {
+  ...defaultFont,
   accent: {
     default: '#3D53F5',
     muted: '#6475F7',
@@ -45,7 +101,8 @@ export const defaultLightTheme = {
   }
 }
 
-export const defaultDarkTheme = {
+export const defaultDarkTheme: Theme = {
+  ...defaultFont,
   accent: {
     default: '#6475f7',
     disabled: '#757575',
