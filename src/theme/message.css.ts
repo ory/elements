@@ -1,4 +1,4 @@
-import { errorEmphasisColor, successEmphasisColor, textDefaultColor, theme} from "./theme.css";
+import { errorEmphasisColor, successEmphasisColor, textDefaultColor} from "./theme.css";
 import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
 
 export const messageStyle = recipe({

@@ -1,5 +1,11 @@
 import React, {ReactNode} from 'react';
 import '../../dist/style.css';
+import {assignInlineVars} from "@vanilla-extract/dynamic";
+import '../../dist/style.css';
+import {
+  defaultDarkTheme, defaultLightTheme,
+  oryTheme,
+} from "../theme";
 
 export const Spacer = ({children}: { children: ReactNode }) => (
   <div
@@ -13,12 +19,16 @@ export const Spacer = ({children}: { children: ReactNode }) => (
 
 export const Container = ({
                             children,
-                            width = 260
+                            width = 260,
+                            theme = 'light'
                           }: {
   children: ReactNode;
   width?: number;
+  theme: 'light' | 'dark';
 }) => (
-  <div>
+  <div style={assignInlineVars(oryTheme, {
+  ...(theme === 'dark' ? defaultDarkTheme : defaultLightTheme),
+  })}>
     {children}
   </div>
 );

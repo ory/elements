@@ -4,16 +4,7 @@ import {
   createVar,
   globalStyle,
 } from "@vanilla-extract/css";
-import {defaultDarkTheme, defaultLightTheme} from "./consts";
-
-globalStyle('html, body', {
-  textRendering: "geometricPrecision",
-});
-
-const defaultFont = {
-  fontFamily: "'Inter'",
-  fontStyle: 'normal'
-};
+import {defaultFont, defaultLightTheme} from "./consts";
 
 type fonts = {
   fontWeight: number;
@@ -120,13 +111,16 @@ const typographyContract = createThemeContract({
   },
 })
 
-export const lightTheme = createGlobalTheme(":root", {
+export const oryTheme = createGlobalTheme(":root", {
+  ...defaultFont,
   ...defaultLightTheme
 })
 
-export const darkTheme = createGlobalTheme(":root", {
-  ...defaultDarkTheme,
-})
+globalStyle('html, body', {
+  textRendering: "geometricPrecision",
+  fontFamily: oryTheme.fontFamily,
+  fontStyle: oryTheme.fontStyle
+});
 
 /*const typographyTheme = createTheme({
   h1: {
@@ -200,13 +194,3 @@ export const darkTheme = createGlobalTheme(":root", {
     }
   }
 })*/
-
-export const root = createGlobalTheme(':root', {
-  themeMode: 'light',
-})
-
-type theme<Type> = {
-  [Property in keyof Type]: Type[Property]
-}
-
-export const theme = {base: root, light: lightTheme, dark: darkTheme};

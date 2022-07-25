@@ -1,14 +1,14 @@
 import React from 'react';
-import {CardStyle, cardStyle} from "../theme";
+import {cardStyle} from "../theme";
 
 export type CardProps = {
   children?: React.ReactNode;
   title: string
-} & CardStyle
+}
 
-export const Card = ({children, title, theme}: CardProps) => {
+export const Card = ({children, title}: CardProps) => {
   return (
-    <div className={cardStyle({theme: theme})}>
+    <div className={cardStyle()}>
       <h2>{title}</h2>
       {children}
     </div>

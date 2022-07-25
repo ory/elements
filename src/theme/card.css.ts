@@ -1,6 +1,6 @@
 import {style} from "@vanilla-extract/css";
 import {pxToRem} from "../utils";
-import {darkTheme, lightTheme} from "./theme.css";
+import {oryTheme} from "./theme.css";
 import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
 
 // the base card style with media queries
@@ -11,6 +11,9 @@ const card = style({
   border: `${pxToRem(1)} solid`,
   borderRadius: pxToRem(16),
   padding: pxToRem(48),
+  background: oryTheme.background.surface,
+  borderColor: oryTheme.border.default,
+  color: oryTheme.foreground.default,
   '@media': {
     'screen and (max-width: 768px)': {
       border: '0px',
@@ -23,19 +26,7 @@ const card = style({
 // recipe for the card style
 // this ensures we have themeable variations for the card
 export const cardStyle = recipe({
-  base: card,
-  variants: {
-    theme: {
-      light: {
-        background: lightTheme.background.surface,
-        borderColor: lightTheme.border.default,
-      },
-      dark: {
-        background: darkTheme.background.surface,
-        borderColor: darkTheme.border.default,
-      }
-    }
-  }
+  base: card
 });
 
 // Get the type
