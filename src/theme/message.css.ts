@@ -1,20 +1,20 @@
-import { errorEmphasisColor, successEmphasisColor, textDefaultColor} from "./theme.css";
+import {oryTheme} from "./theme.css";
 import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
 
 export const messageStyle = recipe({
   base: {
-    color: successEmphasisColor
+    color: oryTheme.success.emphasis
   },
   variants: {
     severity: {
       error: {
-        color: errorEmphasisColor
+        color: oryTheme.error.emphasis
       },
       success: {
-        color: successEmphasisColor
+        color: oryTheme.success.emphasis
       },
       info: {
-        color: textDefaultColor
+        color: oryTheme.text.default
       }
     }
   },

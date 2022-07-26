@@ -1,6 +1,6 @@
 import React from 'react';
 import {cardStyle} from "../theme";
-import {typography} from "../theme/typography.css";
+import {typographyStyle} from "../theme";
 
 export type CardProps = {
   title: string
@@ -10,7 +10,7 @@ export type CardProps = {
 
 export const Card = ({title, className, children}: CardProps) => {
   return (
-    <div className={`${cardStyle()} ${typography({type: "regular", size: "small"})} ${className ? className : ''}`}>
+    <div className={`${cardStyle()} ${typographyStyle({type: "regular", size: "small"})} ${className ? className : ''}`}>
       <h4>{title}</h4>
       {children}
     </div>
