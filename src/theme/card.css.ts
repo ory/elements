@@ -7,15 +7,17 @@ import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
 const card = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'stretch',
+  alignItems: 'center',
   border: `${pxToRem(1)} solid`,
   borderRadius: pxToRem(16),
   padding: pxToRem(48),
   background: oryTheme.background.surface,
   borderColor: oryTheme.border.default,
   color: oryTheme.foreground.default,
+  maxWidth: pxToRem(432),
   '@media': {
     'screen and (max-width: 768px)': {
+      width: '100%',
       border: '0px',
       borderRadius: '0px',
       padding: `0px 0px ${pxToRem(32)}`,

@@ -1,15 +1,17 @@
 import React from 'react';
 import {cardStyle} from "../theme";
+import {typography} from "../theme/typography.css";
 
 export type CardProps = {
-  children?: React.ReactNode;
   title: string
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export const Card = ({children, title}: CardProps) => {
+export const Card = ({title, className, children}: CardProps) => {
   return (
-    <div className={cardStyle()}>
-      <h2>{title}</h2>
+    <div className={`${cardStyle()} ${typography({type: "regular", size: "small"})} ${className ? className : ''}`}>
+      <h4>{title}</h4>
       {children}
     </div>
   )
