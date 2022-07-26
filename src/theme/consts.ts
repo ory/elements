@@ -5,7 +5,24 @@ export type Font = {
   fontStyle: string
 }
 
+export type BreakPoints = {
+  sm: string
+  md: string
+  lg: string
+  xl: string
+  xl2: string
+}
+
+export const defaultBreakpoints: BreakPoints = {
+  sm: pxToRem(640),
+  md: pxToRem(768),
+  lg: pxToRem(1024),
+  xl: pxToRem(1280),
+  xl2: pxToRem(1536),
+}
+
 export type Theme = {
+  breakpoints: BreakPoints
   accent: {
     default: string,
     muted: string,
@@ -48,7 +65,7 @@ export type Theme = {
     placeholder: string,
     text: string
   }
-} & Font
+} & Font;
 
 export const defaultFont = {
   fontFamily: 'Inter',
@@ -57,6 +74,7 @@ export const defaultFont = {
 
 export const defaultLightTheme: Theme = {
   ...defaultFont,
+  breakpoints: defaultBreakpoints,
   accent: {
     default: '#3D53F5',
     muted: '#6475F7',
@@ -103,6 +121,7 @@ export const defaultLightTheme: Theme = {
 
 export const defaultDarkTheme: Theme = {
   ...defaultFont,
+  breakpoints: defaultBreakpoints,
   accent: {
     default: '#6475f7',
     disabled: '#757575',
@@ -145,22 +164,4 @@ export const defaultDarkTheme: Theme = {
     default: '#FFFFFF',
     disabled: '#757575'
   }
-}
-
-type mediaQueries<T> = {
-  xs: T
-  sm: T
-  md: T
-  lg: T
-  xl: T
-}
-
-const breakpoints: {
-  [Property in keyof mediaQueries<string>]: string;
-} = {
-  xs: pxToRem(0),
-  sm: pxToRem(600),
-  md: pxToRem(960),
-  lg: pxToRem(1280),
-  xl: pxToRem(1920)
 }

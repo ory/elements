@@ -1,5 +1,6 @@
-import {recipe} from "@vanilla-extract/recipes";
+import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
 import {pxToRem} from "../utils";
+import {cardStyle} from "./card.css";
 
 export const inputTypographyStyle = recipe({
   base: {
@@ -28,10 +29,15 @@ export const inputTypographyStyle = recipe({
         fontWeight: 400,
         fontStyle: 'normal',
       },
-      semiBold: {}
+      semiBold: {
+        fontWeight: 600,
+        fontStyle: 'normal',
+      }
     }
   }
 })
+
+export type InputTypographyStyle = RecipeVariants<typeof inputTypographyStyle>;
 
 export const buttonTypographyStyle = recipe({
   base: {
@@ -64,10 +70,15 @@ export const buttonTypographyStyle = recipe({
         fontWeight: 400,
         fontStyle: 'normal',
       },
-      semiBold: {}
+      semiBold: {
+        fontWeight: 600,
+        fontStyle: 'normal',
+      }
     }
   }
 })
+
+export type ButtonStyle = RecipeVariants<typeof buttonTypographyStyle>;
 
 export const typographyStyle = recipe({
   base: {
@@ -150,3 +161,5 @@ export const typographyStyle = recipe({
     }
   }
 })
+
+export type TypographyStyle = RecipeVariants<typeof typographyStyle>;
