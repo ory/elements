@@ -3,9 +3,10 @@ import {
 } from "./theme.css";
 
 import {pxToRem} from "../utils";
-import {recipe} from "@vanilla-extract/recipes";
+import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
+import {buttonTypographyStyle} from "./typography.css";
 
-export const button = recipe({
+export const buttonStyle = recipe({
   base: {
     color: oryTheme.text.default,
     width: '100%',
@@ -24,7 +25,14 @@ export const button = recipe({
     ":active": {
       backgroundColor: oryTheme.accent.emphasis,
       outline: "none"
-    }
+    },
+    '@media': {
+      [`screen and (min-width: ${oryTheme.breakpoints.lg})`]: {
+        width: 'auto',
+      },
+      [`screen and (max-width: ${oryTheme.breakpoints.md})`]: buttonTypographyStyle({size: 16, type: 'semiBold'}),
+      [`screen and (max-width: ${oryTheme.breakpoints.sm})`]: buttonTypographyStyle({size: 14, type: 'semiBold'}),
+    },
   },
   variants: {
     small: {
@@ -35,6 +43,9 @@ export const button = recipe({
     }
   },
 })
+
+// Get the type
+export type ButtonStyle = RecipeVariants<typeof buttonStyle>;
 
 /*export const buttonText = style({
   selectors: {
