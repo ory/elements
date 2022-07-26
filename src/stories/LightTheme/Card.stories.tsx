@@ -2,8 +2,8 @@ import React from 'react';
 import {Meta} from '@storybook/react';
 import {Story} from '@storybook/react/types-6-0';
 import {Container} from '../storyhelper';
-import {Message} from "../../components/message";
-import {Card, CardProps} from "../../components";
+import {Message} from "../../react";
+import {Card, CardProps} from "../../react";
 
 const meta: Meta = {
   title: 'LightTheme/Card',
