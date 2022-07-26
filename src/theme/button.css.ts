@@ -1,31 +1,28 @@
 import {
-  accentDefaultColor,
-  accentEmphasisColor,
-  accentMutedColor,
-  textDefaultColor,
-  textDisabledColor
+  oryTheme,
 } from "./theme.css";
+
 import {pxToRem} from "../utils";
 import {recipe} from "@vanilla-extract/recipes";
 
 export const button = recipe({
   base: {
-    color: textDefaultColor,
+    color: oryTheme.text.default,
     width: '100%',
     minHeight: pxToRem(48),
     ":disabled": {
-      backgroundColor: textDisabledColor,
+      backgroundColor: oryTheme.text.disabled,
     },
     ":hover": {
-      backgroundColor: accentMutedColor,
+      backgroundColor: oryTheme.accent.muted,
     },
     ":focus": {
-      backgroundColor: accentDefaultColor,
-      borderColor: accentMutedColor,
+      backgroundColor: oryTheme.accent.default,
+      borderColor: oryTheme.accent.muted,
       outline: "none"
     },
     ":active": {
-      backgroundColor: accentEmphasisColor,
+      backgroundColor: oryTheme.accent.emphasis,
       outline: "none"
     }
   },

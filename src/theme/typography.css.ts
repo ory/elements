@@ -1,7 +1,7 @@
 import {recipe} from "@vanilla-extract/recipes";
 import {pxToRem} from "../utils";
 
-export const inputTypography = recipe({
+export const inputTypographyStyle = recipe({
   base: {
     fontFamily: 'Inter',
     textDecoration: 'none'
@@ -33,7 +33,7 @@ export const inputTypography = recipe({
   }
 })
 
-export const buttonTypography = recipe({
+export const buttonTypographyStyle = recipe({
   base: {
     fontFamily: 'Inter',
     textDecoration: 'none'
@@ -69,7 +69,7 @@ export const buttonTypography = recipe({
   }
 })
 
-export const typography = recipe({
+export const typographyStyle = recipe({
   base: {
     fontFamily: 'Inter',
     textDecoration: 'none'
