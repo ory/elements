@@ -119,7 +119,8 @@ export const oryTheme = createGlobalTheme(":root", {
 globalStyle('html, body', {
   textRendering: "geometricPrecision",
   fontFamily: oryTheme.fontFamily,
-  fontStyle: oryTheme.fontStyle
+  fontStyle: oryTheme.fontStyle,
+  boxSizing: "border-box",
 });
 
 /*const typographyTheme = createTheme({
