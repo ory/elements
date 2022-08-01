@@ -2,15 +2,23 @@ import {
   oryTheme,
 } from "./theme.css";
 
-import {pxToRem} from "../utils";
-import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
-import {buttonTypographyStyle} from "./typography.css";
+import { pxToRem } from "../utils";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
+import { defaultBreakpoints } from "./consts";
+
 
 export const buttonStyle = recipe({
   base: {
+    // keep `all: unset` at the top since this removes the standard html styling from the button
+    all: "unset",
+    fontFamily: 'Inter',
+    textDecoration: 'none',
     color: oryTheme.text.default,
-    width: '100%',
+    background: oryTheme.accent.default,
+    padding: pxToRem(10, 16),
+    //width: '100%',
     minHeight: pxToRem(48),
+    borderRadius: "4px",
     ":disabled": {
       backgroundColor: oryTheme.text.disabled,
     },
@@ -27,34 +35,45 @@ export const buttonStyle = recipe({
       outline: "none"
     },
     '@media': {
-      [`screen and (min-width: ${oryTheme.breakpoints.lg})`]: {
-        width: 'auto',
+      [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
+        fontSize: pxToRem(18),
+        lineHeight: pxToRem(32),
+        padding: pxToRem(16, 24)
       },
-      [`screen and (max-width: ${oryTheme.breakpoints.md})`]: buttonTypographyStyle({size: 16, type: 'semiBold'}),
-      [`screen and (max-width: ${oryTheme.breakpoints.sm})`]: buttonTypographyStyle({size: 14, type: 'semiBold'}),
-    },
+      [`screen and (min-width: ${defaultBreakpoints.md})`]: {
+        fontSize: pxToRem(16),
+        lineHeight: pxToRem(28),
+      },
+      [`screen and (min-width: ${defaultBreakpoints.sm})`]: {
+        fontSize: pxToRem(14),
+        lineHeight: pxToRem(20)
+      }
+    }
   },
   variants: {
-    small: {
-      minHeight: pxToRem(40),
+    size: {
+      medium: {
+
+      },
+      small: {
+        minHeight: pxToRem(40),
+      },
+      large: {
+        minHeight: pxToRem(64),
+      },
     },
-    large: {
-      minHeight: pxToRem(64),
+    type: {
+      regular: {
+        fontWeight: 400,
+        fontStyle: 'normal',
+      },
+      semibold: {
+        fontWeight: 600,
+        fontStyle: 'normal',
+      }
     }
   },
 })
 
 // Get the type
 export type ButtonStyle = RecipeVariants<typeof buttonStyle>;
-
-/*export const buttonText = style({
-  selectors: {
-    [`${button}`]: {
-      '@media': {
-        [`screen and (min-width: ${theme.breakpoints.md})`]: theme.typography.button.medium,
-        [`screen and (min-width: ${theme.breakpoints.lg})`]: theme.typography.button.large,
-        [`screen and (min-width: 0) and (max-width: ${theme.breakpoints.sm})`]: theme.typography.button.small,
-      },
-    }
-  }
-})*/

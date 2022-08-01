@@ -1,13 +1,14 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import '../../dist/style.css';
-import {assignInlineVars} from "@vanilla-extract/dynamic";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import '../../dist/style.css';
 import {
   defaultDarkTheme, defaultLightTheme,
   oryTheme,
 } from "../theme";
+import { ThemeProvider } from '../react';
 
-export const Spacer = ({children}: { children: ReactNode }) => (
+export const Spacer = ({ children }: { children: ReactNode }) => (
   <div
     style={{
       marginBottom: '20px'
@@ -18,19 +19,17 @@ export const Spacer = ({children}: { children: ReactNode }) => (
 );
 
 export const Container = ({
-                            children,
-                            width = 260,
-                            theme = 'light'
-                          }: {
+  children,
+  width = 260,
+  theme = 'light'
+}: {
   children: ReactNode;
   width?: number;
   theme: 'light' | 'dark';
 }) => (
-  <div style={assignInlineVars(oryTheme, {
-  ...(theme === 'dark' ? defaultDarkTheme : defaultLightTheme),
-  })}>
+  <ThemeProvider theme={theme}>
     {children}
-  </div>
+  </ThemeProvider>
 );
 
 export const HR = () => (
