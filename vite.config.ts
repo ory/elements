@@ -1,13 +1,13 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import {vanillaExtractPlugin} from "@vanilla-extract/vite-plugin";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import dts from 'vite-plugin-dts';
-import {resolve} from "path";
+import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   /* WARNING: Vanilla Extract does not support the latest Vite (3.x) version yet.*/
-  plugins: [vanillaExtractPlugin(), react(), dts({insertTypesEntry: true})],
+  plugins: [vanillaExtractPlugin(), react(), dts({ insertTypesEntry: true })],
   build: {
     minify: 'esbuild',
     sourcemap: true,

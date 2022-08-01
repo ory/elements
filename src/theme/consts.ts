@@ -1,4 +1,4 @@
-import {pxToRem} from "../utils";
+import { pxToRem } from "../utils";
 
 export type Font = {
   fontFamily: string,
@@ -22,7 +22,6 @@ export const defaultBreakpoints: BreakPoints = {
 }
 
 export type Theme = {
-  breakpoints: BreakPoints
   accent: {
     default: string,
     muted: string,
@@ -72,9 +71,15 @@ export const defaultFont = {
   fontStyle: 'normal'
 };
 
+const defaultButtonFontTheme = {
+  fontFamily: 'Inter',
+  textDecoration: 'none',
+  fontSize: pxToRem(16),
+  lineHeight: pxToRem(28)
+}
+
 export const defaultLightTheme: Theme = {
   ...defaultFont,
-  breakpoints: defaultBreakpoints,
   accent: {
     default: '#3D53F5',
     muted: '#6475F7',
@@ -121,7 +126,6 @@ export const defaultLightTheme: Theme = {
 
 export const defaultDarkTheme: Theme = {
   ...defaultFont,
-  breakpoints: defaultBreakpoints,
   accent: {
     default: '#6475f7',
     disabled: '#757575',

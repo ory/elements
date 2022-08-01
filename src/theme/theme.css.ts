@@ -3,7 +3,7 @@ import {
   globalStyle,
 } from "@vanilla-extract/css";
 
-import {defaultFont, defaultLightTheme} from "./consts";
+import { defaultFont, defaultLightTheme } from "./consts";
 
 export const oryTheme = createGlobalTheme(":root", {
   ...defaultFont,
