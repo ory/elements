@@ -16,9 +16,8 @@ export const buttonStyle = recipe({
     color: oryTheme.text.default,
     background: oryTheme.accent.default,
     padding: pxToRem(10, 16),
-    //width: '100%',
-    minHeight: pxToRem(48),
     borderRadius: "4px",
+    cursor: "pointer",
     ":disabled": {
       backgroundColor: oryTheme.text.disabled,
     },
@@ -53,16 +52,20 @@ export const buttonStyle = recipe({
   variants: {
     size: {
       medium: {
-
+        fontSize: pxToRem(16),
+        lineHeight: pxToRem(28),
       },
       small: {
-        minHeight: pxToRem(40),
+        fontSize: pxToRem(14),
+        lineHeight: pxToRem(20)
       },
       large: {
-        minHeight: pxToRem(64),
+        fontSize: pxToRem(18),
+        lineHeight: pxToRem(32),
+        padding: pxToRem(16, 24)
       },
     },
-    type: {
+    variant: {
       regular: {
         fontWeight: 400,
         fontStyle: 'normal',
