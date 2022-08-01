@@ -1,14 +1,16 @@
 import React from "react"
 import { ButtonStyle, buttonStyle } from "../theme/button.css"
 
-export type ButtonProps = {
+type buttonStyle = ButtonStyle & {}
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, buttonStyle {
     title: string
     className?: string
-} & ButtonStyle
+}
 
-export const Button = ({ title, size, type, className }: ButtonProps) => (
+export const Button = ({ title, size, variant, className }: ButtonProps) => (
     <div className={className}>
-        <button className={buttonStyle({ size, type })}>
+        <button className={buttonStyle({ size, variant })}>
             {title}
         </button>
     </div>
