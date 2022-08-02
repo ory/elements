@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import FilterFlowNodes from "./filter-flow-nodes";
 import { SelfServiceFlow } from "./FlowTypes";
 
 export interface SelfServiceFlowForm extends React<HTMLFormElement> {
@@ -28,7 +29,7 @@ export const SelfServiceFlowForm = ({
                 }
             }}>
             {/*always add csrf token to form*/}
-
+            <FilterFlowNodes groups={['default'] inputTypes={['hidden']} flow={flow} includeCSRF={true} />
             {children}
         </form>
     )
