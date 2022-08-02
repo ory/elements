@@ -2,17 +2,15 @@ import {
   UiNodeInputType,
   SelfServiceFlow,
   SelfServiceFlowGroup
-} from '$/next-components/auth/FlowTypes'
-import { Grid, GridProps } from '@mui/material'
+} from './FlowTypes'
+
 import KratosNode from '$/components/kratos/Node'
 import { uiNodeToId } from '$/pkg/ui'
 import { UiNode, UiNodeTypeEnum } from '$/sdks/client'
 import { isUiNodeInputAttributes } from '@ory/integrations/ui'
 
 export interface Props {
-  flow?: SelfServiceFlow
-  spacing?: GridProps['spacing']
-  direction?: GridProps['direction']
+  flow: SelfServiceFlow
   groups: Array<SelfServiceFlowGroup>
   inputTypes?: Array<UiNodeInputType>
   includeCSRF?: boolean
@@ -20,8 +18,6 @@ export interface Props {
 
 const FilterFlowNodes = ({
   flow,
-  spacing = 3,
-  direction,
   groups,
   inputTypes,
   includeCSRF
@@ -47,7 +43,7 @@ const FilterFlowNodes = ({
   if (groups.includes('totp') && inputTypes)
     inputTypes.push(UiNodeTypeEnum.Input)
 
-  return flow ? (
+  return (
     <Grid container spacing={spacing} direction={direction}>
       {flow.ui.nodes
         .filter((node) => groups.includes(node.group))
@@ -66,7 +62,7 @@ const FilterFlowNodes = ({
           )
         )}
     </Grid>
-  ) : null
+  )
 }
 
 export default FilterFlowNodes
