@@ -1,17 +1,17 @@
-import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
-import {pxToRem} from "../utils";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
+import { pxToRem } from "../utils";
 
 export const inputTypographyStyle = recipe({
   base: {
     fontFamily: 'Inter',
     textDecoration: 'none'
   },
-  
+
   defaultVariants: {
     size: 16,
     type: 'regular'
   },
-  
+
   variants: {
     size: {
       16: {
@@ -43,11 +43,11 @@ export const typographyStyle = recipe({
     fontFamily: 'Inter',
     textDecoration: 'none'
   },
-  
+
   defaultVariants: {
     type: 'regular',
   },
-  
+
   variants: {
     size: {
       tiny: {
@@ -61,6 +61,10 @@ export const typographyStyle = recipe({
       small: {
         fontSize: pxToRem(16),
         lineHeight: pxToRem(28),
+      },
+      caption: {
+        fontSize: pxToRem(14),
+        lineHeight: pxToRem(20)
       },
       body: {
         fontSize: pxToRem(18),

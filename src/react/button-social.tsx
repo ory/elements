@@ -13,9 +13,9 @@ export interface ButtonSocialProps extends React.ButtonHTMLAttributes<HTMLButton
     className?: string
 }
 
-export const ButtonSocial = ({ title, brand, size, variant, className }: ButtonSocialProps) => (
+export const ButtonSocial = ({ title, brand, size, variant, className, ...props }: ButtonSocialProps) => (
     <div className={className}>
-        <button className={buttonSocialStyle({ size, variant })}>
+        <button className={buttonSocialStyle({ size, variant })} {...props}>
             <span className={cn(`fa-brands fa-${brand}`, buttonSocialIconStyle({ size }))} />
             <div className={buttonSocialTitleStyle}>
                 {title}
