@@ -1,5 +1,5 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { pxToRem } from "../utils";
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
+import { pxToRem } from '../utils';
 
 export const inputTypographyStyle = recipe({
   base: {
@@ -16,25 +16,25 @@ export const inputTypographyStyle = recipe({
     size: {
       16: {
         fontSize: pxToRem(16),
-        lineHeight: pxToRem(24),
+        lineHeight: pxToRem(24)
       },
       18: {
         fontSize: pxToRem(18),
-        lineHeight: pxToRem(32),
+        lineHeight: pxToRem(32)
       }
     },
     type: {
       regular: {
         fontWeight: 400,
-        fontStyle: 'normal',
+        fontStyle: 'normal'
       },
       semiBold: {
         fontWeight: 600,
-        fontStyle: 'normal',
+        fontStyle: 'normal'
       }
     }
   }
-})
+});
 
 export type InputTypographyStyle = RecipeVariants<typeof inputTypographyStyle>;
 
@@ -45,7 +45,7 @@ export const typographyStyle = recipe({
   },
 
   defaultVariants: {
-    type: 'regular',
+    type: 'regular'
   },
 
   variants: {
@@ -60,7 +60,7 @@ export const typographyStyle = recipe({
       },
       small: {
         fontSize: pxToRem(16),
-        lineHeight: pxToRem(28),
+        lineHeight: pxToRem(28)
       },
       caption: {
         fontSize: pxToRem(14),
@@ -68,43 +68,43 @@ export const typographyStyle = recipe({
       },
       body: {
         fontSize: pxToRem(18),
-        lineHeight: pxToRem(32),
+        lineHeight: pxToRem(32)
       },
       lead: {
         fontSize: pxToRem(24),
-        lineHeight: pxToRem(36),
+        lineHeight: pxToRem(36)
       },
       headline21: {
         fontSize: pxToRem(21),
-        lineHeight: pxToRem(32),
+        lineHeight: pxToRem(32)
       },
       headline26: {
         fontSize: pxToRem(26),
-        lineHeight: pxToRem(40),
+        lineHeight: pxToRem(40)
       },
       headline31: {
         fontSize: pxToRem(31),
-        lineHeight: pxToRem(48),
+        lineHeight: pxToRem(48)
       },
       headline37: {
         fontSize: pxToRem(37),
-        lineHeight: pxToRem(52),
+        lineHeight: pxToRem(52)
       },
       headline48: {
         fontSize: pxToRem(48),
-        lineHeight: pxToRem(60),
+        lineHeight: pxToRem(60)
       },
       display: {
         fontSize: pxToRem(64),
-        lineHeight: pxToRem(80),
+        lineHeight: pxToRem(80)
       },
       hero: {
         fontSize: pxToRem(80),
-        lineHeight: pxToRem(96),
+        lineHeight: pxToRem(96)
       },
       uber: {
         fontSize: pxToRem(112),
-        lineHeight: pxToRem(120),
+        lineHeight: pxToRem(120)
       },
       colossus: {
         fontSize: pxToRem(140),
@@ -114,7 +114,7 @@ export const typographyStyle = recipe({
     type: {
       regular: {
         fontWeight: 400,
-        fontStyle: 'normal',
+        fontStyle: 'normal'
       },
       bold: {
         fontWeight: 700,
@@ -122,6 +122,6 @@ export const typographyStyle = recipe({
       }
     }
   }
-})
+});
 
 export type TypographyStyle = RecipeVariants<typeof typographyStyle>;
