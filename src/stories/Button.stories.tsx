@@ -1,16 +1,26 @@
-import { Button, ButtonProps } from "../../react";
+import { Button, ButtonProps } from "../react";
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
-import { Container } from '../storyhelper';
+import { Container } from './storyhelper';
 
-const meta: Meta = {
-    title: 'LightTheme/Button',
-    component: Button
-};
+export default {
+    title: 'Component/Button',
+    component: Button,
+    argTypes: {
+        theme: {
+            options: ['light', 'dark'],
+            control: { type: 'radio' }
+        }
+    }
+} as ComponentMeta<typeof Button>;
 
-const Template: Story<ButtonProps> = (args: ButtonProps) => (
-    <Container theme={'light'}>
+export type ButtonStoryProps = ButtonProps & {
+    theme: 'light' | 'dark'
+}
+
+const Template: Story<ButtonStoryProps> = (args: ButtonStoryProps) => (
+    <Container theme={args.theme || 'light'}>
         <Button {...args} />
     </Container>
 );
@@ -62,5 +72,3 @@ LargeSemibold.args = {
     size: 'large',
     type: 'semibold'
 }
-
-export default meta;
