@@ -3,6 +3,12 @@ import { pxToEm, pxToRem } from '../utils';
 import { oryTheme } from './theme.css';
 
 export const checkboxStyle = style({
+  display: 'inline-flex',
+  cursor: 'pointer',
+  position: 'relative'
+});
+
+export const checkboxInputStyle = style({
   cursor: 'pointer',
   WebkitAppearance: 'none',
   MozAppearance: 'none',
@@ -10,20 +16,17 @@ export const checkboxStyle = style({
   height: pxToRem(18),
   width: pxToRem(18),
   border: `${pxToEm(2)} solid ${oryTheme.accent.default}`,
-  borderRadius: pxToEm(4),
+  borderRadius: pxToRem(4),
   color: oryTheme.accent.default,
   selectors: {
-    '&:checked::after': {
-      fontFamily: '"Font Awesome 5 Free"',
-      fontWeight: 400,
-      display: 'inline-block',
-      fontStyle: 'normal',
-      fontVariant: 'normal',
-      textRendering: 'auto',
-      WebkitFontSmoothing: 'antialiased',
-      content: '\\f00c',
+    '&:checked::before': {
+      display: 'block',
       textAlign: 'center',
-      color: oryTheme.accent.default
+      position: 'absolute',
+      content: '\\2713',
+      color: oryTheme.accent.default,
+      left: pxToRem(3),
+      top: pxToRem(1)
     }
   },
   ':disabled': {
