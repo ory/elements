@@ -4,10 +4,9 @@ import {
   SelfServiceFlowGroup
 } from './FlowTypes'
 
-import KratosNode from '$/components/kratos/Node'
-import { uiNodeToId } from '$/pkg/ui'
-import { UiNode, UiNodeTypeEnum } from '$/sdks/client'
+import { UiNode, UiNodeTypeEnum } from '@ory/client'
 import { isUiNodeInputAttributes } from '@ory/integrations/ui'
+import { Node } from './node'
 
 export interface Props {
   flow: SelfServiceFlow
@@ -31,7 +30,7 @@ const FilterFlowNodes = ({
     isUiNodeInputAttributes(node.attributes) ? node.attributes.name : ''
 
   const $node = (node: UiNode, k: number) => (
-    <KratosNode key={uiNodeToId(node) + k} node={node} />
+    <Node node={node} />
   )
 
   const hiddenTypes: Array<UiNodeInputType> = ['hidden', 'script']
@@ -44,7 +43,6 @@ const FilterFlowNodes = ({
     inputTypes.push(UiNodeTypeEnum.Input)
 
   return (
-    <Grid container spacing={spacing} direction={direction}>
       {flow.ui.nodes
         .filter((node) => groups.includes(node.group))
         .filter(
@@ -56,12 +54,11 @@ const FilterFlowNodes = ({
           hiddenTypes.includes(getInputType(node)) ? (
             $node(node, k)
           ) : (
-            <Grid item xs={12} md={6} key={k}>
-              {$node(node, k)}
-            </Grid>
+            <>
+            {$node(node, k)}
+            </>
           )
         )}
-    </Grid>
   )
 }
 

@@ -70,6 +70,9 @@
     "./style.css": "./dist/style.css",
     "./inter-font.css": "./dist/inter-font.css",
     "./brands-icons.min.css": "./dist/brands-icons.min.css",
+    "./all.min.css": "./dist/all.min.css",
+    "./fontawesome.min.css": "./dist/fontawesome.min.css",
+    "./solid.min.css": "./dist/solid.min.css",
     "./normalize.css": "./dist/normalize.css"
   },
   "_id": "@ory/themes@0.0.100"
