@@ -1,16 +1,26 @@
-import { ButtonSocial, ButtonSocialProps } from "../../react";
+import { ButtonSocial, ButtonSocialProps } from "../react";
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import { Story } from '@storybook/react/types-6-0';
-import { Container } from '../storyhelper';
+import { Container } from './storyhelper';
 
-const meta: Meta = {
-    title: 'LightTheme/ButtonSocial',
-    component: ButtonSocial
-};
+export default {
+    title: 'Component/ButtonSocial',
+    component: ButtonSocial,
+    argTypes: {
+        theme: {
+            options: ['light', 'dark'],
+            control: { type: 'radio' }
+        }
+    }
+} as ComponentMeta<typeof ButtonSocial>;
 
-const Template: Story<ButtonSocialProps> = (args: ButtonSocialProps) => (
-    <Container theme={'light'}>
+type ButtonSocialStoryProps = ButtonSocialProps & {
+    theme: 'light' | 'dark'
+}
+
+const Template: Story<ButtonSocialStoryProps> = (args: ButtonSocialStoryProps) => (
+    <Container theme={args.theme || 'light'}>
         <ButtonSocial {...args} />
     </Container>
 );
@@ -84,5 +94,3 @@ SocialButton.args = {
     brand: 'google',
     type: 'semibold'
 }
-
-export default meta;

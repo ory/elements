@@ -1,11 +1,6 @@
 import React, { ReactNode } from 'react';
 import '../../dist/style.css';
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import '../../dist/style.css';
-import {
-  defaultDarkTheme, defaultLightTheme,
-  oryTheme,
-} from "../theme";
 import { ThemeProvider } from '../react';
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
