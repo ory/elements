@@ -10,7 +10,7 @@ import { Button } from '../button';
 import { ButtonSocial } from '../button-social';
 import { Checkbox } from '../checkbox';
 
-export const Node = ({ node }: { node: UiNode }): React.ReactNode => {
+export const Node = ({ node }: { node: UiNode }) => {
   if (isUiNodeAnchorAttributes(node.attributes)) {
     return <></>;
   } else if (isUiNodeInputAttributes(node.attributes)) {
@@ -43,10 +43,11 @@ export const Node = ({ node }: { node: UiNode }): React.ReactNode => {
           />
         );
       case 'checkbox':
-        return <Checkbox checked />;
+        return <Checkbox label={getNodeLabel(node)} name={attrs.name} />;
       default:
         return null;
     }
     return null;
   }
+  return null;
 };
