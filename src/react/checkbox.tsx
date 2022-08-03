@@ -3,9 +3,6 @@ import { typographyStyle } from '../theme';
 import { checkboxInputStyle, checkboxStyle } from '../theme/checkbox.css';
 import cn from 'classnames';
 
-import '../assets/fontawesome.min.css';
-import '../assets/regular.min.css';
-
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
