@@ -1,69 +1,69 @@
-import { pxToRem } from "../utils";
+import { pxToRem } from '../utils';
 
 export type Font = {
-  fontFamily: string,
-  fontStyle: string
-}
+  fontFamily: string;
+  fontStyle: string;
+};
 
 export type BreakPoints = {
-  sm: string
-  md: string
-  lg: string
-  xl: string
-  xl2: string
-}
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  xl2: string;
+};
 
 export const defaultBreakpoints: BreakPoints = {
   sm: pxToRem(640),
   md: pxToRem(768),
   lg: pxToRem(1024),
   xl: pxToRem(1280),
-  xl2: pxToRem(1536),
-}
+  xl2: pxToRem(1536)
+};
 
 export type Theme = {
   accent: {
-    default: string,
-    muted: string,
-    emphasis: string,
-    disabled: string,
-    subtle: string
-  },
+    default: string;
+    muted: string;
+    emphasis: string;
+    disabled: string;
+    subtle: string;
+  };
   foreground: {
-    default: string,
-    muted: string,
-    subtle: string,
-    disabled: string,
-    onDark: string,
-    onAccent: string,
-    onDisabled: string,
-  },
+    default: string;
+    muted: string;
+    subtle: string;
+    disabled: string;
+    onDark: string;
+    onAccent: string;
+    onDisabled: string;
+  };
   background: {
-    surface: string,
-    canvas: string,
-  },
+    surface: string;
+    canvas: string;
+  };
   error: {
-    default: string,
-    subtle: string,
-    muted: string,
-    emphasis: string,
-  },
+    default: string;
+    subtle: string;
+    muted: string;
+    emphasis: string;
+  };
   success: {
-    emphasis: string,
-  },
+    emphasis: string;
+  };
   border: {
-    default: string
-  },
+    default: string;
+  };
   text: {
-    default: string,
-    disabled: string
-  },
+    default: string;
+    disabled: string;
+  };
   input: {
-    background: string,
-    disabled: string,
-    placeholder: string,
-    text: string
-  }
+    background: string;
+    disabled: string;
+    placeholder: string;
+    text: string;
+  };
 } & Font;
 
 export const defaultFont = {
@@ -76,7 +76,7 @@ const defaultButtonFontTheme = {
   textDecoration: 'none',
   fontSize: pxToRem(16),
   lineHeight: pxToRem(28)
-}
+};
 
 export const defaultLightTheme: Theme = {
   ...defaultFont,
@@ -94,20 +94,20 @@ export const defaultLightTheme: Theme = {
     disabled: '#BDBDBD',
     onDark: '#FFFFFF',
     onAccent: '#FFFFFF',
-    onDisabled: '#e0e0e0',
+    onDisabled: '#e0e0e0'
   },
   background: {
     surface: '#FFFFFF',
-    canvas: '#FCFCFC',
+    canvas: '#FCFCFC'
   },
   error: {
     default: '#9c0f2e',
     subtle: '#fce8ec',
     muted: '#e95c7b',
-    emphasis: '#DF1642',
+    emphasis: '#DF1642'
   },
   success: {
-    emphasis: '#18A957',
+    emphasis: '#18A957'
   },
   border: {
     default: '#E0E0E0'
@@ -122,7 +122,7 @@ export const defaultLightTheme: Theme = {
     placeholder: '#9E9E9E',
     text: '#424242'
   }
-}
+};
 
 export const defaultDarkTheme: Theme = {
   ...defaultFont,
@@ -147,16 +147,16 @@ export const defaultDarkTheme: Theme = {
     canvas: '#090616'
   },
   border: {
-    default: '#221956',
+    default: '#221956'
   },
   error: {
     default: '#e95c7b',
     subtle: '#2d040d',
     muted: '#9c0f2e',
-    emphasis: '#df1642',
+    emphasis: '#df1642'
   },
   success: {
-    emphasis: '#18a957',
+    emphasis: '#18a957'
   },
   input: {
     background: '#FFFFFF',
@@ -168,4 +168,4 @@ export const defaultDarkTheme: Theme = {
     default: '#FFFFFF',
     disabled: '#757575'
   }
-}
+};

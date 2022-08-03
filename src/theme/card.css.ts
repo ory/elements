@@ -1,18 +1,17 @@
-import {style} from "@vanilla-extract/css";
-import {pxToRem} from "../utils";
-import {oryTheme} from "./theme.css";
-import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
+import { style } from '@vanilla-extract/css';
+import { pxToRem } from '../utils';
+import { oryTheme } from './theme.css';
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 // the base card style with media queries
 const card = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  border: `${pxToRem(1)} solid`,
+  border: `1px solid ${oryTheme.border.default}`,
   borderRadius: pxToRem(16),
   padding: pxToRem(48),
   background: oryTheme.background.surface,
-  borderColor: oryTheme.border.default,
   color: oryTheme.foreground.default,
   maxWidth: pxToRem(432),
   '@media': {
@@ -20,7 +19,7 @@ const card = style({
       width: '100%',
       border: '0px',
       borderRadius: '0px',
-      padding: `0px 0px ${pxToRem(32)}`,
+      padding: `0px 0px ${pxToRem(32)}`
     }
   }
 });

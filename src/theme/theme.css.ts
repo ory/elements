@@ -1,18 +1,16 @@
-import {
-  createGlobalTheme,
-  globalStyle,
-} from "@vanilla-extract/css";
+import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
 
-import { defaultFont, defaultLightTheme } from "./consts";
+import { defaultFont, defaultLightTheme } from './consts';
 
-export const oryTheme = createGlobalTheme(":root", {
+export const oryTheme = createGlobalTheme(':root', {
   ...defaultFont,
   ...defaultLightTheme
-})
+});
 
 globalStyle('html, body', {
-  textRendering: "geometricPrecision",
+  textRendering: 'geometricPrecision',
+  WebkitFontSmoothing: 'antialiased',
   fontFamily: oryTheme.fontFamily,
   fontStyle: oryTheme.fontStyle,
-  boxSizing: "border-box",
+  boxSizing: 'border-box'
 });
