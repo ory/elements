@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 import { typographyStyle } from '../theme';
-import { checkboxStyle } from '../theme/checkbox.css';
+import { checkboxInputStyle, checkboxStyle } from '../theme/checkbox.css';
 import cn from 'classnames';
 
 import '../assets/fontawesome.min.css';
@@ -24,10 +24,16 @@ export const Checkbox = ({
     <div
       className={cn(
         className,
-        typographyStyle({ type: 'regular', size: 'caption' })
+        typographyStyle({ type: 'regular', size: 'caption' }),
+        checkboxStyle
       )}
     >
-      <input className={checkboxStyle} id={id} type={'checkbox'} {...props} />
+      <input
+        className={checkboxInputStyle}
+        id={id}
+        type={'checkbox'}
+        {...props}
+      />
       {label && (
         <label htmlFor={id}>
           <span>{label}</span>
