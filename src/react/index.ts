@@ -4,3 +4,4 @@ export * from './button';
 export * from './button-social';
 export * from './checkbox';
 export * from './provider';
+export * from './ory';
