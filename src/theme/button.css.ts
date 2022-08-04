@@ -7,12 +7,14 @@ export const buttonStyle = recipe({
   base: {
     // keep `all: unset` at the top since this removes the standard html styling from the button
     all: 'unset',
+    boxSizing: 'border-box',
     fontFamily: 'Inter',
     textDecoration: 'none',
     color: oryTheme.text.default,
     background: oryTheme.accent.default,
     padding: pxToRem(10, 16),
     borderRadius: pxToRem(4),
+    textAlign: 'center',
     cursor: 'pointer',
     ':disabled': {
       backgroundColor: oryTheme.text.disabled
@@ -39,7 +41,7 @@ export const buttonStyle = recipe({
         fontSize: pxToRem(16),
         lineHeight: pxToRem(28)
       },
-      [`screen and (min-width: ${defaultBreakpoints.sm})`]: {
+      [`screen and (max-width: ${defaultBreakpoints.sm})`]: {
         fontSize: pxToRem(14),
         lineHeight: pxToRem(20)
       }

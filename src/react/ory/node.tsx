@@ -9,15 +9,14 @@ import {
 import { Button } from '../button';
 import { ButtonSocial } from '../button-social';
 import { Checkbox } from '../checkbox';
+import { InputField } from '../input-field';
 
 export const Node = ({ node }: { node: UiNode }) => {
   if (isUiNodeAnchorAttributes(node.attributes)) {
     return <></>;
   } else if (isUiNodeInputAttributes(node.attributes)) {
     const attrs = node.attributes as UiNodeInputAttributes;
-    switch (node.attributes.node_type) {
-      case 'hidden':
-        return <></>;
+    switch (node.attributes.type) {
       case 'submit':
         const isSocial =
           (attrs.name === 'provider' || attrs.name === 'link') &&
@@ -26,12 +25,16 @@ export const Node = ({ node }: { node: UiNode }) => {
           <ButtonSocial
             title={getNodeLabel(node)}
             brand={attrs.value.toLowerCase()}
+            variant={'semibold'}
+            fullWidth
           />
         ) : (
           <Button
             title={getNodeLabel(node)}
             name={attrs.name}
             type={'submit'}
+            variant={'semibold'}
+            fullWidth
           />
         );
       case 'button':
@@ -40,10 +43,18 @@ export const Node = ({ node }: { node: UiNode }) => {
             title={getNodeLabel(node)}
             name={attrs.name}
             type={'button'}
+            fullWidth
           />
         );
       case 'checkbox':
         return <Checkbox label={getNodeLabel(node)} name={attrs.name} />;
+      case 'hidden':
+      case 'password':
+      case 'email':
+      case 'text':
+        return (
+          <InputField title={getNodeLabel(node)} type={attrs.type} fullWidth />
+        );
       default:
         return null;
     }

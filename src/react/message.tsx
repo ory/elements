@@ -1,18 +1,22 @@
-import React from "react";
-import { messageStyle, MessageVariants } from "../theme";
-import cn from "classnames";
+import React from 'react';
+import { messageStyle, MessageVariants, typographyStyle } from '../theme';
+import cn from 'classnames';
 
 export type MessageProps = {
-  message: string;
   className?: string;
   children?: React.ReactNode;
-} & MessageVariants
+} & MessageVariants;
 
-export const Message = ({ message, severity, className, children }: MessageProps) => {
+export const Message = ({ severity, className, children }: MessageProps) => {
   return (
-    <div className={cn(messageStyle({ severity: severity }), className)}>
-      <div>{message}</div>
+    <div
+      className={cn(
+        messageStyle({ severity: severity }),
+        typographyStyle({ size: 'small', type: 'regular' }),
+        className
+      )}
+    >
       {children}
     </div>
-  )
-}
+  );
+};

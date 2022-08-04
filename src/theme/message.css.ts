@@ -1,9 +1,9 @@
-import {oryTheme} from "./theme.css";
-import {recipe, RecipeVariants} from "@vanilla-extract/recipes";
+import { oryTheme } from './theme.css';
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 export const messageStyle = recipe({
   base: {
-    color: oryTheme.success.emphasis
+    color: oryTheme.foreground.default
   },
   variants: {
     severity: {
@@ -13,14 +13,11 @@ export const messageStyle = recipe({
       success: {
         color: oryTheme.success.emphasis
       },
-      info: {
-        color: oryTheme.text.default
+      disabled: {
+        color: oryTheme.foreground.disabled
       }
     }
-  },
-  defaultVariants: {
-    severity: 'info'
   }
-}, "messageStyle")
+});
 
 export type MessageVariants = RecipeVariants<typeof messageStyle>;

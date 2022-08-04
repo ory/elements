@@ -7,7 +7,7 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 const card = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: 'stretch',
   border: `1px solid ${oryTheme.border.default}`,
   borderRadius: pxToRem(16),
   padding: pxToRem(48),
@@ -22,6 +22,10 @@ const card = style({
       padding: `0px 0px ${pxToRem(32)}`
     }
   }
+});
+
+export const cardTitleStyle = style({
+  textAlign: 'center'
 });
 
 // recipe for the card style

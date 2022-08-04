@@ -1,7 +1,6 @@
-import { Button, ButtonProps } from '../react';
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import { Story } from '@storybook/react/types-6-0';
+import { Button, ButtonProps } from '../react';
+import { Story, ComponentMeta } from '@storybook/react';
 import { Container } from './storyhelper';
 
 export default {

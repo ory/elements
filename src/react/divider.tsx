@@ -1,8 +1,10 @@
-import { dividerStyle } from "../theme";
-import cn from "classnames";
+import { dividerStyle } from '../theme';
+import cn from 'classnames';
 
 export type DividerProps = {
-  className?: string
-}
+  className?: string;
+};
 
-export const Divider = ({ className }: DividerProps) => <div className={cn(dividerStyle(), className)} />;
+export const Divider = ({ className }: DividerProps) => (
+  <hr className={cn(dividerStyle(), className)} />
+);

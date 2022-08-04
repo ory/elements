@@ -1,7 +1,6 @@
-import { Button, ButtonProps, Checkbox, CheckboxProps } from '../react';
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import { Story } from '@storybook/react/types-6-0';
+import { Story, ComponentMeta } from '@storybook/react';
+import { Checkbox, CheckboxProps } from '../react';
 import { Container } from './storyhelper';
 
 export default {

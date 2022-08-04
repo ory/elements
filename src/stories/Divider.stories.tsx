@@ -1,8 +1,7 @@
-import { ComponentMeta } from "@storybook/react";
-import { Divider } from "../react/divider";
-import { Story } from "@storybook/react/types-6-0";
-import { Container } from "./storyhelper";
-import React from "react";
+import React from 'react';
+import { Story, ComponentMeta } from '@storybook/react';
+import { Divider } from '../react/divider';
+import { Container } from './storyhelper';
 
 export default {
   title: 'Component/Divider',
@@ -16,8 +15,8 @@ export default {
 } as ComponentMeta<typeof Divider>;
 
 type DividerStoryProps = {
-  theme: 'light' | 'dark'
-}
+  theme: 'light' | 'dark';
+};
 
 const Template: Story<DividerStoryProps> = (args: DividerStoryProps) => (
   <Container theme={args.theme || 'light'}>

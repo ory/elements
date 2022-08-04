@@ -1,9 +1,7 @@
 import React from 'react';
-import { Story } from '@storybook/react/types-6-0';
+import { Story, ComponentMeta } from '@storybook/react';
 import { Container } from './storyhelper';
-import { Message } from "../react";
-import { Card, CardProps } from "../react";
-import { ComponentMeta } from '@storybook/react';
+import { Card, CardProps, Message } from '../react';
 
 export default {
   title: 'Component/Card',

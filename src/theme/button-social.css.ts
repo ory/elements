@@ -7,6 +7,7 @@ import { oryTheme } from './theme.css';
 export const buttonSocialStyle = recipe({
   base: {
     all: 'unset',
+    boxSizing: 'border-box',
     fontFamily: 'Inter',
     textDecoration: 'none',
     display: 'flex',
