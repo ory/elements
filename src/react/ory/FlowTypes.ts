@@ -4,14 +4,14 @@ import {
   SelfServiceRegistrationFlow,
   SelfServiceSettingsFlow,
   SelfServiceVerificationFlow
-} from '@ory/client'
+} from '@ory/client';
 
 export type SelfServiceFlow =
   | SelfServiceLoginFlow
   | SelfServiceRecoveryFlow
   | SelfServiceRegistrationFlow
   | SelfServiceSettingsFlow
-  | SelfServiceVerificationFlow
+  | SelfServiceVerificationFlow;
 
 export type SelfServiceFlowGroup =
   | 'password'
@@ -21,7 +21,7 @@ export type SelfServiceFlowGroup =
   | 'link'
   | 'webauthn'
   | 'totp'
-  | 'lookup_secret'
+  | 'lookup_secret';
 
 // TODO remove this type once the SDK is updated and has this enum
 export type UiNodeInputType =
@@ -34,16 +34,16 @@ export type UiNodeInputType =
   | 'script'
   | 'input'
   | 'checkbox'
-  | 'datetime-local'
+  | 'datetime-local';
 
 export type ErrorProps = {
-  code: number
+  code: number;
   details: {
-    docs: string
-    hint: string
-    rejectReason: string
-  }
-  message: string
-  status: string
-  reason: string
-}
+    docs: string;
+    hint: string;
+    rejectReason: string;
+  };
+  message: string;
+  status: string;
+  reason: string;
+};

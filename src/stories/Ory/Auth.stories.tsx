@@ -35,5 +35,6 @@ const Template: Story<SelfServiceAuthCardStoryProps> = (
 export const LoginAuthCard = Template.bind({});
 
 LoginAuthCard.args = {
+  title: 'Sign in to your Acme account',
   flow: loginFlow as SelfServiceLoginFlow
 };

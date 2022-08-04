@@ -7,6 +7,8 @@ import {
 import { UiNode, UiNodeTypeEnum } from '@ory/client';
 import { isUiNodeInputAttributes } from '@ory/integrations/ui';
 import { Node } from './node';
+import { gridStyle } from '../../theme';
+import { pxToRem } from '../../utils';
 
 export interface Props {
   flow: SelfServiceFlow;
@@ -39,7 +41,7 @@ export const FilterFlowNodes = ({
     inputTypes.push(UiNodeTypeEnum.Input);
 
   return (
-    <>
+    <div className={gridStyle({ gap: 16 })}>
       {flow.ui.nodes.length > 0
         ? flow.ui.nodes
             .filter((node) => groups.includes(node.group))
@@ -52,12 +54,13 @@ export const FilterFlowNodes = ({
             )
             .map((node, k) =>
               hiddenTypes.includes(getInputType(node)) ? (
+                // TODO: this also adds a gap which it shouldn't
                 <Node node={node} key={k} />
               ) : (
                 <Node node={node} key={k} />
               )
             )
         : null}
-    </>
+    </div>
   );
 };

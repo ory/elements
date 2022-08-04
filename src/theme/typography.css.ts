@@ -40,6 +40,7 @@ export type InputTypographyStyle = RecipeVariants<typeof inputTypographyStyle>;
 
 export const typographyStyle = recipe({
   base: {
+    boxSizing: 'border-box',
     fontFamily: 'Inter',
     textDecoration: 'none'
   },
