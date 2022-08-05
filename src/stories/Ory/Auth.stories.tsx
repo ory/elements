@@ -7,7 +7,9 @@ import {
 import { Container } from '../storyhelper';
 
 import loginFlow from './login-flow.json';
-import { SelfServiceLoginFlow } from '@ory/client';
+import registrationFlow from './register-flow.json';
+
+import { SelfServiceLoginFlow, SelfServiceRegistrationFlow } from '@ory/client';
 
 export default {
   title: 'Ory/SelfServiceFlowCard',
@@ -36,5 +38,19 @@ export const LoginAuthCard = Template.bind({});
 
 LoginAuthCard.args = {
   title: 'Sign in to your Acme account',
-  flow: loginFlow as SelfServiceLoginFlow
+  flow: loginFlow as SelfServiceLoginFlow,
+  additionalProps: {
+    signupLink: 'https://acme.com/login',
+    forgotPasswordLink: 'https://acme.com/forgot-password'
+  }
+};
+
+export const RegistrationAuthCard = Template.bind({});
+
+RegistrationAuthCard.args = {
+  title: 'Create an account for Acme',
+  flow: registrationFlow as SelfServiceRegistrationFlow,
+  additionalProps: {
+    loginLink: 'https://acme.com/login'
+  }
 };

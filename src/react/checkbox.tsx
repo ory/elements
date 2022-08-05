@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
-import { typographyStyle } from '../theme';
+import { gridStyle, typographyStyle } from '../theme';
 import { checkboxInputStyle, checkboxStyle } from '../theme/checkbox.css';
 import cn from 'classnames';
 
@@ -22,6 +22,7 @@ export const Checkbox = ({
       className={cn(
         className,
         typographyStyle({ type: 'regular', size: 'caption' }),
+        gridStyle({ direction: 'row', gap: 8 }),
         checkboxStyle
       )}
     >

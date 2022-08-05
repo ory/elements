@@ -10,11 +10,10 @@ import React from 'react';
 
 export interface Props {
   filter: filterNodesByGroups;
-  flowType?: 'login' | 'registration';
   includeCSRF?: boolean;
 }
 
-export const FilterFlowNodes = ({ flowType, filter, includeCSRF }: Props) => {
+export const FilterFlowNodes = ({ filter, includeCSRF }: Props) => {
   const getInputName = (node: UiNode): string =>
     isUiNodeInputAttributes(node.attributes) ? node.attributes.name : '';
 
