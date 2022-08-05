@@ -7,24 +7,45 @@ import { SelfServiceFlowForm } from './selfservice-flow-form';
 import { ButtonLink } from '../button-link';
 import { Message } from '../message';
 import { colorStyle } from '../../theme/color.css';
+import { gridStyle } from '../../theme';
 
 import '../../assets/flexboxgrid.min.css';
-import { gridStyle } from '../../theme';
+
+export type SelfServiceLoginProps = {
+  forgotPasswordLink?: string;
+  signupLink?: string;
+};
+
+export type SelfServiceRegistrationProps = {
+  loginLink?: string;
+};
 
 export type SelfServiceAuthCardProps = {
   flow: SelfServiceFlow;
   title: string;
-  alternativeFlowLink: string;
+  additionalProps: SelfServiceLoginProps | SelfServiceRegistrationProps;
   icon?: string;
   ctaLink?: string;
   className?: string;
   children?: string;
 };
 
+const isLoginFlow = (
+  flow: SelfServiceLoginProps | SelfServiceRegistrationProps
+): flow is SelfServiceLoginProps => {
+  return (flow as SelfServiceLoginProps).signupLink !== undefined;
+};
+
+const isRegistrationFlow = (
+  flow: SelfServiceLoginProps | SelfServiceRegistrationProps
+): flow is SelfServiceRegistrationProps => {
+  return (flow as SelfServiceRegistrationProps).loginLink !== undefined;
+};
+
 export const SelfServiceAuthCard = ({
   flow,
   title,
-  alternativeFlowLink,
+  additionalProps,
   ctaLink
 }: SelfServiceAuthCardProps) => {
   return (
@@ -52,7 +73,9 @@ export const SelfServiceAuthCard = ({
                 excludeAttributes: 'submit'
               }}
             />
-            <ButtonLink href={ctaLink}>Forgot Password?</ButtonLink>
+            {isLoginFlow(additionalProps) && (
+              <ButtonLink href={ctaLink}>Forgot Password?</ButtonLink>
+            )}
           </div>
           <FilterFlowNodes
             filter={{
@@ -61,12 +84,25 @@ export const SelfServiceAuthCard = ({
               attributes: 'submit'
             }}
           />
+          <Message className={colorStyle({ color: 'foregroundMuted' })}>
+            {isRegistrationFlow(additionalProps) ? (
+              <>
+                Already have an account?&nbsp;
+                <ButtonLink href={additionalProps.loginLink}>
+                  Sign in
+                </ButtonLink>
+              </>
+            ) : (
+              <>
+                Don't have an account?&nbsp;
+                <ButtonLink href={additionalProps.signupLink}>
+                  Sign up
+                </ButtonLink>
+              </>
+            )}
+          </Message>
         </div>
       </SelfServiceFlowForm>
-      <Message className={colorStyle({ color: 'foregroundMuted' })}>
-        Don't have an account?{' '}
-        <ButtonLink href={alternativeFlowLink}>Sign up</ButtonLink>
-      </Message>
     </Card>
   );
 };

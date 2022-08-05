@@ -3,6 +3,11 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 export const messageStyle = recipe({
   base: {
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     color: oryTheme.foreground.default
   },
   variants: {
