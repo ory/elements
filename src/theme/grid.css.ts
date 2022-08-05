@@ -17,6 +17,9 @@ export const gridStyle = recipe({
       }
     },
     gap: {
+      4: {
+        gap: pxToRem(4)
+      },
       8: {
         gap: pxToRem(8)
       },

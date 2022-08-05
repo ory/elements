@@ -1,5 +1,5 @@
 import React from 'react';
-import { typographyStyle } from '../theme';
+import { gridStyle, typographyStyle } from '../theme';
 import {
   inputFieldStyle,
   inputFieldTitleStyle
@@ -20,7 +20,7 @@ export const InputField = ({
   ...props
 }: InputFieldProps) => {
   return (
-    <div className={className}>
+    <div className={cn(className, gridStyle({ gap: 4 }))}>
       {title && (
         <div className={typographyStyle({ size: 'small', type: 'regular' })}>
           {title}{' '}
