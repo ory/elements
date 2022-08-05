@@ -31,9 +31,11 @@ export const SelfServiceFlowForm = ({
       <>
         {/*always add csrf token to form*/}
         <FilterFlowNodes
-          groups={['default']}
-          inputTypes={['hidden']}
-          flow={flow}
+          filter={{
+            nodes: flow.ui.nodes,
+            groups: ['default'],
+            attributes: ['hidden']
+          }}
           includeCSRF={true}
         />
         {children}

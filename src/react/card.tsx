@@ -19,7 +19,7 @@ export const Card = ({ title, className, children }: CardProps) => (
   >
     <div className={gridStyle({ gap: 32 })}>
       <h4 className={cardTitleStyle}>{title}</h4>
-      {children}
+      <div>{children}</div>
     </div>
   </div>
 );
