@@ -46,6 +46,7 @@ export const Node = ({ node }: { node: UiNode }) => {
             fullWidth
           />
         );
+      case 'datetime-local':
       case 'checkbox':
         return <Checkbox label={getNodeLabel(node)} name={attrs.name} />;
       case 'hidden':
