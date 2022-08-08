@@ -1,6 +1,4 @@
 import React, { ReactNode } from 'react';
-import '../../dist/style.css';
-import '../../dist/style.css';
 import { ThemeProvider } from '../react';
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
@@ -21,11 +19,7 @@ export const Container = ({
   children: ReactNode;
   width?: number;
   theme: 'light' | 'dark';
-}) => (
-  <ThemeProvider theme={theme}>
-    {children}
-  </ThemeProvider>
-);
+}) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
 export const HR = () => (
   <hr
