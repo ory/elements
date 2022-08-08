@@ -40,8 +40,9 @@ LoginAuthCard.args = {
   title: 'Sign in to your Acme account',
   flow: loginFlow as SelfServiceLoginFlow,
   additionalProps: {
-    signupLink: 'https://acme.com/login',
-    forgotPasswordLink: 'https://acme.com/forgot-password'
+    signupUrl: 'https://acme.com/login',
+    forgotPasswordUrl: 'https://acme.com/forgot-password',
+    logoutUrl: 'https://acme.com/logout'
   }
 };
 
@@ -51,6 +52,6 @@ RegistrationAuthCard.args = {
   title: 'Create an account for Acme',
   flow: registrationFlow as SelfServiceRegistrationFlow,
   additionalProps: {
-    loginLink: 'https://acme.com/login'
+    loginUrl: 'https://acme.com/login'
   }
 };

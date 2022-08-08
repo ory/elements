@@ -8,16 +8,22 @@ import { ButtonLink } from '../button-link';
 import { Message } from '../message';
 import { colorStyle } from '../../theme/color.css';
 import { gridStyle } from '../../theme';
+import {
+  SelfServiceLoginFlow,
+  SelfServiceRegistrationFlow,
+  UiNode
+} from '@ory/client';
 
 import '../../assets/flexboxgrid.min.css';
 
 export type SelfServiceLoginProps = {
-  forgotPasswordLink?: string;
-  signupLink?: string;
+  forgotPasswordUrl?: string;
+  signupUrl?: string;
+  logoutUrl?: string;
 };
 
 export type SelfServiceRegistrationProps = {
-  loginLink?: string;
+  loginUrl?: string;
 };
 
 export type SelfServiceAuthCardProps = {
@@ -25,7 +31,6 @@ export type SelfServiceAuthCardProps = {
   title: string;
   additionalProps: SelfServiceLoginProps | SelfServiceRegistrationProps;
   icon?: string;
-  ctaLink?: string;
   className?: string;
   children?: string;
 };
@@ -33,21 +38,104 @@ export type SelfServiceAuthCardProps = {
 const isLoginFlow = (
   flow: SelfServiceLoginProps | SelfServiceRegistrationProps
 ): flow is SelfServiceLoginProps => {
-  return (flow as SelfServiceLoginProps).signupLink !== undefined;
+  return (flow as SelfServiceLoginProps).signupUrl !== undefined;
 };
 
 const isRegistrationFlow = (
   flow: SelfServiceLoginProps | SelfServiceRegistrationProps
 ): flow is SelfServiceRegistrationProps => {
-  return (flow as SelfServiceRegistrationProps).loginLink !== undefined;
+  return (flow as SelfServiceRegistrationProps).loginUrl !== undefined;
 };
+
+type loginCardProps = {
+  nodes: UiNode[];
+  isLoggedIn: boolean;
+} & SelfServiceLoginProps;
+
+const loginCard = ({
+  nodes,
+  forgotPasswordUrl,
+  signupUrl,
+  logoutUrl,
+  isLoggedIn
+}: loginCardProps) => (
+  <div className={gridStyle({ gap: 32 })}>
+    <div className={gridStyle({ gap: 16 })}>
+      <FilterFlowNodes
+        filter={{
+          nodes: nodes,
+          groups: ['default', 'password'],
+          excludeAttributes: 'submit'
+        }}
+      />
+      <ButtonLink href={forgotPasswordUrl}>Forgot Password?</ButtonLink>
+    </div>
+    <FilterFlowNodes
+      filter={{
+        nodes: nodes,
+        groups: ['password'],
+        attributes: 'submit'
+      }}
+    />
+    <Message className={colorStyle({ color: 'foregroundMuted' })}>
+      {isLoggedIn ? (
+        <ButtonLink href={logoutUrl}>Logout</ButtonLink>
+      ) : (
+        <>
+          Don't have an account?&nbsp;
+          <ButtonLink href={signupUrl}>Sign up</ButtonLink>
+        </>
+      )}
+    </Message>
+  </div>
+);
+
+type registrationCard = {
+  nodes: UiNode[];
+} & SelfServiceRegistrationProps;
+
+const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
+  <div className={gridStyle({ gap: 32 })}>
+    <div className={gridStyle({ gap: 16 })}>
+      <FilterFlowNodes
+        filter={{
+          nodes: nodes,
+          groups: ['default', 'password'],
+          excludeAttributes: 'submit'
+        }}
+      />
+    </div>
+    <FilterFlowNodes
+      filter={{
+        nodes: nodes,
+        groups: ['password'],
+        attributes: 'submit'
+      }}
+    />
+    <Message className={colorStyle({ color: 'foregroundMuted' })}>
+      Already have an account?&nbsp;
+      <ButtonLink href={loginUrl}>Sign in</ButtonLink>
+    </Message>
+  </div>
+);
 
 export const SelfServiceAuthCard = ({
   flow,
   title,
-  additionalProps,
-  ctaLink
+  additionalProps
 }: SelfServiceAuthCardProps) => {
+  let $card;
+
+  if (isLoginFlow(additionalProps)) {
+    const f = flow as SelfServiceLoginFlow;
+    // the user might need to logout on the second factor page.
+    const isLoggedIn = f.refresh || f.requested_aal === 'aal2';
+    $card = loginCard({ nodes: flow.ui.nodes, isLoggedIn, ...additionalProps });
+  } else if (isRegistrationFlow(additionalProps)) {
+    const f = flow as SelfServiceRegistrationFlow;
+    $card = registrationCard({ nodes: flow.ui.nodes, ...additionalProps });
+  }
+
   return (
     <Card title={title}>
       <SelfServiceFlowForm flow={flow}>
@@ -64,44 +152,7 @@ export const SelfServiceAuthCard = ({
         </div>
       </SelfServiceFlowForm>
       <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
-        <div className={gridStyle({ gap: 32 })}>
-          <div className={gridStyle({ gap: 16 })}>
-            <FilterFlowNodes
-              filter={{
-                nodes: flow.ui.nodes,
-                groups: ['default', 'password'],
-                excludeAttributes: 'submit'
-              }}
-            />
-            {isLoginFlow(additionalProps) && (
-              <ButtonLink href={ctaLink}>Forgot Password?</ButtonLink>
-            )}
-          </div>
-          <FilterFlowNodes
-            filter={{
-              nodes: flow.ui.nodes,
-              groups: ['password'],
-              attributes: 'submit'
-            }}
-          />
-          <Message className={colorStyle({ color: 'foregroundMuted' })}>
-            {isRegistrationFlow(additionalProps) ? (
-              <>
-                Already have an account?&nbsp;
-                <ButtonLink href={additionalProps.loginLink}>
-                  Sign in
-                </ButtonLink>
-              </>
-            ) : (
-              <>
-                Don't have an account?&nbsp;
-                <ButtonLink href={additionalProps.signupLink}>
-                  Sign up
-                </ButtonLink>
-              </>
-            )}
-          </Message>
-        </div>
+        {$card}
       </SelfServiceFlowForm>
     </Card>
   );
