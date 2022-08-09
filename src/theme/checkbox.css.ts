@@ -9,8 +9,6 @@ export const checkboxStyle = style({
   gap: pxToRem(8)
 });
 
-export const checkboxLabelStyle = style({});
-
 export const checkboxInputStyle = style({
   cursor: 'pointer',
   WebkitAppearance: 'none',
