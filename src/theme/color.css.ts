@@ -3,7 +3,7 @@ import { oryTheme } from './theme.css';
 
 export const colorStyle = recipe({
   variants: {
-    color: {
+    themeColor: {
       accentDisabled: oryTheme.accent.disabled,
       accentDefault: oryTheme.accent.default,
       accentMuted: oryTheme.accent.muted,

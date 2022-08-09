@@ -75,7 +75,7 @@ const loginCard = ({
         attributes: 'submit'
       }}
     />
-    <Message className={colorStyle({ color: 'foregroundMuted' })}>
+    <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
       {isLoggedIn ? (
         <ButtonLink href={logoutUrl}>Logout</ButtonLink>
       ) : (
@@ -110,7 +110,7 @@ const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
         attributes: 'submit'
       }}
     />
-    <Message className={colorStyle({ color: 'foregroundMuted' })}>
+    <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
       Already have an account?&nbsp;
       <ButtonLink href={loginUrl}>Sign in</ButtonLink>
     </Message>
