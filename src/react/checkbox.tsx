@@ -1,10 +1,6 @@
-import React, { InputHTMLAttributes } from 'react';
-import { gridStyle, typographyStyle } from '../theme';
-import {
-  checkboxInputStyle,
-  checkboxLabelStyle,
-  checkboxStyle
-} from '../theme/checkbox.css';
+import React from 'react';
+import { typographyStyle } from '../theme';
+import { checkboxInputStyle, checkboxStyle } from '../theme/checkbox.css';
 import cn from 'classnames';
 
 // we use the fontawesome checkmark instead of the standard checkmark
@@ -41,7 +37,7 @@ export const Checkbox = ({
         {...props}
       />
       {label && (
-        <label className={checkboxLabelStyle} htmlFor={id}>
+        <label htmlFor={id}>
           <span>{label}</span>
         </label>
       )}
