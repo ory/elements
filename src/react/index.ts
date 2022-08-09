@@ -1,4 +1,5 @@
 export * from './card';
+export * from './divider';
 export * from './message';
 export * from './button';
 export * from './button-social';

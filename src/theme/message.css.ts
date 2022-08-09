@@ -25,4 +25,4 @@ export const messageStyle = recipe({
   }
 });
 
-export type MessageVariants = RecipeVariants<typeof messageStyle>;
+export type MessageStyle = RecipeVariants<typeof messageStyle>;

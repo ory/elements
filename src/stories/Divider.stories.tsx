@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, ComponentMeta } from '@storybook/react';
-import { Divider } from '../react/divider';
+import { Divider, DividerProps } from '../react/divider';
 import { Container } from './storyhelper';
 
 export default {
@@ -16,12 +16,19 @@ export default {
 
 type DividerStoryProps = {
   theme: 'light' | 'dark';
-};
+  args;
+} & DividerProps;
 
 const Template: Story<DividerStoryProps> = (args: DividerStoryProps) => (
   <Container theme={args.theme || 'light'}>
-    <Divider />
+    <Divider {...args} />
   </Container>
 );
 
 export const DefaultDivider = Template.bind({});
+
+export const FullWidthDivider = Template.bind({});
+
+FullWidthDivider.args = {
+  fullWidth: true
+};

@@ -14,8 +14,6 @@ import {
   UiNode
 } from '@ory/client';
 
-import '../../assets/flexboxgrid.min.css';
-
 export type SelfServiceLoginProps = {
   forgotPasswordUrl?: string;
   signupUrl?: string;
