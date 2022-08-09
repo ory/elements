@@ -1,11 +1,15 @@
 import React from 'react';
-import { messageStyle, MessageVariants, typographyStyle } from '../theme';
+import { messageStyle, MessageStyle, typographyStyle } from '../theme';
 import cn from 'classnames';
 
-export type MessageProps = {
+type messageProps = MessageStyle & {};
+
+export interface MessageProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    messageProps {
   className?: string;
   children?: React.ReactNode;
-} & MessageVariants;
+}
 
 export const Message = ({ severity, className, children }: MessageProps) => {
   return (

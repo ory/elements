@@ -26,6 +26,7 @@ export const Node = ({ node }: { node: UiNode }) => {
             title={getNodeLabel(node)}
             brand={attrs.value.toLowerCase()}
             variant={'semibold'}
+            size={'large'}
             fullWidth
           />
         ) : (

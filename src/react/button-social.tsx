@@ -8,7 +8,9 @@ import { ButtonProps } from './button';
 import cn from 'classnames';
 
 // required FontAwesome Icons for Brands
-import '../assets/brands-icons.min.css';
+import '../../public/fontawesome.min.css';
+import '../../public/fa-brands.min.css';
+import '../../public/fa-solid.min.css';
 
 type buttonSocialStyle = ButtonSocialStyle & {};
 
@@ -29,17 +31,19 @@ export const ButtonSocial = ({
   fullWidth,
   className,
   ...props
-}: ButtonSocialProps) => (
-  <div className={className}>
-    <button
-      className={buttonSocialStyle({ size, variant })}
-      style={{ width: fullWidth ? '100%' : 'auto' }}
-      {...props}
-    >
-      <span
-        className={cn(`fa-brands fa-${brand}`, buttonSocialIconStyle({ size }))}
-      />
-      <div className={buttonSocialTitleStyle}>{title}</div>
-    </button>
-  </div>
-);
+}: ButtonSocialProps) => {
+  const brandClass =
+    brand !== 'generic' ? `fa-brands fa-${brand}` : 'fa-solid fa-layer-group';
+  return (
+    <div className={className}>
+      <button
+        className={buttonSocialStyle({ size, variant })}
+        style={{ width: fullWidth ? '100%' : 'auto' }}
+        {...props}
+      >
+        <i className={cn(brandClass, buttonSocialIconStyle({ size }))}></i>
+        <div className={buttonSocialTitleStyle}>{title}</div>
+      </button>
+    </div>
+  );
+};

@@ -109,7 +109,8 @@ export const buttonSocialIconStyle = recipe({
       small: {},
       medium: {},
       large: {
-        paddingRight: pxToRem(24)
+        paddingRight: pxToRem(24),
+        fontSize: pxToRem(24)
       }
     }
   }

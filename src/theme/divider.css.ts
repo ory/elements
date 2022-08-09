@@ -1,6 +1,6 @@
 import { oryTheme } from './theme.css';
 import { pxToRem } from '../utils';
-import { recipe } from '@vanilla-extract/recipes';
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 export const dividerStyle = recipe({
   base: {
@@ -8,8 +8,19 @@ export const dividerStyle = recipe({
     textAlign: 'center',
     overflow: 'hidden',
     boxSizing: 'border-box',
-    border: `${pxToRem(4)} solid`,
+    border: 0,
+    borderTop: `${pxToRem(4)} solid`,
     borderColor: oryTheme.border.default,
     width: pxToRem(64)
+  },
+  variants: {
+    sizes: {
+      fullWidth: {
+        width: '100%'
+      }
+    }
   }
 });
+
+// Get the type
+export type DividerStyle = RecipeVariants<typeof dividerStyle>;
