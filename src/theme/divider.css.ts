@@ -10,7 +10,7 @@ export const dividerStyle = recipe({
     boxSizing: 'border-box',
     border: 0,
     borderTop: `${pxToRem(4)} solid`,
-    borderColor: oryTheme.border.default,
+    borderColor: oryTheme.border.def,
     width: pxToRem(64)
   },
   variants: {

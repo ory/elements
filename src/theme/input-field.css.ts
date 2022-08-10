@@ -3,7 +3,7 @@ import { pxToRem } from '../utils';
 import { oryTheme } from './theme.css';
 
 export const inputFieldTitleStyle = style({
-  color: oryTheme.accent.default
+  color: oryTheme.accent.def
 });
 
 export const inputFieldStyle = style({
@@ -11,7 +11,7 @@ export const inputFieldStyle = style({
   boxSizing: 'border-box',
   color: oryTheme.input.text,
   background: oryTheme.input.background,
-  border: `1px solid ${oryTheme.border.default}`,
+  border: `1px solid ${oryTheme.border.def}`,
   borderRadius: pxToRem(4),
   padding: pxToRem(12, 24),
   ':hover': {

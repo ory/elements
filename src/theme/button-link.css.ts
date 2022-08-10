@@ -4,7 +4,7 @@ import { recipe } from '@vanilla-extract/recipes';
 export const buttonLinkStyle = recipe({
   base: {
     cursor: 'pointer',
-    color: oryTheme.accent.default,
+    color: oryTheme.accent.def,
     ':disabled': {
       color: oryTheme.foreground.disabled
     },

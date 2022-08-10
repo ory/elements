@@ -18,10 +18,10 @@ export const checkboxInputStyle = style({
   minHeight: pxToRem(18),
   maxHeight: pxToRem(18),
   maxWidth: pxToRem(18),
-  border: `2px solid ${oryTheme.accent.default}`,
+  border: `2px solid ${oryTheme.accent.def}`,
   borderRadius: pxToRem(4),
   margin: pxToRem(3),
-  color: oryTheme.accent.default,
+  color: oryTheme.accent.def,
   selectors: {
     '&:checked::before': {
       fontFamily: "'Font Awesome 6 Free'", // this is required for the fontawesome icon to work
@@ -30,7 +30,7 @@ export const checkboxInputStyle = style({
       textAlign: 'center',
       position: 'relative',
       content: '\\f00c', // this is a fontawesome unicode character to switch back to a basic html checkmark use \\2713
-      color: oryTheme.accent.default,
+      color: oryTheme.accent.def,
       top: pxToRem(2.5)
     }
   },

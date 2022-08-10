@@ -8,11 +8,11 @@ const card = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
-  border: `1px solid ${oryTheme.border.default}`,
+  border: `1px solid ${oryTheme.border.def}`,
   borderRadius: pxToRem(16),
   padding: pxToRem(48),
   background: oryTheme.background.surface,
-  color: oryTheme.foreground.default,
+  color: oryTheme.foreground.def,
   maxWidth: pxToRem(432),
   '@media': {
     'screen and (max-width: 768px)': {

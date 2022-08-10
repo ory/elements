@@ -34,7 +34,7 @@ export const buttonSocialStyle = recipe({
     },
     ':active': {
       color: oryTheme.foreground.onDark,
-      backgroundColor: oryTheme.foreground.default,
+      backgroundColor: oryTheme.foreground.def,
       outline: 'none'
     },
     '@media': {
