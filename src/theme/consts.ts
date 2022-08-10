@@ -23,14 +23,14 @@ export const defaultBreakpoints: BreakPoints = {
 
 export type Theme = {
   accent: {
-    default: string;
+    def: string;
     muted: string;
     emphasis: string;
     disabled: string;
     subtle: string;
   };
   foreground: {
-    default: string;
+    def: string;
     muted: string;
     subtle: string;
     disabled: string;
@@ -43,7 +43,7 @@ export type Theme = {
     canvas: string;
   };
   error: {
-    default: string;
+    def: string;
     subtle: string;
     muted: string;
     emphasis: string;
@@ -52,10 +52,10 @@ export type Theme = {
     emphasis: string;
   };
   border: {
-    default: string;
+    def: string;
   };
   text: {
-    default: string;
+    def: string;
     disabled: string;
   };
   input: {
@@ -81,14 +81,14 @@ const defaultButtonFontTheme = {
 export const defaultLightTheme: Theme = {
   ...defaultFont,
   accent: {
-    default: '#3D53F5',
+    def: '#3D53F5',
     muted: '#6475F7',
     emphasis: '#3142C4',
     disabled: '#E0E0E0',
     subtle: '#eceefe'
   },
   foreground: {
-    default: '#171717',
+    def: '#171717',
     muted: '#616161',
     subtle: '#9E9E9E',
     disabled: '#BDBDBD',
@@ -101,7 +101,7 @@ export const defaultLightTheme: Theme = {
     canvas: '#FCFCFC'
   },
   error: {
-    default: '#9c0f2e',
+    def: '#9c0f2e',
     subtle: '#fce8ec',
     muted: '#e95c7b',
     emphasis: '#DF1642'
@@ -110,10 +110,10 @@ export const defaultLightTheme: Theme = {
     emphasis: '#18A957'
   },
   border: {
-    default: '#E0E0E0'
+    def: '#E0E0E0'
   },
   text: {
-    default: '#FFFFFF',
+    def: '#FFFFFF',
     disabled: '#757575'
   },
   input: {
@@ -127,14 +127,14 @@ export const defaultLightTheme: Theme = {
 export const defaultDarkTheme: Theme = {
   ...defaultFont,
   accent: {
-    default: '#6475f7',
+    def: '#6475f7',
     disabled: '#757575',
     muted: '#3142c4',
     emphasis: '#3d53f5',
     subtle: '#0c1131'
   },
   foreground: {
-    default: '#FFFFFF',
+    def: '#FFFFFF',
     muted: '#ddd9f7',
     subtle: '#9a8ce8',
     onDark: '#FFFFFF',
@@ -147,10 +147,10 @@ export const defaultDarkTheme: Theme = {
     canvas: '#090616'
   },
   border: {
-    default: '#221956'
+    def: '#221956'
   },
   error: {
-    default: '#e95c7b',
+    def: '#e95c7b',
     subtle: '#2d040d',
     muted: '#9c0f2e',
     emphasis: '#df1642'
@@ -165,7 +165,7 @@ export const defaultDarkTheme: Theme = {
     disabled: '#eeeeee'
   },
   text: {
-    default: '#FFFFFF',
+    def: '#FFFFFF',
     disabled: '#757575'
   }
 };

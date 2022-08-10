@@ -10,8 +10,8 @@ export const buttonStyle = recipe({
     boxSizing: 'border-box',
     fontFamily: 'Inter',
     textDecoration: 'none',
-    color: oryTheme.text.default,
-    background: oryTheme.accent.default,
+    color: oryTheme.text.def,
+    background: oryTheme.accent.def,
     padding: pxToRem(10, 16),
     borderRadius: pxToRem(4),
     textAlign: 'center',
@@ -23,7 +23,7 @@ export const buttonStyle = recipe({
       backgroundColor: oryTheme.accent.muted
     },
     ':focus': {
-      backgroundColor: oryTheme.accent.default,
+      backgroundColor: oryTheme.accent.def,
       borderColor: oryTheme.accent.muted,
       outline: 'none'
     },

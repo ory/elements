@@ -8,7 +8,7 @@ export const messageStyle = recipe({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    color: oryTheme.foreground.default
+    color: oryTheme.foreground.def
   },
   variants: {
     severity: {
