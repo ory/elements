@@ -14,41 +14,27 @@ import {
   UiNode
 } from '@ory/client';
 
-export type SelfServiceLoginProps = {
+export type AdditionalProps = {
   forgotPasswordUrl?: string;
   signupUrl?: string;
   logoutUrl?: string;
-};
-
-export type SelfServiceRegistrationProps = {
   loginUrl?: string;
 };
 
 export type SelfServiceAuthCardProps = {
   flow: SelfServiceFlow;
   title: string;
-  additionalProps: SelfServiceLoginProps | SelfServiceRegistrationProps;
+  flowType: 'login' | 'registration' | 'recovery' | 'verification';
+  additionalProps: AdditionalProps;
   icon?: string;
   className?: string;
   children?: string;
 };
 
-const isLoginFlow = (
-  flow: SelfServiceLoginProps | SelfServiceRegistrationProps
-): flow is SelfServiceLoginProps => {
-  return (flow as SelfServiceLoginProps).signupUrl !== undefined;
-};
-
-const isRegistrationFlow = (
-  flow: SelfServiceLoginProps | SelfServiceRegistrationProps
-): flow is SelfServiceRegistrationProps => {
-  return (flow as SelfServiceRegistrationProps).loginUrl !== undefined;
-};
-
 type loginCardProps = {
   nodes: UiNode[];
   isLoggedIn: boolean;
-} & SelfServiceLoginProps;
+} & AdditionalProps;
 
 const loginCard = ({
   nodes,
@@ -88,9 +74,17 @@ const loginCard = ({
   </div>
 );
 
+const $messageCard = (text: string, url: string, buttonText: string) => (
+  <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
+    {text}&nbsp;
+    <ButtonLink href={url}>{buttonText}</ButtonLink>
+  </Message>
+);
+
 type registrationCard = {
   nodes: UiNode[];
-} & SelfServiceRegistrationProps;
+  loginUrl: string;
+};
 
 const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
   <div className={gridStyle({ gap: 32 })}>
@@ -110,45 +104,111 @@ const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
         attributes: 'submit'
       }}
     />
-    <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
-      Already have an account?&nbsp;
-      <ButtonLink href={loginUrl}>Sign in</ButtonLink>
-    </Message>
+    {$messageCard('Already have an account?', loginUrl, 'Sign in')}
   </div>
+);
+
+type alternativeFlowCard = {
+  nodes: UiNode[];
+  loginUrl: string;
+  signupUrl: string;
+};
+
+const alternativeFlowCard = ({
+  nodes,
+  loginUrl,
+  signupUrl
+}: alternativeFlowCard) => (
+  <div className={gridStyle({ gap: 32 })}>
+    <div className={gridStyle({ gap: 16 })}>
+      <FilterFlowNodes
+        filter={{
+          nodes: nodes,
+          groups: ['default', 'link'],
+          excludeAttributes: 'submit'
+        }}
+      />
+    </div>
+    <FilterFlowNodes
+      filter={{
+        nodes: nodes,
+        groups: ['link'],
+        attributes: 'submit'
+      }}
+    />
+    {loginUrl && $messageCard('Already have an account?', loginUrl, 'Sign in')}
+    {signupUrl && $messageCard("Don't have an account?", signupUrl, 'Sign up')}
+  </div>
+);
+
+const errorCard = ({}) => {
+  return (
+    <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
+      An error occurred. Please try again later.
+    </Message>
+  );
+};
+
+const oidcCard = (flow: SelfServiceFlow) => (
+  <SelfServiceFlowForm flow={flow}>
+    <div className={gridStyle({ gap: 32 })}>
+      <Divider />
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ['oidc'],
+          attributes: 'submit'
+        }}
+      />
+      <Divider />
+    </div>
+  </SelfServiceFlowForm>
 );
 
 export const SelfServiceAuthCard = ({
   flow,
   title,
+  flowType,
   additionalProps
 }: SelfServiceAuthCardProps) => {
-  let $card;
+  let $card = null;
+  let $oidc = null;
 
-  if (isLoginFlow(additionalProps)) {
-    const f = flow as SelfServiceLoginFlow;
-    // the user might need to logout on the second factor page.
-    const isLoggedIn = f.refresh || f.requested_aal === 'aal2';
-    $card = loginCard({ nodes: flow.ui.nodes, isLoggedIn, ...additionalProps });
-  } else if (isRegistrationFlow(additionalProps)) {
-    const f = flow as SelfServiceRegistrationFlow;
-    $card = registrationCard({ nodes: flow.ui.nodes, ...additionalProps });
+  switch (flowType) {
+    case 'login':
+      $oidc = oidcCard(flow);
+      const f = flow as SelfServiceLoginFlow;
+      // the user might need to logout on the second factor page.
+      const isLoggedIn = f.refresh || f.requested_aal === 'aal2';
+      $card = loginCard({
+        nodes: flow.ui.nodes,
+        isLoggedIn,
+        ...additionalProps
+      });
+      break;
+    case 'registration':
+      $oidc = oidcCard(flow);
+      $card = registrationCard({
+        nodes: flow.ui.nodes,
+        loginUrl: additionalProps.loginUrl!
+      });
+      break;
+    // both verification and recovery use the same flow.
+    case 'recovery':
+    case 'verification':
+      $card = alternativeFlowCard({
+        nodes: flow.ui.nodes,
+        loginUrl: additionalProps.loginUrl!,
+        signupUrl: additionalProps.signupUrl!
+      });
+      break;
+    default:
+      $card = errorCard;
   }
 
   return (
     <Card title={title}>
-      <SelfServiceFlowForm flow={flow}>
-        <div className={gridStyle({ gap: 32 })}>
-          <Divider />
-          <FilterFlowNodes
-            filter={{
-              nodes: flow.ui.nodes,
-              groups: ['oidc'],
-              attributes: 'submit'
-            }}
-          />
-          <Divider />
-        </div>
-      </SelfServiceFlowForm>
+      {$oidc}
       <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
         {$card}
       </SelfServiceFlowForm>

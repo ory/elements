@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import { UiNode, UiNodeInputAttributes } from '@ory/client';
 import {
@@ -11,6 +11,12 @@ import { ButtonSocial } from '../button-social';
 import { Checkbox } from '../checkbox';
 import { InputField } from '../input-field';
 
+interface ButtonSubmit {
+  type: 'submit' | 'reset' | 'button' | undefined;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  formNoValidate?: boolean;
+}
+
 export const Node = ({ node }: { node: UiNode }) => {
   if (isUiNodeAnchorAttributes(node.attributes)) {
     return <></>;
@@ -21,6 +27,31 @@ export const Node = ({ node }: { node: UiNode }) => {
         const isSocial =
           (attrs.name === 'provider' || attrs.name === 'link') &&
           node.group === 'oidc';
+
+        // TODO: update ory client package to support enum for button type
+        let submit: ButtonSubmit = {
+          type: attrs.type as any
+        };
+
+        if (isSocial) {
+          submit.type = 'button';
+          submit.formNoValidate = true;
+          submit.onClick = (e) => {
+            e.currentTarget.type = 'submit';
+            e.currentTarget.dispatchEvent(
+              new Event('submit', { cancelable: true, bubbles: true })
+            );
+          };
+        }
+
+        if (attrs.onclick) {
+          // This is a bit hacky but it wouldn't work otherwise.
+          const oc = attrs.onclick;
+          submit.onClick = () => {
+            eval(oc);
+          };
+        }
+
         return isSocial ? (
           <ButtonSocial
             title={getNodeLabel(node)}
@@ -28,14 +59,15 @@ export const Node = ({ node }: { node: UiNode }) => {
             variant={'semibold'}
             size={'large'}
             fullWidth
+            {...submit}
           />
         ) : (
           <Button
             title={getNodeLabel(node)}
             name={attrs.name}
-            type={'submit'}
             variant={'semibold'}
             fullWidth
+            {...submit}
           />
         );
       case 'button':
@@ -55,7 +87,12 @@ export const Node = ({ node }: { node: UiNode }) => {
       case 'email':
       case 'text':
         return (
-          <InputField title={getNodeLabel(node)} type={attrs.type} fullWidth />
+          <InputField
+            title={getNodeLabel(node)}
+            type={attrs.type}
+            required={attrs.required}
+            fullWidth
+          />
         );
       default:
         return null;
