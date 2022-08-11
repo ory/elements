@@ -7,8 +7,11 @@ import {
 import { Container } from '../storyhelper';
 
 import loginFlow from './login-flow.json';
+import loginFlowError from './login-flow-error.json';
+
 import registrationFlow from './register-flow.json';
 import recoveryFlow from './recovery-flow.json';
+
 import verificationFlow from './verification-flow.json';
 
 import {
@@ -45,6 +48,19 @@ export const LoginAuthCard = Template.bind({});
 LoginAuthCard.args = {
   title: 'Sign in to your Acme account',
   flow: loginFlow as SelfServiceLoginFlow,
+  flowType: 'login',
+  additionalProps: {
+    signupUrl: 'https://acme.com/login',
+    forgotPasswordUrl: 'https://acme.com/forgot-password',
+    logoutUrl: 'https://acme.com/logout'
+  }
+};
+
+export const LoginAuthCardError = Template.bind({});
+
+LoginAuthCardError.args = {
+  title: 'Sign in to your Acme account',
+  flow: loginFlowError as SelfServiceLoginFlow,
   flowType: 'login',
   additionalProps: {
     signupUrl: 'https://acme.com/login',

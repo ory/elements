@@ -36,7 +36,7 @@ type loginCardProps = {
   isLoggedIn: boolean;
 } & AdditionalProps;
 
-const loginCard = ({
+const $loginSection = ({
   nodes,
   forgotPasswordUrl,
   signupUrl,
@@ -44,6 +44,7 @@ const loginCard = ({
   isLoggedIn
 }: loginCardProps) => (
   <div className={gridStyle({ gap: 32 })}>
+    <Divider />
     <div className={gridStyle({ gap: 16 })}>
       <FilterFlowNodes
         filter={{
@@ -74,7 +75,7 @@ const loginCard = ({
   </div>
 );
 
-const $messageCard = (text: string, url: string, buttonText: string) => (
+const $messageSection = (text: string, url: string, buttonText: string) => (
   <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
     {text}&nbsp;
     <ButtonLink href={url}>{buttonText}</ButtonLink>
@@ -88,6 +89,7 @@ type registrationCard = {
 
 const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
   <div className={gridStyle({ gap: 32 })}>
+    <Divider />
     <div className={gridStyle({ gap: 16 })}>
       <FilterFlowNodes
         filter={{
@@ -104,7 +106,7 @@ const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
         attributes: 'submit'
       }}
     />
-    {$messageCard('Already have an account?', loginUrl, 'Sign in')}
+    {$messageSection('Already have an account?', loginUrl, 'Sign in')}
   </div>
 );
 
@@ -136,8 +138,10 @@ const alternativeFlowCard = ({
         attributes: 'submit'
       }}
     />
-    {loginUrl && $messageCard('Already have an account?', loginUrl, 'Sign in')}
-    {signupUrl && $messageCard("Don't have an account?", signupUrl, 'Sign up')}
+    {loginUrl &&
+      $messageSection('Already have an account?', loginUrl, 'Sign in')}
+    {signupUrl &&
+      $messageSection("Don't have an account?", signupUrl, 'Sign up')}
   </div>
 );
 
@@ -149,7 +153,7 @@ const errorCard = ({}) => {
   );
 };
 
-const oidcCard = (flow: SelfServiceFlow) => (
+const $oidcSection = (flow: SelfServiceFlow) => (
   <SelfServiceFlowForm flow={flow}>
     <div className={gridStyle({ gap: 32 })}>
       <Divider />
@@ -160,9 +164,22 @@ const oidcCard = (flow: SelfServiceFlow) => (
           attributes: 'submit'
         }}
       />
-      <Divider />
     </div>
   </SelfServiceFlowForm>
+);
+
+const $flowErrorMessagesSection = (flow: SelfServiceFlow) => (
+  <div className={gridStyle({ gap: 32 })}>
+    {flow.ui.messages &&
+      flow.ui.messages.length > 0 &&
+      flow.ui.messages?.map((message) => {
+        return (
+          <Message severity="error" data-testid={`ui/message/${message.id}`}>
+            {message.text}
+          </Message>
+        );
+      })}
+  </div>
 );
 
 export const SelfServiceAuthCard = ({
@@ -176,18 +193,18 @@ export const SelfServiceAuthCard = ({
 
   switch (flowType) {
     case 'login':
-      $oidc = oidcCard(flow);
+      $oidc = $oidcSection(flow);
       const f = flow as SelfServiceLoginFlow;
       // the user might need to logout on the second factor page.
       const isLoggedIn = f.refresh || f.requested_aal === 'aal2';
-      $card = loginCard({
+      $card = $loginSection({
         nodes: flow.ui.nodes,
         isLoggedIn,
         ...additionalProps
       });
       break;
     case 'registration':
-      $oidc = oidcCard(flow);
+      $oidc = $oidcSection(flow);
       $card = registrationCard({
         nodes: flow.ui.nodes,
         loginUrl: additionalProps.loginUrl!
@@ -208,10 +225,13 @@ export const SelfServiceAuthCard = ({
 
   return (
     <Card title={title}>
-      {$oidc}
-      <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
-        {$card}
-      </SelfServiceFlowForm>
+      <div className={gridStyle({ gap: 32 })}>
+        {$flowErrorMessagesSection(flow)}
+        {$oidc}
+        <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
+          {$card}
+        </SelfServiceFlowForm>
+      </div>
     </Card>
   );
 };
