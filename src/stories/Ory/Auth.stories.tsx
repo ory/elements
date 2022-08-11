@@ -101,14 +101,3 @@ VerificationAuthCard.args = {
     signupURL: 'https://acme.com/login'
   }
 };
-
-export const ErrorAuthCard = Template.bind({});
-
-ErrorAuthCard.args = {
-  title: 'An error occurred',
-  flow: loginFlowError as SelfServiceLoginFlow,
-  flowType: 'error',
-  additionalProps: {
-    homeURL: 'https://acme.com/home'
-  }
-};

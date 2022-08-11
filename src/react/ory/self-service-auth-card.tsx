@@ -6,7 +6,7 @@ import { SelfServiceFlow } from './FlowTypes';
 import { SelfServiceFlowForm } from './selfservice-flow-form';
 import { ButtonLink } from '../button-link';
 import { Message } from '../message';
-import { colorStyle } from '../../theme/color.css';
+import { colorSprinkle } from '../../theme/color.css';
 import { gridStyle } from '../../theme';
 import { SelfServiceLoginFlow, UiNode } from '@ory/client';
 
@@ -15,13 +15,12 @@ export type AdditionalProps = {
   signupURL?: string;
   logoutURL?: string;
   loginURL?: string;
-  homeURL?: string;
 };
 
 export type SelfServiceAuthCardProps = {
   flow: SelfServiceFlow;
   title: string;
-  flowType: 'login' | 'registration' | 'recovery' | 'verification' | 'error';
+  flowType: 'login' | 'registration' | 'recovery' | 'verification';
   additionalProps: AdditionalProps;
   icon?: string;
   className?: string;
@@ -59,7 +58,7 @@ const $loginSection = ({
         attributes: 'submit'
       }}
     />
-    <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
+    <Message className={colorSprinkle({ color: 'foreground-muted' })}>
       {isLoggedIn ? (
         <ButtonLink href={logoutUrl}>Logout</ButtonLink>
       ) : (
@@ -73,7 +72,7 @@ const $loginSection = ({
 );
 
 const $messageSection = (text: string, url: string, buttonText: string) => (
-  <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
+  <Message className={colorSprinkle({ color: 'foreground-muted' })}>
     {text}&nbsp;
     <ButtonLink href={url}>{buttonText}</ButtonLink>
   </Message>
@@ -157,20 +156,6 @@ const $oidcSection = (flow: SelfServiceFlow) => (
   </SelfServiceFlowForm>
 );
 
-const $flowErrorMessagesSection = (flow: SelfServiceFlow) => (
-  <div className={gridStyle({ gap: 32 })}>
-    {flow.ui.messages &&
-      flow.ui.messages.length > 0 &&
-      flow.ui.messages?.map((message) => {
-        return (
-          <Message severity="error" data-testid={`ui/message/${message.id}`}>
-            {message.text}
-          </Message>
-        );
-      })}
-  </div>
-);
-
 export const SelfServiceAuthCard = ({
   flow,
   title,
@@ -215,15 +200,12 @@ export const SelfServiceAuthCard = ({
   return (
     <Card title={title}>
       <div className={gridStyle({ gap: 32 })}>
-        {flow.ui.messages && $flowErrorMessagesSection(flow)}
         {$oidc && $oidc}
         {$card && (
           <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
             {$card}
           </SelfServiceFlowForm>
         )}
-        {additionalProps.homeURL &&
-          $messageSection('Return to', additionalProps.homeURL, 'home')}
       </div>
     </Card>
   );

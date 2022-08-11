@@ -1,19 +1,18 @@
 import React from 'react';
 import {
-  colorStyle,
-  ColorStyle,
+  colorSprinkle,
+  ColorSprinkle,
   TypographyStyle,
   typographyStyle
 } from '../theme';
 import cn from 'classnames';
 
 type typographyStyle = TypographyStyle & {};
-type colorStyle = ColorStyle & {};
-
+type colorSprinkle = ColorSprinkle & {};
 export interface TypographyProps
-  extends React.BaseHTMLAttributes<HTMLBaseElement>,
+  extends Omit<React.BaseHTMLAttributes<HTMLBaseElement>, 'color'>,
     typographyStyle,
-    colorStyle {
+    colorSprinkle {
   children: React.ReactNode;
 }
 
@@ -21,14 +20,11 @@ export const Typography = ({
   children,
   size,
   type,
-  themeColor
+  color
 }: TypographyProps) => {
   return (
     <div
-      className={cn(
-        typographyStyle({ size, type }),
-        colorStyle({ themeColor })
-      )}
+      className={cn(typographyStyle({ size, type }), colorSprinkle({ color }))}
     >
       {children}
     </div>
