@@ -33,6 +33,7 @@ export const InputField = ({
           typographyStyle({ size: 'small', type: 'regular' })
         )}
         style={{ width: fullWidth ? '100%' : 'auto' }}
+        placeholder={' '} // we need this so the input css field border is not green by default
         {...props}
       />
     </div>

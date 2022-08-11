@@ -14,20 +14,25 @@ export const inputFieldStyle = style({
   border: `1px solid ${oryTheme.border.def}`,
   borderRadius: pxToRem(4),
   padding: pxToRem(12, 24),
-  ':hover': {
-    border: `1px solid ${oryTheme.accent.muted}`
-  },
-  ':focus': {
-    inset: `4px`,
-    borderColor: oryTheme.accent.muted
-  },
-  ':active': {
-    border: `1px solid ${oryTheme.accent.emphasis}`
-  },
-  ':invalid': {
-    border: `1px solid ${oryTheme.error.emphasis}`
-  },
-  ':disabled': {
-    border: `1px solid ${oryTheme.input.disabled}`
+  selectors: {
+    '&:hover': {
+      border: `1px solid ${oryTheme.accent.muted}`
+    },
+    '&:focus': {
+      inset: `4px`,
+      borderColor: oryTheme.accent.muted
+    },
+    '&:active': {
+      border: `1px solid ${oryTheme.accent.emphasis}`
+    },
+    '&:not(:focus):not(:placeholder-shown):invalid': {
+      border: `1px solid ${oryTheme.error.emphasis}`
+    },
+    '&:not(:focus):not(:placeholder-shown):valid': {
+      border: `1px solid ${oryTheme.success.emphasis}`
+    },
+    '&:disabled': {
+      border: `1px solid ${oryTheme.input.disabled}`
+    }
   }
 });
