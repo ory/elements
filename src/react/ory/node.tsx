@@ -34,7 +34,6 @@ export const Node = ({ node }: { node: UiNode }) => {
         };
 
         if (isSocial) {
-          submit.type = 'button';
           submit.formNoValidate = true;
           submit.onClick = (e) => {
             e.currentTarget.type = 'submit';
@@ -58,6 +57,8 @@ export const Node = ({ node }: { node: UiNode }) => {
             brand={attrs.value.toLowerCase()}
             variant={'semibold'}
             size={'large'}
+            name={attrs.name}
+            value={attrs.value}
             fullWidth
             {...submit}
           />
@@ -67,6 +68,7 @@ export const Node = ({ node }: { node: UiNode }) => {
             name={attrs.name}
             variant={'semibold'}
             fullWidth
+            value={attrs.value}
             {...submit}
           />
         );
