@@ -50,9 +50,9 @@ LoginAuthCard.args = {
   flow: loginFlow as SelfServiceLoginFlow,
   flowType: 'login',
   additionalProps: {
-    signupUrl: 'https://acme.com/login',
-    forgotPasswordUrl: 'https://acme.com/forgot-password',
-    logoutUrl: 'https://acme.com/logout'
+    signupURL: 'https://acme.com/login',
+    forgotPasswordURL: 'https://acme.com/forgot-password',
+    logoutURL: 'https://acme.com/logout'
   }
 };
 
@@ -63,9 +63,9 @@ LoginAuthCardError.args = {
   flow: loginFlowError as SelfServiceLoginFlow,
   flowType: 'login',
   additionalProps: {
-    signupUrl: 'https://acme.com/login',
-    forgotPasswordUrl: 'https://acme.com/forgot-password',
-    logoutUrl: 'https://acme.com/logout'
+    signupURL: 'https://acme.com/login',
+    forgotPasswordURL: 'https://acme.com/forgot-password',
+    logoutURL: 'https://acme.com/logout'
   }
 };
 
@@ -76,7 +76,7 @@ RegistrationAuthCard.args = {
   flow: registrationFlow as SelfServiceRegistrationFlow,
   flowType: 'registration',
   additionalProps: {
-    loginUrl: 'https://acme.com/login'
+    loginURL: 'https://acme.com/login'
   }
 };
 
@@ -87,7 +87,7 @@ RecoveryAuthCard.args = {
   flow: recoveryFlow as SelfServiceRecoveryFlow,
   flowType: 'recovery',
   additionalProps: {
-    loginUrl: 'https://acme.com/login'
+    loginURL: 'https://acme.com/login'
   }
 };
 
@@ -98,6 +98,17 @@ VerificationAuthCard.args = {
   flow: verificationFlow as SelfServiceLoginFlow,
   flowType: 'verification',
   additionalProps: {
-    signupUrl: 'https://acme.com/login'
+    signupURL: 'https://acme.com/login'
+  }
+};
+
+export const ErrorAuthCard = Template.bind({});
+
+ErrorAuthCard.args = {
+  title: 'An error occurred',
+  flow: loginFlowError as SelfServiceLoginFlow,
+  flowType: 'error',
+  additionalProps: {
+    homeURL: 'https://acme.com/home'
   }
 };

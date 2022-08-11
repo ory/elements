@@ -8,23 +8,20 @@ import { ButtonLink } from '../button-link';
 import { Message } from '../message';
 import { colorStyle } from '../../theme/color.css';
 import { gridStyle } from '../../theme';
-import {
-  SelfServiceLoginFlow,
-  SelfServiceRegistrationFlow,
-  UiNode
-} from '@ory/client';
+import { SelfServiceLoginFlow, UiNode } from '@ory/client';
 
 export type AdditionalProps = {
-  forgotPasswordUrl?: string;
-  signupUrl?: string;
-  logoutUrl?: string;
-  loginUrl?: string;
+  forgotPasswordURL?: string;
+  signupURL?: string;
+  logoutURL?: string;
+  loginURL?: string;
+  homeURL?: string;
 };
 
 export type SelfServiceAuthCardProps = {
   flow: SelfServiceFlow;
   title: string;
-  flowType: 'login' | 'registration' | 'recovery' | 'verification';
+  flowType: 'login' | 'registration' | 'recovery' | 'verification' | 'error';
   additionalProps: AdditionalProps;
   icon?: string;
   className?: string;
@@ -38,9 +35,9 @@ type loginCardProps = {
 
 const $loginSection = ({
   nodes,
-  forgotPasswordUrl,
-  signupUrl,
-  logoutUrl,
+  forgotPasswordURL: forgotPasswordUrl,
+  signupURL: signupUrl,
+  logoutURL: logoutUrl,
   isLoggedIn
 }: loginCardProps) => (
   <div className={gridStyle({ gap: 32 })}>
@@ -87,7 +84,7 @@ type registrationCard = {
   loginUrl: string;
 };
 
-const registrationCard = ({ nodes, loginUrl }: registrationCard) => (
+const $registrationSection = ({ nodes, loginUrl }: registrationCard) => (
   <div className={gridStyle({ gap: 32 })}>
     <Divider />
     <div className={gridStyle({ gap: 16 })}>
@@ -116,7 +113,7 @@ type alternativeFlowCard = {
   signupUrl: string;
 };
 
-const alternativeFlowCard = ({
+const $alternativeFlowCard = ({
   nodes,
   loginUrl,
   signupUrl
@@ -144,14 +141,6 @@ const alternativeFlowCard = ({
       $messageSection("Don't have an account?", signupUrl, 'Sign up')}
   </div>
 );
-
-const errorCard = ({}) => {
-  return (
-    <Message className={colorStyle({ themeColor: 'foregroundMuted' })}>
-      An error occurred. Please try again later.
-    </Message>
-  );
-};
 
 const $oidcSection = (flow: SelfServiceFlow) => (
   <SelfServiceFlowForm flow={flow}>
@@ -205,32 +194,36 @@ export const SelfServiceAuthCard = ({
       break;
     case 'registration':
       $oidc = $oidcSection(flow);
-      $card = registrationCard({
+      $card = $registrationSection({
         nodes: flow.ui.nodes,
-        loginUrl: additionalProps.loginUrl!
+        loginUrl: additionalProps.loginURL!
       });
       break;
     // both verification and recovery use the same flow.
     case 'recovery':
     case 'verification':
-      $card = alternativeFlowCard({
+      $card = $alternativeFlowCard({
         nodes: flow.ui.nodes,
-        loginUrl: additionalProps.loginUrl!,
-        signupUrl: additionalProps.signupUrl!
+        loginUrl: additionalProps.loginURL!,
+        signupUrl: additionalProps.signupURL!
       });
       break;
     default:
-      $card = errorCard;
+      $card = null;
   }
 
   return (
     <Card title={title}>
       <div className={gridStyle({ gap: 32 })}>
-        {$flowErrorMessagesSection(flow)}
-        {$oidc}
-        <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
-          {$card}
-        </SelfServiceFlowForm>
+        {flow.ui.messages && $flowErrorMessagesSection(flow)}
+        {$oidc && $oidc}
+        {$card && (
+          <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
+            {$card}
+          </SelfServiceFlowForm>
+        )}
+        {additionalProps.homeURL &&
+          $messageSection('Return to', additionalProps.homeURL, 'home')}
       </div>
     </Card>
   );

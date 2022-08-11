@@ -16,7 +16,7 @@ export const Message = ({ severity, className, children }: MessageProps) => {
     <div
       className={cn(
         messageStyle({ severity: severity }),
-        typographyStyle({ size: 'small', type: 'regular' }),
+        typographyStyle({ size: 'caption', type: 'regular' }),
         className
       )}
     >
