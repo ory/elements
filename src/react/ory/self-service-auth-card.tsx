@@ -6,7 +6,7 @@ import { SelfServiceFlow } from './FlowTypes';
 import { SelfServiceFlowForm } from './selfservice-flow-form';
 import { ButtonLink } from '../button-link';
 import { Message } from '../message';
-import { colorSprinkle } from '../../theme/color.css';
+import { colorSprinkle } from '../../theme/colors.css';
 import { gridStyle } from '../../theme';
 import { SelfServiceLoginFlow, UiNode } from '@ory/client';
 
@@ -58,7 +58,7 @@ const $loginSection = ({
         attributes: 'submit'
       }}
     />
-    <Message className={colorSprinkle({ color: 'foreground-muted' })}>
+    <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
       {isLoggedIn ? (
         <ButtonLink href={logoutUrl}>Logout</ButtonLink>
       ) : (
@@ -72,7 +72,7 @@ const $loginSection = ({
 );
 
 const $messageSection = (text: string, url: string, buttonText: string) => (
-  <Message className={colorSprinkle({ color: 'foreground-muted' })}>
+  <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
     {text}&nbsp;
     <ButtonLink href={url}>{buttonText}</ButtonLink>
   </Message>
