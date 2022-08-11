@@ -2,6 +2,7 @@ export * from './consts';
 export * from './card.css';
 export * from './message.css';
 export * from './divider.css';
+export * from './color.css';
 export * from './typography.css';
 export * from './button.css';
 export * from './button-link.css';
