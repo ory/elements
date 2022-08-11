@@ -26,12 +26,15 @@ export const SelfServiceErrorCard = ({
   <Card title={title}>
     <div className={gridStyle({ gap: 32 })}>
       <Message severity="error" data-testid={`ui/message/${error.id}`}>
+        An error occurred with the following message:&nbsp;
         {(error.error as errorMessage).message}
       </Message>
       {contactSupportEmail && (
         <Message className={colorSprinkle({ color: 'foreground-muted' })}>
           If the problem persists, please contact&nbsp;
-          <a href={`mailto:${contactSupportEmail}`}>{contactSupportEmail}</a>
+          <ButtonLink href={`mailto:${contactSupportEmail}`}>
+            {contactSupportEmail}
+          </ButtonLink>
         </Message>
       )}
       <Message>
