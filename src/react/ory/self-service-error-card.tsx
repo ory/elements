@@ -30,7 +30,7 @@ export const SelfServiceErrorCard = ({
         {(error.error as errorMessage).message}
       </Message>
       {contactSupportEmail && (
-        <Message className={colorSprinkle({ color: 'foreground-muted' })}>
+        <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
           If the problem persists, please contact&nbsp;
           <ButtonLink href={`mailto:${contactSupportEmail}`}>
             {contactSupportEmail}
