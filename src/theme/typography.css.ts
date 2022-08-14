@@ -1,5 +1,5 @@
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { pxToRem } from '../utils';
+import { pxToRem } from '../common';
 
 export const inputTypographyStyle = recipe({
   base: {

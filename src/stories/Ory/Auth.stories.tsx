@@ -3,7 +3,7 @@ import { ComponentMeta, Story } from '@storybook/react';
 import {
   SelfServiceAuthCard,
   SelfServiceAuthCardProps
-} from '../../react/ory/self-service-auth-card';
+} from '../../react-components';
 import { Container } from '../storyhelper';
 
 import loginFlow from './login-flow.json';

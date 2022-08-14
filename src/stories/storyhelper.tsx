@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ThemeProvider } from '../react';
+import { ThemeProvider } from '../react-components';
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
   <div

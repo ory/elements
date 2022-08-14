@@ -2,12 +2,7 @@ import React from 'react';
 import { typographyStyle } from '../theme';
 import cn from 'classnames';
 import { buttonLinkStyle } from '../theme/button-link.css';
-
-export interface ButtonLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  children: React.ReactNode;
-  className?: string;
-}
+import { ButtonLinkProps } from '../component-types';
 
 export const ButtonLink = ({
   href,

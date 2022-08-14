@@ -1,4 +1,4 @@
-import { pxToRem } from '../utils';
+import { pxToRem } from '../common';
 
 export type Font = {
   fontFamily: string;

@@ -1,16 +1,6 @@
-import { style } from '@vanilla-extract/css';
 import React from 'react';
-import { ButtonStyle, buttonStyle } from '../theme/button.css';
-
-type buttonStyle = ButtonStyle & {};
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    buttonStyle {
-  title: string;
-  fullWidth?: boolean;
-  className?: string;
-}
+import { ButtonProps } from '../component-types';
+import { buttonStyle } from '../theme/button.css';
 
 export const Button = ({
   title,

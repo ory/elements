@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { pxToRem } from '../utils';
+import { pxToRem } from '../common';
 import { oryTheme } from './theme.css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 

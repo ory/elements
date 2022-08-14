@@ -1,10 +1,6 @@
 import { dividerStyle } from '../theme';
 import cn from 'classnames';
-
-export interface DividerProps extends React.HTMLProps<HTMLHRElement> {
-  fullWidth?: boolean;
-  className?: string;
-}
+import { DividerProps } from '../component-types';
 
 export const Divider = ({ className, fullWidth }: DividerProps) => (
   <hr
