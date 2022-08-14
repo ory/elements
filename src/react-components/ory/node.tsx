@@ -1,10 +1,15 @@
 import React, { MouseEvent } from 'react';
 
-import { UiNode, UiNodeInputAttributes } from '@ory/client';
+import {
+  UiNode,
+  UiNodeInputAttributes,
+  UiNodeScriptAttributes
+} from '@ory/client';
 import {
   getNodeLabel,
   isUiNodeAnchorAttributes,
-  isUiNodeInputAttributes
+  isUiNodeInputAttributes,
+  isUiNodeScriptAttributes
 } from '@ory/integrations/ui';
 import { Button } from '../button';
 import { ButtonSocial } from '../button-social';
@@ -100,6 +105,11 @@ export const Node = ({ node }: { node: UiNode }) => {
         return null;
     }
     return null;
+  } else if (isUiNodeScriptAttributes(node.attributes)) {
+    const attrs = node.attributes as UiNodeScriptAttributes;
+    // TODO: Preact doesn't work nicely with react useEffect.
+    // fix this and then uncomment the following line:
+    return null; //<NodeScript node={node} attributes={attrs} />;
   }
   return null;
 };

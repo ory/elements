@@ -90,7 +90,9 @@ import {
   SelfServiceRecoveryFlow,
   SelfServiceRegistrationFlow,
   SelfServiceSettingsFlow,
-  SelfServiceVerificationFlow
+  SelfServiceVerificationFlow,
+  UiNode,
+  UiNodeScriptAttributes
 } from '@ory/client';
 
 export type SelfServiceFlow =
@@ -145,3 +147,9 @@ export type SelfServiceErrorCardProps = {
   backURL: string;
   contactSupportEmail?: string;
 };
+
+// NodeScriptProps
+export interface NodeScriptProps {
+  node: UiNode;
+  attributes: UiNodeScriptAttributes;
+}

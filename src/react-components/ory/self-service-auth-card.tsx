@@ -42,7 +42,7 @@ const $loginSection = ({
     <FilterFlowNodes
       filter={{
         nodes: nodes,
-        groups: ['password'],
+        groups: ['password', 'webauthn'],
         attributes: 'submit'
       }}
     />
