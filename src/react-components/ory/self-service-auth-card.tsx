@@ -13,6 +13,7 @@ import {
   SelfServiceAuthCardProps,
   SelfServiceFlow
 } from '../../component-types';
+import { filterNodesByGroups } from '@ory/integrations/ui';
 
 type loginCardProps = {
   nodes: UiNode[];
@@ -128,20 +129,30 @@ const $alternativeFlowCard = ({
   </div>
 );
 
-const $oidcSection = (flow: SelfServiceFlow) => (
-  <SelfServiceFlowForm flow={flow}>
-    <div className={gridStyle({ gap: 32 })}>
-      <Divider />
-      <FilterFlowNodes
-        filter={{
-          nodes: flow.ui.nodes,
-          groups: ['oidc'],
-          attributes: 'submit'
-        }}
-      />
-    </div>
-  </SelfServiceFlowForm>
-);
+const $oidcSection = (flow: SelfServiceFlow) => {
+  const hasOIDC =
+    filterNodesByGroups({
+      nodes: flow.ui.nodes,
+      groups: 'oidc',
+      withoutDefaultGroup: true
+    }).length > 0;
+
+  console.log(hasOIDC);
+  return hasOIDC ? (
+    <SelfServiceFlowForm flow={flow}>
+      <div className={gridStyle({ gap: 32 })}>
+        <Divider />
+        <FilterFlowNodes
+          filter={{
+            nodes: flow.ui.nodes,
+            groups: ['oidc'],
+            attributes: 'submit'
+          }}
+        />
+      </div>
+    </SelfServiceFlowForm>
+  ) : null;
+};
 
 export const SelfServiceAuthCard = ({
   flow,
