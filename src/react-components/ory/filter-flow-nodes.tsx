@@ -25,12 +25,12 @@ export const FilterFlowNodes = ({ filter, includeCSRF }: Props) => {
         ? { node: <Node node={node} key={k} />, hidden: true }
         : { node: <Node node={node} key={k} />, hidden: false }
     );
-  return (
+  return nodes.length > 0 ? (
     <>
       {nodes.filter((node) => node.hidden).map((node) => node.node)}
       <div className={gridStyle({ gap: 16 })}>
         {nodes.filter((node) => !node.hidden).map((node) => node.node)}
       </div>
     </>
-  );
+  ) : null;
 };
