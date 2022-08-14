@@ -5,13 +5,7 @@ import {
   inputFieldTitleStyle
 } from '../theme/input-field.css';
 import cn from 'classnames';
-
-export interface InputFieldProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  title: string;
-  fullWidth?: boolean;
-  className?: string;
-}
+import { InputFieldProps } from '../component-types';
 
 export const InputField = ({
   title,

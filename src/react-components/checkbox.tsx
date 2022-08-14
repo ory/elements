@@ -8,12 +8,7 @@ import cn from 'classnames';
 import '../../public/fontawesome.min.css';
 import '../../public/fa-solid.min.css';
 
-export interface CheckboxProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  label?: string;
-  children?: React.ReactNode;
-}
+import { CheckboxProps } from '../component-types';
 
 export const Checkbox = ({
   className,

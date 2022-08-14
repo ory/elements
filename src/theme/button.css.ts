@@ -1,5 +1,5 @@
 import { oryTheme } from './theme.css';
-import { pxToRem } from '../utils';
+import { pxToRem } from '../common';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { defaultBreakpoints } from './consts';
 

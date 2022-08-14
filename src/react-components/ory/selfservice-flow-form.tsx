@@ -1,21 +1,13 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { SelfServiceFlowFormProps } from '../../component-types';
 import { FilterFlowNodes } from './filter-flow-nodes';
-import { SelfServiceFlow } from './FlowTypes';
-
-export interface SelfServiceFlowForm
-  extends React.FormHTMLAttributes<HTMLFormElement> {
-  flow: SelfServiceFlow;
-  children: ReactNode;
-  submitOnEnter?: boolean;
-  className?: string;
-}
 
 export const SelfServiceFlowForm = ({
   flow,
   children,
   submitOnEnter,
   className
-}: SelfServiceFlowForm) => {
+}: SelfServiceFlowFormProps) => {
   return (
     <form
       className={className}

@@ -2,30 +2,17 @@ import React from 'react';
 import { Card } from '../card';
 import { Divider } from '../divider';
 import { FilterFlowNodes } from './filter-flow-nodes';
-import { SelfServiceFlow } from './FlowTypes';
 import { SelfServiceFlowForm } from './selfservice-flow-form';
 import { ButtonLink } from '../button-link';
 import { Message } from '../message';
 import { colorSprinkle } from '../../theme/colors.css';
 import { gridStyle } from '../../theme';
 import { SelfServiceLoginFlow, UiNode } from '@ory/client';
-
-export type AdditionalProps = {
-  forgotPasswordURL?: string;
-  signupURL?: string;
-  logoutURL?: string;
-  loginURL?: string;
-};
-
-export type SelfServiceAuthCardProps = {
-  flow: SelfServiceFlow;
-  title: string;
-  flowType: 'login' | 'registration' | 'recovery' | 'verification';
-  additionalProps: AdditionalProps;
-  icon?: string;
-  className?: string;
-  children?: string;
-};
+import {
+  AdditionalProps,
+  SelfServiceAuthCardProps,
+  SelfServiceFlow
+} from '../../component-types';
 
 type loginCardProps = {
   nodes: UiNode[];

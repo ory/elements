@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, ComponentMeta } from '@storybook/react';
-import { InputField, InputFieldProps } from '../react';
+import { InputField, InputFieldProps } from '../react-components';
 import { Container } from './storyhelper';
 
 export default {

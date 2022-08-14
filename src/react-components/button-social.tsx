@@ -1,10 +1,8 @@
 import {
   buttonSocialIconStyle,
-  ButtonSocialStyle,
   buttonSocialStyle,
   buttonSocialTitleStyle
 } from '../theme/button-social.css';
-import { ButtonProps } from './button';
 import cn from 'classnames';
 
 // required FontAwesome Icons for Brands
@@ -12,16 +10,7 @@ import '../../public/fontawesome.min.css';
 import '../../public/fa-brands.min.css';
 import '../../public/fa-solid.min.css';
 
-type buttonSocialStyle = ButtonSocialStyle & {};
-
-export interface ButtonSocialProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    buttonSocialStyle {
-  title: string;
-  brand: string;
-  fullWidth?: boolean;
-  className?: string;
-}
+import { ButtonSocialProps } from '../component-types';
 
 export const ButtonSocial = ({
   title,

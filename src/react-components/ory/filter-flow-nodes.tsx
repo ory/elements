@@ -1,4 +1,4 @@
-import { UiNode, UiNodeTypeEnum } from '@ory/client';
+import { UiNode } from '@ory/client';
 import {
   filterNodesByGroups,
   getNodeInputType,

@@ -1,15 +1,8 @@
-import { SelfServiceError } from '@ory/client';
+import { SelfServiceErrorCardProps } from '../../component-types';
 import { colorSprinkle, gridStyle } from '../../theme';
 import { ButtonLink } from '../button-link';
 import { Card } from '../card';
 import { Message } from '../message';
-
-export type SelfServiceErrorCardProps = {
-  title: string;
-  error: SelfServiceError;
-  backURL: string;
-  contactSupportEmail?: string;
-};
 
 type errorMessage = {
   message: string;

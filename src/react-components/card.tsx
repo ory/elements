@@ -2,12 +2,7 @@ import React from 'react';
 import { cardStyle, cardTitleStyle, gridStyle } from '../theme';
 import { typographyStyle } from '../theme';
 import cn from 'classnames';
-
-export type CardProps = {
-  title: string;
-  className?: string;
-  children?: React.ReactNode;
-};
+import { CardProps } from '../component-types';
 
 export const Card = ({ title, className, children }: CardProps) => (
   <div
