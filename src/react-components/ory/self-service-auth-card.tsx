@@ -14,7 +14,7 @@ import {
   SelfServiceFlow
 } from '../../component-types';
 import { filterNodesByGroups } from '@ory/integrations/ui';
-import { useScriptNode } from './node-script';
+import { ScriptNodes } from './node-script';
 
 type loginCardProps = {
   nodes: UiNode[];
@@ -91,6 +91,13 @@ const $registrationSection = ({ nodes, loginUrl }: registrationCard) => (
         attributes: 'submit'
       }}
     />
+    <FilterFlowNodes
+      filter={{
+        nodes: nodes,
+        groups: ['password', 'webauthn'],
+        attributes: 'submit'
+      }}
+    />
     {$messageSection('Already have an account?', loginUrl, 'Sign in')}
   </div>
 );
@@ -160,8 +167,6 @@ export const SelfServiceAuthCard = ({
   flowType,
   additionalProps
 }: SelfServiceAuthCardProps) => {
-  useScriptNode({ nodes: flow.ui.nodes });
-
   let $card = null;
   let $oidc = null;
 
@@ -201,15 +206,18 @@ export const SelfServiceAuthCard = ({
   }
 
   return (
-    <Card title={title}>
-      <div className={gridStyle({ gap: 32 })}>
-        {$oidc && $oidc}
-        {$card && (
-          <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
-            {$card}
-          </SelfServiceFlowForm>
-        )}
-      </div>
-    </Card>
+    <>
+      <ScriptNodes nodes={flow.ui.nodes} />
+      <Card title={title}>
+        <div className={gridStyle({ gap: 32 })}>
+          {$oidc && $oidc}
+          {$card && (
+            <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
+              {$card}
+            </SelfServiceFlowForm>
+          )}
+        </div>
+      </Card>
+    </>
   );
 };
