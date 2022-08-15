@@ -17,7 +17,6 @@ export default {
 
 type DividerStoryProps = {
   theme: 'light' | 'dark';
-  args;
 } & DividerProps;
 
 const Template: Story<DividerStoryProps> = (args: DividerStoryProps) => (

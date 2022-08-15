@@ -147,9 +147,3 @@ export type SelfServiceErrorCardProps = {
   backURL: string;
   contactSupportEmail?: string;
 };
-
-// NodeScriptProps
-export interface NodeScriptProps {
-  node: UiNode;
-  attributes: UiNodeScriptAttributes;
-}

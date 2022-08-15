@@ -1,15 +1,10 @@
 import React, { MouseEvent } from 'react';
 
-import {
-  UiNode,
-  UiNodeInputAttributes,
-  UiNodeScriptAttributes
-} from '@ory/client';
+import { UiNode, UiNodeInputAttributes } from '@ory/client';
 import {
   getNodeLabel,
   isUiNodeAnchorAttributes,
-  isUiNodeInputAttributes,
-  isUiNodeScriptAttributes
+  isUiNodeInputAttributes
 } from '@ory/integrations/ui';
 import { Button } from '../button';
 import { ButtonSocial } from '../button-social';
@@ -27,17 +22,17 @@ export const Node = ({ node }: { node: UiNode }) => {
     return <></>;
   } else if (isUiNodeInputAttributes(node.attributes)) {
     const attrs = node.attributes as UiNodeInputAttributes;
+    const isSocial =
+      (attrs.name === 'provider' || attrs.name === 'link') &&
+      node.group === 'oidc';
+
+    // TODO: update ory client package to support enum for button type
+    const submit: ButtonSubmit = {
+      type: attrs.type as any
+    };
+
     switch (node.attributes.type) {
       case 'submit':
-        const isSocial =
-          (attrs.name === 'provider' || attrs.name === 'link') &&
-          node.group === 'oidc';
-
-        // TODO: update ory client package to support enum for button type
-        let submit: ButtonSubmit = {
-          type: attrs.type as any
-        };
-
         if (isSocial) {
           submit.formNoValidate = true;
           submit.onClick = (e) => {
@@ -95,8 +90,14 @@ export const Node = ({ node }: { node: UiNode }) => {
       case 'text':
         return (
           <InputField
+            name={attrs.name}
             title={getNodeLabel(node)}
             type={attrs.type}
+            autoComplete={
+              attrs.autocomplete || attrs.name === 'identifier'
+                ? 'username'
+                : ''
+            }
             required={attrs.required}
             fullWidth
           />
@@ -104,12 +105,6 @@ export const Node = ({ node }: { node: UiNode }) => {
       default:
         return null;
     }
-    return null;
-  } else if (isUiNodeScriptAttributes(node.attributes)) {
-    const attrs = node.attributes as UiNodeScriptAttributes;
-    // TODO: Preact doesn't work nicely with react useEffect.
-    // fix this and then uncomment the following line:
-    return null; //<NodeScript node={node} attributes={attrs} />;
   }
   return null;
 };

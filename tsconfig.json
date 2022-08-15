@@ -23,12 +23,8 @@
     "declarationMap": true,
     "outDir": "dist"
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "src/stories"
-  ],
+  "include": ["./src", "vite.config.ts", "package.json"],
+  "exclude": ["node_modules", "./dist"],
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -1,26 +1,35 @@
-import React, { HTMLAttributeReferrerPolicy, useEffect } from 'react';
-import { NodeScriptProps } from '../../component-types';
+import { useEffect } from 'react';
+import { UiNode, UiNodeScriptAttributes } from '@ory/client';
+import { HTMLAttributeReferrerPolicy } from 'react';
+import { filterNodesByGroups } from '@ory/integrations/ui';
 
-export const NodeScript = ({ attributes }: NodeScriptProps) => {
+export const useScriptNode = ({ nodes }: { nodes: UiNode[] }) => {
   useEffect(() => {
-    const script = document.createElement('script');
+    const scriptNodes = filterNodesByGroups({
+      nodes: nodes,
+      attributes: 'script'
+    }).map((node) => node.attributes as UiNodeScriptAttributes);
 
-    script.async = true;
-    script.setAttribute('data-testid', `node/script/${attributes.id}`);
-    script.src = attributes.src;
-    script.async = attributes.async;
-    script.crossOrigin = attributes.crossorigin;
-    script.integrity = attributes.integrity;
-    script.referrerPolicy =
-      attributes.referrerpolicy as HTMLAttributeReferrerPolicy;
-    script.type = attributes.type;
+    const scripts: HTMLScriptElement[] = [];
 
-    document.body.appendChild(script);
+    for (const script of scriptNodes) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.setAttribute('data-testid', `node/script/${script.id}`);
+      s.src = script.src;
+      s.async = script.async;
+      s.crossOrigin = script.crossorigin;
+      s.integrity = script.integrity;
+      s.referrerPolicy = script.referrerpolicy as HTMLAttributeReferrerPolicy;
+      s.type = script.type;
 
+      scripts.push(s);
+      document.body.appendChild(s);
+    }
     return () => {
-      document.body.removeChild(script);
+      for (const s of scripts) {
+        document.body.removeChild(s);
+      }
     };
-  }, [attributes]);
-
-  return null;
+  }, [nodes]);
 };

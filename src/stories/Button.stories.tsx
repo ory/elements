@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from '../react-components';
-import { Story, ComponentMeta } from '@storybook/react';
 import { Container } from './storyhelper';
 import { ButtonProps } from '../component-types';
+import { ComponentMeta } from '@storybook/react';
+import { Story } from '@storybook/react';
 
 export default {
   title: 'Component/Button',
@@ -30,7 +31,7 @@ export const SmallSemibold = Template.bind({});
 SmallSemibold.args = {
   title: 'A Small Semibold Button',
   size: 'small',
-  type: 'semibold'
+  variant: 'semibold'
 };
 
 export const SmallNormal = Template.bind({});
@@ -46,7 +47,7 @@ export const MediumNormal = Template.bind({});
 MediumNormal.args = {
   title: 'A Medium Regular Button',
   size: 'medium',
-  type: 'regular'
+  variant: 'regular'
 };
 
 export const MediumSemibold = Template.bind({});
@@ -54,7 +55,7 @@ export const MediumSemibold = Template.bind({});
 MediumSemibold.args = {
   title: 'A Medium Semibold Button',
   size: 'medium',
-  type: 'semibold'
+  variant: 'semibold'
 };
 
 export const LargeNormal = Template.bind({});
@@ -62,7 +63,7 @@ export const LargeNormal = Template.bind({});
 LargeNormal.args = {
   title: 'A Large Regular Button',
   size: 'large',
-  type: 'regular'
+  variant: 'regular'
 };
 
 export const LargeSemibold = Template.bind({});
@@ -70,5 +71,5 @@ export const LargeSemibold = Template.bind({});
 LargeSemibold.args = {
   title: 'A Large Semibold Button',
   size: 'large',
-  type: 'semibold'
+  variant: 'semibold'
 };

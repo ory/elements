@@ -6,4 +6,4 @@ export * from './selfservice-flow-form';
 
 // TODO: Preact doesn't work nicely with react useEffect.
 // fix this and then uncomment the following line:
-//export * from './node-script';
+export * from './node-script';

@@ -93,14 +93,12 @@ export const SocialButton = Template.bind({});
 
 SocialButton.args = {
   title: 'Google',
-  brand: 'google',
-  type: 'semibold'
+  brand: 'google'
 };
 
 export const GenericProviderButton = Template.bind({});
 
 GenericProviderButton.args = {
   title: 'Generic Provider',
-  brand: 'generic',
-  type: 'semibold'
+  brand: 'generic'
 };
