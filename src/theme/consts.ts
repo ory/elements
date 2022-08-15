@@ -1,9 +1,10 @@
+import { NullableTokens } from '@vanilla-extract/css/dist/declarations/src/types';
 import { pxToRem } from '../common';
 
-export type Font = {
+export interface Font extends NullableTokens {
   fontFamily: string;
   fontStyle: string;
-};
+}
 
 export type BreakPoints = {
   sm: string;
@@ -22,6 +23,8 @@ export const defaultBreakpoints: BreakPoints = {
 };
 
 export type Theme = {
+  fontFamily: string;
+  fontStyle: string;
   accent: {
     def: string;
     muted: string;
@@ -64,9 +67,9 @@ export type Theme = {
     placeholder: string;
     text: string;
   };
-} & Font;
+};
 
-export const defaultFont = {
+export const defaultFont: Font = {
   fontFamily: 'Inter',
   fontStyle: 'normal'
 };
@@ -79,7 +82,8 @@ const defaultButtonFontTheme = {
 };
 
 export const defaultLightTheme: Theme = {
-  ...defaultFont,
+  fontFamily: 'Inter',
+  fontStyle: 'normal',
   accent: {
     def: '#3D53F5',
     muted: '#6475F7',
@@ -125,7 +129,8 @@ export const defaultLightTheme: Theme = {
 };
 
 export const defaultDarkTheme: Theme = {
-  ...defaultFont,
+  fontFamily: 'Inter',
+  fontStyle: 'normal',
   accent: {
     def: '#6475f7',
     disabled: '#757575',

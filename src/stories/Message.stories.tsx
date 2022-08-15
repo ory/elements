@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, Story } from '@storybook/react';
-import { Message, MessageProps, Typography } from '../react-components';
+import { Message } from '../react-components';
+import { MessageProps } from '../component-types';
 import { Container } from './storyhelper';
 import { colorSprinkle } from '../theme';
 
@@ -22,7 +23,7 @@ export type MessageStoryProps = MessageProps & {
 const Template: Story<MessageStoryProps> = (args: MessageStoryProps) => (
   <Container theme={args.theme || 'light'}>
     <Message {...args}>I am a Message</Message>
-    <Message {...args} className={colorSprinkle({ color: 'foreground-muted' })}>
+    <Message {...args} className={colorSprinkle({ color: 'foregroundMuted' })}>
       I am a different color
     </Message>
   </Container>
@@ -33,5 +34,5 @@ export const DefaultMessage = Template.bind({});
 export const ErrorMessage = Template.bind({});
 
 ErrorMessage.args = {
-  serverity: 'error'
+  severity: 'error'
 };

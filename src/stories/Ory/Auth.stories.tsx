@@ -1,10 +1,13 @@
 import React from 'react';
 import { ComponentMeta, Story } from '@storybook/react';
-import {
-  SelfServiceAuthCard,
-  SelfServiceAuthCardProps
-} from '../../react-components';
+import { SelfServiceAuthCard } from '../../react-components';
+import { SelfServiceAuthCardProps } from '../../component-types';
 import { Container } from '../storyhelper';
+import {
+  SelfServiceLoginFlow,
+  SelfServiceRecoveryFlow,
+  SelfServiceRegistrationFlow
+} from '@ory/client';
 
 import loginFlow from './login-flow.json';
 import loginFlowError from './login-flow-error.json';
@@ -13,12 +16,6 @@ import registrationFlow from './register-flow.json';
 import recoveryFlow from './recovery-flow.json';
 
 import verificationFlow from './verification-flow.json';
-
-import {
-  SelfServiceLoginFlow,
-  SelfServiceRecoveryFlow,
-  SelfServiceRegistrationFlow
-} from '@ory/client';
 
 export default {
   title: 'Ory/SelfServiceFlowCard',

@@ -14,6 +14,7 @@ import {
   SelfServiceFlow
 } from '../../component-types';
 import { filterNodesByGroups } from '@ory/integrations/ui';
+import { useScriptNode } from './node-script';
 
 type loginCardProps = {
   nodes: UiNode[];
@@ -51,7 +52,7 @@ const $loginSection = ({
         <ButtonLink href={logoutUrl}>Logout</ButtonLink>
       ) : (
         <>
-          Don't have an account?&nbsp;
+          Don&apos;t have an account?&nbsp;
           <ButtonLink href={signupUrl}>Sign up</ButtonLink>
         </>
       )}
@@ -137,7 +138,6 @@ const $oidcSection = (flow: SelfServiceFlow) => {
       withoutDefaultGroup: true
     }).length > 0;
 
-  console.log(hasOIDC);
   return hasOIDC ? (
     <SelfServiceFlowForm flow={flow}>
       <div className={gridStyle({ gap: 32 })}>
@@ -160,15 +160,20 @@ export const SelfServiceAuthCard = ({
   flowType,
   additionalProps
 }: SelfServiceAuthCardProps) => {
+  useScriptNode({ nodes: flow.ui.nodes });
+
   let $card = null;
   let $oidc = null;
+
+  let f;
+  let isLoggedIn = false;
 
   switch (flowType) {
     case 'login':
       $oidc = $oidcSection(flow);
-      const f = flow as SelfServiceLoginFlow;
+      f = flow as SelfServiceLoginFlow;
       // the user might need to logout on the second factor page.
-      const isLoggedIn = f.refresh || f.requested_aal === 'aal2';
+      isLoggedIn = f.refresh || f.requested_aal === 'aal2';
       $card = $loginSection({
         nodes: flow.ui.nodes,
         isLoggedIn,
@@ -179,7 +184,7 @@ export const SelfServiceAuthCard = ({
       $oidc = $oidcSection(flow);
       $card = $registrationSection({
         nodes: flow.ui.nodes,
-        loginUrl: additionalProps.loginURL!
+        loginUrl: additionalProps.loginURL || ''
       });
       break;
     // both verification and recovery use the same flow.
@@ -187,8 +192,8 @@ export const SelfServiceAuthCard = ({
     case 'verification':
       $card = $alternativeFlowCard({
         nodes: flow.ui.nodes,
-        loginUrl: additionalProps.loginURL!,
-        signupUrl: additionalProps.signupURL!
+        loginUrl: additionalProps.loginURL || '',
+        signupUrl: additionalProps.signupURL || ''
       });
       break;
     default:

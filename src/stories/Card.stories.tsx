@@ -25,5 +25,5 @@ export const NormalCard = Template.bind({});
 
 NormalCard.args = {
   title: 'Normal Title',
-  children: <Message severity="error" message="This is an error message." />
+  children: <Message severity="error">This is an error message.</Message>
 };

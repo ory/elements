@@ -1,7 +1,22 @@
 import { oryTheme } from './theme.css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
+import { RuntimeFn } from '@vanilla-extract/recipes/dist/declarations/src/types';
 
-export const messageStyle = recipe({
+export type MessageStyleVariants = {
+  severity: {
+    error: {
+      color: string;
+    };
+    success: {
+      color: string;
+    };
+    disabled: {
+      color: string;
+    };
+  };
+};
+
+export const messageStyle: RuntimeFn<MessageStyleVariants> = recipe({
   base: {
     boxSizing: 'border-box',
     display: 'flex',
