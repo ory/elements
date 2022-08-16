@@ -165,9 +165,13 @@ export const SelfServiceAuthCard = ({
   flow,
   title,
   flowType,
-  additionalProps
+  additionalProps,
+  injectScripts
 }: SelfServiceAuthCardProps) => {
-  useScriptNodes({ nodes: flow.ui.nodes });
+  if (injectScripts) {
+    useScriptNodes({ nodes: flow.ui.nodes });
+  }
+
   let $card = null;
   let $oidc = null;
 

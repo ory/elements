@@ -15,6 +15,8 @@ interface ButtonSubmit {
   type: 'submit' | 'reset' | 'button' | undefined;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   formNoValidate?: boolean;
+  name: string;
+  value: string;
 }
 
 export const Node = ({ node }: { node: UiNode }) => {
@@ -22,16 +24,21 @@ export const Node = ({ node }: { node: UiNode }) => {
     return <></>;
   } else if (isUiNodeInputAttributes(node.attributes)) {
     const attrs = node.attributes as UiNodeInputAttributes;
+    const nodeType = attrs.type;
+
     const isSocial =
       (attrs.name === 'provider' || attrs.name === 'link') &&
       node.group === 'oidc';
 
     // TODO: update ory client package to support enum for button type
     const submit: ButtonSubmit = {
-      type: attrs.type as any
+      type: attrs.type as 'submit' | 'reset' | 'button' | undefined,
+      name: attrs.name,
+      ...(attrs.value && { value: attrs.value })
     };
 
-    switch (node.attributes.type) {
+    switch (nodeType) {
+      case 'button':
       case 'submit':
         if (isSocial) {
           submit.formNoValidate = true;
@@ -57,28 +64,15 @@ export const Node = ({ node }: { node: UiNode }) => {
             brand={attrs.value.toLowerCase()}
             variant={'semibold'}
             size={'large'}
-            name={attrs.name}
-            value={attrs.value}
             fullWidth
             {...submit}
           />
         ) : (
           <Button
             title={getNodeLabel(node)}
-            name={attrs.name}
             variant={'semibold'}
             fullWidth
-            value={attrs.value}
             {...submit}
-          />
-        );
-      case 'button':
-        return (
-          <Button
-            title={getNodeLabel(node)}
-            name={attrs.name}
-            type={'button'}
-            fullWidth
           />
         );
       case 'datetime-local':

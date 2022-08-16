@@ -126,6 +126,7 @@ export type SelfServiceAuthCardProps = {
   title: string;
   flowType: 'login' | 'registration' | 'recovery' | 'verification';
   additionalProps: AdditionalProps;
+  injectScripts?: boolean;
   icon?: string;
   className?: string;
   children?: string;
