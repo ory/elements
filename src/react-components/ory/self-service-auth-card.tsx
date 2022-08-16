@@ -14,7 +14,7 @@ import {
   SelfServiceFlow
 } from '../../component-types';
 import { filterNodesByGroups } from '@ory/integrations/ui';
-import { ScriptNodes } from './node-script';
+import { useScriptNodes } from './node-script';
 
 type loginCardProps = {
   nodes: UiNode[];
@@ -167,6 +167,7 @@ export const SelfServiceAuthCard = ({
   flowType,
   additionalProps
 }: SelfServiceAuthCardProps) => {
+  useScriptNodes({ nodes: flow.ui.nodes });
   let $card = null;
   let $oidc = null;
 
@@ -206,18 +207,15 @@ export const SelfServiceAuthCard = ({
   }
 
   return (
-    <>
-      <ScriptNodes nodes={flow.ui.nodes} />
-      <Card title={title}>
-        <div className={gridStyle({ gap: 32 })}>
-          {$oidc && $oidc}
-          {$card && (
-            <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
-              {$card}
-            </SelfServiceFlowForm>
-          )}
-        </div>
-      </Card>
-    </>
+    <Card title={title}>
+      <div className={gridStyle({ gap: 32 })}>
+        {$oidc && $oidc}
+        {$card && (
+          <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
+            {$card}
+          </SelfServiceFlowForm>
+        )}
+      </div>
+    </Card>
   );
 };
