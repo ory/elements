@@ -95,16 +95,18 @@ export default defineConfig(({ mode }) => {
     console.log('MARDOWN MODE');
     return {
       plugins: [
-        react(),
         vanillaExtractPlugin(),
-        dts({ insertTypesEntry: true })
+        dts({ insertTypesEntry: true }),
+        react()
       ],
       build: {
-        target: 'esnext',
+        minify: 'esbuild',
+        sourcemap: true,
         lib: {
-          name: 'ory/themes',
-          fileName: (format) => `index.${format}.js`,
-          entry: resolve(__dirname, 'src/markdown.ts')
+          name: '@ory/themes',
+          entry: path.resolve(__dirname, 'src/markdown.ts'),
+          formats: ['es', 'umd'],
+          fileName: (format) => (format === 'es' ? 'index.mjs' : 'index.umd.js')
         },
         rollupOptions: {
           treeshake: 'recommended',
