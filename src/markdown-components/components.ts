@@ -27,7 +27,11 @@ import {
   ThemeProvider as themeProvider,
   Message as message,
   InputField as inputField,
-  SelfServiceErrorCard as selfServiceErrorCard
+  SelfServiceErrorCard as selfServiceErrorCard,
+  MenuLinkProps,
+  MenuLink as menuLink,
+  NavProps,
+  Nav as nav
 } from '../react-components';
 
 export const ButtonLink = (props: ButtonLinkProps) => {
@@ -80,4 +84,12 @@ export const SelfServiceFlowForm = (props: SelfServiceFlowFormProps) => {
 
 export const SelfServiceErrorCard = (props: SelfServiceErrorCardProps) => {
   return ComponentWrapper(selfServiceErrorCard(props));
+};
+
+export const MenuLink = (props: MenuLinkProps) => {
+  return ComponentWrapper(menuLink(props));
+};
+
+export const Nav = (props: NavProps) => {
+  return ComponentWrapper(nav(props));
 };

@@ -1,5 +1,7 @@
 import { oryTheme } from './theme.css';
 import { recipe } from '@vanilla-extract/recipes';
+import { style } from '@vanilla-extract/css';
+import { pxToRem } from '../common';
 
 export const buttonLinkStyle = recipe({
   base: {
@@ -19,4 +21,8 @@ export const buttonLinkStyle = recipe({
       color: oryTheme.accent.muted
     }
   }
+});
+
+export const buttonLinkIconStyle = style({
+  paddingRight: pxToRem(8)
 });
