@@ -9,7 +9,9 @@ import {
 
 export interface ButtonLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string | undefined;
   children: React.ReactNode;
+  icon?: string;
   className?: string;
 }
 

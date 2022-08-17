@@ -8,4 +8,6 @@ export * from './checkbox';
 export * from './provider';
 export * from './input-field';
 export * from './typography';
+export * from './nav';
+export * from './menu-link';
 export * from './ory';
