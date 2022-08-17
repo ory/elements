@@ -110,13 +110,10 @@ export default defineConfig(({ mode }) => {
         },
         rollupOptions: {
           treeshake: 'recommended',
-          external: ['react', 'react-dom/server', 'express'],
+          external: ['express'],
           output: {
             globals: {
-              express: 'express',
-              react: 'React',
-              'react-dom': 'ReactDOM',
-              'react-dom/server': 'ReactDOMServer'
+              express: 'express'
             }
           }
         }
