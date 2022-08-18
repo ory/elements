@@ -1,3 +1,4 @@
+import React from 'react';
 import { menuLinkIconLeftStyle, menuLinkStyle } from '../theme/menu-link.css';
 import { colorSprinkle, typographyStyle } from '../theme';
 import cn from 'classnames';
@@ -20,7 +21,7 @@ export const MenuLink = ({
   className
 }: MenuLinkProps) => {
   return (
-    <div className={cn(menuLinkStyle, className)}>
+    <div className={cn(className, menuLinkStyle)}>
       <a
         className={cn(
           typographyStyle({ size: 'small', type: 'regular' }),

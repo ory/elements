@@ -1,10 +1,16 @@
 import React from 'react';
-import { colorSprinkle, typographyStyle } from '../theme';
-import { navSectionTitleStyle, navStyle } from '../theme/nav.css';
+import { colorSprinkle, gridStyle, typographyStyle } from '../theme';
+import {
+  navMainSectionStyle,
+  navMenuSectionStyle,
+  navSectionBottom,
+  navSectionTitleStyle,
+  navStyle
+} from '../theme/nav.css';
 import { MenuLink } from './menu-link';
 import cn from 'classnames';
 
-type NavSectionLinks = {
+export type NavSectionLinks = {
   name: string;
   url: string;
   iconLeft: string;
@@ -12,9 +18,10 @@ type NavSectionLinks = {
   disabled?: boolean;
 };
 
-type NavSection = {
+export type NavSection = {
   title?: string;
   titleIcon?: string;
+  floatBottom?: boolean;
   links: NavSectionLinks[];
 };
 
@@ -24,21 +31,39 @@ export interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-export const Nav = ({ navTitle, navSections, className }: NavProps) => {
-  return (
-    <nav className={cn(navStyle, className)}>
-      <div
-        className={cn(
-          navSectionTitleStyle,
-          typographyStyle({ size: 'caption' }),
-          colorSprinkle({ color: 'accentDefault' })
-        )}
-      >
-        {navTitle}
-      </div>
-
-      {navSections.map((section) => (
-        <div>
+export const Nav = ({
+  navTitle,
+  navSections,
+  className,
+  ...props
+}: NavProps) => (
+  <nav role="navigation" className={cn(navStyle, className)} {...props}>
+    <input id="collapse-nav" type="checkbox" />
+    <div
+      className={cn(
+        navSectionTitleStyle,
+        typographyStyle({ size: 'caption' }),
+        colorSprinkle({ color: 'accentDefault' })
+      )}
+    >
+      {navTitle}
+      <label htmlFor="collapse-nav">
+        <i className={cn('fa', 'fa-bars')}></i>
+        <i className={cn('fa', 'fa-xmark')}></i>
+      </label>
+    </div>
+    <ul
+      className={cn(
+        navMainSectionStyle,
+        navMenuSectionStyle,
+        gridStyle({ gap: 24 })
+      )}
+    >
+      {navSections.map((section, key) => (
+        <li
+          key={key}
+          {...(section.floatBottom && { className: navSectionBottom })}
+        >
           {section.title && (
             <div
               className={cn(
@@ -51,18 +76,22 @@ export const Nav = ({ navTitle, navSections, className }: NavProps) => {
               <i className={`fa fa-${section.titleIcon}`}></i>
             </div>
           )}
-          {section.links.map((link) => (
-            <MenuLink
-              href={link.url}
-              iconLeft={link.iconLeft}
-              iconRight={link.iconRight}
-              disabled={link.disabled}
-            >
-              {link.name}
-            </MenuLink>
-          ))}
-        </div>
+          <ul className={navMenuSectionStyle}>
+            {section.links.map((link, key) => (
+              <li key={key}>
+                <MenuLink
+                  href={link.url}
+                  iconLeft={link.iconLeft}
+                  iconRight={link.iconRight}
+                  disabled={link.disabled}
+                >
+                  {link.name}
+                </MenuLink>
+              </li>
+            ))}
+          </ul>
+        </li>
       ))}
-    </nav>
-  );
-};
+    </ul>
+  </nav>
+);
