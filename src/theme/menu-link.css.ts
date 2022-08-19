@@ -8,8 +8,7 @@ export const menuLinkStyle = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   gap: pxToRem(10),
-  padding: pxToRem(6, 8),
-  width: '100%'
+  padding: pxToRem(6, 8)
 });
 
 export const menuLinkIconLeftStyle = style({

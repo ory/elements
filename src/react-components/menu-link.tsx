@@ -40,7 +40,8 @@ export const MenuLink = ({
       {iconRight && (
         <i
           className={cn(
-            `fa fa-up-right-from-square`,
+            `fa`,
+            `fa-${iconRight}`,
             colorSprinkle({
               color: disabled ? 'foregroundDisabled' : 'foregroundMuted'
             })
