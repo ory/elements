@@ -12,6 +12,7 @@ export const navStyle = style({
   msUserSelect: 'none',
   userSelect: 'none',
 
+  zIndex: 3,
   boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'column',
@@ -56,7 +57,7 @@ export const navMenuSectionStyle = style({
 export const navMainSectionStyle = style({
   '@media': {
     [`screen and (max-width: ${defaultBreakpoints.md})`]: {
-      flexGrow: 1
+      minHeight: 'calc(100vh - 120px)'
     }
   }
 });
