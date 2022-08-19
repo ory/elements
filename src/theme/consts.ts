@@ -1,5 +1,5 @@
 import { NullableTokens } from '@vanilla-extract/css/dist/declarations/src/types';
-import { pxToRem } from '../common';
+import { pxToEm, pxToRem } from '../common';
 
 export interface Font extends NullableTokens {
   fontFamily: string;
@@ -7,6 +7,7 @@ export interface Font extends NullableTokens {
 }
 
 export type BreakPoints = {
+  xs: string;
   sm: string;
   md: string;
   lg: string;
@@ -15,11 +16,13 @@ export type BreakPoints = {
 };
 
 export const defaultBreakpoints: BreakPoints = {
-  sm: pxToRem(640),
-  md: pxToRem(768),
-  lg: pxToRem(1024),
-  xl: pxToRem(1280),
-  xl2: pxToRem(1536)
+  // using em here as it is more consistent across browsers
+  xs: pxToEm(390),
+  sm: pxToEm(640),
+  md: pxToEm(768),
+  lg: pxToEm(1024),
+  xl: pxToEm(1280),
+  xl2: pxToEm(1536)
 };
 
 export type Theme = {
