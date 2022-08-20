@@ -1,3 +1,4 @@
+import React from 'react';
 import { UiNode } from '@ory/client';
 import {
   filterNodesByGroups,
@@ -6,7 +7,6 @@ import {
 } from '@ory/integrations/ui';
 import { Node } from './node';
 import { gridStyle } from '../../theme';
-import React from 'react';
 
 export interface Props {
   filter: filterNodesByGroups;
@@ -19,7 +19,10 @@ export const FilterFlowNodes = ({ filter, includeCSRF }: Props) => {
 
   const nodes = filterNodesByGroups(filter)
     // we don't want to map the csrf token every time, only on the form level
-    .filter((node) => includeCSRF || getInputName(node) !== 'csrf_token')
+    .filter(
+      (node) =>
+        (['csrf_token'].includes(getInputName(node)) && includeCSRF) || true
+    )
     .map((node, k) =>
       ['hidden'].includes(getNodeInputType(node.attributes))
         ? { node: <Node node={node} key={k} />, hidden: true }
