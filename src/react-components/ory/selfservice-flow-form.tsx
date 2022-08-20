@@ -25,8 +25,7 @@ export const SelfServiceFlowForm = ({
         <FilterFlowNodes
           filter={{
             nodes: flow.ui.nodes,
-            groups: ['default'],
-            attributes: ['hidden']
+            attributes: 'hidden'
           }}
           includeCSRF={true}
         />

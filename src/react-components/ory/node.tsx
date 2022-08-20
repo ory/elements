@@ -92,6 +92,7 @@ export const Node = ({ node }: { node: UiNode }) => {
                 ? 'username'
                 : ''
             }
+            value={attrs.value}
             required={attrs.required}
             fullWidth
           />
