@@ -1,20 +1,5 @@
 import { ComponentWrapper } from './component-wrapper';
 import {
-  ButtonLinkProps,
-  ButtonProps,
-  ButtonSocialProps,
-  CardProps,
-  CheckboxProps,
-  DividerProps,
-  TypographyProps,
-  SelfServiceAuthCardProps,
-  SelfServiceFlowFormProps,
-  ThemeProviderProps,
-  InputFieldProps,
-  MessageProps,
-  SelfServiceErrorCardProps
-} from '../component-types';
-import {
   Checkbox as checkbox,
   Card as card,
   Button as button,
@@ -31,7 +16,20 @@ import {
   MenuLinkProps,
   MenuLink as menuLink,
   NavProps,
-  Nav as nav
+  Nav as nav,
+  ButtonLinkProps,
+  ButtonSocialProps,
+  ButtonProps,
+  CardProps,
+  CheckboxProps,
+  DividerProps,
+  TypographyProps,
+  ThemeProviderProps,
+  InputFieldProps,
+  MessageProps,
+  SelfServiceAuthCardProps,
+  SelfServiceFlowFormProps,
+  SelfServiceErrorCardProps
 } from '../react-components';
 
 export const ButtonLink = (props: ButtonLinkProps) => {
