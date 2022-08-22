@@ -28,8 +28,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "playwright test -c playwright-ct.config.ts",
-    "format": "prettier --write '{src/**/*,!src/assets/**}.{tsx,ts,js,css}'",
-    "format:check": "prettier --check '{src/**/*,!src/assets/**}.{tsx,ts,js,css}'"
+    "format": "prettier --write '{src/**/*,}.{tsx,ts,js,css}'",
+    "format:check": "prettier --check '{src/**/*,}.{tsx,ts,js,css}'"
   },
   "repository": {
     "type": "git",
