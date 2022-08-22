@@ -1,7 +1,21 @@
 import React from 'react';
-import { colorSprinkle, typographyStyle } from '../theme';
+import {
+  ColorSprinkle,
+  colorSprinkle,
+  TypographyStyle,
+  typographyStyle
+} from '../theme';
 import cn from 'classnames';
-import { TypographyProps } from '../component-types';
+
+// required since interfaces cannot extend types whose properties are not statically known
+type typographyStyle = TypographyStyle & Record<string, unknown>;
+type colorSprinkle = ColorSprinkle & Record<string, unknown>;
+export interface TypographyProps
+  extends Omit<React.BaseHTMLAttributes<HTMLBaseElement>, 'color'>,
+    typographyStyle,
+    colorSprinkle {
+  children: React.ReactNode;
+}
 
 export const Typography = ({
   children,

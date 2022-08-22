@@ -18,36 +18,35 @@ export const MenuLink = ({
   disabled,
   iconLeft,
   iconRight,
-  className
-}: MenuLinkProps) => {
-  return (
-    <div className={cn(className, menuLinkStyle)}>
-      <a
+  className,
+  ...props
+}: MenuLinkProps): JSX.Element => (
+  <div className={cn(className, menuLinkStyle)} {...props}>
+    <a
+      className={cn(
+        typographyStyle({ size: 'small', type: 'regular' }),
+        colorSprinkle({
+          color: disabled ? 'foregroundDisabled' : 'foregroundMuted'
+        })
+      )}
+      aria-disabled={disabled}
+      {...(!disabled && { href: href })}
+    >
+      {iconLeft && (
+        <i className={cn('fa', `fa-${iconLeft}`, menuLinkIconLeftStyle)}></i>
+      )}
+      {children}
+    </a>
+    {iconRight && (
+      <i
         className={cn(
-          typographyStyle({ size: 'small', type: 'regular' }),
+          `fa`,
+          `fa-${iconRight}`,
           colorSprinkle({
             color: disabled ? 'foregroundDisabled' : 'foregroundMuted'
           })
         )}
-        aria-disabled={disabled}
-        {...(!disabled && { href: href })}
-      >
-        {iconLeft && (
-          <i className={cn('fa', `fa-${iconLeft}`, menuLinkIconLeftStyle)}></i>
-        )}
-        {children}
-      </a>
-      {iconRight && (
-        <i
-          className={cn(
-            `fa`,
-            `fa-${iconRight}`,
-            colorSprinkle({
-              color: disabled ? 'foregroundDisabled' : 'foregroundMuted'
-            })
-          )}
-        ></i>
-      )}
-    </div>
-  );
-};
+      ></i>
+    )}
+  </div>
+);

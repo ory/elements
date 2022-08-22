@@ -1,12 +1,14 @@
 import React from 'react';
-import { colorSprinkle, gridStyle, typographyStyle } from '../theme';
 import {
   navMainSectionStyle,
   navMenuSectionStyle,
   navSectionBottom,
   navSectionTitleStyle,
-  navStyle
-} from '../theme/nav.css';
+  navStyle,
+  colorSprinkle,
+  gridStyle,
+  typographyStyle
+} from '../theme';
 import { MenuLink } from './menu-link';
 import cn from 'classnames';
 

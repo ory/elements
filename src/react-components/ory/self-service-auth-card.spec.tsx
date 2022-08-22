@@ -37,6 +37,10 @@ test('ory auth card', async ({ mount }) => {
     />
   );
   await expect(component).toContainText('Sign in');
-  await expect(component.locator('href=/forgot')).toBe(true);
-  await expect(component.locator('href=/signup')).toBe(true);
+  await expect(component).toContainText('Forgot password?', {
+    ignoreCase: true
+  });
+  await expect(component.locator('a')).toHaveAttribute('href', '/forgot');
+  await expect(component.locator('a[href=/signup]')).toBe(true);
+  await expect(component).toContainText('Don\t have an account?');
 });
