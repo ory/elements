@@ -1,17 +1,17 @@
-import React from 'react';
-import { typographyStyle } from '../theme';
-import { checkboxInputStyle, checkboxStyle } from '../theme';
-import cn from 'classnames';
+import React from "react"
+import { typographyStyle } from "../theme"
+import { checkboxInputStyle, checkboxStyle } from "../theme"
+import cn from "classnames"
 
 // we use the fontawesome checkmark instead of the standard checkmark
 // so we need fontawesome to be loaded
-import '../assets/fontawesome.min.css';
-import '../assets/fa-solid.min.css';
+import "../assets/fontawesome.min.css"
+import "../assets/fa-solid.min.css"
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  label?: string;
+  className?: string
+  label?: string
 }
 
 export const Checkbox = ({
@@ -19,19 +19,19 @@ export const Checkbox = ({
   label,
   ...props
 }: CheckboxProps): JSX.Element => {
-  const id = Math.random().toString(36).substring(2);
+  const id = Math.random().toString(36).substring(2)
   return (
     <div
       className={cn(
         className,
-        typographyStyle({ type: 'regular', size: 'caption' }),
-        checkboxStyle
+        typographyStyle({ type: "regular", size: "caption" }),
+        checkboxStyle,
       )}
     >
       <input
         className={checkboxInputStyle}
         id={id}
-        type={'checkbox'}
+        type={"checkbox"}
         {...props}
       />
       {label && (
@@ -40,5 +40,5 @@ export const Checkbox = ({
         </label>
       )}
     </div>
-  );
-};
+  )
+}

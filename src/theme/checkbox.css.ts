@@ -1,19 +1,19 @@
-import { style } from '@vanilla-extract/css';
-import { pxToRem } from '../common';
-import { oryTheme } from './theme.css';
+import { style } from "@vanilla-extract/css"
+import { pxToRem } from "../common"
+import { oryTheme } from "./theme.css"
 
 export const checkboxStyle = style({
-  display: 'flex',
-  justifyContent: 'start',
-  cursor: 'pointer',
-  gap: pxToRem(8)
-});
+  display: "flex",
+  justifyContent: "start",
+  cursor: "pointer",
+  gap: pxToRem(8),
+})
 
 export const checkboxInputStyle = style({
-  cursor: 'pointer',
-  WebkitAppearance: 'none',
-  MozAppearance: 'none',
-  appearance: 'none',
+  cursor: "pointer",
+  WebkitAppearance: "none",
+  MozAppearance: "none",
+  appearance: "none",
   minWidth: pxToRem(18),
   minHeight: pxToRem(18),
   maxHeight: pxToRem(18),
@@ -23,18 +23,18 @@ export const checkboxInputStyle = style({
   margin: pxToRem(3),
   color: oryTheme.accent.def,
   selectors: {
-    '&:checked::before': {
+    "&:checked::before": {
       fontFamily: "'Font Awesome 6 Free'", // this is required for the fontawesome icon to work
       fontSize: pxToRem(10),
-      display: 'block',
-      textAlign: 'center',
-      position: 'relative',
-      content: '\\f00c', // this is a fontawesome unicode character to switch back to a basic html checkmark use \\2713
+      display: "block",
+      textAlign: "center",
+      position: "relative",
+      content: "\\f00c", // this is a fontawesome unicode character to switch back to a basic html checkmark use \\2713
       color: oryTheme.accent.def,
-      top: pxToRem(2.5)
-    }
+      top: pxToRem(2.5),
+    },
   },
-  ':disabled': {
-    borderColor: oryTheme.accent.disabled
-  }
-});
+  ":disabled": {
+    borderColor: oryTheme.accent.disabled,
+  },
+})

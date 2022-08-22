@@ -1,108 +1,108 @@
-import { style } from '@vanilla-extract/css';
-import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { pxToRem } from '../common';
-import { defaultBreakpoints } from './consts';
-import { oryTheme } from './theme.css';
+import { style } from "@vanilla-extract/css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { pxToRem } from "../common"
+import { defaultBreakpoints } from "./consts"
+import { oryTheme } from "./theme.css"
 
 export const buttonSocialStyle = recipe({
   base: {
-    all: 'unset',
-    boxSizing: 'border-box',
-    fontFamily: 'Inter',
-    textDecoration: 'none',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    all: "unset",
+    boxSizing: "border-box",
+    fontFamily: "Inter",
+    textDecoration: "none",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
     color: oryTheme.foreground.muted,
     borderColor: oryTheme.foreground.muted,
-    backgroundColor: 'inherit',
-    border: '1px solid',
+    backgroundColor: "inherit",
+    border: "1px solid",
     borderRadius: pxToRem(4),
-    cursor: 'pointer',
-    outline: 'none',
+    cursor: "pointer",
+    outline: "none",
     padding: pxToRem(12, 16),
-    ':disabled': {
+    ":disabled": {
       color: oryTheme.foreground.disabled,
-      borderColor: oryTheme.accent.disabled
+      borderColor: oryTheme.accent.disabled,
     },
-    ':hover': {
-      borderColor: oryTheme.foreground.subtle
-    },
-    ':focus': {
+    ":hover": {
       borderColor: oryTheme.foreground.subtle,
-      outline: 'none'
     },
-    ':active': {
+    ":focus": {
+      borderColor: oryTheme.foreground.subtle,
+      outline: "none",
+    },
+    ":active": {
       color: oryTheme.foreground.onDark,
       backgroundColor: oryTheme.foreground.def,
-      outline: 'none'
+      outline: "none",
     },
-    '@media': {
+    "@media": {
       [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
         fontSize: pxToRem(18),
         lineHeight: pxToRem(32),
-        padding: pxToRem(16, 24)
+        padding: pxToRem(16, 24),
       },
       [`screen and (min-width: ${defaultBreakpoints.md})`]: {
         fontSize: pxToRem(16),
-        lineHeight: pxToRem(28)
+        lineHeight: pxToRem(28),
       },
       [`screen and (min-width: ${defaultBreakpoints.sm})`]: {
         fontSize: pxToRem(14),
-        lineHeight: pxToRem(20)
-      }
+        lineHeight: pxToRem(20),
+      },
     },
     selectors: {
-      '&:hover:disabled, &:disabled': {
+      "&:hover:disabled, &:disabled": {
         color: oryTheme.foreground.disabled,
-        borderColor: oryTheme.accent.disabled
-      }
-    }
+        borderColor: oryTheme.accent.disabled,
+      },
+    },
   },
   variants: {
     size: {
       small: {
         fontSize: pxToRem(14),
-        lineHeight: pxToRem(20)
+        lineHeight: pxToRem(20),
       },
       medium: {
         fontSize: pxToRem(16),
-        lineHeight: pxToRem(28)
+        lineHeight: pxToRem(28),
       },
       large: {
         fontSize: pxToRem(18),
         lineHeight: pxToRem(32),
-        padding: pxToRem(16, 24)
-      }
+        padding: pxToRem(16, 24),
+      },
     },
     variant: {
       regular: {
         fontWeight: 400,
-        fontStyle: 'normal'
+        fontStyle: "normal",
       },
       semibold: {
         fontWeight: 600,
-        fontStyle: 'normal'
-      }
-    }
-  }
-});
+        fontStyle: "normal",
+      },
+    },
+  },
+})
 
 export const buttonSocialTitleStyle = style({
-  display: 'flex',
-  alignItems: 'center',
-  textAlign: 'center',
-  margin: 'auto'
-});
+  display: "flex",
+  alignItems: "center",
+  textAlign: "center",
+  margin: "auto",
+})
 
 export const buttonSocialIconStyle = recipe({
   base: {
     paddingRight: pxToRem(16),
-    '@media': {
+    "@media": {
       [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
-        paddingRight: pxToRem(24)
-      }
-    }
+        paddingRight: pxToRem(24),
+      },
+    },
   },
   variants: {
     size: {
@@ -110,11 +110,11 @@ export const buttonSocialIconStyle = recipe({
       medium: {},
       large: {
         paddingRight: pxToRem(24),
-        fontSize: pxToRem(24)
-      }
-    }
-  }
-});
+        fontSize: pxToRem(24),
+      },
+    },
+  },
+})
 
 // Get the type
-export type ButtonSocialStyle = RecipeVariants<typeof buttonSocialStyle>;
+export type ButtonSocialStyle = RecipeVariants<typeof buttonSocialStyle>

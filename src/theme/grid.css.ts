@@ -1,43 +1,43 @@
-import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { pxToRem } from '../common';
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { pxToRem } from "../common"
 
 export const gridStyle = recipe({
   base: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: pxToRem(16)
+    display: "flex",
+    flexDirection: "column",
+    gap: pxToRem(16),
   },
   variants: {
     direction: {
       row: {
-        flexDirection: 'row'
+        flexDirection: "row",
       },
       column: {
-        flexDirection: 'column'
-      }
+        flexDirection: "column",
+      },
     },
     gap: {
       4: {
-        gap: pxToRem(4)
+        gap: pxToRem(4),
       },
       8: {
-        gap: pxToRem(8)
+        gap: pxToRem(8),
       },
       16: {
-        gap: pxToRem(16)
+        gap: pxToRem(16),
       },
       24: {
-        gap: pxToRem(24)
+        gap: pxToRem(24),
       },
       32: {
-        gap: pxToRem(32)
+        gap: pxToRem(32),
       },
       64: {
-        gap: pxToRem(64)
-      }
-    }
-  }
-});
+        gap: pxToRem(64),
+      },
+    },
+  },
+})
 
 // Get the type
-export type GridStyle = RecipeVariants<typeof gridStyle>;
+export type GridStyle = RecipeVariants<typeof gridStyle>

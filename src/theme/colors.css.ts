@@ -1,5 +1,5 @@
-import { oryTheme } from './theme.css';
-import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
+import { oryTheme } from "./theme.css"
+import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles"
 
 export const colorProperties = defineProperties({
   properties: {
@@ -28,12 +28,12 @@ export const colorProperties = defineProperties({
       inputBackground: oryTheme.input.background,
       inputDisabled: oryTheme.input.disabled,
       inputPlaceholder: oryTheme.input.placeholder,
-      inputText: oryTheme.input.text
-    }
-  }
-});
+      inputText: oryTheme.input.text,
+    },
+  },
+})
 
-export const colorSprinkle = createSprinkles(colorProperties);
+export const colorSprinkle = createSprinkles(colorProperties)
 
 // It's a good idea to export the Sprinkles type too
-export type ColorSprinkle = Parameters<typeof colorSprinkle>[0];
+export type ColorSprinkle = Parameters<typeof colorSprinkle>[0]

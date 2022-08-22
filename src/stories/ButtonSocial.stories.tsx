@@ -1,104 +1,104 @@
-import React from 'react';
-import { Story, ComponentMeta } from '@storybook/react';
-import { ButtonSocial } from '../react-components';
-import { Container } from './storyhelper';
-import { ButtonSocialProps } from '../component-types';
+import React from "react"
+import { Story, ComponentMeta } from "@storybook/react"
+import { ButtonSocial } from "../react-components"
+import { Container } from "./storyhelper"
+import { ButtonSocialProps } from "../component-types"
 
 export default {
-  title: 'Component/ButtonSocial',
+  title: "Component/ButtonSocial",
   component: ButtonSocial,
   argTypes: {
     theme: {
-      options: ['light', 'dark'],
-      control: { type: 'radio' }
-    }
-  }
-} as ComponentMeta<typeof ButtonSocial>;
+      options: ["light", "dark"],
+      control: { type: "radio" },
+    },
+  },
+} as ComponentMeta<typeof ButtonSocial>
 
 type ButtonSocialStoryProps = ButtonSocialProps & {
-  theme: 'light' | 'dark';
-};
+  theme: "light" | "dark"
+}
 
 const Template: Story<ButtonSocialStoryProps> = (
-  args: ButtonSocialStoryProps
+  args: ButtonSocialStoryProps,
 ) => (
-  <Container theme={args.theme || 'light'}>
+  <Container theme={args.theme || "light"}>
     <ButtonSocial {...args} />
   </Container>
-);
+)
 
-export const SmallSemibold = Template.bind({});
+export const SmallSemibold = Template.bind({})
 
 SmallSemibold.args = {
-  title: 'A Small Semibold Button',
-  size: 'small',
-  variant: 'semibold',
-  brand: 'github'
-};
+  title: "A Small Semibold Button",
+  size: "small",
+  variant: "semibold",
+  brand: "github",
+}
 
-export const SmallNormal = Template.bind({});
+export const SmallNormal = Template.bind({})
 
 SmallNormal.args = {
-  title: 'A Small Regular Button',
-  size: 'small',
-  variant: 'regular',
-  brand: 'google'
-};
+  title: "A Small Regular Button",
+  size: "small",
+  variant: "regular",
+  brand: "google",
+}
 
-export const MediumNormal = Template.bind({});
+export const MediumNormal = Template.bind({})
 
 MediumNormal.args = {
-  title: 'A Medium Regular Button',
-  size: 'medium',
-  variant: 'regular',
-  brand: 'twitter'
-};
+  title: "A Medium Regular Button",
+  size: "medium",
+  variant: "regular",
+  brand: "twitter",
+}
 
-export const MediumSemibold = Template.bind({});
+export const MediumSemibold = Template.bind({})
 
 MediumSemibold.args = {
-  title: 'A Medium Semibold Button',
-  size: 'medium',
-  variant: 'semibold',
-  brand: 'facebook'
-};
+  title: "A Medium Semibold Button",
+  size: "medium",
+  variant: "semibold",
+  brand: "facebook",
+}
 
-export const LargeNormal = Template.bind({});
+export const LargeNormal = Template.bind({})
 
 LargeNormal.args = {
-  title: 'A Large Regular Button',
-  size: 'large',
-  variant: 'regular',
-  brand: 'discord'
-};
+  title: "A Large Regular Button",
+  size: "large",
+  variant: "regular",
+  brand: "discord",
+}
 
-export const LargeSemibold = Template.bind({});
+export const LargeSemibold = Template.bind({})
 
 LargeSemibold.args = {
-  title: 'A Large Semibold Button',
-  size: 'large',
-  variant: 'semibold',
-  brand: 'microsoft'
-};
+  title: "A Large Semibold Button",
+  size: "large",
+  variant: "semibold",
+  brand: "microsoft",
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 
 Disabled.args = {
-  title: 'A Disabled Button',
-  brand: 'google',
-  disabled: true
-};
+  title: "A Disabled Button",
+  brand: "google",
+  disabled: true,
+}
 
-export const SocialButton = Template.bind({});
+export const SocialButton = Template.bind({})
 
 SocialButton.args = {
-  title: 'Google',
-  brand: 'google'
-};
+  title: "Google",
+  brand: "google",
+}
 
-export const GenericProviderButton = Template.bind({});
+export const GenericProviderButton = Template.bind({})
 
 GenericProviderButton.args = {
-  title: 'Generic Provider',
-  brand: 'generic'
-};
+  title: "Generic Provider",
+  brand: "generic",
+}

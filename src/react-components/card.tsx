@@ -1,12 +1,12 @@
-import React from 'react';
-import { cardStyle, cardTitleStyle, gridStyle } from '../theme';
-import { typographyStyle } from '../theme';
-import cn from 'classnames';
+import React from "react"
+import { cardStyle, cardTitleStyle, gridStyle } from "../theme"
+import { typographyStyle } from "../theme"
+import cn from "classnames"
 
 export interface CardProps extends React.HTMLProps<HTMLDivElement> {
-  title: string;
-  className?: string;
-  children?: React.ReactNode;
+  title: string
+  className?: string
+  children?: React.ReactNode
 }
 
 export const Card = ({
@@ -18,8 +18,8 @@ export const Card = ({
   <div
     className={cn(
       cardStyle(),
-      typographyStyle({ type: 'regular', size: 'small' }),
-      className
+      typographyStyle({ type: "regular", size: "small" }),
+      className,
     )}
     {...props}
   >
@@ -28,4 +28,4 @@ export const Card = ({
       <div>{children}</div>
     </div>
   </div>
-);
+)

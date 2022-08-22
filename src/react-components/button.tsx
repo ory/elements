@@ -1,15 +1,15 @@
-import React from 'react';
-import { ButtonStyle, buttonStyle } from '../theme/button.css';
+import React from "react"
+import { ButtonStyle, buttonStyle } from "../theme/button.css"
 
 // required since interfaces cannot extend types whose properties are not statically known
-type buttonStyle = ButtonStyle & Record<string, unknown>;
+type buttonStyle = ButtonStyle & Record<string, unknown>
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     buttonStyle {
-  title: string;
-  fullWidth?: boolean;
-  className?: string;
+  title: string
+  fullWidth?: boolean
+  className?: string
 }
 
 export const Button = ({
@@ -23,10 +23,10 @@ export const Button = ({
   <div className={className}>
     <button
       className={buttonStyle({ size, variant })}
-      style={{ width: fullWidth ? '100%' : 'auto' }}
+      style={{ width: fullWidth ? "100%" : "auto" }}
       {...props}
     >
       {title}
     </button>
   </div>
-);
+)

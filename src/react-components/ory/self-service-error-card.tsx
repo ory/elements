@@ -1,29 +1,29 @@
-import React from 'react';
-import { SelfServiceError } from '@ory/client';
-import { colorSprinkle, gridStyle } from '../../theme';
-import { ButtonLink } from '../button-link';
-import { Card } from '../card';
-import { Message } from '../message';
+import React from "react"
+import { SelfServiceError } from "@ory/client"
+import { colorSprinkle, gridStyle } from "../../theme"
+import { ButtonLink } from "../button-link"
+import { Card } from "../card"
+import { Message } from "../message"
 
 // SelfServiceErrorCard props
 export type SelfServiceErrorCardProps = {
-  title: string;
-  error: SelfServiceError;
-  backURL: string;
-  contactSupportEmail?: string;
-};
+  title: string
+  error: SelfServiceError
+  backURL: string
+  contactSupportEmail?: string
+}
 
 type errorMessage = {
-  message: string;
-  reason: string;
-  status: string;
-};
+  message: string
+  reason: string
+  status: string
+}
 
 export const SelfServiceErrorCard = ({
   title,
   error,
   backURL,
-  contactSupportEmail
+  contactSupportEmail,
 }: SelfServiceErrorCardProps): JSX.Element => (
   <Card title={title}>
     <div className={gridStyle({ gap: 32 })}>
@@ -32,7 +32,7 @@ export const SelfServiceErrorCard = ({
         {(error.error as errorMessage).message}
       </Message>
       {contactSupportEmail && (
-        <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
+        <Message className={colorSprinkle({ color: "foregroundMuted" })}>
           If the problem persists, please contact&nbsp;
           <ButtonLink href={`mailto:${contactSupportEmail}`}>
             {contactSupportEmail}
@@ -44,4 +44,4 @@ export const SelfServiceErrorCard = ({
       </Message>
     </div>
   </Card>
-);
+)
