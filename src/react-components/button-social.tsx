@@ -7,9 +7,9 @@ import {
 import cn from 'classnames';
 
 // required FontAwesome Icons for Brands
-import '../../public/fontawesome.min.css';
-import '../../public/fa-brands.min.css';
-import '../../public/fa-solid.min.css';
+import '../assets/fontawesome.min.css';
+import '../assets/fa-brands.min.css';
+import '../assets/fa-solid.min.css';
 
 import { ButtonSocialProps } from '../component-types';
 

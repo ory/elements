@@ -6,8 +6,8 @@ import { ButtonLinkProps } from '../component-types';
 
 // we use the fontawesome checkmark instead of the standard checkmark
 // so we need fontawesome to be loaded
-import '../../public/fontawesome.min.css';
-import '../../public/fa-solid.min.css';
+import '../assets/fontawesome.min.css';
+import '../assets/fa-solid.min.css';
 
 export const ButtonLink = ({
   href,
