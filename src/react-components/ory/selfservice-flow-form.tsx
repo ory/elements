@@ -1,6 +1,6 @@
 import React from "react"
+import { SelfServiceFlow } from "../../types"
 import { FilterFlowNodes } from "./filter-flow-nodes"
-import { SelfServiceFlow } from "./self-service-auth-card"
 
 // SelfServiceFlowForm props
 export interface SelfServiceFlowFormProps

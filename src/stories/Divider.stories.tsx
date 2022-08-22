@@ -1,8 +1,7 @@
 import React from "react"
 import { Story, ComponentMeta } from "@storybook/react"
-import { Divider } from "../react-components"
+import { Divider, DividerProps } from "../react-components"
 import { Container } from "./storyhelper"
-import { DividerProps } from "../component-types"
 
 export default {
   title: "Component/Divider",
