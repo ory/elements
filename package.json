@@ -21,7 +21,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build-markdown": "tsc && VITE_MODE=markdown vite build",
+    "build-markup": "VITE_MODE=markup vite build",
     "build-react": "VITE_MODE=react vite build",
     "build-preact": "VITE_MODE=preact vite build",
     "storybook": "start-storybook -p 6006",
