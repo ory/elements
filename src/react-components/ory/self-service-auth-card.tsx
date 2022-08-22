@@ -7,14 +7,53 @@ import { ButtonLink } from '../button-link';
 import { Message } from '../message';
 import { colorSprinkle } from '../../theme/colors.css';
 import { gridStyle } from '../../theme';
-import { SelfServiceLoginFlow, UiNode } from '@ory/client';
 import {
-  AdditionalProps,
-  SelfServiceAuthCardProps,
-  SelfServiceFlow
-} from '../../component-types';
+  SelfServiceLoginFlow,
+  SelfServiceRecoveryFlow,
+  SelfServiceRegistrationFlow,
+  SelfServiceSettingsFlow,
+  SelfServiceVerificationFlow,
+  UiNode
+} from '@ory/client';
 import { filterNodesByGroups } from '@ory/integrations/ui';
 import { useScriptNodes } from './node-script';
+
+export type SelfServiceFlow =
+  | SelfServiceLoginFlow
+  | SelfServiceRecoveryFlow
+  | SelfServiceRegistrationFlow
+  | SelfServiceSettingsFlow
+  | SelfServiceVerificationFlow;
+
+export type ErrorProps = {
+  code: number;
+  details: {
+    docs: string;
+    hint: string;
+    rejectReason: string;
+  };
+  message: string;
+  status: string;
+  reason: string;
+};
+
+export type AdditionalProps = {
+  forgotPasswordURL?: string;
+  signupURL?: string;
+  logoutURL?: string;
+  loginURL?: string;
+};
+
+export type SelfServiceAuthCardProps = {
+  flow: SelfServiceFlow;
+  title: string;
+  flowType: 'login' | 'registration' | 'recovery' | 'verification';
+  additionalProps: AdditionalProps;
+  injectScripts?: boolean;
+  icon?: string;
+  className?: string;
+  children?: string;
+};
 
 type loginCardProps = {
   nodes: UiNode[];
@@ -38,7 +77,9 @@ const $loginSection = ({
           excludeAttributes: 'submit'
         }}
       />
-      <ButtonLink href={forgotPasswordUrl}>Forgot Password?</ButtonLink>
+      <ButtonLink data-testid="forgot-password-link" href={forgotPasswordUrl}>
+        Forgot Password?
+      </ButtonLink>
     </div>
     <FilterFlowNodes
       filter={{
@@ -49,11 +90,15 @@ const $loginSection = ({
     />
     <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
       {isLoggedIn ? (
-        <ButtonLink href={logoutUrl}>Logout</ButtonLink>
+        <ButtonLink data-testid="logout-link" href={logoutUrl}>
+          Logout
+        </ButtonLink>
       ) : (
         <>
           Don&apos;t have an account?&nbsp;
-          <ButtonLink href={signupUrl}>Sign up</ButtonLink>
+          <ButtonLink data-testid="signup-link" href={signupUrl}>
+            Sign up
+          </ButtonLink>
         </>
       )}
     </Message>

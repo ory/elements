@@ -6,7 +6,12 @@ import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from '../theme';
 import '../assets/normalize.css';
 // add theme 'Inter' font support
 import '../assets/inter-font.css';
-import { ThemeProviderProps } from '../component-types';
+
+export type ThemeProviderProps = {
+  theme?: 'light' | 'dark';
+  themeOverrides?: Partial<Theme>;
+  children?: React.ReactNode;
+};
 
 export const ThemeProvider = ({
   children,

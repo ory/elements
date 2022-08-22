@@ -1,8 +1,17 @@
-import { SelfServiceErrorCardProps } from '../../component-types';
+import React from 'react';
+import { SelfServiceError } from '@ory/client';
 import { colorSprinkle, gridStyle } from '../../theme';
 import { ButtonLink } from '../button-link';
 import { Card } from '../card';
 import { Message } from '../message';
+
+// SelfServiceErrorCard props
+export type SelfServiceErrorCardProps = {
+  title: string;
+  error: SelfServiceError;
+  backURL: string;
+  contactSupportEmail?: string;
+};
 
 type errorMessage = {
   message: string;
@@ -15,7 +24,7 @@ export const SelfServiceErrorCard = ({
   error,
   backURL,
   contactSupportEmail
-}: SelfServiceErrorCardProps) => (
+}: SelfServiceErrorCardProps): JSX.Element => (
   <Card title={title}>
     <div className={gridStyle({ gap: 32 })}>
       <Message severity="error" data-testid={`ui/message/${error.id}`}>

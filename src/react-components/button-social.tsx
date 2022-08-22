@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   buttonSocialIconStyle,
+  ButtonSocialStyle,
   buttonSocialStyle,
   buttonSocialTitleStyle
 } from '../theme/button-social.css';
@@ -11,7 +12,17 @@ import '../assets/fontawesome.min.css';
 import '../assets/fa-brands.min.css';
 import '../assets/fa-solid.min.css';
 
-import { ButtonSocialProps } from '../component-types';
+// required since interfaces cannot extend types whose properties are not statically known
+type buttonSocialStyle = ButtonSocialStyle & Record<string, unknown>;
+
+export interface ButtonSocialProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    buttonSocialStyle {
+  title: string;
+  brand: string;
+  fullWidth?: boolean;
+  className?: string;
+}
 
 export const ButtonSocial = ({
   title,
@@ -21,7 +32,7 @@ export const ButtonSocial = ({
   fullWidth,
   className,
   ...props
-}: ButtonSocialProps) => {
+}: ButtonSocialProps): JSX.Element => {
   const brandClass =
     brand !== 'generic' ? `fa-brands fa-${brand}` : 'fa-solid fa-layer-group';
   return (

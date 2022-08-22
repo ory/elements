@@ -1,18 +1,25 @@
 import React from 'react';
-import { gridStyle, typographyStyle } from '../theme';
 import {
   inputFieldStyle,
-  inputFieldTitleStyle
-} from '../theme/input-field.css';
+  inputFieldTitleStyle,
+  gridStyle,
+  typographyStyle
+} from '../theme';
 import cn from 'classnames';
-import { InputFieldProps } from '../component-types';
+
+export interface InputFieldProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  title: string;
+  fullWidth?: boolean;
+  className?: string;
+}
 
 export const InputField = ({
   title,
   fullWidth,
   className,
   ...props
-}: InputFieldProps) => {
+}: InputFieldProps): JSX.Element => {
   return (
     <div className={cn(className, gridStyle({ gap: 4 }))}>
       {title && (
