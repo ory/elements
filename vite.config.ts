@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import dts from 'vite-plugin-dts';
-import path, { resolve } from 'path';
+import path from 'path';
 import preact from '@preact/preset-vite';
 
 // https://vitejs.dev/config/
@@ -91,8 +91,8 @@ export default defineConfig(({ mode }) => {
         jsxFragment: 'Fragment'
       }
     };
-  } else if (env.VITE_MODE === 'markdown') {
-    console.log('MARDOWN MODE');
+  } else if (env.VITE_MODE === 'markup') {
+    console.log('MARKUP MODE');
     return {
       plugins: [
         vanillaExtractPlugin(),
