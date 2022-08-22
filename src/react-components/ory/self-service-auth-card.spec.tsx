@@ -1,6 +1,101 @@
 import React from "react"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { SelfServiceAuthCard } from "./self-service-auth-card"
+import { SelfServiceFlow } from "../../types"
+import { Locator } from "playwright-core"
+
+const defaultFlow: SelfServiceFlow = {
+  id: "",
+  state: "choose_method",
+  type: "browser",
+  ui: {
+    action: "https://test.com",
+    method: "POST",
+    nodes: [
+      {
+        group: "default",
+        attributes: {
+          name: "id",
+          type: "text",
+          node_type: "input",
+          disabled: false,
+          required: true,
+        },
+        messages: [],
+        type: "input",
+        meta: {
+          label: {
+            id: 1,
+            text: "ID",
+            type: "text",
+          },
+        },
+      },
+      {
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          node_type: "input",
+          disabled: false,
+        },
+        messages: [],
+        type: "input",
+        meta: {},
+      },
+      {
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          node_type: "input",
+          disabled: false,
+          required: true,
+        },
+        messages: [],
+        type: "input",
+        meta: {
+          label: {
+            id: 1,
+            text: "Password",
+            type: "text",
+          },
+        },
+      },
+      {
+        group: "password",
+        attributes: {
+          name: "submit",
+          type: "submit",
+          node_type: "input",
+          disabled: false,
+        },
+        messages: [],
+        type: "input",
+        meta: {
+          label: {
+            id: 1,
+            text: "Submit",
+            type: "text",
+          },
+        },
+      },
+    ],
+  },
+}
+
+const expectDefaultFlow = async (component: Locator) => {
+  await expect(component).toContainText("ID *")
+  await expect(component).toContainText("Password *")
+  await expect(component.locator('input[name="id"]')).toBeVisible()
+  await expect(component.locator('input[name="password"]')).toBeVisible()
+  await expect(component.locator('input[name="csrf_token"]')).toBeHidden()
+  await expect(component.locator('button[name="submit"]')).toBeVisible()
+  await expect(component.locator('button[name="submit"]')).toHaveText("Submit")
+  await expect(
+    component.locator('form[action="https://test.com"]'),
+  ).toBeVisible()
+}
 
 test("ory auth card login flow", async ({ mount }) => {
   const component = await mount(
@@ -11,29 +106,7 @@ test("ory auth card login flow", async ({ mount }) => {
         forgotPasswordURL: "/forgot",
         signupURL: "/signup",
       }}
-      flow={{
-        id: "",
-        state: "choose_method",
-        type: "browser",
-        ui: {
-          action: "",
-          method: "POST",
-          nodes: [
-            {
-              group: "default",
-              attributes: {
-                name: "id",
-                type: "text",
-                node_type: "input",
-                disabled: false,
-              },
-              messages: [],
-              type: "input",
-              meta: {},
-            },
-          ],
-        },
-      }}
+      flow={defaultFlow}
     />,
   )
   await expect(component).toContainText("Sign in")
@@ -50,7 +123,7 @@ test("ory auth card login flow", async ({ mount }) => {
     ignoreCase: true,
   })
 
-  await expect(component.locator('input[name="id"]')).toBeVisible()
+  await expectDefaultFlow(component)
 })
 
 test("ory auth card registration flow", async ({ mount }) => {
@@ -61,29 +134,7 @@ test("ory auth card registration flow", async ({ mount }) => {
       additionalProps={{
         loginURL: "/login",
       }}
-      flow={{
-        id: "",
-        state: "choose_method",
-        type: "browser",
-        ui: {
-          action: "",
-          method: "POST",
-          nodes: [
-            {
-              group: "default",
-              attributes: {
-                name: "id",
-                type: "text",
-                node_type: "input",
-                disabled: false,
-              },
-              messages: [],
-              type: "input",
-              meta: {},
-            },
-          ],
-        },
-      }}
+      flow={defaultFlow}
     />,
   )
 
@@ -94,5 +145,11 @@ test("ory auth card registration flow", async ({ mount }) => {
   await expect(
     component.locator('a[data-testid="login-link"]'),
   ).toHaveAttribute("href", "/login")
-  await expect(component.locator('input[name="id"]')).toBeVisible()
+
+  await expectDefaultFlow(component)
 })
+
+// test("ory auth card verification flow", async ({ mount }) => {
+//   const component = await mount(<SelfServiceAuthCard
+//   flow={}/>
+// })

@@ -1,6 +1,27 @@
 import { oryTheme } from "./theme.css"
-import { pxToRem } from "../common"
+import { pxToEm, pxToRem } from "../common"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { style } from "@vanilla-extract/css"
+
+export const dividerTextStyle = style({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  selectors: {
+    "&::before,&::after": {
+      content: "''",
+      height: pxToRem(4),
+      flexGrow: 1,
+      backgroundColor: oryTheme.border.def,
+    },
+    "&::before": {
+      marginRight: pxToEm(4),
+    },
+    "&::after": {
+      marginLeft: pxToEm(4),
+    },
+  },
+})
 
 export const dividerStyle = recipe({
   base: {
