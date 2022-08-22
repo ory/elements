@@ -66,53 +66,64 @@ const $loginSection = ({
   signupURL: signupUrl,
   logoutURL: logoutUrl,
   isLoggedIn
-}: loginCardProps): JSX.Element => (
-  <div className={gridStyle({ gap: 32 })}>
-    <Divider />
-    <div className={gridStyle({ gap: 16 })}>
+}: loginCardProps): JSX.Element => {
+  const message: messageSectionProps = isLoggedIn
+    ? {
+        buttonText: 'Logout',
+        url: logoutUrl
+      }
+    : {
+        buttonText: 'Sign up',
+        url: signupUrl,
+        text: <>Don&#39;t have an account?</>,
+        dataTestId: 'signup-link'
+      };
+
+  return (
+    <div className={gridStyle({ gap: 32 })}>
+      <Divider />
+      <div className={gridStyle({ gap: 16 })}>
+        <FilterFlowNodes
+          filter={{
+            nodes: nodes,
+            groups: ['default', 'password'],
+            excludeAttributes: 'submit'
+          }}
+        />
+        <ButtonLink data-testid="forgot-password-link" href={forgotPasswordUrl}>
+          Forgot Password?
+        </ButtonLink>
+      </div>
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ['default', 'password'],
-          excludeAttributes: 'submit'
+          groups: ['password', 'webauthn'],
+          attributes: 'submit'
         }}
       />
-      <ButtonLink data-testid="forgot-password-link" href={forgotPasswordUrl}>
-        Forgot Password?
-      </ButtonLink>
+      {$messageSection(message)}
     </div>
-    <FilterFlowNodes
-      filter={{
-        nodes: nodes,
-        groups: ['password', 'webauthn'],
-        attributes: 'submit'
-      }}
-    />
-    <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
-      {isLoggedIn ? (
-        <ButtonLink data-testid="logout-link" href={logoutUrl}>
-          Logout
-        </ButtonLink>
-      ) : (
-        <>
-          Don&apos;t have an account?&nbsp;
-          <ButtonLink data-testid="signup-link" href={signupUrl}>
-            Sign up
-          </ButtonLink>
-        </>
-      )}
-    </Message>
-  </div>
-);
+  );
+};
 
-const $messageSection = (
-  text: string,
-  url: string,
-  buttonText: string
-): JSX.Element => (
+type messageSectionProps = {
+  url: string | undefined;
+  buttonText: string;
+  dataTestId?: string;
+  text?: React.ReactNode;
+};
+
+const $messageSection = ({
+  text,
+  url,
+  buttonText,
+  dataTestId
+}: messageSectionProps): JSX.Element => (
   <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
     {text}&nbsp;
-    <ButtonLink href={url}>{buttonText}</ButtonLink>
+    <ButtonLink data-testid={dataTestId} href={url}>
+      {buttonText}
+    </ButtonLink>
   </Message>
 );
 
@@ -150,7 +161,12 @@ const $registrationSection = ({
         attributes: 'submit'
       }}
     />
-    {$messageSection('Already have an account?', loginUrl, 'Sign in')}
+    {$messageSection({
+      text: 'Already have an account?',
+      url: loginUrl,
+      buttonText: 'Sign in',
+      dataTestId: 'login-link'
+    })}
   </div>
 );
 
@@ -183,9 +199,19 @@ const $alternativeFlowCard = ({
       }}
     />
     {loginUrl &&
-      $messageSection('Already have an account?', loginUrl, 'Sign in')}
+      $messageSection({
+        text: 'Already have an account?',
+        url: loginUrl,
+        buttonText: 'Sign in',
+        dataTestId: 'login-link'
+      })}
     {signupUrl &&
-      $messageSection("Don't have an account?", signupUrl, 'Sign up')}
+      $messageSection({
+        text: "Don't have an account?",
+        url: signupUrl,
+        buttonText: 'Sign up',
+        dataTestId: 'signup-link'
+      })}
   </div>
 );
 
