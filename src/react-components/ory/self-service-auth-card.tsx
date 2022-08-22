@@ -142,14 +142,20 @@ const $registrationSection = ({
       }}
     />
 
-    <Divider text={"or"} fullWidth />
+    {/* validate that we have an alternative flow such as webauthn */}
+    {filterNodesByGroups({ nodes: nodes, groups: "webauthn" }).length > 0 && (
+      <>
+        <Divider text={"or"} fullWidth />
+        <FilterFlowNodes
+          filter={{
+            nodes: nodes,
+            groups: "webauthn",
+            attributes: "button",
+          }}
+        />
+      </>
+    )}
 
-    <FilterFlowNodes
-      filter={{
-        nodes: nodes,
-        groups: ["webauthn"],
-      }}
-    />
     {$messageSection({
       text: "Already have an account?",
       url: loginUrl,
