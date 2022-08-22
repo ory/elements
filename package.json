@@ -25,7 +25,8 @@
     "build-react": "VITE_MODE=react vite build",
     "build-preact": "VITE_MODE=preact vite build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "@babel/core": "^7.18.10",
     "@ory/client": "^0.2.0-alpha.4",
     "@ory/integrations": "file:../integrations",
+    "@playwright/experimental-ct-react": "^1.25.0",
     "@preact/preset-vite": "^2.3.0",
     "@storybook/addon-docs": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
