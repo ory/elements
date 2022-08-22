@@ -1,0 +1,7 @@
+src/assets/*.min.css
+dist
+node_modules
+.vscode
+playwright-report
+public
+storybook-static
