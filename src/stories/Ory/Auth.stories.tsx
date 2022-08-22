@@ -1,7 +1,9 @@
 import React from "react"
 import { ComponentMeta, Story } from "@storybook/react"
-import { SelfServiceAuthCard } from "../../react-components"
-import { SelfServiceAuthCardProps } from "../../component-types"
+import {
+  SelfServiceAuthCard,
+  SelfServiceAuthCardProps,
+} from "../../react-components"
 import { Container } from "../storyhelper"
 import {
   SelfServiceLoginFlow,
@@ -13,6 +15,8 @@ import loginFlow from "./login-flow.json"
 import loginFlowError from "./login-flow-error.json"
 
 import registrationFlow from "./register-flow.json"
+import registrationFlowWebAuthn from "./register-flow-webauthn.json"
+
 import recoveryFlow from "./recovery-flow.json"
 
 import verificationFlow from "./verification-flow.json"
@@ -71,6 +75,17 @@ export const RegistrationAuthCard = Template.bind({})
 RegistrationAuthCard.args = {
   title: "Create an account for Acme",
   flow: registrationFlow as SelfServiceRegistrationFlow,
+  flowType: "registration",
+  additionalProps: {
+    loginURL: "https://acme.com/login",
+  },
+}
+
+export const RegistrationAuthCardWebAuthn = Template.bind({})
+
+RegistrationAuthCardWebAuthn.args = {
+  title: "Create an account for Acme",
+  flow: registrationFlowWebAuthn as SelfServiceRegistrationFlow,
   flowType: "registration",
   additionalProps: {
     loginURL: "https://acme.com/login",

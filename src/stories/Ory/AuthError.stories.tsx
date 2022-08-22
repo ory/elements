@@ -1,8 +1,10 @@
 import React from "react"
 import { SelfServiceError } from "@ory/client"
-import { SelfServiceErrorCard } from "../../react-components"
+import {
+  SelfServiceErrorCard,
+  SelfServiceErrorCardProps,
+} from "../../react-components"
 import { Container } from "../storyhelper"
-import { SelfServiceErrorCardProps } from "../../component-types"
 import { ComponentMeta } from "@storybook/react"
 import { Story } from "@storybook/react"
 

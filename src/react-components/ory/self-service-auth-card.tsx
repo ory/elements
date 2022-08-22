@@ -7,23 +7,10 @@ import { ButtonLink } from "../button-link"
 import { Message } from "../message"
 import { colorSprinkle } from "../../theme/colors.css"
 import { gridStyle } from "../../theme"
-import {
-  SelfServiceLoginFlow,
-  SelfServiceRecoveryFlow,
-  SelfServiceRegistrationFlow,
-  SelfServiceSettingsFlow,
-  SelfServiceVerificationFlow,
-  UiNode,
-} from "@ory/client"
+import { SelfServiceLoginFlow, UiNode } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { useScriptNodes } from "./node-script"
-
-export type SelfServiceFlow =
-  | SelfServiceLoginFlow
-  | SelfServiceRecoveryFlow
-  | SelfServiceRegistrationFlow
-  | SelfServiceSettingsFlow
-  | SelfServiceVerificationFlow
+import { SelfServiceFlow } from "../../types"
 
 export type ErrorProps = {
   code: number
@@ -154,11 +141,13 @@ const $registrationSection = ({
         attributes: "submit",
       }}
     />
+
+    <Divider text={"or"} fullWidth />
+
     <FilterFlowNodes
       filter={{
         nodes: nodes,
-        groups: ["password", "webauthn"],
-        attributes: "submit",
+        groups: ["webauthn"],
       }}
     />
     {$messageSection({

@@ -1,8 +1,7 @@
 import React from "react"
 import { Story, ComponentMeta } from "@storybook/react"
-import { ButtonSocial } from "../react-components"
+import { ButtonSocial, ButtonSocialProps } from "../react-components"
 import { Container } from "./storyhelper"
-import { ButtonSocialProps } from "../component-types"
 
 export default {
   title: "Component/ButtonSocial",
