@@ -1,73 +1,73 @@
 import {
   createGlobalTheme,
   createGlobalThemeContract,
-  globalStyle
-} from '@vanilla-extract/css';
+  globalStyle,
+} from "@vanilla-extract/css"
 import {
   NullableTokens,
-  ThemeVars
-} from '@vanilla-extract/css/dist/declarations/src/types';
+  ThemeVars,
+} from "@vanilla-extract/css/dist/declarations/src/types"
 
-import { defaultFont, defaultLightTheme, Font, Theme } from './consts';
+import { defaultFont, defaultLightTheme, Font, Theme } from "./consts"
 
 export const oryTheme: ThemeVars<Theme> = createGlobalThemeContract(
   {
-    fontFamily: 'font-family',
-    fontStyle: 'font-style',
+    fontFamily: "font-family",
+    fontStyle: "font-style",
     accent: {
-      def: 'accent-def',
-      muted: 'accent-muted',
-      emphasis: 'accent-emphasis',
-      disabled: 'accent-disabled',
-      subtle: 'accent-subtle'
+      def: "accent-def",
+      muted: "accent-muted",
+      emphasis: "accent-emphasis",
+      disabled: "accent-disabled",
+      subtle: "accent-subtle",
     },
     foreground: {
-      def: 'foreground-def',
-      muted: 'foreground-muted',
-      subtle: 'foreground-subtle',
-      disabled: 'foreground-disabled',
-      onDark: 'foreground-on-dark',
-      onAccent: 'foreground-on-accent',
-      onDisabled: 'foreground-on-disabled'
+      def: "foreground-def",
+      muted: "foreground-muted",
+      subtle: "foreground-subtle",
+      disabled: "foreground-disabled",
+      onDark: "foreground-on-dark",
+      onAccent: "foreground-on-accent",
+      onDisabled: "foreground-on-disabled",
     },
     background: {
-      surface: 'background-surface',
-      canvas: 'background-canvas'
+      surface: "background-surface",
+      canvas: "background-canvas",
     },
     error: {
-      def: 'error-def',
-      subtle: 'error-subtle',
-      muted: 'error-muted',
-      emphasis: 'error-emphasis'
+      def: "error-def",
+      subtle: "error-subtle",
+      muted: "error-muted",
+      emphasis: "error-emphasis",
     },
     success: {
-      emphasis: 'success-emphasis'
+      emphasis: "success-emphasis",
     },
     border: {
-      def: 'border-def'
+      def: "border-def",
     },
     text: {
-      def: 'text-def',
-      disabled: 'text-disabled'
+      def: "text-def",
+      disabled: "text-disabled",
     },
     input: {
-      background: 'input-background',
-      disabled: 'input-disabled',
-      placeholder: 'input-placeholder',
-      text: 'input-text'
-    }
+      background: "input-background",
+      disabled: "input-disabled",
+      placeholder: "input-placeholder",
+      text: "input-text",
+    },
   },
-  (value) => `ory-theme-${value}`
-);
+  (value) => `ory-theme-${value}`,
+)
 
-createGlobalTheme(':root', oryTheme, {
-  ...defaultLightTheme
-});
+createGlobalTheme(":root", oryTheme, {
+  ...defaultLightTheme,
+})
 
-globalStyle('html, body', {
-  textRendering: 'geometricPrecision',
-  WebkitFontSmoothing: 'antialiased',
+globalStyle("html, body", {
+  textRendering: "geometricPrecision",
+  WebkitFontSmoothing: "antialiased",
   fontFamily: oryTheme.fontFamily,
   fontStyle: oryTheme.fontStyle,
-  boxSizing: 'border-box'
-});
+  boxSizing: "border-box",
+})

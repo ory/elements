@@ -1,43 +1,43 @@
-import { oryTheme } from './theme.css';
-import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { RuntimeFn } from '@vanilla-extract/recipes/dist/declarations/src/types';
+import { oryTheme } from "./theme.css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { RuntimeFn } from "@vanilla-extract/recipes/dist/declarations/src/types"
 
 export type MessageStyleVariants = {
   severity: {
     error: {
-      color: string;
-    };
+      color: string
+    }
     success: {
-      color: string;
-    };
+      color: string
+    }
     disabled: {
-      color: string;
-    };
-  };
-};
+      color: string
+    }
+  }
+}
 
 export const messageStyle: RuntimeFn<MessageStyleVariants> = recipe({
   base: {
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: oryTheme.foreground.def
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    color: oryTheme.foreground.def,
   },
   variants: {
     severity: {
       error: {
-        color: oryTheme.error.emphasis
+        color: oryTheme.error.emphasis,
       },
       success: {
-        color: oryTheme.success.emphasis
+        color: oryTheme.success.emphasis,
       },
       disabled: {
-        color: oryTheme.foreground.disabled
-      }
-    }
-  }
-});
+        color: oryTheme.foreground.disabled,
+      },
+    },
+  },
+})
 
-export type MessageStyle = RecipeVariants<typeof messageStyle>;
+export type MessageStyle = RecipeVariants<typeof messageStyle>

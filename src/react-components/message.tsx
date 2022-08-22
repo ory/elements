@@ -1,29 +1,29 @@
-import React from 'react';
-import { MessageStyle, messageStyle, typographyStyle } from '../theme';
-import cn from 'classnames';
+import React from "react"
+import { MessageStyle, messageStyle, typographyStyle } from "../theme"
+import cn from "classnames"
 
 // required since interfaces cannot extend types whose properties are not statically known
-type messageProps = MessageStyle & Record<string, unknown>;
+type messageProps = MessageStyle & Record<string, unknown>
 
 export interface MessageProps
   extends React.HTMLAttributes<HTMLDivElement>,
     messageProps {
-  className?: string;
-  children?: React.ReactNode;
+  className?: string
+  children?: React.ReactNode
 }
 
 export const Message = ({
   severity,
   className,
-  children
+  children,
 }: MessageProps): JSX.Element => (
   <div
     className={cn(
       messageStyle({ severity: severity }),
-      typographyStyle({ size: 'caption', type: 'regular' }),
-      className
+      typographyStyle({ size: "caption", type: "regular" }),
+      className,
     )}
   >
     {children}
   </div>
-);
+)

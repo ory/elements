@@ -1,41 +1,41 @@
-import React from 'react';
-import { SelfServiceError } from '@ory/client';
-import { SelfServiceErrorCard } from '../../react-components';
-import { Container } from '../storyhelper';
-import { SelfServiceErrorCardProps } from '../../component-types';
-import { ComponentMeta } from '@storybook/react';
-import { Story } from '@storybook/react';
+import React from "react"
+import { SelfServiceError } from "@ory/client"
+import { SelfServiceErrorCard } from "../../react-components"
+import { Container } from "../storyhelper"
+import { SelfServiceErrorCardProps } from "../../component-types"
+import { ComponentMeta } from "@storybook/react"
+import { Story } from "@storybook/react"
 
-import authError from './auth-error.json';
+import authError from "./auth-error.json"
 
 export default {
-  title: 'Ory/SelfServiceErrorCard',
+  title: "Ory/SelfServiceErrorCard",
   component: SelfServiceErrorCard,
   argTypes: {
     theme: {
-      options: ['light', 'dark'],
-      control: { type: 'radio' }
-    }
-  }
-} as ComponentMeta<typeof SelfServiceErrorCard>;
+      options: ["light", "dark"],
+      control: { type: "radio" },
+    },
+  },
+} as ComponentMeta<typeof SelfServiceErrorCard>
 
 export type SelfServiceAuthCardStoryProps = SelfServiceErrorCardProps & {
-  theme: 'light' | 'dark';
-};
+  theme: "light" | "dark"
+}
 
 const Template: Story<SelfServiceAuthCardStoryProps> = (
-  args: SelfServiceAuthCardStoryProps
+  args: SelfServiceAuthCardStoryProps,
 ) => (
-  <Container theme={args.theme || 'light'}>
+  <Container theme={args.theme || "light"}>
     <SelfServiceErrorCard {...args} />
   </Container>
-);
+)
 
-export const ErrorAuthCard = Template.bind({});
+export const ErrorAuthCard = Template.bind({})
 
 ErrorAuthCard.args = {
-  title: 'An error occurred',
+  title: "An error occurred",
   error: authError as SelfServiceError,
-  backURL: 'https://acme.com/login',
-  contactSupportEmail: 'help@help.com'
-};
+  backURL: "https://acme.com/login",
+  contactSupportEmail: "help@help.com",
+}

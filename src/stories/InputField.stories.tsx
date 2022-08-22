@@ -1,33 +1,33 @@
-import React from 'react';
-import { Story, ComponentMeta } from '@storybook/react';
-import { InputField } from '../react-components';
-import { InputFieldProps } from '../component-types';
-import { Container } from './storyhelper';
+import React from "react"
+import { Story, ComponentMeta } from "@storybook/react"
+import { InputField } from "../react-components"
+import { InputFieldProps } from "../component-types"
+import { Container } from "./storyhelper"
 
 export default {
-  title: 'Component/InputField',
+  title: "Component/InputField",
   component: InputField,
   argTypes: {
     theme: {
-      options: ['light', 'dark'],
-      control: { type: 'radio' }
-    }
-  }
-} as ComponentMeta<typeof InputField>;
+      options: ["light", "dark"],
+      control: { type: "radio" },
+    },
+  },
+} as ComponentMeta<typeof InputField>
 
 export type InputFieldStoryProps = InputFieldProps & {
-  theme: 'light' | 'dark';
-};
+  theme: "light" | "dark"
+}
 
 const Template: Story<InputFieldStoryProps> = (args: InputFieldStoryProps) => (
-  <Container theme={args.theme || 'light'}>
+  <Container theme={args.theme || "light"}>
     <InputField {...args} />
   </Container>
-);
+)
 
-export const NormalInputField = Template.bind({});
+export const NormalInputField = Template.bind({})
 
 NormalInputField.args = {
-  title: 'Password',
-  required: true
-};
+  title: "Password",
+  required: true,
+}

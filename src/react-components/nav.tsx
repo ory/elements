@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 import {
   navMainSectionStyle,
   navMenuSectionStyle,
@@ -7,30 +7,30 @@ import {
   navStyle,
   colorSprinkle,
   gridStyle,
-  typographyStyle
-} from '../theme';
-import { MenuLink } from './menu-link';
-import cn from 'classnames';
+  typographyStyle,
+} from "../theme"
+import { MenuLink } from "./menu-link"
+import cn from "classnames"
 
 export type NavSectionLinks = {
-  name: string;
-  url: string;
-  iconLeft: string;
-  iconRight?: string;
-  disabled?: boolean;
-};
+  name: string
+  url: string
+  iconLeft: string
+  iconRight?: string
+  disabled?: boolean
+}
 
 export type NavSection = {
-  title?: string;
-  titleIcon?: string;
-  floatBottom?: boolean;
-  links: NavSectionLinks[];
-};
+  title?: string
+  titleIcon?: string
+  floatBottom?: boolean
+  links: NavSectionLinks[]
+}
 
 export interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
-  navTitle: string;
-  navSections: NavSection[];
-  className?: string;
+  navTitle: string
+  navSections: NavSection[]
+  className?: string
 }
 
 export const Nav = ({
@@ -44,21 +44,21 @@ export const Nav = ({
     <div
       className={cn(
         navSectionTitleStyle,
-        typographyStyle({ size: 'caption' }),
-        colorSprinkle({ color: 'accentDefault' })
+        typographyStyle({ size: "caption" }),
+        colorSprinkle({ color: "accentDefault" }),
       )}
     >
       {navTitle}
       <label htmlFor="collapse-nav">
-        <i className={cn('fa', 'fa-bars')}></i>
-        <i className={cn('fa', 'fa-xmark')}></i>
+        <i className={cn("fa", "fa-bars")}></i>
+        <i className={cn("fa", "fa-xmark")}></i>
       </label>
     </div>
     <ul
       className={cn(
         navMainSectionStyle,
         navMenuSectionStyle,
-        gridStyle({ gap: 24 })
+        gridStyle({ gap: 24 }),
       )}
     >
       {navSections.map((section, key) => (
@@ -69,9 +69,9 @@ export const Nav = ({
           {section.title && (
             <div
               className={cn(
-                typographyStyle({ size: 'xsmall', type: 'bold' }),
-                colorSprinkle({ color: 'foregroundDefault' }),
-                navSectionTitleStyle
+                typographyStyle({ size: "xsmall", type: "bold" }),
+                colorSprinkle({ color: "foregroundDefault" }),
+                navSectionTitleStyle,
               )}
             >
               {section.title}
@@ -96,4 +96,4 @@ export const Nav = ({
       ))}
     </ul>
   </nav>
-);
+)
