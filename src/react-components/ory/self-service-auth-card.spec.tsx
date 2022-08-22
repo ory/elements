@@ -84,6 +84,70 @@ const defaultFlow: SelfServiceFlow = {
   },
 }
 
+const alternativeFlow: SelfServiceFlow = {
+  id: "",
+  state: "choose_method",
+  type: "browser",
+  ui: {
+    action: "https://test.com",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value: "",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "link",
+        attributes: {
+          name: "email",
+          type: "email",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070007,
+            text: "Email",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "link",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "link",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070005,
+            text: "Submit",
+            type: "info",
+          },
+        },
+      },
+    ],
+  },
+}
+
 const expectDefaultFlow = async (component: Locator) => {
   await expect(component).toContainText("ID *")
   await expect(component).toContainText("Password *")
@@ -95,6 +159,14 @@ const expectDefaultFlow = async (component: Locator) => {
   await expect(
     component.locator('form[action="https://test.com"]'),
   ).toBeVisible()
+}
+
+const expectAlternativeFlow = async (component: Locator) => {
+  await expect(component).toContainText("Email *")
+  await expect(component.locator('button[type="submit"]')).toBeVisible()
+  await expect(component.locator('button[type="submit"]')).toContainText(
+    "Submit",
+  )
 }
 
 test("ory auth card login flow", async ({ mount }) => {
@@ -149,7 +221,36 @@ test("ory auth card registration flow", async ({ mount }) => {
   await expectDefaultFlow(component)
 })
 
-// test("ory auth card verification flow", async ({ mount }) => {
-//   const component = await mount(<SelfServiceAuthCard
-//   flow={}/>
-// })
+test("ory auth card verification flow", async ({ mount }) => {
+  const component = await mount(
+    <SelfServiceAuthCard
+      flow={alternativeFlow}
+      flowType={"verification"}
+      additionalProps={{
+        signupURL: "/signup",
+      }}
+      title={"Verification"}
+    />,
+  )
+
+  await expect(component).toContainText("Verification")
+  await expect(component.locator('a[href="/signup"]')).toBeVisible()
+  await expectAlternativeFlow(component)
+})
+
+test("ory auth card recovery flow", async ({ mount }) => {
+  const component = await mount(
+    <SelfServiceAuthCard
+      flow={alternativeFlow}
+      flowType={"recovery"}
+      additionalProps={{
+        loginURL: "/login",
+      }}
+      title={"Recovery"}
+    />,
+  )
+  await expect(component).toContainText("Recovery")
+  await expect(component.locator('a[href="/login"]')).toBeVisible()
+
+  await expectAlternativeFlow(component)
+})
