@@ -104,7 +104,7 @@ export default defineConfig(({ mode }) => {
         sourcemap: true,
         lib: {
           name: '@ory/themes',
-          entry: path.resolve(__dirname, 'src/markdown.ts'),
+          entry: path.resolve(__dirname, 'src/markup.ts'),
           formats: ['es', 'umd'],
           fileName: (format) => (format === 'es' ? 'index.mjs' : 'index.umd.js')
         },

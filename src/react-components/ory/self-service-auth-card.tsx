@@ -27,7 +27,7 @@ const $loginSection = ({
   signupURL: signupUrl,
   logoutURL: logoutUrl,
   isLoggedIn
-}: loginCardProps) => (
+}: loginCardProps): JSX.Element => (
   <div className={gridStyle({ gap: 32 })}>
     <Divider />
     <div className={gridStyle({ gap: 16 })}>
@@ -60,7 +60,11 @@ const $loginSection = ({
   </div>
 );
 
-const $messageSection = (text: string, url: string, buttonText: string) => (
+const $messageSection = (
+  text: string,
+  url: string,
+  buttonText: string
+): JSX.Element => (
   <Message className={colorSprinkle({ color: 'foregroundMuted' })}>
     {text}&nbsp;
     <ButtonLink href={url}>{buttonText}</ButtonLink>
@@ -72,7 +76,10 @@ type registrationCard = {
   loginUrl: string;
 };
 
-const $registrationSection = ({ nodes, loginUrl }: registrationCard) => (
+const $registrationSection = ({
+  nodes,
+  loginUrl
+}: registrationCard): JSX.Element => (
   <div className={gridStyle({ gap: 32 })}>
     <Divider />
     <div className={gridStyle({ gap: 16 })}>
@@ -112,7 +119,7 @@ const $alternativeFlowCard = ({
   nodes,
   loginUrl,
   signupUrl
-}: alternativeFlowCard) => (
+}: alternativeFlowCard): JSX.Element => (
   <div className={gridStyle({ gap: 32 })}>
     <div className={gridStyle({ gap: 16 })}>
       <FilterFlowNodes
@@ -137,7 +144,7 @@ const $alternativeFlowCard = ({
   </div>
 );
 
-const $oidcSection = (flow: SelfServiceFlow) => {
+const $oidcSection = (flow: SelfServiceFlow): JSX.Element | null => {
   const hasOIDC =
     filterNodesByGroups({
       nodes: flow.ui.nodes,
@@ -167,7 +174,7 @@ export const SelfServiceAuthCard = ({
   flowType,
   additionalProps,
   injectScripts
-}: SelfServiceAuthCardProps) => {
+}: SelfServiceAuthCardProps): JSX.Element => {
   if (injectScripts) {
     useScriptNodes({ nodes: flow.ui.nodes });
   }
