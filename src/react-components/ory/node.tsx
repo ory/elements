@@ -19,7 +19,13 @@ interface ButtonSubmit {
   value: string
 }
 
-export const Node = ({ node }: { node: UiNode }) => {
+export const Node = ({
+  node,
+  className,
+}: {
+  node: UiNode
+  className?: string
+}): JSX.Element | null => {
   if (isUiNodeAnchorAttributes(node.attributes)) {
     return <></>
   } else if (isUiNodeInputAttributes(node.attributes)) {
@@ -60,6 +66,7 @@ export const Node = ({ node }: { node: UiNode }) => {
 
         return isSocial ? (
           <ButtonSocial
+            className={className}
             title={getNodeLabel(node)}
             brand={attrs.value.toLowerCase()}
             variant={"semibold"}
@@ -69,6 +76,7 @@ export const Node = ({ node }: { node: UiNode }) => {
           />
         ) : (
           <Button
+            className={className}
             title={getNodeLabel(node)}
             variant={"semibold"}
             fullWidth
@@ -77,13 +85,20 @@ export const Node = ({ node }: { node: UiNode }) => {
         )
       case "datetime-local":
       case "checkbox":
-        return <Checkbox label={getNodeLabel(node)} name={attrs.name} />
+        return (
+          <Checkbox
+            className={className}
+            label={getNodeLabel(node)}
+            name={attrs.name}
+          />
+        )
       case "hidden":
       case "password":
       case "email":
       case "text":
         return (
           <InputField
+            className={className}
             name={attrs.name}
             title={getNodeLabel(node)}
             type={attrs.type}

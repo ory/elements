@@ -56,6 +56,7 @@ const $loginSection = ({
 }: loginCardProps): JSX.Element => {
   const message: messageSectionProps = isLoggedIn
     ? {
+        text: <>Something&#39;s not working?</>,
         buttonText: "Logout",
         url: logoutUrl,
       }
@@ -66,7 +67,18 @@ const $loginSection = ({
         dataTestId: "signup-link",
       }
 
-  return (
+  return isLoggedIn ? (
+    <div className={gridStyle({ gap: 32 })}>
+      <Divider />
+      <FilterFlowNodes
+        filter={{
+          nodes: nodes,
+          excludeAttributes: "hidden",
+        }}
+      />
+      {$messageSection(message)}
+    </div>
+  ) : (
     <div className={gridStyle({ gap: 32 })}>
       <Divider />
       <div className={gridStyle({ gap: 16 })}>
@@ -74,7 +86,7 @@ const $loginSection = ({
           filter={{
             nodes: nodes,
             groups: ["default", "password"],
-            excludeAttributes: "submit",
+            excludeAttributes: ["submit", "hidden"],
           }}
         />
         <ButtonLink data-testid="forgot-password-link" href={forgotPasswordUrl}>
@@ -225,7 +237,7 @@ const $oidcSection = (flow: SelfServiceFlow): JSX.Element | null => {
         <FilterFlowNodes
           filter={{
             nodes: flow.ui.nodes,
-            groups: ["oidc"],
+            groups: "oidc",
             attributes: "submit",
           }}
         />
