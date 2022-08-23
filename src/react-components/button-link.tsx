@@ -10,8 +10,8 @@ import "../assets/fa-solid.min.css"
 
 export interface ButtonLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: string | undefined
   children: React.ReactNode
+  href?: string | undefined
   icon?: string
   className?: string
 }

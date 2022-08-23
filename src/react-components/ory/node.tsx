@@ -107,7 +107,7 @@ export const Node = ({
                 ? "username"
                 : ""
             }
-            value={attrs.value}
+            defaultValue={attrs.value}
             required={attrs.required}
             fullWidth
           />

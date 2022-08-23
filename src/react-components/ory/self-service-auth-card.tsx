@@ -36,6 +36,9 @@ export type SelfServiceAuthCardProps = {
   title: string
   flowType: "login" | "registration" | "recovery" | "verification"
   additionalProps: AdditionalProps
+  activeFlow?: "password" | "passwordless"
+  selectActiveFlowAction?: ((e: React.MouseEvent) => void) | string
+  onFormSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
   injectScripts?: boolean
   icon?: string
   className?: string
@@ -45,7 +48,13 @@ export type SelfServiceAuthCardProps = {
 type loginCardProps = {
   nodes: UiNode[]
   isLoggedIn: boolean
+  activeFlow?: "password" | "passwordless"
+  selectActiveFlowAction?: ((e: React.MouseEvent) => void) | string
 } & AdditionalProps
+
+const $passwordlessSection = (nodes: UiNode[]): JSX.Element => {
+  return <FilterFlowNodes filter={{ nodes, groups: "webauthn" }} />
+}
 
 const $loginSection = ({
   nodes,
@@ -53,6 +62,8 @@ const $loginSection = ({
   signupURL: signupUrl,
   logoutURL: logoutUrl,
   isLoggedIn,
+  activeFlow,
+  selectActiveFlowAction,
 }: loginCardProps): JSX.Element => {
   const message: messageSectionProps = isLoggedIn
     ? {
@@ -81,25 +92,46 @@ const $loginSection = ({
   ) : (
     <div className={gridStyle({ gap: 32 })}>
       <Divider />
-      <div className={gridStyle({ gap: 16 })}>
-        <FilterFlowNodes
-          filter={{
-            nodes: nodes,
-            groups: ["default", "password"],
-            excludeAttributes: ["submit", "hidden"],
-          }}
-        />
-        <ButtonLink data-testid="forgot-password-link" href={forgotPasswordUrl}>
-          Forgot Password?
+      {activeFlow && activeFlow === "password" ? (
+        <>
+          <div className={gridStyle({ gap: 16 })}>
+            <FilterFlowNodes
+              filter={{
+                nodes: nodes,
+                groups: ["default", "password"],
+                excludeAttributes: ["submit", "hidden"],
+              }}
+            />
+            <ButtonLink
+              data-testid="forgot-password-link"
+              href={forgotPasswordUrl}
+            >
+              Forgot Password?
+            </ButtonLink>
+          </div>
+          <FilterFlowNodes
+            filter={{
+              nodes: nodes,
+              groups: ["password"],
+              attributes: "submit",
+            }}
+          />
+        </>
+      ) : (
+        $passwordlessSection(nodes)
+      )}
+
+      {selectActiveFlowAction && (
+        <ButtonLink
+          {...(typeof selectActiveFlowAction === "string"
+            ? { href: selectActiveFlowAction }
+            : {
+                onClick: selectActiveFlowAction,
+              })}
+        >
+          Alternative Login
         </ButtonLink>
-      </div>
-      <FilterFlowNodes
-        filter={{
-          nodes: nodes,
-          groups: ["password", "webauthn"],
-          attributes: "submit",
-        }}
-      />
+      )}
       {$messageSection(message)}
     </div>
   )
@@ -129,43 +161,49 @@ const $messageSection = ({
 type registrationCard = {
   nodes: UiNode[]
   loginUrl: string
+  activeFlow?: "password" | "passwordless"
+  selectActiveFlowAction?: ((e: React.MouseEvent) => void) | string
 }
 
 const $registrationSection = ({
   nodes,
   loginUrl,
+  activeFlow,
+  selectActiveFlowAction,
 }: registrationCard): JSX.Element => (
   <div className={gridStyle({ gap: 32 })}>
     <Divider />
-    <div className={gridStyle({ gap: 16 })}>
-      <FilterFlowNodes
-        filter={{
-          nodes: nodes,
-          groups: ["default", "password"],
-          excludeAttributes: "submit",
-        }}
-      />
-    </div>
-    <FilterFlowNodes
-      filter={{
-        nodes: nodes,
-        groups: ["password"],
-        attributes: "submit",
-      }}
-    />
-
-    {/* validate that we have an alternative flow such as webauthn */}
-    {filterNodesByGroups({ nodes: nodes, groups: "webauthn" }).length > 0 && (
+    {activeFlow && activeFlow === "password" ? (
       <>
-        <Divider text={"or"} fullWidth />
+        <div className={gridStyle({ gap: 16 })}>
+          <FilterFlowNodes
+            filter={{
+              nodes: nodes,
+              groups: ["default", "password"],
+              excludeAttributes: "submit",
+            }}
+          />
+        </div>
         <FilterFlowNodes
           filter={{
             nodes: nodes,
-            groups: "webauthn",
-            attributes: "button",
+            groups: ["password"],
+            attributes: "submit",
           }}
         />
       </>
+    ) : (
+      $passwordlessSection(nodes)
+    )}
+
+    {selectActiveFlowAction && (
+      <ButtonLink
+        {...(typeof selectActiveFlowAction === "string"
+          ? { href: selectActiveFlowAction }
+          : { onClick: selectActiveFlowAction })}
+      >
+        Alternative Registration
+      </ButtonLink>
     )}
 
     {$messageSection({
@@ -251,6 +289,9 @@ export const SelfServiceAuthCard = ({
   title,
   flowType,
   additionalProps,
+  selectActiveFlowAction,
+  activeFlow,
+  onFormSubmit,
   injectScripts,
 }: SelfServiceAuthCardProps): JSX.Element => {
   if (injectScripts) {
@@ -272,6 +313,8 @@ export const SelfServiceAuthCard = ({
       $card = $loginSection({
         nodes: flow.ui.nodes,
         isLoggedIn,
+        selectActiveFlowAction,
+        activeFlow,
         ...additionalProps,
       })
       break
@@ -279,6 +322,8 @@ export const SelfServiceAuthCard = ({
       $oidc = $oidcSection(flow)
       $card = $registrationSection({
         nodes: flow.ui.nodes,
+        selectActiveFlowAction,
+        activeFlow,
         loginUrl: additionalProps.loginURL || "",
       })
       break
@@ -298,9 +343,18 @@ export const SelfServiceAuthCard = ({
   return (
     <Card title={title}>
       <div className={gridStyle({ gap: 32 })}>
+        {flow.ui.messages && flow.ui.messages.length > 0 && (
+          <Message severity={"error"}>
+            {flow.ui.messages.map((m) => m.text).join(" ")}
+          </Message>
+        )}
         {$oidc && $oidc}
         {$card && (
-          <SelfServiceFlowForm flow={flow} submitOnEnter={true}>
+          <SelfServiceFlowForm
+            flow={flow}
+            submitOnEnter={true}
+            onSubmit={onFormSubmit}
+          >
             {$card}
           </SelfServiceFlowForm>
         )}

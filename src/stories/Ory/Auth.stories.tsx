@@ -52,6 +52,8 @@ LoginAuthCard.args = {
   title: "Sign in to your Acme account",
   flow: loginFlow as SelfServiceLoginFlow,
   flowType: "login",
+  activeFlow: "password",
+  selectActiveFlowAction: () => {},
   additionalProps: {
     signupURL: "https://acme.com/login",
     forgotPasswordURL: "https://acme.com/forgot-password",
@@ -67,6 +69,20 @@ LoginAuthCard2FA.args = {
   flowType: "login",
   additionalProps: {
     logoutURL: "https://acme.com/logout",
+  },
+}
+
+export const LoginAuthCardPasswordless = Template.bind({})
+
+LoginAuthCardPasswordless.args = {
+  title: "Sign in with passwordless",
+  flow: loginFlow as SelfServiceLoginFlow,
+  flowType: "login",
+  activeFlow: "passwordless",
+  selectActiveFlowAction: () => {},
+  additionalProps: {
+    logoutURL: "https://acme.com/logout",
+    forgotPasswordURL: "https://acme.com/forgot-password",
   },
 }
 
@@ -100,6 +116,8 @@ RegistrationAuthCardWebAuthn.args = {
   title: "Create an account for Acme",
   flow: registrationFlowWebAuthn as SelfServiceRegistrationFlow,
   flowType: "registration",
+  activeFlow: "passwordless",
+  selectActiveFlowAction: "https://another-flow",
   additionalProps: {
     loginURL: "https://acme.com/login",
   },
