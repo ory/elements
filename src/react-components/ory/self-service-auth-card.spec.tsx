@@ -254,3 +254,169 @@ test("ory auth card recovery flow", async ({ mount }) => {
 
   await expectAlternativeFlow(component)
 })
+
+test("ory auth card login 2fa flow", async ({ mount }) => {
+  const component = await mount(
+    <SelfServiceAuthCard
+      flow={{
+        id: "",
+        type: "browser",
+        request_url: "http://test.com/self-service/login/browser?aal=aal2",
+        state: "choose_method",
+
+        ui: {
+          action:
+            "https://test.com/self-service/login?flow=0e21a525-6aa7-40e2-8dbf-5fa51f292dc1",
+          method: "POST",
+          nodes: [
+            {
+              type: "input",
+              group: "default",
+              attributes: {
+                name: "csrf_token",
+                type: "hidden",
+                value: "",
+                required: true,
+                disabled: false,
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+            {
+              type: "input",
+              group: "default",
+              attributes: {
+                name: "identifier",
+                type: "hidden",
+                value: "",
+                disabled: false,
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+            {
+              type: "input",
+              group: "webauthn",
+              attributes: {
+                name: "webauthn_login_trigger",
+                type: "button",
+                value: "",
+                disabled: false,
+                onclick:
+                  'window.__oryWebAuthnLogin({"publicKey":{"challenge":"=","timeout":60000,"rpId":"test.com","allowCredentials":[{"type":"public-key","id":""}],"userVerification":"discouraged"}})',
+                node_type: "input",
+              },
+              messages: [],
+              meta: {
+                label: {
+                  id: 1010008,
+                  text: "Use security key",
+                  type: "info",
+                },
+              },
+            },
+            {
+              type: "input",
+              group: "webauthn",
+              attributes: {
+                name: "webauthn_login",
+                type: "hidden",
+                value: "",
+                disabled: false,
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+            {
+              type: "script",
+              group: "webauthn",
+              attributes: {
+                src: "https://test.com/.well-known/ory/webauthn.js",
+                async: true,
+                referrerpolicy: "no-referrer",
+                crossorigin: "anonymous",
+                integrity:
+                  "sha512-E3ctShTQEYTkfWrjztRCbP77lN7L0jJC2IOd6j8vqUKslvqhX/Ho3QxlQJIeTI78krzAWUQlDXd9JQ0PZlKhzQ==",
+                type: "text/javascript",
+                id: "webauthn_script",
+                nonce: "6d2cacc8-9abd-4f8f-b2b9-cd5250bfa677",
+                node_type: "script",
+              },
+              messages: [],
+              meta: {},
+            },
+            {
+              type: "input",
+              group: "totp",
+              attributes: {
+                name: "totp_code",
+                type: "text",
+                value: "",
+                required: true,
+                disabled: false,
+                node_type: "input",
+              },
+              messages: [],
+              meta: {
+                label: {
+                  id: 1010006,
+                  text: "Authentication code",
+                  type: "info",
+                  context: {},
+                },
+              },
+            },
+            {
+              type: "input",
+              group: "totp",
+              attributes: {
+                name: "method",
+                type: "submit",
+                value: "totp",
+                disabled: false,
+                node_type: "input",
+              },
+              messages: [],
+              meta: {
+                label: {
+                  id: 1010009,
+                  text: "Use Authenticator",
+                  type: "info",
+                  context: {},
+                },
+              },
+            },
+          ],
+          messages: [
+            {
+              id: 1010004,
+              text: "Please complete the second authentication challenge.",
+              type: "info",
+              context: {},
+            },
+          ],
+        },
+        created_at: "2022-08-22T22:02:15.825471Z",
+        updated_at: "2022-08-22T22:02:15.825471Z",
+        refresh: false,
+        requested_aal: "aal2",
+      }}
+      flowType={"login"}
+      additionalProps={{
+        logoutURL: "/logout",
+      }}
+      title={"Two-factor authentication"}
+    />,
+  )
+
+  expect(component).toContainText("Two-factor authentication")
+  expect(component.locator("input[name='totp_code']")).toBeVisible()
+  expect(component.locator('button[type="submit"]')).toBeVisible()
+  expect(component.locator('a[href="/logout"]')).toBeVisible()
+  expect(
+    component.locator('button[name="webauthn_login_trigger"]'),
+  ).toBeVisible()
+})

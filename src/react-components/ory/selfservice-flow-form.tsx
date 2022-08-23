@@ -29,7 +29,7 @@ export const SelfServiceFlowForm = ({
     }}
   >
     <>
-      {/*always add csrf token to form*/}
+      {/*always add csrf token and other hidden fields to form*/}
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,

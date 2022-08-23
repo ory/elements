@@ -12,6 +12,8 @@ import {
 } from "@ory/client"
 
 import loginFlow from "./login-flow.json"
+import loginFlow2FA from "./login-flow-2fa.json"
+
 import loginFlowError from "./login-flow-error.json"
 
 import registrationFlow from "./register-flow.json"
@@ -53,6 +55,17 @@ LoginAuthCard.args = {
   additionalProps: {
     signupURL: "https://acme.com/login",
     forgotPasswordURL: "https://acme.com/forgot-password",
+    logoutURL: "https://acme.com/logout",
+  },
+}
+
+export const LoginAuthCard2FA = Template.bind({})
+
+LoginAuthCard2FA.args = {
+  title: "Two-factor authentication",
+  flow: loginFlow2FA as SelfServiceLoginFlow,
+  flowType: "login",
+  additionalProps: {
     logoutURL: "https://acme.com/logout",
   },
 }

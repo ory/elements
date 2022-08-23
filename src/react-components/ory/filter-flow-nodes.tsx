@@ -26,8 +26,14 @@ export const FilterFlowNodes = ({ filter, includeCSRF }: Props) => {
     )
     .map((node, k) =>
       ["hidden"].includes(getNodeInputType(node.attributes))
-        ? { node: <Node node={node} key={k} />, hidden: true }
-        : { node: <Node node={node} key={k} />, hidden: false },
+        ? {
+            node: <Node node={node} key={k} />,
+            hidden: true,
+          }
+        : {
+            node: <Node node={node} key={k} />,
+            hidden: false,
+          },
     )
   return nodes.length > 0 ? (
     <>
