@@ -1,64 +1,20 @@
 {
-    "id": "898afdcd-2dc9-4856-bcbf-e6a16e9d786f",
+    "id": "4a7c067f-ae1f-4015-b3e3-74e1de254b40",
     "type": "browser",
-    "expires_at": "2022-08-03T22:04:51.991125542Z",
-    "issued_at": "2022-08-03T21:34:51.991125542Z",
-    "request_url": "http://foo.bar/self-service/login/browser?refresh=false",
+    "expires_at": "2022-08-23T18:50:56.82053129Z",
+    "issued_at": "2022-08-23T18:20:56.82053129Z",
+    "request_url": "http://test.com/self-service/login/browser",
     "ui": {
-        "action": "https://foo.bar/self-service/login?flow=898afdcd-2dc9-4856-bcbf-e6a16e9d786f",
+        "action": "http://test.com/self-service/login?flow=4a7c067f-ae1f-4015-b3e3-74e1de254b40",
         "method": "POST",
         "nodes": [
-            {
-                "type": "input",
-                "group": "oidc",
-                "attributes": {
-                    "name": "provider",
-                    "type": "submit",
-                    "value": "github",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1010002,
-                        "text": "Sign in with github",
-                        "type": "info",
-                        "context": {
-                            "provider": "github"
-                        }
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "oidc",
-                "attributes": {
-                    "name": "provider",
-                    "type": "submit",
-                    "value": "google",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1010002,
-                        "text": "Sign in with google",
-                        "type": "info",
-                        "context": {
-                            "provider": "google"
-                        }
-                    }
-                }
-            },
             {
                 "type": "input",
                 "group": "default",
                 "attributes": {
                     "name": "csrf_token",
                     "type": "hidden",
-                    "value": "5N0Cl/aewbsAijxOasr0jCLj8dNp3fEAhWEbmo+QKPekc5es1cs92H58UrmX3x8/eph3VMoPAlYnRkmBA8FlWw==",
+                    "value": "6Ov489/mtfsZ9cnFjqsSzxITOj4F6F1DaLTlrznzZtmFNHE9hssysNvRxD6vmbjhxexBYUcJ4HMC14wSREegkg==",
                     "required": true,
                     "disabled": false,
                     "node_type": "input"
@@ -83,6 +39,26 @@
                         "id": 1070004,
                         "text": "ID",
                         "type": "info"
+                    }
+                }
+            },
+            {
+                "type": "input",
+                "group": "webauthn",
+                "attributes": {
+                    "name": "method",
+                    "type": "submit",
+                    "value": "webauthn",
+                    "disabled": false,
+                    "node_type": "input"
+                },
+                "messages": [],
+                "meta": {
+                    "label": {
+                        "id": 1010001,
+                        "text": "Sign in with security key",
+                        "type": "info",
+                        "context": {}
                     }
                 }
             },
@@ -128,8 +104,8 @@
             }
         ]
     },
-    "created_at": "2022-08-03T21:34:51.999998Z",
-    "updated_at": "2022-08-03T21:34:51.999998Z",
+    "created_at": "2022-08-23T18:20:56.827165Z",
+    "updated_at": "2022-08-23T18:20:56.827165Z",
     "refresh": false,
     "requested_aal": "aal1"
 }

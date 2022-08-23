@@ -7,6 +7,7 @@ export interface SelfServiceFlowFormProps
   extends React.FormHTMLAttributes<HTMLFormElement> {
   flow: SelfServiceFlow
   children: React.ReactNode
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
   submitOnEnter?: boolean
   className?: string
 }
@@ -15,6 +16,7 @@ export const SelfServiceFlowForm = ({
   flow,
   children,
   submitOnEnter,
+  onSubmit,
   className,
 }: SelfServiceFlowFormProps): JSX.Element => (
   <form
@@ -27,6 +29,7 @@ export const SelfServiceFlowForm = ({
         e.preventDefault()
       }
     }}
+    onSubmit={onSubmit}
   >
     <>
       {/*always add csrf token and other hidden fields to form*/}

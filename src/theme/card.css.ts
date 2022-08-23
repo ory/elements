@@ -14,13 +14,16 @@ const card = style({
   padding: pxToRem(48),
   background: oryTheme.background.surface,
   color: oryTheme.foreground.def,
-  maxWidth: pxToRem(432),
+  maxWidth: pxToRem(336),
+  minWidth: pxToRem(336),
   "@media": {
     [`screen and (max-width: ${defaultBreakpoints.xs})`]: {
       width: "100%",
       border: "0px",
       borderRadius: "0px",
       padding: `0px 0px ${pxToRem(32)}`,
+      maxWidth: pxToRem(294),
+      minWidth: pxToRem(294),
     },
   },
 })
