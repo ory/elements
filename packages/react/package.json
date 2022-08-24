@@ -10,11 +10,6 @@
       "require": "./dist/index.umd.js"
     },
     "./style.css": "./dist/style.css",
-    "./inter-font.css": "./dist/inter-font.css",
-    "./fa-brands.min.css": "./dist/fa-brands.min.css",
-    "./fa-solid.min.css": "./dist/fa-solid.min.css",
-    "./fontawesome.min.css": "./dist/fontawesome.min.css",
-    "./normalize.css": "./dist/normalize.css",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.umd.js",
