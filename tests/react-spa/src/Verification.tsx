@@ -1,6 +1,7 @@
+import React from "react"
 import { SelfServiceVerificationFlow } from "@ory/client"
 import { useEffect, useState } from "react"
-import { SelfServiceAuthCard } from "../../../dist"
+import { SelfServiceAuthCard } from "@ory/themes"
 import sdk from "./sdk"
 
 export const Verification = (): JSX.Element => {

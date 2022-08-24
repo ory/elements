@@ -40,38 +40,30 @@ export const Login = (): JSX.Element => {
       title={"Login"}
       injectScripts={true}
       onFormSubmit={(event: React.FormEvent<HTMLFormElement>) => {
-        //const e: FormEvent = event as FormEvent
-        console.log({
-          method: (
-            event.currentTarget.elements.namedItem("method") as HTMLInputElement
-          ).value,
-        })
-
         event.preventDefault()
 
         const form = event.currentTarget
         const formData = new FormData(form)
 
-        let body: SubmitSelfServiceLoginFlowBody = Object.fromEntries(
+        // map the entire form data to JSON for the request body
+        const body: SubmitSelfServiceLoginFlowBody = Object.fromEntries(
           formData,
         ) as never as SubmitSelfServiceLoginFlowBody
 
+        // We need the method from which is specified as a name and value on the submit button
         body.method = (
           event.currentTarget.elements.namedItem("method") as HTMLInputElement
         ).value
 
-        event.currentTarget.reset()
-
         sdk
           .submitSelfServiceLoginFlow(flow.id, body)
-          .then(({ data }) => {
+          .then(() => {
+            // we successfully submitted the login flow, so lets redirect to the dashboard
             navigate("/", { replace: true })
           })
           .catch((error) => {
-            // get the flow data and find the error messages
-            sdk.getSelfServiceLoginFlow(flow.id).then(({ data }) => {
-              setFlow(data)
-            })
+            console.error({ error })
+            setFlow(error.response.data)
           })
       }}
     />
