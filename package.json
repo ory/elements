@@ -34,7 +34,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@ory/client": "^0.2.0-alpha.16",
-    "@ory/integrations": "file:../integrations",
+    "@ory/integrations": "^0.2.7",
     "@playwright/experimental-ct-react": "^1.25.0",
     "@preact/preset-vite": "^2.3.0",
     "@storybook/addon-docs": "^6.5.10",

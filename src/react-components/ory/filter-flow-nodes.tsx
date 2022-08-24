@@ -1,6 +1,7 @@
 import React from "react"
 import { UiNode } from "@ory/client"
 import {
+  FilterNodesByGroups,
   filterNodesByGroups,
   getNodeInputType,
   isUiNodeInputAttributes,
@@ -9,7 +10,7 @@ import { Node } from "./node"
 import { gridStyle } from "../../theme"
 
 export interface Props {
-  filter: filterNodesByGroups
+  filter: FilterNodesByGroups
   includeCSRF?: boolean
 }
 
