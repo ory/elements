@@ -14,16 +14,17 @@ export interface Props {
   includeCSRF?: boolean
 }
 
-export const FilterFlowNodes = ({ filter, includeCSRF }: Props): JSX.Element | null => {
+export const FilterFlowNodes = ({
+  filter,
+  includeCSRF,
+}: Props): JSX.Element | null => {
   const getInputName = (node: UiNode): string =>
     isUiNodeInputAttributes(node.attributes) ? node.attributes.name : ""
 
   const nodes = filterNodesByGroups(filter)
     // we don't want to map the csrf token every time, only on the form level
     .filter((node) =>
-      getInputName(node) === "csrf_token" && !includeCSRF
-        ? false
-        : true,
+      getInputName(node) === "csrf_token" && !includeCSRF ? false : true,
     )
     .map((node, k) =>
       ["hidden"].includes(getNodeInputType(node.attributes))
