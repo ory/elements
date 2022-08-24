@@ -4,14 +4,15 @@
   "private": "true",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "initialize": "npm install && npm run clean && lerna bootstrap",
+    "initialize": "npm install && npm run clean && lerna bootstrap --hoist",
     "clean": "lerna clean --yes",
     "build-storybook": "build-storybook",
-    "refresh": "lerna bootstrap",
+    "refresh": "lerna bootstrap --hoist",
     "build": "lerna run build --stream",
     "build:react": "lerna run build --stream --scope=@ory/themes",
     "build:preact": "lerna run build --stream --scope@ory/themes-preact",
     "build:markup": "lerna run build --stream --scope=@ory/themes-markup",
+    "version": "lerna version --no-private",
     "test": "playwright test -c playwright-ct.config.ts",
     "format": "prettier --write '{src/**/*,}.{tsx,ts,js,css}'",
     "format:check": "prettier --check '{src/**/*,}.{tsx,ts,js,css}'"
@@ -54,7 +55,6 @@
     "@vanilla-extract/dynamic": "^2.0.2",
     "@vanilla-extract/recipes": "^0.2.5",
     "@vanilla-extract/sprinkles": "^1.4.1",
-    "@vanilla-extract/vite-plugin": "^3.3.1",
     "@vitejs/plugin-react": "^2.0.1",
     "classnames": "^2.3.1",
     "eslint": "^8.22.0",
@@ -67,7 +67,8 @@
     "require-from-string": "^2.0.2",
     "typescript": "^4.7.4",
     "vite": "^3.0.9",
-    "vite-plugin-dts": "^1.4.0"
+    "vite-plugin-dts": "^1.4.1",
+    "@vanilla-extract/vite-plugin": "^3.3.1"
   },
   "files": [
     "dist/*"
@@ -77,6 +78,7 @@
     "npm": ">=8.11.0"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "tests/*"
   ]
 }
