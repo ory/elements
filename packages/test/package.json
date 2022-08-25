@@ -1,0 +1,46 @@
+{
+  "name": "@ory/themes-test",
+  "version": "0.1.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.umd.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/themes.git",
+    "directory": "packages/react"
+  },
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/ory/themes/issues"
+  },
+  "homepage": "https://github.com/ory/themes#readme",
+  "overrides": {
+    "@vanilla-extract/vite-plugin": {
+      "vite": "^3"
+    }
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.0.1"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "engines": {
+    "node": ">=16.16.0",
+    "npm": ">=8.11.0"
+  }
+}
