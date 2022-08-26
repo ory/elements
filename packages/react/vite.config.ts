@@ -16,7 +16,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     lib: {
-      name: "@ory/themes",
+      name: "@ory/elements",
       entry: path.resolve(__dirname, "../../src/react.ts"),
       formats: ["es", "umd"],
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),

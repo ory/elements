@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     lib: {
-      name: "@ory/themes-test",
+      name: "@ory/elements-test",
       entry: path.resolve(__dirname, "../../src/tests.ts"),
       formats: ["es", "umd"],
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),

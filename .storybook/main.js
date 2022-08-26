@@ -23,7 +23,7 @@ module.exports = {
         sourcemap: true,
         lib: {
           entry: resolve(__dirname, 'src/react.ts'),
-          name: 'ory/themes',
+          name: 'ory/elements',
           fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
