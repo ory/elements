@@ -7,6 +7,7 @@ import { Verification } from "./Verification"
 import { Session } from "@ory/client"
 import sdk from "./sdk"
 import { Typography } from "@ory/elements"
+import { Recovery } from "./Recovery"
 
 const Dashboard = () => {
   const [session, setSession] = useState<Session | null>(null)
@@ -61,6 +62,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Registration />} />
       <Route path="/verification" element={<Verification />} />
+      <Route path="/recovery" element={<Recovery />} />
     </Routes>
   )
 }

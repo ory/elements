@@ -9,12 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.10.1"
+    "preact": "^10.10.1",
+    "wouter": "^2.8.0-alpha.2"
   },
   "devDependencies": {
+    "@ory/client": "^0.2.0-alpha.21",
+    "@ory/elements-preact": "*",
     "@preact/preset-vite": "^2.3.0",
+    "eslint": "^8.22.0",
+    "eslint-config-preact": "^1.3.0",
     "typescript": "^4.6.4",
-    "vite": "^3.0.7",
-    "@ory/elements-preact": "*"
+    "vite": "^3.0.7"
+  },
+  "eslintConfig": {
+    "extends": "preact"
   }
 }
