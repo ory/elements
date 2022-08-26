@@ -30,6 +30,7 @@ export const Registration = () => {
       additionalProps={{
         loginURL: "/login",
       }}
+      injectScripts={true}
       onSubmit={({ body }) => {
         sdk
           .submitSelfServiceRegistrationFlow(
