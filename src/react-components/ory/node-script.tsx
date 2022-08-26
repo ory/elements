@@ -7,10 +7,10 @@ export const useScriptNodes = ({ nodes }: { nodes: UiNode[] }) => {
   useEffect(() => {
     const scriptNodes = filterNodesByGroups({
       nodes: nodes,
+      groups: "webauthn",
+      attributes: "text/javascript",
       withoutDefaultGroup: true,
       withoutDefaultAttributes: true,
-      groups: ["webauthn"],
-      attributes: ["script"],
     }).map((node) => {
       const attr = node.attributes as UiNodeScriptAttributes
       const script = document.createElement("script")
