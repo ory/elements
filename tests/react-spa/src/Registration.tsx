@@ -4,7 +4,7 @@ import {
   SubmitSelfServiceRegistrationFlowBody,
 } from "@ory/client"
 import { useEffect, useState } from "react"
-import { SelfServiceAuthCard } from "@ory/themes"
+import { SelfServiceAuthCard } from "@ory/elements"
 import sdk from "./sdk"
 import { useNavigate } from "react-router-dom"
 

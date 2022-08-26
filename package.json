@@ -9,9 +9,9 @@
     "build-storybook": "build-storybook",
     "refresh": "lerna bootstrap --hoist",
     "build": "lerna run build --stream",
-    "build:react": "lerna run build --stream --scope=@ory/themes",
-    "build:preact": "lerna run build --stream --scope@ory/themes-preact",
-    "build:markup": "lerna run build --stream --scope=@ory/themes-markup",
+    "build:react": "lerna run build --stream --scope=@ory/elements",
+    "build:preact": "lerna run build --stream --scope@ory/elements-preact",
+    "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
     "version": "lerna version --no-private",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-e2e": "playwright test -c playwright.config.ts",
@@ -20,13 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ory/themes.git"
+    "url": "git+ssh://git@github.com/ory/elements.git"
   },
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/ory/themes/issues"
+    "url": "https://github.com/ory/elements/issues"
   },
-  "homepage": "https://github.com/ory/themes#readme",
+  "homepage": "https://github.com/ory/elements#readme",
   "overrides": {
     "@vanilla-extract/vite-plugin": {
       "vite": "^3"

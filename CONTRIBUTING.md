@@ -8,7 +8,7 @@ https://github.com/ory/meta/blob/master/templates/repository/common/CONTRIBUTING
 
 -->
 
-# Contribute to Ory Themes
+# Contribute to Ory elements
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -29,8 +29,8 @@ https://github.com/ory/meta/blob/master/templates/repository/common/CONTRIBUTING
 
 ## Introduction
 
-_Please note_: We take Ory Themes's security and our users' trust very
-seriously. If you believe you have found a security issue in Ory Themes,
+_Please note_: We take Ory elements's security and our users' trust very
+seriously. If you believe you have found a security issue in Ory elements,
 please disclose by contacting us at security@ory.sh.
 
 There are many ways in which you can contribute. The goal of this document is to
@@ -48,44 +48,44 @@ contributions, and don't want a wall of rules to get in the way of that.
 That said, if you want to ensure that a pull request is likely to be merged,
 talk to us! You can find out our thoughts and ensure that your contribution
 won't clash with Ory
-Themes's direction. A great way to
+elements's direction. A great way to
 do this is via
-[Ory Themes Discussions](https://github.com/orgs/ory/discussions)
+[Ory elements Discussions](https://github.com/orgs/ory/discussions)
 or the [Ory Chat](https://www.ory.sh/chat).
 
 ## FAQ
 
 - I am new to the community. Where can I find the
-  [Ory Community Code of Conduct?](https://github.com/ory/themes/blob/master/CODE_OF_CONDUCT.md)
+  [Ory Community Code of Conduct?](https://github.com/ory/elements/blob/master/CODE_OF_CONDUCT.md)
 
 - I have a question. Where can I get
-  [answers to questions regarding Ory Themes?](#communication)
+  [answers to questions regarding Ory elements?](#communication)
 
 - I would like to contribute but I am not sure how. Are there
   [easy ways to contribute?](#how-can-i-contribute)
   [Or good first issues?](https://github.com/search?l=&o=desc&q=label%3A%22help+wanted%22+label%3A%22good+first+issue%22+is%3Aopen+user%3Aory+user%3Aory-corp&s=updated&type=Issues)
 
-- I want to talk to other Ory Themes users.
+- I want to talk to other Ory elements users.
   [How can I become a part of the community?](#communication)
 
 - I would like to know what I am agreeing to when I contribute to Ory
-  Themes.
+  elements.
   Does Ory have
-  [a Contributors License Agreement?](https://cla-assistant.io/ory/themes)
+  [a Contributors License Agreement?](https://cla-assistant.io/ory/elements)
 
-- I would like updates about new versions of Ory Themes.
+- I would like updates about new versions of Ory elements.
   [How are new releases announced?](https://ory.us10.list-manage.com/subscribe?u=ffb1a878e4ec6c0ed312a3480&id=f605a41b53)
 
 ## How can I contribute?
 
 If you want to start to contribute code right away, take a look at the
-[list of good first issues](https://github.com/ory/themes/labels/good%20first%20issue).
+[list of good first issues](https://github.com/ory/elements/labels/good%20first%20issue).
 
 There are many other ways you can contribute. Here are a few things you can do
 to help out:
 
 - **Give us a star.** It may not seem like much, but it really makes a
-  difference. This is something that everyone can do to help out Ory Themes.
+  difference. This is something that everyone can do to help out Ory elements.
   Github stars help the project gain visibility and stand out.
 
 - **Join the community.** Sometimes helping people can be as easy as listening
@@ -100,7 +100,7 @@ to help out:
   help, please share it! Bonus: You get GitHub achievements for answered
   discussions.
 
-- **Help with open issues.** We have a lot of open issues for Ory Themes and
+- **Help with open issues.** We have a lot of open issues for Ory elements and
   some of them may lack necessary information, some are duplicates of older
   issues. You can help out by guiding people through the process of filling out
   the issue template, asking for clarifying information, or pointing them to
@@ -119,14 +119,14 @@ to help out:
 We use [Slack](https://www.ory.sh/chat). You are welcome to drop in and ask
 questions, discuss bugs and feature requests, talk to other users of Ory, etc.
 
-Check out [Ory Themes Discussions](https://github.com/orgs/ory/discussions). This is a great place for
+Check out [Ory elements Discussions](https://github.com/orgs/ory/discussions). This is a great place for
 in-depth discussions and lots of code examples, logs and similar data.
 
 You can also join our community calls, if you want to speak to the Ory team
 directly or ask some questions. You can find more info and participate in
 [Slack](https://www.ory.sh/chat) in the #community-call channel.
 
-If you want to receive regular notifications about updates to Ory Themes,
+If you want to receive regular notifications about updates to Ory elements,
 consider joining the mailing list. We will _only_ send you vital information on
 the projects that you are interested in.
 
@@ -153,7 +153,7 @@ checklist to contribute an example:
    not get mixed up.
 1. Add a descriptive prefix to commits. This ensures a uniform commit history
    and helps structure the changelog. Please refer to this
-   [list of prefixes for Themes](https://github.com/ory/themes/blob/master/.github/semantic.yml)
+   [list of prefixes for elements](https://github.com/ory/elements/blob/master/.github/semantic.yml)
    for an overview.
 1. Create a `README.md` that explains how to use the example. (Use
    [the README template](https://github.com/ory/examples/blob/master/_common/README)).
@@ -163,7 +163,7 @@ checklist to contribute an example:
 
 Unless you are fixing a known bug, we **strongly** recommend discussing it with
 the core team via a GitHub issue or [in our chat](https://www.ory.sh/chat)
-before getting started to ensure your work is consistent with Ory Themes's
+before getting started to ensure your work is consistent with Ory elements's
 roadmap and architecture.
 
 All contributions are made via pull requests. To make a pull request, you will
@@ -183,7 +183,7 @@ request, go through this checklist:
 1. Add a descriptive prefix to commits. This ensures a uniform commit history
    and helps structure the changelog.  
    Please refer to this
-   [list of prefixes for Themes](https://github.com/ory/themes/blob/master/.github/semantic.yml)
+   [list of prefixes for elements](https://github.com/ory/elements/blob/master/.github/semantic.yml)
    for an overview.
 1. Sign-up with CircleCI so that it has access to your repository with the
    branch containing your PR. Simply creating a CircleCI account is sufficient
@@ -194,7 +194,7 @@ If a pull request is not ready to be reviewed yet
 [it should be marked as a "Draft"](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request).
 
 Before your contributions can be reviewed you need to sign our
-[Contributor License Agreement](https://cla-assistant.io/ory/themes).
+[Contributor License Agreement](https://cla-assistant.io/ory/elements).
 
 This agreement defines the terms under which your code is contributed to Ory.
 More specifically it declares that you have the right to, and actually do, grant
@@ -213,7 +213,7 @@ Pull requests eligible for review
 3. document the changes in the code and/or the project's documentation;
 4. pass the CI pipeline;
 5. have signed our
-   [Contributor License Agreement](https://cla-assistant.io/ory/themes);
+   [Contributor License Agreement](https://cla-assistant.io/ory/elements);
 6. include a proper git commit message following the
    [Conventional Commit Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 
@@ -248,10 +248,10 @@ Please follow these guidelines when formatting source code:
 
 ```bash
 # First you clone the original repository
-git clone git@github.com:ory/ory/themes.git
+git clone git@github.com:ory/ory/elements.git
 
 # Next you add a git remote that is your fork:
-git remote add fork git@github.com:<YOUR-GITHUB-USERNAME-HERE>/ory/themes.git
+git remote add fork git@github.com:<YOUR-GITHUB-USERNAME-HERE>/ory/elements.git
 
 # Next you fetch the latest changes from origin for master:
 git fetch origin
@@ -276,7 +276,7 @@ Now go to the project's GitHub Pull Request page and click "New pull request"
 Whether you are a regular contributor or a newcomer, we care about making this
 community a safe place for you and we've got your back.
 
-[Ory Community Code of Conduct](https://github.com/ory/themes/blob/master/CODE_OF_CONDUCT.md)
+[Ory Community Code of Conduct](https://github.com/ory/elements/blob/master/CODE_OF_CONDUCT.md)
 
 We welcome discussion about creating a welcoming, safe, and productive
 environment for the community. If you have any questions, feedback, or concerns

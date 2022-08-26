@@ -102,7 +102,7 @@ import express, { Application } from 'express';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { oryTheme, Theme } from '../theme';
 
-export const RegisterOryThemesExpress = (app: Application, theme: Theme) => {
+export const RegisterOryElementsExpress = (app: Application, theme: Theme) => {
   app.use('/theme.css', (req, res) => {
     res.header('Content-Type', 'text/css');
     res.send(
@@ -112,7 +112,7 @@ export const RegisterOryThemesExpress = (app: Application, theme: Theme) => {
       }).toString()}}`
     );
   });
-  app.use('/', express.static('node_modules/@ory/themes/dist'));
+  app.use('/', express.static('node_modules/@ory/elements/dist'));
 };
 ```
 

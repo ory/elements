@@ -1,5 +1,5 @@
 {
-  "name": "@ory/themes-markup",
+  "name": "@ory/elements-markup",
   "version": "0.1.1",
   "publishConfig": {
     "access": "public"
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ory/themes.git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
     "directory": "packages/markup"
   },
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/ory/themes/issues"
+    "url": "https://github.com/ory/elements/issues"
   },
-  "homepage": "https://github.com/ory/themes#readme",
+  "homepage": "https://github.com/ory/elements#readme",
   "overrides": {
     "@vanilla-extract/vite-plugin": {
       "vite": "^3"
