@@ -152,7 +152,7 @@ export const SelfServiceAuthCard = ({
             {$flow}
           </SelfServiceFlowForm>
         )}
-        <Divider text="or" />
+        {$flow && $passwordless && <Divider text="or" />}
         {$passwordless && (
           <SelfServiceFlowForm
             flow={flow}
