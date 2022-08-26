@@ -1,13 +1,33 @@
-import React from "react"
+import {
+  SubmitSelfServiceLoginFlowBody,
+  SubmitSelfServiceRecoveryFlowBody,
+  SubmitSelfServiceRegistrationFlowBody,
+  SubmitSelfServiceVerificationFlowBody,
+} from "@ory/client"
+import React, { FormEvent } from "react"
 import { SelfServiceFlow } from "../../types"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 
+export type SelfServiceFlowFormAdditionalProps = {
+  onSubmit?: ({
+    body,
+    event,
+  }: {
+    body:
+      | SubmitSelfServiceLoginFlowBody
+      | SubmitSelfServiceRegistrationFlowBody
+      | SubmitSelfServiceRecoveryFlowBody
+      | SubmitSelfServiceVerificationFlowBody
+    event?: React.FormEvent<HTMLFormElement>
+  }) => void
+}
+
 // SelfServiceFlowForm props
 export interface SelfServiceFlowFormProps
-  extends React.FormHTMLAttributes<HTMLFormElement> {
+  extends Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit">,
+    SelfServiceFlowFormAdditionalProps {
   flow: SelfServiceFlow
   children: React.ReactNode
-  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
   submitOnEnter?: boolean
   className?: string
 }
@@ -29,7 +49,28 @@ export const SelfServiceFlowForm = ({
         e.preventDefault()
       }
     }}
-    onSubmit={onSubmit}
+    {...(onSubmit && {
+      onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+
+        const form = event.currentTarget
+        const formData = new FormData(form)
+
+        // map the entire form data to JSON for the request body
+        const body = Object.fromEntries(formData) as never as
+          | SubmitSelfServiceLoginFlowBody
+          | SubmitSelfServiceRegistrationFlowBody
+          | SubmitSelfServiceRecoveryFlowBody
+          | SubmitSelfServiceVerificationFlowBody
+
+        // We need the method from which is specified as a name and value on the submit button
+        body.method = (
+          event.currentTarget.elements.namedItem("method") as HTMLInputElement
+        ).value
+
+        onSubmit({ body, event })
+      },
+    })}
   >
     <>
       {/*always add csrf token and other hidden fields to form*/}

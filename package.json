@@ -8,6 +8,7 @@
     "clean": "lerna clean --yes",
     "build-storybook": "build-storybook",
     "refresh": "lerna bootstrap --hoist",
+    "build:clean": "lerna run build --skip-nx-cache",
     "build": "lerna run build --stream",
     "build:react": "lerna run build --stream --scope=@ory/elements",
     "build:preact": "lerna run build --stream --scope@ory/elements-preact",
