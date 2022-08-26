@@ -15,7 +15,7 @@ export default defineConfig({
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),
     },
     rollupOptions: {
-      external: ["preact"],
+      external: ["preact", "react", "react-dom"],
     },
     commonjsOptions: {
       esmExternals: ["preact"],

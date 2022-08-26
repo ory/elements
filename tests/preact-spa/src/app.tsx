@@ -1,32 +1,52 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import './app.css'
+import "./app.css"
+import { Typography } from "@ory/elements-preact"
+import sdk from "./sdk"
+import { useEffect, useState } from "preact/hooks"
+import { Session } from "@ory/client"
+import { useLocation } from "wouter"
 
-export function App() {
-  const [count, setCount] = useState(0)
+export const Dashboard = () => {
+  const [session, setSession] = useState<Session | null>(null)
+  const [logoutUrl, setLogoutUrl] = useState<string>()
+
+  const [location, setLocation] = useLocation()
+
+  useEffect(() => {
+    sdk
+      .toSession()
+      .then(({ data: session }) => {
+        setSession(session)
+      })
+      .catch(() => {
+        setLocation("/login", { replace: true })
+      })
+  }, [])
+
+  useEffect(() => {
+    sdk
+      .createSelfServiceLogoutFlowUrlForBrowsers(undefined, {
+        params: {
+          return_url: "/",
+        },
+      })
+      .then(({ data }) => {
+        setLogoutUrl(data.logout_url)
+      })
+      .catch((data) => {
+        console.error(data)
+      })
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
+      <Typography size={"headline37"}>Welcome to the dashboard!</Typography>
+      <Typography size={"headline21"}>
+        {session?.identity.traits.firstName} you can logout here:{" "}
+        <a href={logoutUrl}>Logout</a>
+      </Typography>
+      <pre>
+        <code>{JSON.stringify(session, null, 2)}</code>
+      </pre>
     </>
   )
 }
