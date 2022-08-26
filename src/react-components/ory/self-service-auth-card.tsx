@@ -10,14 +10,30 @@ import { SelfServiceLoginFlow } from "@ory/client"
 import { useScriptNodes } from "./node-script"
 import { SelfServiceFlow } from "../../types"
 import { OIDCSection } from "./oidc-section"
-import { LoginSectionAdditionalProps, LoginSection } from "./login-section"
-import {
-  RegistrationSection,
-  RegistrationSectionAdditionalProps,
-} from "./registration-section"
-import { LinkSection, LinkSectionAdditionalProps } from "./login-two-factor"
+import { LoginSection } from "./login-section"
+import { RegistrationSection } from "./registration-section"
+import { LinkSection } from "./login-two-factor"
 import { PasswordlessSection } from "./passwordless-section"
 import { Divider } from "../divider"
+import { MessageSection, MessageSectionProps } from "./common"
+
+export type LoginSectionAdditionalProps = {
+  forgotPasswordURL?: string
+  signupURL?: string
+  logoutURL?: string
+}
+
+export type RegistrationSectionAdditionalProps = {
+  loginURL?: string
+}
+
+export type VerificationSectionAdditionalProps = {
+  signupURL?: string
+}
+
+export type RecoverySectionAdditionalProps = {
+  loginURL?: string
+}
 
 export type SelfServiceAuthCardProps = {
   flow: SelfServiceFlow
@@ -26,7 +42,8 @@ export type SelfServiceAuthCardProps = {
   additionalProps:
     | LoginSectionAdditionalProps
     | RegistrationSectionAdditionalProps
-    | LinkSectionAdditionalProps
+    | RecoverySectionAdditionalProps
+    | VerificationSectionAdditionalProps
   injectScripts?: boolean
   icon?: string
   className?: string
@@ -48,7 +65,7 @@ export const SelfServiceAuthCard = ({
   let $flow = null
   let $oidc = null
   let $passwordless = null
-
+  let message: MessageSectionProps | null = null
   let f
   let isLoggedIn = false
 
@@ -64,22 +81,54 @@ export const SelfServiceAuthCard = ({
         isLoggedIn,
         ...additionalProps,
       })
+      message = isLoggedIn
+        ? {
+            text: <>Something&#39;s not working?</>,
+            buttonText: "Logout",
+            url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
+          }
+        : {
+            buttonText: "Sign up",
+            url: (additionalProps as LoginSectionAdditionalProps).signupURL,
+            text: <>Don&#39;t have an account?</>,
+            dataTestId: "signup-link",
+          }
       break
     case "registration":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
-        ...additionalProps,
       })
+      message = {
+        text: "Already have an account?",
+        url: (additionalProps as RegistrationSectionAdditionalProps).loginURL,
+        buttonText: "Sign in",
+        dataTestId: "login-link",
+      }
       break
     // both verification and recovery use the same flow.
     case "recovery":
+      $flow = LinkSection({
+        nodes: flow.ui.nodes,
+      })
+      message = {
+        text: "Already have an account?",
+        url: (additionalProps as RecoverySectionAdditionalProps).loginURL,
+        buttonText: "Sign in",
+        dataTestId: "login-link",
+      }
+      break
     case "verification":
       $flow = LinkSection({
         nodes: flow.ui.nodes,
-        ...additionalProps,
       })
+      message = {
+        text: "Don't have an account?",
+        url: (additionalProps as VerificationSectionAdditionalProps).signupURL,
+        buttonText: "Sign up",
+        dataTestId: "signup-link",
+      }
       break
     default:
       $flow = null
@@ -113,6 +162,7 @@ export const SelfServiceAuthCard = ({
             {$passwordless}
           </SelfServiceFlowForm>
         )}
+        {message && MessageSection(message)}
       </div>
     </Card>
   )
