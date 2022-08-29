@@ -8,6 +8,7 @@ import { Session } from "@ory/client"
 import sdk from "./sdk"
 import { Typography } from "@ory/elements"
 import { Recovery } from "./Recovery"
+import { Settings } from "./Settings"
 
 const Dashboard = () => {
   const [session, setSession] = useState<Session | null>(null)
@@ -46,7 +47,8 @@ const Dashboard = () => {
       <Typography size={"headline37"}>Welcome to the dashboard!</Typography>
       <Typography size={"headline21"}>
         {session?.identity.traits.firstName} you can logout here:{" "}
-        <a href={logoutUrl}>Logout</a>
+        <a href={logoutUrl}>Logout</a> or go to your settings page here:{" "}
+        <a href="/settings">Settings</a>
       </Typography>
       <pre>
         <code>{JSON.stringify(session, null, 2)}</code>
@@ -63,6 +65,7 @@ function App() {
       <Route path="/signup" element={<Registration />} />
       <Route path="/verification" element={<Verification />} />
       <Route path="/recovery" element={<Recovery />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   )
 }

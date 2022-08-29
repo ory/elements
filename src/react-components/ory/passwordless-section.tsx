@@ -1,19 +1,12 @@
 import React from "react"
 import { FilterFlowNodes } from "./filter-flow-nodes"
-import { filterNodesByGroups } from "@ory/integrations/ui"
 import { SelfServiceFlow } from "../../types"
+import { hasWebauthn } from "./utils"
 
 export const PasswordlessSection = (
   flow: SelfServiceFlow,
 ): JSX.Element | null => {
-  const hasPasswordless =
-    filterNodesByGroups({
-      nodes: flow.ui.nodes,
-      groups: "webauthn",
-      withoutDefaultGroup: true,
-    }).length > 0
-
-  return hasPasswordless ? (
+  return hasWebauthn(flow.ui.nodes) ? (
     <FilterFlowNodes filter={{ nodes: flow.ui.nodes, groups: "webauthn" }} />
   ) : null
 }

@@ -14,7 +14,7 @@ export const Login = (): JSX.Element => {
 
   useEffect(() => {
     sdk
-      .initializeSelfServiceLoginFlowForBrowsers()
+      .initializeSelfServiceLoginFlowForBrowsers(true)
       .then(({ data: flow }) => {
         setFlow(flow)
       })

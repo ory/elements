@@ -1,7 +1,6 @@
 import React from "react"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { SelfServiceAuthCard } from "./self-service-auth-card"
-import { Locator } from "playwright-core"
 import {
   loginFixture,
   registrationFixture,
@@ -74,7 +73,7 @@ test("ory auth card registration flow", async ({ mount }) => {
     component.locator('a[data-testid="login-link"]'),
   ).toHaveAttribute("href", "/login")
 
-  const submit = await component.locator('button[type="submit"]')
+  const submit = component.locator('button[type="submit"]')
   await expect(submit).toBeVisible()
   await expect(submit).toHaveText("Sign up")
 })
@@ -137,7 +136,7 @@ test("ory auth card login 2fa flow", async ({ mount }) => {
 
   expect(component).toContainText("Two-factor authentication")
   expect(component.locator('a[href="/logout"]')).toBeVisible()
-  
+
   expect(
     component.locator('button[name="webauthn_login_trigger"]'),
   ).toBeVisible()
