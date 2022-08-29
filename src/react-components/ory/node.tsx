@@ -1,15 +1,20 @@
 import React, { MouseEvent } from "react"
 
-import { UiNode, UiNodeInputAttributes } from "@ory/client"
+import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
 import {
   getNodeLabel,
   isUiNodeAnchorAttributes,
+  isUiNodeImageAttributes,
   isUiNodeInputAttributes,
+  isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
 import { Button } from "../button"
 import { ButtonSocial } from "../button-social"
 import { Checkbox } from "../checkbox"
 import { InputField } from "../input-field"
+import { Image } from "../image"
+import { gridStyle } from "../../theme"
+import { Typography } from "../typography"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined
@@ -26,8 +31,45 @@ export const Node = ({
   node: UiNode
   className?: string
 }): JSX.Element | null => {
-  if (isUiNodeAnchorAttributes(node.attributes)) {
-    return <></>
+  if (isUiNodeImageAttributes(node.attributes)) {
+    return (
+      <Image
+        src={node.attributes.src}
+        alt={node.meta.label?.text}
+        data-testid={`node/image/${node.attributes.id}`}
+        title={node.meta.label?.text}
+      />
+    )
+  } else if (isUiNodeTextAttributes(node.attributes)) {
+    const id = node.attributes.id
+    return node.attributes.text.id === 1050015 ? (
+      <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
+        {(node.attributes.text.context as { secrets: UiText[] }).secrets.map(
+          ({ text, id }: UiText) => {
+            if (id === 1050014) {
+              // Code already used
+              return (
+                <del data-testid={`node/text/${id}/text`} key={id}>
+                  <code>Used</code>
+                </del>
+              )
+            }
+            return (
+              <pre data-testid={`node/text/${id}/text`} key={id}>
+                <code>{text}</code>
+              </pre>
+            )
+          },
+        )}
+      </div>
+    ) : (
+      <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
+        <Typography>{node.meta.label?.text}</Typography>
+        <pre data-testid={`node/text/${id}/text`}>
+          <code>{node.attributes.text.text}</code>
+        </pre>
+      </div>
+    )
   } else if (isUiNodeInputAttributes(node.attributes)) {
     const attrs = node.attributes as UiNodeInputAttributes
     const nodeType = attrs.type
