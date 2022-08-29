@@ -19,6 +19,7 @@ export default defineConfig({
     },
     rollupOptions: {
       treeshake: "smallest",
+      external: ["@playwright/test"],
     },
   },
 })
