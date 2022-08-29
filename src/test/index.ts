@@ -1,1 +1,2 @@
-export * from "./Login"
+export * from "./AuthPage"
+export * from "./Fixtures"
