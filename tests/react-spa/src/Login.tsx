@@ -1,25 +1,47 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
 import { SelfServiceAuthCard } from "@ory/elements"
 import sdk from "./sdk"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 
 export const Login = (): JSX.Element => {
   const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const aal2 = searchParams.get("aal2")
+
+  const isMFA = aal2 ? true : false
 
   const navigate = useNavigate()
 
+  const handleFlow = useCallback(
+    ({ refresh, mfa }: { refresh: boolean; mfa: boolean }) => {
+      return sdk
+        .initializeSelfServiceLoginFlowForBrowsers(
+          refresh,
+          mfa ? "aal2" : "aal1",
+        )
+        .then(({ data: flow }) => flow)
+    },
+    [],
+  )
+
   useEffect(() => {
-    sdk
-      .initializeSelfServiceLoginFlowForBrowsers(true)
-      .then(({ data: flow }) => {
-        setFlow(flow)
-      })
+    handleFlow({ refresh: true, mfa: isMFA })
+      .then((flow) => setFlow(flow))
       .catch((error) => {
-        console.error(error)
+        console.dir({ error: error.response })
+        switch (error.response?.status) {
+          case 400:
+            setFlow(error.response.data)
+            break
+          case 410:
+          case 404:
+            return navigate("/login", { replace: true })
+        }
       })
   }, [])
 
@@ -44,8 +66,14 @@ export const Login = (): JSX.Element => {
             navigate("/", { replace: true })
           })
           .catch((error) => {
-            console.error({ error })
-            setFlow(error.response.data)
+            switch (error.response.status) {
+              case 400:
+                setFlow(error.response.data)
+                break
+              case 410:
+              case 404:
+                return navigate("/login", { replace: true })
+            }
           })
       }}
     />
