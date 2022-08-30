@@ -6,16 +6,10 @@ import { Card, CardProps, Message } from "../react-components"
 export default {
   title: "Component/Card",
   component: Card,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
 } as ComponentMeta<typeof Card>
 
 const Template: Story<CardProps> = (args: CardProps) => (
-  <Container theme={"light"}>
+  <Container>
     <Card {...args} />
   </Container>
 )

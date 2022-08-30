@@ -6,22 +6,10 @@ import { Container } from "./storyhelper"
 export default {
   title: "Component/ButtonSocial",
   component: ButtonSocial,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
 } as ComponentMeta<typeof ButtonSocial>
 
-type ButtonSocialStoryProps = ButtonSocialProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<ButtonSocialStoryProps> = (
-  args: ButtonSocialStoryProps,
-) => (
-  <Container theme={args.theme || "light"}>
+const Template: Story<ButtonSocialProps> = (args: ButtonSocialProps) => (
+  <Container>
     <ButtonSocial {...args} />
   </Container>
 )

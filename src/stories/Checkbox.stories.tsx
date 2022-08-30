@@ -14,12 +14,8 @@ export default {
   },
 } as ComponentMeta<typeof Checkbox>
 
-export type CheckboxStoryProps = CheckboxProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<CheckboxStoryProps> = (args: CheckboxStoryProps) => (
-  <Container theme={args.theme || "light"}>
+const Template: Story<CheckboxProps> = (args: CheckboxProps) => (
+  <Container>
     <Checkbox {...args} />
   </Container>
 )

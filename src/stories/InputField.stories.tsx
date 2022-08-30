@@ -14,12 +14,8 @@ export default {
   },
 } as ComponentMeta<typeof InputField>
 
-export type InputFieldStoryProps = InputFieldProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<InputFieldStoryProps> = (args: InputFieldStoryProps) => (
-  <Container theme={args.theme || "light"}>
+const Template: Story<InputFieldProps> = (args: InputFieldProps) => (
+  <Container>
     <InputField {...args} />
   </Container>
 )

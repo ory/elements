@@ -6,20 +6,10 @@ import { Container } from "./storyhelper"
 export default {
   title: "Component/Divider",
   component: Divider,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
 } as ComponentMeta<typeof Divider>
 
-type DividerStoryProps = {
-  theme: "light" | "dark"
-} & DividerProps
-
-const Template: Story<DividerStoryProps> = (args: DividerStoryProps) => (
-  <Container theme={args.theme || "light"}>
+const Template: Story<DividerProps> = (args: DividerProps) => (
+  <Container>
     <Divider {...args} />
   </Container>
 )
