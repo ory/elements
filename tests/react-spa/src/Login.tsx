@@ -3,17 +3,13 @@ import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
-import { OIDCSection, PasswordlessSection, UserAuthCard } from "@ory/elements"
+import { UserAuthCard } from "@ory/elements"
 import sdk from "./sdk"
 import { useNavigate, useSearchParams } from "react-router-dom"
 
 export const Login = (): JSX.Element => {
   const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
-
-  const aal2 = searchParams.get("aal2")
-
-  const isMFA = aal2 ? true : false
 
   const navigate = useNavigate()
 
@@ -30,6 +26,8 @@ export const Login = (): JSX.Element => {
   )
 
   useEffect(() => {
+    const aal2 = searchParams.get("aal2")
+    const isMFA = aal2 ? true : false
     handleFlow({ refresh: true, mfa: isMFA })
       .then((flow) => setFlow(flow))
       .catch((error) => {
