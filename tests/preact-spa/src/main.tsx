@@ -8,6 +8,7 @@ import { Register } from "./register"
 import { Recovery } from "./recovery"
 import { Verification } from "./verification"
 import "@ory/elements-preact/style.css"
+import { Settings } from "./settings"
 
 const Main = () => {
   return (
@@ -18,6 +19,7 @@ const Main = () => {
         <Route path="/signup" component={Register} />
         <Route path="/verification" component={Verification} />
         <Route path="/recovery" component={Recovery} />
+        <Route path="/settings" component={Settings} />
       </Router>
     </ThemeProvider>
   )

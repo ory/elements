@@ -3,7 +3,7 @@ import {
   SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
-import { useEffect, useState } from "preact/hooks"
+import { useCallback, useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
 import { useLocation } from "wouter"
 
@@ -12,14 +12,36 @@ export const Login = () => {
 
   const [location, setLocation] = useLocation()
 
+  const handleFlow = useCallback(
+    ({ refresh, mfa }: { refresh: boolean; mfa: boolean }) => {
+      return sdk
+        .initializeSelfServiceLoginFlowForBrowsers(
+          refresh,
+          mfa ? "aal2" : "aal1",
+        )
+        .then(({ data: flow }) => flow)
+    },
+    [],
+  )
+
   useEffect(() => {
-    sdk
-      .initializeSelfServiceLoginFlowForBrowsers()
-      .then(({ data: flow }) => {
-        setFlow(flow)
-      })
+    const aal2 = new URLSearchParams(
+      new URL(window.location.toString()).search,
+    ).get("aal2")
+
+    const isMFA = aal2 ? true : false
+    handleFlow({ refresh: true, mfa: isMFA })
+      .then((flow) => setFlow(flow))
       .catch((error) => {
-        console.error(error)
+        console.dir({ error: error.response })
+        switch (error.response?.status) {
+          case 400:
+            setFlow(error.response.data)
+            break
+          case 410:
+          case 404:
+            return setLocation("/login", { replace: true })
+        }
       })
   }, [])
 
