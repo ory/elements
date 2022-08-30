@@ -2,7 +2,7 @@ import {
   SelfServiceRegistrationFlow,
   SubmitSelfServiceRegistrationFlowBody,
 } from "@ory/client"
-import { SelfServiceAuthCard } from "@ory/elements-preact"
+import { UserAuthCard } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
 import { useLocation } from "wouter"
@@ -22,7 +22,7 @@ export const Register = () => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={flow}
       flowType={"registration"}
       title={"Registration"}

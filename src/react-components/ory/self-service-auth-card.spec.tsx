@@ -1,6 +1,6 @@
 import React from "react"
 import { expect, test } from "@playwright/experimental-ct-react"
-import { SelfServiceAuthCard } from "./self-service-auth-card"
+import { UserAuthCard } from "./user-auth-card"
 import {
   loginFixture,
   registrationFixture,
@@ -15,7 +15,7 @@ import {
 
 test("ory auth card login flow", async ({ mount }) => {
   const component = await mount(
-    <SelfServiceAuthCard
+    <UserAuthCard
       title={"Sign in"}
       flowType={"login"}
       additionalProps={{
@@ -47,7 +47,7 @@ test("ory auth card login flow", async ({ mount }) => {
 
 test("ory auth card registration flow", async ({ mount }) => {
   const component = await mount(
-    <SelfServiceAuthCard
+    <UserAuthCard
       title="Sign up"
       flowType="registration"
       additionalProps={{
@@ -80,7 +80,7 @@ test("ory auth card registration flow", async ({ mount }) => {
 
 test("ory auth card verification flow", async ({ mount }) => {
   const component = await mount(
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={verificationFixture}
       flowType={"verification"}
       additionalProps={{
@@ -103,7 +103,7 @@ test("ory auth card verification flow", async ({ mount }) => {
 
 test("ory auth card recovery flow", async ({ mount }) => {
   const component = await mount(
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={recoveryFixture}
       flowType={"recovery"}
       additionalProps={{
@@ -124,7 +124,7 @@ test("ory auth card recovery flow", async ({ mount }) => {
 // TODO: change to 2fa flow fixture
 test("ory auth card login 2fa flow", async ({ mount }) => {
   const component = await mount(
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={loginFixture}
       flowType={"login"}
       additionalProps={{

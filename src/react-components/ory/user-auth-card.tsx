@@ -1,21 +1,21 @@
 import React from "react"
 import { Card } from "../card"
 import {
-  SelfServiceFlowForm,
-  SelfServiceFlowFormAdditionalProps,
-} from "./selfservice-flow-form"
+  UserAuthFormAdditionalProps,
+  UserAuthForm,
+} from "./helpers/user-auth-form"
 import { Message } from "../message"
 import { gridStyle } from "../../theme"
 import { SelfServiceLoginFlow } from "@ory/client"
-import { useScriptNodes } from "./node-script"
-import { SelfServiceFlow } from "../../types"
-import { OIDCSection } from "./oidc-section"
-import { LoginSection } from "./login-section"
-import { RegistrationSection } from "./registration-section"
-import { LinkSection } from "./login-two-factor"
-import { PasswordlessSection } from "./passwordless-section"
+import { useScriptNodes } from "./helpers/node-script"
+import { SelfServiceFlow } from "./helpers/types"
+import { LoginSection } from "./sections/login-section"
+import { LinkSection } from "./sections/login-two-factor-section"
 import { Divider } from "../divider"
-import { MessageSection, MessageSectionProps } from "./common"
+import { MessageSection, MessageSectionProps } from "./helpers/common"
+import { PasswordlessSection } from "./sections/passwordless-section"
+import { OIDCSection } from "./sections/oidc-section"
+import { RegistrationSection } from "./sections/registration-section"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string
@@ -35,7 +35,7 @@ export type RecoverySectionAdditionalProps = {
   loginURL?: string
 }
 
-export type SelfServiceAuthCardProps = {
+export type UserAuthCardProps = {
   flow: SelfServiceFlow
   title: string
   flowType: "login" | "registration" | "recovery" | "verification"
@@ -48,16 +48,17 @@ export type SelfServiceAuthCardProps = {
   icon?: string
   className?: string
   children?: string
-} & SelfServiceFlowFormAdditionalProps
+} & UserAuthFormAdditionalProps
 
-export const SelfServiceAuthCard = ({
+// TODO: change to UserAuthCard
+export const UserAuthCard = ({
   flow,
   title,
   flowType,
   additionalProps,
   onSubmit,
   injectScripts,
-}: SelfServiceAuthCardProps): JSX.Element => {
+}: UserAuthCardProps): JSX.Element => {
   if (injectScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
   }
@@ -144,23 +145,15 @@ export const SelfServiceAuthCard = ({
         )}
         {$oidc && $oidc}
         {$flow && (
-          <SelfServiceFlowForm
-            flow={flow}
-            submitOnEnter={true}
-            onSubmit={onSubmit}
-          >
+          <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
             {$flow}
-          </SelfServiceFlowForm>
+          </UserAuthForm>
         )}
         {$flow && $passwordless && <Divider text="or" />}
         {$passwordless && (
-          <SelfServiceFlowForm
-            flow={flow}
-            submitOnEnter={true}
-            onSubmit={onSubmit}
-          >
+          <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
             {$passwordless}
-          </SelfServiceFlowForm>
+          </UserAuthForm>
         )}
         {message && MessageSection(message)}
       </div>

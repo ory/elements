@@ -3,7 +3,7 @@ import {
   SelfServiceRecoveryFlow,
   SubmitSelfServiceRecoveryFlowBody,
 } from "@ory/client"
-import { SelfServiceAuthCard } from "@ory/elements"
+import { UserAuthCard } from "@ory/elements"
 import { useEffect, useState } from "react"
 import sdk from "./sdk"
 import { useNavigate } from "react-router-dom"
@@ -25,7 +25,7 @@ export const Recovery = () => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       title="Recovery"
       flow={flow}
       flowType={"recovery"}

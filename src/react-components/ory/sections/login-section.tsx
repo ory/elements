@@ -1,9 +1,9 @@
 import React from "react"
 import { UiNode } from "@ory/client"
-import { gridStyle } from "../../theme"
-import { ButtonLink } from "../button-link"
-import { Divider } from "../divider"
-import { FilterFlowNodes } from "./filter-flow-nodes"
+import { gridStyle } from "../../../theme"
+import { ButtonLink } from "../../button-link"
+import { Divider } from "../../divider"
+import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 
 export type LoginSectionProps = {
   nodes: UiNode[]

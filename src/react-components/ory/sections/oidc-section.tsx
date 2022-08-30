@@ -1,14 +1,14 @@
 import React from "react"
-import { gridStyle } from "../../theme"
-import { SelfServiceFlow } from "../../types"
-import { Divider } from "../divider"
-import { FilterFlowNodes } from "./filter-flow-nodes"
-import { SelfServiceFlowForm } from "./selfservice-flow-form"
-import { hasOIDC } from "./utils"
+import { gridStyle } from "../../../theme"
+import { Divider } from "../../divider"
+import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
+import { SelfServiceFlow } from "../helpers/types"
+import { UserAuthForm } from "../helpers/user-auth-form"
+import { hasOIDC } from "../helpers/utils"
 
 export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
   return hasOIDC(flow.ui.nodes) ? (
-    <SelfServiceFlowForm flow={flow}>
+    <UserAuthForm flow={flow}>
       <div className={gridStyle({ gap: 32 })}>
         <Divider />
         <FilterFlowNodes
@@ -19,6 +19,6 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
           }}
         />
       </div>
-    </SelfServiceFlowForm>
+    </UserAuthForm>
   ) : null
 }

@@ -4,7 +4,7 @@ import {
   SubmitSelfServiceRegistrationFlowBody,
 } from "@ory/client"
 import { useEffect, useState } from "react"
-import { SelfServiceAuthCard } from "@ory/elements"
+import { UserAuthCard } from "@ory/elements"
 import sdk from "./sdk"
 import { useNavigate } from "react-router-dom"
 
@@ -23,7 +23,7 @@ export const Registration = () => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={flow}
       flowType={"registration"}
       title={"Registration"}

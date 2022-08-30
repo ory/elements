@@ -1,6 +1,6 @@
 import React from "react"
 import { UiNode } from "@ory/client"
-import { Message } from "../message"
+import { Message } from "../../message"
 
 export type ErrorMessagesProps = {
   nodes: UiNode[]

@@ -1,28 +1,26 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
 import { gridStyle } from "../../theme"
-import { ProfileSettings } from "./profile-settings"
-import { PasswordSettings } from "./password-settings"
-import { WebAuthnSettings } from "./webauthn-settings"
-import { OIDCSettings } from "./oidc-settings"
-import { LookupSecretSettings } from "./lookup-secret-settings"
-import { TOTPSettings } from "./totp-settings"
-import { SelfServiceFlowFormAdditionalProps } from "./selfservice-flow-form"
-import { useScriptNodes } from "./node-script"
+import { WebAuthnSettings } from "./sections/webauthn-settings-section"
+import { LookupSecretSettings } from "./sections/lookup-secret-settings-section"
+import { UserAuthFormAdditionalProps } from "./helpers/user-auth-form"
 import { Message } from "../message"
+import { ProfileSettings } from "./sections/profile-settings-section"
+import { PasswordSettings } from "./sections/password-settings-section"
+import { useScriptNodes } from "./helpers/node-script"
+import { OIDCSettings } from "./sections/oidc-settings-section"
+import { TOTPSettings } from "./sections/totp-settings-section"
 
-export type SelfServiceSettingsCardProps = {
+export type UserSettingsProps = {
   flow: SelfServiceSettingsFlow
-  title: string
   injectScripts?: boolean
-} & SelfServiceFlowFormAdditionalProps
+} & UserAuthFormAdditionalProps
 
-export const SelfServiceSettingsCard = ({
+export const UserSettingsPage = ({
   flow,
-  title,
   injectScripts,
   onSubmit,
-}: SelfServiceSettingsCardProps): JSX.Element => {
+}: UserSettingsProps): JSX.Element => {
   if (injectScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
   }

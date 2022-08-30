@@ -1,20 +1,20 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
-import { gridStyle } from "../../theme"
-import { Card } from "../card"
-import { ErrorMessages } from "./error-messages"
-import { FilterFlowNodes } from "./filter-flow-nodes"
+import { gridStyle } from "../../../theme"
+import { Card } from "../../card"
+import { ErrorMessages } from "../helpers/error-messages"
+import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import {
-  SelfServiceFlowForm,
-  SelfServiceFlowFormAdditionalProps,
-} from "./selfservice-flow-form"
-import { hasLookupSecret } from "./utils"
+  UserAuthForm,
+  UserAuthFormAdditionalProps,
+} from "../helpers/user-auth-form"
+import { hasLookupSecret } from "../helpers/utils"
 
 export type LookupSecretSettingsProps = {
   flow: SelfServiceSettingsFlow
   title?: string
-} & SelfServiceFlowFormAdditionalProps
+} & UserAuthFormAdditionalProps
 
 export const LookupSecretSettings = ({
   flow,
@@ -31,9 +31,9 @@ export const LookupSecretSettings = ({
     <Card title={title || "Backup Recovery Codes"}>
       <div className={gridStyle({ gap: 32 })}>
         <ErrorMessages nodes={filterNodesByGroups(filter)} />
-        <SelfServiceFlowForm flow={flow} onSubmit={onSubmit}>
+        <UserAuthForm flow={flow} onSubmit={onSubmit}>
           <FilterFlowNodes filter={filter} />
-        </SelfServiceFlowForm>
+        </UserAuthForm>
       </div>
     </Card>
   ) : null

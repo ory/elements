@@ -1,7 +1,7 @@
 import React from "react"
-import { FilterFlowNodes } from "./filter-flow-nodes"
-import { SelfServiceFlow } from "../../types"
-import { hasWebauthn } from "./utils"
+import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
+import { SelfServiceFlow } from "../helpers/types"
+import { hasWebauthn } from "../helpers/utils"
 
 export const PasswordlessSection = (
   flow: SelfServiceFlow,

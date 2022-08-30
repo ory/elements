@@ -1,4 +1,4 @@
 export * from "./markup-components"
 export * from "./common"
 export * from "./theme"
-export * from "./types"
+export * from "./react-components/ory/helpers/types"
