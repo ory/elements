@@ -25,7 +25,6 @@ export const Settings = () => {
       flow={flow}
       injectScripts={true}
       onSubmit={({ body }) => {
-        console.log(body)
         sdk
           .submitSelfServiceSettingsFlow(
             flow.id,
