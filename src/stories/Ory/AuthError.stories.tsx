@@ -1,9 +1,6 @@
 import React from "react"
 import { SelfServiceError } from "@ory/client"
-import {
-  SelfServiceErrorCard,
-  SelfServiceErrorCardProps,
-} from "../../react-components"
+import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 import { ComponentMeta } from "@storybook/react"
 import { Story } from "@storybook/react"
@@ -12,24 +9,12 @@ import authError from "./auth-error.json"
 
 export default {
   title: "Ory/SelfServiceErrorCard",
-  component: SelfServiceErrorCard,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
-} as ComponentMeta<typeof SelfServiceErrorCard>
+  component: UserErrorCard,
+} as ComponentMeta<typeof UserErrorCard>
 
-export type SelfServiceAuthCardStoryProps = SelfServiceErrorCardProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<SelfServiceAuthCardStoryProps> = (
-  args: SelfServiceAuthCardStoryProps,
-) => (
-  <Container theme={args.theme || "light"}>
-    <SelfServiceErrorCard {...args} />
+const Template: Story<UserErrorCardProps> = (args: UserErrorCardProps) => (
+  <Container>
+    <UserErrorCard {...args} />
   </Container>
 )
 

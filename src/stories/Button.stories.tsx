@@ -7,20 +7,10 @@ import { Story } from "@storybook/react"
 export default {
   title: "Component/Button",
   component: Button,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
 } as ComponentMeta<typeof Button>
 
-export type ButtonStoryProps = ButtonProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<ButtonStoryProps> = (args: ButtonStoryProps) => (
-  <Container theme={args.theme || "light"}>
+const Template: Story<ButtonProps> = (args: ButtonProps) => (
+  <Container>
     <Button {...args} />
   </Container>
 )

@@ -6,20 +6,10 @@ import { Card, Nav, NavProps } from "../react-components"
 export default {
   title: "Component/Nav",
   component: Nav,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
 } as ComponentMeta<typeof Nav>
 
-export type MessageStoryProps = NavProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<MessageStoryProps> = (args: MessageStoryProps) => (
-  <Container theme={args.theme || "light"}>
+const Template: Story<NavProps> = (args: NavProps) => (
+  <Container>
     <div
       style={{
         padding: 0,

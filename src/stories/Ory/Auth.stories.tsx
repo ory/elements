@@ -1,9 +1,6 @@
 import React from "react"
 import { ComponentMeta, Story } from "@storybook/react"
-import {
-  SelfServiceAuthCard,
-  SelfServiceAuthCardProps,
-} from "../../react-components"
+import { UserAuthCard, UserAuthCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 import {
   SelfServiceLoginFlow,
@@ -25,24 +22,12 @@ import verificationFlow from "./verification-flow.json"
 
 export default {
   title: "Ory/SelfServiceFlowCard",
-  component: SelfServiceAuthCard,
-  argTypes: {
-    theme: {
-      options: ["light", "dark"],
-      control: { type: "radio" },
-    },
-  },
-} as ComponentMeta<typeof SelfServiceAuthCard>
+  component: UserAuthCard,
+} as ComponentMeta<typeof UserAuthCard>
 
-export type SelfServiceAuthCardStoryProps = SelfServiceAuthCardProps & {
-  theme: "light" | "dark"
-}
-
-const Template: Story<SelfServiceAuthCardStoryProps> = (
-  args: SelfServiceAuthCardStoryProps,
-) => (
-  <Container theme={args.theme || "light"}>
-    <SelfServiceAuthCard {...args} />
+const Template: Story<UserAuthCardProps> = (args: UserAuthCardProps) => (
+  <Container>
+    <UserAuthCard {...args} />
   </Container>
 )
 
