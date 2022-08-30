@@ -43,17 +43,17 @@ export const Node = ({
     return node.attributes.text.id === 1050015 ? (
       <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
         {(node.attributes.text.context as { secrets: UiText[] }).secrets.map(
-          ({ text, id }: UiText) => {
+          ({ text, id }: UiText, index) => {
             if (id === 1050014) {
               // Code already used
               return (
-                <del data-testid={`node/text/${id}/text`} key={id}>
+                <del data-testid={`node/text/${id}/text/used`} key={index}>
                   <code>Used</code>
                 </del>
               )
             }
             return (
-              <pre data-testid={`node/text/${id}/text`} key={id}>
+              <pre data-testid={`node/text/${id}/text`} key={index}>
                 <code>{text}</code>
               </pre>
             )
@@ -76,7 +76,6 @@ export const Node = ({
       (attrs.name === "provider" || attrs.name === "link") &&
       node.group === "oidc"
 
-    // TODO: update ory client package to support enum for button type
     const submit: ButtonSubmit = {
       type: attrs.type as "submit" | "reset" | "button" | undefined,
       name: attrs.name,

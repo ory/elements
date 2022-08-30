@@ -66,69 +66,16 @@ export const UserAuthForm = ({
           | SubmitSelfServiceVerificationFlowBody
           | SubmitSelfServiceSettingsFlowBody
 
-        console.dir({ elements: event.currentTarget.elements })
-
-        const method = event.currentTarget.elements.namedItem("method")
-
-        const lookupSecretRegenerate = event.currentTarget.elements.namedItem(
-          "lookup_secret_regenerate",
-        )
-
-        const lookupSecretsConfirm = event.currentTarget.elements.namedItem(
-          "lookup_secret_confirm",
-        )
-
-        const lookupSecretsReveal = event.currentTarget.elements.namedItem(
-          "lookup_secret_reveal",
-        )
-
-        const lookupSecretsDisable = event.currentTarget.elements.namedItem(
-          "lookup_secret_disable",
-        )
-
-        const totpUnlink = event.currentTarget.elements.namedItem("totp_unlink")
-
-        if (totpUnlink) {
+        // We need the method specified from the name and value of the submit button.
+        // when multiple submit buttons are present, the clicked one's value is used.
+        if ("submitter" in event) {
+          const method = (event as unknown as { submitter: HTMLInputElement })
+            .submitter
           body = {
             ...body,
-            totp_unlink: true,
+            ...{ [method.name]: method.value },
           }
         }
-
-        if (lookupSecretRegenerate) {
-          body = {
-            ...body,
-            lookup_secret_regenerate: true,
-          }
-        }
-
-        if (lookupSecretsConfirm) {
-          body = {
-            ...body,
-            lookup_secret_confirm: true,
-          }
-        }
-
-        if (lookupSecretsReveal) {
-          body = {
-            ...body,
-            lookup_secret_reveal: true,
-          }
-        }
-
-        if (lookupSecretsDisable) {
-          body = {
-            ...body,
-            lookup_secret_disable: true,
-          }
-        }
-
-        if (method) {
-          // We need the method from which is specified as a name and value on the submit button
-          body.method = (method as HTMLInputElement).value
-        }
-
-        console.dir({ body })
 
         onSubmit({ body, event })
       },

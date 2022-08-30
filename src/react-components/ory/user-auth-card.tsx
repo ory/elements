@@ -50,7 +50,6 @@ export type UserAuthCardProps = {
   children?: string
 } & UserAuthFormAdditionalProps
 
-// TODO: change to UserAuthCard
 export const UserAuthCard = ({
   flow,
   title,
