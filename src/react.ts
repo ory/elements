@@ -1,4 +1,4 @@
 export * from "./common"
 export * from "./react-components"
 export * from "./theme"
-export * from "./types"
+export * from "./react-components/ory/helpers/types"

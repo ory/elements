@@ -1,7 +1,7 @@
 import React from "react"
 import { SelfServiceVerificationFlow } from "@ory/client"
 import { useEffect, useState } from "react"
-import { SelfServiceAuthCard } from "@ory/elements"
+import { UserAuthCard } from "@ory/elements"
 import sdk from "./sdk"
 
 export const Verification = (): JSX.Element => {
@@ -17,7 +17,7 @@ export const Verification = (): JSX.Element => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={flow}
       flowType={"verification"}
       additionalProps={{

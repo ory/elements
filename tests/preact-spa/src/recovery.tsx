@@ -2,7 +2,7 @@ import {
   SelfServiceRecoveryFlow,
   SubmitSelfServiceRecoveryFlowBody,
 } from "@ory/client"
-import { SelfServiceAuthCard } from "@ory/elements-preact"
+import { UserAuthCard } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"
 import { useLocation } from "wouter"
 import sdk from "./sdk"
@@ -24,7 +24,7 @@ export const Recovery = () => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       title="Recovery"
       flow={flow}
       flowType={"recovery"}

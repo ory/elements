@@ -1,20 +1,18 @@
 import React, { MouseEvent } from "react"
-
 import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
 import {
   getNodeLabel,
-  isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
-import { Button } from "../button"
-import { ButtonSocial } from "../button-social"
-import { Checkbox } from "../checkbox"
-import { InputField } from "../input-field"
-import { Image } from "../image"
-import { gridStyle } from "../../theme"
-import { Typography } from "../typography"
+import { Button } from "../../button"
+import { ButtonSocial } from "../../button-social"
+import { Checkbox } from "../../checkbox"
+import { InputField } from "../../input-field"
+import { Image } from "../../image"
+import { gridStyle } from "../../../theme"
+import { Typography } from "../../typography"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined

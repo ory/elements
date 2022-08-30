@@ -6,13 +6,13 @@ import {
   ButtonSocial as buttonSocial,
   ButtonLink as buttonLink,
   Divider as divider,
-  SelfServiceAuthCard as selfServiceAuthCard,
-  SelfServiceFlowForm as selfServiceFlowForm,
+  UserAuthCard as userAuthCard,
+  UserAuthForm as userAuthForm,
   Typography as typography,
   ThemeProvider as themeProvider,
   Message as message,
   InputField as inputField,
-  SelfServiceErrorCard as selfServiceErrorCard,
+  UserErrorCard as userErrorCard,
   MenuLinkProps,
   MenuLink as menuLink,
   NavProps,
@@ -27,9 +27,9 @@ import {
   ThemeProviderProps,
   InputFieldProps,
   MessageProps,
-  SelfServiceAuthCardProps,
-  SelfServiceFlowFormProps,
-  SelfServiceErrorCardProps,
+  UserAuthCardProps,
+  UserAuthFormProps,
+  UserErrorCardProps,
 } from "../react-components"
 
 export const ButtonLink = (props: ButtonLinkProps) => {
@@ -72,16 +72,16 @@ export const Message = (props: MessageProps) => {
   return ComponentWrapper(message(props))
 }
 
-export const SelfServiceAuthCard = (props: SelfServiceAuthCardProps) => {
-  return ComponentWrapper(selfServiceAuthCard(props))
+export const UserAuthCard = (props: UserAuthCardProps) => {
+  return ComponentWrapper(userAuthCard(props))
 }
 
-export const SelfServiceFlowForm = (props: SelfServiceFlowFormProps) => {
-  return ComponentWrapper(selfServiceFlowForm(props))
+export const UserAuthForm = (props: UserAuthFormProps) => {
+  return ComponentWrapper(userAuthForm(props))
 }
 
-export const SelfServiceErrorCard = (props: SelfServiceErrorCardProps) => {
-  return ComponentWrapper(selfServiceErrorCard(props))
+export const UserErrorCard = (props: UserErrorCardProps) => {
+  return ComponentWrapper(userErrorCard(props))
 }
 
 export const MenuLink = (props: MenuLinkProps) => {

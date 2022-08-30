@@ -2,7 +2,7 @@ import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
-import { SelfServiceAuthCard } from "@ory/elements-preact"
+import { UserAuthCard } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
 import { useLocation } from "wouter"
@@ -24,7 +24,7 @@ export const Login = () => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={flow}
       flowType={"login"}
       additionalProps={{

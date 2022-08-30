@@ -6,7 +6,7 @@ import { Card } from "../card"
 import { Message } from "../message"
 
 // SelfServiceErrorCard props
-export type SelfServiceErrorCardProps = {
+export type UserErrorCardProps = {
   title: string
   error: SelfServiceError
   backURL: string
@@ -19,12 +19,12 @@ type errorMessage = {
   status: string
 }
 
-export const SelfServiceErrorCard = ({
+export const UserErrorCard = ({
   title,
   error,
   backURL,
   contactSupportEmail,
-}: SelfServiceErrorCardProps): JSX.Element => (
+}: UserErrorCardProps): JSX.Element => (
   <Card title={title}>
     <div className={gridStyle({ gap: 32 })}>
       <Message severity="error" data-testid={`ui/message/${error.id}`}>

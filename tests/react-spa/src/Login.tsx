@@ -3,7 +3,7 @@ import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
-import { SelfServiceAuthCard } from "@ory/elements"
+import { OIDCSection, PasswordlessSection, UserAuthCard } from "@ory/elements"
 import sdk from "./sdk"
 import { useNavigate, useSearchParams } from "react-router-dom"
 
@@ -46,7 +46,7 @@ export const Login = (): JSX.Element => {
   }, [])
 
   return flow ? (
-    <SelfServiceAuthCard
+    <UserAuthCard
       flow={flow}
       flowType={"login"}
       additionalProps={{

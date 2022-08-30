@@ -1,20 +1,20 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
-import { Card } from "../card"
-import { FilterFlowNodes } from "./filter-flow-nodes"
-import {
-  SelfServiceFlowForm,
-  SelfServiceFlowFormAdditionalProps,
-} from "./selfservice-flow-form"
-import { hasPassword } from "./utils"
-import { ErrorMessages } from "./error-messages"
 import { filterNodesByGroups } from "@ory/integrations/ui"
-import { gridStyle } from "../../theme"
+import {
+  UserAuthFormAdditionalProps,
+  UserAuthForm,
+} from "../helpers/user-auth-form"
+import { hasPassword } from "../helpers/utils"
+import { Card } from "../../card"
+import { gridStyle } from "../../../theme"
+import { ErrorMessages } from "../helpers/error-messages"
+import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 
 export type PasswordSettingsProps = {
   flow: SelfServiceSettingsFlow
   title?: string
-} & SelfServiceFlowFormAdditionalProps
+} & UserAuthFormAdditionalProps
 
 export const PasswordSettings = ({
   flow,
@@ -30,13 +30,9 @@ export const PasswordSettings = ({
     <Card title={title || "Update Password"}>
       <div className={gridStyle({ gap: 32 })}>
         <ErrorMessages nodes={filterNodesByGroups(filter)} />
-        <SelfServiceFlowForm
-          flow={flow}
-          submitOnEnter={true}
-          onSubmit={onSubmit}
-        >
+        <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
           <FilterFlowNodes filter={filter} />
-        </SelfServiceFlowForm>
+        </UserAuthForm>
       </div>
     </Card>
   ) : null

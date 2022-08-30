@@ -1,17 +1,15 @@
+import React from "react"
 import {
   SubmitSelfServiceLoginFlowBody,
   SubmitSelfServiceRecoveryFlowBody,
   SubmitSelfServiceRegistrationFlowBody,
   SubmitSelfServiceSettingsFlowBody,
-  SubmitSelfServiceSettingsFlowWithLookupMethodBody,
-  SubmitSelfServiceSettingsFlowWithTotpMethodBody,
   SubmitSelfServiceVerificationFlowBody,
 } from "@ory/client"
-import React, { FormEvent } from "react"
-import { SelfServiceFlow } from "../../types"
+import { SelfServiceFlow } from "./types"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 
-export type SelfServiceFlowFormAdditionalProps = {
+export type UserAuthFormAdditionalProps = {
   onSubmit?: ({
     body,
     event,
@@ -27,22 +25,22 @@ export type SelfServiceFlowFormAdditionalProps = {
 }
 
 // SelfServiceFlowForm props
-export interface SelfServiceFlowFormProps
+export interface UserAuthFormProps
   extends Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit">,
-    SelfServiceFlowFormAdditionalProps {
+    UserAuthFormAdditionalProps {
   flow: SelfServiceFlow
   children: React.ReactNode
   submitOnEnter?: boolean
   className?: string
 }
 
-export const SelfServiceFlowForm = ({
+export const UserAuthForm = ({
   flow,
   children,
   submitOnEnter,
   onSubmit,
   className,
-}: SelfServiceFlowFormProps): JSX.Element => (
+}: UserAuthFormProps): JSX.Element => (
   <form
     className={className}
     action={flow.ui.action}

@@ -1,9 +1,9 @@
 import React from "react"
 import { UiNode } from "@ory/client"
-import { gridStyle } from "../../theme"
-import { Divider } from "../divider"
-import { FilterFlowNodes } from "./filter-flow-nodes"
-import { hasPassword } from "./utils"
+import { hasPassword } from "../helpers/utils"
+import { gridStyle } from "../../../theme"
+import { Divider } from "../../divider"
+import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 
 export type RegistrationSectionProps = {
   nodes: UiNode[]

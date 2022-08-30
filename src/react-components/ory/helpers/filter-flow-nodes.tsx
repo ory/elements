@@ -7,7 +7,7 @@ import {
   isUiNodeInputAttributes,
 } from "@ory/integrations/ui"
 import { Node } from "./node"
-import { gridStyle } from "../../theme"
+import { gridStyle } from "../../../theme"
 
 export interface Props {
   filter: FilterNodesByGroups
