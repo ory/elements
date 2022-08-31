@@ -68,9 +68,10 @@ export const UserAuthForm = ({
 
         // We need the method specified from the name and value of the submit button.
         // when multiple submit buttons are present, the clicked one's value is used.
-        if ("submitter" in event) {
-          const method = (event as unknown as { submitter: HTMLInputElement })
-            .submitter
+        if ("submitter" in event.nativeEvent) {
+          const method = (
+            event.nativeEvent as unknown as { submitter: HTMLInputElement }
+          ).submitter
           body = {
             ...body,
             ...{ [method.name]: method.value },

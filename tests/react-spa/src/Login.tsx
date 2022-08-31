@@ -52,7 +52,7 @@ export const Login = (): JSX.Element => {
         signupURL: "/signup",
       }}
       title={"Login"}
-      injectScripts={true}
+      includeScripts={true}
       onSubmit={({ body }) => {
         sdk
           .submitSelfServiceLoginFlow(

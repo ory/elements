@@ -1,43 +1,87 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
 import { gridStyle } from "../../theme"
-import { WebAuthnSettings } from "./sections/webauthn-settings-section"
-import { LookupSecretSettings } from "./sections/lookup-secret-settings-section"
-import { UserAuthFormAdditionalProps } from "./helpers/user-auth-form"
+import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
+import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
+import {
+  UserAuthForm,
+  UserAuthFormAdditionalProps,
+} from "./helpers/user-auth-form"
 import { Message } from "../message"
-import { ProfileSettings } from "./sections/profile-settings-section"
-import { PasswordSettings } from "./sections/password-settings-section"
+import { ProfileSettingsSection } from "./sections/profile-settings-section"
+import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { useScriptNodes } from "./helpers/node-script"
-import { OIDCSettings } from "./sections/oidc-settings-section"
-import { TOTPSettings } from "./sections/totp-settings-section"
+import { OIDCSettingsSection } from "./sections/oidc-settings-section"
+import { TOTPSettingsSection } from "./sections/totp-settings-section"
+import { Card } from "../card"
+import { Divider } from "../divider"
 
-export type UserSettingsProps = {
+export type UserSettingsFlowType =
+  | "profile"
+  | "password"
+  | "totp"
+  | "webauthn"
+  | "oidc"
+  | "lookupSecret"
+
+export type UserSettingsCardProps = {
   flow: SelfServiceSettingsFlow
-  injectScripts?: boolean
+  flowType: UserSettingsFlowType
+  title?: string
+  includeScripts?: boolean
 } & UserAuthFormAdditionalProps
 
-export const UserSettingsPage = ({
+export const UserSettingsCard = ({
   flow,
-  injectScripts,
+  flowType,
+  title,
+  includeScripts,
   onSubmit,
-}: UserSettingsProps): JSX.Element => {
-  if (injectScripts) {
+}: UserSettingsCardProps): JSX.Element => {
+  if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
   }
 
+  let $flow = null
+  let cardTitle = ""
+
+  switch (flowType) {
+    case "profile":
+      cardTitle = title || "Profile"
+      $flow = <ProfileSettingsSection flow={flow} />
+      break
+    case "password":
+      cardTitle = title || "Update Password"
+      $flow = <PasswordSettingsSection flow={flow} />
+      break
+    case "webauthn":
+      cardTitle = title || "Hardware Tokens"
+      $flow = <WebAuthnSettingsSection flow={flow} />
+      break
+    case "lookupSecret":
+      cardTitle = title || "Backup Recovery Codes"
+      $flow = <LookupSecretSettingsSection flow={flow} />
+      break
+    case "oidc":
+      cardTitle = title || "Social Sign In"
+      $flow = <OIDCSettingsSection flow={flow} />
+      break
+    case "totp":
+      cardTitle = title || "Authenticator App"
+      $flow = <TOTPSettingsSection flow={flow} />
+      break
+    default:
+      $flow = null
+  }
+
   return (
-    <div className={gridStyle({ gap: 16 })}>
-      {flow.ui.messages && flow.ui.messages.length > 0 && (
-        <Message severity={"error"}>
-          {flow.ui.messages.map((m) => m.text).join(" ")}
-        </Message>
-      )}
-      <ProfileSettings onSubmit={onSubmit} flow={flow} />
-      <PasswordSettings onSubmit={onSubmit} flow={flow} />
-      <OIDCSettings flow={flow} />
-      <WebAuthnSettings onSubmit={onSubmit} flow={flow} />
-      <LookupSecretSettings onSubmit={onSubmit} flow={flow} />
-      <TOTPSettings onSubmit={onSubmit} flow={flow} />
-    </div>
+    <Card title={cardTitle}>
+      <div className={gridStyle({ gap: 16 })}>
+        <Divider />
+        <UserAuthForm flow={flow} onSubmit={onSubmit}>
+          {$flow}
+        </UserAuthForm>
+      </div>
+    </Card>
   )
 }
