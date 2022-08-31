@@ -2,7 +2,6 @@ import React from "react"
 import { UiNode } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { ButtonLink } from "../../button-link"
-import { Divider } from "../../divider"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 
 export type LoginSectionProps = {
@@ -18,17 +17,16 @@ export const LoginSection = ({
 }: LoginSectionProps): JSX.Element | null => {
   return isLoggedIn ? (
     <div className={gridStyle({ gap: 32 })}>
-      <Divider />
       <FilterFlowNodes
         filter={{
           nodes: nodes,
+          groups: "password",
           excludeAttributes: "hidden",
         }}
       />
     </div>
   ) : (
     <div className={gridStyle({ gap: 32 })}>
-      <Divider />
       <div className={gridStyle({ gap: 16 })}>
         <FilterFlowNodes
           filter={{

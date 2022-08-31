@@ -8,6 +8,7 @@ import {
   Divider as divider,
   UserAuthCard as userAuthCard,
   UserAuthForm as userAuthForm,
+  UserSettingsCard as userSettingsCard,
   Typography as typography,
   ThemeProvider as themeProvider,
   Message as message,
@@ -30,6 +31,7 @@ import {
   UserAuthCardProps,
   UserAuthFormProps,
   UserErrorCardProps,
+  UserSettingsCardProps,
 } from "../react-components"
 
 export const ButtonLink = (props: ButtonLinkProps) => {
@@ -78,6 +80,10 @@ export const UserAuthCard = (props: UserAuthCardProps) => {
 
 export const UserAuthForm = (props: UserAuthFormProps) => {
   return ComponentWrapper(userAuthForm(props))
+}
+
+export const UserSettingsCard = (props: UserSettingsCardProps) => {
+  return ComponentWrapper(userSettingsCard(props))
 }
 
 export const UserErrorCard = (props: UserErrorCardProps) => {

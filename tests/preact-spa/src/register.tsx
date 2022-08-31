@@ -29,7 +29,7 @@ export const Register = () => {
       additionalProps={{
         loginURL: "/login",
       }}
-      injectScripts={true}
+      includeScripts={true}
       onSubmit={({ body }) => {
         sdk
           .submitSelfServiceRegistrationFlow(

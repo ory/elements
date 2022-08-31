@@ -10,7 +10,7 @@ import { SelfServiceLoginFlow } from "@ory/client"
 import { useScriptNodes } from "./helpers/node-script"
 import { SelfServiceFlow } from "./helpers/types"
 import { LoginSection } from "./sections/login-section"
-import { LinkSection } from "./sections/login-two-factor-section"
+import { LinkSection } from "./sections/link-section"
 import { Divider } from "../divider"
 import { MessageSection, MessageSectionProps } from "./helpers/common"
 import { PasswordlessSection } from "./sections/passwordless-section"
@@ -44,7 +44,7 @@ export type UserAuthCardProps = {
     | RegistrationSectionAdditionalProps
     | RecoverySectionAdditionalProps
     | VerificationSectionAdditionalProps
-  injectScripts?: boolean
+  includeScripts?: boolean
   icon?: string
   className?: string
   children?: string
@@ -56,9 +56,9 @@ export const UserAuthCard = ({
   flowType,
   additionalProps,
   onSubmit,
-  injectScripts,
+  includeScripts,
 }: UserAuthCardProps): JSX.Element => {
-  if (injectScripts) {
+  if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
   }
 
@@ -66,22 +66,22 @@ export const UserAuthCard = ({
   let $oidc = null
   let $passwordless = null
   let message: MessageSectionProps | null = null
-  let f
-  let isLoggedIn = false
+
+  // the user might need to logout on the second factor page.
+  const isLoggedIn = (flow: SelfServiceLoginFlow): boolean => {
+    return flow.refresh || flow.requested_aal === "aal2"
+  }
 
   switch (flowType) {
     case "login":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
-      f = flow as SelfServiceLoginFlow
-      // the user might need to logout on the second factor page.
-      isLoggedIn = f.refresh || f.requested_aal === "aal2"
       $flow = LoginSection({
         nodes: flow.ui.nodes,
-        isLoggedIn,
+        isLoggedIn: isLoggedIn(flow as SelfServiceLoginFlow),
         ...additionalProps,
       })
-      message = isLoggedIn
+      message = isLoggedIn(flow as SelfServiceLoginFlow)
         ? {
             text: <>Something&#39;s not working?</>,
             buttonText: "Logout",
@@ -142,11 +142,19 @@ export const UserAuthCard = ({
             {flow.ui.messages.map((m) => m.text).join(" ")}
           </Message>
         )}
-        {$oidc && $oidc}
+        {$oidc && (
+          <>
+            <Divider />
+            <UserAuthForm flow={flow}>{$oidc}</UserAuthForm>
+          </>
+        )}
         {$flow && (
-          <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
-            {$flow}
-          </UserAuthForm>
+          <>
+            <Divider />
+            <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
+              {$flow}
+            </UserAuthForm>
+          </>
         )}
         {$flow && $passwordless && <Divider text="or" />}
         {$passwordless && (

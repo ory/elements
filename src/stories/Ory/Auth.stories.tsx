@@ -61,7 +61,7 @@ LoginAuthCardPasswordless.args = {
   title: "Sign in with passwordless",
   flow: loginFlow as SelfServiceLoginFlow,
   flowType: "login",
-  injectScripts: true,
+  includeScripts: true,
   additionalProps: {
     logoutURL: "https://acme.com/logout",
     forgotPasswordURL: "https://acme.com/forgot-password",
@@ -98,7 +98,7 @@ RegistrationAuthCardWebAuthn.args = {
   title: "Create an account for Acme",
   flow: registrationFlowWebAuthn as SelfServiceRegistrationFlow,
   flowType: "registration",
-  injectScripts: true,
+  includeScripts: true,
   additionalProps: {
     loginURL: "https://acme.com/login",
   },

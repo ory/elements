@@ -9,13 +9,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
-    "./helpers/express": "./helpers/express.ts",
-    "./style.css": "./dist/style.css",
-    "./inter-font.css": "./dist/inter-font.css",
-    "./fa-brands.min.css": "./dist/fa-brands.min.css",
-    "./fa-solid.min.css": "./dist/fa-solid.min.css",
-    "./fontawesome.min.css": "./dist/fontawesome.min.css",
-    "./normalize.css": "./dist/normalize.css"
+    "./style.css": "./dist/style.css"
   },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
