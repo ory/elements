@@ -14,6 +14,7 @@ export type UserErrorCardProps = {
 }
 
 type errorMessage = {
+  id: string
   message: string
   reason: string
   status: string
@@ -24,24 +25,27 @@ export const UserErrorCard = ({
   error,
   backURL,
   contactSupportEmail,
-}: UserErrorCardProps): JSX.Element => (
-  <Card title={title}>
-    <div className={gridStyle({ gap: 32 })}>
-      <Message severity="error" data-testid={`ui/message/${error.id}`}>
-        An error occurred with the following message:&nbsp;
-        {(error.error as errorMessage).message}
-      </Message>
-      {contactSupportEmail && (
-        <Message className={colorSprinkle({ color: "foregroundMuted" })}>
-          If the problem persists, please contact&nbsp;
-          <ButtonLink href={`mailto:${contactSupportEmail}`}>
-            {contactSupportEmail}
-          </ButtonLink>
+}: UserErrorCardProps): JSX.Element => {
+  const err = error.error as errorMessage
+  return (
+    <Card title={title}>
+      <div className={gridStyle({ gap: 32 })}>
+        <Message severity="error" data-testid={`ui/error/message`}>
+          An error occurred with the following message:&nbsp;
+          {err.reason}
         </Message>
-      )}
-      <Message>
-        <ButtonLink href={backURL}>Go Back</ButtonLink>
-      </Message>
-    </div>
-  </Card>
-)
+        {contactSupportEmail && (
+          <Message className={colorSprinkle({ color: "foregroundMuted" })}>
+            If the problem persists, please contact&nbsp;
+            <ButtonLink href={`mailto:${contactSupportEmail}`}>
+              {contactSupportEmail}
+            </ButtonLink>
+          </Message>
+        )}
+        <Message>
+          <ButtonLink href={backURL}>Go Back</ButtonLink>
+        </Message>
+      </div>
+    </Card>
+  )
+}

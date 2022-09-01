@@ -104,7 +104,7 @@ export const UserAuthCard = ({
         text: "Already have an account?",
         url: (additionalProps as RegistrationSectionAdditionalProps).loginURL,
         buttonText: "Sign in",
-        dataTestId: "login-link",
+        dataTestId: "cta-link",
       }
       break
     // both verification and recovery use the same flow.
@@ -116,7 +116,7 @@ export const UserAuthCard = ({
         text: "Already have an account?",
         url: (additionalProps as RecoverySectionAdditionalProps).loginURL,
         buttonText: "Sign in",
-        dataTestId: "login-link",
+        dataTestId: "cta-link",
       }
       break
     case "verification":
@@ -127,7 +127,7 @@ export const UserAuthCard = ({
         text: "Don't have an account?",
         url: (additionalProps as VerificationSectionAdditionalProps).signupURL,
         buttonText: "Sign up",
-        dataTestId: "signup-link",
+        dataTestId: "cta-link",
       }
       break
     default:
@@ -137,11 +137,17 @@ export const UserAuthCard = ({
   return (
     <Card title={title}>
       <div className={gridStyle({ gap: 32 })}>
-        {flow.ui.messages && flow.ui.messages.length > 0 && (
-          <Message severity={"error"}>
-            {flow.ui.messages.map((m) => m.text).join(" ")}
-          </Message>
-        )}
+        {flow.ui.messages &&
+          flow.ui.messages.length > 0 &&
+          flow.ui.messages.map((m) => (
+            <Message
+              key={m.id}
+              severity={"error"}
+              data-testid={`ui/message/${m.id}`}
+            >
+              {m.text}
+            </Message>
+          ))}
         {$oidc && (
           <>
             <Divider />

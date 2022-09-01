@@ -131,10 +131,7 @@ export const Node = ({
             name={attrs.name}
           />
         )
-      case "hidden":
-      case "password":
-      case "email":
-      case "text":
+      default:
         return (
           <InputField
             className={className}
@@ -151,8 +148,6 @@ export const Node = ({
             fullWidth
           />
         )
-      default:
-        return null
     }
   }
   return null

@@ -16,6 +16,7 @@ export const Message = ({
   severity,
   className,
   children,
+  ...props
 }: MessageProps): JSX.Element => (
   <div
     className={cn(
@@ -23,6 +24,7 @@ export const Message = ({
       typographyStyle({ size: "caption", type: "regular" }),
       className,
     )}
+    {...props}
   >
     {children}
   </div>
