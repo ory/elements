@@ -18,6 +18,7 @@ export type NavSectionLinks = {
   iconLeft: string
   iconRight?: string
   disabled?: boolean
+  testId?: string
 }
 
 export type NavSection = {
@@ -86,6 +87,7 @@ export const Nav = ({
                   iconLeft={link.iconLeft}
                   iconRight={link.iconRight}
                   disabled={link.disabled}
+                  {...(link.testId && { "data-testid": link.testId })}
                 >
                   {link.name}
                 </MenuLink>
