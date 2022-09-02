@@ -37,7 +37,7 @@ export const UserSettingsCard = ({
   title,
   includeScripts,
   onSubmit,
-}: UserSettingsCardProps): JSX.Element => {
+}: UserSettingsCardProps): JSX.Element | null => {
   if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
   }
@@ -74,7 +74,7 @@ export const UserSettingsCard = ({
       $flow = null
   }
 
-  return (
+  return $flow ? (
     <Card title={cardTitle}>
       <div className={gridStyle({ gap: 16 })}>
         <Divider />
@@ -83,5 +83,5 @@ export const UserSettingsCard = ({
         </UserAuthForm>
       </div>
     </Card>
-  )
+  ) : null
 }
