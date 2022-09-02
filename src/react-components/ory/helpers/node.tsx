@@ -111,6 +111,7 @@ export const Node = ({
             variant={"semibold"}
             size={"large"}
             fullWidth
+            disabled={attrs.disabled}
             {...submit}
           />
         ) : (
@@ -119,6 +120,7 @@ export const Node = ({
             title={getNodeLabel(node)}
             variant={"semibold"}
             fullWidth
+            disabled={attrs.disabled}
             {...submit}
           />
         )
@@ -129,6 +131,9 @@ export const Node = ({
             className={className}
             label={getNodeLabel(node)}
             name={attrs.name}
+            required={attrs.required}
+            defaultValue={attrs.value}
+            disabled={attrs.disabled}
           />
         )
       default:
@@ -145,6 +150,7 @@ export const Node = ({
             }
             defaultValue={attrs.value}
             required={attrs.required}
+            disabled={attrs.disabled}
             fullWidth
           />
         )

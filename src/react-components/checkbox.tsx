@@ -32,6 +32,9 @@ export const Checkbox = ({
         className={checkboxInputStyle}
         id={id}
         type={"checkbox"}
+        // we need to set a value here so that the form will submit the checkbox with a boolean type instead of an empty string
+        // the value won't be submitted when the checkbox is unchecked
+        value={1}
         {...props}
       />
       {label && (
