@@ -14,6 +14,7 @@ import {
   Message as message,
   InputField as inputField,
   UserErrorCard as userErrorCard,
+  ErrorMessages as errorMessages,
   MenuLinkProps,
   MenuLink as menuLink,
   NavProps,
@@ -32,6 +33,7 @@ import {
   UserAuthFormProps,
   UserErrorCardProps,
   UserSettingsCardProps,
+  ErrorMessagesProps,
 } from "../react-components"
 
 export const ButtonLink = (props: ButtonLinkProps) => {
@@ -83,11 +85,16 @@ export const UserAuthForm = (props: UserAuthFormProps) => {
 }
 
 export const UserSettingsCard = (props: UserSettingsCardProps) => {
-  return ComponentWrapper(userSettingsCard(props))
+  const component = userSettingsCard(props)
+  return component ? ComponentWrapper(component) : ""
 }
 
 export const UserErrorCard = (props: UserErrorCardProps) => {
   return ComponentWrapper(userErrorCard(props))
+}
+
+export const ErrorMessages = (props: ErrorMessagesProps) => {
+  return ComponentWrapper(errorMessages(props))
 }
 
 export const MenuLink = (props: MenuLinkProps) => {
@@ -97,3 +104,5 @@ export const MenuLink = (props: MenuLinkProps) => {
 export const Nav = (props: NavProps) => {
   return ComponentWrapper(nav(props))
 }
+
+export type { UserSettingsFlowType } from "../react-components"
