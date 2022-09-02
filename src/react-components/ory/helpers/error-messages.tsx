@@ -16,7 +16,7 @@ export const ErrorMessages = ({ nodes }: ErrorMessagesProps): JSX.Element => {
             data-testid={`ui/message/${id}`}
             severity={"error"}
           >
-            {text}{" "}
+            {text}
           </Message>
         )),
       )}
