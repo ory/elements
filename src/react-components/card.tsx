@@ -24,7 +24,7 @@ export const Card = ({
     {...props}
   >
     <div className={gridStyle({ gap: 32 })}>
-      <h4 className={cardTitleStyle}>{title}</h4>
+      <h3 className={cardTitleStyle}>{title}</h3>
       <div>{children}</div>
     </div>
   </div>

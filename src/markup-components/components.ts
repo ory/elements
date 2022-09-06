@@ -14,7 +14,7 @@ import {
   Message as message,
   InputField as inputField,
   UserErrorCard as userErrorCard,
-  ErrorMessages as errorMessages,
+  NodeMessages as errorMessages,
   MenuLinkProps,
   MenuLink as menuLink,
   NavProps,
@@ -33,7 +33,7 @@ import {
   UserAuthFormProps,
   UserErrorCardProps,
   UserSettingsCardProps,
-  ErrorMessagesProps,
+  NodeMessagesProps,
 } from "../react-components"
 
 export const ButtonLink = (props: ButtonLinkProps) => {
@@ -93,7 +93,7 @@ export const UserErrorCard = (props: UserErrorCardProps) => {
   return ComponentWrapper(userErrorCard(props))
 }
 
-export const ErrorMessages = (props: ErrorMessagesProps) => {
+export const ErrorMessages = (props: NodeMessagesProps) => {
   return ComponentWrapper(errorMessages(props))
 }
 
