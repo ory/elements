@@ -11,7 +11,7 @@ import cn from "classnames"
 type typographyStyle = TypographyStyle & Record<string, unknown>
 type colorSprinkle = ColorSprinkle & Record<string, unknown>
 export interface TypographyProps
-  extends Omit<React.BaseHTMLAttributes<HTMLBaseElement>, "color">,
+  extends Omit<React.BaseHTMLAttributes<HTMLDivElement>, "color">,
     typographyStyle,
     colorSprinkle {
   children: React.ReactNode
@@ -22,10 +22,12 @@ export const Typography = ({
   size,
   type,
   color,
+  ...props
 }: TypographyProps) => {
   return (
     <div
       className={cn(typographyStyle({ size, type }), colorSprinkle({ color }))}
+      {...props}
     >
       {children}
     </div>

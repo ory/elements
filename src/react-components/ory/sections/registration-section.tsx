@@ -3,7 +3,7 @@ import { UiNode } from "@ory/client"
 import { hasPassword } from "../helpers/utils"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
-import { ErrorMessages } from "../helpers/error-messages"
+import { NodeMessages } from "../helpers/error-messages"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 
 export type RegistrationSectionProps = {
@@ -15,7 +15,7 @@ export const RegistrationSection = ({
 }: RegistrationSectionProps): JSX.Element | null => {
   return hasPassword(nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
-      <ErrorMessages
+      <NodeMessages
         nodes={filterNodesByGroups({ nodes: nodes, groups: "password" })}
       />
       <div className={gridStyle({ gap: 16 })}>

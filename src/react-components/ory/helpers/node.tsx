@@ -13,6 +13,7 @@ import { InputField } from "../../input-field"
 import { Image } from "../../image"
 import { gridStyle } from "../../../theme"
 import { Typography } from "../../typography"
+import { pxToRem } from "../../../common"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined
@@ -41,19 +42,35 @@ export const Node = ({
   } else if (isUiNodeTextAttributes(node.attributes)) {
     const id = node.attributes.id
     return node.attributes.text.id === 1050015 ? (
-      <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
+      <div
+        className={gridStyle({ gap: 4, direction: "row" })}
+        style={{ display: "inline-flex", flexWrap: "wrap", gap: pxToRem(48) }}
+        data-testid={`node/text/${id}`}
+      >
+        <Typography
+          variant="body1"
+          data-testid={`node/text/${node.attributes.id}/label`}
+        >
+          {node.meta.label?.text}
+        </Typography>
         {(node.attributes.text.context as { secrets: UiText[] }).secrets.map(
           ({ text, id }: UiText, index) => {
             if (id === 1050014) {
               // Code already used
               return (
-                <del data-testid={`node/text/${id}/text/used`} key={index}>
+                <del
+                  data-testid={`node/text/lookup_secret_codes/text/used`}
+                  key={index}
+                >
                   <code>Used</code>
                 </del>
               )
             }
             return (
-              <pre data-testid={`node/text/${id}/text`} key={index}>
+              <pre
+                data-testid={`node/text/lookup_secret_codes/text`}
+                key={index}
+              >
                 <code>{text}</code>
               </pre>
             )
@@ -62,7 +79,12 @@ export const Node = ({
       </div>
     ) : (
       <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
-        <Typography>{node.meta.label?.text}</Typography>
+        <Typography
+          variant="body1"
+          data-testid={`node/text/${node.attributes.id}/label`}
+        >
+          {node.meta.label?.text}
+        </Typography>
         <pre data-testid={`node/text/${id}/text`}>
           <code>{node.attributes.text.text}</code>
         </pre>
@@ -134,6 +156,7 @@ export const Node = ({
             required={attrs.required}
             defaultValue={attrs.value}
             disabled={attrs.disabled}
+            checked={Boolean(attrs.value)}
           />
         )
       default:

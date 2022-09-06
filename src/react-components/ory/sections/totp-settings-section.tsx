@@ -3,7 +3,7 @@ import { SelfServiceSettingsFlow } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { hasTotp } from "../helpers/utils"
 import { gridStyle } from "../../../theme"
-import { ErrorMessages } from "../helpers/error-messages"
+import { NodeMessages } from "../helpers/error-messages"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 
 export type TOTPSettingsProps = {
@@ -21,7 +21,7 @@ export const TOTPSettingsSection = ({
 
   return hasTotp(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
-      <ErrorMessages nodes={filterNodesByGroups(filter)} />
+      <NodeMessages nodes={filterNodesByGroups(filter)} />
       <FilterFlowNodes filter={filter} />
     </div>
   ) : null
