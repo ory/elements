@@ -22,13 +22,12 @@ export const LoginSection = ({
       <NodeMessages
         nodes={filterNodesByGroups({
           nodes: nodes,
-          groups: "password,lookup_secret",
         })}
       />
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: "password",
+          groups: ["password", "lookup_secret"],
           excludeAttributes: "hidden",
         }}
       />
