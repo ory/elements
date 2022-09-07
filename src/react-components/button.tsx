@@ -7,13 +7,13 @@ type buttonStyle = ButtonStyle & Record<string, unknown>
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     buttonStyle {
-  title: string
+  header: string
   fullWidth?: boolean
   className?: string
 }
 
 export const Button = ({
-  title,
+  header: title,
   size,
   variant,
   fullWidth,

@@ -3,11 +3,11 @@ import { gridStyle, typographyStyle } from "../theme"
 import cn from "classnames"
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  title?: string
+  header?: string
   className?: string
 }
 
-export const Image = ({ title, className, ...props }: ImageProps) => {
+export const Image = ({ header: title, className, ...props }: ImageProps) => {
   return (
     <div className={cn(className, gridStyle({ gap: 4 }))}>
       {title && (

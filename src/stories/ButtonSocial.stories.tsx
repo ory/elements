@@ -17,7 +17,7 @@ const Template: Story<ButtonSocialProps> = (args: ButtonSocialProps) => (
 export const SmallSemibold = Template.bind({})
 
 SmallSemibold.args = {
-  title: "A Small Semibold Button",
+  header: "A Small Semibold Button",
   size: "small",
   variant: "semibold",
   brand: "github",
@@ -26,7 +26,7 @@ SmallSemibold.args = {
 export const SmallNormal = Template.bind({})
 
 SmallNormal.args = {
-  title: "A Small Regular Button",
+  header: "A Small Regular Button",
   size: "small",
   variant: "regular",
   brand: "google",
@@ -35,7 +35,7 @@ SmallNormal.args = {
 export const MediumNormal = Template.bind({})
 
 MediumNormal.args = {
-  title: "A Medium Regular Button",
+  header: "A Medium Regular Button",
   size: "medium",
   variant: "regular",
   brand: "twitter",
@@ -44,7 +44,7 @@ MediumNormal.args = {
 export const MediumSemibold = Template.bind({})
 
 MediumSemibold.args = {
-  title: "A Medium Semibold Button",
+  header: "A Medium Semibold Button",
   size: "medium",
   variant: "semibold",
   brand: "facebook",
@@ -53,7 +53,7 @@ MediumSemibold.args = {
 export const LargeNormal = Template.bind({})
 
 LargeNormal.args = {
-  title: "A Large Regular Button",
+  header: "A Large Regular Button",
   size: "large",
   variant: "regular",
   brand: "discord",
@@ -62,7 +62,7 @@ LargeNormal.args = {
 export const LargeSemibold = Template.bind({})
 
 LargeSemibold.args = {
-  title: "A Large Semibold Button",
+  header: "A Large Semibold Button",
   size: "large",
   variant: "semibold",
   brand: "microsoft",
@@ -71,7 +71,7 @@ LargeSemibold.args = {
 export const Disabled = Template.bind({})
 
 Disabled.args = {
-  title: "A Disabled Button",
+  header: "A Disabled Button",
   brand: "google",
   disabled: true,
 }
@@ -79,13 +79,13 @@ Disabled.args = {
 export const SocialButton = Template.bind({})
 
 SocialButton.args = {
-  title: "Google",
+  header: "Google",
   brand: "google",
 }
 
 export const GenericProviderButton = Template.bind({})
 
 GenericProviderButton.args = {
-  title: "Generic Provider",
+  header: "Generic Provider",
   brand: "generic",
 }

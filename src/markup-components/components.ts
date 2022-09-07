@@ -19,6 +19,7 @@ import {
   MenuLink as menuLink,
   NavProps,
   Nav as nav,
+  CodeBox as codeBox,
   ButtonLinkProps,
   ButtonSocialProps,
   ButtonProps,
@@ -35,6 +36,7 @@ import {
   UserSettingsCardProps,
   NodeMessagesProps,
 } from "../react-components"
+import { CodeBoxProps } from "../react-components/codebox"
 
 export const ButtonLink = (props: ButtonLinkProps) => {
   return ComponentWrapper(buttonLink(props))
@@ -103,6 +105,10 @@ export const MenuLink = (props: MenuLinkProps) => {
 
 export const Nav = (props: NavProps) => {
   return ComponentWrapper(nav(props))
+}
+
+export const CodeBox = (props: CodeBoxProps) => {
+  return ComponentWrapper(codeBox(props))
 }
 
 export type { UserSettingsFlowType } from "../react-components"

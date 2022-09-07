@@ -5,7 +5,7 @@ import {
   UserAuthForm,
 } from "./helpers/user-auth-form"
 import { Message } from "../message"
-import { gridStyle } from "../../theme"
+import { gridStyle, typographyStyle } from "../../theme"
 import { SelfServiceLoginFlow } from "@ory/client"
 import { useScriptNodes } from "./helpers/node-script"
 import { SelfServiceFlow } from "./helpers/types"
@@ -135,7 +135,13 @@ export const UserAuthCard = ({
   }
 
   return (
-    <Card title={title}>
+    <Card
+      heading={
+        <h2 className={typographyStyle({ type: "regular", size: "small" })}>
+          {title}
+        </h2>
+      }
+    >
       <div className={gridStyle({ gap: 32 })}>
         {flow.ui.messages &&
           flow.ui.messages.length > 0 &&

@@ -21,7 +21,7 @@ const Template: Story<NavProps> = (args: NavProps) => (
       }}
     >
       <Nav {...args} />
-      <Card title={"Content Below Nav"}>
+      <Card header={"Content Below Nav"}>
         <p>Some content to test how the nav behaves</p>
       </Card>
     </div>

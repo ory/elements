@@ -9,13 +9,13 @@ import cn from "classnames"
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  title: string
+  header: string
   fullWidth?: boolean
   className?: string
 }
 
 export const InputField = ({
-  title,
+  header: title,
   fullWidth,
   className,
   ...props

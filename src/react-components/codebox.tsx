@@ -10,12 +10,12 @@ import {
 import cn from "classnames"
 
 export interface CodeBoxProps extends React.HTMLAttributes<HTMLDivElement> {
-  code: string
+  children: React.ReactNode
   className?: string
 }
 
 export const CodeBox = ({
-  code,
+  children,
   className,
   ...props
 }: CodeBoxProps): JSX.Element => {
@@ -44,7 +44,7 @@ export const CodeBox = ({
           codeboxContentStyle,
         )}
       >
-        {code}
+        {children}
       </pre>
     </div>
   )

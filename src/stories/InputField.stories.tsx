@@ -23,6 +23,6 @@ const Template: Story<InputFieldProps> = (args: InputFieldProps) => (
 export const NormalInputField = Template.bind({})
 
 NormalInputField.args = {
-  title: "Password",
+  header: "Password",
   required: true,
 }

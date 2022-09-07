@@ -22,7 +22,7 @@ export const RegistrationSection = ({
         <FilterFlowNodes
           filter={{
             nodes: nodes,
-            groups: "password",
+            groups: ["password"],
             excludeAttributes: "submit",
           }}
         />
