@@ -58,12 +58,11 @@ export const Node = ({
             if (id === 1050014) {
               // Code already used
               return (
-                <del
-                  data-testid={`node/text/lookup_secret_codes/text/used`}
-                  key={index}
-                >
-                  <code>Used</code>
-                </del>
+                <pre key={index}>
+                  <del data-testid={`node/text/lookup_secret_codes/text`}>
+                    <code>Used</code>
+                  </del>
+                </pre>
               )
             }
             return (
