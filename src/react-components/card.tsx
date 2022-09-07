@@ -3,14 +3,14 @@ import { cardStyle, cardTitleStyle, gridStyle } from "../theme"
 import { typographyStyle } from "../theme"
 import cn from "classnames"
 
-export interface CardProps extends React.HTMLProps<HTMLDivElement> {
-  title: string
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  heading: string | React.ReactNode
   className?: string
   children?: React.ReactNode
 }
 
 export const Card = ({
-  title,
+  heading,
   className,
   children,
   ...props
@@ -24,7 +24,11 @@ export const Card = ({
     {...props}
   >
     <div className={gridStyle({ gap: 32 })}>
-      <h3 className={cardTitleStyle}>{title}</h3>
+      {typeof heading === "string" ? (
+        <h3 className={cardTitleStyle}>{heading}</h3>
+      ) : (
+        heading
+      )}
       <div>{children}</div>
     </div>
   </div>

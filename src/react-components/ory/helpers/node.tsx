@@ -36,7 +36,7 @@ export const Node = ({
         src={node.attributes.src}
         alt={node.meta.label?.text}
         data-testid={`node/image/${node.attributes.id}`}
-        title={node.meta.label?.text}
+        header={node.meta.label?.text}
       />
     )
   } else if (isUiNodeTextAttributes(node.attributes)) {
@@ -127,7 +127,7 @@ export const Node = ({
         return isSocial ? (
           <ButtonSocial
             className={className}
-            title={getNodeLabel(node)}
+            header={getNodeLabel(node)}
             brand={attrs.value.toLowerCase()}
             variant={"semibold"}
             size={"large"}
@@ -138,7 +138,7 @@ export const Node = ({
         ) : (
           <Button
             className={className}
-            title={getNodeLabel(node)}
+            header={getNodeLabel(node)}
             variant={"semibold"}
             fullWidth
             disabled={attrs.disabled}
@@ -163,7 +163,7 @@ export const Node = ({
           <InputField
             className={className}
             name={attrs.name}
-            title={getNodeLabel(node)}
+            header={getNodeLabel(node)}
             type={attrs.type}
             autoComplete={
               attrs.autocomplete || attrs.name === "identifier"

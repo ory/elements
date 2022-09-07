@@ -18,7 +18,7 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => (
 export const SmallSemibold = Template.bind({})
 
 SmallSemibold.args = {
-  title: "A Small Semibold Button",
+  header: "A Small Semibold Button",
   size: "small",
   variant: "semibold",
 }
@@ -26,7 +26,7 @@ SmallSemibold.args = {
 export const SmallNormal = Template.bind({})
 
 SmallNormal.args = {
-  title: "A Small Regular Button",
+  header: "A Small Regular Button",
   size: "small",
   variant: "regular",
 }
@@ -34,7 +34,7 @@ SmallNormal.args = {
 export const MediumNormal = Template.bind({})
 
 MediumNormal.args = {
-  title: "A Medium Regular Button",
+  header: "A Medium Regular Button",
   size: "medium",
   variant: "regular",
 }
@@ -42,7 +42,7 @@ MediumNormal.args = {
 export const MediumSemibold = Template.bind({})
 
 MediumSemibold.args = {
-  title: "A Medium Semibold Button",
+  header: "A Medium Semibold Button",
   size: "medium",
   variant: "semibold",
 }
@@ -50,7 +50,7 @@ MediumSemibold.args = {
 export const LargeNormal = Template.bind({})
 
 LargeNormal.args = {
-  title: "A Large Regular Button",
+  header: "A Large Regular Button",
   size: "large",
   variant: "regular",
 }
@@ -58,7 +58,7 @@ LargeNormal.args = {
 export const LargeSemibold = Template.bind({})
 
 LargeSemibold.args = {
-  title: "A Large Semibold Button",
+  header: "A Large Semibold Button",
   size: "large",
   variant: "semibold",
 }

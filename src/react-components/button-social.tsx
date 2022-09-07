@@ -18,14 +18,14 @@ type buttonSocialStyle = ButtonSocialStyle & Record<string, unknown>
 export interface ButtonSocialProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     buttonSocialStyle {
-  title: string
+  header: string
   brand: string
   fullWidth?: boolean
   className?: string
 }
 
 export const ButtonSocial = ({
-  title,
+  header: title,
   brand,
   size,
   variant,

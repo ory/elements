@@ -1,6 +1,6 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
-import { gridStyle } from "../../theme"
+import { gridStyle, typographyStyle } from "../../theme"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
 import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
 import {
@@ -75,7 +75,7 @@ export const UserSettingsCard = ({
   }
 
   return $flow ? (
-    <Card title={cardTitle}>
+    <Card heading={cardTitle}>
       <div className={gridStyle({ gap: 16 })}>
         <Divider />
         <UserAuthForm flow={flow} onSubmit={onSubmit}>

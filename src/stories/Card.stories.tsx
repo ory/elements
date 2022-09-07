@@ -17,6 +17,6 @@ const Template: Story<CardProps> = (args: CardProps) => (
 export const NormalCard = Template.bind({})
 
 NormalCard.args = {
-  title: "Normal Title",
+  header: "Normal Title",
   children: <Message severity="error">This is an error message.</Message>,
 }
