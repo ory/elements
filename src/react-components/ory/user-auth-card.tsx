@@ -86,6 +86,7 @@ export const UserAuthCard = ({
             text: <>Something&#39;s not working?</>,
             buttonText: "Logout",
             url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
+            dataTestId: "logout-link",
           }
         : {
             buttonText: "Sign up",

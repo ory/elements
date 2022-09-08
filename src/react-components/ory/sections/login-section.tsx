@@ -27,7 +27,7 @@ export const LoginSection = ({
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["password", "lookup_secret"],
+          groups: ["password", "lookup_secret", "totp"],
           excludeAttributes: "hidden",
         }}
       />

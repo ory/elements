@@ -24,11 +24,15 @@ export const Card = ({
     {...props}
   >
     <div className={gridStyle({ gap: 32 })}>
-      {typeof heading === "string" ? (
-        <h3 className={cardTitleStyle}>{heading}</h3>
-      ) : (
-        heading
-      )}
+      <div className={cardTitleStyle}>
+        {typeof heading === "string" ? (
+          <h3 className={typographyStyle({ type: "regular", size: "small" })}>
+            {heading}
+          </h3>
+        ) : (
+          heading
+        )}
+      </div>
       <div>{children}</div>
     </div>
   </div>
