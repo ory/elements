@@ -7,6 +7,12 @@ export const PasswordlessSection = (
   flow: SelfServiceFlow,
 ): JSX.Element | null => {
   return hasWebauthn(flow.ui.nodes) ? (
-    <FilterFlowNodes filter={{ nodes: flow.ui.nodes, groups: "webauthn" }} />
+    <FilterFlowNodes
+      filter={{
+        nodes: flow.ui.nodes,
+        groups: "webauthn",
+        excludeAttributes: "hidden",
+      }}
+    />
   ) : null
 }

@@ -40,6 +40,7 @@ export const UserAuthForm = ({
   submitOnEnter,
   onSubmit,
   className,
+  ...props
 }: UserAuthFormProps): JSX.Element => (
   <form
     className={className}
@@ -81,6 +82,7 @@ export const UserAuthForm = ({
         onSubmit({ body, event })
       },
     })}
+    {...props}
   >
     <>
       {/*always add csrf token and other hidden fields to form*/}

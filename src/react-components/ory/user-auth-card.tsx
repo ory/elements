@@ -164,14 +164,24 @@ export const UserAuthCard = ({
         {$flow && (
           <>
             <Divider />
-            <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
+            <UserAuthForm
+              flow={flow}
+              submitOnEnter={true}
+              onSubmit={onSubmit}
+              data-testid={`${flowType}-flow`}
+            >
               {$flow}
             </UserAuthForm>
           </>
         )}
         {$flow && $passwordless && <Divider text="or" />}
         {$passwordless && (
-          <UserAuthForm flow={flow} submitOnEnter={true} onSubmit={onSubmit}>
+          <UserAuthForm
+            flow={flow}
+            submitOnEnter={true}
+            onSubmit={onSubmit}
+            data-testid={"passwordless-flow"}
+          >
             {$passwordless}
           </UserAuthForm>
         )}
