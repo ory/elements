@@ -8,30 +8,14 @@ import { filterNodesByGroups } from "@ory/integrations/ui"
 
 export type LoginSectionProps = {
   nodes: UiNode[]
-  isLoggedIn: boolean
   forgotPasswordURL?: string
 }
 
 export const LoginSection = ({
   nodes,
   forgotPasswordURL,
-  isLoggedIn,
 }: LoginSectionProps): JSX.Element | null => {
-  return isLoggedIn ? (
-    <div className={gridStyle({ gap: 32 })}>
-      <NodeMessages
-        nodes={filterNodesByGroups({
-          nodes: nodes,
-        })}
-      />
-      <FilterFlowNodes
-        filter={{
-          nodes: nodes,
-          groups: ["password", "lookup_secret", "totp", "webauthn"],
-        }}
-      />
-    </div>
-  ) : (
+  return (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages
         nodes={filterNodesByGroups({ nodes: nodes, groups: "password" })}
