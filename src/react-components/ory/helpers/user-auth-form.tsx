@@ -8,6 +8,7 @@ import {
 } from "@ory/client"
 import { SelfServiceFlow } from "./types"
 import { FilterFlowNodes } from "./filter-flow-nodes"
+import { FilterNodesByGroups } from "@ory/integrations/ui"
 
 export type UserAuthFormAdditionalProps = {
   onSubmit?: ({
@@ -30,6 +31,7 @@ export interface UserAuthFormProps
     UserAuthFormAdditionalProps {
   flow: SelfServiceFlow
   children: React.ReactNode
+  formFilterOverride?: FilterNodesByGroups
   submitOnEnter?: boolean
   className?: string
 }
@@ -39,6 +41,7 @@ export const UserAuthForm = ({
   children,
   submitOnEnter,
   onSubmit,
+  formFilterOverride,
   className,
   ...props
 }: UserAuthFormProps): JSX.Element => (
@@ -87,10 +90,13 @@ export const UserAuthForm = ({
     <>
       {/*always add csrf token and other hidden fields to form*/}
       <FilterFlowNodes
-        filter={{
-          nodes: flow.ui.nodes,
-          attributes: "hidden",
-        }}
+        filter={
+          formFilterOverride || {
+            nodes: flow.ui.nodes,
+            groups: "default", // we only want to map hidden default fields here
+            attributes: "hidden",
+          }
+        }
         includeCSRF={true}
       />
       {children}
