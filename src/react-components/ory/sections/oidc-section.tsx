@@ -12,16 +12,24 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
       <NodeMessages
         nodes={filterNodesByGroups({ nodes: flow.ui.nodes, groups: "oidc" })}
       />
-      <div className={gridStyle({ gap: 16 })}>
-        {/*  we need other OIDC fields here such as input fields when an OIDC registration flow occured and it redirects us back to complete the missing traits */}
-        <FilterFlowNodes
-          filter={{
-            nodes: flow.ui.nodes,
-            groups: ["oidc"],
-            excludeAttributes: "submit",
-          }}
-        />
-      </div>
+
+      {filterNodesByGroups({
+        nodes: flow.ui.nodes,
+        groups: "oidc",
+        withoutDefaultGroup: true,
+      }).some((node) => node.messages.length > 0) && (
+        <div className={gridStyle({ gap: 16 })}>
+          {/*  we need other OIDC fields here such as input fields when an OIDC registration flow occured and it redirects us back to complete the missing traits */}
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: ["oidc"],
+              excludeAttributes: "submit",
+            }}
+          />
+        </div>
+      )}
+
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
