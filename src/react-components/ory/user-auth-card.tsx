@@ -64,13 +64,19 @@ export const UserAuthCard = ({
 
   let $flow = null
   let $oidc = null
-  let $passwordless = null
+  let $passwordless: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
   // the user might need to logout on the second factor page.
   const isLoggedIn = (flow: SelfServiceLoginFlow): boolean => {
     return flow.refresh || flow.requested_aal === "aal2"
   }
+
+  // passwordless can be shown if the user is not logged in (e.g. exclude 2FA screen) or if the flow is a registration flow.
+  // we want the login section to handle passwordless as well when we have a 2FA screen.
+  const canShowPasswordless = () =>
+    !!$passwordless &&
+    (!isLoggedIn(flow as SelfServiceLoginFlow) || flowType === "registration")
 
   switch (flowType) {
     case "login":
@@ -174,13 +180,17 @@ export const UserAuthCard = ({
             </UserAuthForm>
           </>
         )}
-        {$flow && $passwordless && <Divider text="or" />}
-        {$passwordless && (
+        {$flow && canShowPasswordless() && <Divider text="or" />}
+        {canShowPasswordless() && (
           <UserAuthForm
             flow={flow}
             submitOnEnter={true}
             onSubmit={onSubmit}
             data-testid={"passwordless-flow"}
+            formFilterOverride={{
+              nodes: flow.ui.nodes,
+              attributes: "hidden",
+            }}
           >
             {$passwordless}
           </UserAuthForm>
