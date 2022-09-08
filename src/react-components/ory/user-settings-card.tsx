@@ -1,13 +1,12 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
-import { gridStyle, typographyStyle } from "../../theme"
+import { gridStyle } from "../../theme"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
 import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
 import {
   UserAuthForm,
   UserAuthFormAdditionalProps,
 } from "./helpers/user-auth-form"
-import { Message } from "../message"
 import { ProfileSettingsSection } from "./sections/profile-settings-section"
 import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { useScriptNodes } from "./helpers/node-script"

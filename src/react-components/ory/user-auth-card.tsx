@@ -16,16 +16,15 @@ import { MessageSection, MessageSectionProps } from "./helpers/common"
 import { PasswordlessSection } from "./sections/passwordless-section"
 import { OIDCSection } from "./sections/oidc-section"
 import { RegistrationSection } from "./sections/registration-section"
-import { TOTPSection } from "./sections/totp-section"
-import { WebAuthnSection } from "./sections/webauthn-section"
 import {
   hasLookupSecret,
   hasPassword,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import { LookupSecretsSection } from "./sections/lookup-secrets-section"
-import { PasswordSection } from "./sections/password-section"
+import { NodeMessages } from "./helpers/error-messages"
+import { filterNodesByGroups } from "@ory/integrations/ui"
+import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string
@@ -92,8 +91,7 @@ export const UserAuthCard = ({
   const isTwoFactor = () =>
     isLoggedIn(flow as SelfServiceLoginFlow) &&
     flowType === "login" &&
-    (hasPassword(flow.ui.nodes) ||
-      hasTotp(flow.ui.nodes) ||
+    (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
@@ -103,7 +101,6 @@ export const UserAuthCard = ({
       $oidc = OIDCSection(flow)
       $flow = LoginSection({
         nodes: flow.ui.nodes,
-        isLoggedIn: isLoggedIn(flow as SelfServiceLoginFlow),
         ...additionalProps,
       })
       message = isLoggedIn(flow as SelfServiceLoginFlow)
@@ -186,7 +183,7 @@ export const UserAuthCard = ({
             <UserAuthForm flow={flow}>{$oidc}</UserAuthForm>
           </>
         )}
-        {$flow && !isTwoFactor && (
+        {$flow && !isTwoFactor() && (
           <>
             <Divider />
             <UserAuthForm
@@ -201,14 +198,32 @@ export const UserAuthCard = ({
         )}
         {isTwoFactor() && (
           <>
+            <NodeMessages
+              nodes={filterNodesByGroups({
+                nodes: flow.ui.nodes,
+                groups: ["password", "webauthn", "totp", "lookup_secret"],
+              })}
+            />
             {hasWebauthn(flow.ui.nodes) && (
               <UserAuthForm flow={flow} data-testid="webauthn-flow">
-                <WebAuthnSection nodes={flow.ui.nodes} />
+                <FilterFlowNodes
+                  filter={{
+                    nodes: flow.ui.nodes,
+                    groups: "webauthn",
+                    withoutDefaultGroup: true,
+                  }}
+                />
               </UserAuthForm>
             )}
             {hasPassword(flow.ui.nodes) && (
               <UserAuthForm flow={flow} data-testid="password-flow">
-                <PasswordSection nodes={flow.ui.nodes} />
+                <FilterFlowNodes
+                  filter={{
+                    nodes: flow.ui.nodes,
+                    groups: "password",
+                    withoutDefaultGroup: true,
+                  }}
+                />
               </UserAuthForm>
             )}
             {hasTotp(flow.ui.nodes) && (
@@ -218,7 +233,13 @@ export const UserAuthCard = ({
                 onSubmit={onSubmit}
                 submitOnEnter={true}
               >
-                <TOTPSection nodes={flow.ui.nodes} />
+                <FilterFlowNodes
+                  filter={{
+                    nodes: flow.ui.nodes,
+                    groups: "totp",
+                    withoutDefaultGroup: true,
+                  }}
+                />
               </UserAuthForm>
             )}
             {hasLookupSecret(flow.ui.nodes) && (
@@ -228,7 +249,13 @@ export const UserAuthCard = ({
                 onSubmit={onSubmit}
                 submitOnEnter={true}
               >
-                <LookupSecretsSection nodes={flow.ui.nodes} />
+                <FilterFlowNodes
+                  filter={{
+                    nodes: flow.ui.nodes,
+                    groups: "lookup_secret",
+                    withoutDefaultGroup: true,
+                  }}
+                />
               </UserAuthForm>
             )}
           </>
