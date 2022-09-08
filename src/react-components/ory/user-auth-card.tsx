@@ -16,6 +16,16 @@ import { MessageSection, MessageSectionProps } from "./helpers/common"
 import { PasswordlessSection } from "./sections/passwordless-section"
 import { OIDCSection } from "./sections/oidc-section"
 import { RegistrationSection } from "./sections/registration-section"
+import { TOTPSection } from "./sections/totp-section"
+import { WebAuthnSection } from "./sections/webauthn-section"
+import {
+  hasLookupSecret,
+  hasPassword,
+  hasTotp,
+  hasWebauthn,
+} from "./helpers/utils"
+import { LookupSecretsSection } from "./sections/lookup-secrets-section"
+import { PasswordSection } from "./sections/password-section"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string
@@ -77,6 +87,15 @@ export const UserAuthCard = ({
   const canShowPasswordless = () =>
     !!$passwordless &&
     (!isLoggedIn(flow as SelfServiceLoginFlow) || flowType === "registration")
+
+  // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
+  const isTwoFactor = () =>
+    isLoggedIn(flow as SelfServiceLoginFlow) &&
+    flowType === "login" &&
+    (hasPassword(flow.ui.nodes) ||
+      hasTotp(flow.ui.nodes) ||
+      hasWebauthn(flow.ui.nodes) ||
+      hasLookupSecret(flow.ui.nodes))
 
   switch (flowType) {
     case "login":
@@ -167,7 +186,7 @@ export const UserAuthCard = ({
             <UserAuthForm flow={flow}>{$oidc}</UserAuthForm>
           </>
         )}
-        {$flow && (
+        {$flow && !isTwoFactor && (
           <>
             <Divider />
             <UserAuthForm
@@ -180,7 +199,43 @@ export const UserAuthCard = ({
             </UserAuthForm>
           </>
         )}
+        {isTwoFactor() && (
+          <>
+            {hasWebauthn(flow.ui.nodes) && (
+              <UserAuthForm flow={flow} data-testid="webauthn-flow">
+                <WebAuthnSection nodes={flow.ui.nodes} />
+              </UserAuthForm>
+            )}
+            {hasPassword(flow.ui.nodes) && (
+              <UserAuthForm flow={flow} data-testid="password-flow">
+                <PasswordSection nodes={flow.ui.nodes} />
+              </UserAuthForm>
+            )}
+            {hasTotp(flow.ui.nodes) && (
+              <UserAuthForm
+                flow={flow}
+                data-testid="totp-flow"
+                onSubmit={onSubmit}
+                submitOnEnter={true}
+              >
+                <TOTPSection nodes={flow.ui.nodes} />
+              </UserAuthForm>
+            )}
+            {hasLookupSecret(flow.ui.nodes) && (
+              <UserAuthForm
+                flow={flow}
+                data-testid="lookup-secret-flow"
+                onSubmit={onSubmit}
+                submitOnEnter={true}
+              >
+                <LookupSecretsSection nodes={flow.ui.nodes} />
+              </UserAuthForm>
+            )}
+          </>
+        )}
+
         {$flow && canShowPasswordless() && <Divider text="or" />}
+
         {canShowPasswordless() && (
           <UserAuthForm
             flow={flow}
