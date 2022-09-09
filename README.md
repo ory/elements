@@ -154,3 +154,38 @@ res.render('login', {
 ```
 
 ---
+
+### Example Apps
+
+Ory Elements also has example applications which we test the component library against.
+
+Currently we have a `react` and `preact` SPA under the `tests/` directory.
+
+To run the example application you will need a couple things:
+
+1. An [Ory Cloud (free) account](https://console.ory.sh/)
+2. The [Ory CLI (tunnel)](https://www.ory.sh/docs/guides/cli/installation)
+
+
+Clone this repository and setup the React example.
+
+```shell
+git clone git@github.com:ory/elements
+npm i
+npm run initialize
+npm run build:clean
+cd tests/react-spa
+export VITE_ORY_SDK_URL=http://localhost:4000
+npm run dev -- --port 3000
+```
+
+Now run the Ory CLI tunnel.
+
+```shell
+ory tunnel http://localhost:3000 --project <project-slug> --dev
+```
+
+The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we have 
+explicity told our React app to use through the `VITE_ORY_SDK_URL` export.
+
+Open http://localhost:3000 in your browser and everything will work out of the box :)
