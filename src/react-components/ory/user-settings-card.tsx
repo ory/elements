@@ -46,19 +46,19 @@ export const UserSettingsCard = ({
 
   switch (flowType) {
     case "profile":
-      cardTitle = title || "Profile"
+      cardTitle = title || "Profile Settings"
       $flow = <ProfileSettingsSection flow={flow} />
       break
     case "password":
-      cardTitle = title || "Update Password"
+      cardTitle = title || "Change Password"
       $flow = <PasswordSettingsSection flow={flow} />
       break
     case "webauthn":
-      cardTitle = title || "Hardware Tokens"
+      cardTitle = title || "Manage Hardware Tokens"
       $flow = <WebAuthnSettingsSection flow={flow} />
       break
     case "lookupSecret":
-      cardTitle = title || "Backup Recovery Codes"
+      cardTitle = title || "Manage 2FA Backup Recovery Codes"
       $flow = <LookupSecretSettingsSection flow={flow} />
       break
     case "oidc":
@@ -66,7 +66,7 @@ export const UserSettingsCard = ({
       $flow = <OIDCSettingsSection flow={flow} />
       break
     case "totp":
-      cardTitle = title || "Authenticator App"
+      cardTitle = title || "Manage 2FA TOTP Authenticator App"
       $flow = <TOTPSettingsSection flow={flow} />
       break
     default:
