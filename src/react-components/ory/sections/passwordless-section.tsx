@@ -23,10 +23,19 @@ export const PasswordlessSection = (
             nodes: flow.ui.nodes,
             // we will also map default fields here but not oidc and password fields
             groups: ["webauthn"],
-            excludeAttributes: "hidden", // the form will take care of hidden fields
+            withoutDefaultAttributes: true,
+            excludeAttributes: ["hidden", "button", "submit"], // the form will take care of hidden fields
           }}
         />
       </div>
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["webauthn"],
+          withoutDefaultAttributes: true,
+          attributes: ["button", "submit"],
+        }}
+      />
     </div>
   ) : null
 }

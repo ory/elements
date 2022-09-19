@@ -95,6 +95,88 @@ export const UserAuthCard = ({
       hasWebauthn(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
+  // this function will map all of the 2fa flows with their own respective forms.
+  // it also helps with spacing them and adding visual dividers between each flow *if* there are more than 1 flows.
+  const twoFactorFlows = () =>
+    isTwoFactor() &&
+    [
+      hasWebauthn(flow.ui.nodes) && (
+        <UserAuthForm flow={flow} data-testid="webauthn-flow">
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: "webauthn",
+              withoutDefaultGroup: true,
+            }}
+          />
+        </UserAuthForm>
+      ),
+      hasPassword(flow.ui.nodes) && (
+        <UserAuthForm flow={flow} data-testid="password-flow">
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: "password",
+              withoutDefaultGroup: true,
+            }}
+          />
+        </UserAuthForm>
+      ),
+      hasTotp(flow.ui.nodes) && (
+        <UserAuthForm
+          flow={flow}
+          data-testid="totp-flow"
+          onSubmit={onSubmit}
+          submitOnEnter={true}
+        >
+          <div className={gridStyle({ gap: 32 })}>
+            <FilterFlowNodes
+              filter={{
+                nodes: flow.ui.nodes,
+                groups: "totp",
+                withoutDefaultGroup: true,
+                excludeAttributes: "submit",
+              }}
+            />
+            <FilterFlowNodes
+              filter={{
+                nodes: flow.ui.nodes,
+                groups: "totp",
+                withoutDefaultGroup: true,
+                attributes: "submit",
+              }}
+            />
+          </div>
+        </UserAuthForm>
+      ),
+      hasLookupSecret(flow.ui.nodes) && (
+        <UserAuthForm
+          flow={flow}
+          data-testid="lookup-secret-flow"
+          onSubmit={onSubmit}
+          submitOnEnter={true}
+        >
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: "lookup_secret",
+              withoutDefaultGroup: true,
+            }}
+          />
+        </UserAuthForm>
+      ),
+    ]
+      .filter(Boolean) // remove nulls
+      .map((flow, index) =>
+        index > 0 ? (
+          <>
+            <Divider text="or" /> {flow}
+          </>
+        ) : (
+          flow
+        ),
+      ) // only map the divider if the index is greater than 0 - more than one flow
+
   switch (flowType) {
     case "login":
       $passwordless = PasswordlessSection(flow)
@@ -204,78 +286,26 @@ export const UserAuthCard = ({
                 groups: ["password", "webauthn", "totp", "lookup_secret"],
               })}
             />
-            {hasWebauthn(flow.ui.nodes) && (
-              <UserAuthForm flow={flow} data-testid="webauthn-flow">
-                <FilterFlowNodes
-                  filter={{
-                    nodes: flow.ui.nodes,
-                    groups: "webauthn",
-                    withoutDefaultGroup: true,
-                  }}
-                />
-              </UserAuthForm>
-            )}
-            {hasPassword(flow.ui.nodes) && (
-              <UserAuthForm flow={flow} data-testid="password-flow">
-                <FilterFlowNodes
-                  filter={{
-                    nodes: flow.ui.nodes,
-                    groups: "password",
-                    withoutDefaultGroup: true,
-                  }}
-                />
-              </UserAuthForm>
-            )}
-            {hasTotp(flow.ui.nodes) && (
-              <UserAuthForm
-                flow={flow}
-                data-testid="totp-flow"
-                onSubmit={onSubmit}
-                submitOnEnter={true}
-              >
-                <FilterFlowNodes
-                  filter={{
-                    nodes: flow.ui.nodes,
-                    groups: "totp",
-                    withoutDefaultGroup: true,
-                  }}
-                />
-              </UserAuthForm>
-            )}
-            {hasLookupSecret(flow.ui.nodes) && (
-              <UserAuthForm
-                flow={flow}
-                data-testid="lookup-secret-flow"
-                onSubmit={onSubmit}
-                submitOnEnter={true}
-              >
-                <FilterFlowNodes
-                  filter={{
-                    nodes: flow.ui.nodes,
-                    groups: "lookup_secret",
-                    withoutDefaultGroup: true,
-                  }}
-                />
-              </UserAuthForm>
-            )}
+            {twoFactorFlows()}
           </>
         )}
 
-        {$flow && canShowPasswordless() && <Divider text="or" />}
-
         {canShowPasswordless() && (
-          <UserAuthForm
-            flow={flow}
-            submitOnEnter={true}
-            onSubmit={onSubmit}
-            data-testid={"passwordless-flow"}
-            formFilterOverride={{
-              nodes: flow.ui.nodes,
-              attributes: "hidden",
-            }}
-          >
-            {$passwordless}
-          </UserAuthForm>
+          <>
+            <Divider text="or" />
+            <UserAuthForm
+              flow={flow}
+              submitOnEnter={true}
+              onSubmit={onSubmit}
+              data-testid={"passwordless-flow"}
+              formFilterOverride={{
+                nodes: flow.ui.nodes,
+                attributes: "hidden",
+              }}
+            >
+              {$passwordless}
+            </UserAuthForm>
+          </>
         )}
         {message && MessageSection(message)}
       </div>
