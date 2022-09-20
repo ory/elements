@@ -89,3 +89,11 @@ GenericProviderButton.args = {
   header: "Generic Provider",
   brand: "generic",
 }
+
+export const FullWidthSocialButton = Template.bind({})
+
+FullWidthSocialButton.args = {
+  header: "Hi",
+  brand: "google",
+  fullWidth: true,
+}

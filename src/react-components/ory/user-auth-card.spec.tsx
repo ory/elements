@@ -69,9 +69,10 @@ test("ory auth card registration flow", async ({ mount }) => {
   await expect(component).toContainText("Already have an account?", {
     ignoreCase: true,
   })
-  await expect(
-    component.locator('a[data-testid="login-link"]'),
-  ).toHaveAttribute("href", "/login")
+  await expect(component.locator('a[data-testid="cta-link"]')).toHaveAttribute(
+    "href",
+    "/login",
+  )
 
   const submit = component.locator('button[type="submit"]')
   await expect(submit).toBeVisible()

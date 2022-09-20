@@ -1,6 +1,7 @@
 export * from "./button-link"
 export * from "./button-social"
 export * from "./button"
+export * from "./card-gradient"
 export * from "./card"
 export * from "./checkbox"
 export * from "./divider"
