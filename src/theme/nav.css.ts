@@ -52,6 +52,7 @@ export const navMenuSectionStyle = style({
   listStyleType: "none",
   padding: 0,
   flex: 1,
+  height: pxToRem(40),
 })
 
 export const navMainSectionStyle = style({
