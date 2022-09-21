@@ -15,6 +15,7 @@ export interface TypographyProps
     typographyStyle,
     colorSprinkle {
   children: React.ReactNode
+  className?: string
 }
 
 export const Typography = ({
@@ -22,11 +23,16 @@ export const Typography = ({
   size,
   type,
   color,
+  className,
   ...props
 }: TypographyProps) => {
   return (
     <div
-      className={cn(typographyStyle({ size, type }), colorSprinkle({ color }))}
+      className={cn(
+        typographyStyle({ size, type }),
+        colorSprinkle({ color }),
+        className,
+      )}
       {...props}
     >
       {children}

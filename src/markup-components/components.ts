@@ -2,6 +2,7 @@ import { ComponentWrapper } from "./component-wrapper"
 import {
   Checkbox as checkbox,
   Card as card,
+  CardGradient as cardGradient,
   Button as button,
   ButtonSocial as buttonSocial,
   ButtonLink as buttonLink,
@@ -35,6 +36,7 @@ import {
   UserErrorCardProps,
   UserSettingsCardProps,
   NodeMessagesProps,
+  CardGradientProps,
 } from "../react-components"
 import { CodeBoxProps } from "../react-components/codebox"
 
@@ -54,6 +56,9 @@ export const Card = (props: CardProps) => {
   return ComponentWrapper(card(props))
 }
 
+export const CardGradient = (props: CardGradientProps) => {
+  return ComponentWrapper(cardGradient(props))
+}
 export const Checkbox = (props: CheckboxProps) => {
   return ComponentWrapper(checkbox(props))
 }

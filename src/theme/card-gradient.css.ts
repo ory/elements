@@ -19,8 +19,8 @@ export const cardGradientStyle = recipe({
       "drop-shadow(0px 0px 1px rgba(48, 49, 51, 0.05)) drop-shadow(0px 16px 24px rgba(48, 49, 51, 0.1))",
     backgroundImage:
       "linear-gradient(180deg, rgba(48, 48, 48, 0.85) 1.22%, rgba(48, 48, 48, 0.0001) 100%)",
-    maxWidth: pxToRem(336),
-    minWidth: pxToRem(336),
+    maxWidth: pxToRem(257),
+    minWidth: pxToRem(257),
     "@media": {
       [`screen and (max-width: ${defaultBreakpoints.xs})`]: {
         width: "100%",
@@ -44,6 +44,14 @@ export const cardGradientStyle = recipe({
 export const cardGradientActionStyle = style({
   marginRight: "auto",
   marginTop: "auto",
-  fontSize: pxToRem(40),
+  width: pxToRem(40),
+  height: pxToRem(40),
+  padding: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  textDecoration: "none",
+  fontSize: pxToRem(27),
   color: oryTheme.foreground.onAccent,
 })
