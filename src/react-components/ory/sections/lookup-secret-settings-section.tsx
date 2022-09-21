@@ -6,13 +6,13 @@ import { NodeMessages } from "../helpers/error-messages"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasLookupSecret } from "../helpers/utils"
 
-export type LookupSecretSettingsSectionProps = {
+export type LookupSecretSettingsProps = {
   flow: SelfServiceSettingsFlow
 }
 
 export const LookupSecretSettingsSection = ({
   flow,
-}: LookupSecretSettingsSectionProps): JSX.Element | null => {
+}: LookupSecretSettingsProps): JSX.Element | null => {
   const filter = {
     nodes: flow.ui.nodes,
     groups: "lookup_secret",

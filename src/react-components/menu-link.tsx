@@ -1,5 +1,9 @@
 import React from "react"
-import { menuLinkIconLeftStyle, menuLinkStyle } from "../theme/menu-link.css"
+import {
+  menuLinkIconLeftStyle,
+  menuLinkStyle,
+  menuLinkTextStyle,
+} from "../theme/menu-link.css"
 import { colorSprinkle, typographyStyle } from "../theme"
 import cn from "classnames"
 
@@ -28,6 +32,7 @@ export const MenuLink = ({
         colorSprinkle({
           color: disabled ? "foregroundDisabled" : "foregroundMuted",
         }),
+        menuLinkTextStyle,
       )}
       aria-disabled={disabled}
       {...(!disabled && { href: href })}

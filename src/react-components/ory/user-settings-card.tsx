@@ -14,6 +14,7 @@ import { OIDCSettingsSection } from "./sections/oidc-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import { Card } from "../card"
 import { Divider } from "../divider"
+import { Typography } from "../typography"
 
 export type UserSettingsFlowType =
   | "profile"
@@ -74,13 +75,15 @@ export const UserSettingsCard = ({
   }
 
   return $flow ? (
-    <Card heading={cardTitle}>
-      <div className={gridStyle({ gap: 16 })}>
-        <Divider />
-        <UserAuthForm flow={flow} onSubmit={onSubmit}>
-          {$flow}
-        </UserAuthForm>
-      </div>
-    </Card>
+    <div className={gridStyle({ gap: 32 })}>
+      {cardTitle && (
+        <Typography size={"headline26"} color={"foregroundDefault"}>
+          {cardTitle}
+        </Typography>
+      )}
+      <UserAuthForm flow={flow} onSubmit={onSubmit}>
+        {$flow}
+      </UserAuthForm>
+    </div>
   ) : null
 }

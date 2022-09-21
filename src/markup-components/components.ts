@@ -16,6 +16,12 @@ import {
   InputField as inputField,
   UserErrorCard as userErrorCard,
   NodeMessages as errorMessages,
+  ProfileSettingsSection as profileSettingsSection,
+  PasswordSettingsSection as passwordSettingsSection,
+  WebAuthnSettingsSection as webAuthnSettingsSection,
+  LookupSecretSettingsSection as lookupSecretSettingsSection,
+  OIDCSettingsSection as oidcSettingsSection,
+  TOTPSettingsSection as totpSettingsSection,
   MenuLinkProps,
   MenuLink as menuLink,
   NavProps,
@@ -37,6 +43,12 @@ import {
   UserSettingsCardProps,
   NodeMessagesProps,
   CardGradientProps,
+  ProfileSettingsProps,
+  PasswordSettingsProps,
+  WebAuthnSettingsProps,
+  LookupSecretSettingsProps,
+  OIDCSettingsProps,
+  TOTPSettingsProps,
 } from "../react-components"
 import { CodeBoxProps } from "../react-components/codebox"
 
@@ -114,6 +126,32 @@ export const Nav = (props: NavProps) => {
 
 export const CodeBox = (props: CodeBoxProps) => {
   return ComponentWrapper(codeBox(props))
+}
+
+export const ProfileSettingsSection = (props: ProfileSettingsProps) => {
+  return ComponentWrapper(profileSettingsSection(props))
+}
+
+export const PasswordSettingsSection = (props: PasswordSettingsProps) => {
+  return ComponentWrapper(passwordSettingsSection(props))
+}
+
+export const WebAuthnSettingsSection = (props: WebAuthnSettingsProps) => {
+  return ComponentWrapper(webAuthnSettingsSection(props))
+}
+
+export const OIDCSettingsSection = (props: OIDCSettingsProps) => {
+  return ComponentWrapper(oidcSettingsSection(props))
+}
+
+export const TOTPSettingsSection = (props: TOTPSettingsProps) => {
+  return ComponentWrapper(totpSettingsSection(props))
+}
+
+export const LookupSecretSettingsSection = (
+  props: LookupSecretSettingsProps,
+) => {
+  return ComponentWrapper(lookupSecretSettingsSection(props))
 }
 
 export type { UserSettingsFlowType } from "../react-components"
