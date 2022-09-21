@@ -5,7 +5,6 @@ import {
   cardGradientStyle,
 } from "../theme/card-gradient.css"
 import { gridStyle, typographyStyle } from "../theme"
-import { ButtonLink } from "./button-link"
 
 export interface CardGradientProps
   extends React.HTMLAttributes<HTMLDivElement> {
