@@ -16,7 +16,12 @@ export const ProfileSettingsSection = ({
   return (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages nodes={filterNodesByGroups(filter)} />
-      <FilterFlowNodes filter={filter} />
+      <div className={gridStyle({ gap: 32 })}>
+        <FilterFlowNodes
+          filter={{ ...filter, excludeAttributes: "submit,button" }}
+        />
+        <FilterFlowNodes filter={{ ...filter, attributes: "submit,button" }} />
+      </div>
     </div>
   )
 }
