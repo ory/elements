@@ -47,6 +47,7 @@ export type Theme = {
   background: {
     surface: string
     canvas: string
+    subtle: string
   }
   error: {
     def: string
@@ -106,6 +107,7 @@ export const defaultLightTheme: Theme = {
   background: {
     surface: "#FFFFFF",
     canvas: "#FCFCFC",
+    subtle: "#EEEEEE",
   },
   error: {
     def: "#9c0f2e",
@@ -153,6 +155,7 @@ export const defaultDarkTheme: Theme = {
   background: {
     surface: "#110d2b",
     canvas: "#090616",
+    subtle: "#221C56",
   },
   border: {
     def: "#221956",

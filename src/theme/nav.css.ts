@@ -52,7 +52,11 @@ export const navMenuSectionStyle = style({
   listStyleType: "none",
   padding: 0,
   flex: 1,
-  height: pxToRem(40),
+})
+
+export const navMenuLinkSelectedStyle = style({
+  backgroundColor: oryTheme.background.subtle,
+  borderRadius: pxToRem(4),
 })
 
 export const navMainSectionStyle = style({

@@ -8,6 +8,7 @@ import {
   colorSprinkle,
   gridStyle,
   typographyStyle,
+  navMenuLinkSelectedStyle,
 } from "../theme"
 import { MenuLink } from "./menu-link"
 import cn from "classnames"
@@ -19,6 +20,7 @@ export type NavSectionLinks = {
   iconRight?: string
   disabled?: boolean
   testId?: string
+  selected?: boolean
 }
 
 export type NavSection = {
@@ -81,7 +83,10 @@ export const Nav = ({
           )}
           <ul className={navMenuSectionStyle}>
             {section.links.map((link, key) => (
-              <li key={key}>
+              <li
+                key={key}
+                {...(link.selected && { className: navMenuLinkSelectedStyle })}
+              >
                 <MenuLink
                   href={link.url}
                   iconLeft={link.iconLeft}
