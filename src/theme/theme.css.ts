@@ -33,6 +33,7 @@ export const oryTheme: ThemeVars<Theme> = createGlobalThemeContract(
     background: {
       surface: "background-surface",
       canvas: "background-canvas",
+      subtle: "background-subtle",
     },
     error: {
       def: "error-def",
