@@ -24,18 +24,19 @@ export const CodeBox = ({
       className={cn(className, gridStyle({ gap: 16 }), codeboxStyle)}
       {...props}
     >
+      <input id="collapse-code" type="checkbox" />
       <div
         className={cn(typographyStyle({ size: "small" }), codeboxHeaderStyle)}
       >
         <div>Hide contents</div>
-        <input id="collapse-code" type="checkbox" />
+
         <label htmlFor="collapse-code">
           <i
             className={cn(
               "fa fa-caret-down",
               colorSprinkle({ color: "accentDefault" }),
             )}
-          />
+          ></i>
         </label>
       </div>
       <pre

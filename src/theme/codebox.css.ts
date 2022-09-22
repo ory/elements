@@ -4,12 +4,14 @@ import { oryTheme } from "./theme.css"
 
 export const codeboxStyle = style({
   boxSizing: "border-box",
+  MozBoxSizing: "border-box",
+  WebkitBoxSizing: "border-box",
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
   color: oryTheme.foreground.def,
-  borderColor: oryTheme.border.def,
   border: "1px solid",
+  borderColor: oryTheme.border.def,
   backgroundColor: oryTheme.background.surface,
   padding: pxToRem(16, 24, 32),
   borderRadius: pxToRem(8),
@@ -19,7 +21,7 @@ export const codeboxStyle = style({
 export const codeboxHeaderStyle = style({
   display: "flex",
   flexDirection: "row",
-  justifyItems: "space-between",
+  justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
   gap: pxToRem(32),

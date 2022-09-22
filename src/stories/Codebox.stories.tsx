@@ -10,14 +10,14 @@ export default {
 
 const Template: Story<CodeBoxProps> = (args: CodeBoxProps) => (
   <Container>
-    <CodeBox {...args} />
+    <CodeBox {...args}>{args.children}</CodeBox>
   </Container>
 )
 
 export const NormalCodeBox = Template.bind({})
 
 NormalCodeBox.args = {
-  code: `{
+  children: `{
     "active": true,
     "authenticated_at": "2019-08-24T14:15:22Z",
     "authentication_methods": [
