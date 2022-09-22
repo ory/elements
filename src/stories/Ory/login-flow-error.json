@@ -1,143 +1,143 @@
 {
-    "id": "e565dc97-17cd-462c-b02a-575cae0073d7",
-    "type": "browser",
-    "expires_at": "2022-08-11T09:58:08.397197Z",
-    "issued_at": "2022-08-11T09:28:08.397197Z",
-    "request_url": "http://project.console.ory.sh/self-service/login/browser?refresh=false",
-    "ui": {
-        "action": "https://project.console.ory.sh/self-service/login?flow=e565dc97-17cd-462c-b02a-575cae0073d7",
-        "method": "POST",
-        "nodes": [
-            {
-                "type": "input",
-                "group": "oidc",
-                "attributes": {
-                    "name": "provider",
-                    "type": "submit",
-                    "value": "github",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1010002,
-                        "text": "Sign in with github",
-                        "type": "info",
-                        "context": {
-                            "provider": "github"
-                        }
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "oidc",
-                "attributes": {
-                    "name": "provider",
-                    "type": "submit",
-                    "value": "google",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1010002,
-                        "text": "Sign in with google",
-                        "type": "info",
-                        "context": {
-                            "provider": "google"
-                        }
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "default",
-                "attributes": {
-                    "name": "csrf_token",
-                    "type": "hidden",
-                    "value": "9MLkOckkbh9rK3kgR9qE2GJ5l86+NTRNXXsYwxe91gjhKXtl9aHG1TvNZiaOpwW2ioypjvKPt/KlrUFIRSnCUQ==",
-                    "required": true,
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {}
-            },
-            {
-                "type": "input",
-                "group": "default",
-                "attributes": {
-                    "name": "identifier",
-                    "type": "text",
-                    "value": "sd@fsd",
-                    "required": true,
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070004,
-                        "text": "ID",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "password",
-                    "type": "password",
-                    "required": true,
-                    "autocomplete": "current-password",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070001,
-                        "text": "Password",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "method",
-                    "type": "submit",
-                    "value": "password",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1010001,
-                        "text": "Sign in",
-                        "type": "info",
-                        "context": {}
-                    }
-                }
+  "id": "e565dc97-17cd-462c-b02a-575cae0073d7",
+  "type": "browser",
+  "expires_at": "2022-08-11T09:58:08.397197Z",
+  "issued_at": "2022-08-11T09:28:08.397197Z",
+  "request_url": "http://project.console.ory.sh/self-service/login/browser?refresh=false",
+  "ui": {
+    "action": "https://project.console.ory.sh/self-service/login?flow=e565dc97-17cd-462c-b02a-575cae0073d7",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with github",
+            "type": "info",
+            "context": {
+              "provider": "github"
             }
-        ],
-        "messages": [
-            {
-                "id": 4000006,
-                "text": "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number.",
-                "type": "error",
-                "context": {}
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with google",
+            "type": "info",
+            "context": {
+              "provider": "google"
             }
-        ]
-    },
-    "created_at": "2022-08-11T09:28:08.405977Z",
-    "updated_at": "2022-08-11T09:28:08.405977Z",
-    "refresh": false,
-    "requested_aal": "aal1"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "9MLkOckkbh9rK3kgR9qE2GJ5l86+NTRNXXsYwxe91gjhKXtl9aHG1TvNZiaOpwW2ioypjvKPt/KlrUFIRSnCUQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "sd@fsd",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070004,
+            "text": "ID",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info",
+            "context": {}
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000006,
+        "text": "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number.",
+        "type": "error",
+        "context": {}
+      }
+    ]
+  },
+  "created_at": "2022-08-11T09:28:08.405977Z",
+  "updated_at": "2022-08-11T09:28:08.405977Z",
+  "refresh": false,
+  "requested_aal": "aal1"
 }

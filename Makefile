@@ -17,6 +17,9 @@ install:
 	bash <(curl https://raw.githubusercontent.com/ory/meta/master/install.sh) -d -b .bin ory v0.1.38
 	touch -a -m .bin/ory
 
-.PHONY: format
-format:
-	npm i && npm run format
+format: node_modules
+	npm exec -- prettier --write .
+	
+node_modules: package-lock.json
+	npm ci
+	touch node_modules

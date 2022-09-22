@@ -1,187 +1,187 @@
 {
-    "id": "c9dd6996-b5f9-4255-ba49-5ed0e13b1b9a",
-    "type": "browser",
-    "expires_at": "2022-08-05T11:13:15.502149013Z",
-    "issued_at": "2022-08-05T10:43:15.502149013Z",
-    "request_url": "http://project.console.ory.sh/self-service/registration/browser",
-    "ui": {
-        "action": "https://project.console.ory.sh/self-service/registration?flow=c9dd6996-b5f9-4255-ba49-5ed0e13b1b9a",
-        "method": "POST",
-        "nodes": [
-            {
-                "type": "input",
-                "group": "default",
-                "attributes": {
-                    "name": "csrf_token",
-                    "type": "hidden",
-                    "value": "tFdjiYdn6IgyeoiDfN7AGRgDX2AzcwhcJl4emCXMKo3ciO6e5FxI9MDvRov1yWUtA07pe6dYa/yejFY72+ktsQ==",
-                    "required": true,
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {}
-            },
-            {
-                "type": "input",
-                "group": "oidc",
-                "attributes": {
-                    "name": "provider",
-                    "type": "submit",
-                    "value": "github",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1040002,
-                        "text": "Sign up with github",
-                        "type": "info",
-                        "context": {
-                            "provider": "github"
-                        }
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "oidc",
-                "attributes": {
-                    "name": "provider",
-                    "type": "submit",
-                    "value": "google",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1040002,
-                        "text": "Sign up with google",
-                        "type": "info",
-                        "context": {
-                            "provider": "google"
-                        }
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "traits.email",
-                    "type": "email",
-                    "required": true,
-                    "autocomplete": "email",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070002,
-                        "text": "Email address",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "password",
-                    "type": "password",
-                    "required": true,
-                    "autocomplete": "new-password",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070001,
-                        "text": "Password",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "traits.name",
-                    "type": "text",
-                    "required": true,
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070002,
-                        "text": "Name",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "traits.consent.newsletter",
-                    "type": "checkbox",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070002,
-                        "text": "Please inform me about platform and security updates",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "traits.consent.tos",
-                    "type": "datetime-local",
-                    "required": true,
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1070002,
-                        "text": "I accept the Terms of Service https://www.ory.sh/ptos",
-                        "type": "info"
-                    }
-                }
-            },
-            {
-                "type": "input",
-                "group": "password",
-                "attributes": {
-                    "name": "method",
-                    "type": "submit",
-                    "value": "password",
-                    "disabled": false,
-                    "node_type": "input"
-                },
-                "messages": [],
-                "meta": {
-                    "label": {
-                        "id": 1040001,
-                        "text": "Sign up",
-                        "type": "info",
-                        "context": {}
-                    }
-                }
+  "id": "c9dd6996-b5f9-4255-ba49-5ed0e13b1b9a",
+  "type": "browser",
+  "expires_at": "2022-08-05T11:13:15.502149013Z",
+  "issued_at": "2022-08-05T10:43:15.502149013Z",
+  "request_url": "http://project.console.ory.sh/self-service/registration/browser",
+  "ui": {
+    "action": "https://project.console.ory.sh/self-service/registration?flow=c9dd6996-b5f9-4255-ba49-5ed0e13b1b9a",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "tFdjiYdn6IgyeoiDfN7AGRgDX2AzcwhcJl4emCXMKo3ciO6e5FxI9MDvRov1yWUtA07pe6dYa/yejFY72+ktsQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with github",
+            "type": "info",
+            "context": {
+              "provider": "github"
             }
-        ]
-    }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with google",
+            "type": "info",
+            "context": {
+              "provider": "google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Email address",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.name",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.consent.newsletter",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Please inform me about platform and security updates",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.consent.tos",
+          "type": "datetime-local",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "I accept the Terms of Service https://www.ory.sh/ptos",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info",
+            "context": {}
+          }
+        }
+      }
+    ]
+  }
 }
