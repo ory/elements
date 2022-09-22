@@ -16,3 +16,7 @@ install:
 .bin/ory: Makefile
 	bash <(curl https://raw.githubusercontent.com/ory/meta/master/install.sh) -d -b .bin ory v0.1.38
 	touch -a -m .bin/ory
+
+.PHONY: format
+format:
+	npm i && npm run format
