@@ -4,12 +4,9 @@ import { UserAuthCard } from "./user-auth-card"
 import {
   loginFixture,
   registrationFixture,
-  registrationPasswordlessFixture,
-  loginPasswordlessFixture,
-  registrationNoneFixture,
-  loginNoneFixture,
   verificationFixture,
   recoveryFixture,
+  twoFactorLoginFixture,
   AuthPage,
 } from "@ory/elements-test"
 
@@ -126,7 +123,7 @@ test("ory auth card recovery flow", async ({ mount }) => {
 test("ory auth card login 2fa flow", async ({ mount }) => {
   const component = await mount(
     <UserAuthCard
-      flow={loginFixture}
+      flow={twoFactorLoginFixture}
       flowType={"login"}
       additionalProps={{
         logoutURL: "/logout",
@@ -135,10 +132,10 @@ test("ory auth card login 2fa flow", async ({ mount }) => {
     />,
   )
 
-  expect(component).toContainText("Two-factor authentication")
-  expect(component.locator('a[href="/logout"]')).toBeVisible()
+  await expect(component).toContainText("Two-factor authentication")
+  await expect(component.locator('a[href="/logout"]')).toBeVisible()
 
-  expect(
+  await expect(
     component.locator('button[name="webauthn_login_trigger"]'),
   ).toBeVisible()
 })

@@ -174,6 +174,154 @@ export const loginPasswordlessFixture: SelfServiceLoginFlow = {
   requested_aal: "aal1",
 }
 
+export const twoFactorLoginFixture: SelfServiceLoginFlow = {
+  id: "3f9319a6-7105-4004-aa16-80d3f5281164",
+  type: "browser",
+  expires_at: "2022-09-22T15:59:26.051983Z",
+  issued_at: "2022-09-22T15:29:26.051983Z",
+  request_url: "https://test.com/self-service/login/browser?aal=aal2",
+  ui: {
+    action:
+      "https://test.com/self-service/login?flow=3f9319a6-7105-4004-aa16-80d3f5281164",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "sylBsTLGrttAzMQtXZtb+Cpk4K/Pe9P+vz2WBUJoLunc8h5ff/7aloMMy/vJsnp/IwojlWaAfnuAwaqA5+i+Lg==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "hidden",
+          value: "aecaf2bf-b33f-4271-9c4d-0c0eb722fcf8",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_login_trigger",
+          type: "button",
+          value: "",
+          disabled: false,
+          onclick:
+            'window.__oryWebAuthnLogin({"publicKey":{"challenge":"zk6j9Qfetb7N3DIZflBKrTSQvXwwAAw1/HFliAXJOR0=","timeout":60000,"rpId":"test.com","allowCredentials":[{"type":"public-key","id":"jeuNGRy/jfYfxNhZ8JvfCy/dE5gs5m1djdMrtRb+Tuwq9tgP+U1o6JR8BWrt7oLWHQbxnh0t3Ebu1EtTKzwJbw=="}],"userVerification":"discouraged"}})',
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010008,
+            text: "Use security key",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_login",
+          type: "hidden",
+          value: "",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "script",
+        group: "webauthn",
+        attributes: {
+          src: "https://test.com/.well-known/ory/webauthn.js",
+          async: true,
+          referrerpolicy: "no-referrer",
+          crossorigin: "anonymous",
+          integrity:
+            "sha512-E3ctShTQEYTkfWrjztRCbP77lN7L0jJC2IOd6j8vqUKslvqhX/Ho3QxlQJIeTI78krzAWUQlDXd9JQ0PZlKhzQ==",
+          type: "text/javascript",
+          id: "webauthn_script",
+          nonce: "c3c7199e-8a94-4878-b5ac-dddbfd94029e",
+          node_type: "script",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "totp",
+        attributes: {
+          name: "totp_code",
+          type: "text",
+          value: "",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010006,
+            text: "Authentication code",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "totp",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "totp",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010009,
+            text: "Use Authenticator",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+    ],
+    messages: [
+      {
+        id: 1010004,
+        text: "Please complete the second authentication challenge.",
+        type: "info",
+        context: {},
+      },
+    ],
+  },
+  created_at: "2022-09-22T15:29:26.311469Z",
+  updated_at: "2022-09-22T15:29:26.311469Z",
+  refresh: false,
+  requested_aal: "aal2",
+}
+
 export const verificationFixture: SelfServiceVerificationFlow = {
   id: "5c857a5a-6a21-48cb-9acd-da9b81c1ed13",
   state: "choose_method",
