@@ -19,18 +19,19 @@ export const CodeBox = ({
   className,
   ...props
 }: CodeBoxProps): JSX.Element => {
+  const id = Math.random().toString(36).substring(2)
   return (
     <div
       className={cn(className, gridStyle({ gap: 16 }), codeboxStyle)}
       {...props}
     >
-      <input id="collapse-code" type="checkbox" />
+      <input id={id} type="checkbox" />
       <div
         className={cn(typographyStyle({ size: "small" }), codeboxHeaderStyle)}
       >
         <div>Hide contents</div>
 
-        <label htmlFor="collapse-code">
+        <label htmlFor={id}>
           <i
             className={cn(
               "fa fa-caret-down",

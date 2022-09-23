@@ -29,6 +29,7 @@ export const codeboxHeaderStyle = style({
 
 export const codeboxContentStyle = style({
   display: "flex",
+  overflow: "auto",
 })
 
 // just dont ever show the input checkbox
