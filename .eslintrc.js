@@ -2,23 +2,23 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended'
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
   overrides: [],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    tsconfigRootDir: './',
+    tsconfigRootDir: "./",
     ecmaVersion: 2021,
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
-  plugins: ['react', '@typescript-eslint'],
-  rules: {}
-};
+  plugins: ["react", "@typescript-eslint"],
+  rules: {},
+}

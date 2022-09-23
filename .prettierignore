@@ -5,3 +5,5 @@ node_modules
 playwright-report
 public
 storybook-static
+.github/pull_request_template.md
+CONTRIBUTING.md

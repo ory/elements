@@ -4,19 +4,13 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "dev",
-          "preview"
-        ]
+        "cacheableOperations": ["build", "dev", "preview"]
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     }
   },
   "affected": {

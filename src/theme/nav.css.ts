@@ -41,7 +41,7 @@ export const navSectionTitleStyle = style({
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  
+
   padding: pxToRem(0, 8, 6),
 })
 
