@@ -119,7 +119,6 @@ test("ory auth card recovery flow", async ({ mount }) => {
   await expect(component.locator('a[href="/login"]')).toBeVisible()
 })
 
-// TODO: change to 2fa flow fixture
 test("ory auth card login 2fa flow", async ({ mount }) => {
   const component = await mount(
     <UserAuthCard
