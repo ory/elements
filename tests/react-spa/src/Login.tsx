@@ -31,7 +31,6 @@ export const Login = (): JSX.Element => {
     handleFlow({ refresh: true, mfa: isMFA })
       .then((flow) => setFlow(flow))
       .catch((error) => {
-        console.dir({ error: error.response })
         switch (error.response?.status) {
           case 400:
             setFlow(error.response.data)

@@ -1,6 +1,6 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
-import { gridStyle } from "../../theme"
+import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
 import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
 import {
@@ -12,9 +12,7 @@ import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { useScriptNodes } from "./helpers/node-script"
 import { OIDCSettingsSection } from "./sections/oidc-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
-import { Card } from "../card"
-import { Divider } from "../divider"
-import { Typography } from "../typography"
+import cn from "classnames"
 
 export type UserSettingsFlowType =
   | "profile"
@@ -77,9 +75,14 @@ export const UserSettingsCard = ({
   return $flow ? (
     <div className={gridStyle({ gap: 32 })}>
       {cardTitle && (
-        <Typography size={"headline26"} color={"foregroundDefault"}>
+        <h3
+          className={cn(
+            typographyStyle({ size: "headline26", type: "regular" }),
+            colorSprinkle({ color: "foregroundDefault" }),
+          )}
+        >
           {cardTitle}
-        </Typography>
+        </h3>
       )}
       <UserAuthForm flow={flow} onSubmit={onSubmit}>
         {$flow}

@@ -170,7 +170,7 @@ export const UserAuthCard = ({
       .map((flow, index) =>
         index > 0 ? (
           <>
-            <Divider text="or" /> {flow}
+            <Divider /> {flow}
           </>
         ) : (
           flow
@@ -292,7 +292,7 @@ export const UserAuthCard = ({
 
         {canShowPasswordless() && (
           <>
-            <Divider text="or" />
+            <Divider />
             <UserAuthForm
               flow={flow}
               submitOnEnter={true}
