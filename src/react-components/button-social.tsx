@@ -1,9 +1,9 @@
 import React from "react"
 import {
-  buttonSocialIconStyle,
+  buttonSocialIconEndStyle,
+  buttonSocialIconStartStyle,
   ButtonSocialStyle,
   buttonSocialStyle,
-  buttonSocialTitleStyle,
 } from "../theme/button-social.css"
 import cn from "classnames"
 
@@ -42,8 +42,13 @@ export const ButtonSocial = ({
         style={{ width: fullWidth ? "100%" : "auto" }}
         {...props}
       >
-        <i className={cn(brandClass, buttonSocialIconStyle({ size }))}></i>
-        <div className={buttonSocialTitleStyle}>{title}</div>
+        <i className={cn(brandClass, buttonSocialIconStartStyle({ size }))}></i>
+        {title}
+        {/* add another hidden icon to the end to center the text */}
+        <i
+          className={cn(brandClass, buttonSocialIconEndStyle({ size }))}
+          style={{ visibility: "hidden", opacity: 0 }}
+        ></i>
       </button>
     </div>
   )

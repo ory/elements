@@ -10,7 +10,11 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
   return hasOIDC(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages
-        nodes={filterNodesByGroups({ nodes: flow.ui.nodes, groups: "oidc" })}
+        nodes={filterNodesByGroups({
+          nodes: flow.ui.nodes,
+          groups: "oidc",
+          withoutDefaultGroup: true,
+        })}
       />
 
       {filterNodesByGroups({

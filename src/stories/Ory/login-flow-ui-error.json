@@ -1,0 +1,122 @@
+{
+  "id": "4825164f-0784-4ed3-ba8f-9d0bef2bc3f2",
+  "type": "browser",
+  "expires_at": "2022-09-27T12:07:40.581807Z",
+  "issued_at": "2022-09-27T11:37:40.581807Z",
+  "request_url": "http://test.com/self-service/login/browser?refresh=true&aal=aal1",
+  "ui": {
+    "action": "http://test.com/self-service/login?flow=4825164f-0784-4ed3-ba8f-9d0bef2bc3f2",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "8sIxbFJwFrHHWTI4rYRfVwGjtbQ/a4z6bf5R+KMW8DBlxNcIO1mBNk7HjsleD/jSadbVlK9CJah2sZo9OrfM9g==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070004,
+            "text": "ID",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info",
+            "context": {}
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2022-09-27T11:37:40.673019Z",
+  "updated_at": "2022-09-27T11:37:40.673019Z",
+  "refresh": false,
+  "requested_aal": "aal1"
+}

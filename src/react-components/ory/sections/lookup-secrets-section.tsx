@@ -19,6 +19,7 @@ export const LookupSecretsSection = ({
         nodes={filterNodesByGroups({
           nodes: nodes,
           groups: "lookup_secret",
+          withoutDefaultGroup: true,
         })}
       />
       <FilterFlowNodes

@@ -23,7 +23,6 @@ const Dashboard = () => {
         setSession(session)
       })
       .catch((error) => {
-        console.dir({ error })
         if (error.response?.status === 403) {
           if (error.response?.data.error.id === "session_aal2_required") {
             return navigate("/login?aal2=true", { replace: true })

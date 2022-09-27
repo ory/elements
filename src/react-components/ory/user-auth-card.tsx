@@ -53,6 +53,7 @@ export type UserAuthCardProps = {
     | RegistrationSectionAdditionalProps
     | RecoverySectionAdditionalProps
     | VerificationSectionAdditionalProps
+  cardImage?: string | React.ReactElement
   includeScripts?: boolean
   icon?: string
   className?: string
@@ -64,6 +65,7 @@ export const UserAuthCard = ({
   title,
   flowType,
   additionalProps,
+  cardImage,
   onSubmit,
   includeScripts,
 }: UserAuthCardProps): JSX.Element => {
@@ -170,7 +172,7 @@ export const UserAuthCard = ({
       .map((flow, index) =>
         index > 0 ? (
           <>
-            <Divider text="or" /> {flow}
+            <Divider /> {flow}
           </>
         ) : (
           flow
@@ -246,19 +248,16 @@ export const UserAuthCard = ({
           {title}
         </h2>
       }
+      image={cardImage}
     >
       <div className={gridStyle({ gap: 32 })}>
-        {flow.ui.messages &&
-          flow.ui.messages.length > 0 &&
-          flow.ui.messages.map((m) => (
-            <Message
-              key={m.id}
-              severity={"error"}
-              data-testid={`ui/message/${m.id}`}
-            >
-              {m.text}
-            </Message>
-          ))}
+        <NodeMessages
+          nodes={filterNodesByGroups({
+            nodes: flow.ui.nodes,
+            groups: "default",
+          })}
+          uiMessages={flow.ui.messages}
+        />
         {$oidc && (
           <>
             <Divider />
@@ -292,7 +291,7 @@ export const UserAuthCard = ({
 
         {canShowPasswordless() && (
           <>
-            <Divider text="or" />
+            <Divider />
             <UserAuthForm
               flow={flow}
               submitOnEnter={true}

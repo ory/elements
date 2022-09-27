@@ -12,6 +12,7 @@ export const buttonSocialStyle = recipe({
     textDecoration: "none",
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
     color: oryTheme.foreground.muted,
     borderColor: oryTheme.foreground.muted,
@@ -88,14 +89,7 @@ export const buttonSocialStyle = recipe({
   },
 })
 
-export const buttonSocialTitleStyle = style({
-  display: "flex",
-  alignItems: "center",
-  textAlign: "center",
-  margin: "auto",
-})
-
-export const buttonSocialIconStyle = recipe({
+export const buttonSocialIconStartStyle = recipe({
   base: {
     paddingRight: pxToRem(16),
     "@media": {
@@ -110,6 +104,27 @@ export const buttonSocialIconStyle = recipe({
       medium: {},
       large: {
         paddingRight: pxToRem(24),
+        fontSize: pxToRem(24),
+      },
+    },
+  },
+})
+
+export const buttonSocialIconEndStyle = recipe({
+  base: {
+    paddingLeft: pxToRem(16),
+    "@media": {
+      [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
+        paddingLeft: pxToRem(24),
+      },
+    },
+  },
+  variants: {
+    size: {
+      small: {},
+      medium: {},
+      large: {
+        paddingLeft: pxToRem(24),
         fontSize: pxToRem(24),
       },
     },

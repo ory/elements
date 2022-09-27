@@ -4,7 +4,7 @@ import { gridStyle } from "../../../theme"
 import { Message } from "../../message"
 
 export type NodeMessagesProps = {
-  nodes: UiNode[]
+  nodes?: UiNode[]
   uiMessages?: Array<UiText>
 }
 
@@ -26,18 +26,24 @@ export const NodeMessages = ({
   nodes,
   uiMessages,
 }: NodeMessagesProps): JSX.Element | null => {
-  const $groupMessages = nodes.reduce<JSX.Element[]>((groups, { messages }) => {
-    groups.concat(
-      messages.map(({ text, id }) => nodeMessage({ text, id, key: id })),
-    )
-    return groups
-  }, [])
+  const $groupMessages = nodes?.reduce<JSX.Element[]>(
+    (groups, { messages }) => {
+      groups = groups.concat(
+        messages.map(({ text, id }) => nodeMessage({ text, id, key: id })),
+      )
+      return groups
+    },
+    [],
+  )
 
   const $messages = uiMessages?.map(({ text, id }, key) =>
     nodeMessage({ text, id, key }),
   )
 
-  return ($messages && $messages.length > 0) || $groupMessages.length > 0 ? (
+  console.dir({ $groupMessages, $messages })
+
+  return ($messages && $messages.length > 0) ||
+    ($groupMessages && $groupMessages.length > 0) ? (
     <div className={gridStyle({ gap: 16 })}>
       {$messages}
       {$groupMessages}

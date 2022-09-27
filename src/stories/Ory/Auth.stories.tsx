@@ -11,6 +11,7 @@ import {
 import loginFlow from "./login-flow.json"
 import loginFlow2FA from "./login-flow-2fa.json"
 
+import loginFlowUiError from "./login-flow-ui-error.json"
 import loginFlowError from "./login-flow-error.json"
 
 import registrationFlow from "./register-flow.json"
@@ -19,6 +20,8 @@ import registrationFlowWebAuthn from "./register-flow-webauthn.json"
 import recoveryFlow from "./recovery-flow.json"
 
 import verificationFlow from "./verification-flow.json"
+
+import logo from "../assets/logo.svg"
 
 export default {
   title: "Ory/SelfServiceFlowCard",
@@ -37,6 +40,7 @@ LoginAuthCard.args = {
   title: "Sign in to your Acme account",
   flow: loginFlow as SelfServiceLoginFlow,
   flowType: "login",
+  cardImage: logo,
   additionalProps: {
     signupURL: "https://acme.com/login",
     forgotPasswordURL: "https://acme.com/forgot-password",
@@ -81,11 +85,25 @@ LoginAuthCardError.args = {
   },
 }
 
+export const LoginAuthCardUiError = Template.bind({})
+
+LoginAuthCardUiError.args = {
+  title: "Sign in to your Acme account",
+  flow: loginFlowUiError as SelfServiceLoginFlow,
+  flowType: "login",
+  additionalProps: {
+    signupURL: "https://acme.com/login",
+    forgotPasswordURL: "https://acme.com/forgot-password",
+    logoutURL: "https://acme.com/logout",
+  },
+}
+
 export const RegistrationAuthCard = Template.bind({})
 
 RegistrationAuthCard.args = {
   title: "Create an account for Acme",
   flow: registrationFlow as SelfServiceRegistrationFlow,
+  cardImage: logo,
   flowType: "registration",
   additionalProps: {
     loginURL: "https://acme.com/login",
