@@ -155,7 +155,7 @@ export const Node = ({
             required={attrs.required}
             defaultValue={attrs.value}
             disabled={attrs.disabled}
-            checked={Boolean(attrs.value)}
+            defaultChecked={Boolean(attrs.value)}
           />
         )
       default:
