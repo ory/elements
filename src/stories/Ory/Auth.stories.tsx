@@ -20,6 +20,8 @@ import recoveryFlow from "./recovery-flow.json"
 
 import verificationFlow from "./verification-flow.json"
 
+import logo from "../assets/logo.svg"
+
 export default {
   title: "Ory/SelfServiceFlowCard",
   component: UserAuthCard,
@@ -37,6 +39,7 @@ LoginAuthCard.args = {
   title: "Sign in to your Acme account",
   flow: loginFlow as SelfServiceLoginFlow,
   flowType: "login",
+  cardImage: logo,
   additionalProps: {
     signupURL: "https://acme.com/login",
     forgotPasswordURL: "https://acme.com/forgot-password",
@@ -86,6 +89,7 @@ export const RegistrationAuthCard = Template.bind({})
 RegistrationAuthCard.args = {
   title: "Create an account for Acme",
   flow: registrationFlow as SelfServiceRegistrationFlow,
+  cardImage: logo,
   flowType: "registration",
   additionalProps: {
     loginURL: "https://acme.com/login",
