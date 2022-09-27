@@ -32,6 +32,13 @@ export const cardTitleStyle = style({
   textAlign: "center",
 })
 
+export const cardTitleImage = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: pxToRem(42),
+})
+
 // recipe for the card style
 // this ensures we have themeable variations for the card
 export const cardStyle = recipe({

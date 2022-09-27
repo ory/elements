@@ -2,6 +2,7 @@ import React from "react"
 import { Story, ComponentMeta } from "@storybook/react"
 import { Container } from "./storyhelper"
 import { Card, CardProps, Message } from "../react-components"
+import logo from "./assets/logo.svg"
 
 export default {
   title: "Component/Card",
@@ -17,6 +18,13 @@ const Template: Story<CardProps> = (args: CardProps) => (
 export const NormalCard = Template.bind({})
 
 NormalCard.args = {
-  header: "Normal Title",
+  heading: "Normal Title",
   children: <Message severity="error">This is an error message.</Message>,
+}
+
+export const LogoHeadingCard = Template.bind({})
+
+LogoHeadingCard.args = {
+  heading: "Logo Heading",
+  image: logo,
 }
