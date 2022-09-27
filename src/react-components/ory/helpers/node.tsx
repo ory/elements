@@ -44,12 +44,19 @@ export const Node = ({
     return node.attributes.text.id === 1050015 ? (
       <div
         className={gridStyle({ gap: 4, direction: "row" })}
-        style={{ display: "inline-flex", flexWrap: "wrap", gap: pxToRem(48) }}
+        style={{
+          display: "inline-flex",
+          flexWrap: "wrap",
+          gap: pxToRem(48),
+          maxWidth: "fit-content",
+          alignItems: "center",
+        }}
         data-testid={`node/text/${id}`}
       >
         <Typography
           variant="body1"
           data-testid={`node/text/${node.attributes.id}/label`}
+          style={{ flexBasis: "100%" }}
         >
           {node.meta.label?.text}
         </Typography>
