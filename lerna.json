@@ -2,5 +2,15 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useNx": true,
   "useWorkspaces": true,
-  "version": "0.0.1-alpha.0"
+  "version": "0.0.1-alpha.1",
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "private": false
+    },
+    "publish": {
+      "private": false
+    }
+  }
 }
