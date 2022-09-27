@@ -96,15 +96,27 @@ export const buttonSocialTitleStyle = style({
 })
 
 export const buttonSocialIconStyle = recipe({
-  base: {
-    paddingRight: pxToRem(16),
-    "@media": {
-      [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
-        paddingRight: pxToRem(24),
+  base: {},
+  defaultVariants: { position: "start" },
+  variants: {
+    position: {
+      start: {
+        paddingRight: pxToRem(16),
+        "@media": {
+          [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
+            paddingRight: pxToRem(24),
+          },
+        },
+      },
+      end: {
+        paddingLeft: pxToRem(16),
+        "@media": {
+          [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
+            paddingLeft: pxToRem(24),
+          },
+        },
       },
     },
-  },
-  variants: {
     size: {
       small: {},
       medium: {},

@@ -1,5 +1,6 @@
 import React from "react"
 import {
+  buttonSocialHiddenIcon,
   buttonSocialIconStyle,
   ButtonSocialStyle,
   buttonSocialStyle,
@@ -44,6 +45,14 @@ export const ButtonSocial = ({
       >
         <i className={cn(brandClass, buttonSocialIconStyle({ size }))}></i>
         <div className={buttonSocialTitleStyle}>{title}</div>
+        {/* add another hidden icon to the end to center the text */}
+        <i
+          className={cn(
+            brandClass,
+            buttonSocialIconStyle({ size, position: "end" }),
+          )}
+          style={{ visibility: "hidden", opacity: 0 }}
+        ></i>
       </button>
     </div>
   )
