@@ -15,7 +15,7 @@ const nodeMessage = ({
 }: {
   text: string
   id: number
-  key: number
+  key: string
 }) => (
   <Message key={key} data-testid={`ui/message/${id}`} severity={"error"}>
     {text}
@@ -29,7 +29,9 @@ export const NodeMessages = ({
   const $groupMessages = nodes?.reduce<JSX.Element[]>(
     (groups, { messages }) => {
       groups = groups.concat(
-        messages.map(({ text, id }) => nodeMessage({ text, id, key: id })),
+        messages.map(({ text, id }, key) =>
+          nodeMessage({ text, id, key: `node-group-message-${id}-${key}` }),
+        ),
       )
       return groups
     },
@@ -37,16 +39,12 @@ export const NodeMessages = ({
   )
 
   const $messages = uiMessages?.map(({ text, id }, key) =>
-    nodeMessage({ text, id, key }),
+    nodeMessage({ text, id, key: `ui-messsage-${id}-${key}` }),
   )
 
-  console.dir({ $groupMessages, $messages })
+  const $allMessages = [...($groupMessages || []), ...($messages || [])]
 
-  return ($messages && $messages.length > 0) ||
-    ($groupMessages && $groupMessages.length > 0) ? (
-    <div className={gridStyle({ gap: 16 })}>
-      {$messages}
-      {$groupMessages}
-    </div>
+  return $allMessages.length > 0 ? (
+    <div className={gridStyle({ gap: 16 })}>{$allMessages}</div>
   ) : null
 }

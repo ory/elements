@@ -169,15 +169,17 @@ export const UserAuthCard = ({
       ),
     ]
       .filter(Boolean) // remove nulls
-      .map((flow, index) =>
-        index > 0 ? (
-          <>
-            <Divider /> {flow}
-          </>
-        ) : (
-          flow
-        ),
-      ) // only map the divider if the index is greater than 0 - more than one flow
+      .map((flow, index) => (
+        <div key={index}>
+          {index > 0 ? (
+            <>
+              <Divider /> {flow}
+            </>
+          ) : (
+            flow
+          )}
+        </div>
+      )) // only map the divider if the index is greater than 0 - more than one flow
 
   switch (flowType) {
     case "login":
