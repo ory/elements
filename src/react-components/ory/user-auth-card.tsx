@@ -251,17 +251,13 @@ export const UserAuthCard = ({
       image={cardImage}
     >
       <div className={gridStyle({ gap: 32 })}>
-        {flow.ui.messages &&
-          flow.ui.messages.length > 0 &&
-          flow.ui.messages.map((m) => (
-            <Message
-              key={m.id}
-              severity={"error"}
-              data-testid={`ui/message/${m.id}`}
-            >
-              {m.text}
-            </Message>
-          ))}
+        <NodeMessages
+          nodes={filterNodesByGroups({
+            nodes: flow.ui.nodes,
+            groups: "default",
+          })}
+          uiMessages={flow.ui.messages}
+        />
         {$oidc && (
           <>
             <Divider />

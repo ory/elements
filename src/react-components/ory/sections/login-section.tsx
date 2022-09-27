@@ -18,7 +18,11 @@ export const LoginSection = ({
   return (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages
-        nodes={filterNodesByGroups({ nodes: nodes, groups: "password" })}
+        nodes={filterNodesByGroups({
+          nodes: nodes,
+          groups: "password",
+          withoutDefaultGroup: true,
+        })}
       />
       <div className={gridStyle({ gap: 16 })}>
         <FilterFlowNodes

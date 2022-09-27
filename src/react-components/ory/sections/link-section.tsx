@@ -15,6 +15,7 @@ export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
       nodes={filterNodesByGroups({
         nodes: nodes,
         groups: "link",
+        withoutDefaultGroup: true,
       })}
     />
     <div className={gridStyle({ gap: 16 })}>
