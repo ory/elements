@@ -37,12 +37,13 @@ DefaultNav.args = {
       links: [
         {
           name: "Overview",
-          url: "/overview",
+          href: "/overview",
           iconLeft: "house",
+          target: "_blank",
         },
         {
           name: "Session Information",
-          url: "/session-information",
+          href: "/session-information",
           iconLeft: "code",
           disabled: true,
         },
@@ -54,7 +55,7 @@ DefaultNav.args = {
       links: [
         {
           name: "Sign In",
-          url: "/signin",
+          href: "/signin",
           iconLeft: "arrow-right-to-bracket",
           iconRight: "up-right-from-square",
           disabled: false,
@@ -66,7 +67,7 @@ DefaultNav.args = {
       links: [
         {
           name: "Back to overview",
-          url: "/overview",
+          href: "/overview",
           iconLeft: "arrow-left-to-bracket",
           iconRight: "down-right-from-square",
         },
@@ -84,13 +85,13 @@ SelectedNav.args = {
       links: [
         {
           name: "Overview",
-          url: "/overview",
+          href: "/overview",
           iconLeft: "house",
           selected: true,
         },
         {
           name: "Session Information",
-          url: "/session-information",
+          href: "/session-information",
           iconLeft: "code",
           disabled: true,
         },
@@ -102,7 +103,7 @@ SelectedNav.args = {
       links: [
         {
           name: "Sign In",
-          url: "/signin",
+          href: "/signin",
           iconLeft: "arrow-right-to-bracket",
           iconRight: "up-right-from-square",
           disabled: false,
@@ -114,7 +115,7 @@ SelectedNav.args = {
       links: [
         {
           name: "Back to overview",
-          url: "/overview",
+          href: "/overview",
           iconLeft: "arrow-left-to-bracket",
           iconRight: "down-right-from-square",
         },

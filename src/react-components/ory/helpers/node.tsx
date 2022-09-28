@@ -37,6 +37,8 @@ export const Node = ({
         alt={node.meta.label?.text}
         data-testid={`node/image/${node.attributes.id}`}
         header={node.meta.label?.text}
+        width={node.attributes.width}
+        height={node.attributes.height}
       />
     )
   } else if (isUiNodeTextAttributes(node.attributes)) {

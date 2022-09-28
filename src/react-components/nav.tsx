@@ -10,18 +10,14 @@ import {
   typographyStyle,
   navMenuLinkSelectedStyle,
 } from "../theme"
-import { MenuLink } from "./menu-link"
+import { MenuLink, MenuLinkProps } from "./menu-link"
 import cn from "classnames"
 
 export type NavSectionLinks = {
   name: string
-  url: string
-  iconLeft: string
-  iconRight?: string
-  disabled?: boolean
   testId?: string
   selected?: boolean
-}
+} & Omit<MenuLinkProps, "children">
 
 export type NavSection = {
   title?: string
@@ -87,15 +83,7 @@ export const Nav = ({
                 key={key}
                 {...(link.selected && { className: navMenuLinkSelectedStyle })}
               >
-                <MenuLink
-                  href={link.url}
-                  iconLeft={link.iconLeft}
-                  iconRight={link.iconRight}
-                  disabled={link.disabled}
-                  {...(link.testId && { "data-testid": link.testId })}
-                >
-                  {link.name}
-                </MenuLink>
+                <MenuLink {...link}>{link.name}</MenuLink>
               </li>
             ))}
           </ul>

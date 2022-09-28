@@ -11,6 +11,7 @@ export interface CardGradientProps
   heading: string | React.ReactNode
   content: string | React.ReactNode
   action: string | React.ReactNode
+  target?: string
   disabled?: boolean
   className?: string
   children?: React.ReactNode
@@ -20,6 +21,7 @@ export const CardGradient = ({
   heading,
   content,
   action,
+  target,
   disabled,
   className,
   ...props
@@ -45,7 +47,7 @@ export const CardGradient = ({
       )}
     </div>
     {typeof action === "string" ? (
-      <a className={cardGradientActionStyle} href={action}>
+      <a className={cardGradientActionStyle} href={action} target={target}>
         <i className={cn(`fa fa-arrow-right`)}></i>
       </a>
     ) : (

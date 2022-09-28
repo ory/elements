@@ -10,6 +10,7 @@ import cn from "classnames"
 export interface MenuLinkProps extends React.HTMLAttributes<HTMLDivElement> {
   href: string
   children: React.ReactNode
+  target?: string
   disabled?: boolean
   iconLeft?: string
   iconRight?: string
@@ -19,6 +20,7 @@ export interface MenuLinkProps extends React.HTMLAttributes<HTMLDivElement> {
 export const MenuLink = ({
   href,
   children,
+  target,
   disabled,
   iconLeft,
   iconRight,
@@ -36,6 +38,7 @@ export const MenuLink = ({
       )}
       aria-disabled={disabled}
       {...(!disabled && { href: href })}
+      {...(target && { target: target })}
     >
       {iconLeft && (
         <i className={cn("fa", `fa-${iconLeft}`, menuLinkIconLeftStyle)}></i>
