@@ -4,7 +4,6 @@ import {
   UserAuthFormAdditionalProps,
   UserAuthForm,
 } from "./helpers/user-auth-form"
-import { Message } from "../message"
 import { gridStyle, typographyStyle } from "../../theme"
 import { SelfServiceLoginFlow } from "@ory/client"
 import { useScriptNodes } from "./helpers/node-script"
@@ -185,10 +184,12 @@ export const UserAuthCard = ({
     case "login":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+
       $flow = LoginSection({
         nodes: flow.ui.nodes,
         ...additionalProps,
       })
+
       message = isLoggedIn(flow as SelfServiceLoginFlow)
         ? {
             text: <>Something&#39;s not working?</>,
