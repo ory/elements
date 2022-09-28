@@ -11,7 +11,7 @@ export const navStyle = style({
   MozUserSelect: "none",
   msUserSelect: "none",
   userSelect: "none",
-
+  borderRight: `1px solid ${oryTheme.border.def}`,
   zIndex: 3,
   boxSizing: "border-box",
   display: "flex",
@@ -41,7 +41,6 @@ export const navSectionTitleStyle = style({
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-
   padding: pxToRem(0, 8, 6),
 })
 
