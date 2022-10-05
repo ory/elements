@@ -78,12 +78,14 @@ export const Nav = ({
             </div>
           )}
           <ul className={navMenuSectionStyle}>
-            {section.links.map((link, key) => (
+            {section.links.map(({ testId, ...link }, key) => (
               <li
                 key={key}
                 {...(link.selected && { className: navMenuLinkSelectedStyle })}
               >
-                <MenuLink {...link}>{link.name}</MenuLink>
+                <MenuLink data-testid={testId} {...link}>
+                  {link.name}
+                </MenuLink>
               </li>
             ))}
           </ul>
