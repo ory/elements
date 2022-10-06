@@ -20,7 +20,10 @@ export const ProfileSettingsSection = ({
         <FilterFlowNodes
           filter={{ ...filter, excludeAttributes: "submit,button" }}
         />
-        <FilterFlowNodes filter={{ ...filter, attributes: "submit,button" }} />
+        <FilterFlowNodes
+          filter={{ ...filter, attributes: "submit,button" }}
+          buttonOverrideProps={{ fullWidth: false }}
+        />
       </div>
     </div>
   )

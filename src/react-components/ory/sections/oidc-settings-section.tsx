@@ -23,7 +23,10 @@ export const OIDCSettingsSection = ({
   return hasOIDC(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages nodes={filterNodesByGroups(filter)} />
-      <FilterFlowNodes filter={filter} />
+      <FilterFlowNodes
+        filter={filter}
+        buttonOverrideProps={{ fullWidth: false }}
+      />
     </div>
   ) : null
 }

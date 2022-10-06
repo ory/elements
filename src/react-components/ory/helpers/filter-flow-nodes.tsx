@@ -6,10 +6,10 @@ import {
   getNodeInputType,
   isUiNodeInputAttributes,
 } from "@ory/integrations/ui"
-import { Node } from "./node"
+import { Node, NodeOverrideProps } from "./node"
 import { gridStyle } from "../../../theme"
 
-export interface Props {
+export interface Props extends NodeOverrideProps {
   filter: FilterNodesByGroups
   includeCSRF?: boolean
 }
@@ -17,6 +17,7 @@ export interface Props {
 export const FilterFlowNodes = ({
   filter,
   includeCSRF,
+  ...overrides
 }: Props): JSX.Element | null => {
   const getInputName = (node: UiNode): string =>
     isUiNodeInputAttributes(node.attributes) ? node.attributes.name : ""
@@ -29,11 +30,11 @@ export const FilterFlowNodes = ({
     .map((node, k) =>
       ["hidden"].includes(getNodeInputType(node.attributes))
         ? {
-            node: <Node node={node} key={k} />,
+            node: <Node node={node} key={k} {...overrides} />,
             hidden: true,
           }
         : {
-            node: <Node node={node} key={k} />,
+            node: <Node node={node} key={k} {...overrides} />,
             hidden: false,
           },
     )
