@@ -29,12 +29,18 @@ export const CodeBox = ({
       <div
         className={cn(typographyStyle({ size: "small" }), codeboxHeaderStyle)}
       >
-        <div>Hide contents</div>
+        <div>Toggle content</div>
 
         <label htmlFor={id}>
           <i
             className={cn(
               "fa fa-caret-down",
+              colorSprinkle({ color: "accentDefault" }),
+            )}
+          ></i>
+          <i
+            className={cn(
+              "fa fa-caret-up",
               colorSprinkle({ color: "accentDefault" }),
             )}
           ></i>

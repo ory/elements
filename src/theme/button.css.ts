@@ -31,21 +31,6 @@ export const buttonStyle = recipe({
       backgroundColor: oryTheme.accent.emphasis,
       outline: "none",
     },
-    "@media": {
-      [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
-        fontSize: pxToRem(18),
-        lineHeight: pxToRem(32),
-        padding: pxToRem(16, 24),
-      },
-      [`screen and (min-width: ${defaultBreakpoints.md})`]: {
-        fontSize: pxToRem(16),
-        lineHeight: pxToRem(28),
-      },
-      [`screen and (max-width: ${defaultBreakpoints.sm})`]: {
-        fontSize: pxToRem(14),
-        lineHeight: pxToRem(20),
-      },
-    },
   },
   variants: {
     size: {
