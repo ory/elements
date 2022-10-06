@@ -1,4 +1,4 @@
-## Elements
+# Ory Elements
 
 Ory component library for custom UI integration and development. A set of tools
 
@@ -7,7 +7,19 @@ Rollup. This makes the bundling experience a bit easier and really fast! We can
 now support a variety of environments through a singular repository. For
 example, in this repository we already have React, Preact and HTML support.
 
----
+## Run Storybook
+
+Clone this repository and:
+
+```shell
+npm i
+npm run initialize
+npm run build
+# or npm run build:clean
+npm run storybook
+```
+
+## Documentation
 
 [Vanilla-Extract](https://vanilla-extract.style/) is used to strongly type the
 CSS, a type of `CSS-in-JS` library which generates a static CSS file for us when
