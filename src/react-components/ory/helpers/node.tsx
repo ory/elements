@@ -159,6 +159,7 @@ export const Node = ({
             className={className}
             header={getNodeLabel(node)}
             variant={"semibold"}
+            size={"medium"}
             fullWidth
             disabled={attrs.disabled}
             {...(buttonOverrideProps && buttonOverrideProps)}

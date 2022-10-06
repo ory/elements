@@ -223,7 +223,7 @@ export const UserAuthCard = ({
         nodes: flow.ui.nodes,
       })
       message = {
-        text: "Already have an account?",
+        text: "Remember your credentials?",
         url: (additionalProps as RecoverySectionAdditionalProps).loginURL,
         buttonText: "Sign in",
         dataTestId: "cta-link",

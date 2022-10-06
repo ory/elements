@@ -1,7 +1,6 @@
 import { oryTheme } from "./theme.css"
 import { pxToRem } from "../common"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { defaultBreakpoints } from "./consts"
 
 export const buttonStyle = recipe({
   base: {
@@ -31,6 +30,10 @@ export const buttonStyle = recipe({
       backgroundColor: oryTheme.accent.emphasis,
       outline: "none",
     },
+  },
+  defaultVariants: {
+    size: "medium",
+    variant: "regular",
   },
   variants: {
     size: {
