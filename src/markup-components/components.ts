@@ -154,4 +154,32 @@ export const LookupSecretSettingsSection = (
   return ComponentWrapper(lookupSecretSettingsSection(props))
 }
 
-export type { UserSettingsFlowType } from "../react-components"
+export type {
+  UserSettingsFlowType,
+  NavSection,
+  NavSectionLinks,
+  NavProps,
+  MenuLinkProps,
+  CodeBoxProps,
+  ProfileSettingsProps,
+  PasswordSettingsProps,
+  WebAuthnSettingsProps,
+  OIDCSettingsProps,
+  TOTPSettingsProps,
+  LookupSecretSettingsProps,
+  NodeMessagesProps,
+  UserErrorCardProps,
+  UserSettingsCardProps,
+  UserAuthFormProps,
+  UserAuthCardProps,
+  MessageProps,
+  InputFieldProps,
+  ThemeProviderProps,
+  TypographyProps,
+  DividerProps,
+  CheckboxProps,
+  CardProps,
+  ButtonProps,
+  ButtonSocialProps,
+  ButtonLinkProps,
+} from "../react-components"
