@@ -6,8 +6,8 @@ import {
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
-import { Button } from "../../button"
-import { ButtonSocial } from "../../button-social"
+import { Button, ButtonProps } from "../../button"
+import { ButtonSocial, ButtonSocialProps } from "../../button-social"
 import { Checkbox } from "../../checkbox"
 import { InputField } from "../../input-field"
 import { Image } from "../../image"
@@ -23,13 +23,22 @@ interface ButtonSubmit {
   value: string
 }
 
+export type NodeOverrideProps = {
+  buttonOverrideProps?: Partial<ButtonProps>
+  buttonSocialOverrideProps?: Partial<ButtonSocialProps>
+}
+
+export type NodeProps = {
+  node: UiNode
+  className?: string
+} & NodeOverrideProps
+
 export const Node = ({
   node,
   className,
-}: {
-  node: UiNode
-  className?: string
-}): JSX.Element | null => {
+  buttonOverrideProps,
+  buttonSocialOverrideProps,
+}: NodeProps): JSX.Element | null => {
   if (isUiNodeImageAttributes(node.attributes)) {
     return (
       <Image
@@ -142,6 +151,7 @@ export const Node = ({
             size={"large"}
             fullWidth
             disabled={attrs.disabled}
+            {...(buttonSocialOverrideProps && buttonSocialOverrideProps)}
             {...submit}
           />
         ) : (
@@ -151,6 +161,7 @@ export const Node = ({
             variant={"semibold"}
             fullWidth
             disabled={attrs.disabled}
+            {...(buttonOverrideProps && buttonOverrideProps)}
             {...submit}
           />
         )
