@@ -14,7 +14,7 @@ import { OIDCSettingsSection } from "./sections/oidc-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import {
   hasLookupSecret,
-  hasOIDC,
+  hasOidc,
   hasPassword,
   hasTotp,
   hasWebauthn,
@@ -79,7 +79,7 @@ export const UserSettingsCard = ({
       }
       break
     case "oidc":
-      if (hasOIDC(flow.ui.nodes)) {
+      if (hasOidc(flow.ui.nodes)) {
         hasFlow = true
         cardTitle = title || "Social Sign In"
         $flow = <OIDCSettingsSection flow={flow} />

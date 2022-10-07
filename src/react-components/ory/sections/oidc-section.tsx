@@ -4,10 +4,10 @@ import { gridStyle } from "../../../theme"
 import { NodeMessages } from "../helpers/error-messages"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
-import { hasOIDC } from "../helpers/utils"
+import { hasOidc } from "../helpers/utils"
 
 export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
-  return hasOIDC(flow.ui.nodes) ? (
+  return hasOidc(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages
         nodes={filterNodesByGroups({

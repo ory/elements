@@ -3,7 +3,7 @@ export * from "./components"
 export * from "./express"
 export {
   hasLookupSecret,
-  hasOIDC,
+  hasOidc,
   hasTotp,
   hasPassword,
   hasWebauthn,

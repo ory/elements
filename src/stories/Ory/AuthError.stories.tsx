@@ -23,6 +23,6 @@ export const ErrorAuthCard = Template.bind({})
 ErrorAuthCard.args = {
   title: "An error occurred",
   error: authError as SelfServiceError,
-  backURL: "https://acme.com/login",
+  backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",
 }
