@@ -9,7 +9,6 @@ export const cardContainer = style({
   flexDirection: "column",
   alignItems: "stretch",
   border: `1px solid ${oryTheme.border.def}`,
-  cursor: "pointer",
   maxWidth: pxToRem(209),
   minWidth: pxToRem(209),
   minHeight: pxToRem(312),
@@ -32,12 +31,14 @@ export const cardContainer = style({
 export const cardGradientOverlayStyle = recipe({
   base: {
     background: oryTheme.accent.def,
+    cursor: "pointer",
   },
   defaultVariants: { disabled: false },
   variants: {
     disabled: {
       true: {
         background: oryTheme.foreground.disabled,
+        cursor: "default",
       },
       false: {
         selectors: {
@@ -73,11 +74,6 @@ export const cardGradientOverlayStyle = recipe({
 
 export const cardGradientStyle = style({
   textDecoration: "none",
-  selectors: {
-    "&[aria-disabled='true']": {
-      cursor: "default",
-    },
-  },
 })
 
 export const cardGradientActionStyle = recipe({
