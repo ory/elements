@@ -10,7 +10,7 @@ import { CodeBox } from "../codebox"
 export type UserErrorCardProps = {
   title: string
   error: SelfServiceError
-  backURL: string
+  backUrl: string
   contactSupportEmail?: string
 }
 
@@ -25,7 +25,7 @@ type errorMessage = {
 export const UserErrorCard = ({
   title,
   error,
-  backURL,
+  backUrl,
   contactSupportEmail,
 }: UserErrorCardProps): JSX.Element => {
   const err = error.error as errorMessage
@@ -57,7 +57,7 @@ export const UserErrorCard = ({
           </Message>
         )}
         <Message>
-          <ButtonLink href={backURL}>Go Back</ButtonLink>
+          <ButtonLink href={backUrl}>Go Back</ButtonLink>
         </Message>
       </div>
     </Card>

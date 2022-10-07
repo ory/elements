@@ -1,7 +1,7 @@
 import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
-import { hasOIDC } from "../helpers/utils"
+import { hasOidc } from "../helpers/utils"
 import { NodeMessages } from "../helpers/error-messages"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { gridStyle } from "../../../theme"
@@ -20,7 +20,7 @@ export const OIDCSettingsSection = ({
     withoutDefaultGroup: true,
   }
 
-  return hasOIDC(flow.ui.nodes) ? (
+  return hasOidc(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <NodeMessages nodes={filterNodesByGroups(filter)} />
       <FilterFlowNodes

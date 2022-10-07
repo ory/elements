@@ -1,6 +1,6 @@
 import { UiNode } from "@ory/client"
 
-export const hasOIDC = (nodes: UiNode[]) =>
+export const hasOidc = (nodes: UiNode[]) =>
   nodes.some(({ group }) => group === "oidc")
 export const hasPassword = (nodes: UiNode[]) =>
   nodes.some(({ group }) => group === "password")
