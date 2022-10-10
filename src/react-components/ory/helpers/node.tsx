@@ -148,7 +148,7 @@ export const Node = ({
             header={getNodeLabel(node)}
             brand={attrs.value.toLowerCase()}
             variant={"semibold"}
-            size={"large"}
+            size={"medium"}
             fullWidth
             disabled={attrs.disabled}
             {...(buttonSocialOverrideProps && buttonSocialOverrideProps)}

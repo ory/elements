@@ -45,6 +45,7 @@ export const buttonSocialStyle = recipe({
       },
     },
   },
+  defaultVariants: { size: "medium" },
   variants: {
     size: {
       small: {
