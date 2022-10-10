@@ -14,7 +14,7 @@ export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
     <NodeMessages
       nodes={filterNodesByGroups({
         nodes: nodes,
-        groups: "link",
+        groups: ["link", "code"],
         withoutDefaultGroup: true,
       })}
     />
@@ -22,7 +22,7 @@ export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: "link",
+          groups: ["link", "code"],
           excludeAttributes: "submit",
         }}
       />
@@ -30,7 +30,7 @@ export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
     <FilterFlowNodes
       filter={{
         nodes: nodes,
-        groups: "link",
+        groups: ["link", "code"],
         attributes: "submit",
       }}
     />
