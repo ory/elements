@@ -254,9 +254,7 @@ export const UserAuthCard = ({
       image={cardImage}
     >
       <div className={gridStyle({ gap: 32 })}>
-        <NodeMessages
-          uiMessages={flow.ui.messages}
-        />
+        <NodeMessages uiMessages={flow.ui.messages} />
         {$oidc && (
           <>
             <Divider />
