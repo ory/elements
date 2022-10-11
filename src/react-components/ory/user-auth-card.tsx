@@ -255,10 +255,6 @@ export const UserAuthCard = ({
     >
       <div className={gridStyle({ gap: 32 })}>
         <NodeMessages
-          nodes={filterNodesByGroups({
-            nodes: flow.ui.nodes,
-            groups: "default",
-          })}
           uiMessages={flow.ui.messages}
         />
         {$oidc && (

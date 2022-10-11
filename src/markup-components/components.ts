@@ -15,7 +15,7 @@ import {
   Message as message,
   InputField as inputField,
   UserErrorCard as userErrorCard,
-  NodeMessages as errorMessages,
+  NodeMessages as nodeMessages,
   ProfileSettingsSection as profileSettingsSection,
   PasswordSettingsSection as passwordSettingsSection,
   WebAuthnSettingsSection as webAuthnSettingsSection,
@@ -112,8 +112,8 @@ export const UserErrorCard = (props: UserErrorCardProps) => {
   return ComponentWrapper(userErrorCard(props))
 }
 
-export const ErrorMessages = (props: NodeMessagesProps) => {
-  return ComponentWrapper(errorMessages(props))
+export const NodeMessages = (props: NodeMessagesProps) => {
+  return ComponentWrapper(nodeMessages(props))
 }
 
 export const MenuLink = (props: MenuLinkProps) => {

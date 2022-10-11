@@ -14,6 +14,7 @@ import { Image } from "../../image"
 import { gridStyle } from "../../../theme"
 import { Typography } from "../../typography"
 import { pxToRem } from "../../../common"
+import { NodeMessages } from "./error-messages"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined
@@ -189,6 +190,10 @@ export const Node = ({
       default:
         return (
           <InputField
+            helperMessage={
+              <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
+            }
+            dataTestid={`node/input/${attrs.name}`}
             className={className}
             name={attrs.name}
             header={getNodeLabel(node)}

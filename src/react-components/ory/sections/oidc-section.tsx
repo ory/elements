@@ -1,7 +1,6 @@
 import React from "react"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { gridStyle } from "../../../theme"
-import { NodeMessages } from "../helpers/error-messages"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
 import { hasOidc } from "../helpers/utils"
@@ -9,14 +8,6 @@ import { hasOidc } from "../helpers/utils"
 export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
   return hasOidc(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
-      <NodeMessages
-        nodes={filterNodesByGroups({
-          nodes: flow.ui.nodes,
-          groups: "oidc",
-          withoutDefaultGroup: true,
-        })}
-      />
-
       {filterNodesByGroups({
         nodes: flow.ui.nodes,
         groups: "oidc",
