@@ -4,7 +4,6 @@ import {
   cardContainer,
   cardGradientActionStyle,
   cardGradientOverlayStyle,
-  cardGradientStyle,
 } from "../theme/card-gradient.css"
 import { colorSprinkle, gridStyle, typographyStyle } from "../theme"
 
@@ -28,19 +27,20 @@ export const CardGradient = ({
   className,
   ...props
 }: CardGradientProps): JSX.Element => (
-  <div className={cn(cardContainer, cardGradientOverlayStyle({ disabled }))}>
-    <a
+  <a
+    className={cn(cardContainer, cardGradientOverlayStyle({ disabled }))}
+    target={target}
+    aria-disabled={disabled}
+    {...(!disabled && { href: action })}
+    {...props}
+  >
+    <div
       className={cn(
-        cardGradientStyle,
         colorSprinkle({
           color: disabled ? "foregroundOnDisabled" : "foregroundOnDark",
         }),
         className,
       )}
-      target={target}
-      aria-disabled={disabled}
-      {...(!disabled && { href: action })}
-      {...props}
     >
       <div className={cn(gridStyle({ gap: 16 }))}>
         {typeof heading === "string" ? (
@@ -60,9 +60,9 @@ export const CardGradient = ({
           content
         )}
       </div>
-    </a>
+    </div>
     <i
       className={cn(`fa fa-arrow-right`, cardGradientActionStyle({ disabled }))}
     ></i>
-  </div>
+  </a>
 )

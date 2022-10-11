@@ -7,6 +7,7 @@ import { oryTheme } from "./theme.css"
 export const cardContainer = style({
   display: "flex",
   flexDirection: "column",
+  textDecoration: "none",
   alignItems: "stretch",
   border: `1px solid ${oryTheme.border.def}`,
   maxWidth: pxToRem(209),
@@ -70,10 +71,6 @@ export const cardGradientOverlayStyle = recipe({
       },
     },
   },
-})
-
-export const cardGradientStyle = style({
-  textDecoration: "none",
 })
 
 export const cardGradientActionStyle = recipe({
