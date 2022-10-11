@@ -7,9 +7,8 @@ export const messageStyle = recipe({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    color: oryTheme.foreground.def,
   },
-  defaultVariants: { textPosition: "center" },
+  defaultVariants: { textPosition: "center", severity: "default" },
   variants: {
     textPosition: {
       start: {
@@ -31,6 +30,9 @@ export const messageStyle = recipe({
       },
       disabled: {
         color: oryTheme.foreground.disabled,
+      },
+      default: {
+        color: oryTheme.foreground.def,
       },
     },
   },

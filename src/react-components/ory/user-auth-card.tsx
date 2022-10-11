@@ -25,6 +25,7 @@ import { NodeMessages } from "./helpers/error-messages"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
 import { Typography } from "../typography"
+import { Message } from "../message"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string
@@ -256,11 +257,7 @@ export const UserAuthCard = ({
       image={cardImage}
     >
       <div className={gridStyle({ gap: 32 })}>
-        {subtitle && (
-          <Typography color="foregroundMuted" size="small" type="regular">
-            {subtitle}
-          </Typography>
-        )}
+        {subtitle && <Message severity="default">{subtitle}</Message>}
         <NodeMessages uiMessages={flow.ui.messages} />
         {$oidc && (
           <>

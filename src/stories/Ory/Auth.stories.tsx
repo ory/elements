@@ -48,6 +48,21 @@ LoginAuthCard.args = {
   },
 }
 
+export const LoginAuthCardWithHydraClient = Template.bind({})
+
+LoginAuthCardWithHydraClient.args = {
+  title: "Sign in to your Acme account",
+  subtitle: "To authenticate client X",
+  flow: loginFlow as SelfServiceLoginFlow,
+  flowType: "login",
+  cardImage: logo,
+  additionalProps: {
+    signupURL: "https://acme.com/login",
+    forgotPasswordURL: "https://acme.com/forgot-password",
+    logoutURL: "https://acme.com/logout",
+  },
+}
+
 export const LoginAuthCard2FA = Template.bind({})
 
 LoginAuthCard2FA.args = {
