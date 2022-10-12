@@ -5,6 +5,7 @@ import { oryTheme } from "./theme.css"
 export const checkboxStyle = style({
   display: "flex",
   justifyContent: "start",
+  alignItems: "center",
   cursor: "pointer",
   gap: pxToRem(8),
 })
