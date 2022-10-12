@@ -24,6 +24,8 @@ import {
 import { NodeMessages } from "./helpers/error-messages"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
+import { Typography } from "../typography"
+import { Message } from "../message"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string
@@ -52,9 +54,9 @@ export type UserAuthCardProps = {
     | RegistrationSectionAdditionalProps
     | RecoverySectionAdditionalProps
     | VerificationSectionAdditionalProps
+  subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean
-  icon?: string
   className?: string
   children?: string
 } & UserAuthFormAdditionalProps
@@ -62,6 +64,7 @@ export type UserAuthCardProps = {
 export const UserAuthCard = ({
   flow,
   title,
+  subtitle,
   flowType,
   additionalProps,
   cardImage,
@@ -223,7 +226,7 @@ export const UserAuthCard = ({
         nodes: flow.ui.nodes,
       })
       message = {
-        text: "Already have an account?",
+        text: "Remember your credentials?",
         url: (additionalProps as RecoverySectionAdditionalProps).loginURL,
         buttonText: "Sign in",
         dataTestId: "cta-link",
@@ -254,13 +257,8 @@ export const UserAuthCard = ({
       image={cardImage}
     >
       <div className={gridStyle({ gap: 32 })}>
-        <NodeMessages
-          nodes={filterNodesByGroups({
-            nodes: flow.ui.nodes,
-            groups: "default",
-          })}
-          uiMessages={flow.ui.messages}
-        />
+        {subtitle && <Message severity="default">{subtitle}</Message>}
+        <NodeMessages uiMessages={flow.ui.messages} />
         {$oidc && (
           <>
             <Divider />

@@ -6,6 +6,8 @@ import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 import "../assets/normalize.css"
 // add theme 'Inter' font support
 import "../assets/inter-font.css"
+// add theme 'JetbrainsMono' font support
+import "../assets/jetbrains-mono-font.css"
 
 export type ThemeProviderProps = {
   theme?: "light" | "dark"

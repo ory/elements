@@ -9,6 +9,8 @@ import {
 import { SelfServiceFlow } from "./types"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 import { FilterNodesByGroups } from "@ory/integrations/ui"
+import { formStyle } from "../../../theme"
+import cn from "classnames"
 
 export type UserAuthFormAdditionalProps = {
   onSubmit?: ({
@@ -46,7 +48,7 @@ export const UserAuthForm = ({
   ...props
 }: UserAuthFormProps): JSX.Element => (
   <form
-    className={className}
+    className={cn(className, formStyle)}
     action={flow.ui.action}
     method={flow.ui.method}
     onKeyDown={(e) => {

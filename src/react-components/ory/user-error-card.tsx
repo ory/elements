@@ -11,6 +11,7 @@ export type UserErrorCardProps = {
   title: string
   error: SelfServiceError
   backUrl: string
+  cardImage?: string | React.ReactElement
   contactSupportEmail?: string
 }
 
@@ -26,6 +27,7 @@ export const UserErrorCard = ({
   title,
   error,
   backUrl,
+  cardImage,
   contactSupportEmail,
 }: UserErrorCardProps): JSX.Element => {
   const err = error.error as errorMessage
@@ -38,13 +40,14 @@ export const UserErrorCard = ({
           {title}
         </h2>
       }
+      image={cardImage}
     >
       <div
         className={gridStyle({ gap: 32, direction: "column" })}
         data-testid={`ui/error/message`}
       >
         <Message severity="error">
-          An error occurred with the following message:
+          An error occurred with the following message:&nbsp;
           {status < 500 && message}
         </Message>
         {status >= 500 && <CodeBox data-testid={"code-box"}>{message}</CodeBox>}

@@ -119,7 +119,7 @@ export const defaultLightTheme: Theme = {
     emphasis: "#18A957",
   },
   border: {
-    def: "#E0E0E0",
+    def: "#EEEEEE",
   },
   text: {
     def: "#FFFFFF",

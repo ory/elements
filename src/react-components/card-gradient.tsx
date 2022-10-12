@@ -1,16 +1,17 @@
 import React from "react"
 import cn from "classnames"
 import {
+  cardContainer,
   cardGradientActionStyle,
-  cardGradientStyle,
+  cardGradientOverlayStyle,
 } from "../theme/card-gradient.css"
-import { gridStyle, typographyStyle } from "../theme"
+import { colorSprinkle, gridStyle, typographyStyle } from "../theme"
 
 export interface CardGradientProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+  extends React.HTMLAttributes<HTMLAnchorElement> {
   heading: string | React.ReactNode
   content: string | React.ReactNode
-  action: string | React.ReactNode
+  action: string
   target?: string
   disabled?: boolean
   className?: string
@@ -26,32 +27,42 @@ export const CardGradient = ({
   className,
   ...props
 }: CardGradientProps): JSX.Element => (
-  <div
-    className={cn(cardGradientStyle({ disabled: disabled }), className)}
+  <a
+    className={cn(cardContainer, cardGradientOverlayStyle({ disabled }))}
+    target={target}
+    aria-disabled={disabled}
+    {...(!disabled && { href: action })}
     {...props}
   >
-    <div className={gridStyle({ gap: 16 })}>
-      {typeof heading === "string" ? (
-        <div className={typographyStyle({ size: "headline21", type: "bold" })}>
-          {heading}
-        </div>
-      ) : (
-        heading
+    <div
+      className={cn(
+        colorSprinkle({
+          color: disabled ? "foregroundOnDisabled" : "foregroundOnDark",
+        }),
+        className,
       )}
-      {typeof content === "string" ? (
-        <div className={typographyStyle({ size: "small", type: "regular" })}>
-          {content}
-        </div>
-      ) : (
-        content
-      )}
+    >
+      <div className={cn(gridStyle({ gap: 16 }))}>
+        {typeof heading === "string" ? (
+          <div
+            className={typographyStyle({ size: "headline21", type: "bold" })}
+          >
+            {heading}
+          </div>
+        ) : (
+          heading
+        )}
+        {typeof content === "string" ? (
+          <div className={typographyStyle({ size: "small", type: "regular" })}>
+            {content}
+          </div>
+        ) : (
+          content
+        )}
+      </div>
     </div>
-    {typeof action === "string" ? (
-      <a className={cardGradientActionStyle} href={action} target={target}>
-        <i className={cn(`fa fa-arrow-right`)}></i>
-      </a>
-    ) : (
-      action
-    )}
-  </div>
+    <i
+      className={cn(`fa fa-arrow-right`, cardGradientActionStyle({ disabled }))}
+    ></i>
+  </a>
 )

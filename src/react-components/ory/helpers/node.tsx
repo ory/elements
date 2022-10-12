@@ -14,6 +14,7 @@ import { Image } from "../../image"
 import { gridStyle } from "../../../theme"
 import { Typography } from "../../typography"
 import { pxToRem } from "../../../common"
+import { NodeMessages } from "./error-messages"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined
@@ -142,13 +143,20 @@ export const Node = ({
           }
         }
 
+        // the recovery code resend button
+        if (node.meta.label?.id === 1070007) {
+          // on html forms the required flag on an input field will prevent the form from submitting.
+          // we disable validation for this form since the resend button does not rely on any input fields
+          submit.formNoValidate = true
+        }
+
         return isSocial ? (
           <ButtonSocial
             className={className}
             header={getNodeLabel(node)}
             brand={attrs.value.toLowerCase()}
             variant={"semibold"}
-            size={"large"}
+            size={"medium"}
             fullWidth
             disabled={attrs.disabled}
             {...(buttonSocialOverrideProps && buttonSocialOverrideProps)}
@@ -159,6 +167,7 @@ export const Node = ({
             className={className}
             header={getNodeLabel(node)}
             variant={"semibold"}
+            size={"medium"}
             fullWidth
             disabled={attrs.disabled}
             {...(buttonOverrideProps && buttonOverrideProps)}
@@ -181,6 +190,10 @@ export const Node = ({
       default:
         return (
           <InputField
+            helperMessage={
+              <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
+            }
+            dataTestid={`node/input/${attrs.name}`}
             className={className}
             name={attrs.name}
             header={getNodeLabel(node)}

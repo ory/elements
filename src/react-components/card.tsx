@@ -28,12 +28,7 @@ export const Card = ({
     <div className={gridStyle({ gap: 32 })}>
       <div className={cardTitleImage}>
         {typeof image === "string" ? (
-          <img
-            src={image}
-            alt={`${heading}-image`}
-            width="100%"
-            height="100%"
-          />
+          <img src={image} alt={image} width="100%" height="100%" />
         ) : (
           image
         )}

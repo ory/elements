@@ -13,6 +13,7 @@ export const colorProperties = defineProperties({
       foregroundMuted: oryTheme.foreground.muted,
       foregroundSubtle: oryTheme.foreground.subtle,
       foregroundDisabled: oryTheme.foreground.disabled,
+      foregroundOnDisabled: oryTheme.foreground.onDisabled,
       foregroundOnDark: oryTheme.foreground.onDark,
       foregroundOnAccent: oryTheme.foreground.onAccent,
       backgroundSurface: oryTheme.background.surface,

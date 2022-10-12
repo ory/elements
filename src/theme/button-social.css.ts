@@ -38,21 +38,6 @@ export const buttonSocialStyle = recipe({
       backgroundColor: oryTheme.foreground.def,
       outline: "none",
     },
-    "@media": {
-      [`screen and (min-width: ${defaultBreakpoints.lg})`]: {
-        fontSize: pxToRem(18),
-        lineHeight: pxToRem(32),
-        padding: pxToRem(16, 24),
-      },
-      [`screen and (min-width: ${defaultBreakpoints.md})`]: {
-        fontSize: pxToRem(16),
-        lineHeight: pxToRem(28),
-      },
-      [`screen and (min-width: ${defaultBreakpoints.sm})`]: {
-        fontSize: pxToRem(14),
-        lineHeight: pxToRem(20),
-      },
-    },
     selectors: {
       "&:hover:disabled, &:disabled": {
         color: oryTheme.foreground.disabled,
@@ -60,6 +45,7 @@ export const buttonSocialStyle = recipe({
       },
     },
   },
+  defaultVariants: { size: "medium" },
   variants: {
     size: {
       small: {

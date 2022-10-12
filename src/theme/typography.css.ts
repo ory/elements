@@ -110,6 +110,11 @@ export const typographyStyle = recipe({
         fontSize: pxToRem(140),
         lineHeight: pxToRem(144),
       },
+      monoCaption: {
+        fontFamily: "JetBrainsMono",
+        fontSize: pxToRem(14),
+        lineHeight: pxToRem(20),
+      },
     },
     type: {
       regular: {

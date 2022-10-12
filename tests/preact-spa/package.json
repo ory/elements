@@ -13,7 +13,6 @@
     "wouter": "^2.8.0-alpha.2"
   },
   "devDependencies": {
-    "@ory/client": "^0.2.0-alpha.21",
     "@ory/elements-preact": "*",
     "@preact/preset-vite": "^2.3.0",
     "eslint": "^8.22.0",

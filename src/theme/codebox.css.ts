@@ -43,6 +43,23 @@ globalStyle(`${codeboxStyle} > ${codeboxHeaderStyle} label`, {
   cursor: "pointer",
 })
 
+// the icon needs to change to carret up when the checkbox is checked
+globalStyle(
+  `${codeboxStyle} input:checked ~ ${codeboxHeaderStyle} label i:first-child`,
+  {
+    display: "none",
+  },
+)
+
+// the icon needs to change to carret down when the checkbox is unchecked
+globalStyle(
+  `${codeboxStyle} input:not(:checked) ~ ${codeboxHeaderStyle} label i:last-child`,
+  {
+    display: "none",
+  },
+)
+
+// don't display the content if the checkbox is checked
 globalStyle(`${codeboxStyle} input:checked ~ ${codeboxContentStyle}`, {
   display: "none",
 })

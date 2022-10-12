@@ -1,31 +1,26 @@
 import { oryTheme } from "./theme.css"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { RuntimeFn } from "@vanilla-extract/recipes/dist/declarations/src/types"
 
-export type MessageStyleVariants = {
-  severity: {
-    error: {
-      color: string
-    }
-    success: {
-      color: string
-    }
-    disabled: {
-      color: string
-    }
-  }
-}
-
-export const messageStyle: RuntimeFn<MessageStyleVariants> = recipe({
+export const messageStyle = recipe({
   base: {
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    color: oryTheme.foreground.def,
   },
+  defaultVariants: { textPosition: "center", severity: "default" },
   variants: {
+    textPosition: {
+      start: {
+        justifyContent: "flex-start",
+      },
+      center: {
+        justifyContent: "center",
+      },
+      end: {
+        justifyContent: "flex-end",
+      },
+    },
     severity: {
       error: {
         color: oryTheme.error.emphasis,
@@ -35,6 +30,9 @@ export const messageStyle: RuntimeFn<MessageStyleVariants> = recipe({
       },
       disabled: {
         color: oryTheme.foreground.disabled,
+      },
+      default: {
+        color: oryTheme.foreground.def,
       },
     },
   },
