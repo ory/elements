@@ -179,12 +179,16 @@ export const Node = ({
         return (
           <Checkbox
             className={className}
+            helperMessage={
+              <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
+            }
             label={getNodeLabel(node)}
             name={attrs.name}
             required={attrs.required}
             defaultValue={attrs.value}
             disabled={attrs.disabled}
             defaultChecked={Boolean(attrs.value)}
+            dataTestid={`node/input/${attrs.name}`}
           />
         )
       default:
