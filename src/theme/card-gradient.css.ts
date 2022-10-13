@@ -33,6 +33,7 @@ export const cardGradientOverlayStyle = recipe({
   base: {
     background: oryTheme.accent.def,
     cursor: "pointer",
+    position: "relative",
   },
   defaultVariants: { disabled: false },
   variants: {
