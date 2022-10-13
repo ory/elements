@@ -12,12 +12,10 @@ jobs:
         with:
           node-version: "14"
       - run: npm ci
+      - run: npm run build:clean
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR }}" > ~/.npmrc
       - run:
-          npm version --no-git-tag-version ${{ github.event.release.tag_name }}
-      - run: npm run build
-      - run:
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR
-          }}" > ~/.npmrc
-      - run: npm publish --access public
-        # env:
-        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_AENEASR }}
+          npx lerna version --no-private --no-git-tag-version --no-push -y ${{
+          github.event.release.tag_name }}
+      - run: npx lerna publish from-package -y

@@ -1,18 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.0.1-alpha.3](https://github.com/ory/elements/compare/v0.0.1-alpha.2...v0.0.1-alpha.3) (2022-10-12)
 
-
 ### Bug Fixes
 
-* testid on nav menu links ([#12](https://github.com/ory/elements/issues/12)) ([d57776d](https://github.com/ory/elements/commit/d57776d6ccc39ef0c6dbdfe8ed51823854607478))
-
-
-
-
+- testid on nav menu links ([#12](https://github.com/ory/elements/issues/12))
+  ([d57776d](https://github.com/ory/elements/commit/d57776d6ccc39ef0c6dbdfe8ed51823854607478))
 
 # Change Log
 
