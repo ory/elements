@@ -13,7 +13,7 @@
     "build:react": "lerna run build --stream --scope=@ory/elements",
     "build:preact": "lerna run build --stream --scope@ory/elements-preact",
     "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
-    "version": "lerna version --no-private",
+    "version": "lerna version --no-private --no-git-tag-version --yes",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-e2e": "playwright test -c playwright.config.ts"
   },
