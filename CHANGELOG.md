@@ -1,5 +1,21 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.0.1-alpha.6](https://github.com/ory/elements/compare/v0.0.1-alpha.5...v0.0.1-alpha.6) (2022-10-13)
+
+
+### Bug Fixes
+
+* workflow ([#27](https://github.com/ory/elements/issues/27)) ([dd41e0b](https://github.com/ory/elements/commit/dd41e0b801cb8e299b8c146e559cdd8b7cdb8de9))
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
