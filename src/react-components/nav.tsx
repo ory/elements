@@ -1,17 +1,17 @@
+import cn from "classnames"
 import React from "react"
 import {
+  colorSprinkle,
+  gridStyle,
   navMainSectionStyle,
+  navMenuLinkSelectedStyle,
   navMenuSectionStyle,
   navSectionBottom,
   navSectionTitleStyle,
   navStyle,
-  colorSprinkle,
-  gridStyle,
   typographyStyle,
-  navMenuLinkSelectedStyle,
 } from "../theme"
 import { MenuLink, MenuLinkProps } from "./menu-link"
-import cn from "classnames"
 
 export type NavSectionLinks = {
   name: string

@@ -1,5 +1,5 @@
 import { NullableTokens } from "@vanilla-extract/css/dist/declarations/src/types"
-import { pxToEm, pxToRem } from "../common"
+import { pxToEm } from "../common"
 
 export interface Font extends NullableTokens {
   fontFamily: string
@@ -76,13 +76,6 @@ export type Theme = {
 export const defaultFont: Font = {
   fontFamily: "Inter",
   fontStyle: "normal",
-}
-
-const defaultButtonFontTheme = {
-  fontFamily: "Inter",
-  textDecoration: "none",
-  fontSize: pxToRem(16),
-  lineHeight: pxToRem(28),
 }
 
 export const defaultLightTheme: Theme = {

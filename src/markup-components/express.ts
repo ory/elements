@@ -1,5 +1,5 @@
-import express, { Application } from "express"
 import { assignInlineVars } from "@vanilla-extract/dynamic"
+import express, { Application } from "express"
 import { oryTheme, Theme } from "../theme"
 
 export const RegisterOryElementsExpress = (app: Application, theme: Theme) => {

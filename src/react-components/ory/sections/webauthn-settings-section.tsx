@@ -1,8 +1,7 @@
-import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
+import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasWebauthn } from "../helpers/utils"
-import { gridStyle } from "../../../theme"
 
 export type WebAuthnSettingsProps = {
   flow: SelfServiceSettingsFlow

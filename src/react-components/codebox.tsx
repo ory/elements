@@ -1,3 +1,4 @@
+import cn from "classnames"
 import React from "react"
 import {
   codeboxContentStyle,
@@ -7,7 +8,6 @@ import {
   gridStyle,
   typographyStyle,
 } from "../theme"
-import cn from "classnames"
 
 export interface CodeBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode

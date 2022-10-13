@@ -1,5 +1,5 @@
-import ReactDOMServer from "react-dom/server"
 import { ReactElement } from "react"
+import ReactDOMServer from "react-dom/server"
 
 export const ComponentWrapper = (children: ReactElement | null) => {
   if (!children) {

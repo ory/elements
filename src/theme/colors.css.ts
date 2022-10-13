@@ -1,5 +1,5 @@
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
 import { oryTheme } from "./theme.css"
-import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles"
 
 export const colorProperties = defineProperties({
   properties: {

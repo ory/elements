@@ -1,4 +1,3 @@
-import React from "react"
 import { UiNode, UiText } from "@ory/client"
 import { GridStyle, gridStyle } from "../../../theme"
 import { Message, MessageStyleProps } from "../../message"

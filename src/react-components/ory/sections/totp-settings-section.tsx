@@ -1,8 +1,7 @@
-import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
-import { hasTotp } from "../helpers/utils"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
+import { hasTotp } from "../helpers/utils"
 
 export type TOTPSettingsProps = {
   flow: SelfServiceSettingsFlow

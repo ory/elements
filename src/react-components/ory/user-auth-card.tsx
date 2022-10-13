@@ -1,31 +1,30 @@
-import React from "react"
-import { Card } from "../card"
-import {
-  UserAuthFormAdditionalProps,
-  UserAuthForm,
-} from "./helpers/user-auth-form"
-import { gridStyle, typographyStyle } from "../../theme"
 import { SelfServiceLoginFlow } from "@ory/client"
+import { filterNodesByGroups } from "@ory/integrations/ui"
+import React from "react"
+import { gridStyle, typographyStyle } from "../../theme"
+import { Card } from "../card"
+import { Divider } from "../divider"
+import { Message } from "../message"
+import { MessageSection, MessageSectionProps } from "./helpers/common"
+import { NodeMessages } from "./helpers/error-messages"
+import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
 import { useScriptNodes } from "./helpers/node-script"
 import { SelfServiceFlow } from "./helpers/types"
-import { LoginSection } from "./sections/login-section"
-import { LinkSection } from "./sections/link-section"
-import { Divider } from "../divider"
-import { MessageSection, MessageSectionProps } from "./helpers/common"
-import { PasswordlessSection } from "./sections/passwordless-section"
-import { OIDCSection } from "./sections/oidc-section"
-import { RegistrationSection } from "./sections/registration-section"
+import {
+  UserAuthForm,
+  UserAuthFormAdditionalProps,
+} from "./helpers/user-auth-form"
 import {
   hasLookupSecret,
   hasPassword,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import { NodeMessages } from "./helpers/error-messages"
-import { filterNodesByGroups } from "@ory/integrations/ui"
-import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
-import { Typography } from "../typography"
-import { Message } from "../message"
+import { LinkSection } from "./sections/link-section"
+import { LoginSection } from "./sections/login-section"
+import { OIDCSection } from "./sections/oidc-section"
+import { PasswordlessSection } from "./sections/passwordless-section"
+import { RegistrationSection } from "./sections/registration-section"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string

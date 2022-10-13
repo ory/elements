@@ -1,10 +1,10 @@
-import React from "react"
 import { SelfServiceError } from "@ory/client"
+import React from "react"
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { ButtonLink } from "../button-link"
 import { Card } from "../card"
-import { Message } from "../message"
 import { CodeBox } from "../codebox"
+import { Message } from "../message"
 
 // SelfServiceErrorCard props
 export type UserErrorCardProps = {

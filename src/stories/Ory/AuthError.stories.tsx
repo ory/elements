@@ -1,9 +1,7 @@
-import React from "react"
 import { SelfServiceError } from "@ory/client"
+import { ComponentMeta, Story } from "@storybook/react"
 import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
-import { ComponentMeta } from "@storybook/react"
-import { Story } from "@storybook/react"
 
 import authError from "./auth-error.json"
 

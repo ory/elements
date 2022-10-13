@@ -1,4 +1,3 @@
-import React from "react"
 import { ComponentMeta, Story } from "@storybook/react"
 import { CodeBox, CodeBoxProps } from "../react-components/codebox"
 import { Container } from "./storyhelper"

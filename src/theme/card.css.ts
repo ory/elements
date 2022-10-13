@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
-import { pxToRem } from "../common"
-import { oryTheme } from "./theme.css"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { pxToRem } from "../common"
 import { defaultBreakpoints } from "./consts"
+import { oryTheme } from "./theme.css"
 
 // the base card style with media queries
 const card = style({

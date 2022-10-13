@@ -1,10 +1,9 @@
-import React from "react"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserSettingsCard, UserSettingsCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
-import settingsFlow from "./settings-flow.json"
 import { SelfServiceSettingsFlow } from "@ory/client"
+import settingsFlow from "./settings-flow.json"
 
 export default {
   title: "Ory/UserSettingsCard",

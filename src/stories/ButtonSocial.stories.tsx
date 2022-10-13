@@ -1,5 +1,4 @@
-import React from "react"
-import { Story, ComponentMeta } from "@storybook/react"
+import { ComponentMeta, Story } from "@storybook/react"
 import { ButtonSocial, ButtonSocialProps } from "../react-components"
 import { Container } from "./storyhelper"
 

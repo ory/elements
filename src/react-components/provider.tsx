@@ -1,5 +1,5 @@
-import React from "react"
 import { assignInlineVars } from "@vanilla-extract/dynamic"
+import React from "react"
 import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 
 // normalize the standard browser CSS

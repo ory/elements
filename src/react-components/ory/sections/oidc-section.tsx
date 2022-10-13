@@ -1,4 +1,3 @@
-import React from "react"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
