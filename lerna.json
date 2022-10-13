@@ -2,12 +2,14 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useNx": true,
   "useWorkspaces": true,
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.5",
   "command": {
     "version": {
       "allowBranch": "main",
       "conventionalCommits": true,
-      "private": false
+      "private": false,
+      "message": "chore(release): version bump",
+      "noGitTagVersion": true
     },
     "publish": {
       "private": false

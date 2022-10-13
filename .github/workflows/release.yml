@@ -15,7 +15,4 @@ jobs:
       - run: npm run build:clean
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR }}" > ~/.npmrc
-      - run:
-          npx lerna version --no-private --no-git-tag-version --no-push -y ${{
-          github.event.release.tag_name }}
-      - run: npx lerna publish from-package -y
+      - run: npm lerna publish from-git -y
