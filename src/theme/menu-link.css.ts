@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { pxToRem } from "../common"
+import { pxToEm, pxToRem } from "../common"
 
 export const menuLinkStyle = style({
   boxSizing: "border-box",
@@ -14,6 +14,7 @@ export const menuLinkStyle = style({
 
 export const menuLinkIconLeftStyle = style({
   paddingRight: pxToRem(8),
+  width: pxToEm(18),
 })
 
 export const menuLinkTextStyle = style({

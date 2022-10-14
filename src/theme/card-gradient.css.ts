@@ -22,7 +22,6 @@ export const cardContainer = style({
       width: "100%",
       border: "0px",
       borderRadius: "0px",
-      padding: `0px 0px ${pxToRem(32)}`,
       maxWidth: pxToRem(294),
       minWidth: pxToRem(294),
     },
@@ -49,17 +48,6 @@ export const cardGradientOverlayStyle = recipe({
             display: "block",
             position: "absolute",
             opacity: "0.5",
-            top: 0,
-            left: 0,
-            background:
-              "linear-gradient(180deg, rgba(48, 48, 48, 0.85) 1.22%, rgba(48, 48, 48, 0.0001) 100%)",
-            backgroundSize: "cover",
-          },
-          "&:hover:before": {
-            content: " ",
-            display: "block",
-            position: "absolute",
-            opacity: "0.9",
             width: "100%",
             height: "100%",
             top: 0,
@@ -67,6 +55,10 @@ export const cardGradientOverlayStyle = recipe({
             background:
               "linear-gradient(180deg, rgba(48, 48, 48, 0.85) 1.22%, rgba(48, 48, 48, 0.0001) 100%)",
             backgroundSize: "cover",
+            zIndex: -1,
+          },
+          "&:hover:before": {
+            opacity: "0.9",
           },
         },
       },
