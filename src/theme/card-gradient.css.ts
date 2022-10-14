@@ -54,7 +54,7 @@ export const cardGradientOverlayStyle = recipe({
             background:
               "linear-gradient(180deg, rgba(48, 48, 48, 0.85) 1.22%, rgba(48, 48, 48, 0.0001) 100%)",
             backgroundSize: "cover",
-            zIndex: -1
+            zIndex: -1,
           },
           "&:hover:before": {
             opacity: "0.9",
