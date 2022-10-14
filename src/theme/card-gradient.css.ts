@@ -54,19 +54,10 @@ export const cardGradientOverlayStyle = recipe({
             background:
               "linear-gradient(180deg, rgba(48, 48, 48, 0.85) 1.22%, rgba(48, 48, 48, 0.0001) 100%)",
             backgroundSize: "cover",
+            zIndex: -1
           },
           "&:hover:before": {
-            content: " ",
-            display: "block",
-            position: "absolute",
             opacity: "0.9",
-            width: "100%",
-            height: "100%",
-            top: 0,
-            left: 0,
-            background:
-              "linear-gradient(180deg, rgba(48, 48, 48, 0.85) 1.22%, rgba(48, 48, 48, 0.0001) 100%)",
-            backgroundSize: "cover",
           },
         },
       },
