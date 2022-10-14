@@ -22,7 +22,6 @@ export const cardContainer = style({
       width: "100%",
       border: "0px",
       borderRadius: "0px",
-      padding: `0px 0px ${pxToRem(32)}`,
       maxWidth: pxToRem(294),
       minWidth: pxToRem(294),
     },
