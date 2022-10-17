@@ -1,15 +1,17 @@
 # Ory Elements
 
-Ory component library for custom UI integration and development. A set of tools
+Ory Elements is a component library that makes building login, registration and
+account pages for Ory a breeze.
 
-Here we are using [Vite](https://vitejs.dev/) as the bundler instead of only
-Rollup. This makes the bundling experience a bit easier and really fast! We can
-now support a variety of environments through a singular repository. For
-example, in this repository we already have React, Preact and HTML support.
+It works with vanilla HTML, React and Preact out of the box, and uses
+[Vite](https://vitejs.dev/) as a fast and easy bundler that supports a variety
+of environments through a singular repository.
 
-## Run Storybook
+## Quickstart: Storybook
 
-Clone this repository and:
+Explore the Ory Elements via [Storybook](https://storybook.js.org/)!
+
+Clone this repository and run:
 
 ```shell
 npm i
@@ -19,7 +21,44 @@ npm run build
 npm run storybook
 ```
 
+## Example Apps
+
+Dive into Ory Elements with our `react` and `preact` SPA example applications,
+located in the `tests/` directory.
+
+To run the example application you will need a couple things:
+
+1. A free [Ory Network account](https://console.ory.sh/)
+2. The [Ory CLI (tunnel)](https://www.ory.sh/docs/guides/cli/installation) to
+   enable local use of authentication cookies for development.
+
+Clone this repository and setup the React example.
+
+```shell
+git clone git@github.com:ory/elements
+npm i
+npm run initialize
+npm run build:clean
+cd tests/react-spa
+export VITE_ORY_SDK_URL=http://localhost:4000
+npm run dev -- --port 3000
+```
+
+Now run the Ory CLI tunnel.
+
+```shell
+ory tunnel http://localhost:4000 --project <project-slug> --dev
+```
+
+The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
+have explicity told our React app to use through the `VITE_ORY_SDK_URL` export.
+
+Now you can see Ory Elements in action by opening http://localhost:3000 in your
+browser!
+
 ## Documentation
+
+### Strongly Typed CSS using Vanilla-Extract
 
 [Vanilla-Extract](https://vanilla-extract.style/) is used to strongly type the
 CSS, a type of `CSS-in-JS` library which generates a static CSS file for us when
@@ -80,7 +119,7 @@ And the generated CSS classes.
 }
 ```
 
----
+### Overriding Styles
 
 Vanilla-Extract also provides us theme variables which we can give static names.
 This means we can overwrite them inside the project consuming the library!
@@ -118,7 +157,7 @@ This means we can overwrite them inside the project consuming the library!
 }
 ```
 
----
+### Theme CSS in ExpressJS
 
 For ExpressJS the library also exports a helper function which registers all of
 the CSS the library produces.
@@ -150,7 +189,9 @@ HTML page:
 <link rel="stylesheet" href="theme.css" /> // the overidden theme variables
 ```
 
-We can then reference a component through the handlebars helper functions that
+### Rendering components
+
+We can then reference a component through handlebars helper functions that
 return pure HTML.
 
 ```handlebars
@@ -176,41 +217,3 @@ res.render("login", {
   }),
 })
 ```
-
----
-
-### Example Apps
-
-Ory Elements also has example applications which we test the component library
-against.
-
-Currently we have a `react` and `preact` SPA under the `tests/` directory.
-
-To run the example application you will need a couple things:
-
-1. An [Ory Cloud (free) account](https://console.ory.sh/)
-2. The [Ory CLI (tunnel)](https://www.ory.sh/docs/guides/cli/installation)
-
-Clone this repository and setup the React example.
-
-```shell
-git clone git@github.com:ory/elements
-npm i
-npm run initialize
-npm run build:clean
-cd tests/react-spa
-export VITE_ORY_SDK_URL=http://localhost:4000
-npm run dev -- --port 3000
-```
-
-Now run the Ory CLI tunnel.
-
-```shell
-ory tunnel http://localhost:3000 --project <project-slug> --dev
-```
-
-The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
-have explicity told our React app to use through the `VITE_ORY_SDK_URL` export.
-
-Open http://localhost:3000 in your browser and everything will work out of the
-box :)
