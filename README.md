@@ -11,6 +11,12 @@ account pages for Ory a breeze.
 - Dynamically adapts the user interface to your Ory identity schema, sign-in and
   flow configuration
 
+Elements supports integrating with:
+
+- React
+- Preact
+- ExpressJs (experimental)
+
 ## Getting Started
 
 Install Ory Elements into your existing React / Preact or ExpressJS application.
@@ -100,7 +106,7 @@ version.
 
 Below is an example of how you should add the pacakge.
 
-```package.json
+```json
 ...
 "@ory/elements": "*",
 ...
@@ -294,7 +300,6 @@ res.render("login", {
     title: !(flow.refresh || flow.requested_aal === "aal2")
       ? "Sign In"
       : "Two-Factor Authentication",
-    }),
     flow: flow as SelfServiceFlow,
     flowType: "login",
     cardImage: "ory-logo.svg",
