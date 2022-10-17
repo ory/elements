@@ -4,8 +4,8 @@
   "private": "true",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "initialize": "npm install && npm run clean && lerna bootstrap --hoist",
-    "clean": "lerna clean --yes",
+    "initialize": "npm run clean && npx lerna bootstrap --hoist",
+    "clean": "npx lerna clean --yes",
     "build-storybook": "build-storybook",
     "refresh": "lerna bootstrap --hoist",
     "build:clean": "lerna run build --skip-nx-cache",
