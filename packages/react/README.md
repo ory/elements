@@ -65,9 +65,7 @@ exoort const Login = () => {
       }}
       title={"Login"}
       includeScripts={true}
-      onSubmit={({ body }) => {
-        // do sdk call to submit the login form back to Ory
-      }}
+      onSubmit={submitFormData}
     />
   ) : (
     <div>Loading...</div>

@@ -52,8 +52,8 @@ Let's create a login example, create `login.tsx`.
 
 ```tsx
 export const Login = () => {
-    // do sdk calls to Ory to get the flow data
-    return flow ? (
+  // do sdk calls to get the flow data from Ory
+  return flow ? (
     <UserAuthCard
       flow={flow}
       flowType={"login"}
@@ -63,11 +63,10 @@ export const Login = () => {
       }}
       title={"Login"}
       includeScripts={true}
-      onSubmit={({ body }) => {
-        // do an sdk call to Ory to submit the form data
-      }}
+      onSubmit={submitFormData}
     />
   ) : (
     <div>Loading...</div>
   )
 }
+```
