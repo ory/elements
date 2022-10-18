@@ -20,7 +20,7 @@ Now run the [Ory CLI](https://www.ory.sh/docs/guides/cli/installation) tunnel.
 ory tunnel http://localhost:3000 --project <project-slug> --dev
 ```
 
-The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
+The tunnel will now _mirror_ the Ory Network APIs and make them available locally at `http://localhost:4000` which we
 have explicity told our Preact app to use through the `VITE_ORY_SDK_URL` export.
 
 Open http://localhost:3000 in your browser and everything will work out of the

@@ -46,7 +46,7 @@ render(<Main />, document.getElementById("app") as HTMLElement)
 Ory Elements supports integrating with Ory out of the box with the
 `<UserAuthCard/>`, `<UserSettingsCard />` and `<UserErrorCard />`.
 
-Each flow can be mapped using these compontents with only a few lines of caode.
+Each flow can be mapped using these compontents with only a few lines of code.
 
 Let's create a login example, create `login.tsx`.
 

@@ -93,9 +93,8 @@ corresponding css in `src/theme`. Check it out by writing a new story for the
 component in the `src/stories` folder.
 
 Add a test to verify the component works correctly by creating a new file next
-to the component file with the same name and an added `*.spec.ts` extension. All
-tests are written in [Playwright](https://playwright.dev/) for component tests
-and E2E tests.
+to the component file with the same name and an added `*.spec.ts` extension. All E2E
+and component tests are written in [Playwright](https://playwright.dev/).
 
 **Example Apps**
 
@@ -118,7 +117,7 @@ Below is an example of how you should add the pacakge.
 
 Elements uses [Lerna](https://lerna.js.org/) to bundle each package in the
 Elements mono-repository. This also helps with package management and build
-caching. Lerna also publishes the code to the npm for us.
+caching. Lerna also publishes the code to the public [npm registry](https://www.npmjs.com/) for us.
 
 Lerna also use [Nx](https://nx.dev/) to build the packages in parallel.
 
@@ -324,11 +323,11 @@ which you can find in the
 the react components directly in this case but bundles it specifically for
 Preact support.
 
-Each component relies on a some CSS, which are located in the
+Each component relies on some CSS styles, which are located in the
 [theme](https://github.com/ory/elements/tree/main/src/theme) directory. To
 understand how this works, please refer to the [CSS System](#css-system)
 
-#### ExpressJs systems
+#### Express JS systems
 
 Express is an edge-case which requires the component to be wrapped by
 `ReactDOMServer` to produce only HTML. Each component needs to be wrapped by
@@ -353,7 +352,7 @@ export type { UserAuthCardProps } from "../react-components"
 
 ### Asset System
 
-Assets are bundled into a singular `style.css` file under each pacakges `dist/`
+Assets are bundled into a singular `style.css` file under each packages `dist/`
 folder. Anything placed inside the
 [assets](https://github.com/ory/elements/tree/main/src/assets) folder will be
 bundled. They can also be directly imported by the React components to be used
