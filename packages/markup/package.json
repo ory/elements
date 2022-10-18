@@ -46,6 +46,6 @@
   },
   "typedoc": {
     "entryPoint": "../../src/markup.ts",
-    "readmeFile": "../../README.md"
+    "readmeFile": "./README.md"
   }
 }

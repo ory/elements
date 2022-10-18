@@ -45,6 +45,6 @@
   },
   "typedoc": {
     "entryPoint": "../../src/react.ts",
-    "readmeFile": "../../README.md"
+    "readmeFile": "./README.md"
   }
 }

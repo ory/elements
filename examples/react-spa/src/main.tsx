@@ -10,7 +10,7 @@ import { Registration } from "./Registration"
 import { Settings } from "./Settings"
 import { Verification } from "./Verification"
 
-// import our Ory elements css
+// import Ory elements css
 import "@ory/elements/style.css"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
