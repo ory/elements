@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react"
-import "./App.css"
-import { Routes, Route, useNavigate } from "react-router-dom"
-import { Login } from "./Login"
-import { Registration } from "./Registration"
-import { Verification } from "./Verification"
 import { Session } from "@ory/client"
-import sdk from "./sdk"
 import { Typography } from "@ory/elements"
-import { Recovery } from "./Recovery"
-import { Settings } from "./Settings"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import "./Dashboard.css"
+import sdk from "./sdk"
 
-const Dashboard = () => {
+export const Dashboard = () => {
   const [session, setSession] = useState<Session | null>(null)
   const [logoutUrl, setLogoutUrl] = useState<string>()
 
@@ -61,18 +56,3 @@ const Dashboard = () => {
     </>
   )
 }
-
-function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Registration />} />
-      <Route path="/verification" element={<Verification />} />
-      <Route path="/recovery" element={<Recovery />} />
-      <Route path="/settings" element={<Settings />} />
-    </Routes>
-  )
-}
-
-export default App

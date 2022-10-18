@@ -1,9 +1,14 @@
+import { ThemeProvider } from "@ory/elements"
 import React from "react"
 import ReactDOM from "react-dom/client"
-import { BrowserRouter } from "react-router-dom"
-import { ThemeProvider } from "@ory/elements"
-import App from "./App"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Dashboard } from "./Dashboard"
 import "./index.css"
+import { Login } from "./Login"
+import { Recovery } from "./Recovery"
+import { Registration } from "./Registration"
+import { Settings } from "./Settings"
+import { Verification } from "./Verification"
 
 // import our Ory elements css
 import "@ory/elements/style.css"
@@ -12,8 +17,15 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       {/* We add the Ory themes here */}
-      <ThemeProvider>
-        <App />
+      <ThemeProvider themeOverrides={{}}>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Registration />} />
+          <Route path="/verification" element={<Verification />} />
+          <Route path="/recovery" element={<Recovery />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
