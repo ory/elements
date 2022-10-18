@@ -89,6 +89,6 @@
   },
   "workspaces": [
     "packages/*",
-    "tests/*"
+    "examples/*"
   ]
 }

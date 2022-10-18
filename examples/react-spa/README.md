@@ -1,6 +1,6 @@
 ## React with Elements Example
 
-This is an example Preact project implementing Ory Elements. The project was
+This is an example React project implementing Ory Elements. The project was
 scaffolded by [Vite](https://vitejs.dev/).
 
 ### Get Started
@@ -9,7 +9,7 @@ scaffolded by [Vite](https://vitejs.dev/).
 git clone --depth 1 git@github.com:ory/elements.git
 cd elements
 npm run initialize
-cd tests/preact-spa
+cd examples/react-spa
 export VITE_ORY_SDK_URL=http://localhost:4000
 npm run dev -- --port 3000
 ```
@@ -21,7 +21,7 @@ ory tunnel http://localhost:3000 --project <project-slug> --dev
 ```
 
 The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
-have explicity told our Preact app to use through the `VITE_ORY_SDK_URL` export.
+have explicity told our React app to use through the `VITE_ORY_SDK_URL` export.
 
 Open http://localhost:3000 in your browser and everything will work out of the
 box :)
