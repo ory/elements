@@ -1,4 +1,3 @@
-import React, { useCallback, useEffect, useState } from "react"
 import {
   SelfServiceSettingsFlow,
   SubmitSelfServiceSettingsFlowBody,
@@ -8,38 +7,36 @@ import {
   UserSettingsCard,
   UserSettingsFlowType,
 } from "@ory/elements"
-import sdk from "./sdk"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import sdk from "./sdk"
 
 export const Settings = () => {
   const [flow, setFlow] = useState<SelfServiceSettingsFlow | null>(null)
 
   const navigator = useNavigate()
 
-  const onSubmit = useCallback(
-    ({
-      flow,
-      body,
-    }: {
-      flow: SelfServiceSettingsFlow
-      body: SubmitSelfServiceSettingsFlowBody
-    }) =>
-      sdk
-        .submitSelfServiceSettingsFlow(
-          flow.id,
-          body as SubmitSelfServiceSettingsFlowBody,
-        )
-        .then(({ data: flow }) => {
-          setFlow(flow)
-        })
-        .catch((error) => {
-          if (error.response.status === 403) {
-            return navigator("/login", { replace: true })
-          }
-          setFlow(error.response.data)
-        }),
-    [],
-  )
+  const onSubmit = ({
+    flow,
+    body,
+  }: {
+    flow: SelfServiceSettingsFlow
+    body: SubmitSelfServiceSettingsFlowBody
+  }) =>
+    sdk
+      .submitSelfServiceSettingsFlow(
+        flow.id,
+        body as SubmitSelfServiceSettingsFlowBody,
+      )
+      .then(({ data: flow }) => {
+        setFlow(flow)
+      })
+      .catch((error) => {
+        if (error.response.status === 403) {
+          return navigator("/login", { replace: true })
+        }
+        setFlow(error.response.data)
+      })
 
   useEffect(() => {
     sdk
@@ -49,6 +46,7 @@ export const Settings = () => {
       })
   }, [])
 
+  // if the flow is not set, we are still loading
   return flow ? (
     <div className={gridStyle({ gap: 16 })}>
       {(
