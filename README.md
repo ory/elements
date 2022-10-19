@@ -11,7 +11,7 @@ account pages for Ory a breeze.
 - Dynamically adapts the user interface to your Ory identity schema, sign-in and
   flow configuration
 
-Elements supports integrating with:
+Ory Elements supports integrating with:
 
 - React
 - Preact
@@ -47,7 +47,7 @@ located in the `examples/` directory.
 
 To run the example application you will need a couple things:
 
-1. An [Ory Cloud (free) account](https://console.ory.sh/)
+1. An [Ory Network (free) account](https://console.ory.sh/)
 2. The [Ory CLI (tunnel)](https://www.ory.sh/docs/guides/cli/installation)
 
 Clone this repository and setup the React example.
@@ -93,8 +93,8 @@ corresponding css in `src/theme`. Check it out by writing a new story for the
 component in the `src/stories` folder.
 
 Add a test to verify the component works correctly by creating a new file next
-to the component file with the same name and an added `*.spec.ts` extension. All E2E
-and component tests are written in [Playwright](https://playwright.dev/).
+to the component file with the same name and an added `*.spec.ts` extension. All
+E2E and component tests are written in [Playwright](https://playwright.dev/).
 
 **Example Apps**
 
@@ -107,17 +107,20 @@ Below is an example of how you should add the pacakge.
 
 ```json
 ...
-"@ory/elements": "*",
+"devDependencies": {
+  "@ory/elements": "*"
+}
 ...
 ```
 
-## Understanding Elements
+## Understanding Ory Elements
 
 ### Bundling System
 
-Elements uses [Lerna](https://lerna.js.org/) to bundle each package in the
-Elements mono-repository. This also helps with package management and build
-caching. Lerna also publishes the code to the public [npm registry](https://www.npmjs.com/) for us.
+Ory Elements uses [Lerna](https://lerna.js.org/) to bundle each package in the
+Ory Elements mono-repository. This also helps with package management and build
+caching. Lerna also publishes the code to the public
+[npm registry](https://www.npmjs.com/) for us.
 
 Lerna also use [Nx](https://nx.dev/) to build the packages in parallel.
 
@@ -163,24 +166,13 @@ var dividerStyle = createRuntimeFn({
 })
 ```
 
-And the generated CSS classes.
+And the gO .\_3ldkmt0 { display: block; text-align: center; overflow: hidden;
+box-sizing: border-box; border: 0; border-top: 0.25rem solid; border-color:
+var(--ory-theme-border-def); width: 4rem; }
 
-```css
-._3ldkmt0 {
-  display: block;
-  text-align: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  border: 0;
-  border-top: 0.25rem solid;
-  border-color: var(--ory-theme-border-def);
-  width: 4rem;
-}
+.\_3ldkmt1 { width: 100%; }
 
-._3ldkmt1 {
-  width: 100%;
-}
-```
+````
 
 ### Overriding Styles
 
@@ -218,7 +210,7 @@ This means we can overwrite them inside the project consuming the library!
   --ory-theme-input-placeholder: #9e9e9e;
   --ory-theme-input-text: #424242;
 }
-```
+````
 
 Inside of our components we provide the `<ThemeProvider />` which exposes the
 `themeOverrides` property so that you can implement your own theme.
@@ -315,7 +307,7 @@ res.render("login", {
 
 ### Component System
 
-Elements solely rely on React components since they are easy to write and
+Ory Elements solely rely on React components since they are easy to write and
 provides support to a large React based ecosystem. The project then bundles
 these components to their respective needs. An example is bundling for Preact
 which you can find in the
@@ -329,11 +321,12 @@ understand how this works, please refer to the [CSS System](#css-system)
 
 #### Express JS systems
 
-Express is an edge-case which requires the component to be wrapped by
-`ReactDOMServer` to produce only HTML. Each component needs to be wrapped by
-`ComponentWrapper` which essentially uses `ReactDOMServer`. The
-`elements-markup` package then bundles the React library with it so that the
-React code lives with the component library.
+Express JS is an edge-case which requires the React components to be wrapped by
+the `ReactDOMServer` to produce static HTML. This essentially does server-side
+rendering of the components and removes any client-side JavaScript. Each
+component needs to be wrapped by `ComponentWrapper` which essentially uses
+`ReactDOMServer`. The `elements-markup` package then bundles the React library
+with it so that the React code lives with the component library.
 
 Here is an example of exporting the `UserAuthCard`.
 
@@ -361,7 +354,7 @@ and are sometimes required by a component. An example is the
 
 ## Versioning and Publishing
 
-Elements uses a mixture of manual and automated publishing. We first need to
+Ory Elements uses a mixture of manual and automated publishing. We first need to
 bump all of the package versions inside of the repository using `lerna version`
 and then we need to create a GitHub release which will trigger a CI action to
 build and publish the packages to npm.

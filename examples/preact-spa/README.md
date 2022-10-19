@@ -1,7 +1,21 @@
-## React with Elements Example
+# Ory Elements
 
-This is an example Preact project implementing Ory Elements. The project was
-scaffolded by [Vite](https://vitejs.dev/).
+Ory Elements is a component library that makes building login, registration and
+account pages for Ory a breeze.
+
+- Reduces time to add complex auth flows to your customer experience, including
+  multi-factor authentication and account recovery
+- Themeable and modular - use only what you need from it
+- Works with the React ecosystem (NextJS, React SPA, Preact SPA)
+- Works with the Express based ecosystem
+- Dynamically adapts the user interface to your Ory identity schema, sign-in and
+  flow configuration
+
+Ory Elements supports integrating with:
+
+- React
+- Preact
+- ExpressJs (experimental)
 
 ### Get Started
 
@@ -20,11 +34,11 @@ Now run the [Ory CLI](https://www.ory.sh/docs/guides/cli/installation) tunnel.
 ory tunnel http://localhost:3000 --project <project-slug> --dev
 ```
 
-The tunnel will now _mirror_ the Ory Network APIs and make them available locally at `http://localhost:4000` which we
+The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
 have explicity told our Preact app to use through the `VITE_ORY_SDK_URL` export.
 
-Open http://localhost:3000 in your browser and everything will work out of the
-box :)
+Now you can see Ory Elements in action by opening http://localhost:3000 in your
+browser!
 
 ### Contributing
 

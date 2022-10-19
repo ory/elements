@@ -1,20 +1,32 @@
 # Ory Elements
 
-An extensive component library for custom UI integration and development with
-[Ory Network](https://www.ory.sh/cloud/) and
-[Ory Self-hosted](https://github.com/ory) with full support for the React
-ecosystem.
+Ory Elements is a component library that makes building login, registration and
+account pages for Ory a breeze.
+
+- Reduces time to add complex auth flows to your customer experience, including
+  multi-factor authentication and account recovery
+- Themeable and modular - use only what you need from it
+- Works with the React ecosystem (NextJS, React SPA, Preact SPA)
+- Works with the Express based ecosystem
+- Dynamically adapts the user interface to your Ory identity schema, sign-in and
+  flow configuration
+
+Ory Elements supports integrating with:
+
+- React
+- Preact
+- ExpressJs (experimental)
 
 ## Getting Started
 
-Install Elements into your Preact application
+Install Ory Elements into your Preact application
 
 ```shell
 npm i @ory/elements-preact --save
 ```
 
 Ory Elements provides you with the ability to theme your application. Wrap your
-components with `<ThemeProvider />` and import `style.css` from Elements.
+components with `<ThemeProvider />` and import `style.css` from Ory Elements.
 
 It is best to add this to your `main.tsx` file since it will be reused across
 your project. All source code is available in the Ory Elements
