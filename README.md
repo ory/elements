@@ -307,7 +307,7 @@ res.render("login", {
 
 ### Component System
 
-Ory Elements solely rely on React components since they are easy to write and
+Ory Elements solely relies on React components since they are easy to write and
 provides support to a large React based ecosystem. The project then bundles
 these components to their respective needs. An example is bundling for Preact
 which you can find in the
