@@ -1,5 +1,5 @@
-import { oryTheme } from "./theme.css"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { oryTheme } from "./theme.css"
 
 export const messageStyle = recipe({
   base: {

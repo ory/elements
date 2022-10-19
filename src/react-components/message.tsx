@@ -1,6 +1,6 @@
+import cn from "classnames"
 import React from "react"
 import { MessageStyle, messageStyle, typographyStyle } from "../theme"
-import cn from "classnames"
 
 // required since interfaces cannot extend types whose properties are not statically known
 export type MessageStyleProps = MessageStyle & Record<string, unknown>

@@ -4,8 +4,8 @@
   "private": "true",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "initialize": "npm install && npm run clean && lerna bootstrap --hoist",
-    "clean": "lerna clean --yes",
+    "initialize": "npm run clean && npx lerna bootstrap --hoist",
+    "clean": "npx lerna clean --yes",
     "build-storybook": "build-storybook",
     "refresh": "lerna bootstrap --hoist",
     "build:clean": "lerna run build --skip-nx-cache",
@@ -15,7 +15,8 @@
     "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
     "version": "lerna version --no-private --no-git-tag-version --no-changelog --message 'chore(release): bump version to %s' --yes",
     "test": "playwright test -c playwright-ct.config.ts",
-    "test-e2e": "playwright test -c playwright.config.ts"
+    "test-e2e": "playwright test -c playwright.config.ts",
+    "docs": "typedoc --plugin typedoc-plugin-markdown --entryPointStrategy packages . --out docs"
   },
   "repository": {
     "type": "git",
@@ -64,6 +65,7 @@
     "eslint": "^8.22.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "lerna": "^5.4.3",
     "nx": "14.5.10",
     "ory-prettier-styles": "^1.3.0",
@@ -71,6 +73,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "require-from-string": "^2.0.2",
+    "typedoc": "^0.23.16",
+    "typedoc-plugin-markdown": "^3.13.6",
     "typescript": "^4.7.4",
     "vite": "^3.0.9",
     "vite-plugin-dts": "^1.4.1",
@@ -85,6 +89,6 @@
   },
   "workspaces": [
     "packages/*",
-    "tests/*"
+    "examples/*"
   ]
 }

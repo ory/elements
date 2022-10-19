@@ -1,8 +1,7 @@
-import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
-import { hasPassword } from "../helpers/utils"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
+import { hasPassword } from "../helpers/utils"
 
 export type PasswordSettingsProps = {
   flow: SelfServiceSettingsFlow

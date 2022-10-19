@@ -1,3 +1,4 @@
+import cn from "classnames"
 import React from "react"
 import {
   buttonSocialIconEndStyle,
@@ -5,12 +6,11 @@ import {
   ButtonSocialStyle,
   buttonSocialStyle,
 } from "../theme/button-social.css"
-import cn from "classnames"
 
 // required FontAwesome Icons for Brands
-import "../assets/fontawesome.min.css"
 import "../assets/fa-brands.min.css"
 import "../assets/fa-solid.min.css"
+import "../assets/fontawesome.min.css"
 
 // required since interfaces cannot extend types whose properties are not statically known
 type buttonSocialStyle = ButtonSocialStyle & Record<string, unknown>

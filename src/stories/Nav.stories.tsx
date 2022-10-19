@@ -1,7 +1,6 @@
-import React from "react"
 import { ComponentMeta, Story } from "@storybook/react"
-import { Container } from "./storyhelper"
 import { Card, Nav, NavProps } from "../react-components"
+import { Container } from "./storyhelper"
 
 export default {
   title: "Component/Nav",

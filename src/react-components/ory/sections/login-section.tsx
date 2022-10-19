@@ -1,4 +1,3 @@
-import React from "react"
 import { UiNode } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { ButtonLink } from "../../button-link"

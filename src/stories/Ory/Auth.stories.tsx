@@ -1,21 +1,20 @@
-import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
-import { UserAuthCard, UserAuthCardProps } from "../../react-components"
-import { Container } from "../storyhelper"
 import {
   SelfServiceLoginFlow,
   SelfServiceRecoveryFlow,
   SelfServiceRegistrationFlow,
 } from "@ory/client"
+import { ComponentMeta, Story } from "@storybook/react"
+import { UserAuthCard, UserAuthCardProps } from "../../react-components"
+import { Container } from "../storyhelper"
 
-import loginFlow from "./login-flow.json"
 import loginFlow2FA from "./login-flow-2fa.json"
+import loginFlow from "./login-flow.json"
 
-import loginFlowUiError from "./login-flow-ui-error.json"
 import loginFlowError from "./login-flow-error.json"
+import loginFlowUiError from "./login-flow-ui-error.json"
 
-import registrationFlow from "./register-flow.json"
 import registrationFlowWebAuthn from "./register-flow-webauthn.json"
+import registrationFlow from "./register-flow.json"
 
 import recoveryFlow from "./recovery-flow.json"
 

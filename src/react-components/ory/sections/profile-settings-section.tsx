@@ -1,4 +1,3 @@
-import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"

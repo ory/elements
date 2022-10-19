@@ -1,7 +1,6 @@
-import { useEffect } from "react"
 import { UiNode, UiNodeScriptAttributes } from "@ory/client"
-import { HTMLAttributeReferrerPolicy } from "react"
 import { filterNodesByGroups } from "@ory/integrations/ui"
+import { HTMLAttributeReferrerPolicy, useEffect } from "react"
 
 export const useScriptNodes = ({ nodes }: { nodes: UiNode[] }) => {
   useEffect(() => {

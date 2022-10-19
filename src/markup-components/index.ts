@@ -1,10 +1,10 @@
-export * from "./component-wrapper"
-export * from "./components"
-export * from "./express"
 export {
   hasLookupSecret,
   hasOidc,
-  hasTotp,
   hasPassword,
+  hasTotp,
   hasWebauthn,
 } from "../react-components"
+export * from "./component-wrapper"
+export * from "./components"
+export * from "./express"

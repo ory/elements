@@ -1,14 +1,16 @@
-import "./index.css"
 import { ThemeProvider } from "@ory/elements-preact"
 import { render } from "preact"
 import { Route, Router } from "wouter"
 import { Dashboard } from "./app"
+import "./index.css"
 import { Login } from "./login"
-import { Register } from "./register"
 import { Recovery } from "./recovery"
-import { Verification } from "./verification"
-import "@ory/elements-preact/style.css"
+import { Register } from "./register"
 import { Settings } from "./settings"
+import { Verification } from "./verification"
+
+// import Ory elements css
+import "@ory/elements-preact/style.css"
 
 const Main = () => {
   return (

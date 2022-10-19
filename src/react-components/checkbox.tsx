@@ -1,13 +1,17 @@
-import React from "react"
-import { gridStyle, typographyStyle } from "../theme"
-import { checkboxInputStyle, checkboxStyle } from "../theme"
-import { Message, MessageStyleProps } from "./message"
 import cn from "classnames"
+import React from "react"
+import {
+  checkboxInputStyle,
+  checkboxStyle,
+  gridStyle,
+  typographyStyle,
+} from "../theme"
+import { Message, MessageStyleProps } from "./message"
 
 // we use the fontawesome checkmark instead of the standard checkmark
 // so we need fontawesome to be loaded
-import "../assets/fontawesome.min.css"
 import "../assets/fa-solid.min.css"
+import "../assets/fontawesome.min.css"
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

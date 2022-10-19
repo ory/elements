@@ -1,11 +1,11 @@
+import cn from "classnames"
 import React from "react"
 import {
+  gridStyle,
   inputFieldStyle,
   inputFieldTitleStyle,
-  gridStyle,
   typographyStyle,
 } from "../theme"
-import cn from "classnames"
 import { Message, MessageStyleProps } from "./message"
 
 export interface InputFieldProps
