@@ -29,7 +29,17 @@ export const Recovery = () => {
       [],
     )
 
-  const getFlow = () => useCallback(() => {}, [])
+  const getFlow = useCallback(
+    (flowId: string) =>
+      sdk
+        .getSelfServiceRecoveryFlow(flowId)
+        .then(({ data: flow }) => setFlow(flow))
+        .catch((err) => {
+          console.error(err)
+          return err
+        }),
+    [],
+  )
 
   const submitFlow = (body: SubmitSelfServiceRecoveryFlowBody) => {
     // something unexpected went wrong and the flow was not set
