@@ -312,7 +312,7 @@ provides support to a large React based ecosystem. The project then bundles
 these components to their respective needs. An example is bundling for Preact
 which you can find in the
 [packages](https://github.com/ory/elements/tree/main/packages) folder. It uses
-the react components directly in this case but bundles it specifically for
+the React components directly in this case but bundles it specifically for
 Preact support.
 
 Each component relies on some CSS styles, which are located in the
