@@ -25,7 +25,7 @@ export const Registration = () => {
         // something serious went wrong so we redirect to the registration page
         .catch((error) => {
           console.error(error)
-          navigate("/registration", { replace: true })
+          navigate("/signup", { replace: true })
         }),
     [],
   )
@@ -47,7 +47,7 @@ export const Registration = () => {
   // submit the registration form data to Ory
   const submitFlow = (body: SubmitSelfServiceRegistrationFlowBody) => {
     // something unexpected went wrong and the flow was not set
-    if (!flow) return navigate("/registration", { replace: true })
+    if (!flow) return navigate("/signup", { replace: true })
 
     sdk
       .submitSelfServiceRegistrationFlow(flow.id, body)
@@ -69,14 +69,14 @@ export const Registration = () => {
               // something unexpected went wrong and the flow was not set - redirect the user to the login page
               .catch((err) => {
                 console.error(err)
-                navigate("/registration", { replace: true })
+                navigate("/signup", { replace: true })
               })
             break
           // other errors we just redirect to the registration page
           case 410:
           case 404:
           default:
-            return navigate("/registration", { replace: true })
+            return navigate("/signup", { replace: true })
         }
       })
   }
