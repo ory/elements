@@ -20,6 +20,7 @@ export const Login = (): JSX.Element => {
       sdk
         // aal2 is a query parameter that can be used to request Two-Factor authentication
         // aal1 is the default authentication level (Single-Factor)
+        // we always pass refresh (true) on login so that the session can be refreshed when there is already an active session
         .initializeSelfServiceLoginFlowForBrowsers(true, aal2 ? "aal2" : "aal1")
         // flow contains the form fields and csrf token
         .then(({ data: flow }) => setFlow(flow))
@@ -52,6 +53,7 @@ export const Login = (): JSX.Element => {
     [],
   )
 
+  // submit the login form data to Ory
   const submitFlow = (body: SubmitSelfServiceLoginFlowBody) => {
     // something unexpected went wrong and the flow was not set
     if (!flow) return navigate("/login", { replace: true })

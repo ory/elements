@@ -17,18 +17,25 @@ export const Registration = () => {
   const createFlow = useCallback(
     () =>
       sdk
+        // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
         .initializeSelfServiceRegistrationFlowForBrowsers()
         .then(({ data: flow }) => {
           setFlow(flow)
         })
-        .catch((error) => console.error(error)),
+        // something serious went wrong so we redirect to the registration page
+        .catch((error) => {
+          console.error(error)
+          navigate("/registration", { replace: true })
+        }),
     [],
   )
 
+  // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
-    () =>
+    (flowId: string) =>
       sdk
-        .getSelfServiceRegistrationFlow(searchParams.get("flow") || "")
+        // the flow data contains the form fields, error messages and csrf token
+        .getSelfServiceRegistrationFlow(flowId)
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -83,7 +90,7 @@ export const Registration = () => {
     const flowId = searchParams.get("flow")
     // the flow already exists
     if (flowId) {
-      getFlow().catch(createFlow) // if for some reason the flow has expired, we need to get a new one
+      getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
       return
     }
     // we assume there was no flow, so we create a new one
