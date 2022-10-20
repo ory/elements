@@ -65,11 +65,7 @@ export const Registration = () => {
             // for webauthn we need to reload the flow
             const u = new URL(error.response.data.redirect_browser_to)
             // get new flow data based on the flow id in the redirect url
-            sdk
-              .getSelfServiceLoginFlow(u.searchParams.get("flow") || "")
-              .then(({ data: flow }) => {
-                setFlow(flow)
-              })
+            getFlow(u.searchParams.get("flow") || "")
               // something unexpected went wrong and the flow was not set - redirect the user to the login page
               .catch((err) => {
                 console.error(err)

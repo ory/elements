@@ -15,7 +15,7 @@ export const Settings = () => {
   const [flow, setFlow] = useState<SelfServiceSettingsFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const navigator = useNavigate()
+  const navigate = useNavigate()
 
   const createFlow = useCallback(
     () =>
@@ -30,7 +30,7 @@ export const Settings = () => {
         // something serious went wrong so we redirect to the settings page
         .catch((err) => {
           console.error(err)
-          navigator("/settings", { replace: true })
+          navigate("/settings", { replace: true })
         }),
     [],
   )
@@ -52,7 +52,7 @@ export const Settings = () => {
   // submit any of the settings form data to Ory
   const onSubmit = (body: SubmitSelfServiceSettingsFlowBody) => {
     // something unexpected went wrong and the flow was not set
-    if (!flow) return navigator("/settings", { replace: true })
+    if (!flow) return navigate("/settings", { replace: true })
 
     sdk
       // submit the form data the user provided to Ory
@@ -65,7 +65,7 @@ export const Settings = () => {
       .catch((error) => {
         const { status } = error.response
         if (status === 401 || status === 403 || status === 410) {
-          return navigator("/login", { replace: true })
+          return navigate("/login", { replace: true })
         }
         // we need to set the flow data again here since the flow could contain error messages (e.g. status code 400)
         setFlow(error.response.data)
@@ -83,7 +83,7 @@ export const Settings = () => {
     createFlow()
   }, [])
 
-  // if the flow is not set, we are still loading
+  // if the flow is not set, we show a loading indicator
   return flow ? (
     <div className={gridStyle({ gap: 16 })}>
       {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
