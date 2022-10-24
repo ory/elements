@@ -17,7 +17,7 @@ const card = style({
   maxWidth: pxToRem(336),
   minWidth: pxToRem(336),
   "@media": {
-    [`screen and (max-width: ${defaultBreakpoints.xs})`]: {
+    [`screen and (max-width: ${defaultBreakpoints.sm})`]: {
       width: "100%",
       border: "0px",
       borderRadius: "0px",
