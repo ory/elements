@@ -24,15 +24,18 @@ export const checkboxInputStyle = style({
   margin: pxToRem(3),
   color: oryTheme.accent.def,
   selectors: {
+    "&:checked": {
+      background: oryTheme.accent.def,
+    },
     "&:checked::before": {
       fontFamily: "'Font Awesome 6 Free'", // this is required for the fontawesome icon to work
-      fontSize: pxToRem(10),
+      fontSize: pxToRem(13),
       display: "block",
       textAlign: "center",
       position: "relative",
       content: "\\f00c", // this is a fontawesome unicode character to switch back to a basic html checkmark use \\2713
-      color: oryTheme.accent.def,
-      top: pxToRem(2.5),
+      color: "white",
+      fontWeight: "900",
     },
   },
   ":disabled": {
