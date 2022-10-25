@@ -157,5 +157,3 @@ VerificationAuthCard.args = {
     signupURL: "https://acme.com/login",
   },
 }
-
-export const ConsentAuthCard = Template.bind({})

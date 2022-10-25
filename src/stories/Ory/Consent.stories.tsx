@@ -21,6 +21,6 @@ const Template: Story<ComponentProps<typeof UserConsentCard>> = (
 export const ConsentCard = Template.bind({})
 ConsentCard.args = {
   cardImage: logo,
-  requested_scope: ["openid"],
-  client: { tos_uri: "asd", policy_uri: "asd" },
+  requested_scope: ["openid", "test_scope"],
+  client: { tos_uri: "example.com/", policy_uri: "example.com/" },
 }
