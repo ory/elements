@@ -78,7 +78,11 @@ export const UserConsentCard = ({
           </div>
           <Divider />
           <div className={gridStyle({ gap: 8 })}>
-            <Checkbox label="Remember my decision" />
+            <Checkbox
+              label="Remember my decision"
+              id="remember"
+              name="remember"
+            />
             <Typography size="xsmall">
               Remember this decision for next time. The application will not be
               able to ask for additional permissions without your consent.
