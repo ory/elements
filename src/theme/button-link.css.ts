@@ -1,7 +1,7 @@
-import { oryTheme } from "./theme.css"
-import { recipe } from "@vanilla-extract/recipes"
 import { style } from "@vanilla-extract/css"
+import { recipe } from "@vanilla-extract/recipes"
 import { pxToRem } from "../common"
+import { oryTheme } from "./theme.css"
 
 export const buttonLinkStyle = recipe({
   base: {

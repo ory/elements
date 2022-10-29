@@ -1,4 +1,3 @@
-import React, { MouseEvent } from "react"
 import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
 import {
   getNodeLabel,
@@ -6,14 +5,15 @@ import {
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
+import { MouseEvent } from "react"
+import { pxToRem } from "../../../common"
+import { gridStyle } from "../../../theme"
 import { Button, ButtonProps } from "../../button"
 import { ButtonSocial, ButtonSocialProps } from "../../button-social"
 import { Checkbox } from "../../checkbox"
-import { InputField } from "../../input-field"
 import { Image } from "../../image"
-import { gridStyle } from "../../../theme"
+import { InputField } from "../../input-field"
 import { Typography } from "../../typography"
-import { pxToRem } from "../../../common"
 import { NodeMessages } from "./error-messages"
 
 interface ButtonSubmit {

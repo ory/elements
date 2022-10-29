@@ -1,4 +1,3 @@
-import React from "react"
 import { UiNode } from "@ory/client"
 import {
   FilterNodesByGroups,
@@ -6,8 +5,8 @@ import {
   getNodeInputType,
   isUiNodeInputAttributes,
 } from "@ory/integrations/ui"
-import { Node, NodeOverrideProps } from "./node"
 import { gridStyle } from "../../../theme"
+import { Node, NodeOverrideProps } from "./node"
 
 export interface Props extends NodeOverrideProps {
   filter: FilterNodesByGroups

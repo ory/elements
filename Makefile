@@ -5,7 +5,7 @@ export PATH               := .bin:${PATH}
 
 .PHONY: install
 install:
-	npm run i && npm run initialize && npm run build
+	npm run initialize && npm run build:clean
 
 .PHONY: test
 	npm run test

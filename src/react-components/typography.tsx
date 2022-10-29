@@ -1,3 +1,4 @@
+import cn from "classnames"
 import React from "react"
 import {
   ColorSprinkle,
@@ -5,7 +6,6 @@ import {
   TypographyStyle,
   typographyStyle,
 } from "../theme"
-import cn from "classnames"
 
 // required since interfaces cannot extend types whose properties are not statically known
 type typographyStyle = TypographyStyle & Record<string, unknown>

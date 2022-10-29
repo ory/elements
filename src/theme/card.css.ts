@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
-import { pxToRem } from "../common"
-import { oryTheme } from "./theme.css"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { pxToRem } from "../common"
 import { defaultBreakpoints } from "./consts"
+import { oryTheme } from "./theme.css"
 
 // the base card style with media queries
 const card = style({
@@ -17,7 +17,7 @@ const card = style({
   maxWidth: pxToRem(336),
   minWidth: pxToRem(336),
   "@media": {
-    [`screen and (max-width: ${defaultBreakpoints.xs})`]: {
+    [`screen and (max-width: ${defaultBreakpoints.sm})`]: {
       width: "100%",
       border: "0px",
       borderRadius: "0px",

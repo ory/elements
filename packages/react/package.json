@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements",
-  "version": "0.0.1-alpha.9",
+  "version": "0.0.1-alpha.11",
   "publishConfig": {
     "access": "public"
   },
@@ -42,5 +42,8 @@
   "engines": {
     "node": ">=16.16.0",
     "npm": ">=8.11.0"
+  },
+  "typedoc": {
+    "entryPoint": "../../src/react.ts"
   }
 }

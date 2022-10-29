@@ -1,8 +1,7 @@
-import React from "react"
-import { Story, ComponentMeta } from "@storybook/react"
-import { Container } from "./storyhelper"
+import { ComponentMeta, Story } from "@storybook/react"
 import { Card, CardProps, Message } from "../react-components"
 import logo from "./assets/logo.svg"
+import { Container } from "./storyhelper"
 
 export default {
   title: "Component/Card",

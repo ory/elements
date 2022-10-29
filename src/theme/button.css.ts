@@ -1,6 +1,6 @@
-import { oryTheme } from "./theme.css"
-import { pxToRem } from "../common"
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { pxToRem } from "../common"
+import { oryTheme } from "./theme.css"
 
 export const buttonStyle = recipe({
   base: {
@@ -59,6 +59,29 @@ export const buttonStyle = recipe({
       semibold: {
         fontWeight: 600,
         fontStyle: "normal",
+      },
+      outline: {
+        background: "none",
+        color: oryTheme.text.disabled,
+        ":hover": {
+          color: oryTheme.text.def,
+        },
+      },
+      error: {
+        background: "none",
+        color: oryTheme.error.muted,
+        ":hover": {
+          background: oryTheme.error.subtle,
+        },
+        ":active": {
+          backgroundColor: oryTheme.error.emphasis,
+          color: oryTheme.error.def,
+          outline: "none",
+        },
+        ":focus": {
+          background: "none",
+          color: oryTheme.error.def,
+        },
       },
     },
   },

@@ -1,14 +1,13 @@
-import React from "react"
+import {
+  AuthPage,
+  loginFixture,
+  recoveryFixture,
+  registrationFixture,
+  twoFactorLoginFixture,
+  verificationFixture,
+} from "@ory/elements-test"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { UserAuthCard } from "./user-auth-card"
-import {
-  loginFixture,
-  registrationFixture,
-  verificationFixture,
-  recoveryFixture,
-  twoFactorLoginFixture,
-  AuthPage,
-} from "@ory/elements-test"
 
 test("ory auth card login flow", async ({ mount }) => {
   const component = await mount(

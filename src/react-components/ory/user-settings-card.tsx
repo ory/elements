@@ -1,17 +1,11 @@
-import React from "react"
 import { SelfServiceSettingsFlow } from "@ory/client"
+import cn from "classnames"
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
-import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
-import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
+import { useScriptNodes } from "./helpers/node-script"
 import {
   UserAuthForm,
   UserAuthFormAdditionalProps,
 } from "./helpers/user-auth-form"
-import { ProfileSettingsSection } from "./sections/profile-settings-section"
-import { PasswordSettingsSection } from "./sections/password-settings-section"
-import { useScriptNodes } from "./helpers/node-script"
-import { OIDCSettingsSection } from "./sections/oidc-settings-section"
-import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import {
   hasLookupSecret,
   hasOidc,
@@ -19,7 +13,12 @@ import {
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import cn from "classnames"
+import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
+import { OIDCSettingsSection } from "./sections/oidc-settings-section"
+import { PasswordSettingsSection } from "./sections/password-settings-section"
+import { ProfileSettingsSection } from "./sections/profile-settings-section"
+import { TOTPSettingsSection } from "./sections/totp-settings-section"
+import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
 
 export type UserSettingsFlowType =
   | "profile"

@@ -1,7 +1,7 @@
-import { oryTheme } from "./theme.css"
-import { pxToEm, pxToRem } from "../common"
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { style } from "@vanilla-extract/css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { pxToEm, pxToRem } from "../common"
+import { oryTheme } from "./theme.css"
 
 export const dividerTextStyle = style({
   display: "flex",

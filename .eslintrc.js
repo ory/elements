@@ -8,6 +8,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/jsx-runtime",
+    "eslint-plugin-tsdoc",
   ],
   overrides: [],
   parser: "@typescript-eslint/parser",
@@ -20,5 +22,7 @@ module.exports = {
     },
   },
   plugins: ["react", "@typescript-eslint"],
-  rules: {},
+  rules: {
+    "tsdoc/syntax": "warn",
+  },
 }

@@ -1,31 +1,30 @@
-import React from "react"
-import { Card } from "../card"
-import {
-  UserAuthFormAdditionalProps,
-  UserAuthForm,
-} from "./helpers/user-auth-form"
-import { gridStyle, typographyStyle } from "../../theme"
 import { SelfServiceLoginFlow } from "@ory/client"
+import { filterNodesByGroups } from "@ory/integrations/ui"
+import React from "react"
+import { gridStyle, typographyStyle } from "../../theme"
+import { Card } from "../card"
+import { Divider } from "../divider"
+import { Message } from "../message"
+import { MessageSection, MessageSectionProps } from "./helpers/common"
+import { NodeMessages } from "./helpers/error-messages"
+import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
 import { useScriptNodes } from "./helpers/node-script"
 import { SelfServiceFlow } from "./helpers/types"
-import { LoginSection } from "./sections/login-section"
-import { LinkSection } from "./sections/link-section"
-import { Divider } from "../divider"
-import { MessageSection, MessageSectionProps } from "./helpers/common"
-import { PasswordlessSection } from "./sections/passwordless-section"
-import { OIDCSection } from "./sections/oidc-section"
-import { RegistrationSection } from "./sections/registration-section"
+import {
+  UserAuthForm,
+  UserAuthFormAdditionalProps,
+} from "./helpers/user-auth-form"
 import {
   hasLookupSecret,
   hasPassword,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import { NodeMessages } from "./helpers/error-messages"
-import { filterNodesByGroups } from "@ory/integrations/ui"
-import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
-import { Typography } from "../typography"
-import { Message } from "../message"
+import { LinkSection } from "./sections/link-section"
+import { LoginSection } from "./sections/login-section"
+import { OIDCSection } from "./sections/oidc-section"
+import { PasswordlessSection } from "./sections/passwordless-section"
+import { RegistrationSection } from "./sections/registration-section"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: string
@@ -45,6 +44,15 @@ export type RecoverySectionAdditionalProps = {
   loginURL?: string
 }
 
+/**
+ * @typedef {Object} UserAuthCardProps
+ * @property {SelfServiceLoginFlow} flow - can be any of the login, registration, verification, recovery flows
+ * @property {string} title - title of the user auth card
+ * @property {"login" | "registration" | "verification" | "recovery"} flowType - specify the type of flow to render
+ * @property {string} subtitle - subtitle of the user auth card, usually used to display additional information
+ * @property {string | React.ReactElement} - an image to display on the card header (usually a logo)
+ * @property {LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps} additionalProps - additional props to pass to the form
+ */
 export type UserAuthCardProps = {
   flow: SelfServiceFlow
   title: string
@@ -61,6 +69,11 @@ export type UserAuthCardProps = {
   children?: string
 } & UserAuthFormAdditionalProps
 
+/**
+ *
+ * @param {{flow: SelfServiceFlow, title: string, flowType: "login" | "registration" | "recovery" | "verification", additionalProps: LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps, subtitle?: string, cardImage?: string | React.ReactElement, includeScripts?: boolean, className?: string, children?: string}} UserAuthCardProps
+ * @returns
+ */
 export const UserAuthCard = ({
   flow,
   title,

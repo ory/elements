@@ -3,12 +3,9 @@ import {
   createGlobalThemeContract,
   globalStyle,
 } from "@vanilla-extract/css"
-import {
-  NullableTokens,
-  ThemeVars,
-} from "@vanilla-extract/css/dist/declarations/src/types"
+import { ThemeVars } from "@vanilla-extract/css/dist/declarations/src/types"
 
-import { defaultFont, defaultLightTheme, Font, Theme } from "./consts"
+import { defaultLightTheme, Theme } from "./consts"
 
 export const oryTheme: ThemeVars<Theme> = createGlobalThemeContract(
   {

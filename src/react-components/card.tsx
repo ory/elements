@@ -1,7 +1,12 @@
-import React from "react"
-import { cardStyle, cardTitleImage, cardTitleStyle, gridStyle } from "../theme"
-import { typographyStyle } from "../theme"
 import cn from "classnames"
+import React from "react"
+import {
+  cardStyle,
+  cardTitleImage,
+  cardTitleStyle,
+  gridStyle,
+  typographyStyle,
+} from "../theme"
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: string | React.ReactNode

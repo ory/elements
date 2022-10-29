@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import { ReactNode } from "react"
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
   <div
@@ -10,13 +10,9 @@ export const Spacer = ({ children }: { children: ReactNode }) => (
   </div>
 )
 
-export const Container = ({
-  children,
-  width = 260,
-}: {
-  children: ReactNode
-  width?: number
-}) => <div>{children}</div>
+export const Container = ({ children }: { children: ReactNode }) => (
+  <div>{children}</div>
+)
 
 export const HR = () => (
   <hr

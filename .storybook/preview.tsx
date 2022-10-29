@@ -12,7 +12,7 @@ export const globalTypes = {
         { value: "light", icon: "circlehollow", title: "light" },
         { value: "dark", icon: "circle", title: "dark" },
       ],
-      showName: true,
+      name: true,
     },
   },
 }
