@@ -13,7 +13,7 @@ jobs:
           node-version: "16"
       - run: npm run initialize
       - run: npm run build:clean
-      - run: git checkout -b release-package
+      - run: git checkout main
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR }}" > ~/.npmrc
       - run: |
