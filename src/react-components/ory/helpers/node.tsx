@@ -218,22 +218,15 @@ export const Node = ({
     }
   } else if (isUiNodeAnchorAttributes(node.attributes)) {
     return (
-      <div
-        style={{
-          display: "inline-flex",
-          width: "100%",
-          justifyContent: "center",
-        }}
+      <ButtonLink
+        href={node.attributes.href}
+        title={node.attributes.title.text}
+        data-testid={`node/anchor/${node.attributes.id}`}
+        className={className}
+        position="center"
       >
-        <ButtonLink
-          href={node.attributes.href}
-          title={node.attributes.title.text}
-          data-testid={`node/anchor/${node.attributes.id}`}
-          className={className}
-        >
-          {node.attributes.title.text}
-        </ButtonLink>
-      </div>
+        {node.attributes.title.text}
+      </ButtonLink>
     )
   }
   return null

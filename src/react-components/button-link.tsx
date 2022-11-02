@@ -14,6 +14,7 @@ export interface ButtonLinkProps
   href?: string | undefined
   icon?: string
   className?: string
+  position?: "left" | "right" | "center"
 }
 
 export const ButtonLink = ({
@@ -21,6 +22,7 @@ export const ButtonLink = ({
   className,
   icon,
   children,
+  position,
   ...props
 }: ButtonLinkProps): JSX.Element => {
   return (
@@ -29,6 +31,11 @@ export const ButtonLink = ({
         className,
         typographyStyle({ size: "caption", type: "regular" }),
       )}
+      style={{
+        display: "inline-flex",
+        width: "100%",
+        justifyContent: position,
+      }}
     >
       <a className={buttonLinkStyle()} href={href} {...props}>
         {icon && <i className={cn(`fa fa-${icon}`, buttonLinkIconStyle)}></i>}
