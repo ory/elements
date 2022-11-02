@@ -21,8 +21,8 @@ jobs:
       - run: |
           npx lerna version --no-private --no-git-tag-version --no-push -y ${{ github.event.release.tag_name }}
       - run: |
+          git config --global user.email "60093411+ory-bot@users.noreply.github.com"
           git config --global user.name "ory-bot"
-          git checkout -b make-release HEAD
           git add -A
           git commit -a -m "chore: update to version ${{ github.event.release.tag_name }}"
           git push
