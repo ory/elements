@@ -221,8 +221,6 @@ export const Node = ({
       <div
         style={{
           display: "inline-flex",
-          flexWrap: "wrap",
-          gap: pxToRem(48),
           width: "100%",
           justifyContent: "center",
         }}
