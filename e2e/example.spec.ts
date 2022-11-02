@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { test, expect } from "@playwright/test"
 
 const tc = [

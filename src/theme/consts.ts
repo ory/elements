@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { NullableTokens } from "@vanilla-extract/css/dist/declarations/src/types"
 import { pxToEm } from "../common"
 

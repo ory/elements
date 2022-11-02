@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 export * from "./button-link.css"
 export * from "./button-social.css"
 export * from "./button.css"

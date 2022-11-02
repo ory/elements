@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 export const pxToRem = (...px: number[]) =>
   px.map((x) => `${x / 16}rem`).join(" ")
 

@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import react from "@vitejs/plugin-react"
 import path from "path"

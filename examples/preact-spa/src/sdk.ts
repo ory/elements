@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { V0alpha2Api, Configuration } from "@ory/client"
 
 export default new V0alpha2Api(

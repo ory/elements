@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { UiNode } from "@ory/client"
 import { isUiNodeInputAttributes } from "@ory/integrations/ui"
 import { Traits } from "./types"

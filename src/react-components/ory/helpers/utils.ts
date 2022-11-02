@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { UiNode } from "@ory/client"
 
 export const hasOidc = (nodes: UiNode[]) =>

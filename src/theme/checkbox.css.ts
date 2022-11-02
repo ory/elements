@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { style } from "@vanilla-extract/css"
 import { pxToRem } from "../common"
 import { oryTheme } from "./theme.css"

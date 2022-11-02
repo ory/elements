@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { globalStyle, style } from "@vanilla-extract/css"
 import { pxToRem } from "../common"
 import { defaultBreakpoints } from "./consts"

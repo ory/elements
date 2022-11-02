@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { defineConfig } from "vite"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import dts from "vite-plugin-dts"

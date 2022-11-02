@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 export * from "./helpers/common"
 export * from "./helpers/error-messages"
 export * from "./helpers/filter-flow-nodes"

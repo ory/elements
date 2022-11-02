@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import {
   Button as button,
   ButtonLink as buttonLink,

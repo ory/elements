@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { pxToRem } from "../common"
 import { oryTheme } from "./theme.css"

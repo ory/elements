@@ -1,3 +1,5 @@
+// Copyright © 2022 Ory Corp
+
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
 import { oryTheme } from "./theme.css"
 
