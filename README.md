@@ -45,12 +45,12 @@ npm install @ory/elements-markup --save
 Dive into Ory Elements with our `react` and `preact` SPA example applications,
 located in the `examples/` directory.
 
-To run the example application you will need a couple things:
+To run the example application you will need a couple of things:
 
 1. An [Ory Network (free) account](https://console.ory.sh/)
 2. The [Ory CLI (tunnel)](https://www.ory.sh/docs/guides/cli/installation)
 
-Clone this repository and setup the React example.
+Clone this repository and set up the React example.
 
 ```shell
 git clone git@github.com:ory/elements
@@ -68,7 +68,7 @@ ory tunnel http://localhost:3000 --project <project-slug> --dev
 ```
 
 The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
-have explicity told our React app to use through the `VITE_ORY_SDK_URL` export.
+have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
 
 Now you can see Ory Elements in action by opening http://localhost:3000 in your
 browser!
@@ -89,7 +89,7 @@ npm run storybook
 ## Contributing
 
 Write a new component inside the `src/react-components` directory with its
-corresponding css in `src/theme`. Check it out by writing a new story for the
+corresponding CSS in `src/theme`. Check it out by writing a new story for the
 component in the `src/stories` folder.
 
 Add a test to verify the component works correctly by creating a new file next
@@ -103,7 +103,7 @@ To ensure the example works correctly within the Lerna build system, add the
 `elements` package to the example `package.json` with an asterisk `*` as the
 version.
 
-Below is an example of how you should add the pacakge.
+Below is an example of how you should add the package.
 
 ```json
 ...
@@ -212,7 +212,7 @@ This means we can overwrite them inside the project consuming the library!
 }
 ````
 
-Inside of our components we provide the `<ThemeProvider />` which exposes the
+Inside our components we provide the `<ThemeProvider />` which exposes the
 `themeOverrides` property so that you can implement your own theme.
 
 ```tsx
@@ -235,8 +235,8 @@ const Main = () => {
 
 ### Theme CSS in ExpressJS
 
-For ExpressJS the library also exports a helper function which registers all of
-the CSS the library produces.
+For ExpressJS the library also exports a helper function which registers all the
+CSS the library produces.
 
 ```ts
 import express, { Application } from "express"
@@ -257,8 +257,8 @@ export const RegisterOryElementsExpress = (app: Application, theme: Theme) => {
 }
 ```
 
-Which exposes all of the relevant css files for us which we just import in our
-HTML page:
+Which exposes all the relevant CSS files for us which we just import in our HTML
+page:
 
 ```html
 <link rel="stylesheet" href="style.css" /> // the default theme variables
@@ -267,7 +267,7 @@ HTML page:
 
 ### Rendering components
 
-We can then reference a component through handlebars helper functions that
+We can then reference a component through handlebars' helper functions that
 return pure HTML.
 
 ```handlebars
@@ -311,7 +311,7 @@ Ory Elements solely relies on React components since they are easy to write and
 provides support to a large React based ecosystem. The project then bundles
 these components to their respective needs. An example is bundling for Preact
 which you can find in the
-[packages](https://github.com/ory/elements/tree/main/packages) folder. It uses
+[packages](https://github.com/ory/elements/tree/main/packages)' folder. It uses
 the React components directly in this case but bundles it specifically for
 Preact support.
 
@@ -345,7 +345,7 @@ export type { UserAuthCardProps } from "../react-components"
 
 ### Asset System
 
-Assets are bundled into a singular `style.css` file under each packages `dist/`
+Assets are bundled into a singular `style.css` file under each packages' `dist/`
 folder. Anything placed inside the
 [assets](https://github.com/ory/elements/tree/main/src/assets) folder will be
 bundled. They can also be directly imported by the React components to be used
@@ -354,13 +354,6 @@ and are sometimes required by a component. An example is the
 
 ## Versioning and Publishing
 
-Ory Elements uses a mixture of manual and automated publishing. We first need to
-bump all of the package versions inside of the repository using `lerna version`
-and then we need to create a GitHub release which will trigger a CI action to
-build and publish the packages to npm.
-
-Steps:
-
-1. npm run version
-2. push to github
-3. create github release
+Ory Elements uses a fully automatic release publishing pipeline. All that is
+necessary is to create a new release on GitHub after which the workflow runs all
+the necessary steps to release the modules to the NPM registry.
