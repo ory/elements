@@ -7,15 +7,15 @@ export PATH               := .bin:${PATH}
 install:
 	npm run initialize && npm run build:clean
 
-.PHONY: test
+test:
 	npm run test
 
-.PHONY: test-e2e
+test-e2e:
 	./test-e2e.sh
 
 .bin/ory: Makefile
-	bash <(curl https://raw.githubusercontent.com/ory/meta/master/install.sh) -d -b .bin ory v0.1.38
-	touch -a -m .bin/ory
+	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory v0.1.45
+	touch .bin/ory
 
 format: node_modules
 	.bin/ory dev headers license
@@ -26,10 +26,6 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 
 .bin/licenses: Makefile
 	curl https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
-
-.bin/ory: Makefile
-	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory v0.1.45
-	touch .bin/ory
 
 node_modules: package-lock.json
 	npm ci
