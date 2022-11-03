@@ -1,3 +1,6 @@
+// Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 export * from "./helpers/common"
 export * from "./helpers/error-messages"
 export * from "./helpers/filter-flow-nodes"

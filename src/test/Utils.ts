@@ -1,3 +1,6 @@
+// Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { UiNode } from "@ory/client"
 import { isUiNodeInputAttributes } from "@ory/integrations/ui"
 import { Traits } from "./types"

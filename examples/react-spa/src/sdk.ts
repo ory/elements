@@ -1,3 +1,6 @@
+// Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Configuration, V0alpha2Api } from "@ory/client"
 
 export default new V0alpha2Api(

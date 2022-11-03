@@ -1,3 +1,6 @@
+// Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { pxToRem } from "../common"
 import { oryTheme } from "./theme.css"
