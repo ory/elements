@@ -38,17 +38,17 @@ export const buttonLinkContainerStyle = recipe({
       },
       left: {
         justifyContent: "left",
-        // TODO: This might not be suitable for all future variants, adjust at your own disgression
+        // TODO: This might not be suitable for all future variants, adjust at your own discretion
         width: "100%",
       },
       center: {
         justifyContent: "center",
-        // TODO: This might not be suitable for all future variants, adjust at your own disgression
+        // TODO: This might not be suitable for all future variants, adjust at your own discretion
         width: "100%",
       },
       right: {
         justifyContent: "right",
-        // TODO: This might not be suitable for all future variants, adjust at your own disgression
+        // TODO: This might not be suitable for all future variants, adjust at your own discretion
         width: "100%",
       },
     },
