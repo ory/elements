@@ -222,8 +222,10 @@ export const Node = ({
         href={node.attributes.href}
         title={node.attributes.title.text}
         data-testid={`node/anchor/${node.attributes.id}`}
+        className={className}
+        position="center"
       >
-        {node.meta.label}
+        {node.attributes.title.text}
       </ButtonLink>
     )
   }
