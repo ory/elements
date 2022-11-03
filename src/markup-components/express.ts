@@ -1,4 +1,5 @@
 // Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
 
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import express, { Application } from "express"

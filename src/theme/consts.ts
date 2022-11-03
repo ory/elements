@@ -1,4 +1,5 @@
 // Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
 
 import { NullableTokens } from "@vanilla-extract/css/dist/declarations/src/types"
 import { pxToEm } from "../common"
