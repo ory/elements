@@ -1,21 +1,25 @@
 import cn from "classnames"
 import React from "react"
 import { typographyStyle } from "../theme"
-import { buttonLinkIconStyle, buttonLinkStyle } from "../theme/button-link.css"
+import {
+  buttonLinkContainerStyle,
+  ButtonLinkContainerStyle,
+  buttonLinkIconStyle,
+  buttonLinkStyle,
+} from "../theme/button-link.css"
 
 // we use the fontawesome checkmark instead of the standard checkmark
 // so we need fontawesome to be loaded
 import "../assets/fa-solid.min.css"
 import "../assets/fontawesome.min.css"
 
-export interface ButtonLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export type ButtonLinkProps = {
   children?: React.ReactNode
   href?: string | undefined
   icon?: string
   className?: string
-  position?: "left" | "right" | "center"
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  ButtonLinkContainerStyle
 
 export const ButtonLink = ({
   href,
@@ -30,12 +34,8 @@ export const ButtonLink = ({
       className={cn(
         className,
         typographyStyle({ size: "caption", type: "regular" }),
+        buttonLinkContainerStyle({ position }),
       )}
-      style={{
-        display: "inline-flex",
-        width: "100%",
-        justifyContent: position,
-      }}
     >
       <a className={buttonLinkStyle()} href={href} {...props}>
         {icon && <i className={cn(`fa fa-${icon}`, buttonLinkIconStyle)}></i>}
