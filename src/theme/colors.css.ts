@@ -21,6 +21,7 @@ export const colorProperties = defineProperties({
       foregroundOnAccent: oryTheme.foreground.onAccent,
       backgroundSurface: oryTheme.background.surface,
       backgroundCanvas: oryTheme.background.canvas,
+      backgroundSubtle: oryTheme.background.subtle,
       errorDefault: oryTheme.error.def,
       errorSubtle: oryTheme.error.subtle,
       errorMuted: oryTheme.error.muted,
