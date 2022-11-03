@@ -26,6 +26,7 @@ export const buttonLinkStyle = recipe({
 export const buttonLinkContainerStyle = recipe({
   base: {
     display: "flex",
+    alignItems: "center",
   },
   defaultVariants: {
     position: "inline",
