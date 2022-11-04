@@ -14,7 +14,7 @@ test-e2e:
 	./test-e2e.sh
 
 format: .bin/ory node_modules
-	.bin/ory dev headers copyright
+	.bin/ory dev headers copyright --type=open-source
 	npm exec -- prettier --write .
 
 licenses: .bin/licenses node_modules  # checks open-source licenses
