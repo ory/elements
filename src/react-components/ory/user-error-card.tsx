@@ -13,6 +13,7 @@ export type UserErrorCardProps = {
   backUrl: string
   cardImage?: string | React.ReactElement
   contactSupportEmail?: string
+  className?: string
 }
 
 type errorMessage = {
@@ -29,12 +30,14 @@ export const UserErrorCard = ({
   backUrl,
   cardImage,
   contactSupportEmail,
+  className,
 }: UserErrorCardProps): JSX.Element => {
   const err = error.error as errorMessage
   const status = err.code
   const message = status >= 500 ? JSON.stringify(error, null, 2) : err.reason
   return (
     <Card
+      className={className}
       heading={
         <h2 className={typographyStyle({ type: "regular", size: "small" })}>
           {title}

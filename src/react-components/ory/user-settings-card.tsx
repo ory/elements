@@ -33,6 +33,7 @@ export type UserSettingsCardProps = {
   flowType: UserSettingsFlowType
   title?: string
   includeScripts?: boolean
+  className?: string
 } & UserAuthFormAdditionalProps
 
 export const UserSettingsCard = ({
@@ -41,6 +42,7 @@ export const UserSettingsCard = ({
   title,
   includeScripts,
   onSubmit,
+  className,
 }: UserSettingsCardProps): JSX.Element | null => {
   if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
@@ -107,7 +109,7 @@ export const UserSettingsCard = ({
           {cardTitle}
         </h3>
       )}
-      <UserAuthForm flow={flow} onSubmit={onSubmit}>
+      <UserAuthForm flow={flow} onSubmit={onSubmit} className={className}>
         {$flow}
       </UserAuthForm>
     </div>

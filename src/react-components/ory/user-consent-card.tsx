@@ -20,6 +20,7 @@ export type UserConsentCardProps = {
   requested_scope?: string[]
   client?: OAuth2Client
   action: string
+  className?: string
 }
 
 export const UserConsentCard = ({
@@ -30,9 +31,11 @@ export const UserConsentCard = ({
   requested_scope = [],
   client,
   action,
+  className,
 }: UserConsentCardProps) => {
   return (
     <Card
+      className={className}
       heading={
         <div style={{ textAlign: "center" }}>
           <Typography type="bold">{client_name}</Typography>
