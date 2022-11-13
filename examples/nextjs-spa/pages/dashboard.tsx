@@ -1,6 +1,4 @@
-import { ThemeProvider } from "@ory/elements"
-import React from "react"
-import Link from "next/link"
+import styles from "../styles/Dashboard.module.css"
 
 // React
 import { useEffect, useState } from "react"
@@ -11,12 +9,7 @@ import { Session } from "@ory/client"
 import { edgeConfig } from "@ory/integrations/next"
 import { ory, getUserName } from "../components/sdk"
 
-
-// import css
-import styles from "../styles/Dashboard.module.css"
-import "@ory/elements/style.css"
-
-const Home = () => {
+const Dashboard = () => {
   const router = useRouter()
 
   const [session, setSession] = useState<Session | undefined>()
@@ -69,20 +62,9 @@ const Home = () => {
             !
         </h1>
 
-        {/* <p className={styles.description}>
+        <p className={styles.description}>
           <a href={"/login"}>Login</a>
-        </p> */}
-
-        <React.StrictMode>
-          {/* We add the Ory themes here */}
-          <ThemeProvider themeOverrides={{}}>
-            <Link href="/login"></Link>
-            {/* <Link href="/signup"><Registration /></Link> */}
-            {/* <Link href="/verification"><Verification /></Link>
-            <Link href="/recovery"><Recovery /></Link>
-            <Link href="/settings"><Settings /></Link> */}
-          </ThemeProvider>
-      </React.StrictMode>
+        </p>
 
         <p className={styles.description}>
           <a href={logoutUrl}>Log out</a>
@@ -94,23 +76,4 @@ const Home = () => {
   )
 }
 
-export default Home
-
-// const Home = () => {
-
-//   return (
-//       <React.StrictMode>
-//           {/* We add the Ory themes here */}
-//           <ThemeProvider themeOverrides={{}}>
-//             <Link href="/"></Link>
-//             <Link href="/login"></Link>
-//             {/* <Link href="/signup"><Registration /></Link> */}
-//             {/* <Link href="/verification"><Verification /></Link>
-//             <Link href="/recovery"><Recovery /></Link>
-//             <Link href="/settings"><Settings /></Link> */}
-//           </ThemeProvider>
-//       </React.StrictMode>
-//     )
-// }
-
-// export default Home
+export default Dashboard
