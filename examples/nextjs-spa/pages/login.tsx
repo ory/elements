@@ -50,7 +50,7 @@ const Login: NextPage = () => {
         .catch(
           (error: AxiosError) =>
             // If the flow was not found, we redirect to the login page
-            error.response?.status === 404 && router.push("/ui/login")
+            error.response?.status === 404 && router.push("/ui/login"),
         )
       return
     }
@@ -66,10 +66,10 @@ const Login: NextPage = () => {
         setFlow(data)
       })
       .catch(
-          (error: AxiosError) =>
-            // If the flow was not found, we redirect to the login page
-            error.response?.status === 404 && router.push("/ui/login")
-        )
+        (error: AxiosError) =>
+          // If the flow was not found, we redirect to the login page
+          error.response?.status === 404 && router.push("/ui/login"),
+      )
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow])
 
   const submitFlow = (values: SubmitSelfServiceLoginFlowBody) =>
@@ -92,7 +92,7 @@ const Login: NextPage = () => {
           .catch(
             (error: AxiosError) =>
               // If the flow was not found, we redirect to the login page
-              error.response?.status === 404 && router.push("/ui/login")
+              error.response?.status === 404 && router.push("/ui/login"),
           )
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error

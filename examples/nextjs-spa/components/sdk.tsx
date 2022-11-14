@@ -1,4 +1,4 @@
-import { Configuration, Identity, V0alpha2Api} from "@ory/client"
+import { Configuration, Identity, V0alpha2Api } from "@ory/client"
 import { edgeConfig } from "@ory/integrations/next"
 
 // Create a new Ory API client

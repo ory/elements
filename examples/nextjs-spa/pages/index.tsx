@@ -11,7 +11,6 @@ import { Session } from "@ory/client"
 import { edgeConfig } from "@ory/integrations/next"
 import { ory, getUserName } from "../components/sdk"
 
-
 // import css
 import styles from "../styles/Dashboard.module.css"
 import "@ory/elements/style.css"
@@ -59,14 +58,16 @@ const Home = () => {
           Welcome to{" "}
           <a href="https://nextjs.org" target="_blank" rel="noreferrer">
             Next.js
-          </a> with {" "}
-          <a href="https://github.com/ory/elements" target="_blank" rel="noreferrer">
+          </a>{" "}
+          with{" "}
+          <a
+            href="https://github.com/ory/elements"
+            target="_blank"
+            rel="noreferrer"
+          >
             Ory Elements
-          </a>, {" "}
-            {
-              getUserName(session?.identity)
-            }
-            !
+          </a>
+          , {getUserName(session?.identity)}!
         </h1>
 
         {/* <p className={styles.description}>
@@ -82,14 +83,12 @@ const Home = () => {
             <Link href="/recovery"><Recovery /></Link>
             <Link href="/settings"><Settings /></Link> */}
           </ThemeProvider>
-      </React.StrictMode>
+        </React.StrictMode>
 
         <p className={styles.description}>
           <a href={logoutUrl}>Log out</a>
         </p>
-
       </main>
-
     </div>
   )
 }

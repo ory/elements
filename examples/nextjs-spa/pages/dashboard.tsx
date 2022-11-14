@@ -52,14 +52,16 @@ const Dashboard = () => {
           Welcome to{" "}
           <a href="https://nextjs.org" target="_blank" rel="noreferrer">
             Next.js
-          </a> with {" "}
-          <a href="https://github.com/ory/elements" target="_blank" rel="noreferrer">
+          </a>{" "}
+          with{" "}
+          <a
+            href="https://github.com/ory/elements"
+            target="_blank"
+            rel="noreferrer"
+          >
             Ory Elements
-          </a>, {" "}
-            {
-              getUserName(session?.identity)
-            }
-            !
+          </a>
+          , {getUserName(session?.identity)}!
         </h1>
 
         <p className={styles.description}>
@@ -69,9 +71,7 @@ const Dashboard = () => {
         <p className={styles.description}>
           <a href={logoutUrl}>Log out</a>
         </p>
-
       </main>
-
     </div>
   )
 }
