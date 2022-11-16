@@ -116,7 +116,7 @@ export const Node = ({
 
     const isSocial =
       (attrs.name === "provider" || attrs.name === "link") &&
-      node.group === "oidc"
+      (node.group === "oidc" || node.group === "saml")
 
     const submit: ButtonSubmit = {
       type: attrs.type as "submit" | "reset" | "button" | undefined,

@@ -9,12 +9,14 @@ import {
 import {
   hasLookupSecret,
   hasOidc,
+  hasSaml,
   hasPassword,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
 import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
 import { OIDCSettingsSection } from "./sections/oidc-settings-section"
+import { SAMLSettingsSection } from "./sections/saml-settings-section"
 import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { ProfileSettingsSection } from "./sections/profile-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
@@ -26,6 +28,7 @@ export type UserSettingsFlowType =
   | "totp"
   | "webauthn"
   | "oidc"
+  | "saml"
   | "lookupSecret"
 
 export type UserSettingsCardProps = {
@@ -82,6 +85,13 @@ export const UserSettingsCard = ({
         hasFlow = true
         cardTitle = title || "Social Sign In"
         $flow = <OIDCSettingsSection flow={flow} />
+      }
+      break
+    case "saml":
+      if (hasSaml(flow.ui.nodes)) {
+        hasFlow = true
+        cardTitle = title || "SSO Sign In"
+        $flow = <SAMLSettingsSection flow={flow} />
       }
       break
     case "totp":
