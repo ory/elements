@@ -1,14 +1,11 @@
-import {
-  SelfServiceVerificationFlow,
-  SubmitSelfServiceVerificationFlowBody,
-} from "@ory/client"
+import { VerificationFlow, UpdateVerificationFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import sdk from "./sdk"
 
 export const Verification = (): JSX.Element => {
-  const [flow, setFlow] = useState<SelfServiceVerificationFlow | null>(null)
+  const [flow, setFlow] = useState<VerificationFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
@@ -17,7 +14,7 @@ export const Verification = (): JSX.Element => {
   const createFlow = useCallback(
     () =>
       sdk
-        .initializeSelfServiceVerificationFlowForBrowsers()
+        .createBrowserVerificationFlow()
         // flow contains the form fields, error messages and csrf token
         .then(({ data: flow }) => {
           setFlow(flow)
@@ -35,7 +32,7 @@ export const Verification = (): JSX.Element => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getSelfServiceVerificationFlow(flowId)
+        .getVerificationFlow(flowId)
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -45,12 +42,12 @@ export const Verification = (): JSX.Element => {
   )
 
   // submit the verification form data to Ory
-  const submitFlow = (body: SubmitSelfServiceVerificationFlowBody) => {
+  const submitFlow = (body: UpdateVerificationFlowBody) => {
     // something unexpected went wrong and the flow was not set
     if (!flow) return navigate("/verification", { replace: true })
 
     sdk
-      .submitSelfServiceVerificationFlow(flow.id, body)
+      .updateVerificationFlow(flow.id, body)
       .then(({ data: flow }) => {
         setFlow(flow)
       })
@@ -105,9 +102,7 @@ export const Verification = (): JSX.Element => {
         loginURL: "/login",
       }}
       // submit the verification form data to Ory
-      onSubmit={({ body }) =>
-        submitFlow(body as SubmitSelfServiceVerificationFlowBody)
-      }
+      onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}
     />
   ) : (
     <div>Loading...</div>

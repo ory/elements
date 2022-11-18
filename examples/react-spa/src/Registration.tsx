@@ -1,14 +1,11 @@
-import {
-  SelfServiceRegistrationFlow,
-  SubmitSelfServiceRegistrationFlowBody,
-} from "@ory/client"
+import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import sdk from "./sdk"
 
 export const Registration = () => {
-  const [flow, setFlow] = useState<SelfServiceRegistrationFlow | null>(null)
+  const [flow, setFlow] = useState<RegistrationFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
@@ -18,7 +15,7 @@ export const Registration = () => {
     () =>
       sdk
         // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
-        .initializeSelfServiceRegistrationFlowForBrowsers()
+        .createBrowserRegistrationFlow()
         .then(({ data: flow }) => {
           setFlow(flow)
         })
@@ -35,7 +32,7 @@ export const Registration = () => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getSelfServiceRegistrationFlow(flowId)
+        .getRegistrationFlow(flowId)
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -45,12 +42,12 @@ export const Registration = () => {
   )
 
   // submit the registration form data to Ory
-  const submitFlow = (body: SubmitSelfServiceRegistrationFlowBody) => {
+  const submitFlow = (body: UpdateRegistrationFlowBody) => {
     // something unexpected went wrong and the flow was not set
     if (!flow) return navigate("/signup", { replace: true })
 
     sdk
-      .submitSelfServiceRegistrationFlow(flow.id, body)
+      .updateRegistrationFlow(flow.id, body)
       .then(() => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
@@ -108,9 +105,7 @@ export const Registration = () => {
       // include the necessary scripts for webauthn to work
       includeScripts={true}
       // submit the registration form data to Ory
-      onSubmit={({ body }) =>
-        submitFlow(body as SubmitSelfServiceRegistrationFlowBody)
-      }
+      onSubmit={({ body }) => submitFlow(body as UpdateRegistrationFlowBody)}
     />
   ) : (
     <div>Loading...</div>

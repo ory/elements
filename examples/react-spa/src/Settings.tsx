@@ -1,7 +1,4 @@
-import {
-  SelfServiceSettingsFlow,
-  SubmitSelfServiceSettingsFlowBody,
-} from "@ory/client"
+import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 import {
   gridStyle,
   UserSettingsCard,
@@ -12,7 +9,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import sdk from "./sdk"
 
 export const Settings = () => {
-  const [flow, setFlow] = useState<SelfServiceSettingsFlow | null>(null)
+  const [flow, setFlow] = useState<SettingsFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
@@ -23,7 +20,7 @@ export const Settings = () => {
         // create a new settings flow
         // the flow contains the form fields, error messages and csrf token
         // depending on the Ory Network project settings, the form fields returned may vary
-        .initializeSelfServiceSettingsFlowForBrowsers()
+        .createBrowserSettingsFlow()
         .then(({ data: flow }) => {
           setFlow(flow)
         })
@@ -40,7 +37,7 @@ export const Settings = () => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getSelfServiceSettingsFlow(flowId)
+        .getSettingsFlow(flowId)
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -50,13 +47,13 @@ export const Settings = () => {
   )
 
   // submit any of the settings form data to Ory
-  const onSubmit = (body: SubmitSelfServiceSettingsFlowBody) => {
+  const onSubmit = (body: UpdateSettingsFlowBody) => {
     // something unexpected went wrong and the flow was not set
     if (!flow) return navigate("/settings", { replace: true })
 
     sdk
       // submit the form data the user provided to Ory
-      .submitSelfServiceSettingsFlow(flow.id, body)
+      .updateSettingsFlow(flow.id, body)
       .then(({ data: flow }) => {
         setFlow(flow)
       })
