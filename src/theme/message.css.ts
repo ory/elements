@@ -37,6 +37,9 @@ export const messageStyle = recipe({
       default: {
         color: oryTheme.foreground.def,
       },
+      info: {
+        color: oryTheme.accent.emphasis,
+      },
     },
   },
 })

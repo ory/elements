@@ -14,11 +14,17 @@ type nodeMessageProps = {
   key: string
 } & MessageStyleProps
 
-const nodeMessage = ({ text, id, key, ...props }: nodeMessageProps) => (
+const nodeMessage = ({
+  text,
+  id,
+  key,
+  severity,
+  ...props
+}: nodeMessageProps) => (
   <Message
     key={key}
     data-testid={`ui/message/${id}`}
-    severity={"error"}
+    severity={severity || "error"}
     {...props}
   >
     {text}
@@ -50,8 +56,8 @@ export const NodeMessages = ({
     [],
   )
 
-  const $messages = uiMessages?.map(({ text, id }, key) =>
-    nodeMessage({ text, id, key: `ui-messsage-${id}-${key}` }),
+  const $messages = uiMessages?.map(({ text, id, type }, key) =>
+    nodeMessage({ text, id, severity: type, key: `ui-messsage-${id}-${key}` }),
   )
 
   const $allMessages = [...($groupMessages || []), ...($messages || [])]
