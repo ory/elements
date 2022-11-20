@@ -7,47 +7,50 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
 // Ory SDK
-import { Session } from "@ory/client"
-import { edgeConfig } from "@ory/integrations/next"
-import { ory, getUserName } from "../components/sdk"
+import { ory } from "../components/sdk"
 
 // import css
 import styles from "../styles/Dashboard.module.css"
 import "@ory/elements/style.css"
 
-const Home = () => {
-  const router = useRouter()
+import { AxiosError } from "axios"
+import type { NextPage } from "next"
+import { createLogoutHandler } from "../pkg/hooks"
 
-  const [session, setSession] = useState<Session | undefined>()
-  const [logoutUrl, setLogoutUrl] = useState<string | undefined>()
+const Home: NextPage = () => {
+  const [session, setSession] = useState<string>(
+    "No valid Ory Session was found.\nPlease sign in to receive one.",
+  )
+  const [hasSession, setHasSession] = useState<boolean>(false)
+  const router = useRouter()
+  const onLogout = createLogoutHandler()
 
   useEffect(() => {
     ory
       .toSession()
-      .then(({ data: session }) => {
-        // User has a session!
+      .then(({ data }) => {
         setSession(session)
-        // Create a logout url
-        ory.createSelfServiceLogoutFlowUrlForBrowsers().then(({ data }) => {
-          setLogoutUrl(data.logout_url)
-        })
+        setHasSession(true)
       })
-      .catch((error) => {
-        if (error.response?.status === 403) {
-          // the user might have a session, but would require 2FA (Two-Factor Authentication)
-          if (error.response?.data.error.id === "session_aal2_required") {
-            return router.push("/ui/login?aal2=true")
-          }
+      .catch((err: AxiosError) => {
+        switch (err.response?.status) {
+          case 403:
+          // This is a legacy error code thrown. See code 422 for
+          // more details.
+          case 422:
+            // This status code is returned when we are trying to
+            // validate a session which has not yet completed
+            // it's second factor
+            return router.push("/login?aal=aal2")
+          case 401:
+            // do nothing, the user is not logged in
+            return
         }
-        // Redirect to login page
-        return router.push(edgeConfig.basePath + "/ui/login")
-      })
-  })
 
-  if (!session) {
-    // Still loading
-    return null
-  }
+        // Something else happened!
+        return Promise.reject(err)
+      })
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -67,8 +70,13 @@ const Home = () => {
           >
             Ory Elements
           </a>
-          , {getUserName(session?.identity)}!
         </h1>
+        <p>
+          <Link href="/login"><a>Sign In</a></Link>
+        </p>
+        <p>
+          <Link href='/' onClick={onLogout}><a>Logout</a></Link>
+        </p>
 
         {/* <p className={styles.description}>
           <a href={"/login"}>Login</a>
@@ -84,32 +92,9 @@ const Home = () => {
             <Link href="/settings"><Settings /></Link> */}
           </ThemeProvider>
         </React.StrictMode>
-
-        <p className={styles.description}>
-          <a href={logoutUrl}>Log out</a>
-        </p>
       </main>
     </div>
   )
 }
 
 export default Home
-
-// const Home = () => {
-
-//   return (
-//       <React.StrictMode>
-//           {/* We add the Ory themes here */}
-//           <ThemeProvider themeOverrides={{}}>
-//             <Link href="/"></Link>
-//             <Link href="/login"></Link>
-//             {/* <Link href="/signup"><Registration /></Link> */}
-//             {/* <Link href="/verification"><Verification /></Link>
-//             <Link href="/recovery"><Recovery /></Link>
-//             <Link href="/settings"><Settings /></Link> */}
-//           </ThemeProvider>
-//       </React.StrictMode>
-//     )
-// }
-
-// export default Home

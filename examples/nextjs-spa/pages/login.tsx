@@ -3,20 +3,19 @@ import { useCallback, useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
 // Ory SDK
-import { Session } from "@ory/client"
 import { ory } from "../components/sdk"
-
 import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody,
 } from "@ory/client"
+
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
 import { UserAuthCard } from "@ory/elements"
 
 const Login: NextPage = () => {
-  const [flow, setFlow] = useState<SelfServiceLoginFlow>()
+  const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
 
   // Get ?flow=... from the URL
   const router = useRouter()
@@ -50,7 +49,7 @@ const Login: NextPage = () => {
         .catch(
           (error: AxiosError) =>
             // If the flow was not found, we redirect to the login page
-            error.response?.status === 404 && router.push("/ui/login"),
+            error.response?.status === 404 && router.push("/login"),
         )
       return
     }
@@ -68,7 +67,7 @@ const Login: NextPage = () => {
       .catch(
         (error: AxiosError) =>
           // If the flow was not found, we redirect to the login page
-          error.response?.status === 404 && router.push("/ui/login"),
+          error.response?.status === 404 && router.push("/login"),
       )
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow])
 
@@ -92,7 +91,7 @@ const Login: NextPage = () => {
           .catch(
             (error: AxiosError) =>
               // If the flow was not found, we redirect to the login page
-              error.response?.status === 404 && router.push("/ui/login"),
+              error.response?.status === 404 && router.push("/login"),
           )
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
