@@ -115,7 +115,7 @@ const Login: NextPage = () => {
       // the login card should allow the user to go to the registration page and the recovery page
       additionalProps={{
         forgotPasswordURL: "/recovery",
-        signupURL: "/signup",
+        signupURL: "/registration",
       }}
       // we might need webauthn support which requires additional js
       includeScripts={true}
