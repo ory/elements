@@ -52,7 +52,7 @@ const Home: NextPage = () => {
       })
   }, [])
 
-  return (
+  return hasSession ? (
     <div className={styles.container}>
       <title>Next.js w/ Elements</title>
 
@@ -72,26 +72,35 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href="/login"><a>Sign In</a></Link>
-        </p>
-        <p>
           <Link href='/' onClick={onLogout}><a>Logout</a></Link>
         </p>
+      </main>
+    </div>
+  ) : (
+    <div className={styles.container}>
+      <title>Next.js w/ Elements</title>
 
-        {/* <p className={styles.description}>
-          <a href={"/login"}>Login</a>
-        </p> */}
-
-        <React.StrictMode>
-          {/* We add the Ory themes here */}
-          <ThemeProvider themeOverrides={{}}>
-            <Link href="/login"></Link>
-            {/* <Link href="/signup"><Registration /></Link> */}
-            {/* <Link href="/verification"><Verification /></Link>
-            <Link href="/recovery"><Recovery /></Link>
-            <Link href="/settings"><Settings /></Link> */}
-          </ThemeProvider>
-        </React.StrictMode>
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to{" "}
+          <a href="https://nextjs.org" target="_blank" rel="noreferrer">
+            Next.js
+          </a>{" "}
+          with{" "}
+          <a
+            href="https://github.com/ory/elements"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ory Elements
+          </a>
+        </h1>
+        <p>
+          <Link href="/login"><a>Login</a></Link>
+        </p>
+        <p>
+          <Link href="/registration"><a>Register</a></Link>
+        </p>
       </main>
     </div>
   )

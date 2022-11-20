@@ -2,11 +2,12 @@ import {
   SelfServiceRegistrationFlow,
   SubmitSelfServiceRegistrationFlowBody,
 } from "@ory/client"
-import { UserAuthCard } from "@ory/elements"
+import { ThemeProvider, UserAuthCard } from "@ory/elements"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 import Head from "next/head"
 import { useRouter, NextRouter } from "next/router"
+import React from "react"
 import { useEffect, useState } from "react"
 // Import the SDK
 import { ory } from "../components/sdk"
@@ -96,22 +97,28 @@ const Registration: NextPage = () => {
 
       return flow ? (
         // create a registration form that dynamically renders based on the flow data using Ory Elements
-        <UserAuthCard
-          title={"Registration"}
-          flowType={"registration"}
-          // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
-          flow={flow}
-          // the registration card needs a way to navigate to the login page
-          additionalProps={{
-            loginURL: "/login",
-          }}
-          // include the necessary scripts for webauthn to work
-          includeScripts={true}
-          // submit the registration form data to Ory
-          onSubmit={({ body }) =>
-            submitFlow(body as SubmitSelfServiceRegistrationFlowBody)
-          }
-        />
+
+        <React.StrictMode>
+          {/* We add the Ory themes here */}
+          <ThemeProvider themeOverrides={{}}>
+            <UserAuthCard
+              title={"Registration"}
+              flowType={"registration"}
+              // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
+              flow={flow}
+              // the registration card needs a way to navigate to the login page
+              additionalProps={{
+                loginURL: "/login",
+              }}
+              // include the necessary scripts for webauthn to work
+              includeScripts={true}
+              // submit the registration form data to Ory
+              onSubmit={({ body }) =>
+                submitFlow(body as SubmitSelfServiceRegistrationFlowBody)
+              }
+            /> 
+          </ThemeProvider>
+        </React.StrictMode>
       ) : (
         <div>Loading...</div>
       )

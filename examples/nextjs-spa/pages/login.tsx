@@ -12,7 +12,8 @@ import {
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
-import { UserAuthCard } from "@ory/elements"
+import { ThemeProvider, UserAuthCard } from "@ory/elements"
+import React from "react"
 
 const Login: NextPage = () => {
   const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
@@ -34,6 +35,7 @@ const Login: NextPage = () => {
   // to sign out if they are performing two-factor authentication!
 
   useEffect(() => {
+    
     // If the router is not ready yet, or we already have a flow, do nothing.
     if (!router.isReady || flow) {
       return
@@ -106,27 +108,33 @@ const Login: NextPage = () => {
       )
 
   return flow ? (
-    // we render the login form using Ory Elements
-    <UserAuthCard
-      title={"Login"}
-      flowType={"login"}
-      // we always need the flow data which populates the form fields and error messages dynamically
-      flow={flow}
-      // the login card should allow the user to go to the registration page and the recovery page
-      additionalProps={{
-        forgotPasswordURL: "/recovery",
-        signupURL: "/registration",
-      }}
-      // we might need webauthn support which requires additional js
-      includeScripts={true}
-      // we submit the form data to Ory
-      onSubmit={({ body }) =>
-        submitFlow(body as SubmitSelfServiceLoginFlowBody)
-      }
-    />
+    // create a login form that dynamically renders based on the flow data using Ory Elements
+    <React.StrictMode>
+      {/* We add the Ory themes here */}
+      <ThemeProvider themeOverrides={{}}>
+        <UserAuthCard
+          title={"Login"}
+          flowType={"login"}
+          // we always need the flow data which populates the form fields and error messages dynamically
+          flow={flow}
+          // the login card should allow the user to go to the registration page and the recovery page
+          additionalProps={{
+            forgotPasswordURL: "/recovery",
+            signupURL: "/registration",
+          }}
+          // we might need webauthn support which requires additional js
+          includeScripts={true}
+          // we submit the form data to Ory
+          onSubmit={({ body }) =>
+            submitFlow(body as SubmitSelfServiceLoginFlowBody)
+          }
+        />
+      </ThemeProvider>
+    </React.StrictMode>
   ) : (
     <div>Loading...</div>
   )
 }
 
 export default Login
+
