@@ -70,41 +70,41 @@ const Verification: NextPage = () => {
   }, [flowId, router, router.isReady, returnTo, flow])
 
   const submitFlow = async (values: SubmitSelfServiceVerificationFlowBody) => {
-  await router
-    // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
-    // their data when they reload the page.
-    .push(`/verification?flow=${flow?.id}`, undefined, { shallow: true })
+    await router
+      // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
+      // their data when they reload the page.
+      .push(`/verification?flow=${flow?.id}`, undefined, { shallow: true })
 
-  ory
-    .submitSelfServiceVerificationFlow(String(flow?.id), values, undefined)
-    .then(({ data }) => {
-      // Form submission was successful, show the message to the user!
-      setFlow(data)
-    })
-    .catch((err: AxiosError) => {
-      switch (err.response?.status) {
-        case 400:
-          // Status code 400 implies the form validation had an error
-          setFlow(err.response?.data)
-          return
-        case 410:
-          const newFlowID = err.response.data.use_flow_id
-          router
-            // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
-            // their data when they reload the page.
-            .push(`/verification?flow=${newFlowID}`, undefined, {
-              shallow: true,
-            })
+    ory
+      .submitSelfServiceVerificationFlow(String(flow?.id), values, undefined)
+      .then(({ data }) => {
+        // Form submission was successful, show the message to the user!
+        setFlow(data)
+      })
+      .catch((err: AxiosError) => {
+        switch (err.response?.status) {
+          case 400:
+            // Status code 400 implies the form validation had an error
+            setFlow(err.response?.data)
+            return
+          case 410:
+            const newFlowID = err.response.data.use_flow_id
+            router
+              // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
+              // their data when they reload the page.
+              .push(`/verification?flow=${newFlowID}`, undefined, {
+                shallow: true,
+              })
 
-          ory
-            .getSelfServiceVerificationFlow(newFlowID)
-            .then(({ data }) => setFlow(data))
-          return
-      }
+            ory
+              .getSelfServiceVerificationFlow(newFlowID)
+              .then(({ data }) => setFlow(data))
+            return
+        }
 
-      throw err
-    })
-}
+        throw err
+      })
+  }
 
   return flow ? (
     // create a verification form that dynamically renders based on the flow data using Ory Elements
@@ -129,10 +129,14 @@ const Verification: NextPage = () => {
           }
         />
         <p>
-          <Link href="/login"><a>Login</a></Link>
+          <Link href="/login">
+            <a>Login</a>
+          </Link>
         </p>
         <p>
-          <Link href="/"><a>Home</a></Link>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
         </p>
       </ThemeProvider>
     </React.StrictMode>
@@ -142,4 +146,3 @@ const Verification: NextPage = () => {
 }
 
 export default Verification
-

@@ -68,7 +68,11 @@ const Registration: NextPage = () => {
       .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
-          .submitSelfServiceRegistrationFlow(String(flow?.id), values, undefined)
+          .submitSelfServiceRegistrationFlow(
+            String(flow?.id),
+            values,
+            undefined,
+          )
           // We logged in successfully! Let's bring the user home.
           .then((res) => {
             if (flow?.return_to) {
@@ -94,38 +98,40 @@ const Registration: NextPage = () => {
             return Promise.reject(err)
           }),
       )
-    }
+  }
 
-      return flow ? (
-        // create a registration form that dynamically renders based on the flow data using Ory Elements
+  return flow ? (
+    // create a registration form that dynamically renders based on the flow data using Ory Elements
 
-        <React.StrictMode>
-          {/* We add the Ory themes here */}
-          <ThemeProvider themeOverrides={{}}>
-            <UserAuthCard
-              title={"Registration"}
-              flowType={"registration"}
-              // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
-              flow={flow}
-              // the registration card needs a way to navigate to the login page
-              additionalProps={{
-                loginURL: "/login",
-              }}
-              // include the necessary scripts for webauthn to work
-              includeScripts={true}
-              // submit the registration form data to Ory
-              onSubmit={({ body }) =>
-                submitFlow(body as SubmitSelfServiceRegistrationFlowBody)
-              }
-            /> 
-          </ThemeProvider>
-        <p>
-          <Link href="/"><a>Home</a></Link>
-        </p>
-        </React.StrictMode>
-      ) : (
-        <div>Loading...</div>
-      )
+    <React.StrictMode>
+      {/* We add the Ory themes here */}
+      <ThemeProvider themeOverrides={{}}>
+        <UserAuthCard
+          title={"Registration"}
+          flowType={"registration"}
+          // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
+          flow={flow}
+          // the registration card needs a way to navigate to the login page
+          additionalProps={{
+            loginURL: "/login",
+          }}
+          // include the necessary scripts for webauthn to work
+          includeScripts={true}
+          // submit the registration form data to Ory
+          onSubmit={({ body }) =>
+            submitFlow(body as SubmitSelfServiceRegistrationFlowBody)
+          }
+        />
+      </ThemeProvider>
+      <p>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+      </p>
+    </React.StrictMode>
+  ) : (
+    <div>Loading...</div>
+  )
 }
 
 export default Registration

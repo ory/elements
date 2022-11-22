@@ -72,7 +72,9 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href='/' onClick={onLogout}><a>Logout</a></Link>
+          <Link href="/" onClick={onLogout}>
+            <a>Logout</a>
+          </Link>
         </p>
       </main>
     </div>
@@ -96,16 +98,24 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href="/login"><a>Login</a></Link>
+          <Link href="/login">
+            <a>Login</a>
+          </Link>
         </p>
         <p>
-          <Link href="/registration"><a>Register</a></Link>
+          <Link href="/registration">
+            <a>Register</a>
+          </Link>
         </p>
         <p>
-          <Link href="/verification"><a>Verification</a></Link>
+          <Link href="/verification">
+            <a>Verification</a>
+          </Link>
         </p>
         <p>
-          <Link href="/recovery"><a>Recovery</a></Link>
+          <Link href="/recovery">
+            <a>Recovery</a>
+          </Link>
         </p>
       </main>
     </div>

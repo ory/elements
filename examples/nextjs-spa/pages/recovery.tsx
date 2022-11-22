@@ -100,36 +100,38 @@ const Recovery: NextPage = () => {
           }),
       )
 
-      return flow ? (
-        // create a recovery form that dynamically renders based on the flow data using Ory Elements
-        <React.StrictMode>
-          {/* We add the Ory themes here */}
-          <ThemeProvider themeOverrides={{}}>
-            <UserAuthCard
-              title={"Recovery"}
-              flowType={"recovery"}
-              // we always need the flow data which populates the form fields and error messages dynamically
-              flow={flow}
-              // the registration card should allow the user to go to the registration page and the login page
-              additionalProps={{
-                loginURL: "/login",
-                signupURL: "/registration",
-              }}
-              // we might need webauthn support which requires additional js
-              includeScripts={true}
-              // we submit the form data to Ory
-              onSubmit={({ body }) =>
-                submitFlow(body as SubmitSelfServiceRecoveryFlowBody)
-              }
-            />
-            <p>
-              <Link href="/"><a>Home</a></Link>
-            </p>
-          </ThemeProvider>
-        </React.StrictMode>
-      ) : (
-        <div>Loading...</div>
-      )
-    }
+  return flow ? (
+    // create a recovery form that dynamically renders based on the flow data using Ory Elements
+    <React.StrictMode>
+      {/* We add the Ory themes here */}
+      <ThemeProvider themeOverrides={{}}>
+        <UserAuthCard
+          title={"Recovery"}
+          flowType={"recovery"}
+          // we always need the flow data which populates the form fields and error messages dynamically
+          flow={flow}
+          // the registration card should allow the user to go to the registration page and the login page
+          additionalProps={{
+            loginURL: "/login",
+            signupURL: "/registration",
+          }}
+          // we might need webauthn support which requires additional js
+          includeScripts={true}
+          // we submit the form data to Ory
+          onSubmit={({ body }) =>
+            submitFlow(body as SubmitSelfServiceRecoveryFlowBody)
+          }
+        />
+        <p>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </p>
+      </ThemeProvider>
+    </React.StrictMode>
+  ) : (
+    <div>Loading...</div>
+  )
+}
 
 export default Recovery
