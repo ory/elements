@@ -5,8 +5,8 @@ import {
 import { ThemeProvider, UserAuthCard } from "@ory/elements"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
-import Head from "next/head"
-import { useRouter, NextRouter } from "next/router"
+import Link from "next/link"
+import { useRouter } from "next/router"
 import React from "react"
 import { useEffect, useState } from "react"
 // Import the SDK
@@ -61,7 +61,7 @@ const Registration: NextPage = () => {
       )
   }, [flowId, router, router.isReady, returnTo, flow])
 
-  const submitFlow = (values: SubmitSelfServiceRegistrationFlowBody) =>
+  const submitFlow = (values: SubmitSelfServiceRegistrationFlowBody) => {
     router
       // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
       // his data when she/he reloads the page.
@@ -94,6 +94,7 @@ const Registration: NextPage = () => {
             return Promise.reject(err)
           }),
       )
+    }
 
       return flow ? (
         // create a registration form that dynamically renders based on the flow data using Ory Elements
@@ -118,6 +119,9 @@ const Registration: NextPage = () => {
               }
             /> 
           </ThemeProvider>
+        <p>
+          <Link href="/"><a>Home</a></Link>
+        </p>
         </React.StrictMode>
       ) : (
         <div>Loading...</div>

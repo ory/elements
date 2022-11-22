@@ -1,5 +1,5 @@
 // React
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
 // Ory SDK
@@ -14,6 +14,7 @@ import type { NextPage } from "next"
 
 import { ThemeProvider, UserAuthCard } from "@ory/elements"
 import React from "react"
+import Link from "next/link"
 
 const Login: NextPage = () => {
   const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
@@ -73,7 +74,7 @@ const Login: NextPage = () => {
       )
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow])
 
-  const submitFlow = (values: SubmitSelfServiceLoginFlowBody) =>
+  const submitFlow = (values: SubmitSelfServiceLoginFlowBody) => {
     router
       // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
       // his data when she/he reloads the page.
@@ -106,6 +107,7 @@ const Login: NextPage = () => {
             return Promise.reject(err)
           }),
       )
+  }
 
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements
@@ -129,6 +131,9 @@ const Login: NextPage = () => {
             submitFlow(body as SubmitSelfServiceLoginFlowBody)
           }
         />
+        <p>
+          <Link href="/"><a>Home</a></Link>
+        </p>
       </ThemeProvider>
     </React.StrictMode>
   ) : (
