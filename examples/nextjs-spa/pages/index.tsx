@@ -104,6 +104,9 @@ const Home: NextPage = () => {
         <p>
           <Link href="/verification"><a>Verification</a></Link>
         </p>
+        <p>
+          <Link href="/recovery"><a>Recovery</a></Link>
+        </p>
       </main>
     </div>
   )

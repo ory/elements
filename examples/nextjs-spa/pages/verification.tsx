@@ -107,7 +107,7 @@ const Verification: NextPage = () => {
 }
 
   return flow ? (
-    // create a login form that dynamically renders based on the flow data using Ory Elements
+    // create a verification form that dynamically renders based on the flow data using Ory Elements
     <React.StrictMode>
       {/* We add the Ory themes here */}
       <ThemeProvider themeOverrides={{}}>
@@ -116,9 +116,9 @@ const Verification: NextPage = () => {
           flowType={"verification"}
           // we always need the flow data which populates the form fields and error messages dynamically
           flow={flow}
-          // the login card should allow the user to go to the registration page and the recovery page
+          // the verification card should allow the user to go to the registration page and the login page
           additionalProps={{
-            forgotPasswordURL: "/recovery",
+            forgotPasswordURL: "/login",
             signupURL: "/registration",
           }}
           // we might need webauthn support which requires additional js
