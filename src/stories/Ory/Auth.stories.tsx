@@ -19,6 +19,7 @@ import registrationFlow from "./register-flow.json"
 import recoveryFlow from "./recovery-flow.json"
 
 import verificationFlow from "./verification-flow.json"
+import verificationSubmitted from "./verification-submit-flow.json"
 
 import logo from "../assets/logo.svg"
 
@@ -152,6 +153,17 @@ export const VerificationAuthCard = Template.bind({})
 VerificationAuthCard.args = {
   title: "Verify your Acme account",
   flow: verificationFlow as SelfServiceLoginFlow,
+  flowType: "verification",
+  additionalProps: {
+    signupURL: "https://acme.com/login",
+  },
+}
+
+export const VerificationSubmittedAuthCard = Template.bind({})
+
+VerificationSubmittedAuthCard.args = {
+  title: "Verify your Acme account",
+  flow: verificationSubmitted as SelfServiceLoginFlow,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",
