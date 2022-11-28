@@ -1,10 +1,10 @@
-import { UiNode, UiText } from "@ory/client"
+import { UiNode, UiText, UiTextTypeEnum } from "@ory/client"
 import { GridStyle, gridStyle } from "../../../theme"
 import { Message, MessageStyleProps } from "../../message"
 
 export type NodeMessagesProps = {
   nodes?: UiNode[]
-  uiMessages?: Array<UiText>
+  uiMessages?: UiText[]
 } & GridStyle &
   MessageStyleProps
 
@@ -13,6 +13,8 @@ type nodeMessageProps = {
   id: number
   key: string
 } & MessageStyleProps
+
+UiTextTypeEnum
 
 const nodeMessage = ({
   text,
@@ -41,10 +43,11 @@ export const NodeMessages = ({
     (groups, { messages }) => {
       groups.push(
         ...messages
-          .map(({ text, id }, key) => {
+          .map(({ text, id, type }, key) => {
             return nodeMessage({
               text,
               id,
+              type,
               key: `node-group-message-${id}-${key}`,
               ...messageProps,
             })
