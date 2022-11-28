@@ -23,6 +23,7 @@ import {
 import { LinkSection } from "./sections/link-section"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
+import { SAMLSection } from "./sections/saml-section"
 import { PasswordlessSection } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
 
@@ -91,6 +92,7 @@ export const UserAuthCard = ({
 
   let $flow = null
   let $oidc = null
+  let $saml = null
   let $passwordless: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
@@ -201,6 +203,7 @@ export const UserAuthCard = ({
     case "login":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+      $saml = SAMLSection(flow)
 
       $flow = LoginSection({
         nodes: flow.ui.nodes,
@@ -224,6 +227,7 @@ export const UserAuthCard = ({
     case "registration":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+      $saml = SAMLSection(flow)
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
       })
@@ -274,6 +278,12 @@ export const UserAuthCard = ({
       <div className={gridStyle({ gap: 32 })}>
         {subtitle && <Message severity="default">{subtitle}</Message>}
         <NodeMessages uiMessages={flow.ui.messages} />
+        {$saml && (
+          <>
+            <Divider />
+            <UserAuthForm flow={flow}>{$saml}</UserAuthForm>
+          </>
+        )}
         {$oidc && (
           <>
             <Divider />

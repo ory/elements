@@ -54,3 +54,10 @@ UserSettingsOidcCard.args = {
   flowType: "oidc",
   flow: settingsFlow as SelfServiceSettingsFlow,
 }
+
+export const UserSettingsSamlCard = Template.bind({})
+
+UserSettingsSamlCard.args = {
+  flowType: "saml",
+  flow: settingsFlow as SelfServiceSettingsFlow,
+}
