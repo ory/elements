@@ -1,6 +1,6 @@
-import { ThemeProvider } from "@ory/elements"
 import React from "react"
 import Link from "next/link"
+import "@ory/elements/style.css"
 
 // React
 import { useEffect, useState } from "react"

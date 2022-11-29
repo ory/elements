@@ -13,6 +13,8 @@ import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
 import { ThemeProvider, UserAuthCard } from "@ory/elements"
+// import Ory elements css
+import "@ory/elements/style.css"
 import React from "react"
 import Link from "next/link"
 
@@ -118,7 +120,6 @@ const Verification: NextPage = () => {
           flow={flow}
           // the verification card should allow the user to go to the registration page and the login page
           additionalProps={{
-            forgotPasswordURL: "/login",
             signupURL: "/registration",
           }}
           // we might need webauthn support which requires additional js
@@ -128,11 +129,6 @@ const Verification: NextPage = () => {
             submitFlow(body as SubmitSelfServiceVerificationFlowBody)
           }
         />
-        <p>
-          <Link href="/login">
-            <a>Login</a>
-          </Link>
-        </p>
         <p>
           <Link href="/">
             <a>Home</a>

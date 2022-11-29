@@ -3,6 +3,8 @@ import {
   SubmitSelfServiceRegistrationFlowBody,
 } from "@ory/client"
 import { ThemeProvider, UserAuthCard } from "@ory/elements"
+// import Ory elements css
+import "@ory/elements/style.css"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 import Link from "next/link"

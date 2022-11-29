@@ -13,6 +13,8 @@ import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
 import { ThemeProvider, UserAuthCard } from "@ory/elements"
+// import Ory elements css
+import "@ory/elements/style.css"
 import React from "react"
 import Link from "next/link"
 
@@ -113,7 +115,6 @@ const Recovery: NextPage = () => {
           // the registration card should allow the user to go to the registration page and the login page
           additionalProps={{
             loginURL: "/login",
-            signupURL: "/registration",
           }}
           // we might need webauthn support which requires additional js
           includeScripts={true}
