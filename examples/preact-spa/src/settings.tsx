@@ -16,7 +16,10 @@ export const Settings = () => {
   const onSubmit = useCallback(
     ({ flow, body }: { flow: SettingsFlow; body: UpdateSettingsFlowBody }) =>
       sdk
-        .updateSettingsFlow(flow.id, body as UpdateSettingsFlowBody)
+        .updateSettingsFlow({
+          flow: flow.id,
+          updateSettingsFlowBody: body as UpdateSettingsFlowBody,
+        })
         .then(({ data: flow }) => {
           setFlow(flow)
         })

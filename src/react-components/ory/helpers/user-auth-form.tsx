@@ -1,9 +1,9 @@
 import {
-  SubmitSelfServiceLoginFlowBody,
-  SubmitSelfServiceRecoveryFlowBody,
-  SubmitSelfServiceRegistrationFlowBody,
-  SubmitSelfServiceSettingsFlowBody,
-  SubmitSelfServiceVerificationFlowBody,
+  UpdateLoginFlowBody,
+  UpdateRecoveryFlowBody,
+  UpdateRegistrationFlowBody,
+  UpdateSettingsFlowBody,
+  UpdateVerificationFlowBody,
 } from "@ory/client"
 import { FilterNodesByGroups } from "@ory/integrations/ui"
 import cn from "classnames"
@@ -18,11 +18,11 @@ export type UserAuthFormAdditionalProps = {
     event,
   }: {
     body:
-      | SubmitSelfServiceLoginFlowBody
-      | SubmitSelfServiceRegistrationFlowBody
-      | SubmitSelfServiceRecoveryFlowBody
-      | SubmitSelfServiceVerificationFlowBody
-      | SubmitSelfServiceSettingsFlowBody
+      | UpdateLoginFlowBody
+      | UpdateRegistrationFlowBody
+      | UpdateRecoveryFlowBody
+      | UpdateVerificationFlowBody
+      | UpdateSettingsFlowBody
     event?: React.FormEvent<HTMLFormElement>
   }) => void
 }
@@ -66,11 +66,11 @@ export const UserAuthForm = ({
 
         // map the entire form data to JSON for the request body
         let body = Object.fromEntries(formData) as unknown as
-          | SubmitSelfServiceLoginFlowBody
-          | SubmitSelfServiceRegistrationFlowBody
-          | SubmitSelfServiceRecoveryFlowBody
-          | SubmitSelfServiceVerificationFlowBody
-          | SubmitSelfServiceSettingsFlowBody
+          | UpdateLoginFlowBody
+          | UpdateRegistrationFlowBody
+          | UpdateRecoveryFlowBody
+          | UpdateVerificationFlowBody
+          | UpdateSettingsFlowBody
 
         // We need the method specified from the name and value of the submit button.
         // when multiple submit buttons are present, the clicked one's value is used.

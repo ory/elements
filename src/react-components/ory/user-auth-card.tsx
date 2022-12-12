@@ -1,4 +1,4 @@
-import { SelfServiceLoginFlow } from "@ory/client"
+import { LoginFlow } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 import React from "react"
 import { gridStyle, typographyStyle } from "../../theme"
@@ -95,7 +95,7 @@ export const UserAuthCard = ({
   let message: MessageSectionProps | null = null
 
   // the user might need to logout on the second factor page.
-  const isLoggedIn = (flow: SelfServiceLoginFlow): boolean => {
+  const isLoggedIn = (flow: LoginFlow): boolean => {
     return flow.refresh || flow.requested_aal === "aal2"
   }
 
@@ -103,11 +103,11 @@ export const UserAuthCard = ({
   // we want the login section to handle passwordless as well when we have a 2FA screen.
   const canShowPasswordless = () =>
     !!$passwordless &&
-    (!isLoggedIn(flow as SelfServiceLoginFlow) || flowType === "registration")
+    (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
-    isLoggedIn(flow as SelfServiceLoginFlow) &&
+    isLoggedIn(flow as LoginFlow) &&
     flowType === "login" &&
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
@@ -207,7 +207,7 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      message = isLoggedIn(flow as SelfServiceLoginFlow)
+      message = isLoggedIn(flow as LoginFlow)
         ? {
             text: <>Something&#39;s not working?</>,
             buttonText: "Logout",

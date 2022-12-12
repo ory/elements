@@ -32,7 +32,7 @@ export const Registration = () => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getRegistrationFlow(flowId)
+        .getRegistrationFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -47,7 +47,10 @@ export const Registration = () => {
     if (!flow) return navigate("/signup", { replace: true })
 
     sdk
-      .updateRegistrationFlow(flow.id, body)
+      .updateRegistrationFlow({
+        flow: flow.id,
+        updateRegistrationFlowBody: body,
+      })
       .then(() => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })

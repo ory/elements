@@ -32,7 +32,7 @@ export const Verification = (): JSX.Element => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getVerificationFlow(flowId)
+        .getVerificationFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -47,7 +47,10 @@ export const Verification = (): JSX.Element => {
     if (!flow) return navigate("/verification", { replace: true })
 
     sdk
-      .updateVerificationFlow(flow.id, body)
+      .updateVerificationFlow({
+        flow: flow.id,
+        updateVerificationFlowBody: body,
+      })
       .then(({ data: flow }) => {
         setFlow(flow)
       })

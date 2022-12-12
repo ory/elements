@@ -29,7 +29,10 @@ export const Register = () => {
       includeScripts={true}
       onSubmit={({ body }) => {
         sdk
-          .updateRegistrationFlow(flow.id, body as UpdateRegistrationFlowBody)
+          .updateRegistrationFlow({
+            flow: flow.id,
+            updateRegistrationFlowBody: body as UpdateRegistrationFlowBody,
+          })
           .then(() => {
             // we successfully submitted the login flow, so lets redirect to the dashboard
             setLocation("/", { replace: true })

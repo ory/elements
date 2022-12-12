@@ -18,7 +18,7 @@ export const Login = (): JSX.Element => {
         // aal2 is a query parameter that can be used to request Two-Factor authentication
         // aal1 is the default authentication level (Single-Factor)
         // we always pass refresh (true) on login so that the session can be refreshed when there is already an active session
-        .createBrowserLoginFlow(true, aal2 ? "aal2" : "aal1")
+        .createBrowserLoginFlow({ refresh: true, aal: aal2 ? "aal2" : "aal1" })
         // flow contains the form fields and csrf token
         .then(({ data: flow }) => setFlow(flow))
         .catch((error) => {
@@ -41,7 +41,7 @@ export const Login = (): JSX.Element => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getLoginFlow(flowId)
+        .getLoginFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -57,7 +57,7 @@ export const Login = (): JSX.Element => {
 
     // we submit the flow to Ory with the form data
     sdk
-      .updateLoginFlow(flow.id, body)
+      .updateLoginFlow({ flow: flow.id, updateLoginFlowBody: body })
       .then(() => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
@@ -73,7 +73,7 @@ export const Login = (): JSX.Element => {
             const u = new URL(error.response.data.redirect_browser_to)
             // get new flow data based on the flow id in the redirect url
             sdk
-              .getLoginFlow(u.searchParams.get("flow") || "")
+              .getLoginFlow({ id: u.searchParams.get("flow") || "" })
               .then(({ data: flow }) => {
                 setFlow(flow)
               })

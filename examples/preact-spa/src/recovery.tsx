@@ -28,7 +28,10 @@ export const Recovery = () => {
       additionalProps={{ loginURL: "/login" }}
       onSubmit={({ body }) => {
         sdk
-          .updateRecoveryFlow(flow.id, body as UpdateRecoveryFlowBody)
+          .updateRecoveryFlow({
+            flow: flow.id,
+            updateRecoveryFlowBody: body as UpdateRecoveryFlowBody,
+          })
           .then(() => {
             // we successfully submitted the login flow, so lets redirect to the dashboard
             setLocation("/", { replace: true })

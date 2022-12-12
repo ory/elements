@@ -166,13 +166,24 @@ var dividerStyle = createRuntimeFn({
 })
 ```
 
-And the gO .\_3ldkmt0 { display: block; text-align: center; overflow: hidden;
-box-sizing: border-box; border: 0; border-top: 0.25rem solid; border-color:
-var(--ory-theme-border-def); width: 4rem; }
+And the CSS.
 
-.\_3ldkmt1 { width: 100%; }
+```css
+gO .\_3ldkmt0 {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 0;
+  border-top: 0.25rem solid;
+  border-color: var(--ory-theme-border-def);
+  width: 4rem;
+}
 
-````
+.\_3ldkmt1 {
+  width: 100%;
+}
+```
 
 ### Overriding Styles
 
@@ -210,7 +221,7 @@ This means we can overwrite them inside the project consuming the library!
   --ory-theme-input-placeholder: #9e9e9e;
   --ory-theme-input-text: #424242;
 }
-````
+```
 
 Inside our components we provide the `<ThemeProvider />` which exposes the
 `themeOverrides` property so that you can implement your own theme.
@@ -397,12 +408,15 @@ Make sure, that the build passed without errors!
 After that, you can set the path to elements in the `package.json` of your
 project:
 
-```json
-  "dependencies": {
-    "@ory/elements": "file:/path/to/@ory/elements"
-  }
+```shell
+npm i /path/to/elements/packages/markup
+
+# or for preact
+# npm i /path/to/elements/packages/preact
+
+# or for react
+# npm i /path/to/elements/packages/react
 ```
 
-Make sure to include `file:/` in front of the path!
-
-Now, run `npm install` in that directory.
+Make sure to not commit these changes, as they will break on CI or on other
+machines that have a different setup.

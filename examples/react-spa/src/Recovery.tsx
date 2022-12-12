@@ -29,7 +29,7 @@ export const Recovery = () => {
   const getFlow = useCallback(
     (flowId: string) =>
       sdk
-        .getRecoveryFlow(flowId)
+        .getRecoveryFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -43,7 +43,7 @@ export const Recovery = () => {
     if (!flow) return navigate("/login", { replace: true })
 
     sdk
-      .updateRecoveryFlow(flow.id, body)
+      .updateRecoveryFlow({ flow: flow.id, updateRecoveryFlowBody: body })
       .then(() => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })

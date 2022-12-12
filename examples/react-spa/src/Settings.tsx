@@ -37,7 +37,7 @@ export const Settings = () => {
     (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
-        .getSettingsFlow(flowId)
+        .getSettingsFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -53,7 +53,7 @@ export const Settings = () => {
 
     sdk
       // submit the form data the user provided to Ory
-      .updateSettingsFlow(flow.id, body)
+      .updateSettingsFlow({ flow: flow.id, updateSettingsFlowBody: body })
       .then(({ data: flow }) => {
         setFlow(flow)
       })

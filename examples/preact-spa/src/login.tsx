@@ -12,7 +12,7 @@ export const Login = () => {
   const handleFlow = useCallback(
     ({ refresh, mfa }: { refresh: boolean; mfa: boolean }) => {
       return sdk
-        .createBrowserLoginFlow(refresh, mfa ? "aal2" : "aal1")
+        .createBrowserLoginFlow({ refresh, aal: mfa ? "aal2" : "aal1" })
         .then(({ data: flow }) => flow)
     },
     [],
@@ -50,7 +50,10 @@ export const Login = () => {
       includeScripts={true}
       onSubmit={({ body }) => {
         sdk
-          .updateLoginFlow(flow.id, body as UpdateLoginFlowBody)
+          .updateLoginFlow({
+            flow: flow.id,
+            updateLoginFlowBody: body as UpdateLoginFlowBody,
+          })
           .then(() => {
             // we successfully submitted the login flow, so lets redirect to the dashboard
             setLocation("/", { replace: true })
