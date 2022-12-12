@@ -28,7 +28,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     sdk
-      .createSelfServiceLogoutFlowUrlForBrowsers(undefined, {
+      .createBrowserLogoutFlow(undefined, {
         params: {
           return_url: "/",
         },

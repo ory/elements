@@ -1,20 +1,17 @@
-import {
-  SelfServiceRegistrationFlow,
-  SubmitSelfServiceRegistrationFlowBody,
-} from "@ory/client"
+import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
 import { useLocation } from "wouter"
 
 export const Register = () => {
-  const [flow, setFlow] = useState<SelfServiceRegistrationFlow | null>(null)
+  const [flow, setFlow] = useState<RegistrationFlow | null>(null)
 
   const [location, setLocation] = useLocation()
 
   useEffect(() => {
     sdk
-      .initializeSelfServiceRegistrationFlowForBrowsers()
+      .createBrowserRegistrationFlow()
       .then(({ data: flow }) => {
         setFlow(flow)
       })
@@ -32,10 +29,10 @@ export const Register = () => {
       includeScripts={true}
       onSubmit={({ body }) => {
         sdk
-          .submitSelfServiceRegistrationFlow(
-            flow.id,
-            body as SubmitSelfServiceRegistrationFlowBody,
-          )
+          .updateRegistrationFlow({
+            flow: flow.id,
+            updateRegistrationFlowBody: body as UpdateRegistrationFlowBody,
+          })
           .then(() => {
             // we successfully submitted the login flow, so lets redirect to the dashboard
             setLocation("/", { replace: true })

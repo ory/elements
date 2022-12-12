@@ -1,4 +1,4 @@
-import { SelfServiceError } from "@ory/client"
+import { FlowError } from "@ory/client"
 import React from "react"
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { ButtonLink } from "../button-link"
@@ -9,7 +9,7 @@ import { Message } from "../message"
 // SelfServiceErrorCard props
 export type UserErrorCardProps = {
   title: string
-  error: SelfServiceError
+  error: FlowError
   backUrl: string
   cardImage?: string | React.ReactElement
   contactSupportEmail?: string

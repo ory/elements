@@ -34,10 +34,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
-    "@ory/client": "^0.2.0-alpha.60",
+    "@ory/client": "^1.1.0",
     "@ory/elements": "*",
     "@ory/elements-test": "*",
-    "@ory/integrations": "^0.2.7",
+    "@ory/integrations": "^1.1.0",
     "@playwright/experimental-ct-react": "^1.25.0",
     "@playwright/test": "^1.25.1",
     "@preact/preset-vite": "^2.3.0",

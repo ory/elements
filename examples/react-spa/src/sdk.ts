@@ -1,9 +1,9 @@
 // Copyright © 2022 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Configuration, V0alpha2Api } from "@ory/client"
+import { Configuration, FrontendApi } from "@ory/client"
 
-export default new V0alpha2Api(
+export default new FrontendApi(
   new Configuration({
     //https://vitejs.dev/guide/env-and-mode.html#env-files
     basePath: import.meta.env.VITE_ORY_SDK_URL,
