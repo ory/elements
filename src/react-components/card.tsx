@@ -31,13 +31,24 @@ export const Card = ({
     {...props}
   >
     <div className={gridStyle({ gap: 32 })}>
-      <div className={cardTitleImage}>
-        {typeof image === "string" ? (
-          <img src={image} alt={image} width="100%" height="100%" />
-        ) : (
-          image
-        )}
-      </div>
+      {image && (
+        <div className={cardTitleImage}>
+          {typeof image === "string" ? (
+            <img
+              style={{
+                width: "auto",
+              }}
+              src={image}
+              alt={image}
+              width="100%"
+              height="100%"
+            />
+          ) : (
+            image
+          )}
+        </div>
+      )}
+
       <div className={cardTitleStyle}>
         {typeof heading === "string" ? (
           <h3 className={typographyStyle({ type: "regular", size: "small" })}>
