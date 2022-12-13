@@ -1,7 +1,7 @@
 import { ComponentMeta, Story } from "@storybook/react"
 import { Card, CardProps, Message } from "../react-components"
-import fblogo from "./assets/facebook.svg"
 import logo from "./assets/logo.svg"
+import oryLogo from "./assets/ory_logomark.svg"
 import { Container } from "./storyhelper"
 
 export default {
@@ -33,5 +33,5 @@ export const LargeLogoHeadingCard = Template.bind({})
 
 LargeLogoHeadingCard.args = {
   heading: "Large Logo Heading",
-  image: fblogo,
+  image: oryLogo,
 }
