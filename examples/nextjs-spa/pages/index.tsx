@@ -15,7 +15,7 @@ import "@ory/elements/style.css"
 
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
-import { createLogoutHandler } from "../pkg/hooks"
+import { LogoutLink } from "../pkg/hooks"
 
 const Home: NextPage = () => {
   const [session, setSession] = useState<string>(
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
   )
   const [hasSession, setHasSession] = useState<boolean>(false)
   const router = useRouter()
-  const onLogout = createLogoutHandler()
+  const onLogout = LogoutLink()
 
   useEffect(() => {
     ory
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         </h1>
         <p>
           <Link href="/" onClick={onLogout}>
-            <a>Logout</a>
+            Logout
           </Link>
         </p>
       </main>
@@ -98,24 +98,16 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href="/login">
-            <a>Login</a>
-          </Link>
+          <Link href="/login">Login</Link>
         </p>
         <p>
-          <Link href="/registration">
-            <a>Register</a>
-          </Link>
+          <Link href="/registration">Register</Link>
         </p>
         <p>
-          <Link href="/verification">
-            <a>Verification</a>
-          </Link>
+          <Link href="/verification">Verification</Link>
         </p>
         <p>
-          <Link href="/recovery">
-            <a>Recovery</a>
-          </Link>
+          <Link href="/recovery">Recovery</Link>
         </p>
       </main>
     </div>

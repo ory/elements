@@ -4,10 +4,7 @@ import { useRouter } from "next/router"
 
 // Ory SDK
 import { ory } from "../components/sdk"
-import {
-  SelfServiceRecoveryFlow,
-  SubmitSelfServiceRecoveryFlowBody,
-} from "@ory/client"
+import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
@@ -19,7 +16,7 @@ import React from "react"
 import Link from "next/link"
 
 const Recovery: NextPage = () => {
-  const [flow, setFlow] = useState<SelfServiceRecoveryFlow>()
+  const [flow, setFlow] = useState<RecoveryFlow>()
 
   // Get ?flow=... from the URL
   const router = useRouter()
@@ -34,7 +31,7 @@ const Recovery: NextPage = () => {
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
       ory
-        .getSelfServiceRecoveryFlow(String(flowId))
+        .getRecoveryFlow({ id: String(flowId) })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -54,7 +51,7 @@ const Recovery: NextPage = () => {
 
     // Otherwise we initialize it
     ory
-      .initializeSelfServiceRecoveryFlowForBrowsers()
+      .createBrowserRecoveryFlow()
       .then(({ data }) => {
         setFlow(data)
       })
@@ -74,14 +71,17 @@ const Recovery: NextPage = () => {
       })
   }, [flowId, router, router.isReady, returnTo, flow])
 
-  const submitFlow = (values: SubmitSelfServiceRecoveryFlowBody) =>
+  const submitFlow = (values: UpdateRecoveryFlowBody) =>
     router
       // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
       // his data when she/he reloads the page.
       .push(`/recovery?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
-          .submitSelfServiceRecoveryFlow(String(flow?.id), values, undefined)
+          .updateRecoveryFlow({
+            flow: String(flow?.id),
+            updateRecoveryFlowBody: values,
+          })
           .then(({ data }) => {
             // Form submission was successful, show the message to the user!
             setFlow(data)
@@ -119,14 +119,10 @@ const Recovery: NextPage = () => {
           // we might need webauthn support which requires additional js
           includeScripts={true}
           // we submit the form data to Ory
-          onSubmit={({ body }) =>
-            submitFlow(body as SubmitSelfServiceRecoveryFlowBody)
-          }
+          onSubmit={({ body }) => submitFlow(body as UpdateRecoveryFlowBody)}
         />
         <p>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
+          <Link href="/">Home</Link>
         </p>
       </ThemeProvider>
     </React.StrictMode>

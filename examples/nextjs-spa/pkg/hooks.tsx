@@ -5,13 +5,13 @@ import { useState, useEffect, DependencyList } from "react"
 import { ory } from "../components/sdk"
 
 // Returns a function which will log the user out
-export function createLogoutHandler(deps?: DependencyList) {
+export function LogoutLink(deps?: DependencyList) {
   const [logoutToken, setLogoutToken] = useState<string>("")
   const router = useRouter()
 
   useEffect(() => {
     ory
-      .createSelfServiceLogoutFlowUrlForBrowsers()
+      .createBrowserLogoutFlow()
       .then(({ data }) => {
         setLogoutToken(data.logout_token)
       })
@@ -30,7 +30,7 @@ export function createLogoutHandler(deps?: DependencyList) {
   return () => {
     if (logoutToken) {
       ory
-        .submitSelfServiceLogoutFlow(logoutToken)
+        .updateLogoutFlow({ token: logoutToken })
         .then(() => router.push("/login"))
         .then(() => router.reload())
     }

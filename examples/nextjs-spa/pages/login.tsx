@@ -4,10 +4,7 @@ import { useRouter } from "next/router"
 
 // Ory SDK
 import { ory } from "../components/sdk"
-import {
-  SelfServiceLoginFlow,
-  SubmitSelfServiceLoginFlowBody,
-} from "@ory/client"
+import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
 
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
@@ -20,7 +17,7 @@ import React from "react"
 import Link from "next/link"
 
 const Login: NextPage = () => {
-  const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
+  const [flow, setFlow] = useState<LoginFlow | null>(null)
 
   // Get ?flow=... from the URL
   const router = useRouter()
@@ -47,7 +44,7 @@ const Login: NextPage = () => {
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
       ory
-        .getSelfServiceLoginFlow(String(flowId))
+        .getLoginFlow({ id: String(flowId) })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -61,11 +58,11 @@ const Login: NextPage = () => {
 
     // Otherwise we initialize it
     ory
-      .initializeSelfServiceLoginFlowForBrowsers(
-        Boolean(refresh),
-        aal ? String(aal) : undefined,
-        returnTo ? String(returnTo) : undefined,
-      )
+      .createBrowserLoginFlow({
+        refresh: Boolean(refresh),
+        aal: aal ? String(aal) : undefined,
+        returnTo: returnTo ? String(returnTo) : undefined,
+      })
       .then(({ data }) => {
         setFlow(data)
       })
@@ -76,16 +73,19 @@ const Login: NextPage = () => {
       )
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow])
 
-  const submitFlow = (values: SubmitSelfServiceLoginFlowBody) => {
+  const submitFlow = (values: UpdateLoginFlowBody) => {
     router
       // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
       // his data when she/he reloads the page.
       .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
-          .submitSelfServiceLoginFlow(String(flow?.id), values, undefined)
+          .updateLoginFlow({
+            flow: String(flow?.id),
+            updateLoginFlowBody: values,
+          })
           // We logged in successfully! Let's bring the user home.
-          .then((res) => {
+          .then(() => {
             if (flow?.return_to) {
               window.location.href = flow?.return_to
               return
@@ -129,16 +129,12 @@ const Login: NextPage = () => {
             // we might need webauthn support which requires additional js
             includeScripts={true}
             // we submit the form data to Ory
-            onSubmit={({ body }) =>
-              submitFlow(body as SubmitSelfServiceLoginFlowBody)
-            }
+            onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
           />
         </ThemeProvider>
       </React.StrictMode>
       <p>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
+        <Link href="/">Home</Link>
       </p>
     </>
   ) : (

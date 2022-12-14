@@ -1,7 +1,4 @@
-import {
-  SelfServiceRegistrationFlow,
-  SubmitSelfServiceRegistrationFlowBody,
-} from "@ory/client"
+import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 import { ThemeProvider, UserAuthCard } from "@ory/elements"
 // import Ory elements css
 import "@ory/elements/style.css"
@@ -20,7 +17,7 @@ const Registration: NextPage = () => {
 
   // The "flow" represents a registration process and contains
   // information about the form we need to render (e.g. username + password)
-  const [flow, setFlow] = useState<SelfServiceRegistrationFlow>()
+  const [flow, setFlow] = useState<RegistrationFlow>()
 
   // Get ?flow=... from the URL
   const { flow: flowId, return_to: returnTo } = router.query
@@ -35,7 +32,7 @@ const Registration: NextPage = () => {
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
       ory
-        .getSelfServiceRegistrationFlow(String(flowId))
+        .getRegistrationFlow({ id: String(flowId) })
         .then(({ data }) => {
           // We received the flow - let's use its data and render the form!
           setFlow(data)
@@ -50,9 +47,9 @@ const Registration: NextPage = () => {
 
     // Otherwise we initialize it
     ory
-      .initializeSelfServiceRegistrationFlowForBrowsers(
-        returnTo ? String(returnTo) : undefined,
-      )
+      .createBrowserRegistrationFlow({
+        returnTo: returnTo ? String(returnTo) : undefined,
+      })
       .then(({ data }) => {
         setFlow(data)
       })
@@ -63,18 +60,17 @@ const Registration: NextPage = () => {
       )
   }, [flowId, router, router.isReady, returnTo, flow])
 
-  const submitFlow = (values: SubmitSelfServiceRegistrationFlowBody) => {
+  const submitFlow = (values: UpdateRegistrationFlowBody) => {
     router
       // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
       // his data when she/he reloads the page.
       .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
-          .submitSelfServiceRegistrationFlow(
-            String(flow?.id),
-            values,
-            undefined,
-          )
+          .updateRegistrationFlow({
+            flow: String(flow?.id),
+            updateRegistrationFlowBody: values,
+          })
           // We logged in successfully! Let's bring the user home.
           .then((res) => {
             if (flow?.return_to) {
@@ -121,14 +117,12 @@ const Registration: NextPage = () => {
           includeScripts={true}
           // submit the registration form data to Ory
           onSubmit={({ body }) =>
-            submitFlow(body as SubmitSelfServiceRegistrationFlowBody)
+            submitFlow(body as UpdateRegistrationFlowBody)
           }
         />
       </ThemeProvider>
       <p>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
+        <Link href="/">Home</Link>
       </p>
     </React.StrictMode>
   ) : (
