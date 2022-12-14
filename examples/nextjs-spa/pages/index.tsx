@@ -72,10 +72,12 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href="/" onClick={onLogout}>Logout</Link>
-        <p>
-          <Link href="/settings">Settings</Link>
-        </p>
+          <Link href="/" onClick={onLogout}>
+            Logout
+          </Link>
+          <p>
+            <Link href="/settings">Settings</Link>
+          </p>
         </p>
       </main>
     </div>

@@ -10,10 +10,10 @@ import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
 import {
-    gridStyle,
-    ThemeProvider,
-    UserSettingsCard,
-    UserSettingsFlowType
+  gridStyle,
+  ThemeProvider,
+  UserSettingsCard,
+  UserSettingsFlowType,
 } from "@ory/elements"
 
 // import Ory elements css
@@ -99,25 +99,25 @@ const Settings: NextPage = () => {
           }),
       )
 
-    // if the flow is not set, we show a loading indicator
-    return flow ? (
-        // create a login form that dynamically renders based on the flow data using Ory Elements
-        <>
-        <React.StrictMode>
-          <ThemeProvider themeOverrides={{}}>
-            <div className={gridStyle({ gap: 16 })}>
+  // if the flow is not set, we show a loading indicator
+  return flow ? (
+    // create a login form that dynamically renders based on the flow data using Ory Elements
+    <>
+      <React.StrictMode>
+        <ThemeProvider themeOverrides={{}}>
+          <div className={gridStyle({ gap: 16 })}>
             {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
             {(
-                [
+              [
                 "profile",
                 "password",
                 "totp",
                 "webauthn",
                 "lookupSecret",
-                ] as UserSettingsFlowType[]
+              ] as UserSettingsFlowType[]
             ).map((flowType: UserSettingsFlowType, index) => (
-                // here we render the settings flow using Ory Elements
-                <UserSettingsCard
+              // here we render the settings flow using Ory Elements
+              <UserSettingsCard
                 key={index}
                 // we always need to pass the component the flow since it contains the form fields, error messages and csrf token
                 flow={flow}
@@ -126,18 +126,18 @@ const Settings: NextPage = () => {
                 includeScripts={true}
                 // submit the form data the user provides to Ory
                 onSubmit={({ body }) => onSubmit(body)}
-                />
+              />
             ))}
-            </div>
+          </div>
         </ThemeProvider>
       </React.StrictMode>
       <p>
         <Link href="/">Home</Link>
       </p>
-        </>
-      ) : (
-        <div>Loading...</div>
-      )
+    </>
+  ) : (
+    <div>Loading...</div>
+  )
 }
 
 export default Settings
