@@ -7,12 +7,6 @@ import React from "react"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    // create a recovery form that dynamically renders based on the flow data using Ory Elements
-    <React.StrictMode>
-      {/* We add the Ory themes here */}
-      <ThemeProvider themeOverrides={{}}>
         <Component {...pageProps} />
-      </ThemeProvider>
-    </React.StrictMode>
   )
 }
