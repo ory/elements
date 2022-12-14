@@ -8,11 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+          token: ${{ secrets.ORY_BOT_PAT }}
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
       - run: npm run initialize
       - run: npm run build:clean
+      - run: git checkout main
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR }}" > ~/.npmrc
-      - run: npx lerna publish from-git -y
+      - run: |
+          npx lerna version --no-private --no-git-tag-version --no-push -y ${{ github.event.release.tag_name }}
+      - run: make format
+      - run: |
+          git config --global user.email "60093411+ory-bot@users.noreply.github.com"
+          git config --global user.name "ory-bot"
+          git add -A
+          git commit -a -m "chore: update to version ${{ github.event.release.tag_name }}"
+          git push
+      - run: npx lerna publish -y from-package

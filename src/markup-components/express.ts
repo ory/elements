@@ -1,14 +1,20 @@
+// Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { assignInlineVars } from "@vanilla-extract/dynamic"
-import express, { Application } from "express"
+import express, { Application, Request, Response } from "express"
 import { oryTheme, Theme } from "../theme"
 
-export const RegisterOryElementsExpress = (app: Application, theme: Theme) => {
-  app.use("/theme.css", (req, res) => {
+export const RegisterOryElementsExpress = (
+  app: Application,
+  defaultTheme: Theme,
+) => {
+  app.use("/theme.css", (req: Request, res: Response) => {
     res.header("Content-Type", "text/css")
     res.send(
       `body {${assignInlineVars(oryTheme, {
-        ...oryTheme,
-        ...theme,
+        ...defaultTheme,
+        ...(req.theme && req.theme),
       }).toString()}}`,
     )
   })

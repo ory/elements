@@ -1,10 +1,13 @@
+// Copyright © 2022 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { style } from "@vanilla-extract/css"
 import { pxToRem } from "../common"
 import { oryTheme } from "./theme.css"
 
 export const checkboxStyle = style({
   display: "flex",
-  justifyContent: "start",
+  justifyContent: "flex-start",
   alignItems: "center",
   cursor: "pointer",
   gap: pxToRem(8),

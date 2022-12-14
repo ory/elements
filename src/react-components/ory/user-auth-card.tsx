@@ -83,6 +83,7 @@ export const UserAuthCard = ({
   cardImage,
   onSubmit,
   includeScripts,
+  className,
 }: UserAuthCardProps): JSX.Element => {
   if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
@@ -262,6 +263,7 @@ export const UserAuthCard = ({
 
   return (
     <Card
+      className={className}
       heading={
         <h2 className={typographyStyle({ type: "regular", size: "small" })}>
           {title}

@@ -1,6 +1,7 @@
 import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
 import {
   getNodeLabel,
+  isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
@@ -15,6 +16,7 @@ import { Image } from "../../image"
 import { InputField } from "../../input-field"
 import { Typography } from "../../typography"
 import { NodeMessages } from "./error-messages"
+import { ButtonLink } from "../../button-link"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined
@@ -214,6 +216,18 @@ export const Node = ({
           />
         )
     }
+  } else if (isUiNodeAnchorAttributes(node.attributes)) {
+    return (
+      <ButtonLink
+        href={node.attributes.href}
+        title={node.attributes.title.text}
+        data-testid={`node/anchor/${node.attributes.id}`}
+        className={className}
+        position="center"
+      >
+        {node.attributes.title.text}
+      </ButtonLink>
+    )
   }
   return null
 }
