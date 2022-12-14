@@ -1,6 +1,5 @@
 import React from "react"
 import Link from "next/link"
-import "@ory/elements/style.css"
 
 // React
 import { useEffect, useState } from "react"
@@ -11,7 +10,6 @@ import { ory } from "../components/sdk"
 
 // import css
 import styles from "../styles/Dashboard.module.css"
-import "@ory/elements/style.css"
 
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
@@ -44,7 +42,7 @@ const Home: NextPage = () => {
             return router.push("/login?aal=aal2")
           case 401:
             // do nothing, the user is not logged in
-            return
+            return router.push("/login")
         }
 
         // Something else happened!
@@ -72,48 +70,18 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href="/" onClick={onLogout}>
-            Logout
-          </Link>
-          <p>
-            <Link href="/settings">Settings</Link>
-          </p>
-        </p>
-      </main>
-    </div>
-  ) : (
-    <div className={styles.container}>
-      <title>Next.js w/ Elements</title>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to{" "}
-          <a href="https://nextjs.org" target="_blank" rel="noreferrer">
-            Next.js
-          </a>{" "}
-          with{" "}
-          <a
-            href="https://github.com/ory/elements"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ory Elements
-          </a>
-        </h1>
-        <p>
-          <Link href="/login">Login</Link>
-        </p>
-        <p>
-          <Link href="/registration">Register</Link>
+          <Link href="/" onClick={onLogout}>Logout</Link>
         </p>
         <p>
           <Link href="/verification">Verification</Link>
         </p>
         <p>
-          <Link href="/recovery">Recovery</Link>
+          <Link href="/settings">Settings</Link>
         </p>
       </main>
     </div>
+  ) : (
+    <div>Loading...</div>
   )
 }
 

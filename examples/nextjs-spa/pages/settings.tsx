@@ -1,5 +1,5 @@
 // React
-import { ReactNode, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
 // Ory SDK
@@ -11,13 +11,10 @@ import type { NextPage } from "next"
 
 import {
   gridStyle,
-  ThemeProvider,
   UserSettingsCard,
   UserSettingsFlowType,
 } from "@ory/elements"
 
-// import Ory elements css
-import "@ory/elements/style.css"
 import React from "react"
 import Link from "next/link"
 
@@ -103,37 +100,33 @@ const Settings: NextPage = () => {
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements
     <>
-      <React.StrictMode>
-        <ThemeProvider themeOverrides={{}}>
-          <div className={gridStyle({ gap: 16 })}>
-            {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
-            {(
-              [
-                "profile",
-                "password",
-                "totp",
-                "webauthn",
-                "lookupSecret",
-              ] as UserSettingsFlowType[]
-            ).map((flowType: UserSettingsFlowType, index) => (
-              // here we render the settings flow using Ory Elements
-              <UserSettingsCard
-                key={index}
-                // we always need to pass the component the flow since it contains the form fields, error messages and csrf token
-                flow={flow}
-                flowType={flowType}
-                // include scripts for webauthn support
-                includeScripts={true}
-                // submit the form data the user provides to Ory
-                onSubmit={({ body }) => onSubmit(body)}
-              />
-            ))}
-          </div>
-        </ThemeProvider>
-      </React.StrictMode>
-      <p>
+      <h1>
         <Link href="/">Home</Link>
-      </p>
+      </h1>
+      <div className={gridStyle({ gap: 16 })}>
+        {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
+        {(
+          [
+            "profile",
+            "password",
+            "totp",
+            "webauthn",
+            "lookupSecret",
+          ] as UserSettingsFlowType[]
+        ).map((flowType: UserSettingsFlowType, index) => (
+          // here we render the settings flow using Ory Elements
+          <UserSettingsCard
+            key={index}
+            // we always need to pass the component the flow since it contains the form fields, error messages and csrf token
+            flow={flow}
+            flowType={flowType}
+            // include scripts for webauthn support
+            includeScripts={true}
+            // submit the form data the user provides to Ory
+            onSubmit={({ body }) => onSubmit(body)}
+          />
+        ))}
+      </div>
     </>
   ) : (
     <div>Loading...</div>

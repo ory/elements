@@ -1,5 +1,5 @@
 import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
-import { ThemeProvider, UserAuthCard } from "@ory/elements"
+import { UserAuthCard } from "@ory/elements"
 // import Ory elements css
 import "@ory/elements/style.css"
 import { AxiosError } from "axios"
@@ -72,7 +72,7 @@ const Registration: NextPage = () => {
             updateRegistrationFlowBody: values,
           })
           // We logged in successfully! Let's bring the user home.
-          .then((res) => {
+          .then(() => {
             if (flow?.return_to) {
               window.location.href = flow?.return_to
               return
@@ -100,31 +100,24 @@ const Registration: NextPage = () => {
 
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements
-
-    <React.StrictMode>
-      {/* We add the Ory themes here */}
-      <ThemeProvider themeOverrides={{}}>
-        <UserAuthCard
-          title={"Registration"}
-          flowType={"registration"}
-          // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
-          flow={flow}
-          // the registration card needs a way to navigate to the login page
-          additionalProps={{
-            loginURL: "/login",
-          }}
-          // include the necessary scripts for webauthn to work
-          includeScripts={true}
-          // submit the registration form data to Ory
-          onSubmit={({ body }) =>
-            submitFlow(body as UpdateRegistrationFlowBody)
-          }
-        />
-      </ThemeProvider>
-      <p>
-        <Link href="/">Home</Link>
-      </p>
-    </React.StrictMode>
+    <>
+      <UserAuthCard
+        title={"Registration"}
+        flowType={"registration"}
+        // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
+        flow={flow}
+        // the registration card needs a way to navigate to the login page
+        additionalProps={{
+          loginURL: "/login",
+        }}
+        // include the necessary scripts for webauthn to work
+        includeScripts={true}
+        // submit the registration form data to Ory
+        onSubmit={({ body }) =>
+          submitFlow(body as UpdateRegistrationFlowBody)
+        }
+      />
+    </>
   ) : (
     <div>Loading...</div>
   )

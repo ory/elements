@@ -9,9 +9,7 @@ import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
-import { ThemeProvider, UserAuthCard } from "@ory/elements"
-// import Ory elements css
-import "@ory/elements/style.css"
+import { UserAuthCard } from "@ory/elements"
 import React from "react"
 import Link from "next/link"
 
@@ -104,28 +102,22 @@ const Recovery: NextPage = () => {
 
   return flow ? (
     // create a recovery form that dynamically renders based on the flow data using Ory Elements
-    <React.StrictMode>
-      {/* We add the Ory themes here */}
-      <ThemeProvider themeOverrides={{}}>
-        <UserAuthCard
-          title={"Recovery"}
-          flowType={"recovery"}
-          // we always need the flow data which populates the form fields and error messages dynamically
-          flow={flow}
-          // the registration card should allow the user to go to the registration page and the login page
-          additionalProps={{
-            loginURL: "/login",
-          }}
-          // we might need webauthn support which requires additional js
-          includeScripts={true}
-          // we submit the form data to Ory
-          onSubmit={({ body }) => submitFlow(body as UpdateRecoveryFlowBody)}
-        />
-        <p>
-          <Link href="/">Home</Link>
-        </p>
-      </ThemeProvider>
-    </React.StrictMode>
+    <>
+      <UserAuthCard
+        title={"Recovery"}
+        flowType={"recovery"}
+        // we always need the flow data which populates the form fields and error messages dynamically
+        flow={flow}
+        // the registration card should allow the user to go to the registration page and the login page
+        additionalProps={{
+          loginURL: "/login",
+        }}
+        // we might need webauthn support which requires additional js
+        includeScripts={true}
+        // we submit the form data to Ory
+        onSubmit={({ body }) => submitFlow(body as UpdateRecoveryFlowBody)}
+      />
+    </>
   ) : (
     <div>Loading...</div>
   )

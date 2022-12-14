@@ -1,18 +1,37 @@
-html,
-body {
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html,
+body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+    display: flex;
+
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+p {
+  line-height: 1.5;
+  margin-top: 1em;
+  font-size: 1.1em;
+}
+
+h1 {
+  text-align: center;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {

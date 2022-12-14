@@ -9,9 +9,7 @@ import { VerificationFlow, UpdateVerificationFlowBody } from "@ory/client"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
-import { ThemeProvider, UserAuthCard } from "@ory/elements"
-// import Ory elements css
-import "@ory/elements/style.css"
+import { UserAuthCard } from "@ory/elements"
 import React from "react"
 import Link from "next/link"
 
@@ -108,30 +106,27 @@ const Verification: NextPage = () => {
 
   return flow ? (
     // create a verification form that dynamically renders based on the flow data using Ory Elements
-    <React.StrictMode>
-      {/* We add the Ory themes here */}
-      <ThemeProvider themeOverrides={{}}>
-        <UserAuthCard
-          title={"Verification"}
-          flowType={"verification"}
-          // we always need the flow data which populates the form fields and error messages dynamically
-          flow={flow}
-          // the verification card should allow the user to go to the registration page and the login page
-          additionalProps={{
-            signupURL: "/registration",
-          }}
-          // we might need webauthn support which requires additional js
-          includeScripts={true}
-          // we submit the form data to Ory
-          onSubmit={({ body }) =>
-            submitFlow(body as UpdateVerificationFlowBody)
-          }
-        />
-        <p>
-          <Link href="/">Home</Link>
-        </p>
-      </ThemeProvider>
-    </React.StrictMode>
+    <>
+      <h1>
+        <Link href="/">Home</Link>
+      </h1>
+      <UserAuthCard
+        title={"Verification"}
+        flowType={"verification"}
+        // we always need the flow data which populates the form fields and error messages dynamically
+        flow={flow}
+        // the verification card should allow the user to go to the registration page and the login page
+        additionalProps={{
+          signupURL: "/registration",
+        }}
+        // we might need webauthn support which requires additional js
+        includeScripts={true}
+        // we submit the form data to Ory
+        onSubmit={({ body }) =>
+          submitFlow(body as UpdateVerificationFlowBody)
+        }
+      />
+    </>
   ) : (
     <div>Loading...</div>
   )

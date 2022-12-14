@@ -9,9 +9,7 @@ import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 
-import { ThemeProvider, UserAuthCard } from "@ory/elements"
-// import Ory elements css
-import "@ory/elements/style.css"
+import { UserAuthCard } from "@ory/elements"
 
 import React from "react"
 import Link from "next/link"
@@ -114,28 +112,21 @@ const Login: NextPage = () => {
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements
     <>
-      <React.StrictMode>
-        <ThemeProvider themeOverrides={{}}>
-          <UserAuthCard
-            title={"Login"}
-            flowType={"login"}
-            // we always need the flow data which populates the form fields and error messages dynamically
-            flow={flow}
-            // the login card should allow the user to go to the registration page and the recovery page
-            additionalProps={{
-              forgotPasswordURL: "/recovery",
-              signupURL: "/registration",
-            }}
-            // we might need webauthn support which requires additional js
-            includeScripts={true}
-            // we submit the form data to Ory
-            onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
-          />
-        </ThemeProvider>
-      </React.StrictMode>
-      <p>
-        <Link href="/">Home</Link>
-      </p>
+      <UserAuthCard
+        title={"Login"}
+        flowType={"login"}
+        // we always need the flow data which populates the form fields and error messages dynamically
+        flow={flow}
+        // the login card should allow the user to go to the registration page and the recovery page
+        additionalProps={{
+          forgotPasswordURL: "/recovery",
+          signupURL: "/registration",
+        }}
+        // we might need webauthn support which requires additional js
+        includeScripts={true}
+        // we submit the form data to Ory
+        onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
+      />
     </>
   ) : (
     <div>Loading...</div>
