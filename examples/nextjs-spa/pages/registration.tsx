@@ -113,9 +113,7 @@ const Registration: NextPage = () => {
         // include the necessary scripts for webauthn to work
         includeScripts={true}
         // submit the registration form data to Ory
-        onSubmit={({ body }) =>
-          submitFlow(body as UpdateRegistrationFlowBody)
-        }
+        onSubmit={({ body }) => submitFlow(body as UpdateRegistrationFlowBody)}
       />
     </>
   ) : (

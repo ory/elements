@@ -122,9 +122,7 @@ const Verification: NextPage = () => {
         // we might need webauthn support which requires additional js
         includeScripts={true}
         // we submit the form data to Ory
-        onSubmit={({ body }) =>
-          submitFlow(body as UpdateVerificationFlowBody)
-        }
+        onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}
       />
     </>
   ) : (

@@ -6,7 +6,9 @@ npm run dev
 
 ## Proxy
 
-Instead of using the built in Ory proxy, we are using Ory CLI's tunnel with a default local variable:
+Instead of using the built in Ory proxy, we are using Ory CLI's tunnel with a
+default local variable:
+
 ```bash
 NEXT_PUBLIC_ORY_SDK_URL = "http://localhost:4000"
 ```

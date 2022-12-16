@@ -9,14 +9,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 p {

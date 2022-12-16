@@ -8,13 +8,11 @@ import React from "react"
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
-    <React.StrictMode>
+      <React.StrictMode>
         <ThemeProvider themeOverrides={{}}>
-          <Component
-            {...pageProps}
-          />
-      </ThemeProvider>
-    </React.StrictMode>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </React.StrictMode>
     </div>
   )
 }

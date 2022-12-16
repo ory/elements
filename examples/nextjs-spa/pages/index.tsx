@@ -70,7 +70,9 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <p>
-          <Link href="/" onClick={onLogout}>Logout</Link>
+          <Link href="/" onClick={onLogout}>
+            Logout
+          </Link>
         </p>
         <p>
           <Link href="/verification">Verification</Link>
