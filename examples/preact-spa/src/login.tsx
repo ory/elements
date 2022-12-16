@@ -1,24 +1,18 @@
-import {
-  SelfServiceLoginFlow,
-  SubmitSelfServiceLoginFlowBody,
-} from "@ory/client"
+import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
 import { useLocation } from "wouter"
 
 export const Login = () => {
-  const [flow, setFlow] = useState<SelfServiceLoginFlow | null>(null)
+  const [flow, setFlow] = useState<LoginFlow | null>(null)
 
   const [location, setLocation] = useLocation()
 
   const handleFlow = useCallback(
     ({ refresh, mfa }: { refresh: boolean; mfa: boolean }) => {
       return sdk
-        .initializeSelfServiceLoginFlowForBrowsers(
-          refresh,
-          mfa ? "aal2" : "aal1",
-        )
+        .createBrowserLoginFlow({ refresh, aal: mfa ? "aal2" : "aal1" })
         .then(({ data: flow }) => flow)
     },
     [],
@@ -56,10 +50,10 @@ export const Login = () => {
       includeScripts={true}
       onSubmit={({ body }) => {
         sdk
-          .submitSelfServiceLoginFlow(
-            flow.id,
-            body as SubmitSelfServiceLoginFlowBody,
-          )
+          .updateLoginFlow({
+            flow: flow.id,
+            updateLoginFlowBody: body as UpdateLoginFlowBody,
+          })
           .then(() => {
             // we successfully submitted the login flow, so lets redirect to the dashboard
             setLocation("/", { replace: true })

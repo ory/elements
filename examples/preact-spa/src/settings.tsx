@@ -6,29 +6,20 @@ import {
 import { useCallback, useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
 import { useLocation } from "wouter"
-import {
-  SelfServiceSettingsFlow,
-  SubmitSelfServiceSettingsFlowBody,
-} from "@ory/client"
+import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 
 export const Settings = () => {
-  const [flow, setFlow] = useState<SelfServiceSettingsFlow | null>(null)
+  const [flow, setFlow] = useState<SettingsFlow | null>(null)
 
   const [location, setLocation] = useLocation()
 
   const onSubmit = useCallback(
-    ({
-      flow,
-      body,
-    }: {
-      flow: SelfServiceSettingsFlow
-      body: SubmitSelfServiceSettingsFlowBody
-    }) =>
+    ({ flow, body }: { flow: SettingsFlow; body: UpdateSettingsFlowBody }) =>
       sdk
-        .submitSelfServiceSettingsFlow(
-          flow.id,
-          body as SubmitSelfServiceSettingsFlowBody,
-        )
+        .updateSettingsFlow({
+          flow: flow.id,
+          updateSettingsFlowBody: body as UpdateSettingsFlowBody,
+        })
         .then(({ data: flow }) => {
           setFlow(flow)
         })
@@ -42,11 +33,9 @@ export const Settings = () => {
   )
 
   useEffect(() => {
-    sdk
-      .initializeSelfServiceSettingsFlowForBrowsers()
-      .then(({ data: flow }) => {
-        setFlow(flow)
-      })
+    sdk.createBrowserSettingsFlow().then(({ data: flow }) => {
+      setFlow(flow)
+    })
   }, [])
 
   return flow ? (

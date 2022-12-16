@@ -1,15 +1,12 @@
-import { gridStyle, typographyStyle } from "../../theme"
+import { gridStyle } from "../../theme"
 import { Button } from "../button"
-import { ButtonLink } from "../button-link"
 import { Card } from "../card"
 import { Typography } from "../typography"
 
-import "../../assets/fontawesome.min.css"
-import "../../assets/fa-solid.min.css"
-import { Checkbox } from "../checkbox"
 import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
-import { style } from "@vanilla-extract/css"
-import { recipe } from "@vanilla-extract/recipes"
+import "../../assets/fa-solid.min.css"
+import "../../assets/fontawesome.min.css"
+import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
 
 export type UserConsentCardProps = {

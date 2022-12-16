@@ -166,13 +166,24 @@ var dividerStyle = createRuntimeFn({
 })
 ```
 
-And the gO .\_3ldkmt0 { display: block; text-align: center; overflow: hidden;
-box-sizing: border-box; border: 0; border-top: 0.25rem solid; border-color:
-var(--ory-theme-border-def); width: 4rem; }
+And the CSS.
 
-.\_3ldkmt1 { width: 100%; }
+```css
+gO .\_3ldkmt0 {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 0;
+  border-top: 0.25rem solid;
+  border-color: var(--ory-theme-border-def);
+  width: 4rem;
+}
 
-````
+.\_3ldkmt1 {
+  width: 100%;
+}
+```
 
 ### Overriding Styles
 
@@ -210,7 +221,7 @@ This means we can overwrite them inside the project consuming the library!
   --ory-theme-input-placeholder: #9e9e9e;
   --ory-theme-input-text: #424242;
 }
-````
+```
 
 Inside our components we provide the `<ThemeProvider />` which exposes the
 `themeOverrides` property so that you can implement your own theme.
@@ -357,3 +368,55 @@ and are sometimes required by a component. An example is the
 Ory Elements uses a fully automatic release publishing pipeline. All that is
 necessary is to create a new release on GitHub after which the workflow runs all
 the necessary steps to release the modules to the NPM registry.
+
+## Using local Ory SDKs
+
+Most of the time, new features to this repository need some work in the
+corresponding Ory products to work. To make the development cycle more
+productive, it's possible to generate the SDK from a local OpenAPI/Swagger spec
+file.
+
+```bash
+export KRATOS_DIR=/path/to/kratos # point this variable to the root of your local Kratos clone
+
+make build-sdk
+```
+
+This copies the current OpenAPI spec from the local Kratos repository to the
+current Elements directory (`./contrib/sdk/api.json`).
+
+After that it generates the Typescript SDK according to the spec and copies it
+to the `node_modules` directory. This overrides the currently installed module!
+
+Now you can use the updated SDK without publishing to NPM first.
+
+## Testing `@ory/elements` changes locally
+
+To test local changes in `@ory/elements` in a local Ory examples repository you
+can point NPM to use a local directory instead of a remote package from the
+registry.
+
+This requires to first build `@ory/elements`:
+
+```bash
+# In your cloned elements directory
+npm run build # or more specialized `npm run build:react, etc.`
+```
+
+Make sure, that the build passed without errors!
+
+After that, you can set the path to elements in the `package.json` of your
+project:
+
+```shell
+npm i /path/to/elements/packages/markup
+
+# or for preact
+# npm i /path/to/elements/packages/preact
+
+# or for react
+# npm i /path/to/elements/packages/react
+```
+
+Make sure to not commit these changes, as they will break on CI or on other
+machines that have a different setup.

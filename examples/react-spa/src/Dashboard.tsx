@@ -35,7 +35,7 @@ export const Dashboard = () => {
   useEffect(() => {
     // here we create a new logout URL which we can use to log the user out
     sdk
-      .createSelfServiceLogoutFlowUrlForBrowsers(undefined, {
+      .createBrowserLogoutFlow(undefined, {
         params: {
           return_url: "/",
         },

@@ -1,14 +1,11 @@
-import {
-  SelfServiceRecoveryFlow,
-  SubmitSelfServiceRecoveryFlowBody,
-} from "@ory/client"
+import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import sdk from "./sdk"
 
 export const Recovery = () => {
-  const [flow, setFlow] = useState<SelfServiceRecoveryFlow | null>(null)
+  const [flow, setFlow] = useState<RecoveryFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
@@ -18,7 +15,7 @@ export const Recovery = () => {
     useCallback(
       () =>
         sdk
-          .initializeSelfServiceRecoveryFlowForBrowsers()
+          .createBrowserRecoveryFlow()
           // flow contains the form fields, error messages and csrf token
           .then(({ data: flow }) => setFlow(flow))
           // something serious went wrong so we redirect to the recovery page
@@ -32,7 +29,7 @@ export const Recovery = () => {
   const getFlow = useCallback(
     (flowId: string) =>
       sdk
-        .getSelfServiceRecoveryFlow(flowId)
+        .getRecoveryFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
         .catch((err) => {
           console.error(err)
@@ -41,15 +38,12 @@ export const Recovery = () => {
     [],
   )
 
-  const submitFlow = (body: SubmitSelfServiceRecoveryFlowBody) => {
+  const submitFlow = (body: UpdateRecoveryFlowBody) => {
     // something unexpected went wrong and the flow was not set
     if (!flow) return navigate("/login", { replace: true })
 
     sdk
-      .submitSelfServiceRecoveryFlow(
-        flow.id,
-        body as SubmitSelfServiceRecoveryFlowBody,
-      )
+      .updateRecoveryFlow({ flow: flow.id, updateRecoveryFlowBody: body })
       .then(() => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
@@ -83,9 +77,7 @@ export const Recovery = () => {
       // the recovery form should allow users to navigate to the login page
       additionalProps={{ loginURL: "/login" }}
       // submit the form data to Ory
-      onSubmit={({ body }) =>
-        submitFlow(body as SubmitSelfServiceRecoveryFlowBody)
-      }
+      onSubmit={({ body }) => submitFlow(body as UpdateRecoveryFlowBody)}
     />
   ) : (
     <div>Loading...</div>

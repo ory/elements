@@ -45,16 +45,16 @@ import {
   UserAuthCardProps,
   UserAuthForm as userAuthForm,
   UserAuthFormProps,
+  UserConsentCard as userConsentCard,
+  UserConsentCardProps,
   UserErrorCard as userErrorCard,
   UserErrorCardProps,
   UserSettingsCard as userSettingsCard,
   UserSettingsCardProps,
   WebAuthnSettingsProps,
   WebAuthnSettingsSection as webAuthnSettingsSection,
-  UserConsentCard as userConsentCard,
 } from "../react-components"
 import { CodeBoxProps } from "../react-components/codebox"
-import { ComponentProps } from "react"
 import { ComponentWrapper } from "./component-wrapper"
 
 export const ButtonLink = (props: ButtonLinkProps) => {
@@ -159,9 +159,8 @@ export const LookupSecretSettingsSection = (
   return ComponentWrapper(lookupSecretSettingsSection(props))
 }
 
-export const UserConsentCard = (
-  props: ComponentProps<typeof userConsentCard>,
-) => ComponentWrapper(userConsentCard(props))
+export const UserConsentCard = (props: UserConsentCardProps) =>
+  ComponentWrapper(userConsentCard(props))
 
 export type {
   ButtonLinkProps,
@@ -187,6 +186,7 @@ export type {
   TypographyProps,
   UserAuthCardProps,
   UserAuthFormProps,
+  UserConsentCardProps,
   UserErrorCardProps,
   UserSettingsCardProps,
   UserSettingsFlowType,

@@ -1,20 +1,17 @@
-import {
-  SelfServiceRecoveryFlow,
-  SubmitSelfServiceRecoveryFlowBody,
-} from "@ory/client"
+import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"
 import { useLocation } from "wouter"
 import sdk from "./sdk"
 
 export const Recovery = () => {
-  const [flow, setFlow] = useState<SelfServiceRecoveryFlow | null>(null)
+  const [flow, setFlow] = useState<RecoveryFlow | null>(null)
 
   const [location, setLocation] = useLocation()
 
   useEffect(() => {
     sdk
-      .initializeSelfServiceRecoveryFlowForBrowsers()
+      .createBrowserRecoveryFlow()
       .then(({ data: flow }) => {
         setFlow(flow)
       })
@@ -31,10 +28,10 @@ export const Recovery = () => {
       additionalProps={{ loginURL: "/login" }}
       onSubmit={({ body }) => {
         sdk
-          .submitSelfServiceRecoveryFlow(
-            flow.id,
-            body as SubmitSelfServiceRecoveryFlowBody,
-          )
+          .updateRecoveryFlow({
+            flow: flow.id,
+            updateRecoveryFlowBody: body as UpdateRecoveryFlowBody,
+          })
           .then(() => {
             // we successfully submitted the login flow, so lets redirect to the dashboard
             setLocation("/", { replace: true })
