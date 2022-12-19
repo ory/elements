@@ -11,7 +11,6 @@ import type { NextPage } from "next"
 
 import { UserAuthCard } from "@ory/elements"
 import React from "react"
-import Link from "next/link"
 
 const Recovery: NextPage = () => {
   const [flow, setFlow] = useState<RecoveryFlow>()

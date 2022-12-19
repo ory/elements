@@ -23,7 +23,11 @@ const Settings: NextPage = () => {
 
   // Get ?flow=... from the URL
   const router = useRouter()
-  const { flow: flowId, return_to: returnTo } = router.query
+  const {
+    flow: flowId,
+    return_to: returnTo,
+    passwordChange: changed
+  } = router.query
 
   useEffect(() => {
     // If the router is not ready yet, or we already have a flow, do nothing.
@@ -58,18 +62,20 @@ const Settings: NextPage = () => {
         setFlow(data)
       })
       .catch(async (err: AxiosError) => {
-        // If the previous handler did not catch the error it's most likely a form validation error
-        if (err.response?.status === 400) {
-          // Yup, it is!
-          setFlow(err.response?.data)
-          return
+        if (err.response?.status === 401) {
+          router.push("/login")
+        } else {
+          router.push({
+            pathname: "/error",
+            query: {error: JSON.stringify(err, null, 2)}
+          })
         }
 
         return Promise.reject(err)
       })
   }, [flowId, router, router.isReady, returnTo, flow])
 
-  const onSubmit = (values: UpdateSettingsFlowBody) =>
+  const onSubmit = (values: UpdateSettingsFlowBody) => {
     router
       // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
       // his data when she/he reloads the page.
@@ -90,11 +96,26 @@ const Settings: NextPage = () => {
               // Yup, it is!
               setFlow(err.response?.data)
               return
+            } else if (err.response?.status === 401) {
+              // The user is not authenticated anymore. Let's redirect her/him to the login page.
+              router.push("/login")
+            } else { 
+              // Otherwise, we show the error page.
+              router.push({
+                pathname: "/error",
+                query: {error: JSON.stringify(err, null, 2)}
+              })
             }
-
             return Promise.reject(err)
           }),
       )
+      return (
+        router.push({
+          pathname: "/settings",
+          query: {flow: flow?.id, passwordChange: "Your password has been successfully changed!"}
+        })
+      )
+    }
 
   // if the flow is not set, we show a loading indicator
   return flow ? (
@@ -103,7 +124,7 @@ const Settings: NextPage = () => {
       <h1>
         <Link href="/">Home</Link>
       </h1>
-      <div className={gridStyle({ gap: 16 })}>
+      <div id='settingsForm' className={gridStyle({ gap: 16 })}>
         {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
         {(
           [
@@ -126,6 +147,7 @@ const Settings: NextPage = () => {
             onSubmit={({ body }) => onSubmit(body)}
           />
         ))}
+        <h3>{changed}</h3>
       </div>
     </>
   ) : (

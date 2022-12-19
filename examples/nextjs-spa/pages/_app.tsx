@@ -6,7 +6,9 @@ import type { AppProps } from "next/app"
 import React from "react"
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
+  // create a theme object here and add it to the `themeOverrides` below to customize Ory Elements without css overrides.
+  // const theme = { ... }
+    return (
     <div>
       <React.StrictMode>
         <ThemeProvider themeOverrides={{}}>
