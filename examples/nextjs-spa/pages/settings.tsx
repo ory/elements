@@ -26,7 +26,7 @@ const Settings: NextPage = () => {
   const {
     flow: flowId,
     return_to: returnTo,
-    passwordChange: changed
+    passwordChange: changed,
   } = router.query
 
   useEffect(() => {
@@ -43,12 +43,14 @@ const Settings: NextPage = () => {
           setFlow(data)
         })
         .catch(async (err: AxiosError) => {
-          if (err.response?.status === 400) {
-            setFlow(err.response?.data)
-            return
+          if (err.response?.status === 401) {
+            router.push("/login")
+          } else {
+            router.push({
+              pathname: "/error",
+              query: { error: JSON.stringify(err, null, 2) },
+            })
           }
-
-          return Promise.reject(err)
         })
       return
     }
@@ -67,7 +69,11 @@ const Settings: NextPage = () => {
         } else {
           router.push({
             pathname: "/error",
-            query: {error: JSON.stringify(err, null, 2)}
+            query: {
+              error: JSON.stringify(err, null, 2),
+              id: err.response?.data.id,
+              flowType: router.pathname,
+            },
           })
         }
 
@@ -99,23 +105,24 @@ const Settings: NextPage = () => {
             } else if (err.response?.status === 401) {
               // The user is not authenticated anymore. Let's redirect her/him to the login page.
               router.push("/login")
-            } else { 
+            } else {
               // Otherwise, we show the error page.
               router.push({
                 pathname: "/error",
-                query: {error: JSON.stringify(err, null, 2)}
+                query: { error: JSON.stringify(err, null, 2) },
               })
             }
             return Promise.reject(err)
           }),
       )
-      return (
-        router.push({
-          pathname: "/settings",
-          query: {flow: flow?.id, passwordChange: "Your password has been successfully changed!"}
-        })
-      )
-    }
+    return router.push({
+      pathname: "/settings",
+      query: {
+        flow: flow?.id,
+        passwordChange: "Your password has been successfully changed!",
+      },
+    })
+  }
 
   // if the flow is not set, we show a loading indicator
   return flow ? (
@@ -124,7 +131,7 @@ const Settings: NextPage = () => {
       <h1>
         <Link href="/">Home</Link>
       </h1>
-      <div id='settingsForm' className={gridStyle({ gap: 16 })}>
+      <div id="settingsForm" className={gridStyle({ gap: 16 })}>
         {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
         {(
           [

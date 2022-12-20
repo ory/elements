@@ -12,6 +12,19 @@
   align-items: center;
 }
 
+.nav {
+  margin-top: 1rem;
+  font-size: 1.4em;
+}
+
+.nav p {
+  margin-top: 1rem;
+}
+
+.sessionDisplay {
+  margin-top: 2rem;
+}
+
 .footer {
   display: flex;
   flex: 1;

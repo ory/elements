@@ -36,13 +36,20 @@ const Verification: NextPage = () => {
         .catch((err: AxiosError) => {
           switch (err.response?.status) {
             case 410:
-            // Status code 410 means the request has expired - so let's load a fresh flow!
+              // Status code 410 means the request has expired - so let's load a fresh flow!
+              return router.push("/verification")
             case 403:
               // Status code 403 implies some other issue (e.g. CSRF) - let's reload!
               return router.push("/verification")
           }
-
-          throw err
+          if (err.response?.status === 401) {
+            router.push("/login")
+          } else {
+            router.push({
+              pathname: "/error",
+              query: { error: JSON.stringify(err, null, 2) },
+            })
+          }
         })
       return
     }
@@ -56,13 +63,15 @@ const Verification: NextPage = () => {
         setFlow(data)
       })
       .catch((err: AxiosError) => {
-        switch (err.response?.status) {
-          case 400:
-            // Status code 400 implies the user is already signed in
-            return router.push("/")
+        if (err.response?.status === 400) {
+          // Status code 400 implies the user is already signed in
+          return router.push("/")
+        } else {
+          router.push({
+            pathname: "/error",
+            query: { error: JSON.stringify(err, null, 2) },
+          })
         }
-
-        throw err
       })
   }, [flowId, router, router.isReady, returnTo, flow])
 
@@ -90,7 +99,7 @@ const Verification: NextPage = () => {
           case 410:
             const newFlowID = err.response.data.use_flow_id
             router
-              // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
+              // On submission, add the flow ID to the URL but do not navigate. This prevents the user losing
               // their data when they reload the page.
               .push(`/verification?flow=${newFlowID}`, undefined, {
                 shallow: true,
@@ -98,9 +107,12 @@ const Verification: NextPage = () => {
 
             ory.getVerificationFlow(newFlowID).then(({ data }) => setFlow(data))
             return
+          default:
+            router.push({
+              pathname: "/error",
+              query: { error: JSON.stringify(err, null, 2) },
+            })
         }
-
-        throw err
       })
   }
 

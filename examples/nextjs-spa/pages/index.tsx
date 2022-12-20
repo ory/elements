@@ -14,11 +14,11 @@ import styles from "../styles/Dashboard.module.css"
 import { AxiosError } from "axios"
 import type { NextPage } from "next"
 import { LogoutLink } from "../pkg/hooks"
+import { CodeBox } from "@ory/elements"
+import { Session } from "@ory/client"
 
 const Home: NextPage = () => {
-  const [session, setSession] = useState<string>(
-    "No valid Ory Session was found.\nPlease sign in to receive one.",
-  )
+  const [session, setSession] = useState<Session | undefined>()
   const [hasSession, setHasSession] = useState<boolean>(false)
   const router = useRouter()
   const onLogout = LogoutLink()
@@ -36,12 +36,12 @@ const Home: NextPage = () => {
           // This is a legacy error code thrown. See code 422 for
           // more details.
           case 422:
-            // This status code is returned when we are trying to
-            // validate a session which has not yet completed
-            // it's second factor
-            return router.push("/login?aal=aal2")
+            router.push({
+              pathname: "/error",
+              query: { error: JSON.stringify(err, null, 2) },
+            })
           case 401:
-            // do nothing, the user is not logged in
+            // The user is not logged in, so we redirect them to the login page.
             return router.push("/login")
         }
 
@@ -69,17 +69,23 @@ const Home: NextPage = () => {
             Ory Elements
           </a>
         </h1>
-        <p>
-          <Link href="/" onClick={onLogout}>
-            Logout
-          </Link>
-        </p>
-        <p>
-          <Link href="/verification">Verification</Link>
-        </p>
-        <p>
-          <Link href="/settings">Settings</Link>
-        </p>
+        <div className={styles.nav}>
+          <p>
+            <Link href="/" onClick={onLogout}>
+              Logout
+            </Link>
+          </p>
+          <p>
+            <Link href="/verification">Verification</Link>
+          </p>
+          <p>
+            <Link href="/settings">Settings</Link>
+          </p>
+        </div>
+        {/* <div className={styles.sessionDisplay}>
+          <CodeBox>
+          </CodeBox>
+        </div> */}
       </main>
     </div>
   ) : (

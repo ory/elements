@@ -13,8 +13,4 @@ const ory = new FrontendApi(
   }),
 )
 
-// Returns either the email or the username depending on the user's Identity Schema
-const getUserName = (identity: Identity) =>
-  identity.traits.email || identity.traits.username
-
-export { ory, getUserName }
+export { ory }
