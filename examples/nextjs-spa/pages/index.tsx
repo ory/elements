@@ -42,7 +42,7 @@ const Home: NextPage = () => {
               query: {
                 error: JSON.stringify(err, null, 2),
                 id: err.response?.data.error?.id,
-                flowType: router.pathname
+                flowType: router.pathname,
               },
             })
           case 401:
@@ -73,9 +73,7 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <div className={styles.nav}>
-          <h2>
-            Navigation
-          </h2>
+          <h2>Navigation</h2>
           <p>
             <Link href="/" onClick={onLogout}>
               Logout
@@ -88,13 +86,9 @@ const Home: NextPage = () => {
             <Link href="/settings">Settings</Link>
           </p>
         </div>
-        <h3>
-          Session Information
-        </h3>
+        <h3>Session Information</h3>
         <div className={styles.sessionDisplay}>
-          <CodeBox>
-            {session}
-          </CodeBox>
+          <CodeBox>{session}</CodeBox>
         </div>
       </main>
     </div>

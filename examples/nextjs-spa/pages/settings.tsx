@@ -46,14 +46,14 @@ const Settings: NextPage = () => {
           // if (err.response?.status === 401) {
           //   router.push("/login")
           // } else {
-            router.push({
-              pathname: "/error",
-              query: {
-                error: JSON.stringify(err, null, 2),
-                id: err.response?.data.error?.id,
-                flowType: router.pathname
-              },
-            })
+          router.push({
+            pathname: "/error",
+            query: {
+              error: JSON.stringify(err, null, 2),
+              id: err.response?.data.error?.id,
+              flowType: router.pathname,
+            },
+          })
           // }
         })
       return
@@ -71,14 +71,14 @@ const Settings: NextPage = () => {
         // if (err.response?.status === 401) {
         //   router.push("/login")
         // } else {
-          router.push({
-            pathname: "/error",
-            query: {
-              error: JSON.stringify(err, null, 2),
-              id: err.response?.data.error?.id,
-              flowType: router.pathname,
-            },
-          })
+        router.push({
+          pathname: "/error",
+          query: {
+            error: JSON.stringify(err, null, 2),
+            id: err.response?.data.error?.id,
+            flowType: router.pathname,
+          },
+        })
         // }
 
         return Promise.reject(err)
@@ -116,7 +116,7 @@ const Settings: NextPage = () => {
                 query: {
                   error: JSON.stringify(err, null, 2),
                   id: err.response?.data.error?.id,
-                  flowType: router.pathname
+                  flowType: router.pathname,
                 },
               })
             }

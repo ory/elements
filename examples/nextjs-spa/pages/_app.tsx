@@ -11,10 +11,10 @@ export default function App({ Component, pageProps }: AppProps) {
   // const theme = { ... }
   return (
     <div>
-    <Head>
-      <title>Next.js w/ Elements</title>
-      <link rel="icon" href="/ory.svg" />
-    </Head>
+      <Head>
+        <title>Next.js w/ Elements</title>
+        <link rel="icon" href="/ory.svg" />
+      </Head>
       <React.StrictMode>
         <ThemeProvider themeOverrides={{}}>
           <Component {...pageProps} />

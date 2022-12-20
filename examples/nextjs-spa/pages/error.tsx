@@ -42,14 +42,14 @@ const Login: NextPage = () => {
       .catch((err: AxiosError) => {
         switch (err.response?.status) {
           case 404:
-            // The error id could not be found. Let's just redirect home!
-            // router.push("/")
+          // The error id could not be found. Let's just redirect home!
+          // router.push("/")
           case 403:
-            // The error id could not be fetched due to e.g. a CSRF issue. Let's just redirect home!
-            // router.push("/")
+          // The error id could not be fetched due to e.g. a CSRF issue. Let's just redirect home!
+          // router.push("/")
           case 410:
-            // The error id expired. Let's just redirect home!
-            // router.push("/")
+          // The error id expired. Let's just redirect home!
+          // router.push("/")
         }
 
         return Promise.reject(err)
@@ -59,7 +59,7 @@ const Login: NextPage = () => {
   switch (id) {
     case "session_inactive":
       // The user's session is inactive. Let's just redirect to login!
-       router.push("/login")
+      router.push("/login")
     case "session_aal2_required":
       return (
         <>

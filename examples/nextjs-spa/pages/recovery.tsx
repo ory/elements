@@ -45,7 +45,7 @@ const Recovery: NextPage = () => {
                 query: {
                   error: JSON.stringify(err, null, 2),
                   id: err.response?.data.error?.id,
-                  flowType: router.pathname
+                  flowType: router.pathname,
                 },
               })
           }
