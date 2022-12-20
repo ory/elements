@@ -1,4 +1,4 @@
-import { Configuration, Identity, FrontendApi } from "@ory/client"
+import { Configuration, FrontendApi } from "@ory/client"
 
 // Create a new Ory API client
 // This will default to the Ory playground project if no environment variable is set.

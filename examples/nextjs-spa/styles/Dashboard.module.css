@@ -13,16 +13,33 @@
 }
 
 .nav {
-  margin-top: 1rem;
+  margin-top: 3rem;
   font-size: 1.4em;
+  color: #2b2b2b;
+  background-color: #f76a6a;
+  padding: 30px;
+  border-radius: 20px;
 }
 
 .nav p {
   margin-top: 1rem;
+  font-weight: 700;
+}
+
+.nav a:hover {
+  color: #2b2b2b;
+  text-decoration: underline;
+}
+
+.nav h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 3px;
+  border-bottom: #2b2b2b 3px solid;
 }
 
 .sessionDisplay {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .footer {

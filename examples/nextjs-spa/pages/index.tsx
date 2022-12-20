@@ -16,6 +16,7 @@ import type { NextPage } from "next"
 import { LogoutLink } from "../pkg/hooks"
 import { CodeBox } from "@ory/elements"
 import { Session } from "@ory/client"
+import Head from "next/head"
 
 const Home: NextPage = () => {
   const [session, setSession] = useState<Session | undefined>()
@@ -52,8 +53,6 @@ const Home: NextPage = () => {
 
   return hasSession ? (
     <div className={styles.container}>
-      <title>Next.js w/ Elements</title>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to{" "}
@@ -70,6 +69,9 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <div className={styles.nav}>
+          <h2>
+            Navigation
+          </h2>
           <p>
             <Link href="/" onClick={onLogout}>
               Logout
@@ -89,7 +91,10 @@ const Home: NextPage = () => {
       </main>
     </div>
   ) : (
-    <div>Loading...</div>
+    <>
+      <head></head>
+      <div>Loading...</div>
+    </>
   )
 }
 
