@@ -57,6 +57,9 @@ const Login: NextPage = () => {
   }, [id, router, router.isReady, error])
 
   switch (id) {
+    case "session_inactive":
+      // The user's session is inactive. Let's just redirect to login!
+       router.push("/login")
     case "session_aal2_required":
       return (
         <>
@@ -69,22 +72,22 @@ const Login: NextPage = () => {
       )
     case "session_already_available":
       // The user is already logged in. Let's just redirect home!
-      // router.push("/")
+      router.push("/")
     case "session_refresh_required":
       // The user's session has expired. Let's just redirect to login!
-      // router.push("/login")
+      router.push("/login")
     case "self_service_flow_return_to_forbidden":
       // The flow expired, let's request a new one.
-      // router.push("/" + flowType)
+      router.push("/" + flowType)
     case "self_service_flow_expired":
       // The flow expired, let's request a new one.
-      // router.push("/" + flowType)
+      router.push("/" + flowType)
     case "security_csrf_violation":
       // A CSRF violation occurred. Best to just refresh the flow!
-      // router.push("/" + flowType)
+      router.push("/" + flowType)
     case "security_identity_mismatch":
       // The requested item was intended for someone else. Let's request a new flow...
-      // router.push("/" + flowType)
+      router.push("/" + flowType)
   }
 
   return (
