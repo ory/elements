@@ -43,13 +43,13 @@ const Login: NextPage = () => {
         switch (err.response?.status) {
           case 404:
             // The error id could not be found. Let's just redirect home!
-            router.push("/")
+            // router.push("/")
           case 403:
             // The error id could not be fetched due to e.g. a CSRF issue. Let's just redirect home!
-            router.push("/")
+            // router.push("/")
           case 410:
             // The error id expired. Let's just redirect home!
-            router.push("/")
+            // router.push("/")
         }
 
         return Promise.reject(err)
@@ -69,22 +69,22 @@ const Login: NextPage = () => {
       )
     case "session_already_available":
       // The user is already logged in. Let's just redirect home!
-      router.push("/")
+      // router.push("/")
     case "session_refresh_required":
       // The user's session has expired. Let's just redirect to login!
-      router.push("/login")
+      // router.push("/login")
     case "self_service_flow_return_to_forbidden":
       // The flow expired, let's request a new one.
-      router.push("/" + flowType)
+      // router.push("/" + flowType)
     case "self_service_flow_expired":
       // The flow expired, let's request a new one.
-      router.push("/" + flowType)
+      // router.push("/" + flowType)
     case "security_csrf_violation":
       // A CSRF violation occurred. Best to just refresh the flow!
-      router.push("/" + flowType)
+      // router.push("/" + flowType)
     case "security_identity_mismatch":
       // The requested item was intended for someone else. Let's request a new flow...
-      router.push("/" + flowType)
+      // router.push("/" + flowType)
   }
 
   return (

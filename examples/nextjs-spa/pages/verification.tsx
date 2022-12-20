@@ -47,7 +47,11 @@ const Verification: NextPage = () => {
           } else {
             router.push({
               pathname: "/error",
-              query: { error: JSON.stringify(err, null, 2) },
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.id,
+                flowType: router.pathname
+              },
             })
           }
         })
@@ -69,7 +73,11 @@ const Verification: NextPage = () => {
         } else {
           router.push({
             pathname: "/error",
-            query: { error: JSON.stringify(err, null, 2) },
+            query: {
+              error: JSON.stringify(err, null, 2),
+              id: err.response?.data.id,
+              flowType: router.pathname
+            },
           })
         }
       })
@@ -110,7 +118,11 @@ const Verification: NextPage = () => {
           default:
             router.push({
               pathname: "/error",
-              query: { error: JSON.stringify(err, null, 2) },
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.id,
+                flowType: router.pathname
+              },
             })
         }
       })

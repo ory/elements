@@ -43,14 +43,18 @@ const Settings: NextPage = () => {
           setFlow(data)
         })
         .catch(async (err: AxiosError) => {
-          if (err.response?.status === 401) {
-            router.push("/login")
-          } else {
+          // if (err.response?.status === 401) {
+          //   router.push("/login")
+          // } else {
             router.push({
               pathname: "/error",
-              query: { error: JSON.stringify(err, null, 2) },
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.id,
+                flowType: router.pathname
+              },
             })
-          }
+          // }
         })
       return
     }
@@ -64,9 +68,9 @@ const Settings: NextPage = () => {
         setFlow(data)
       })
       .catch(async (err: AxiosError) => {
-        if (err.response?.status === 401) {
-          router.push("/login")
-        } else {
+        // if (err.response?.status === 401) {
+        //   router.push("/login")
+        // } else {
           router.push({
             pathname: "/error",
             query: {
@@ -75,7 +79,7 @@ const Settings: NextPage = () => {
               flowType: router.pathname,
             },
           })
-        }
+        // }
 
         return Promise.reject(err)
       })
@@ -109,7 +113,11 @@ const Settings: NextPage = () => {
               // Otherwise, we show the error page.
               router.push({
                 pathname: "/error",
-                query: { error: JSON.stringify(err, null, 2) },
+                query: {
+                  error: JSON.stringify(err, null, 2),
+                  id: err.response?.data.id,
+                  flowType: router.pathname
+                },
               })
             }
             return Promise.reject(err)

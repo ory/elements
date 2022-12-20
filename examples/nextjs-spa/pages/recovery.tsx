@@ -39,9 +39,16 @@ const Recovery: NextPage = () => {
             case 403:
               // Status code 403 implies some other issue (e.g. CSRF) - let's reload!
               return router.push("/recovery")
+            default:
+              router.push({
+                pathname: "/error",
+                query: {
+                  error: JSON.stringify(err, null, 2),
+                  id: err.response?.data.id,
+                  flowType: router.pathname
+                },
+              })
           }
-
-          throw err
         })
       return
     }

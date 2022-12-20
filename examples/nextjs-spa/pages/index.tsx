@@ -16,7 +16,6 @@ import type { NextPage } from "next"
 import { LogoutLink } from "../pkg/hooks"
 import { CodeBox } from "@ory/elements"
 import { Session } from "@ory/client"
-import Head from "next/head"
 
 const Home: NextPage = () => {
   const [session, setSession] = useState<Session | undefined>()
@@ -39,7 +38,11 @@ const Home: NextPage = () => {
           case 422:
             router.push({
               pathname: "/error",
-              query: { error: JSON.stringify(err, null, 2) },
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.id,
+                flowType: router.pathname
+              },
             })
           case 401:
             // The user is not logged in, so we redirect them to the login page.
@@ -84,10 +87,10 @@ const Home: NextPage = () => {
             <Link href="/settings">Settings</Link>
           </p>
         </div>
-        {/* <div className={styles.sessionDisplay}>
+        <div className={styles.sessionDisplay}>
           <CodeBox>
           </CodeBox>
-        </div> */}
+        </div>
       </main>
     </div>
   ) : (
