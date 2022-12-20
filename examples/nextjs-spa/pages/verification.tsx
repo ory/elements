@@ -1,17 +1,22 @@
 // React
+import React from "react"
 import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
 
-// Ory SDK
+// Next.js
+import type { NextPage } from "next"
+import { useRouter } from "next/router"
+import Link from "next/link"
+
+// Ory SDK & Ory Client
 import { ory } from "../components/sdk"
 import { VerificationFlow, UpdateVerificationFlowBody } from "@ory/client"
 
+// Misc.
 import { AxiosError } from "axios"
-import type { NextPage } from "next"
 
+// Ory Elements
+// We will use UserAuthCard from Ory Elements to display the verification form.
 import { UserAuthCard } from "@ory/elements"
-import React from "react"
-import Link from "next/link"
 
 const Verification: NextPage = () => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
@@ -85,7 +90,7 @@ const Verification: NextPage = () => {
 
   const submitFlow = async (values: UpdateVerificationFlowBody) => {
     await router
-      // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
+      // On submission, add the flow ID to the URL but do not navigate. This prevents the user losing
       // their data when they reload the page.
       .push(`/verification?flow=${flow?.id}`, undefined, { shallow: true })
 

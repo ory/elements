@@ -1,22 +1,26 @@
 // React
+import React from "react"
 import { useEffect, useState } from "react"
+
+// Next.js
+import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
-// Ory SDK
+// Ory SDK & Ory Client
 import { ory } from "../components/sdk"
 import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
 
+// Misc.
 import { AxiosError } from "axios"
-import type { NextPage } from "next"
 
+// Ory Elements
+// We will use UserAuthCard from Ory Elements to display the login form.
 import { UserAuthCard } from "@ory/elements"
-
-import React from "react"
 
 const Login: NextPage = () => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
 
-  // Get ?flow=... from the URL
+  // Get flow information from the URL
   const router = useRouter()
   const {
     return_to: returnTo,
@@ -28,9 +32,6 @@ const Login: NextPage = () => {
     // to perform two-factor authentication/verification.
     aal,
   } = router.query
-
-  // This might be confusing, but we want to show the user an option
-  // to sign out if they are performing two-factor authentication!
 
   useEffect(() => {
     // If the router is not ready yet, or we already have a flow, do nothing.
@@ -47,7 +48,7 @@ const Login: NextPage = () => {
         })
         .catch(
           (error: AxiosError) =>
-            // If the flow was not found, we redirect to the login page
+            // If the flow was not found, we redirect to the login page to start a new flow.
             error.response?.status === 404 && router.push("/login"),
         )
       return
@@ -57,6 +58,7 @@ const Login: NextPage = () => {
     ory
       .createBrowserLoginFlow({
         refresh: Boolean(refresh),
+        // Check for two-factor authentication
         aal: aal ? String(aal) : undefined,
         returnTo: returnTo ? String(returnTo) : undefined,
       })
@@ -72,8 +74,8 @@ const Login: NextPage = () => {
 
   const submitFlow = (values: UpdateLoginFlowBody) => {
     router
-      // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
-      // his data when she/he reloads the page.
+      // On submission, add the flow ID to the URL but do not navigate.
+      // This prevents the user losing his data when she/he reloads the page.
       .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
@@ -102,7 +104,6 @@ const Login: NextPage = () => {
               setFlow(err.response?.data)
               return
             }
-
             return Promise.reject(err)
           }),
       )
@@ -113,6 +114,7 @@ const Login: NextPage = () => {
     <>
       <UserAuthCard
         title={"Login"}
+        // This defines what kind of card we want to render.
         flowType={"login"}
         // we always need the flow data which populates the form fields and error messages dynamically
         flow={flow}

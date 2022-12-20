@@ -1,27 +1,31 @@
 // React
+import React from "react"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+
+// Next.js
+import type { NextPage } from "next"
+import Link from "next/link"
 
 // Ory SDK
 import { ory } from "../components/sdk"
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 
+// Misc.
 import { AxiosError } from "axios"
-import type { NextPage } from "next"
 
+// Ory Elements
+// We will use UserSettingsCard from Ory Elements to display the settings form.
 import {
   gridStyle,
   UserSettingsCard,
   UserSettingsFlowType,
 } from "@ory/elements"
 
-import React from "react"
-import Link from "next/link"
-
 const Settings: NextPage = () => {
   const [flow, setFlow] = useState<SettingsFlow>()
 
-  // Get ?flow=... from the URL
+  // Get flow information from the URL
   const router = useRouter()
   const {
     flow: flowId,
@@ -43,18 +47,18 @@ const Settings: NextPage = () => {
           setFlow(data)
         })
         .catch(async (err: AxiosError) => {
-          // if (err.response?.status === 401) {
-          //   router.push("/login")
-          // } else {
-          router.push({
-            pathname: "/error",
-            query: {
-              error: JSON.stringify(err, null, 2),
-              id: err.response?.data.error?.id,
-              flowType: router.pathname,
-            },
-          })
-          // }
+          if (err.response?.status === 401) {
+            router.push("/login")
+          } else {
+            router.push({
+              pathname: "/error",
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.error?.id,
+                flowType: router.pathname,
+              },
+            })
+          }
         })
       return
     }
@@ -68,27 +72,26 @@ const Settings: NextPage = () => {
         setFlow(data)
       })
       .catch(async (err: AxiosError) => {
-        // if (err.response?.status === 401) {
-        //   router.push("/login")
-        // } else {
-        router.push({
-          pathname: "/error",
-          query: {
-            error: JSON.stringify(err, null, 2),
-            id: err.response?.data.error?.id,
-            flowType: router.pathname,
-          },
-        })
-        // }
-
+        if (err.response?.status === 401) {
+          router.push("/login")
+        } else {
+          router.push({
+            pathname: "/error",
+            query: {
+              error: JSON.stringify(err, null, 2),
+              id: err.response?.data.error?.id,
+              flowType: router.pathname,
+            },
+          })
+        }
         return Promise.reject(err)
       })
   }, [flowId, router, router.isReady, returnTo, flow])
 
   const onSubmit = (values: UpdateSettingsFlowBody) => {
     router
-      // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
-      // his data when she/he reloads the page.
+      // On submission, add the flow ID to the URL but do not navigate.
+      // This prevents the user losing his data when she/he reloads the page.
       .push(`/settings?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
@@ -107,7 +110,8 @@ const Settings: NextPage = () => {
               setFlow(err.response?.data)
               return
             } else if (err.response?.status === 401) {
-              // The user is not authenticated anymore. Let's redirect her/him to the login page.
+              // The user is not authenticated anymore.
+              // Let's redirect them to the login page.
               router.push("/login")
             } else {
               // Otherwise, we show the error page.
@@ -127,6 +131,7 @@ const Settings: NextPage = () => {
       pathname: "/settings",
       query: {
         flow: flow?.id,
+        // Allows us to show a success message after the user has changed their password
         passwordChange: "Your password has been successfully changed!",
       },
     })
@@ -134,7 +139,8 @@ const Settings: NextPage = () => {
 
   // if the flow is not set, we show a loading indicator
   return flow ? (
-    // create a login form that dynamically renders based on the flow data using Ory Elements
+    // create a settings form that dynamically renders based on the flow data using Ory Elements
+    // This card is more complicated, as it is dynamically rendered based on the flow data from your Ory Console project.
     <>
       <h1>
         <Link href="/">Home</Link>
@@ -162,6 +168,7 @@ const Settings: NextPage = () => {
             onSubmit={({ body }) => onSubmit(body)}
           />
         ))}
+        {/* Show a success message if the user changed their password */}
         <h3>{changed}</h3>
       </div>
     </>

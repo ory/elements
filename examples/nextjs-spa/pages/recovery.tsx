@@ -1,21 +1,26 @@
 // React
+import React from "react"
 import { useEffect, useState } from "react"
+
+// Next.js
+import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
-// Ory SDK
+// Ory SDK & Ory Client
 import { ory } from "../components/sdk"
 import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 
+// Misc.
 import { AxiosError } from "axios"
-import type { NextPage } from "next"
 
+// Ory Elements
+// We will use UserAuthCard from Ory Elements to display the recovery form.
 import { UserAuthCard } from "@ory/elements"
-import React from "react"
 
 const Recovery: NextPage = () => {
   const [flow, setFlow] = useState<RecoveryFlow>()
 
-  // Get ?flow=... from the URL
+  // Get flow information from the URL
   const router = useRouter()
   const { flow: flowId, return_to: returnTo } = router.query
 
@@ -35,10 +40,11 @@ const Recovery: NextPage = () => {
         .catch((err: AxiosError) => {
           switch (err.response?.status) {
             case 410:
-            // Status code 410 means the request has expired - so let's load a fresh flow!
+              // Status code 410 means the request has expired - so let's load a fresh flow!
+              router.push("/recovery")
             case 403:
               // Status code 403 implies some other issue (e.g. CSRF) - let's reload!
-              return router.push("/recovery")
+              router.push("/recovery")
             default:
               router.push({
                 pathname: "/error",
@@ -61,6 +67,7 @@ const Recovery: NextPage = () => {
       })
       .catch(
         (error: AxiosError) =>
+          // If the flow was not found, we redirect to the login page
           error.response?.status === 404 && router.push("/login"),
       )
       .catch((err: AxiosError) => {
@@ -77,8 +84,8 @@ const Recovery: NextPage = () => {
 
   const submitFlow = (values: UpdateRecoveryFlowBody) =>
     router
-      // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
-      // his data when she/he reloads the page.
+      // On submission, add the flow ID to the URL but do not navigate.
+      // This prevents the user losing his data when she/he reloads the page.
       .push(`/recovery?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
@@ -111,6 +118,7 @@ const Recovery: NextPage = () => {
     <>
       <UserAuthCard
         title={"Recovery"}
+        // This defines what kind of card we want to render.
         flowType={"recovery"}
         // we always need the flow data which populates the form fields and error messages dynamically
         flow={flow}

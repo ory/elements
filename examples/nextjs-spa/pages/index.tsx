@@ -1,19 +1,23 @@
-import React from "react"
-import Link from "next/link"
-
 // React
+import React from "react"
 import { useEffect, useState } from "react"
+
+// Next.js
 import { useRouter } from "next/router"
+import Link from "next/link"
+import type { NextPage } from "next"
 
 // Ory SDK
 import { ory } from "../components/sdk"
 
-// import css
+// Import CSS
 import styles from "../styles/Dashboard.module.css"
 
-import { AxiosError } from "axios"
-import type { NextPage } from "next"
+// Misc.
 import { LogoutLink } from "../pkg/hooks"
+import { AxiosError } from "axios"
+
+// We will use CodeBox from Ory Elements to display the session information.
 import { CodeBox } from "@ory/elements"
 
 const Home: NextPage = () => {
@@ -33,9 +37,7 @@ const Home: NextPage = () => {
       })
       .catch((err: AxiosError) => {
         switch (err.response?.status) {
-          case 403:
-          // This is a legacy error code thrown. See code 422 for
-          // more details.
+          // In case of unhandeled errors, we redirect the user to the error page.
           case 422:
             router.push({
               pathname: "/error",
@@ -49,7 +51,6 @@ const Home: NextPage = () => {
             // The user is not logged in, so we redirect them to the login page.
             return router.push("/login")
         }
-
         // Something else happened!
         return Promise.reject(err)
       })
@@ -88,6 +89,7 @@ const Home: NextPage = () => {
         </div>
         <h3>Session Information</h3>
         <div className={styles.sessionDisplay}>
+          {/* Displays the current session information */}
           <CodeBox>{session}</CodeBox>
         </div>
       </main>

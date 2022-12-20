@@ -1,23 +1,32 @@
-import { FlowError } from "@ory/client"
-import { CodeBox } from "@ory/elements"
-import { AxiosError } from "axios"
+// React
+import { useEffect, useState } from "react"
+
+// Next.js
 import type { NextPage } from "next"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { stringify } from "querystring"
-import { useEffect, useState } from "react"
 
+// Ory SDK & Ory Client
 import { ory } from "../components/sdk"
+import { FlowError } from "@ory/client"
+
+// Misc.
+import { stringify } from "querystring"
+import { AxiosError } from "axios"
+
+// We will use CodeBox from Ory Elements to display the session information.
+import { CodeBox } from "@ory/elements"
 
 const Login: NextPage = () => {
   const [error, setError] = useState<FlowError | string>()
-
-  // Get ?id=... from the URL
   const router = useRouter()
+
+  // Get error information from the queries
   const { id } = router.query
   const { flowType } = router.query
   const fullError = router.query
 
+  // Recursively decode the URL if it contains % signs to display later
   const decodeURL = (string: string) => {
     if (string.indexOf("%") !== -1) {
       return decodeURIComponent(string)
@@ -42,14 +51,14 @@ const Login: NextPage = () => {
       .catch((err: AxiosError) => {
         switch (err.response?.status) {
           case 404:
-          // The error id could not be found. Let's just redirect home!
-          // router.push("/")
+            // The error id could not be found. Let's just redirect home!
+            router.push("/")
           case 403:
-          // The error id could not be fetched due to e.g. a CSRF issue. Let's just redirect home!
-          // router.push("/")
+            // The error id could not be fetched due to e.g. a CSRF issue. Let's just redirect home!
+            router.push("/")
           case 410:
-          // The error id expired. Let's just redirect home!
-          // router.push("/")
+            // The error id expired. Let's just redirect home!
+            router.push("/")
         }
 
         return Promise.reject(err)

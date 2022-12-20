@@ -1,27 +1,29 @@
-import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
-import { UserAuthCard } from "@ory/elements"
-// import Ory elements css
-import "@ory/elements/style.css"
-import { AxiosError } from "axios"
-import type { NextPage } from "next"
-import { useRouter } from "next/router"
+// React
 import React from "react"
 import { useEffect, useState } from "react"
-// Import the SDK
+
+// Next.js
+import type { NextPage } from "next"
+import { useRouter } from "next/router"
+
+// Ory SDK & Ory Client
 import { ory } from "../components/sdk"
+import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 
-// Renders the registration page
+// Misc.
+import { AxiosError } from "axios"
+
+// Ory Elements
+// We will use UserAuthCard from Ory Elements to display the registration form.
+import { UserAuthCard } from "@ory/elements"
+
 const Registration: NextPage = () => {
-  const router = useRouter()
-
-  // The "flow" represents a registration process and contains
-  // information about the form we need to render (e.g. username + password)
   const [flow, setFlow] = useState<RegistrationFlow>()
 
-  // Get ?flow=... from the URL
+  // Get flow information from the URL
+  const router = useRouter()
   const { flow: flowId, return_to: returnTo } = router.query
 
-  // In this effect we either initiate a new registration flow, or we fetch an existing registration flow.
   useEffect(() => {
     // If the router is not ready yet, or we already have a flow, do nothing.
     if (!router.isReady || flow) {
@@ -61,8 +63,8 @@ const Registration: NextPage = () => {
 
   const submitFlow = (values: UpdateRegistrationFlowBody) => {
     router
-      // On submission, add the flow ID to the URL but do not navigate. This prevents the user loosing
-      // his data when she/he reloads the page.
+      // On submission, add the flow ID to the URL but do not navigate.
+      // This prevents the user losing his data when she/he reloads the page.
       .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
       .then(() =>
         ory
@@ -102,6 +104,7 @@ const Registration: NextPage = () => {
     <>
       <UserAuthCard
         title={"Registration"}
+        // This defines what kind of card we want to render.
         flowType={"registration"}
         // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
         flow={flow}

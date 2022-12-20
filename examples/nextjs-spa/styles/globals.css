@@ -45,6 +45,10 @@ a {
   border-radius: 20px;
 }
 
+#settingsForm h3 {
+  font-weight: 700;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
