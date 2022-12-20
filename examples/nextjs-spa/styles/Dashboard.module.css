@@ -3,6 +3,7 @@
 }
 
 .main {
+  margin-top: 5vh;
   min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
@@ -10,6 +11,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.main h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
 }
 
 .nav {
@@ -39,7 +46,19 @@
 }
 
 .sessionDisplay {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  height: 35vh;
+  max-width: 80vw;
+  overflow-y: auto;
+}
+
+.sessionDisplay h3 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .footer {

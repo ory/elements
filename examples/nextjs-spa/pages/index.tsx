@@ -15,10 +15,11 @@ import { AxiosError } from "axios"
 import type { NextPage } from "next"
 import { LogoutLink } from "../pkg/hooks"
 import { CodeBox } from "@ory/elements"
-import { Session } from "@ory/client"
 
 const Home: NextPage = () => {
-  const [session, setSession] = useState<Session | undefined>()
+  const [session, setSession] = useState<string>(
+    "No valid Ory Session was found.\nPlease sign in to receive one.",
+  )
   const [hasSession, setHasSession] = useState<boolean>(false)
   const router = useRouter()
   const onLogout = LogoutLink()
@@ -27,7 +28,7 @@ const Home: NextPage = () => {
     ory
       .toSession()
       .then(({ data }) => {
-        setSession(session)
+        setSession(JSON.stringify(data, null, 2))
         setHasSession(true)
       })
       .catch((err: AxiosError) => {
@@ -52,7 +53,7 @@ const Home: NextPage = () => {
         // Something else happened!
         return Promise.reject(err)
       })
-  }, [])
+  }, [router])
 
   return hasSession ? (
     <div className={styles.container}>
@@ -87,8 +88,12 @@ const Home: NextPage = () => {
             <Link href="/settings">Settings</Link>
           </p>
         </div>
+        <h3>
+          Session Information
+        </h3>
         <div className={styles.sessionDisplay}>
           <CodeBox>
+            {session}
           </CodeBox>
         </div>
       </main>
