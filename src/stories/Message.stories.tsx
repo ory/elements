@@ -14,7 +14,7 @@ const Template: Story<MessageProps> = (args: MessageProps) => (
   <Container>
     <Message {...args}>I am a Message</Message>
     <Message {...args} className={colorSprinkle({ color: "foregroundMuted" })}>
-      I am a different color
+      I am a different color message
     </Message>
   </Container>
 )

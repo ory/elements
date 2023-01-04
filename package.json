@@ -16,7 +16,8 @@
     "version": "lerna version --no-private --no-git-tag-version --no-changelog --message 'chore(release): bump version to %s' --yes",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-e2e": "playwright test -c playwright.config.ts",
-    "docs": "typedoc --entryPointStrategy packages . --out docs"
+    "docs": "typedoc --entryPointStrategy packages . --out docs",
+    "chromatic": "npx chromatic --project-token=34e5e4f2f6d4"
   },
   "repository": {
     "type": "git",
@@ -61,6 +62,7 @@
     "@vanilla-extract/sprinkles": "^1.5.1",
     "@vanilla-extract/vite-plugin": "^3.7.0",
     "@vitejs/plugin-react": "^2.0.1",
+    "chromatic": "^6.14.0",
     "classnames": "^2.3.1",
     "eslint": "^8.22.0",
     "eslint-plugin-react": "^7.30.1",
@@ -94,5 +96,8 @@
   ],
   "dependencies": {
     "lodash": "^4.17.21"
-  }
+  },
+  "version": "",
+  "readme": "ERROR: No README data found!",
+  "_id": "root@"
 }
