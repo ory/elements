@@ -1,5 +1,5 @@
 import { UiNode, UiText } from "@ory/client"
-import { GridStyle, gridStyle } from "../../../theme"
+import { GridStyle, gridStyle, Severity } from "../../../theme"
 import { Message, MessageStyleProps } from "../../message"
 
 export type NodeMessagesProps = {
@@ -19,7 +19,7 @@ const nodeMessage = ({ text, id, type, key, ...props }: nodeMessageProps) => (
   <Message
     key={key}
     data-testid={`ui/message/${id}`}
-    severity={type === "info" ? "success" : "error"}
+    severity={type as Severity}
     {...props}
   >
     {text}
