@@ -22,23 +22,8 @@ module.exports = {
   async viteFinal(config) {
     return mergeConfig(config, {
       build: {
-        minify: "esbuild",
-        sourcemap: true,
-        lib: {
-          entry: resolve(__dirname, "src/react.ts"),
-          name: "ory/elements",
-          fileName: (format) => `index.${format}.js`,
-        },
         rollupOptions: {
-          treeshake: "recommended",
-          external: ["react", "react-dom", "storybook"],
-          output: {
-            globals: {
-              storybook: "storybook",
-              react: "React",
-              "react-dom": "ReactDOM",
-            },
-          },
+          external: ["react-dom/client"],
         },
       },
       plugins: [vanillaExtractPlugin()],
