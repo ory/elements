@@ -95,8 +95,5 @@
   ],
   "dependencies": {
     "lodash": "^4.17.21"
-  },
-  "version": "",
-  "readme": "ERROR: No README data found!",
-  "_id": "root@"
+  }
 }
