@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements",
-  "version": "0.0.1-alpha.28",
+  "version": "0.0.1-alpha.29",
   "publishConfig": {
     "access": "public"
   },
