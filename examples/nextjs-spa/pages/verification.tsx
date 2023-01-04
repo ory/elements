@@ -8,7 +8,7 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 
 // Ory SDK & Ory Client
-import { ory } from "../components/sdk"
+import { ory } from "../pkg/sdk"
 import { VerificationFlow, UpdateVerificationFlowBody } from "@ory/client"
 
 // Misc.

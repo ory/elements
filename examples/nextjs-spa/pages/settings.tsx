@@ -8,7 +8,7 @@ import type { NextPage } from "next"
 import Link from "next/link"
 
 // Ory SDK
-import { ory } from "../components/sdk"
+import { ory } from "../pkg/sdk"
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 
 // Misc.

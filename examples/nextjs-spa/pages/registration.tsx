@@ -7,7 +7,7 @@ import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
-import { ory } from "../components/sdk"
+import { ory } from "../pkg/sdk"
 import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 
 // Misc.

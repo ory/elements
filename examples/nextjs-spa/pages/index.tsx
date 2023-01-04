@@ -1,21 +1,20 @@
 // React
-import React from "react"
 import { useEffect, useState } from "react"
 
 // Next.js
-import { useRouter } from "next/router"
-import Link from "next/link"
 import type { NextPage } from "next"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 // Ory SDK
-import { ory } from "../components/sdk"
+import { ory } from "../pkg/sdk"
 
 // Import CSS
 import styles from "../styles/Dashboard.module.css"
 
 // Misc.
-import { LogoutLink } from "../pkg/hooks"
 import { AxiosError } from "axios"
+import { LogoutLink } from "../pkg/hooks"
 
 // We will use CodeBox from Ory Elements to display the session information.
 import { CodeBox } from "@ory/elements"
@@ -75,17 +74,17 @@ const Home: NextPage = () => {
         </h1>
         <div className={styles.nav}>
           <h2>Navigation</h2>
-          <p>
+          <div>
             <Link href="/" onClick={onLogout}>
               Logout
             </Link>
-          </p>
-          <p>
+          </div>
+          <div>
             <Link href="/verification">Verification</Link>
-          </p>
-          <p>
+          </div>
+          <div>
             <Link href="/settings">Settings</Link>
-          </p>
+          </div>
         </div>
         <h3>Session Information</h3>
         <div className={styles.sessionDisplay}>

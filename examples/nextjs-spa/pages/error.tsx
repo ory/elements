@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
-import { ory } from "../components/sdk"
+import { ory } from "../pkg/sdk"
 import { FlowError } from "@ory/client"
 
 // Misc.
