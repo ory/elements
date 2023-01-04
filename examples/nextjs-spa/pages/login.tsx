@@ -1,5 +1,4 @@
 // React
-import React from "react"
 import { useEffect, useState } from "react"
 
 // Next.js
@@ -7,8 +6,8 @@ import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
-import { ory } from "../pkg/sdk"
 import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
+import { ory } from "../pkg/sdk"
 
 // Misc.
 import { AxiosError } from "axios"
