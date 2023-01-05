@@ -54,7 +54,6 @@ export function LogoutLink(deps?: DependencyList) {
       .then(({ data }) => {
         setLogoutToken(data.logout_token)
       })
-      .catch((err: AxiosError) => handleError(err))
       .catch((err: AxiosError) => {
         switch (err.response?.status) {
           case 401:
@@ -62,6 +61,7 @@ export function LogoutLink(deps?: DependencyList) {
             return
         }
       })
+      .catch((err: AxiosError) => handleError(err))
   }, deps)
 
   return () => {

@@ -7,9 +7,9 @@ const Logout: NextPage = () => {
 
   useEffect(() => {
     onLogout()
-  }, [])
+  }, [onLogout])
 
-  return <></>
+  return <div>Loading</div>
 }
 
 export default Logout
