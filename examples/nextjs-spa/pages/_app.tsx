@@ -42,6 +42,10 @@ export default function App({ Component, pageProps }: AppProps) {
                 href: "/registration",
               },
               {
+                name: "Settings",
+                href: "/settings",
+              },
+              {
                 name: "Verification",
                 href: "/verification",
               },

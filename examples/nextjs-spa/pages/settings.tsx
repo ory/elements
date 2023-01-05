@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
-import Link from "next/link"
 
 // Ory SDK
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
@@ -63,30 +62,18 @@ const Settings: NextPage = () => {
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch(async (err: AxiosError) => {
+        .catch((err: AxiosError) => {
           if (err.response?.status === 401) {
             router.push("/login")
-          } else {
-            router.push({
-              pathname: "/error",
-              query: {
-                error: JSON.stringify(err, null, 2),
-                id: err.response?.data.error?.id,
-                flowType: router.pathname,
-              },
-            })
           }
-          return Promise.reject(err)
-        }),
+          return err
+        })
+        .catch((err: AxiosError) => handleError(err)),
     [],
   )
 
   useEffect(() => {
-    const {
-      flow: flowId,
-      return_to: returnTo,
-      passwordChange: changed,
-    } = router.query
+    const { flow: flowId, return_to: returnTo } = router.query
 
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
@@ -155,37 +142,33 @@ const Settings: NextPage = () => {
   return flow ? (
     // create a settings form that dynamically renders based on the flow data using Ory Elements
     // This card is more complicated, as it is dynamically rendered based on the flow data from your Ory Console project.
-    <>
-      <h1>
-        <Link href="/">Home</Link>
-      </h1>
-      <div id="settingsForm" className={gridStyle({ gap: 16 })}>
-        {/* Show a success message if the user changed their password */}
-        <NodeMessages nodes={flow.ui.nodes} />
-        {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
-        {(
-          [
-            "profile",
-            "password",
-            "totp",
-            "webauthn",
-            "lookupSecret",
-          ] as UserSettingsFlowType[]
-        ).map((flowType: UserSettingsFlowType, index) => (
-          // here we render the settings flow using Ory Elements
-          <UserSettingsCard
-            key={index}
-            // we always need to pass the component the flow since it contains the form fields, error messages and csrf token
-            flow={flow}
-            flowType={flowType}
-            // include scripts for webauthn support
-            includeScripts={true}
-            // submit the form data the user provides to Ory
-            onSubmit={({ body }) => onSubmit(body)}
-          />
-        ))}
-      </div>
-    </>
+
+    <div id="settingsForm" className={gridStyle({ gap: 16 })}>
+      {/* Show a success message if the user changed their password */}
+      <NodeMessages nodes={flow.ui.nodes} />
+      {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
+      {(
+        [
+          "profile",
+          "password",
+          "totp",
+          "webauthn",
+          "lookupSecret",
+        ] as UserSettingsFlowType[]
+      ).map((flowType: UserSettingsFlowType, index) => (
+        // here we render the settings flow using Ory Elements
+        <UserSettingsCard
+          key={index}
+          // we always need to pass the component the flow since it contains the form fields, error messages and csrf token
+          flow={flow}
+          flowType={flowType}
+          // include scripts for webauthn support
+          includeScripts={true}
+          // submit the form data the user provides to Ory
+          onSubmit={({ body }) => onSubmit(body)}
+        />
+      ))}
+    </div>
   ) : (
     <div>Loading...</div>
   )

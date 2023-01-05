@@ -9,10 +9,12 @@ export const HandleError = () => {
   return (error: AxiosError): AxiosError | void => {
     console.dir(`HandleError hook: ${JSON.stringify(error.response)}`)
     switch (error.response?.status) {
+      // this could be many things, such as the session exists
+      case 400:
       case 404:
         // The flow data could not be found. Let's just redirect to the error page!
         window.location.href = `/error?error=${encodeURIComponent(
-          JSON.stringify(error),
+          JSON.stringify(error.response),
         )}`
         return
       case 422:
@@ -28,8 +30,6 @@ export const HandleError = () => {
       // we should redirect the user to the login page
       // don't handle it here, return the error so the caller can handle it
       case 401:
-      // we have some form validation errors
-      case 400:
         return error
       case 410:
         // Status code 410 means the request has expired - so let's load a fresh flow!
