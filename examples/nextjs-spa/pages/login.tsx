@@ -1,5 +1,5 @@
 // React
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
@@ -15,61 +15,70 @@ import { AxiosError } from "axios"
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the login form.
 import { UserAuthCard } from "@ory/elements"
+import { HandleError } from "../pkg/hooks"
 
 const Login: NextPage = () => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
-
+  const handleError = HandleError()
   // Get flow information from the URL
   const router = useRouter()
-  const {
-    return_to: returnTo,
-    flow: flowId,
-    // Refresh means we want to refresh the session. This is needed, for example, when we want to update the password
-    // of a user.
-    refresh,
-    // AAL = Authorization Assurance Level. This implies that we want to upgrade the AAL, meaning that we want
-    // to perform two-factor authentication/verification.
-    aal,
-  } = router.query
 
-  useEffect(() => {
-    // If the router is not ready yet, or we already have a flow, do nothing.
-    if (!router.isReady || flow) {
-      return
-    }
-
-    // If ?flow=.. was in the URL, we fetch it
-    if (flowId) {
+  const getLoginFlow = useCallback(
+    (id: string) =>
+      // If ?flow=.. was in the URL, we fetch it
       ory
-        .getLoginFlow({ id: String(flowId) })
+        .getLoginFlow({ id })
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch(
-          (error: AxiosError) =>
-            // If the flow was not found, we redirect to the login page to start a new flow.
-            error.response?.status === 404 && router.push("/login"),
-        )
+        .catch((error: AxiosError) => handleError(error)),
+    [],
+  )
+
+  const createFlow = useCallback(
+    (refresh: boolean, aal: string, returnTo: string) =>
+      ory
+        .createBrowserLoginFlow({
+          refresh: refresh,
+          // Check for two-factor authentication
+          aal: aal,
+          returnTo: returnTo,
+        })
+        .then(({ data }) => {
+          setFlow(data)
+        })
+        .catch((error: AxiosError) => handleError(error)),
+    [],
+  )
+
+  useEffect(() => {
+    const {
+      return_to: returnTo,
+      flow: flowId,
+      // Refresh means we want to refresh the session. This is needed, for example, when we want to update the password
+      // of a user.
+      refresh,
+      // AAL = Authorization Assurance Level. This implies that we want to upgrade the AAL, meaning that we want
+      // to perform two-factor authentication/verification.
+      aal,
+    } = router.query
+
+    if (flowId) {
+      getLoginFlow(String(flowId)).catch(
+        (err: AxiosError) =>
+          err.response?.status === 410 ??
+          createFlow(
+            Boolean(refresh),
+            String(aal || ""),
+            String(returnTo || ""),
+          ),
+      ) // if for some reason the flow has expired, we need to get a new one
       return
     }
 
     // Otherwise we initialize it
-    ory
-      .createBrowserLoginFlow({
-        refresh: Boolean(refresh),
-        // Check for two-factor authentication
-        aal: aal ? String(aal) : undefined,
-        returnTo: returnTo ? String(returnTo) : undefined,
-      })
-      .then(({ data }) => {
-        setFlow(data)
-      })
-      .catch(
-        (error: AxiosError) =>
-          // If the flow was not found, we redirect to the login page
-          error.response?.status === 404 && router.push("/login"),
-      )
-  }, [flowId, router, router.isReady, aal, refresh, returnTo, flow])
+    createFlow(Boolean(refresh), String(aal || ""), String(returnTo || ""))
+  }, [])
 
   const submitFlow = (values: UpdateLoginFlowBody) => {
     router
@@ -90,12 +99,6 @@ const Login: NextPage = () => {
             }
             router.push("/")
           })
-          .then(() => {})
-          .catch(
-            (error: AxiosError) =>
-              // If the flow was not found, we redirect to the login page
-              error.response?.status === 404 && router.push("/login"),
-          )
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
             if (err.response?.status === 400) {
@@ -103,31 +106,31 @@ const Login: NextPage = () => {
               setFlow(err.response?.data)
               return
             }
-            return Promise.reject(err)
-          }),
+            return err
+          })
+          .catch((err: AxiosError) => handleError(err)),
       )
   }
 
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements
-    <>
-      <UserAuthCard
-        title={"Login"}
-        // This defines what kind of card we want to render.
-        flowType={"login"}
-        // we always need the flow data which populates the form fields and error messages dynamically
-        flow={flow}
-        // the login card should allow the user to go to the registration page and the recovery page
-        additionalProps={{
-          forgotPasswordURL: "/recovery",
-          signupURL: "/registration",
-        }}
-        // we might need webauthn support which requires additional js
-        includeScripts={true}
-        // we submit the form data to Ory
-        onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
-      />
-    </>
+    <UserAuthCard
+      cardImage={"/ory.svg"}
+      title={"Login"}
+      // This defines what kind of card we want to render.
+      flowType={"login"}
+      // we always need the flow data which populates the form fields and error messages dynamically
+      flow={flow}
+      // the login card should allow the user to go to the registration page and the recovery page
+      additionalProps={{
+        forgotPasswordURL: "/recovery",
+        signupURL: "/registration",
+      }}
+      // we might need webauthn support which requires additional js
+      includeScripts={true}
+      // we submit the form data to Ory
+      onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
+    />
   ) : (
     <div>Loading...</div>
   )

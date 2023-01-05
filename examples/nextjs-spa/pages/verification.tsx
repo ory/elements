@@ -1,15 +1,13 @@
 // React
-import React from "react"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
 import { useRouter } from "next/router"
-import Link from "next/link"
 
 // Ory SDK & Ory Client
+import { UpdateVerificationFlowBody, VerificationFlow } from "@ory/client"
 import { ory } from "../pkg/sdk"
-import { VerificationFlow, UpdateVerificationFlowBody } from "@ory/client"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -17,27 +15,25 @@ import { AxiosError } from "axios"
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the verification form.
 import { UserAuthCard } from "@ory/elements"
+import { HandleError } from "../pkg/hooks"
 
 const Verification: NextPage = () => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
+
+  const handleError = HandleError()
 
   // Get ?flow=... from the URL
   const router = useRouter()
   const { flow: flowId, return_to: returnTo } = router.query
 
-  useEffect(() => {
-    // If the router is not ready yet, or we already have a flow, do nothing.
-    if (!router.isReady || flow) {
-      return
-    }
-
-    // If ?flow=.. was in the URL, we fetch it
-    if (flowId) {
+  const getVerificationFlow = useCallback(
+    () =>
       ory
         .getVerificationFlow({ id: String(flowId) })
         .then(({ data }) => {
           setFlow(data)
         })
+        .catch((err: AxiosError) => handleError(err))
         .catch((err: AxiosError) => {
           switch (err.response?.status) {
             case 410:
@@ -59,34 +55,48 @@ const Verification: NextPage = () => {
               },
             })
           }
+        }),
+    [flowId],
+  )
+
+  const createVerificationFlow = useCallback(
+    () =>
+      ory
+        .createBrowserVerificationFlow({
+          returnTo: returnTo ? String(returnTo) : undefined,
         })
+        .then(({ data }) => {
+          setFlow(data)
+        })
+        .catch((err: AxiosError) => handleError(err))
+        .catch((err: AxiosError) => {
+          if (err.response?.status === 400) {
+            // Status code 400 implies the user is already signed in
+            return router.push("/")
+          } else {
+            router.push({
+              pathname: "/error",
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.error?.id,
+                flowType: router.pathname,
+              },
+            })
+          }
+        }),
+    [returnTo],
+  )
+
+  useEffect(() => {
+    // If ?flow=.. was in the URL, we fetch it
+    if (flowId) {
+      getVerificationFlow().catch(createVerificationFlow) // the flow might be expired, so we create a new one
       return
     }
 
     // Otherwise we initialize it
-    ory
-      .createBrowserVerificationFlow({
-        returnTo: returnTo ? String(returnTo) : undefined,
-      })
-      .then(({ data }) => {
-        setFlow(data)
-      })
-      .catch((err: AxiosError) => {
-        if (err.response?.status === 400) {
-          // Status code 400 implies the user is already signed in
-          return router.push("/")
-        } else {
-          router.push({
-            pathname: "/error",
-            query: {
-              error: JSON.stringify(err, null, 2),
-              id: err.response?.data.error?.id,
-              flowType: router.pathname,
-            },
-          })
-        }
-      })
-  }, [flowId, router, router.isReady, returnTo, flow])
+    createVerificationFlow()
+  }, [getVerificationFlow, createVerificationFlow, flowId])
 
   const submitFlow = async (values: UpdateVerificationFlowBody) => {
     await router
@@ -103,22 +113,12 @@ const Verification: NextPage = () => {
         // Form submission was successful, show the message to the user!
         setFlow(data)
       })
+      .catch((err: AxiosError) => handleError(err))
       .catch((err: AxiosError) => {
         switch (err.response?.status) {
           case 400:
             // Status code 400 implies the form validation had an error
             setFlow(err.response?.data)
-            return
-          case 410:
-            const newFlowID = err.response.data.use_flow_id
-            router
-              // On submission, add the flow ID to the URL but do not navigate. This prevents the user losing
-              // their data when they reload the page.
-              .push(`/verification?flow=${newFlowID}`, undefined, {
-                shallow: true,
-              })
-
-            ory.getVerificationFlow(newFlowID).then(({ data }) => setFlow(data))
             return
           default:
             router.push({
@@ -135,25 +135,20 @@ const Verification: NextPage = () => {
 
   return flow ? (
     // create a verification form that dynamically renders based on the flow data using Ory Elements
-    <>
-      <h1>
-        <Link href="/">Home</Link>
-      </h1>
-      <UserAuthCard
-        title={"Verification"}
-        flowType={"verification"}
-        // we always need the flow data which populates the form fields and error messages dynamically
-        flow={flow}
-        // the verification card should allow the user to go to the registration page and the login page
-        additionalProps={{
-          signupURL: "/registration",
-        }}
-        // we might need webauthn support which requires additional js
-        includeScripts={true}
-        // we submit the form data to Ory
-        onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}
-      />
-    </>
+    <UserAuthCard
+      title={"Verification"}
+      flowType={"verification"}
+      // we always need the flow data which populates the form fields and error messages dynamically
+      flow={flow}
+      // the verification card should allow the user to go to the registration page and the login page
+      additionalProps={{
+        signupURL: "/registration",
+      }}
+      // we might need webauthn support which requires additional js
+      includeScripts={true}
+      // we submit the form data to Ory
+      onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}
+    />
   ) : (
     <div>Loading...</div>
   )

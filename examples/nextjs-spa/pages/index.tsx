@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
-import Link from "next/link"
 import { useRouter } from "next/router"
 
 // Ory SDK
@@ -14,48 +13,27 @@ import styles from "../styles/Dashboard.module.css"
 
 // Misc.
 import { AxiosError } from "axios"
-import { LogoutLink } from "../pkg/hooks"
 
 // We will use CodeBox from Ory Elements to display the session information.
 import { CodeBox } from "@ory/elements"
+import { HandleError } from "../pkg/hooks"
 
 const Home: NextPage = () => {
-  const [session, setSession] = useState<string>(
-    "No valid Ory Session was found.\nPlease sign in to receive one.",
-  )
-  const [hasSession, setHasSession] = useState<boolean>(false)
+  const [session, setSession] = useState<string>()
+  const handleError = HandleError()
   const router = useRouter()
-  const onLogout = LogoutLink()
 
   useEffect(() => {
+    // If the router is not ready yet, or we already have a session, do nothing.
     ory
       .toSession()
-      .then(({ data }) => {
-        setSession(JSON.stringify(data, null, 2))
-        setHasSession(true)
+      .then((session) => {
+        setSession(JSON.stringify(session, null, 2))
       })
-      .catch((err: AxiosError) => {
-        switch (err.response?.status) {
-          // In case of unhandeled errors, we redirect the user to the error page.
-          case 422:
-            router.push({
-              pathname: "/error",
-              query: {
-                error: JSON.stringify(err, null, 2),
-                id: err.response?.data.error?.id,
-                flowType: router.pathname,
-              },
-            })
-          case 401:
-            // The user is not logged in, so we redirect them to the login page.
-            return router.push("/login")
-        }
-        // Something else happened!
-        return Promise.reject(err)
-      })
-  }, [router])
+      .catch((err: AxiosError) => handleError(err))
+  }, [])
 
-  return hasSession ? (
+  return session ? (
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -72,20 +50,6 @@ const Home: NextPage = () => {
             Ory Elements
           </a>
         </h1>
-        <div className={styles.nav}>
-          <h2>Navigation</h2>
-          <div>
-            <Link href="/" onClick={onLogout}>
-              Logout
-            </Link>
-          </div>
-          <div>
-            <Link href="/verification">Verification</Link>
-          </div>
-          <div>
-            <Link href="/settings">Settings</Link>
-          </div>
-        </div>
         <h3>Session Information</h3>
         <div className={styles.sessionDisplay}>
           {/* Displays the current session information */}
@@ -94,10 +58,7 @@ const Home: NextPage = () => {
       </main>
     </div>
   ) : (
-    <>
-      <head></head>
-      <div>Loading...</div>
-    </>
+    <div>Loading...</div>
   )
 }
 

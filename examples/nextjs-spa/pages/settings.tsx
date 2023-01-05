@@ -1,15 +1,14 @@
 // React
-import React from "react"
-import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
 import Link from "next/link"
 
 // Ory SDK
-import { ory } from "../pkg/sdk"
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
+import { ory } from "../pkg/sdk"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -18,31 +17,49 @@ import { AxiosError } from "axios"
 // We will use UserSettingsCard from Ory Elements to display the settings form.
 import {
   gridStyle,
+  NodeMessages,
   UserSettingsCard,
   UserSettingsFlowType,
 } from "@ory/elements"
+import { HandleError } from "../pkg/hooks"
 
 const Settings: NextPage = () => {
   const [flow, setFlow] = useState<SettingsFlow>()
+  const handleError = HandleError()
 
   // Get flow information from the URL
   const router = useRouter()
-  const {
-    flow: flowId,
-    return_to: returnTo,
-    passwordChange: changed,
-  } = router.query
 
-  useEffect(() => {
-    // If the router is not ready yet, or we already have a flow, do nothing.
-    if (!router.isReady || flow) {
-      return
-    }
-
-    // If ?flow=.. was in the URL, we fetch it
-    if (flowId) {
+  const getSettingsFlow = useCallback(
+    (id: string) =>
       ory
-        .getSettingsFlow({ id: String(flowId) })
+        .getSettingsFlow({ id })
+        .then(({ data }) => {
+          setFlow(data)
+        })
+        .catch((err: AxiosError) => {
+          if (err.response?.status === 401) {
+            router.push("/login")
+          } else {
+            router.push({
+              pathname: "/error",
+              query: {
+                error: JSON.stringify(err, null, 2),
+                id: err.response?.data.error?.id,
+                flowType: router.pathname,
+              },
+            })
+          }
+        }),
+    [],
+  )
+
+  const createSettingsFlow = useCallback(
+    (returnTo: string) =>
+      ory
+        .createBrowserSettingsFlow({
+          returnTo,
+        })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -59,34 +76,31 @@ const Settings: NextPage = () => {
               },
             })
           }
-        })
+          return Promise.reject(err)
+        }),
+    [],
+  )
+
+  useEffect(() => {
+    const {
+      flow: flowId,
+      return_to: returnTo,
+      passwordChange: changed,
+    } = router.query
+
+    // If ?flow=.. was in the URL, we fetch it
+    if (flowId) {
+      getSettingsFlow(String(flowId || "")).catch(
+        (err: AxiosError) =>
+          err.response?.status === 410 ??
+          createSettingsFlow(String(returnTo || "")),
+      )
       return
     }
 
     // Otherwise we initialize it
-    ory
-      .createBrowserSettingsFlow({
-        returnTo: returnTo ? String(returnTo) : undefined,
-      })
-      .then(({ data }) => {
-        setFlow(data)
-      })
-      .catch(async (err: AxiosError) => {
-        if (err.response?.status === 401) {
-          router.push("/login")
-        } else {
-          router.push({
-            pathname: "/error",
-            query: {
-              error: JSON.stringify(err, null, 2),
-              id: err.response?.data.error?.id,
-              flowType: router.pathname,
-            },
-          })
-        }
-        return Promise.reject(err)
-      })
-  }, [flowId, router, router.isReady, returnTo, flow])
+    createSettingsFlow(String(returnTo || ""))
+  }, [])
 
   const onSubmit = (values: UpdateSettingsFlowBody) => {
     router
@@ -103,28 +117,28 @@ const Settings: NextPage = () => {
             // The settings have been saved and the flow was updated. Let's show it to the user!
             setFlow(data)
           })
-          .catch(async (err: AxiosError) => {
+          .catch((err: AxiosError) => handleError(err))
+          .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
-            if (err.response?.status === 400) {
-              // Yup, it is!
-              setFlow(err.response?.data)
-              return
-            } else if (err.response?.status === 401) {
-              // The user is not authenticated anymore.
-              // Let's redirect them to the login page.
-              router.push("/login")
-            } else {
-              // Otherwise, we show the error page.
-              router.push({
-                pathname: "/error",
-                query: {
-                  error: JSON.stringify(err, null, 2),
-                  id: err.response?.data.error?.id,
-                  flowType: router.pathname,
-                },
-              })
+            switch (err.response?.status) {
+              case 400:
+                // Yup, it is!
+                setFlow(err.response?.data)
+                return
+              case 401:
+                // The user is not authenticated anymore.
+                // Let's redirect them to the login page.
+                router.push("/login")
+                return
+              default:
+                // Otherwise, we show the error page.
+                router.push({
+                  pathname: "/error",
+                  query: {
+                    error: JSON.stringify(err, null, 2),
+                  },
+                })
             }
-            return Promise.reject(err)
           }),
       )
     return router.push({
@@ -146,6 +160,8 @@ const Settings: NextPage = () => {
         <Link href="/">Home</Link>
       </h1>
       <div id="settingsForm" className={gridStyle({ gap: 16 })}>
+        {/* Show a success message if the user changed their password */}
+        <NodeMessages nodes={flow.ui.nodes} />
         {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
         {(
           [
@@ -168,8 +184,6 @@ const Settings: NextPage = () => {
             onSubmit={({ body }) => onSubmit(body)}
           />
         ))}
-        {/* Show a success message if the user changed their password */}
-        <h3>{changed}</h3>
       </div>
     </>
   ) : (

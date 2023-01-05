@@ -13,6 +13,11 @@ body {
   width: 100vw;
 }
 
+.content {
+  padding-left: 18.75rem;
+  margin-right: 18.75rem;
+}
+
 p {
   line-height: 1.5;
   margin-top: 1em;
@@ -37,6 +42,22 @@ a {
   color: #2b2b2b;
   padding: 30px;
   border-radius: 20px;
+}
+
+/* only manage the nav */
+.main-nav {
+  min-width: 18.75rem;
+  position: fixed;
+  height: auto;
+  z-index: 1;
+  padding-top: 2rem;
+  top: 0;
+  left: 0;
+}
+
+.main-nav > a:hover {
+  color: #2b2b2b !important;
+  text-decoration: underline !important;
 }
 
 #settingsForm h3 {

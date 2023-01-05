@@ -1,14 +1,13 @@
 // React
-import React from "react"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
-import { ory } from "../pkg/sdk"
 import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
+import { ory } from "../pkg/sdk"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -16,50 +15,58 @@ import { AxiosError } from "axios"
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the registration form.
 import { UserAuthCard } from "@ory/elements"
+import { HandleError } from "../pkg/hooks"
 
 const Registration: NextPage = () => {
   const [flow, setFlow] = useState<RegistrationFlow>()
 
+  const handleError = HandleError()
+
   // Get flow information from the URL
   const router = useRouter()
-  const { flow: flowId, return_to: returnTo } = router.query
 
-  useEffect(() => {
-    // If the router is not ready yet, or we already have a flow, do nothing.
-    if (!router.isReady || flow) {
-      return
-    }
-
-    // If ?flow=.. was in the URL, we fetch it
-    if (flowId) {
+  const getRegistrationFlow = useCallback(
+    (id: string) =>
       ory
-        .getRegistrationFlow({ id: String(flowId) })
+        .getRegistrationFlow({ id })
         .then(({ data }) => {
           // We received the flow - let's use its data and render the form!
           setFlow(data)
         })
-        .catch(
-          (error: AxiosError) =>
-            // If the flow was not found, we redirect to the login page
-            error.response?.status === 404 && router.push("/login"),
-        )
+        .catch((error: AxiosError) => handleError(error)),
+    [],
+  )
+
+  const createRegistrationFlow = useCallback(
+    (returnTo: string) =>
+      ory
+        .createBrowserRegistrationFlow({
+          returnTo,
+        })
+        .then(({ data }) => {
+          setFlow(data)
+        })
+        .catch((error: AxiosError) => handleError(error)),
+    [],
+  )
+
+  useEffect(() => {
+    const { flow: flowId, return_to: returnTo } = router.query
+
+    // If ?flow=.. was in the URL, we fetch it
+    if (flowId) {
+      getRegistrationFlow(String(flowId || "")).catch(
+        (error: AxiosError) =>
+          error.response?.status === 410 ??
+          createRegistrationFlow(String(returnTo || "")),
+        // if the flow is expired, we create a new one
+      )
       return
     }
 
     // Otherwise we initialize it
-    ory
-      .createBrowserRegistrationFlow({
-        returnTo: returnTo ? String(returnTo) : undefined,
-      })
-      .then(({ data }) => {
-        setFlow(data)
-      })
-      .catch(
-        (error: AxiosError) =>
-          // If the flow was not found, we redirect to the login page
-          error.response?.status === 404 && router.push("/login"),
-      )
-  }, [flowId, router, router.isReady, returnTo, flow])
+    createRegistrationFlow(String(returnTo || ""))
+  }, [])
 
   const submitFlow = (values: UpdateRegistrationFlowBody) => {
     router
@@ -80,12 +87,7 @@ const Registration: NextPage = () => {
             }
             router.push("/")
           })
-          .then(() => {})
-          .catch(
-            (error: AxiosError) =>
-              // If the flow was not found, we redirect to the registration page
-              error.response?.status === 404 && router.push("/registration"),
-          )
+          .catch((error: AxiosError) => handleError(error))
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
             if (err.response?.status === 400) {
@@ -101,23 +103,21 @@ const Registration: NextPage = () => {
 
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements
-    <>
-      <UserAuthCard
-        title={"Registration"}
-        // This defines what kind of card we want to render.
-        flowType={"registration"}
-        // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
-        flow={flow}
-        // the registration card needs a way to navigate to the login page
-        additionalProps={{
-          loginURL: "/login",
-        }}
-        // include the necessary scripts for webauthn to work
-        includeScripts={true}
-        // submit the registration form data to Ory
-        onSubmit={({ body }) => submitFlow(body as UpdateRegistrationFlowBody)}
-      />
-    </>
+    <UserAuthCard
+      title={"Registration"}
+      // This defines what kind of card we want to render.
+      flowType={"registration"}
+      // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
+      flow={flow}
+      // the registration card needs a way to navigate to the login page
+      additionalProps={{
+        loginURL: "/login",
+      }}
+      // include the necessary scripts for webauthn to work
+      includeScripts={true}
+      // submit the registration form data to Ory
+      onSubmit={({ body }) => submitFlow(body as UpdateRegistrationFlowBody)}
+    />
   ) : (
     <div>Loading...</div>
   )
