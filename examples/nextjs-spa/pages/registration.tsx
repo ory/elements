@@ -104,6 +104,7 @@ const Registration: NextPage = () => {
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
+      cardImage={"/ory.svg"}
       title={"Registration"}
       // This defines what kind of card we want to render.
       flowType={"registration"}

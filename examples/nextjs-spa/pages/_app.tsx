@@ -1,5 +1,3 @@
-// React
-
 // Next.js
 import type { AppProps } from "next/app"
 
@@ -22,46 +20,51 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Next.js w/ Elements</title>
         <link rel="icon" href="/ory.svg" />
       </Head>
-      <Nav
-        className="main-nav"
-        navTitle="NextJs /w Elements"
-        navSections={[
-          {
-            title: "Navigation",
-            links: [
-              {
-                name: "Home",
-                href: "/",
-              },
-              {
-                name: "Login",
-                href: "/login",
-              },
-              {
-                name: "Register",
-                href: "/registration",
-              },
-              {
-                name: "Settings",
-                href: "/settings",
-              },
-              {
-                name: "Verification",
-                href: "/verification",
-              },
-              {
-                name: "Recovery",
-                href: "/recovery",
-              },
-              {
-                name: "Logout",
-                href: "/logout",
-              },
-            ],
-          },
-        ]}
-      />
-      <Component className={"content"} {...pageProps} />
+      <div className="mainContainer">
+        {/* An Ory Elements dynamic nav component */}
+        <Nav
+          className="main-nav"
+          navTitle="Next.js w/ Elements"
+          navSections={[
+            {
+              title: "Navigation",
+              links: [
+                {
+                  name: "Home",
+                  href: "/",
+                },
+                {
+                  name: "Login",
+                  href: "/login",
+                },
+                {
+                  name: "Register",
+                  href: "/registration",
+                },
+                {
+                  name: "Settings",
+                  href: "/settings",
+                },
+                {
+                  name: "Verification",
+                  href: "/verification",
+                },
+                {
+                  name: "Recovery",
+                  href: "/recovery",
+                },
+                {
+                  name: "Logout",
+                  href: "/logout",
+                },
+              ],
+            },
+          ]}
+        />
+        <div className="contentContainer">
+          <Component className={"content"} {...pageProps} />
+        </div>
+      </div>
     </ThemeProvider>
   )
 }

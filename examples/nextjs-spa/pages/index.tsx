@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 
 // Next.js
 import type { NextPage } from "next"
-import { useRouter } from "next/router"
 
 // Ory SDK
 import { ory } from "../pkg/sdk"
@@ -21,7 +20,6 @@ import { HandleError } from "../pkg/hooks"
 const Home: NextPage = () => {
   const [session, setSession] = useState<string>()
   const handleError = HandleError()
-  const router = useRouter()
 
   useEffect(() => {
     // If the router is not ready yet, or we already have a session, do nothing.

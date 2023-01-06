@@ -73,3 +73,17 @@ a {
     background: #2b2b2b;
   }
 }
+
+@media only screen and (min-width: 769px) {
+  .main-nav > ul {
+    margin-top: 0;
+  }
+
+  .main-nav > div:first-of-type {
+    margin-top: 2rem;
+  }
+
+  .contentContainer {
+    margin-left: 18.75rem;
+  }
+}
