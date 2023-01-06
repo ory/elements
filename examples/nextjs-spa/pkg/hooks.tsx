@@ -7,7 +7,7 @@ import { ory } from "./sdk"
 export const HandleError = () => {
   const router = useRouter()
   return (error: AxiosError): AxiosError | void => {
-    console.dir(`HandleError hook: ${JSON.stringify(error.response)}`)
+    console.error(`HandleError hook: ${JSON.stringify(error.response)}`)
     switch (error.response?.status) {
       // this could be many things, such as the session exists
       case 400:

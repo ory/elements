@@ -39,17 +39,10 @@ const Settings: NextPage = () => {
         .catch((err: AxiosError) => {
           if (err.response?.status === 401) {
             router.push("/login")
-          } else {
-            router.push({
-              pathname: "/error",
-              query: {
-                error: JSON.stringify(err, null, 2),
-                id: err.response?.data.error?.id,
-                flowType: router.pathname,
-              },
-            })
           }
-        }),
+          return err
+        })
+        .catch((err: AxiosError) => handleError(err)),
     [],
   )
 
@@ -62,13 +55,14 @@ const Settings: NextPage = () => {
         .then(({ data }) => {
           setFlow(data)
         })
+        .catch((err: AxiosError) => handleError(err))
         .catch((err: AxiosError) => {
           if (err.response?.status === 401) {
             router.push("/login")
+            return
           }
           return err
-        })
-        .catch((err: AxiosError) => handleError(err)),
+        }),
     [],
   )
 
@@ -104,7 +98,6 @@ const Settings: NextPage = () => {
             // The settings have been saved and the flow was updated. Let's show it to the user!
             setFlow(data)
           })
-          .catch((err: AxiosError) => handleError(err))
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
             switch (err.response?.status) {
@@ -126,16 +119,9 @@ const Settings: NextPage = () => {
                   },
                 })
             }
-          }),
+          })
+          .catch((err: AxiosError) => handleError(err)),
       )
-    return router.push({
-      pathname: "/settings",
-      query: {
-        flow: flow?.id,
-        // Allows us to show a success message after the user has changed their password
-        passwordChange: "Your password has been successfully changed!",
-      },
-    })
   }
 
   // if the flow is not set, we show a loading indicator
