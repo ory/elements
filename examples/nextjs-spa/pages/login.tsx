@@ -30,6 +30,7 @@ const Login: NextPage = () => {
         .getLoginFlow({ id })
         .then(({ data }) => {
           setFlow(data)
+          router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
     [],
@@ -46,6 +47,7 @@ const Login: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
+          router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
     [],
@@ -81,35 +83,36 @@ const Login: NextPage = () => {
   }, [])
 
   const submitFlow = (values: UpdateLoginFlowBody) => {
-    router
-      // On submission, add the flow ID to the URL but do not navigate.
-      // This prevents the user losing his data when she/he reloads the page.
-      .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
-      .then(() =>
-        ory
-          .updateLoginFlow({
-            flow: String(flow?.id),
-            updateLoginFlowBody: values,
-          })
-          // We logged in successfully! Let's bring the user home.
-          .then(() => {
-            if (flow?.return_to) {
-              window.location.href = flow?.return_to
-              return
-            }
-            router.push("/")
-          })
-          .catch((err: AxiosError) => {
-            // If the previous handler did not catch the error it's most likely a form validation error
-            if (err.response?.status === 400) {
-              // Yup, it is!
-              setFlow(err.response?.data)
-              return
-            }
+    ory
+      .updateLoginFlow({
+        flow: String(flow?.id),
+        updateLoginFlowBody: values,
+      })
+      // We logged in successfully! Let's bring the user home.
+      .then(() => {
+        if (flow?.return_to) {
+          window.location.href = flow?.return_to
+          return
+        }
+        router.push("/")
+      })
+      .catch((err: AxiosError) => handleError(err))
+      .catch((err: AxiosError) => {
+        switch (err.response?.status) {
+          // If the previous handler did not catch the error it's most likely a form validation error
+          case 400:
+            // Yup, it is!
+            setFlow(err.response?.data)
+            break
+          case 422:
+            const u = new URL(err.response.data.redirect_browser_to)
+            // get new flow data based on the flow id in the redirect url
+            getLoginFlow(u.searchParams.get("flow") || "")
+            break
+          default:
             return err
-          })
-          .catch((err: AxiosError) => handleError(err)),
-      )
+        }
+      })
   }
 
   return flow ? (

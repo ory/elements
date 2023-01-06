@@ -17,15 +17,10 @@ export const HandleError = () => {
           JSON.stringify(error.response),
         )}`
         return
+      // we need to parse the response and follow the `redirect_browser_to` URL
+      // this could be when the user needs to perform a 2FA challenge
+      // or passwordless login
       case 422:
-        // we need to parse the response and follow the `redirect_browser_to` URL
-        // this could be when the user needs to perform a 2FA challenge
-        // or passwordless login
-        const { redirect_browser_to } = error.response?.data
-        if (redirect_browser_to) {
-          window.location.href = redirect_browser_to
-        }
-        return
       // we have no session or the session is invalid
       // we should redirect the user to the login page
       // don't handle it here, return the error so the caller can handle it
