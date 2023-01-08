@@ -34,7 +34,7 @@ const Login: NextPage = () => {
         })
         .catch((error: AxiosError) => handleError(error)),
     [handleError, router],
-)
+  )
 
   const createFlow = useCallback(
     (refresh: boolean, aal: string, returnTo: string) =>
