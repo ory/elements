@@ -43,7 +43,7 @@ const Settings: NextPage = () => {
           return err
         })
         .catch((err: AxiosError) => handleError(err)),
-    [],
+    [handleError, router],
   )
 
   const createSettingsFlow = useCallback(
@@ -63,7 +63,7 @@ const Settings: NextPage = () => {
           }
           return err
         }),
-    [],
+    [handleError, router],
   )
 
   useEffect(() => {
@@ -81,7 +81,7 @@ const Settings: NextPage = () => {
 
     // Otherwise we initialize it
     createSettingsFlow(String(returnTo || ""))
-  }, [])
+  }, [createSettingsFlow, getSettingsFlow, router.query])
 
   const onSubmit = (values: UpdateSettingsFlowBody) => {
     router

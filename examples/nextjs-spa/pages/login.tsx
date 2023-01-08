@@ -33,8 +33,8 @@ const Login: NextPage = () => {
           router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
-    [],
-  )
+    [handleError, router],
+)
 
   const createFlow = useCallback(
     (refresh: boolean, aal: string, returnTo: string) =>
@@ -50,7 +50,7 @@ const Login: NextPage = () => {
           router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
-    [],
+    [handleError, router],
   )
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const Login: NextPage = () => {
 
     // Otherwise we initialize it
     createFlow(Boolean(refresh), String(aal || ""), String(returnTo || ""))
-  }, [])
+  }, [createFlow, getLoginFlow, router.query])
 
   const submitFlow = (values: UpdateLoginFlowBody) => {
     ory

@@ -56,7 +56,7 @@ const Verification: NextPage = () => {
             })
           }
         }),
-    [flowId],
+    [flowId, router, handleError],
   )
 
   const createVerificationFlow = useCallback(
@@ -84,7 +84,7 @@ const Verification: NextPage = () => {
             })
           }
         }),
-    [returnTo],
+    [returnTo, router, handleError],
   )
 
   useEffect(() => {

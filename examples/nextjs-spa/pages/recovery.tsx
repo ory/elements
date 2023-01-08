@@ -52,7 +52,7 @@ const Recovery: NextPage = () => {
               })
           }
         }),
-    [],
+    [router],
   )
 
   const createSettingsFlow = useCallback(
@@ -71,7 +71,7 @@ const Recovery: NextPage = () => {
             return
           }
         }),
-    [],
+    [handleError],
   )
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const Recovery: NextPage = () => {
 
     // Otherwise we initialize it
     createSettingsFlow()
-  }, [flowId])
+  }, [flowId, getRecoveryFlow, createSettingsFlow])
 
   const submitFlow = (values: UpdateRecoveryFlowBody) =>
     router

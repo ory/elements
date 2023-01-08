@@ -34,7 +34,7 @@ const Registration: NextPage = () => {
           setFlow(data)
         })
         .catch((error: AxiosError) => handleError(error)),
-    [],
+    [handleError],
   )
 
   const createRegistrationFlow = useCallback(
@@ -47,7 +47,7 @@ const Registration: NextPage = () => {
           setFlow(data)
         })
         .catch((error: AxiosError) => handleError(error)),
-    [],
+    [handleError],
   )
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const Registration: NextPage = () => {
 
     // Otherwise we initialize it
     createRegistrationFlow(String(returnTo || ""))
-  }, [])
+  }, [createRegistrationFlow, getRegistrationFlow, router.query])
 
   const submitFlow = (values: UpdateRegistrationFlowBody) => {
     router

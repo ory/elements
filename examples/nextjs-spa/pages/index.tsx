@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         setSession(JSON.stringify(session, null, 2))
       })
       .catch((err: AxiosError) => handleError(err))
-  }, [])
+  })
 
   return session ? (
     <div className={styles.container}>
