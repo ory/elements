@@ -11,6 +11,7 @@ import { ory } from "../pkg/sdk"
 
 // Misc.
 import { CodeBox } from "@ory/elements"
+import { AxiosError } from "axios"
 import { HandleError } from "../pkg/hooks"
 
 // We will use CodeBox from Ory Elements to display the session information.
@@ -19,9 +20,15 @@ const Error: NextPage = () => {
   const [error, setError] = useState<string>()
   const handleError = HandleError()
   const router = useRouter()
-  const { id, error: err } = router.query
+
+  const id = router.query.id
+  const err = router.query.error
 
   useEffect(() => {
+    if (!router.isReady) {
+      return
+    }
+
     if (err) {
       return setError(
         JSON.stringify(JSON.parse(decodeURIComponent(String(err))), null, 2),
@@ -30,12 +37,14 @@ const Error: NextPage = () => {
 
     if (id) {
       // Fetch the error information from the Ory API
-      ory.getFlowError({ id: String(id) }).then(({ data }) => {
-        setError(JSON.stringify(data, null, 2))
-      })
-      //.catch((err: AxiosError) => handleError(err))
+      ory
+        .getFlowError({ id: String(id) })
+        .then(({ data }) => {
+          setError(JSON.stringify(data, null, 2))
+        })
+        .catch((err: AxiosError) => handleError(err))
     }
-  }, [err, id])
+  }, [err, id, router.isReady, handleError])
 
   return (
     <>
