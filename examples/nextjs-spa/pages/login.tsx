@@ -105,7 +105,11 @@ const Login: NextPage = () => {
           case 422:
             const u = new URL(err.response.data.redirect_browser_to)
             // get new flow data based on the flow id in the redirect url
-            getLoginFlow(u.searchParams.get("flow") || "")
+            const flow = u.searchParams.get("flow") || ""
+            // add the new flowid to the URL
+            router.push(`/login${flow ? `?flow=${flow}` : ""}`, undefined, {
+              shallow: true,
+            })
             break
           default:
             return err
