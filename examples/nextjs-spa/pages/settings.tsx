@@ -99,6 +99,7 @@ const Settings: NextPage = () => {
         // The settings have been saved and the flow was updated. Let's show it to the user!
         setFlow(data)
       })
+      .catch((err: AxiosError) => handleError(err))
       .catch((err: AxiosError) => {
         // If the previous handler did not catch the error it's most likely a form validation error
         switch (err.response?.status) {
@@ -121,7 +122,6 @@ const Settings: NextPage = () => {
             })
         }
       })
-      .catch((err: AxiosError) => handleError(err))
 
   // if the flow is not set, we show a loading indicator
   return flow ? (
