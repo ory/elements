@@ -23,10 +23,9 @@ Ory Elements supports integrating with:
 git clone --depth 1 git@github.com:ory/elements.git
 cd elements
 npm run initialize
-npm run build:clean
-cd examples/nextjs
-export VITE_ORY_SDK_URL=http://localhost:4000
-npm run start
+cd examples/nextjs-spa
+export NEXT_PUBLIC_ORY_SDK_URL=http://localhost:4000
+npm run dev
 ```
 
 Now run the [Ory CLI](https://www.ory.sh/docs/guides/cli/installation) tunnel.
