@@ -15,11 +15,13 @@ import {
   UserAuthFormAdditionalProps,
 } from "./helpers/user-auth-form"
 import {
+  hasHiddenIdentifier,
   hasLookupSecret,
   hasPassword,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
+import { IdentifierInfo } from "./sections/identifier-info"
 import { LinkSection } from "./sections/link-section"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
@@ -112,6 +114,8 @@ export const UserAuthCard = ({
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
+
+  const showIdentifier = hasHiddenIdentifier(flow.ui.nodes)
 
   // this function will map all of the 2fa flows with their own respective forms.
   // it also helps with spacing them and adding visual dividers between each flow *if* there are more than 1 flows.
@@ -290,6 +294,7 @@ export const UserAuthCard = ({
               data-testid={`${flowType}-flow`}
             >
               {$flow}
+              {showIdentifier && <IdentifierInfo flow={flow} />}
             </UserAuthForm>
           </>
         )}
