@@ -41,7 +41,6 @@ const Login: NextPage = () => {
         .getLoginFlow({ id })
         .then(({ data }) => {
           setFlow(data)
-          //router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
     [handleError],
@@ -58,10 +57,10 @@ const Login: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
-          //router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
+          router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
-    [handleError],
+    [handleError, router],
   )
 
   useEffect(() => {

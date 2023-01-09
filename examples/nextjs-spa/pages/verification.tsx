@@ -69,6 +69,9 @@ const Verification: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
+          router.push(`/verification?flow=${data.id}`, undefined, {
+            shallow: true,
+          })
         })
         .catch((err: AxiosError) => handleError(err))
         .catch((err: AxiosError) => {

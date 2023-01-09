@@ -48,9 +48,12 @@ const Registration: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
+          router.push(`/registration?flow=${data.id}`, undefined, {
+            shallow: true,
+          })
         })
         .catch((error: AxiosError) => handleError(error)),
-    [handleError],
+    [handleError, router],
   )
 
   useEffect(() => {

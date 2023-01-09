@@ -57,7 +57,7 @@ const Recovery: NextPage = () => {
     [handleError, router],
   )
 
-  const createSettingsFlow = useCallback(
+  const createRecoveryFlow = useCallback(
     (returnTo: string) =>
       ory
         .createBrowserRecoveryFlow({
@@ -65,6 +65,7 @@ const Recovery: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
+          router.push(`/recovery?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error))
         .catch((err: AxiosError) => {
@@ -75,7 +76,7 @@ const Recovery: NextPage = () => {
             return
           }
         }),
-    [handleError],
+    [handleError, router],
   )
 
   useEffect(() => {
@@ -87,15 +88,15 @@ const Recovery: NextPage = () => {
     if (flowId) {
       getRecoveryFlow(flowId).catch(
         (err: AxiosError) =>
-          err.response?.status === 410 ?? createSettingsFlow(returnTo),
+          err.response?.status === 410 ?? createRecoveryFlow(returnTo),
       )
       // if the flow is expired, we create a new one
       return
     }
 
     // Otherwise we initialize it
-    createSettingsFlow(returnTo)
-  }, [flowId, returnTo, getRecoveryFlow, createSettingsFlow, router.isReady])
+    createRecoveryFlow(returnTo)
+  }, [flowId, returnTo, getRecoveryFlow, createRecoveryFlow, router.isReady])
 
   const submitFlow = (values: UpdateRecoveryFlowBody) =>
     router

@@ -57,6 +57,7 @@ const Settings: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
+          router.push(`/settings?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((err: AxiosError) => handleError(err))
         .catch((err: AxiosError) => {
