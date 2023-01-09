@@ -7,23 +7,24 @@ import { ory } from "./sdk"
 export const HandleError = () => {
   const router = useRouter()
   return useCallback(
-    (error: AxiosError): AxiosError | void => {
+    (error: AxiosError): Promise<AxiosError | void> => {
       console.log(`HandleError hook: ${JSON.stringify(error.response)}`)
       if (!error.response || error.response?.status === 0) {
         window.location.href = `/error?error=${encodeURIComponent(
           JSON.stringify(error.response),
         )}`
-        return
+        return Promise.resolve()
       }
       switch (error.response?.status) {
         // this could be many things, such as the session exists
         case 400:
+          return Promise.reject(error)
         case 404:
           // The flow data could not be found. Let's just redirect to the error page!
           window.location.href = `/error?error=${encodeURIComponent(
             JSON.stringify(error.response),
           )}`
-          return
+          return Promise.resolve()
         // we need to parse the response and follow the `redirect_browser_to` URL
         // this could be when the user needs to perform a 2FA challenge
         // or passwordless login
@@ -32,14 +33,14 @@ export const HandleError = () => {
         // we should redirect the user to the login page
         // don't handle it here, return the error so the caller can handle it
         case 401:
-          return error
+          return Promise.reject(error)
         case 410:
           // Status code 410 means the request has expired - so let's load a fresh flow!
-          router.reload()
+          return Promise.resolve(router.reload())
         default:
           // The flow could not be fetched due to e.g. network or server issues. Let's reload the page!
           // This will trigger the useEffect hook again and we will try to fetch the flow again.
-          router.reload()
+          return Promise.resolve(router.reload())
       }
     },
     [router],

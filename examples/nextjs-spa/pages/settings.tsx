@@ -89,46 +89,39 @@ const Settings: NextPage = () => {
     createSettingsFlow(returnTo)
   }, [createSettingsFlow, getSettingsFlow, flowId, returnTo, router.isReady])
 
-  const onSubmit = (values: UpdateSettingsFlowBody) => {
-    router
-      // On submission, add the flow ID to the URL but do not navigate.
-      // This prevents the user losing his data when she/he reloads the page.
-      .push(`/settings?flow=${flow?.id}`, undefined, { shallow: true })
-      .then(() =>
-        ory
-          .updateSettingsFlow({
-            flow: String(flow?.id),
-            updateSettingsFlowBody: values,
-          })
-          .then(({ data }) => {
-            // The settings have been saved and the flow was updated. Let's show it to the user!
-            setFlow(data)
-          })
-          .catch((err: AxiosError) => {
-            // If the previous handler did not catch the error it's most likely a form validation error
-            switch (err.response?.status) {
-              case 400:
-                // Yup, it is!
-                setFlow(err.response?.data)
-                return
-              case 401:
-                // The user is not authenticated anymore.
-                // Let's redirect them to the login page.
-                router.push("/login")
-                return
-              default:
-                // Otherwise, we show the error page.
-                router.push({
-                  pathname: "/error",
-                  query: {
-                    error: JSON.stringify(err, null, 2),
-                  },
-                })
-            }
-          })
-          .catch((err: AxiosError) => handleError(err)),
-      )
-  }
+  const onSubmit = (values: UpdateSettingsFlowBody) =>
+    ory
+      .updateSettingsFlow({
+        flow: String(flow?.id),
+        updateSettingsFlowBody: values,
+      })
+      .then(({ data }) => {
+        // The settings have been saved and the flow was updated. Let's show it to the user!
+        setFlow(data)
+      })
+      .catch((err: AxiosError) => {
+        // If the previous handler did not catch the error it's most likely a form validation error
+        switch (err.response?.status) {
+          case 400:
+            // Yup, it is!
+            setFlow(err.response?.data)
+            return
+          case 401:
+            // The user is not authenticated anymore.
+            // Let's redirect them to the login page.
+            router.push("/login")
+            return
+          default:
+            // Otherwise, we show the error page.
+            router.push({
+              pathname: "/error",
+              query: {
+                error: JSON.stringify(err, null, 2),
+              },
+            })
+        }
+      })
+      .catch((err: AxiosError) => handleError(err))
 
   // if the flow is not set, we show a loading indicator
   return flow ? (

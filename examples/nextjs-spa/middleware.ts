@@ -21,13 +21,8 @@ export const middleware = async (request: NextRequest) =>
           cookie: request.headers.get("cookie") || "",
         },
       })
-        .then((resp) => resp.json())
         .then((resp) => {
-          console.log(`Global Session Middleware: ${JSON.stringify(resp)}`)
-          if (resp.error.code === 401) {
-            return NextResponse.redirect(new URL("/login", request.url))
-          }
-
+          // there must've been no response (invalid URL or something...)
           if (!resp) {
             return NextResponse.redirect(
               new URL(
@@ -40,6 +35,16 @@ export const middleware = async (request: NextRequest) =>
               ),
             )
           }
+
+          console.log(
+            `Global Session Middleware: ${JSON.stringify(resp.json())}`,
+          )
+
+          // the user is not signed in
+          if (resp.status === 401) {
+            return NextResponse.redirect(new URL("/login", request.url))
+          }
+
           return NextResponse.next()
         })
         .catch((err) => {

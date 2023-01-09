@@ -80,7 +80,7 @@ const Login: NextPage = () => {
     createFlow(refresh, aal, returnTo)
   }, [createFlow, getLoginFlow, refresh, aal, returnTo, flowId, router.isReady])
 
-  const submitFlow = (values: UpdateLoginFlowBody) => {
+  const submitFlow = (values: UpdateLoginFlowBody) =>
     ory
       .updateLoginFlow({
         flow: String(flow?.id),
@@ -103,9 +103,10 @@ const Login: NextPage = () => {
             setFlow(err.response?.data)
             break
           case 422:
-            const u = new URL(err.response.data.redirect_browser_to)
+            const [, paramString] =
+              err.response.data.redirect_browser_to.split("?")
             // get new flow data based on the flow id in the redirect url
-            const flow = u.searchParams.get("flow") || ""
+            const flow = new URLSearchParams(paramString).get("flow") || ""
             // add the new flowid to the URL
             router.push(`/login${flow ? `?flow=${flow}` : ""}`, undefined, {
               shallow: true,
@@ -115,7 +116,6 @@ const Login: NextPage = () => {
             return Promise.reject(err)
         }
       })
-  }
 
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements

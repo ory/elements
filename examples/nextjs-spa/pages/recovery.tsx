@@ -99,32 +99,26 @@ const Recovery: NextPage = () => {
   }, [flowId, returnTo, getRecoveryFlow, createRecoveryFlow, router.isReady])
 
   const submitFlow = (values: UpdateRecoveryFlowBody) =>
-    router
-      // On submission, add the flow ID to the URL but do not navigate.
-      // This prevents the user losing his data when she/he reloads the page.
-      .push(`/recovery?flow=${flow?.id}`, undefined, { shallow: true })
-      .then(() =>
-        ory
-          .updateRecoveryFlow({
-            flow: String(flow?.id),
-            updateRecoveryFlowBody: values,
-          })
-          .then(({ data }) => {
-            // Form submission was successful, show the message to the user!
-            setFlow(data)
-          })
-          .catch((error: AxiosError) => handleError(error))
-          .catch((err: AxiosError) => {
-            // If the previous handler did not catch the error it's most likely a form validation error
-            if (err.response?.status === 400) {
-              // Yup, it is!
-              setFlow(err.response?.data)
-              return
-            }
+    ory
+      .updateRecoveryFlow({
+        flow: String(flow?.id),
+        updateRecoveryFlowBody: values,
+      })
+      .then(({ data }) => {
+        // Form submission was successful, show the message to the user!
+        setFlow(data)
+      })
+      .catch((error: AxiosError) => handleError(error))
+      .catch((err: AxiosError) => {
+        // If the previous handler did not catch the error it's most likely a form validation error
+        if (err.response?.status === 400) {
+          // Yup, it is!
+          setFlow(err.response?.data)
+          return
+        }
 
-            return Promise.reject(err)
-          }),
-      )
+        return Promise.reject(err)
+      })
 
   return flow ? (
     // create a recovery form that dynamically renders based on the flow data using Ory Elements

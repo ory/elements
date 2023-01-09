@@ -113,12 +113,7 @@ const Verification: NextPage = () => {
     router.isReady,
   ])
 
-  const submitFlow = async (values: UpdateVerificationFlowBody) => {
-    await router
-      // On submission, add the flow ID to the URL but do not navigate. This prevents the user losing
-      // their data when they reload the page.
-      .push(`/verification?flow=${flow?.id}`, undefined, { shallow: true })
-
+  const submitFlow = (values: UpdateVerificationFlowBody) =>
     ory
       .updateVerificationFlow({
         flow: String(flow?.id),
@@ -136,10 +131,10 @@ const Verification: NextPage = () => {
             setFlow(err.response?.data)
             return
           case 422:
-            // we need to continue the flow with a new flow id
-            const u = new URL(err.response.data.redirect_browser_to)
+            const [, paramString] =
+              err.response.data.redirect_browser_to.split("?")
             // get new flow data based on the flow id in the redirect url
-            const flow = u.searchParams.get("flow") || ""
+            const flow = new URLSearchParams(paramString).get("flow") || ""
             // add the new flowid to the URL
             router.push(
               `/verification${flow ? `?flow=${flow}` : ""}`,
@@ -153,7 +148,6 @@ const Verification: NextPage = () => {
             return Promise.reject(err)
         }
       })
-  }
 
   return flow ? (
     // create a verification form that dynamically renders based on the flow data using Ory Elements

@@ -57,6 +57,10 @@ const Registration: NextPage = () => {
   )
 
   useEffect(() => {
+    if (!router.isReady) {
+      return
+    }
+
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
       getRegistrationFlow(String(flowId || "")).catch(
@@ -69,55 +73,54 @@ const Registration: NextPage = () => {
 
     // Otherwise we initialize it
     createRegistrationFlow(returnTo)
-  }, [createRegistrationFlow, getRegistrationFlow, flowId, returnTo])
+  }, [
+    createRegistrationFlow,
+    getRegistrationFlow,
+    router.isReady,
+    flowId,
+    returnTo,
+  ])
 
-  const submitFlow = (values: UpdateRegistrationFlowBody) => {
-    router
-      // On submission, add the flow ID to the URL but do not navigate.
-      // This prevents the user losing his data when she/he reloads the page.
-      .push(`/login?flow=${flow?.id}`, undefined, { shallow: true })
-      .then(() =>
-        ory
-          .updateRegistrationFlow({
-            flow: String(flow?.id),
-            updateRegistrationFlowBody: values,
-          })
-          // We logged in successfully! Let's bring the user home.
-          .then(() => {
-            if (flow?.return_to) {
-              window.location.href = flow?.return_to
-              return
-            }
-            router.push("/")
-          })
-          .catch((error: AxiosError) => handleError(error))
-          // If the previous handler did not catch the error it's most likely a form validation error
-          .catch((err: AxiosError) => {
-            switch (err.response?.status) {
-              case 400:
-                // Yup, it is!
-                setFlow(err.response?.data)
-                break
-              case 422:
-                // we need to continue the flow with a new flow id
-                const u = new URL(err.response.data.redirect_browser_to)
-                // get new flow data based on the flow id in the redirect url
-                const flow = u.searchParams.get("flow") || ""
-                // add the new flowid to the URL
-                router.push(
-                  `/registration${flow ? `?flow=${flow}` : ""}`,
-                  undefined,
-                  {
-                    shallow: true,
-                  },
-                )
-                break
-              default:
-                return Promise.reject(err)
-            }
-          }),
-      )
-  }
+  const submitFlow = (values: UpdateRegistrationFlowBody) =>
+    ory
+      .updateRegistrationFlow({
+        flow: String(flow?.id),
+        updateRegistrationFlowBody: values,
+      })
+      // We logged in successfully! Let's bring the user home.
+      .then(() => {
+        if (flow?.return_to) {
+          window.location.href = flow?.return_to
+          return
+        }
+        router.push("/")
+      })
+      .catch((error: AxiosError) => handleError(error))
+      // If the previous handler did not catch the error it's most likely a form validation error
+      .catch((error: AxiosError) => {
+        switch (error.response?.status) {
+          case 400:
+            // Yup, it is!
+            setFlow(error.response?.data)
+            break
+          case 422:
+            const [, paramString] =
+              error.response.data.redirect_browser_to.split("?")
+            // get new flow data based on the flow id in the redirect url
+            const flow = new URLSearchParams(paramString).get("flow") || ""
+            // add the new flowid to the URL
+            router.push(
+              `/registration${flow ? `?flow=${flow}` : ""}`,
+              undefined,
+              {
+                shallow: true,
+              },
+            )
+            break
+          default:
+            return Promise.reject(error)
+        }
+      })
 
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements
