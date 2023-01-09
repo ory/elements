@@ -29,6 +29,9 @@ const Settings: NextPage = () => {
   // Get flow information from the URL
   const router = useRouter()
 
+  const flowId = String(router.query.flow || "")
+  const returnTo = String(router.query.return_to || "")
+
   const getSettingsFlow = useCallback(
     (id: string) =>
       ory
@@ -67,7 +70,9 @@ const Settings: NextPage = () => {
   )
 
   useEffect(() => {
-    const { flow: flowId, return_to: returnTo } = router.query
+    if (!router.isReady) {
+      return
+    }
 
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
@@ -80,8 +85,8 @@ const Settings: NextPage = () => {
     }
 
     // Otherwise we initialize it
-    createSettingsFlow(String(returnTo || ""))
-  }, [createSettingsFlow, getSettingsFlow, router.query])
+    createSettingsFlow(returnTo)
+  }, [createSettingsFlow, getSettingsFlow, flowId, returnTo, router.isReady])
 
   const onSubmit = (values: UpdateSettingsFlowBody) => {
     router

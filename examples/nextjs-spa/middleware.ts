@@ -13,7 +13,7 @@ import { NextRequest, NextResponse } from "next/server"
  * @returns
  */
 export const middleware = async (request: NextRequest) =>
-  new URL(request.url).pathname !== "/"
+  !["/", "/settings"].includes(new URL(request.url).pathname)
     ? NextResponse.next()
     : process.env.NEXT_PUBLIC_ORY_SDK_URL
     ? fetch(`${process.env.NEXT_PUBLIC_ORY_SDK_URL}/sessions/whoami`, {

@@ -23,6 +23,17 @@ const Login: NextPage = () => {
   // Get flow information from the URL
   const router = useRouter()
 
+  const returnTo = String(router.query.return_to || "")
+  const flowId = String(router.query.flow || "")
+
+  // Refresh means we want to refresh the session. This is needed, for example, when we want to update the password
+  // of a user.
+  const refresh = Boolean(router.query.refresh)
+
+  // AAL = Authorization Assurance Level. This implies that we want to upgrade the AAL, meaning that we want
+  // to perform two-factor authentication/verification.
+  const aal = String(router.query.aal || "")
+
   const getLoginFlow = useCallback(
     (id: string) =>
       // If ?flow=.. was in the URL, we fetch it
@@ -30,10 +41,10 @@ const Login: NextPage = () => {
         .getLoginFlow({ id })
         .then(({ data }) => {
           setFlow(data)
-          router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
+          //router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
-    [handleError, router],
+    [handleError],
   )
 
   const createFlow = useCallback(
@@ -47,40 +58,28 @@ const Login: NextPage = () => {
         })
         .then(({ data }) => {
           setFlow(data)
-          router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
+          //router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
         })
         .catch((error: AxiosError) => handleError(error)),
-    [handleError, router],
+    [handleError],
   )
 
   useEffect(() => {
-    const {
-      return_to: returnTo,
-      flow: flowId,
-      // Refresh means we want to refresh the session. This is needed, for example, when we want to update the password
-      // of a user.
-      refresh,
-      // AAL = Authorization Assurance Level. This implies that we want to upgrade the AAL, meaning that we want
-      // to perform two-factor authentication/verification.
-      aal,
-    } = router.query
+    if (!router.isReady) {
+      return
+    }
 
     if (flowId) {
-      getLoginFlow(String(flowId)).catch(
+      getLoginFlow(flowId).catch(
         (err: AxiosError) =>
-          err.response?.status === 410 ??
-          createFlow(
-            Boolean(refresh),
-            String(aal || ""),
-            String(returnTo || ""),
-          ),
+          err.response?.status === 410 ?? createFlow(refresh, aal, returnTo),
       ) // if for some reason the flow has expired, we need to get a new one
       return
     }
 
     // Otherwise we initialize it
-    createFlow(Boolean(refresh), String(aal || ""), String(returnTo || ""))
-  }, [createFlow, getLoginFlow, router.query])
+    createFlow(refresh, aal, returnTo)
+  }, [createFlow, getLoginFlow, refresh, aal, returnTo, flowId, router.isReady])
 
   const submitFlow = (values: UpdateLoginFlowBody) => {
     ory
@@ -118,7 +117,7 @@ const Login: NextPage = () => {
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
-      cardImage={"/ory.svg"}
+      cardImage="/ory.svg"
       title={"Login"}
       // This defines what kind of card we want to render.
       flowType={"login"}

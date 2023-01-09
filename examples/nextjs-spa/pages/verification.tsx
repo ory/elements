@@ -24,12 +24,14 @@ const Verification: NextPage = () => {
 
   // Get ?flow=... from the URL
   const router = useRouter()
-  const { flow: flowId, return_to: returnTo } = router.query
+
+  const flowId = String(router.query.flow || "")
+  const returnTo = String(router.query.return_to || "")
 
   const getVerificationFlow = useCallback(
-    () =>
+    (id: string) =>
       ory
-        .getVerificationFlow({ id: String(flowId) })
+        .getVerificationFlow({ id })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -56,14 +58,14 @@ const Verification: NextPage = () => {
             })
           }
         }),
-    [flowId, router, handleError],
+    [router, handleError],
   )
 
   const createVerificationFlow = useCallback(
-    () =>
+    (returnTo: string) =>
       ory
         .createBrowserVerificationFlow({
-          returnTo: returnTo ? String(returnTo) : undefined,
+          returnTo,
         })
         .then(({ data }) => {
           setFlow(data)
@@ -84,19 +86,29 @@ const Verification: NextPage = () => {
             })
           }
         }),
-    [returnTo, router, handleError],
+    [router, handleError],
   )
 
   useEffect(() => {
+    if (!router.isReady) {
+      return
+    }
+
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
-      getVerificationFlow().catch(createVerificationFlow) // the flow might be expired, so we create a new one
+      getVerificationFlow(flowId).catch(() => createVerificationFlow(returnTo)) // the flow might be expired, so we create a new one
       return
     }
 
     // Otherwise we initialize it
-    createVerificationFlow()
-  }, [getVerificationFlow, createVerificationFlow, flowId])
+    createVerificationFlow(returnTo)
+  }, [
+    getVerificationFlow,
+    createVerificationFlow,
+    flowId,
+    returnTo,
+    router.isReady,
+  ])
 
   const submitFlow = async (values: UpdateVerificationFlowBody) => {
     await router
@@ -136,7 +148,7 @@ const Verification: NextPage = () => {
   return flow ? (
     // create a verification form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
-      cardImage={"/ory.svg"}
+      cardImage="/ory.svg"
       title={"Verification"}
       flowType={"verification"}
       // we always need the flow data which populates the form fields and error messages dynamically

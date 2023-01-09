@@ -25,6 +25,9 @@ const Registration: NextPage = () => {
   // Get flow information from the URL
   const router = useRouter()
 
+  const flowId = String(router.query.flow || "")
+  const returnTo = String(router.query.return_to || "")
+
   const getRegistrationFlow = useCallback(
     (id: string) =>
       ory
@@ -51,22 +54,19 @@ const Registration: NextPage = () => {
   )
 
   useEffect(() => {
-    const { flow: flowId, return_to: returnTo } = router.query
-
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
       getRegistrationFlow(String(flowId || "")).catch(
         (error: AxiosError) =>
-          error.response?.status === 410 ??
-          createRegistrationFlow(String(returnTo || "")),
+          error.response?.status === 410 ?? createRegistrationFlow(returnTo),
         // if the flow is expired, we create a new one
       )
       return
     }
 
     // Otherwise we initialize it
-    createRegistrationFlow(String(returnTo || ""))
-  }, [createRegistrationFlow, getRegistrationFlow, router.query])
+    createRegistrationFlow(returnTo)
+  }, [createRegistrationFlow, getRegistrationFlow, flowId, returnTo])
 
   const submitFlow = (values: UpdateRegistrationFlowBody) => {
     router
@@ -104,7 +104,7 @@ const Registration: NextPage = () => {
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
-      cardImage={"/ory.svg"}
+      cardImage="/ory.svg"
       title={"Registration"}
       // This defines what kind of card we want to render.
       flowType={"registration"}

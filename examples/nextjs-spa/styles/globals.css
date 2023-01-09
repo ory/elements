@@ -5,7 +5,6 @@ body {
 
   display: flex;
 
-  align-items: center;
   align-content: center;
   justify-content: center;
 
@@ -85,5 +84,6 @@ a {
 
   .contentContainer {
     margin-left: 18.75rem;
+    padding-top: 2rem;
   }
 }

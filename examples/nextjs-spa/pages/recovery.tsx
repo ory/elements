@@ -24,7 +24,8 @@ const Recovery: NextPage = () => {
   const router = useRouter()
   const handleError = HandleError()
 
-  const { flow: flowId, return_to: returnTo } = router.query
+  const flowId = String(router.query.flow || "")
+  const returnTo = String(router.query.return_to || "")
 
   const getRecoveryFlow = useCallback(
     (id: string) =>
@@ -33,6 +34,7 @@ const Recovery: NextPage = () => {
         .then(({ data }) => {
           setFlow(data)
         })
+        .catch((err: AxiosError) => handleError(err))
         .catch((err: AxiosError) => {
           switch (err.response?.status) {
             case 410:
@@ -52,13 +54,15 @@ const Recovery: NextPage = () => {
               })
           }
         }),
-    [router],
+    [handleError, router],
   )
 
   const createSettingsFlow = useCallback(
-    () =>
+    (returnTo: string) =>
       ory
-        .createBrowserRecoveryFlow()
+        .createBrowserRecoveryFlow({
+          returnTo: returnTo,
+        })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -75,19 +79,23 @@ const Recovery: NextPage = () => {
   )
 
   useEffect(() => {
+    if (!router.isReady) {
+      return
+    }
+
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
-      getRecoveryFlow(String(flowId || "")).catch(
+      getRecoveryFlow(flowId).catch(
         (err: AxiosError) =>
-          err.response?.status === 410 ?? createSettingsFlow(),
+          err.response?.status === 410 ?? createSettingsFlow(returnTo),
       )
       // if the flow is expired, we create a new one
       return
     }
 
     // Otherwise we initialize it
-    createSettingsFlow()
-  }, [flowId, getRecoveryFlow, createSettingsFlow])
+    createSettingsFlow(returnTo)
+  }, [flowId, returnTo, getRecoveryFlow, createSettingsFlow, router.isReady])
 
   const submitFlow = (values: UpdateRecoveryFlowBody) =>
     router
@@ -120,7 +128,7 @@ const Recovery: NextPage = () => {
   return flow ? (
     // create a recovery form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
-      cardImage={"/ory.svg"}
+      cardImage="/ory.svg"
       title={"Recovery"}
       // This defines what kind of card we want to render.
       flowType={"recovery"}
