@@ -139,6 +139,7 @@ const Settings: NextPage = () => {
           "totp",
           "webauthn",
           "lookupSecret",
+          "oidc",
         ] as UserSettingsFlowType[]
       ).map((flowType: UserSettingsFlowType, index) => (
         // here we render the settings flow using Ory Elements
