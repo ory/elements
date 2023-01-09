@@ -15,6 +15,7 @@ import { AxiosError } from "axios"
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the registration form.
 import { UserAuthCard } from "@ory/elements"
+import { QueryParams } from "../pkg/helpers"
 import { HandleError } from "../pkg/hooks"
 
 const Registration: NextPage = () => {
@@ -104,10 +105,11 @@ const Registration: NextPage = () => {
             setFlow(error.response?.data)
             break
           case 422:
-            const [, paramString] =
-              error.response.data.redirect_browser_to.split("?")
             // get new flow data based on the flow id in the redirect url
-            const flow = new URLSearchParams(paramString).get("flow") || ""
+            const flow =
+              QueryParams(error.response.data.redirect_browser_to).get(
+                "flow",
+              ) || ""
             // add the new flowid to the URL
             router.push(
               `/registration${flow ? `?flow=${flow}` : ""}`,
