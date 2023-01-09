@@ -15,14 +15,47 @@ import { NextRequest, NextResponse } from "next/server"
 export const middleware = async (request: NextRequest) =>
   new URL(request.url).pathname !== "/"
     ? NextResponse.next()
-    : fetch(`${process.env.NEXT_PUBLIC_ORY_SDK_URL}/sessions/whoami`, {
+    : process.env.NEXT_PUBLIC_ORY_SDK_URL
+    ? fetch(`${process.env.NEXT_PUBLIC_ORY_SDK_URL}/sessions/whoami`, {
         headers: {
           cookie: request.headers.get("cookie") || "",
         },
       })
-        .then(() => NextResponse.next())
+        .then((resp) => resp.json())
+        .then((resp) => {
+          console.log(`Global Session Middleware: ${JSON.stringify(resp)}`)
+          if (resp.error.code === 401) {
+            return NextResponse.redirect(new URL("/login", request.url))
+          }
+
+          if (!resp) {
+            return NextResponse.redirect(
+              new URL(
+                `/error?error=${JSON.stringify({
+                  message:
+                    "Network error - this could be related to CORS or an incorrect URL set on the `NEXT_PUBLIC_ORY_SDK_URL` environment variable. " +
+                    "Please check out the Ory documentation for more information: https://www.ory.sh/docs/getting-started/local-development",
+                })}`,
+                request.url,
+              ),
+            )
+          }
+          return NextResponse.next()
+        })
         .catch((err) => {
-          console.error(`Global Middleware: ${err}`)
+          console.log(`Global Session Middleware error: ${JSON.stringify(err)}`)
+          if (!err.response)
+            return NextResponse.redirect(
+              new URL(
+                `/error?error=${JSON.stringify({
+                  message:
+                    "Network error - this could be related to CORS or an incorrect URL set on the `NEXT_PUBLIC_ORY_SDK_URL` environment variable. " +
+                    "Please check out the Ory documentation for more information: https://www.ory.sh/docs/getting-started/local-development",
+                })}`,
+                request.url,
+              ),
+            )
+
           switch (err.response?.status) {
             // 422 we need to redirect the user to the location specified in the response
             case 422:
@@ -45,3 +78,11 @@ export const middleware = async (request: NextRequest) =>
               )
           }
         })
+    : NextResponse.redirect(
+        new URL(
+          `/error?error=${JSON.stringify({
+            message: "NEXT_PUBLIC_ORY_SDK_URL env variable is not set",
+          })}`,
+          request.url,
+        ),
+      )

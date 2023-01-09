@@ -19,7 +19,7 @@ axios.interceptors.response.use(
       // it's a network error
       return Promise.reject({
         response: {
-          status: "",
+          status: 0,
           message:
             "Network error - this could be related to CORS or an incorrect URL set on the `NEXT_PUBLIC_ORY_SDK_URL` environment variable. " +
             "Please check out the Ory documentation for more information: https://www.ory.sh/docs/getting-started/local-development",
@@ -37,7 +37,7 @@ axios.interceptors.response.use(
 // or on production to the custom domain you have added to your Ory project.
 const ory = new FrontendApi(
   new Configuration({
-    basePath: process.env.NEXT_PUBLIC_ORY_SDK_URL,
+    basePath: process.env.NEXT_PUBLIC_ORY_SDK_URL || "",
   }),
   "",
   axios,
