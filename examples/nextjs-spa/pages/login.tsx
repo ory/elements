@@ -112,7 +112,7 @@ const Login: NextPage = () => {
             })
             break
           default:
-            return err
+            return Promise.reject(err)
         }
       })
   }

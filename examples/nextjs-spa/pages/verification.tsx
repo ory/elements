@@ -135,15 +135,22 @@ const Verification: NextPage = () => {
             // Status code 400 implies the form validation had an error
             setFlow(err.response?.data)
             return
-          default:
-            router.push({
-              pathname: "/error",
-              query: {
-                error: JSON.stringify(err, null, 2),
-                id: err.response?.data.error?.id,
-                flowType: router.pathname,
+          case 422:
+            // we need to continue the flow with a new flow id
+            const u = new URL(err.response.data.redirect_browser_to)
+            // get new flow data based on the flow id in the redirect url
+            const flow = u.searchParams.get("flow") || ""
+            // add the new flowid to the URL
+            router.push(
+              `/verification${flow ? `?flow=${flow}` : ""}`,
+              undefined,
+              {
+                shallow: true,
               },
-            })
+            )
+            break
+          default:
+            return Promise.reject(err)
         }
       })
   }

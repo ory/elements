@@ -91,15 +91,30 @@ const Registration: NextPage = () => {
             router.push("/")
           })
           .catch((error: AxiosError) => handleError(error))
+          // If the previous handler did not catch the error it's most likely a form validation error
           .catch((err: AxiosError) => {
-            // If the previous handler did not catch the error it's most likely a form validation error
-            if (err.response?.status === 400) {
-              // Yup, it is!
-              setFlow(err.response?.data)
-              return
+            switch (err.response?.status) {
+              case 400:
+                // Yup, it is!
+                setFlow(err.response?.data)
+                break
+              case 422:
+                // we need to continue the flow with a new flow id
+                const u = new URL(err.response.data.redirect_browser_to)
+                // get new flow data based on the flow id in the redirect url
+                const flow = u.searchParams.get("flow") || ""
+                // add the new flowid to the URL
+                router.push(
+                  `/registration${flow ? `?flow=${flow}` : ""}`,
+                  undefined,
+                  {
+                    shallow: true,
+                  },
+                )
+                break
+              default:
+                return Promise.reject(err)
             }
-
-            return Promise.reject(err)
           }),
       )
   }
