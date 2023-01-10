@@ -91,7 +91,7 @@ LoginAuthCardPasswordless.args = {
 export const LoginAuthCardRefresh = Template.bind({})
 
 LoginAuthCardRefresh.args = {
-  title: "Two-Factor Authentication",
+  title: "Confirm it is you",
   flow: loginFlowRefresh as SelfServiceLoginFlow,
   flowType: "login",
   cardImage: logo,
