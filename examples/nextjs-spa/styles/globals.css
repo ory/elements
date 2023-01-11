@@ -59,6 +59,10 @@ a {
   text-decoration: underline !important;
 }
 
+.contentContainer {
+  margin-top: 9rem;
+}
+
 #settingsForm h3 {
   font-weight: 700;
 }
@@ -84,6 +88,7 @@ a {
 
   .contentContainer {
     margin-left: 18.75rem;
+    margin-top: 0;
     padding-top: 2rem;
   }
 }
