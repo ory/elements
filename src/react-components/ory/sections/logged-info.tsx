@@ -8,7 +8,7 @@ type IdentifierInfoProps = {
   flow: SelfServiceFlow
 }
 
-export const IdentifierInfo = ({ flow }: IdentifierInfoProps) => {
+export const LoggedInfo = ({ flow }: IdentifierInfoProps) => {
   const identifier = flow.ui.nodes.find(
     (i) => "name" in i.attributes && i.attributes.name === "identifier",
   )?.attributes

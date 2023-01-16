@@ -21,7 +21,7 @@ import {
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import { IdentifierInfo } from "./sections/identifier-info"
+import { LoggedInfo } from "./sections/logged-info"
 import { LinkSection } from "./sections/link-section"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
@@ -115,7 +115,8 @@ export const UserAuthCard = ({
       hasWebauthn(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
-  const showIdentifier = hasHiddenIdentifier(flow.ui.nodes)
+  // we check if nodes have hidden identifier so we can display "you're looged in as" information
+  const showLoggedAccount = hasHiddenIdentifier(flow.ui.nodes)
 
   // this function will map all of the 2fa flows with their own respective forms.
   // it also helps with spacing them and adding visual dividers between each flow *if* there are more than 1 flows.
@@ -294,7 +295,7 @@ export const UserAuthCard = ({
               data-testid={`${flowType}-flow`}
             >
               {$flow}
-              {showIdentifier && <IdentifierInfo flow={flow} />}
+              {showLoggedAccount && <LoggedInfo flow={flow} />}
             </UserAuthForm>
           </>
         )}
