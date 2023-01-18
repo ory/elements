@@ -6,13 +6,14 @@ import sdk from "./sdk"
 
 export const Recovery = () => {
   const [flow, setFlow] = useState<RecoveryFlow | null>(null)
-  const [searchParams, /*setSearchParams*/] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
 
   // create a new recovery flow
   const createFlow = () =>
-    useCallback(() =>
+    useCallback(
+      () =>
         sdk
           .createBrowserRecoveryFlow()
           // flow contains the form fields, error messages and csrf token

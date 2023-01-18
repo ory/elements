@@ -6,7 +6,7 @@ import sdk from "./sdk"
 
 export const Verification = (): JSX.Element => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
-  const [searchParams, /*setSearchParams*/] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -77,7 +77,7 @@ export const Verification = (): JSX.Element => {
       getFlow(flowId).catch(createFlow)
       return
     }
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   // if the flow is not set, we show a loading indicator

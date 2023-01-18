@@ -10,7 +10,7 @@ import sdk from "./sdk"
 
 export const Settings = () => {
   const [flow, setFlow] = useState<SettingsFlow | null>(null)
-  const [searchParams, /*setSearchParams*/] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -95,7 +95,7 @@ export const Settings = () => {
       getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
       return
     }
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   // if the flow is not set, we show a loading indicator

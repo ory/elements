@@ -6,7 +6,7 @@ import sdk from "./sdk"
 
 export const Login = (): JSX.Element => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
-  const [searchParams, /*setSearchParams*/] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -72,10 +72,9 @@ export const Login = (): JSX.Element => {
             // for webauthn we need to reload the flow
             const u = new URL(error.response.data.redirect_browser_to)
             // get new flow data based on the flow id in the redirect url
-            getFlow(u.searchParams.get("flow") || "")
-              .catch(() => {
-                navigate("/login", {replace: true})
-              })
+            getFlow(u.searchParams.get("flow") || "").catch(() => {
+              navigate("/login", { replace: true })
+            })
             break
           }
           // other errors we just redirect to the login page
@@ -97,7 +96,7 @@ export const Login = (): JSX.Element => {
     }
 
     // we assume there was no flow, so we create a new one
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   // we check if the flow is set, if not we show a loading indicator

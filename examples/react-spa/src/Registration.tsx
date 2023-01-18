@@ -6,7 +6,7 @@ import sdk from "./sdk"
 
 export const Registration = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
-  const [searchParams, /*setSearchParams*/] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -91,7 +91,7 @@ export const Registration = () => {
       return
     }
     // we assume there was no flow, so we create a new one
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   // the flow is not set yet, so we show a loading indicator
