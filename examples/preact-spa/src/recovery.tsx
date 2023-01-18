@@ -7,11 +7,12 @@ import sdk from "./sdk"
 export const Recovery = () => {
   const [flow, setFlow] = useState<RecoveryFlow | null>(null)
 
-  const [/*location*/, setLocation] = useLocation()
+  const [location, setLocation] = useLocation()
 
   // create a new recovery flow
   const createFlow = () =>
-    useCallback(() =>
+    useCallback(
+      () =>
         sdk
           .createBrowserRecoveryFlow()
           // flow contains the form fields, error messages and csrf token
@@ -77,7 +78,10 @@ export const Recovery = () => {
 
   useEffect(() => {
     // we might redirect to this page after the flow is initialized, so we check for the flowId in the URL
-    const flowId = new URLSearchParams(new URL(window.location.toString()).search).get("flow")
+    const flowId = new URLSearchParams(
+      new URL(window.location.toString()).search,
+    ).get("flow")
+
     // the flow already exists
     if (flowId) {
       getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one

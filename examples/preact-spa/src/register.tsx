@@ -7,7 +7,7 @@ import { useLocation } from "wouter"
 export const Register = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
 
-  const [/*location*/, setLocation] = useLocation()
+  const [location, setLocation] = useLocation()
 
   // create a new registration flow
   const createFlow = useCallback(
@@ -83,14 +83,17 @@ export const Register = () => {
 
   useEffect(() => {
     // we might redirect to this page after the flow is initialized, so we check for the flowId in the URL
-    const flowId = new URLSearchParams(new URL(window.location.toString()).search).get("flow")
+    const flowId = new URLSearchParams(
+      new URL(window.location.toString()).search,
+    ).get("flow")
+
     // the flow already exists
     if (flowId) {
       getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
       return
     }
     // we assume there was no flow, so we create a new one
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   return flow ? (

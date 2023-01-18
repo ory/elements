@@ -1,12 +1,12 @@
-import {UpdateVerificationFlowBody, VerificationFlow} from "@ory/client"
+import { UpdateVerificationFlowBody, VerificationFlow } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
 import sdk from "./sdk"
-import {useLocation} from "wouter";
+import { useLocation } from "wouter"
 
 export const Verification = () => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
-  const [/*location*/, setLocation] = useLocation()
+  const [location, setLocation] = useLocation()
 
   // create a new verification flow
   const createFlow = useCallback(
@@ -69,13 +69,16 @@ export const Verification = () => {
 
   useEffect(() => {
     // it could happen that we are redirected here with an existing flow
-    const flowId = new URLSearchParams(new URL(window.location.toString()).search).get("flow")
+    const flowId = new URLSearchParams(
+      new URL(window.location.toString()).search,
+    ).get("flow")
+
     if (flowId) {
       // if the flow failed to get since it could be expired or invalid, we create a new one
       getFlow(flowId).catch(createFlow)
       return
     }
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   return flow ? (

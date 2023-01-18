@@ -11,7 +11,7 @@ import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 export const Settings = () => {
   const [flow, setFlow] = useState<SettingsFlow | null>(null)
 
-  const [/*location*/, setLocation] = useLocation()
+  const [location, setLocation] = useLocation()
 
   const createFlow = useCallback(
     () =>
@@ -32,7 +32,8 @@ export const Settings = () => {
   )
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
-  const getFlow = useCallback((flowId: string) =>
+  const getFlow = useCallback(
+    (flowId: string) =>
       sdk
         // the flow data contains the form fields, error messages and csrf token
         .getSettingsFlow({ id: flowId })
@@ -46,14 +47,14 @@ export const Settings = () => {
 
   const onSubmit = (body: UpdateSettingsFlowBody) => {
     // something unexpected went wrong and the flow was not set
-    if (!flow) return setLocation("/settings", {replace: true})
+    if (!flow) return setLocation("/settings", { replace: true })
 
     sdk
       .updateSettingsFlow({
         flow: flow.id,
         updateSettingsFlowBody: body as UpdateSettingsFlowBody,
       })
-      .then(({data: flow}) => {
+      .then(({ data: flow }) => {
         setFlow(flow)
       })
       .catch((error) => {
@@ -86,13 +87,16 @@ export const Settings = () => {
 
   useEffect(() => {
     // we might redirect to this page after the flow is initialized, so we check for the flowId in the URL
-    const flowId = new URLSearchParams(new URL(window.location.toString()).search).get("flow")
+    const flowId = new URLSearchParams(
+      new URL(window.location.toString()).search,
+    ).get("flow")
+
     // the flow already exists
     if (flowId) {
       getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
       return
     }
-    createFlow().catch(error => console.error(error))
+    createFlow().catch((error) => console.error(error))
   }, [])
 
   return flow ? (
