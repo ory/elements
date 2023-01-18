@@ -12,7 +12,6 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
-    "eslint-plugin-tsdoc",
     "plugin:storybook/recommended",
   ],
   overrides: [],
@@ -25,7 +24,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "eslint-plugin-tsdoc"],
   rules: {
     "tsdoc/syntax": "warn",
   },
