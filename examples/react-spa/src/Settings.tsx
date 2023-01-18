@@ -10,7 +10,7 @@ import sdk from "./sdk"
 
 export const Settings = () => {
   const [flow, setFlow] = useState<SettingsFlow | null>(null)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, /*setSearchParams*/] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -60,12 +60,30 @@ export const Settings = () => {
       // it could happen that we are not signed in and should redirect to the login page
       // privileged endpoints like this one will return a 401 Unauthorized
       .catch((error) => {
-        const { status } = error.response
-        if (status === 401 || status === 403 || status === 410) {
-          return navigate("/login", { replace: true })
+        switch (error.response.status) {
+          // some user input error occurred, so we update the flow which constains UI error messages
+          case 400:
+            setFlow(error.response.data)
+            break
+          case 422: {
+            // for webauthn we need to reload the flow
+            const u = new URL(error.response.data.redirect_browser_to)
+            // get new flow data based on the flow id in the redirect url
+            getFlow(u.searchParams.get("flow") || "")
+              // something unexpected went wrong and the flow was not set - redirect the user to the login page
+              .catch((err) => {
+                console.error(err)
+                navigate("/login", { replace: true })
+              })
+            break
+          }
+          // other errors we just redirect to the login page
+          case 401:
+          case 403:
+          case 410:
+          default:
+            return navigate("/login", { replace: true })
         }
-        // we need to set the flow data again here since the flow could contain error messages (e.g. status code 400)
-        setFlow(error.response.data)
       })
   }
 
@@ -77,7 +95,7 @@ export const Settings = () => {
       getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
       return
     }
-    createFlow()
+    createFlow().catch(error => console.error(error))
   }, [])
 
   // if the flow is not set, we show a loading indicator

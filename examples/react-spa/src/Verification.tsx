@@ -6,7 +6,7 @@ import sdk from "./sdk"
 
 export const Verification = (): JSX.Element => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, /*setSearchParams*/] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -60,18 +60,6 @@ export const Verification = (): JSX.Element => {
           case 400:
             setFlow(error.response.data)
             break
-          case 422:
-            // we might have an expired flow or the verification flow was already submitted,
-            // so we refresh it here
-            const u = new URL(error.response.data.redirect_browser_to)
-            // get new flow data based on the flow id in the redirect url
-            getFlow(u.searchParams.get("flow") || "")
-              // something unexpected went wrong and the flow was not set - redirect the user to the login page
-              .catch((err) => {
-                console.error(err)
-                navigate("/verification", { replace: true })
-              })
-            break
           // other errors we just redirect to the registration page
           case 410:
           case 404:
@@ -89,7 +77,7 @@ export const Verification = (): JSX.Element => {
       getFlow(flowId).catch(createFlow)
       return
     }
-    createFlow()
+    createFlow().catch(error => console.error(error))
   }, [])
 
   // if the flow is not set, we show a loading indicator

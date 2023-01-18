@@ -6,14 +6,13 @@ import sdk from "./sdk"
 
 export const Recovery = () => {
   const [flow, setFlow] = useState<RecoveryFlow | null>(null)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, /*setSearchParams*/] = useSearchParams()
 
   const navigate = useNavigate()
 
   // create a new recovery flow
   const createFlow = () =>
-    useCallback(
-      () =>
+    useCallback(() =>
         sdk
           .createBrowserRecoveryFlow()
           // flow contains the form fields, error messages and csrf token
@@ -49,8 +48,28 @@ export const Recovery = () => {
         navigate("/", { replace: true })
       })
       .catch((error) => {
-        // the flow could contain error messages, so we set the flow again
-        setFlow(error.response.data)
+        switch (error.response.status) {
+          // some user input error occurred, so we update the flow which constains UI error messages
+          case 400:
+            setFlow(error.response.data)
+            break
+          case 422: {
+            // for webauthn we need to reload the flow
+            const u = new URL(error.response.data.redirect_browser_to)
+            // get new flow data based on the flow id in the redirect url
+            getFlow(u.searchParams.get("flow") || "")
+              // something unexpected went wrong and the flow was not set - redirect the user to the login page
+              .catch((err) => {
+                console.error(err)
+                navigate("/login", { replace: true })
+              })
+            break
+          }
+          // other errors we just redirect to the login page
+          case 410:
+          default:
+            return navigate("/login", { replace: true })
+        }
       })
   }
 

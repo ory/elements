@@ -6,7 +6,7 @@ import sdk from "./sdk"
 
 export const Registration = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, /*setSearchParams*/] = useSearchParams()
 
   const navigate = useNavigate()
 
@@ -61,7 +61,7 @@ export const Registration = () => {
           case 400:
             setFlow(error.response.data)
             break
-          case 422:
+          case 422: {
             // for webauthn we need to reload the flow
             const u = new URL(error.response.data.redirect_browser_to)
             // get new flow data based on the flow id in the redirect url
@@ -72,6 +72,7 @@ export const Registration = () => {
                 navigate("/signup", { replace: true })
               })
             break
+          }
           // other errors we just redirect to the registration page
           case 410:
           case 404:
@@ -90,7 +91,7 @@ export const Registration = () => {
       return
     }
     // we assume there was no flow, so we create a new one
-    createFlow()
+    createFlow().catch(error => console.error(error))
   }, [])
 
   // the flow is not set yet, so we show a loading indicator
