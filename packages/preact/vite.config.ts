@@ -1,11 +1,12 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { defineConfig } from "vite"
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
-import dts from "vite-plugin-dts"
-import path from "path"
 import preact from "@preact/preset-vite"
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
+import path from "path"
+import { defineConfig } from "vite"
+import dts from "vite-plugin-dts"
+import { viteStaticCopy } from "vite-plugin-static-copy"
 
 export default defineConfig({
   build: {
@@ -24,7 +25,19 @@ export default defineConfig({
       esmExternals: ["preact"],
     },
   },
-  plugins: [vanillaExtractPlugin(), dts({ insertTypesEntry: true }), preact()],
+  plugins: [
+    vanillaExtractPlugin(),
+    dts({ insertTypesEntry: true }),
+    preact(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "../../src/assets",
+          dest: "",
+        },
+      ],
+    }),
+  ],
   esbuild: {
     jsxFactory: "h",
     jsxFragment: "Fragment",

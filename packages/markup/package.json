@@ -9,7 +9,10 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json",
+    "./assets/*": "./dist/assets/*",
+    "./assets/**/*": "./dist/assets/**/*"
   },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
