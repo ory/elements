@@ -29,4 +29,7 @@ export default defineConfig({
       external: ["react", "react-dom"],
     },
   },
+  esbuild: {
+    jsxInject: `import React from 'react'`,
+  },
 })

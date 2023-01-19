@@ -1,4 +1,11 @@
 {
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "paths": {
+      "react": ["./node_modules/preact/compat/"],
+      "react-dom": ["./node_modules/preact/compat/"]
+    },
+  },
   "extends": "../../tsconfig.build.json",
   "include": ["../../src", "vite.config.ts", "package.json"]
 }

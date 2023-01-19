@@ -9,13 +9,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
-    "./style.css": "./dist/style.css",
-    "./inter-font.css": "./dist/inter-font.css",
-    "./jetbrains-mono-font.css": "./dist/jetbrains-mono-font.css",
-    "./fa-brands.min.css": "./dist/fa-brands.min.css",
-    "./fa-solid.min.css": "./dist/fa-solid.min.css",
-    "./fontawesome.min.css": "./dist/fontawesome.min.css",
-    "./normalize.css": "./dist/normalize.css"
+    "./style.css": "./dist/style.css"
   },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
@@ -39,10 +33,10 @@
     }
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.3.0",
-    "@vanilla-extract/vite-plugin": "^3.3.1",
-    "@vitejs/plugin-react": "^2.0.1",
-    "preact": "^10.10.6"
+    "@preact/preset-vite": "2.5.0",
+    "@vanilla-extract/vite-plugin": "3.7.0",
+    "@vitejs/plugin-react": "3.0.1",
+    "preact": "10.11.3"
   },
   "files": [
     "dist/*"

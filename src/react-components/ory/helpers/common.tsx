@@ -1,4 +1,3 @@
-import React from "react"
 import { colorSprinkle } from "../../../theme"
 import { ButtonLink } from "../../button-link"
 import { Message } from "../../message"

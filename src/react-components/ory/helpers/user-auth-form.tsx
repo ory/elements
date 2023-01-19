@@ -7,7 +7,7 @@ import {
 } from "@ory/client"
 import { FilterNodesByGroups } from "@ory/integrations/ui"
 import cn from "classnames"
-import React from "react"
+
 import { formStyle } from "../../../theme"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 import { SelfServiceFlow } from "./types"

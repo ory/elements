@@ -1,4 +1,3 @@
-import React from "react"
 import { ThemeProvider } from "@ory/elements"
 import "@ory/elements/style.css"
 

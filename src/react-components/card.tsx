@@ -1,5 +1,5 @@
 import cn from "classnames"
-import React from "react"
+
 import {
   cardStyle,
   cardTitleImage,
