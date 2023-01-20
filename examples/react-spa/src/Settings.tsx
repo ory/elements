@@ -14,23 +14,21 @@ export const Settings = () => {
 
   const navigate = useNavigate()
 
-  const createFlow = useCallback(
-    () =>
-      sdk
-        // create a new settings flow
-        // the flow contains the form fields, error messages and csrf token
-        // depending on the Ory Network project settings, the form fields returned may vary
-        .createBrowserSettingsFlow()
-        .then(({ data: flow }) => {
-          setFlow(flow)
-        })
-        // something serious went wrong so we redirect to the settings page
-        .catch((err) => {
-          console.error(err)
-          navigate("/settings", { replace: true })
-        }),
-    [],
-  )
+  const createFlow = () => {
+    sdk
+      // create a new settings flow
+      // the flow contains the form fields, error messages and csrf token
+      // depending on the Ory Network project settings, the form fields returned may vary
+      .createBrowserSettingsFlow()
+      .then(({ data: flow }) => {
+        setFlow(flow)
+      })
+      // something serious went wrong, so we redirect to the settings page
+      .catch((err) => {
+        console.error(err)
+        navigate("/settings", { replace: true })
+      })
+  }
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
@@ -95,7 +93,7 @@ export const Settings = () => {
       getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
       return
     }
-    createFlow().catch((error) => console.error(error))
+    createFlow()
   }, [])
 
   // if the flow is not set, we show a loading indicator

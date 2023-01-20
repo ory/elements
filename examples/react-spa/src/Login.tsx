@@ -11,30 +11,28 @@ export const Login = (): JSX.Element => {
   const navigate = useNavigate()
 
   // Create a new login flow
-  const createFlow = useCallback(() => {
+  const createFlow = () => {
     const aal2 = searchParams.get("aal2")
-    return (
-      sdk
-        // aal2 is a query parameter that can be used to request Two-Factor authentication
-        // aal1 is the default authentication level (Single-Factor)
-        // we always pass refresh (true) on login so that the session can be refreshed when there is already an active session
-        .createBrowserLoginFlow({ refresh: true, aal: aal2 ? "aal2" : "aal1" })
-        // flow contains the form fields and csrf token
-        .then(({ data: flow }) => setFlow(flow))
-        .catch((error) => {
-          switch (error.response?.status) {
-            case 400:
-              // the request could contain invalid parameters which would set error messages in the flow
-              setFlow(error.response.data)
-              break
-            // something went wrong so we redirect to the login page
-            case 410:
-            case 404:
-              return navigate("/login", { replace: true })
-          }
-        })
-    )
-  }, [])
+    sdk
+      // aal2 is a query parameter that can be used to request Two-Factor authentication
+      // aal1 is the default authentication level (Single-Factor)
+      // we always pass refresh (true) on login so that the session can be refreshed when there is already an active session
+      .createBrowserLoginFlow({ refresh: true, aal: aal2 ? "aal2" : "aal1" })
+      // flow contains the form fields and csrf token
+      .then(({ data: flow }) => setFlow(flow))
+      .catch((error) => {
+        switch (error.response?.status) {
+          case 400:
+            // the request could contain invalid parameters which would set error messages in the flow
+            setFlow(error.response.data)
+            break
+          // something went wrong so we redirect to the login page
+          case 410:
+          case 404:
+            return navigate("/login", { replace: true })
+        }
+      })
+  }
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
@@ -96,7 +94,7 @@ export const Login = (): JSX.Element => {
     }
 
     // we assume there was no flow, so we create a new one
-    createFlow().catch((error) => console.error(error))
+    createFlow()
   }, [])
 
   // we check if the flow is set, if not we show a loading indicator

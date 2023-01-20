@@ -11,21 +11,19 @@ export const Verification = (): JSX.Element => {
   const navigate = useNavigate()
 
   // create a new verification flow
-  const createFlow = useCallback(
-    () =>
-      sdk
-        .createBrowserVerificationFlow()
-        // flow contains the form fields, error messages and csrf token
-        .then(({ data: flow }) => {
-          setFlow(flow)
-        })
-        // something serious went wrong so we redirect to the verification page
-        .catch((error) => {
-          console.error(error)
-          navigate("/verification", { replace: true })
-        }),
-    [],
-  )
+  const createFlow = () => {
+    sdk
+      .createBrowserVerificationFlow()
+      // flow contains the form fields, error messages and csrf token
+      .then(({ data: flow }) => {
+        setFlow(flow)
+      })
+      // something serious went wrong, so we redirect to the verification page
+      .catch((error) => {
+        console.error(error)
+        navigate("/verification", { replace: true })
+      })
+  }
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
@@ -77,7 +75,7 @@ export const Verification = (): JSX.Element => {
       getFlow(flowId).catch(createFlow)
       return
     }
-    createFlow().catch((error) => console.error(error))
+    createFlow()
   }, [])
 
   // if the flow is not set, we show a loading indicator

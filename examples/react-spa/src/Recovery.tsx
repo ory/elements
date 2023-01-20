@@ -11,20 +11,17 @@ export const Recovery = () => {
   const navigate = useNavigate()
 
   // create a new recovery flow
-  const createFlow = () =>
-    useCallback(
-      () =>
-        sdk
-          .createBrowserRecoveryFlow()
-          // flow contains the form fields, error messages and csrf token
-          .then(({ data: flow }) => setFlow(flow))
-          // something serious went wrong so we redirect to the recovery page
-          .catch((err) => {
-            console.error(err)
-            navigate("/recovery", { replace: true })
-          }),
-      [],
-    )
+  const createFlow = () => {
+    sdk
+      .createBrowserRecoveryFlow()
+      // flow contains the form fields, error messages and csrf token
+      .then(({ data: flow }) => setFlow(flow))
+      // something serious went wrong, so we redirect to the recovery page
+      .catch((err) => {
+        console.error(err)
+        navigate("/recovery", { replace: true })
+      })
+  }
 
   const getFlow = useCallback(
     (flowId: string) =>

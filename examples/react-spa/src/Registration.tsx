@@ -11,21 +11,19 @@ export const Registration = () => {
   const navigate = useNavigate()
 
   // create a new registration flow
-  const createFlow = useCallback(
-    () =>
-      sdk
-        // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
-        .createBrowserRegistrationFlow()
-        .then(({ data: flow }) => {
-          setFlow(flow)
-        })
-        // something serious went wrong so we redirect to the registration page
-        .catch((error) => {
-          console.error(error)
-          navigate("/signup", { replace: true })
-        }),
-    [],
-  )
+  const createFlow = () => {
+    sdk
+      // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
+      .createBrowserRegistrationFlow()
+      .then(({ data: flow }) => {
+        setFlow(flow)
+      })
+      // something serious went wrong, so we redirect to the registration page
+      .catch((error) => {
+        console.error(error)
+        navigate("/signup", { replace: true })
+      })
+  }
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
@@ -91,7 +89,7 @@ export const Registration = () => {
       return
     }
     // we assume there was no flow, so we create a new one
-    createFlow().catch((error) => console.error(error))
+    createFlow()
   }, [])
 
   // the flow is not set yet, so we show a loading indicator
