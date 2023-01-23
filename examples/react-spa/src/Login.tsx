@@ -2,13 +2,27 @@ import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import sdk from "./sdk"
+import { sdk, sdkError } from "./sdk"
 
 export const Login = (): JSX.Element => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
+
+  // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
+  const getFlow = useCallback(
+    (flowId: string) =>
+      sdk
+        // the flow data contains the form fields, error messages and csrf token
+        .getLoginFlow({ id: flowId })
+        .then(({ data: flow }) => setFlow(flow))
+        .catch(sdkErrorHandler),
+    [],
+  )
+
+  // initialize the sdkError for generic handling of errors
+  const sdkErrorHandler = sdkError(getFlow, setFlow,"/login", true)
 
   // Create a new login flow
   const createFlow = () => {
@@ -19,34 +33,14 @@ export const Login = (): JSX.Element => {
       // we always pass refresh (true) on login so that the session can be refreshed when there is already an active session
       .createBrowserLoginFlow({ refresh: true, aal: aal2 ? "aal2" : "aal1" })
       // flow contains the form fields and csrf token
-      .then(({ data: flow }) => setFlow(flow))
-      .catch((error) => {
-        switch (error.response?.status) {
-          case 400:
-            // the request could contain invalid parameters which would set error messages in the flow
-            setFlow(error.response.data)
-            break
-          // something went wrong so we redirect to the login page
-          case 410:
-          case 404:
-            return navigate("/login", { replace: true })
-        }
+      .then(({ data: flow }) => {
+        // Update URI query params to include flow id
+        setSearchParams({})
+        // Set the flow data
+        setFlow(flow)
       })
+      .catch(sdkErrorHandler)
   }
-
-  // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
-  const getFlow = useCallback(
-    (flowId: string) =>
-      sdk
-        // the flow data contains the form fields, error messages and csrf token
-        .getLoginFlow({ id: flowId })
-        .then(({ data: flow }) => setFlow(flow))
-        .catch((err) => {
-          console.error(err)
-          return err
-        }),
-    [],
-  )
 
   // submit the login form data to Ory
   const submitFlow = (body: UpdateLoginFlowBody) => {
@@ -60,28 +54,7 @@ export const Login = (): JSX.Element => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
       })
-      .catch((error) => {
-        switch (error.response.status) {
-          // some user input error occurred, so we update the flow which constains UI error messages
-          case 400:
-            setFlow(error.response.data)
-            break
-          case 422: {
-            // for webauthn we need to reload the flow
-            const u = new URL(error.response.data.redirect_browser_to)
-            // get new flow data based on the flow id in the redirect url
-            getFlow(u.searchParams.get("flow") || "").catch(() => {
-              navigate("/login", { replace: true })
-            })
-            break
-          }
-          // other errors we just redirect to the login page
-          case 410:
-          case 404:
-          default:
-            return navigate("/login", { replace: true })
-        }
-      })
+      .catch(sdkErrorHandler)
   }
 
   useEffect(() => {
@@ -108,7 +81,7 @@ export const Login = (): JSX.Element => {
       // the login card should allow the user to go to the registration page and the recovery page
       additionalProps={{
         forgotPasswordURL: "/recovery",
-        signupURL: "/signup",
+        signupURL: "/registration",
       }}
       // we might need webauthn support which requires additional js
       includeScripts={true}

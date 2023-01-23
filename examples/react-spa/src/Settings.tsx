@@ -6,29 +6,13 @@ import {
 } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import sdk from "./sdk"
+import { sdk, sdkError } from "./sdk"
 
 export const Settings = () => {
   const [flow, setFlow] = useState<SettingsFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
-
-  const createFlow = () => {
-    sdk
-      // create a new settings flow
-      // the flow contains the form fields, error messages and csrf token
-      // depending on the Ory Network project settings, the form fields returned may vary
-      .createBrowserSettingsFlow()
-      .then(({ data: flow }) => {
-        setFlow(flow)
-      })
-      // something serious went wrong, so we redirect to the settings page
-      .catch((err) => {
-        console.error(err)
-        navigate("/settings", { replace: true })
-      })
-  }
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
@@ -37,12 +21,27 @@ export const Settings = () => {
         // the flow data contains the form fields, error messages and csrf token
         .getSettingsFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
-        .catch((err) => {
-          console.error(err)
-          return err
-        }),
+        .catch(sdkErrorHandler),
     [],
   )
+
+  // initialize the sdkError for generic handling of errors
+  const sdkErrorHandler = sdkError(getFlow, setFlow, "/settings", true)
+
+  const createFlow = () => {
+    sdk
+      // create a new settings flow
+      // the flow contains the form fields, error messages and csrf token
+      // depending on the Ory Network project settings, the form fields returned may vary
+      .createBrowserSettingsFlow()
+      .then(({ data: flow }) => {
+        // Update URI query params to include flow id
+        setSearchParams({ ["flow"]: flow.id })
+        // Set the flow data
+        setFlow(flow)
+      })
+      .catch(sdkErrorHandler)
+  }
 
   // submit any of the settings form data to Ory
   const onSubmit = (body: UpdateSettingsFlowBody) => {
@@ -55,34 +54,7 @@ export const Settings = () => {
       .then(({ data: flow }) => {
         setFlow(flow)
       })
-      // it could happen that we are not signed in and should redirect to the login page
-      // privileged endpoints like this one will return a 401 Unauthorized
-      .catch((error) => {
-        switch (error.response.status) {
-          // some user input error occurred, so we update the flow which constains UI error messages
-          case 400:
-            setFlow(error.response.data)
-            break
-          case 422: {
-            // for webauthn we need to reload the flow
-            const u = new URL(error.response.data.redirect_browser_to)
-            // get new flow data based on the flow id in the redirect url
-            getFlow(u.searchParams.get("flow") || "")
-              // something unexpected went wrong and the flow was not set - redirect the user to the login page
-              .catch((err) => {
-                console.error(err)
-                navigate("/login", { replace: true })
-              })
-            break
-          }
-          // other errors we just redirect to the login page
-          case 401:
-          case 403:
-          case 410:
-          default:
-            return navigate("/login", { replace: true })
-        }
-      })
+      .catch(sdkErrorHandler)
   }
 
   useEffect(() => {
