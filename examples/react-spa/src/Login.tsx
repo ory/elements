@@ -22,7 +22,7 @@ export const Login = (): JSX.Element => {
   )
 
   // initialize the sdkError for generic handling of errors
-  const sdkErrorHandler = sdkError(getFlow, setFlow,"/login", true)
+  const sdkErrorHandler = sdkError(getFlow, setFlow, "/login", true)
 
   // Create a new login flow
   const createFlow = () => {

@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const [logoutUrl, setLogoutUrl] = useState<string>()
 
   const navigate = useNavigate()
-  const sdkErrorHandler = sdkError(undefined, undefined,"/login")
+  const sdkErrorHandler = sdkError(undefined, undefined, "/login")
 
   const createLogoutFlow = () => {
     // here we create a new logout URL which we can use to log the user out
@@ -36,14 +36,16 @@ export const Dashboard = () => {
         createLogoutFlow()
       })
       .catch(sdkErrorHandler)
-      .catch(error => {
+      .catch((error) => {
         // Handle all other errors like error.message "network error" if Kratos can not be connected etc.
         if (error.message) {
-            return navigate(`/error?error=${encodeURIComponent(error.message)}`)
+          return navigate(`/error?error=${encodeURIComponent(error.message)}`)
         }
 
         // Just stringify error and print all data
-        navigate(`/error?error=${encodeURIComponent(JSON.stringify(error),)}`, { replace: true })
+        navigate(`/error?error=${encodeURIComponent(JSON.stringify(error))}`, {
+          replace: true,
+        })
       })
   }, [])
 

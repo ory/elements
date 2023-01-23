@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {Configuration, FrontendApi } from "@ory/client"
+import { Configuration, FrontendApi } from "@ory/client"
 import { AxiosError } from "axios"
 import React, { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
@@ -85,13 +85,12 @@ export const sdkError = (
               console.error(error)
 
               if (defaultNav !== undefined) {
-                navigate(defaultNav, {replace: true})
+                navigate(defaultNav, { replace: true })
               } else {
                 // Rethrow error when can't navigate and let caller handle
                 throw error
               }
             })
-
           } else if (defaultNav !== undefined) {
             console.warn("sdkError 410: Navigate to", defaultNav)
             navigate(defaultNav, { replace: true })
@@ -114,13 +113,12 @@ export const sdkError = (
                 console.error(error)
 
                 if (defaultNav !== undefined) {
-                  navigate(defaultNav, {replace: true})
+                  navigate(defaultNav, { replace: true })
                 } else {
                   // Rethrow error when can't navigate and let caller handle
                   throw error
                 }
               })
-
             } else {
               console.warn("sdkError 422: Redirect browser to")
               window.location = responseData.redirect_browser_to

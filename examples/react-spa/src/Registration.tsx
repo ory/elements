@@ -22,7 +22,7 @@ export const Registration = () => {
   )
 
   // initialize the sdkError for generic handling of errors
-  const sdkErrorHandler = sdkError(getFlow, setFlow,"/registration", true)
+  const sdkErrorHandler = sdkError(getFlow, setFlow, "/registration", true)
 
   // create a new registration flow
   const createFlow = () => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {Link, useSearchParams} from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom"
 import { CodeBox } from "@ory/elements"
 
 export const Error = () => {
@@ -17,30 +17,28 @@ export const Error = () => {
       } catch (error) {
         setError(queryError)
       }
-
     } else {
       setError("Undefined error")
     }
-
   }, [])
 
   // we check if the flow is set, if not we show a loading indicator
   return (
     <>
-    <Link to="/">Home</Link>
+      <Link to="/">Home</Link>
 
-    <p>
-      An error occurred. Please check the error information below and try
-      again.
-    </p>
-    <CodeBox
-      style={{
-        overflow: "auto",
-        maxWidth: "600px",
-      }}
-    >
-      {error}
-    </CodeBox>
+      <p>
+        An error occurred. Please check the error information below and try
+        again.
+      </p>
+      <CodeBox
+        style={{
+          overflow: "auto",
+          maxWidth: "600px",
+        }}
+      >
+        {error}
+      </CodeBox>
     </>
   )
 }
