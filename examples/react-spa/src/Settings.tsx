@@ -3,6 +3,7 @@ import {
   gridStyle,
   UserSettingsCard,
   UserSettingsFlowType,
+  NodeMessages,
 } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
@@ -71,6 +72,7 @@ export const Settings = () => {
   // if the flow is not set, we show a loading indicator
   return flow ? (
     <div className={gridStyle({ gap: 16 })}>
+      <NodeMessages uiMessages={flow.ui.messages} />
       {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
       {(
         [
