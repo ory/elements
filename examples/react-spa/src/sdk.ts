@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 export const sdk = new FrontendApi(
   new Configuration({
     //https://vitejs.dev/guide/env-and-mode.html#env-files
-    basePath: "https://kratos.climbeyond.app",
+    basePath: import.meta.env.VITE_ORY_SDK_URL,
     // we always want to include the cookies in each request
     // cookies are used for sessions and CSRF protection
     baseOptions: {
@@ -71,8 +71,15 @@ export const sdkError = (
         }
         case 404: {
           if (defaultNav !== undefined) {
-            console.warn("sdkError 404: Navigate to", defaultNav)
-            navigate(defaultNav, { replace: true })
+            console.warn("sdkError 404: Navigate to Error")
+            const errorMsg = error.response?.data || error
+            errorMsg.url = window.location.href
+            navigate(
+              `/error?error=${encodeURIComponent(JSON.stringify(errorMsg))}`,
+              {
+                replace: true,
+              },
+            )
             return Promise.resolve()
           }
           break

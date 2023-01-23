@@ -39,7 +39,9 @@ export const Dashboard = () => {
       .catch((error) => {
         // Handle all other errors like error.message "network error" if Kratos can not be connected etc.
         if (error.message) {
-          return navigate(`/error?error=${encodeURIComponent(error.message)}`)
+          return navigate(`/error?error=${encodeURIComponent(error.message)}`, {
+            replace: true,
+          })
         }
 
         // Just stringify error and print all data
