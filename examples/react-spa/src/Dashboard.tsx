@@ -3,13 +3,26 @@ import { Typography } from "@ory/elements"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Dashboard.css"
-import sdk from "./sdk"
+import { sdk, sdkError } from "./sdk"
 
 export const Dashboard = () => {
   const [session, setSession] = useState<Session | null>(null)
   const [logoutUrl, setLogoutUrl] = useState<string>()
 
   const navigate = useNavigate()
+  const sdkErrorHandler = sdkError(undefined, undefined, "/login")
+
+  const createLogoutFlow = () => {
+    // here we create a new logout URL which we can use to log the user out
+    sdk
+      .createBrowserLogoutFlow(undefined, {
+        params: {
+          return_url: "/",
+        },
+      })
+      .then(({ data }) => setLogoutUrl(data.logout_url))
+      .catch(sdkErrorHandler)
+  }
 
   useEffect(() => {
     // we check if the user is logged in by checking if there is a session
@@ -19,32 +32,22 @@ export const Dashboard = () => {
       .then(({ data: session }) => {
         // we set the session data which contains the user Identifier and other traits.
         setSession(session)
+        // Set logout flow
+        createLogoutFlow()
       })
+      .catch(sdkErrorHandler)
       .catch((error) => {
-        if (error.response?.status === 403) {
-          // the user might have a session, but would require 2FA (Two-Factor Authentication)
-          if (error.response?.data.error.id === "session_aal2_required") {
-            return navigate("/login?aal2=true", { replace: true })
-          }
+        // Handle all other errors like error.message "network error" if Kratos can not be connected etc.
+        if (error.message) {
+          return navigate(`/error?error=${encodeURIComponent(error.message)}`, {
+            replace: true,
+          })
         }
-        // redirect to the login page by default since we assume the user is not signed in
-        return navigate("/login", { replace: true })
-      })
-  }, [])
 
-  useEffect(() => {
-    // here we create a new logout URL which we can use to log the user out
-    sdk
-      .createBrowserLogoutFlow(undefined, {
-        params: {
-          return_url: "/",
-        },
-      })
-      .then(({ data }) => {
-        setLogoutUrl(data.logout_url)
-      })
-      .catch((data) => {
-        console.error(data)
+        // Just stringify error and print all data
+        navigate(`/error?error=${encodeURIComponent(JSON.stringify(error))}`, {
+          replace: true,
+        })
       })
   }, [])
 
