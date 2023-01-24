@@ -1,9 +1,9 @@
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 import {
   gridStyle,
+  NodeMessages,
   UserSettingsCard,
   UserSettingsFlowType,
-  NodeMessages,
 } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
@@ -81,6 +81,7 @@ export const Settings = () => {
           "totp",
           "webauthn",
           "lookupSecret",
+          "oidc",
         ] as UserSettingsFlowType[]
       ).map((flowType: UserSettingsFlowType, index) => (
         // here we render the settings flow using Ory Elements
