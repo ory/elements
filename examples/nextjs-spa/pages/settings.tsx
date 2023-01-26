@@ -130,7 +130,7 @@ const Settings: NextPage = () => {
 
     <div id="settingsForm" className={gridStyle({ gap: 16 })}>
       {/* Show a success message if the user changed their password */}
-      <NodeMessages nodes={flow.ui.nodes} />
+      <NodeMessages uiMessages={flow.ui.messages} />
       {/* here we simply map all of the settings flows we could have. These flows won't render if they aren't enabled inside your Ory Network project */}
       {(
         [

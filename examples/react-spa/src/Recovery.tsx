@@ -2,7 +2,7 @@ import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import sdk from "./sdk"
+import { sdk, sdkError } from "./sdk"
 
 export const Recovery = () => {
   const [flow, setFlow] = useState<RecoveryFlow | null>(null)
@@ -10,33 +10,31 @@ export const Recovery = () => {
 
   const navigate = useNavigate()
 
-  // create a new recovery flow
-  const createFlow = () =>
-    useCallback(
-      () =>
-        sdk
-          .createBrowserRecoveryFlow()
-          // flow contains the form fields, error messages and csrf token
-          .then(({ data: flow }) => setFlow(flow))
-          // something serious went wrong so we redirect to the recovery page
-          .catch((err) => {
-            console.error(err)
-            navigate("/recovery", { replace: true })
-          }),
-      [],
-    )
-
   const getFlow = useCallback(
     (flowId: string) =>
       sdk
         .getRecoveryFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
-        .catch((err) => {
-          console.error(err)
-          return err
-        }),
+        .catch(sdkErrorHandler),
     [],
   )
+
+  // initialize the sdkError for generic handling of errors
+  const sdkErrorHandler = sdkError(getFlow, setFlow, "/recovery")
+
+  // create a new recovery flow
+  const createFlow = () => {
+    sdk
+      .createBrowserRecoveryFlow()
+      // flow contains the form fields, error messages and csrf token
+      .then(({ data: flow }) => {
+        // Update URI query params to include flow id
+        setSearchParams({ ["flow"]: flow.id })
+        // Set the flow data
+        setFlow(flow)
+      })
+      .catch(sdkErrorHandler)
+  }
 
   const submitFlow = (body: UpdateRecoveryFlowBody) => {
     // something unexpected went wrong and the flow was not set
@@ -48,10 +46,7 @@ export const Recovery = () => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
       })
-      .catch((error) => {
-        // the flow could contain error messages, so we set the flow again
-        setFlow(error.response.data)
-      })
+      .catch(sdkErrorHandler)
   }
 
   useEffect(() => {

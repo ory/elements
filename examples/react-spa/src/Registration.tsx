@@ -2,30 +2,13 @@ import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements"
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import sdk from "./sdk"
+import { sdk, sdkError } from "./sdk"
 
 export const Registration = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const navigate = useNavigate()
-
-  // create a new registration flow
-  const createFlow = useCallback(
-    () =>
-      sdk
-        // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
-        .createBrowserRegistrationFlow()
-        .then(({ data: flow }) => {
-          setFlow(flow)
-        })
-        // something serious went wrong so we redirect to the registration page
-        .catch((error) => {
-          console.error(error)
-          navigate("/signup", { replace: true })
-        }),
-    [],
-  )
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(
@@ -34,17 +17,31 @@ export const Registration = () => {
         // the flow data contains the form fields, error messages and csrf token
         .getRegistrationFlow({ id: flowId })
         .then(({ data: flow }) => setFlow(flow))
-        .catch((err) => {
-          console.error(err)
-          return err
-        }),
+        .catch(sdkErrorHandler),
     [],
   )
+
+  // initialize the sdkError for generic handling of errors
+  const sdkErrorHandler = sdkError(getFlow, setFlow, "/registration", true)
+
+  // create a new registration flow
+  const createFlow = () => {
+    sdk
+      // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
+      .createBrowserRegistrationFlow()
+      .then(({ data: flow }) => {
+        // Update URI query params to include flow id
+        setSearchParams({ ["flow"]: flow.id })
+        // Set the flow data
+        setFlow(flow)
+      })
+      .catch(sdkErrorHandler)
+  }
 
   // submit the registration form data to Ory
   const submitFlow = (body: UpdateRegistrationFlowBody) => {
     // something unexpected went wrong and the flow was not set
-    if (!flow) return navigate("/signup", { replace: true })
+    if (!flow) return navigate("/registration", { replace: true })
 
     sdk
       .updateRegistrationFlow({
@@ -55,30 +52,7 @@ export const Registration = () => {
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
       })
-      .catch((error) => {
-        switch (error.response.status) {
-          // some user input error occurred, so we update the flow which constains UI error messages
-          case 400:
-            setFlow(error.response.data)
-            break
-          case 422:
-            // for webauthn we need to reload the flow
-            const u = new URL(error.response.data.redirect_browser_to)
-            // get new flow data based on the flow id in the redirect url
-            getFlow(u.searchParams.get("flow") || "")
-              // something unexpected went wrong and the flow was not set - redirect the user to the login page
-              .catch((err) => {
-                console.error(err)
-                navigate("/signup", { replace: true })
-              })
-            break
-          // other errors we just redirect to the registration page
-          case 410:
-          case 404:
-          default:
-            return navigate("/signup", { replace: true })
-        }
-      })
+      .catch(sdkErrorHandler)
   }
 
   useEffect(() => {
@@ -91,7 +65,7 @@ export const Registration = () => {
     }
     // we assume there was no flow, so we create a new one
     createFlow()
-  }, [])
+  }, [navigate])
 
   // the flow is not set yet, so we show a loading indicator
   return flow ? (

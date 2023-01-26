@@ -9,6 +9,7 @@ import { Recovery } from "./Recovery"
 import { Registration } from "./Registration"
 import { Settings } from "./Settings"
 import { Verification } from "./Verification"
+import { Error } from "./Error"
 
 // import Ory elements css
 import "@ory/elements/style.css"
@@ -21,10 +22,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Registration />} />
+          <Route path="/registration" element={<Registration />} />
           <Route path="/verification" element={<Verification />} />
           <Route path="/recovery" element={<Recovery />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
