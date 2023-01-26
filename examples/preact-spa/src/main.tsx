@@ -8,6 +8,7 @@ import { Recovery } from "./recovery"
 import { Register } from "./register"
 import { Settings } from "./settings"
 import { Verification } from "./verification"
+import { Error } from "./error"
 
 // import Ory elements css
 import "@ory/elements-preact/style.css"
@@ -18,10 +19,11 @@ const Main = () => {
       <Router>
         <Route path="/" component={Dashboard} />
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Register} />
+        <Route path="/registration" component={Register} />
         <Route path="/verification" component={Verification} />
         <Route path="/recovery" component={Recovery} />
         <Route path="/settings" component={Settings} />
+        <Route path="/error" component={Error} />
       </Router>
     </ThemeProvider>
   )

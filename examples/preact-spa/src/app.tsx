@@ -1,6 +1,6 @@
 import "./app.css"
 import { Typography } from "@ory/elements-preact"
-import sdk from "./sdk"
+import { sdk, sdkError } from "./sdk"
 import { useEffect, useState } from "preact/hooks"
 import { Session } from "@ory/client"
 import { useLocation } from "wouter"
@@ -10,23 +10,9 @@ export const Dashboard = () => {
   const [logoutUrl, setLogoutUrl] = useState<string>()
   const [location, setLocation] = useLocation()
 
-  useEffect(() => {
-    sdk
-      .toSession()
-      .then(({ data: session }) => {
-        setSession(session)
-      })
-      .catch((error) => {
-        if (error.response?.status === 403) {
-          if (error.response?.data.error.id === "session_aal2_required") {
-            return setLocation("/login?aal2=true", { replace: true })
-          }
-        }
-        return setLocation("/login", { replace: true })
-      })
-  }, [])
+  const sdkErrorHandler = sdkError(undefined, undefined, "/login")
 
-  useEffect(() => {
+  const createLogoutFlow = () => {
     sdk
       .createBrowserLogoutFlow(undefined, {
         params: {
@@ -36,8 +22,37 @@ export const Dashboard = () => {
       .then(({ data }) => {
         setLogoutUrl(data.logout_url)
       })
-      .catch((data) => {
-        console.error(data)
+      .catch(sdkErrorHandler)
+  }
+
+  useEffect(() => {
+    sdk
+      .toSession()
+      .then(({ data: session }) => {
+        // we set the session data which contains the user Identifier and other traits.
+        setSession(session)
+        // Set logout flow
+        createLogoutFlow()
+      })
+      .catch(sdkErrorHandler)
+      .catch((error) => {
+        // Handle all other errors like error.message "network error" if Kratos can not be connected etc.
+        if (error.message) {
+          return setLocation(
+            `/error?error=${encodeURIComponent(error.message)}`,
+            {
+              replace: true,
+            },
+          )
+        }
+
+        // Just stringify error and print all data
+        setLocation(
+          `/error?error=${encodeURIComponent(JSON.stringify(error))}`,
+          {
+            replace: true,
+          },
+        )
       })
   }, [])
 

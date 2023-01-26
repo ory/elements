@@ -11,7 +11,7 @@
     "build:clean": "lerna run build --skip-nx-cache",
     "build": "lerna run build --stream",
     "build:react": "lerna run build --stream --scope=@ory/elements",
-    "build:preact": "lerna run build --stream --scope@ory/elements-preact",
+    "build:preact": "lerna run build --stream --scope=@ory/elements-preact",
     "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
     "version": "lerna version --no-private --no-git-tag-version --no-changelog --message 'chore(release): bump version to %s' --yes",
     "test": "playwright test -c playwright-ct.config.ts",

@@ -1,7 +1,7 @@
 import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
-import { useEffect, useState } from "preact/hooks"
-import sdk from "./sdk"
+import { useCallback, useEffect, useState } from "preact/hooks"
+import { getSearchParam, sdk, sdkError } from "./sdk"
 import { useLocation } from "wouter"
 
 export const Register = () => {
@@ -9,13 +9,57 @@ export const Register = () => {
 
   const [location, setLocation] = useLocation()
 
-  useEffect(() => {
+  // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
+  const getFlow = useCallback(
+    (flowId: string) =>
+      sdk
+        // the flow data contains the form fields, error messages and csrf token
+        .getRegistrationFlow({ id: flowId })
+        .then(({ data: flow }) => setFlow(flow))
+        .catch(sdkErrorHandler),
+    [],
+  )
+
+  // initialize the sdkError for generic handling of errors
+  const sdkErrorHandler = sdkError(getFlow, setFlow, "/registration", true)
+
+  // create a new registration flow
+  const createFlow = () => {
     sdk
+      // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
       .createBrowserRegistrationFlow()
-      .then(({ data: flow }) => {
-        setFlow(flow)
+      .then(({ data: flow }) => setFlow(flow))
+      .catch(sdkErrorHandler)
+  }
+
+  // submit the registration form data to Ory
+  const submitFlow = (body: UpdateRegistrationFlowBody) => {
+    // something unexpected went wrong and the flow was not set
+    if (!flow) return setLocation("/registration", { replace: true })
+
+    sdk
+      .updateRegistrationFlow({
+        flow: flow.id,
+        updateRegistrationFlowBody: body,
       })
-      .catch((error) => console.error(error))
+      .then(() => {
+        // we successfully submitted the login flow, so lets redirect to the dashboard
+        setLocation("/", { replace: true })
+      })
+      .catch(sdkErrorHandler)
+  }
+
+  useEffect(() => {
+    // we might redirect to this page after the flow is initialized, so we check for the flowId in the URL
+    const flowId = getSearchParam("flow")
+
+    // the flow already exists
+    if (flowId) {
+      getFlow(flowId).catch(createFlow) // if for some reason the flow has expired, we need to get a new one
+      return
+    }
+    // we assume there was no flow, so we create a new one
+    createFlow()
   }, [])
 
   return flow ? (
@@ -27,20 +71,7 @@ export const Register = () => {
         loginURL: "/login",
       }}
       includeScripts={true}
-      onSubmit={({ body }) => {
-        sdk
-          .updateRegistrationFlow({
-            flow: flow.id,
-            updateRegistrationFlowBody: body as UpdateRegistrationFlowBody,
-          })
-          .then(() => {
-            // we successfully submitted the login flow, so lets redirect to the dashboard
-            setLocation("/", { replace: true })
-          })
-          .catch((error) => {
-            setFlow(error.response.data)
-          })
-      }}
+      onSubmit={({ body }) => submitFlow(body as UpdateRegistrationFlowBody)}
     />
   ) : (
     <div>Loading...</div>
