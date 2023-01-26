@@ -35,7 +35,7 @@ export const Register = () => {
   // submit the registration form data to Ory
   const submitFlow = (body: UpdateRegistrationFlowBody) => {
     // something unexpected went wrong and the flow was not set
-    if (!flow) return setLocation("/signup", { replace: true })
+    if (!flow) return setLocation("/registration", { replace: true })
 
     sdk
       .updateRegistrationFlow({
