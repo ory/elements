@@ -1,10 +1,8 @@
-import { ThemeProvider } from "@ory/elements-preact"
-
 // optional global css reset
 import "@ory/elements-preact/assets/normalize.css"
 
 import { render } from "preact"
-import { Route, Router } from "wouter"
+import { Route, Router } from "wouter/preact"
 import { Dashboard } from "./app"
 import { Error } from "./error"
 import "./index.css"
@@ -25,6 +23,7 @@ import "@ory/elements-preact/assets/inter-font.css"
 import "@ory/elements-preact/assets/jetbrains-mono-font.css"
 
 // required styles for Ory Elements
+import { ThemeProvider } from "@ory/elements-preact"
 import "@ory/elements-preact/style.css"
 
 const Main = () => {

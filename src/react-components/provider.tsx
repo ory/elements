@@ -1,5 +1,6 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import cn from "classnames"
+import { ReactElement, ReactNode } from "react"
 
 import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 import {
@@ -11,7 +12,7 @@ export type ThemeProviderProps = {
   theme?: "light" | "dark"
   themeOverrides?: Partial<Theme>
   enableFontSmoothing?: boolean
-  children?: React.ReactNode | React.ReactElement
+  children?: ReactNode | ReactElement | ReactElement[] | ReactNode[]
 }
 
 export const ThemeProvider = ({

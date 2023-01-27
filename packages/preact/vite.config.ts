@@ -9,6 +9,12 @@ import dts from "vite-plugin-dts"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      react: "preact/compat",
+      "react-dom": "preact/compat",
+    },
+  },
   build: {
     target: "esnext",
     lib: {
