@@ -7,11 +7,6 @@ import {
   buttonSocialStyle,
 } from "../theme/button-social.css"
 
-// required FontAwesome Icons for Brands
-import "../assets/fa-brands.min.css"
-import "../assets/fa-solid.min.css"
-import "../assets/fontawesome.min.css"
-
 // required since interfaces cannot extend types whose properties are not statically known
 type buttonSocialStyle = ButtonSocialStyle & Record<string, unknown>
 

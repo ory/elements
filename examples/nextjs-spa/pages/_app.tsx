@@ -1,11 +1,25 @@
 // Next.js
 import type { AppProps } from "next/app"
 
+// optional global css reset
+import "@ory/elements/assets/normalize.css"
+
 // Import CSS
 import "../styles/globals.css"
 
 // Ory Elements
+// optional fontawesome icons
+import "@ory/elements/assets/fa-brands.min.css"
+import "@ory/elements/assets/fa-solid.min.css"
+import "@ory/elements/assets/fontawesome.min.css"
+
+// optional fonts
+import "@ory/elements/assets/inter-font.css"
+import "@ory/elements/assets/jetbrains-mono-font.css"
+
+// required styles for Ory Elements
 import "@ory/elements/style.css"
+
 // This is what we use to apply themes with Ory Elements.
 import { Nav, ThemeProvider } from "@ory/elements"
 import Head from "next/head"

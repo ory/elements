@@ -8,11 +8,6 @@ import {
   buttonLinkStyle,
 } from "../theme/button-link.css"
 
-// we use the fontawesome checkmark instead of the standard checkmark
-// so we need fontawesome to be loaded
-import "../assets/fa-solid.min.css"
-import "../assets/fontawesome.min.css"
-
 export type ButtonLinkProps = {
   children?: React.ReactNode
   href?: string | undefined
