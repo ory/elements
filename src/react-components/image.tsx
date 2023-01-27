@@ -1,5 +1,5 @@
 import cn from "classnames"
-import React from "react"
+
 import { gridStyle, typographyStyle } from "../theme"
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {

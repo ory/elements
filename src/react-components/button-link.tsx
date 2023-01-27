@@ -1,5 +1,5 @@
 import cn from "classnames"
-import React from "react"
+
 import { typographyStyle } from "../theme"
 import {
   buttonLinkContainerStyle,

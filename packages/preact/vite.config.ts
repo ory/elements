@@ -10,8 +10,7 @@ import { viteStaticCopy } from "vite-plugin-static-copy"
 
 export default defineConfig({
   build: {
-    minify: "esbuild",
-    sourcemap: true,
+    target: "esnext",
     lib: {
       name: "@ory/elements",
       entry: path.resolve(__dirname, "../../src/react.ts"),
@@ -19,6 +18,7 @@ export default defineConfig({
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),
     },
     rollupOptions: {
+      treeshake: "smallest",
       external: ["preact", "react", "react-dom"],
     },
     commonjsOptions: {
@@ -38,8 +38,4 @@ export default defineConfig({
       ],
     }),
   ],
-  esbuild: {
-    jsxFactory: "h",
-    jsxFragment: "Fragment",
-  },
 })

@@ -1,6 +1,6 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import cn from "classnames"
-import React from "react"
+
 import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 import {
   themeProviderFontRenderingStyle,
@@ -11,7 +11,7 @@ export type ThemeProviderProps = {
   theme?: "light" | "dark"
   themeOverrides?: Partial<Theme>
   enableFontSmoothing?: boolean
-  children?: React.ReactNode
+  children?: React.ReactNode | React.ReactElement
 }
 
 export const ThemeProvider = ({

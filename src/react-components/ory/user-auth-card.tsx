@@ -1,6 +1,6 @@
 import { LoginFlow } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
-import React from "react"
+
 import { gridStyle, typographyStyle } from "../../theme"
 import { Card } from "../card"
 import { Divider } from "../divider"

@@ -30,16 +30,10 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "overrides": {
-    "@vanilla-extract/vite-plugin": {
-      "vite": "^3"
-    }
-  },
   "devDependencies": {
-    "@preact/preset-vite": "^2.3.0",
-    "@vanilla-extract/vite-plugin": "^3.3.1",
-    "@vitejs/plugin-react": "^2.0.1",
-    "preact": "^10.10.6"
+    "@preact/preset-vite": "2.5.0",
+    "vite": "4.0.4",
+    "preact": "10.11.3"
   },
   "files": [
     "dist/*"

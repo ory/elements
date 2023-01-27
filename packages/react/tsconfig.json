@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "rootDir": "../../src",
+    "jsx": "preserve",
+  },
   "extends": "../../tsconfig.build.json",
-  "include": ["../../src", "vite.config.ts", "package.json"]
 }

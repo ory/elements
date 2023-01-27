@@ -1,5 +1,5 @@
 import cn from "classnames"
-import React from "react"
+
 import { dividerStyle, dividerTextStyle } from "../theme"
 
 export interface DividerProps extends React.HTMLProps<HTMLHRElement> {
