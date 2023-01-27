@@ -28,7 +28,7 @@ export const globalTypes = {
 export const withTheme = (StoryFn, context) => {
   const theme = context.globals.theme
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} enableFontSmoothing={true}>
       <StoryFn />
     </ThemeProvider>
   )
