@@ -5,7 +5,7 @@ import type { AppProps } from "next/app"
 import "@ory/elements/assets/normalize.css"
 
 // Import CSS
-import "../styles/globals.css"
+import "@/styles/globals.css"
 
 // Ory Elements
 // optional fontawesome icons
@@ -20,65 +20,22 @@ import "@ory/elements/assets/jetbrains-mono-font.css"
 // required styles for Ory Elements
 import "@ory/elements/style.css"
 
-// This is what we use to apply themes with Ory Elements.
-import { Nav, ThemeProvider } from "@ory/elements"
-import Head from "next/head"
+import type { NextPage } from "next"
+import type { ReactElement, ReactNode } from "react"
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // create a theme object here and add it to the `themeOverrides` below to customize Ory Elements without css overrides.
   // const theme = { ... }
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? ((page) => page)
 
-  return (
-    <ThemeProvider themeOverrides={{}}>
-      <Head>
-        <title>Next.js w/ Elements</title>
-        <link rel="icon" href="/ory.svg" />
-      </Head>
-      <div className="mainContainer">
-        {/* An Ory Elements dynamic nav component */}
-        <Nav
-          className="main-nav"
-          navTitle="Next.js w/ Elements"
-          navSections={[
-            {
-              title: "Navigation",
-              links: [
-                {
-                  name: "Home",
-                  href: "/",
-                },
-                {
-                  name: "Login",
-                  href: "/login",
-                },
-                {
-                  name: "Register",
-                  href: "/registration",
-                },
-                {
-                  name: "Settings",
-                  href: "/settings",
-                },
-                {
-                  name: "Verification",
-                  href: "/verification",
-                },
-                {
-                  name: "Recovery",
-                  href: "/recovery",
-                },
-                {
-                  name: "Logout",
-                  href: "/logout",
-                },
-              ],
-            },
-          ]}
-        />
-        <div className="contentContainer">
-          <Component className={"content"} {...pageProps} />
-        </div>
-      </div>
-    </ThemeProvider>
-  )
+  return getLayout(<Component {...pageProps} />)
 }

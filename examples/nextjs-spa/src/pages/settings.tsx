@@ -3,7 +3,6 @@ import { useRouter } from "next/router"
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 
 // Ory SDK
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
@@ -14,6 +13,7 @@ import { AxiosError } from "axios"
 
 // Ory Elements
 // We will use UserSettingsCard from Ory Elements to display the settings form.
+import Layout from "@/components/layout"
 import {
   gridStyle,
   NodeMessages,
@@ -21,8 +21,9 @@ import {
   UserSettingsFlowType,
 } from "@ory/elements"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
-const Settings: NextPage = () => {
+const Settings: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<SettingsFlow>()
   const handleError = HandleError()
 
@@ -159,5 +160,7 @@ const Settings: NextPage = () => {
     <div>Loading...</div>
   )
 }
+
+Settings.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Settings

@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 
 // Ory SDK
 import { ory } from "../pkg/sdk"
@@ -14,10 +13,12 @@ import styles from "../styles/Dashboard.module.css"
 import { AxiosError } from "axios"
 
 // We will use CodeBox from Ory Elements to display the session information.
+import Layout from "@/components/layout"
 import { CodeBox } from "@ory/elements"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const [session, setSession] = useState<string>()
   const handleError = HandleError()
 
@@ -59,5 +60,7 @@ const Home: NextPage = () => {
     <div>Loading...</div>
   )
 }
+
+Home.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Home

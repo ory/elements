@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
@@ -14,11 +13,13 @@ import { AxiosError } from "axios"
 
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the registration form.
+import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
 import { QueryParams } from "../pkg/helpers"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
-const Registration: NextPage = () => {
+const Registration: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<RegistrationFlow>()
 
   const handleError = HandleError()
@@ -146,5 +147,7 @@ const Registration: NextPage = () => {
     <div>Loading...</div>
   )
 }
+
+Registration.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Registration

@@ -4,8 +4,7 @@ import { Card } from "../card"
 import { Typography } from "../typography"
 
 import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
-import "../../assets/fa-solid.min.css"
-import "../../assets/fontawesome.min.css"
+
 import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
 

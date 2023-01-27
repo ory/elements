@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
@@ -14,11 +13,13 @@ import { AxiosError } from "axios"
 
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the login form.
+import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
 import { QueryParams } from "../pkg/helpers"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
-const Login: NextPage = () => {
+const Login: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
   const handleError = HandleError()
   // Get flow information from the URL
@@ -141,5 +142,7 @@ const Login: NextPage = () => {
     <div>Loading...</div>
   )
 }
+
+Login.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Login
