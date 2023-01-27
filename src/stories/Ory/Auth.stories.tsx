@@ -9,6 +9,7 @@ import { Container } from "../storyhelper"
 
 import loginFlow2FA from "./login-flow-2fa.json"
 import loginFlow from "./login-flow.json"
+import loginFlowRefresh from "./login-flow-refresh.json"
 
 import loginFlowError from "./login-flow-error.json"
 import loginFlowUiError from "./login-flow-ui-error.json"
@@ -80,6 +81,20 @@ LoginAuthCardPasswordless.args = {
   title: "Sign in with passwordless",
   flow: loginFlow as SelfServiceLoginFlow,
   flowType: "login",
+  includeScripts: true,
+  additionalProps: {
+    logoutURL: "https://acme.com/logout",
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardRefresh = Template.bind({})
+
+LoginAuthCardRefresh.args = {
+  title: "Confirm it is you",
+  flow: loginFlowRefresh as SelfServiceLoginFlow,
+  flowType: "login",
+  cardImage: logo,
   includeScripts: true,
   additionalProps: {
     logoutURL: "https://acme.com/logout",

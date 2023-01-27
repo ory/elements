@@ -5,6 +5,7 @@ import {
   registrationFixture,
   twoFactorLoginFixture,
   verificationFixture,
+  loginRefreshFixture,
 } from "@ory/elements-test"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { UserAuthCard } from "./user-auth-card"
@@ -136,4 +137,18 @@ test("ory auth card login 2fa flow", async ({ mount }) => {
   await expect(
     component.locator('button[name="webauthn_login_trigger"]'),
   ).toBeVisible()
+})
+
+test("ory auth card login refresh flow", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      flow={loginRefreshFixture}
+      flowType="login"
+      title="Verify that's you"
+      additionalProps={{ logoutURL: "/logout" }}
+    />,
+  )
+
+  await expect(component).toContainText("You're logged in as:")
+  await expect(component).toContainText("johndoe@acme.com")
 })

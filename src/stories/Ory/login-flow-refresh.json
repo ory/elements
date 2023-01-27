@@ -1,0 +1,93 @@
+{
+  "id": "8a23a143-c08d-4635-b9fc-f9036db53227",
+  "oauth2_login_challenge": null,
+  "type": "browser",
+  "expires_at": "2023-01-09T14:00:47.355708383Z",
+  "issued_at": "2023-01-09T13:00:47.355708383Z",
+  "request_url": "http://test.com/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "http://test.com/self-service/login?flow=8a23a143-c08d-4635-b9fc-f9036db53227",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "Uw3zN207hJcnQgQMqipxgHLmmaua3afaJKrTHDbUpjKXdlBe7QAJpL/ZVp7AClu6zDBhvfnh5JXsHxiXlDmyhA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "johndoe@acme.com",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info",
+            "context": {}
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info",
+        "context": {}
+      }
+    ]
+  },
+  "created_at": "2023-01-09T13:00:47.48922Z",
+  "updated_at": "2023-01-09T13:00:47.48922Z",
+  "refresh": true,
+  "requested_aal": "aal1"
+}
