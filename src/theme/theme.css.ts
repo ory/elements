@@ -4,7 +4,6 @@
 import {
   createGlobalTheme,
   createGlobalThemeContract,
-  globalStyle,
 } from "@vanilla-extract/css"
 import { ThemeVars } from "@vanilla-extract/css/dist/declarations/src/types"
 
@@ -63,12 +62,4 @@ export const oryTheme: ThemeVars<Theme> = createGlobalThemeContract(
 
 createGlobalTheme(":root", oryTheme, {
   ...defaultLightTheme,
-})
-
-globalStyle("html, body", {
-  textRendering: "geometricPrecision",
-  WebkitFontSmoothing: "antialiased",
-  fontFamily: oryTheme.fontFamily,
-  fontStyle: oryTheme.fontStyle,
-  boxSizing: "border-box",
 })

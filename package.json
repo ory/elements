@@ -34,8 +34,6 @@
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@ory/client": "^1.1.0",
-    "@ory/elements": "*",
-    "@ory/elements-test": "*",
     "@ory/integrations": "^1.1.0",
     "@playwright/experimental-ct-react": "^1.25.0",
     "@playwright/test": "^1.25.1",
