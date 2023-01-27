@@ -1,16 +1,30 @@
 import { ThemeProvider } from "@ory/elements-preact"
+
+// optional global css reset
+import "@ory/elements-preact/assets/normalize.css"
+
 import { render } from "preact"
 import { Route, Router } from "wouter"
 import { Dashboard } from "./app"
+import { Error } from "./error"
 import "./index.css"
 import { Login } from "./login"
 import { Recovery } from "./recovery"
 import { Register } from "./register"
 import { Settings } from "./settings"
 import { Verification } from "./verification"
-import { Error } from "./error"
 
-// import Ory elements css
+// Ory Elements
+// optional fontawesome icons
+import "@ory/elements-preact/assets/fa-brands.min.css"
+import "@ory/elements-preact/assets/fa-solid.min.css"
+import "@ory/elements-preact/assets/fontawesome.min.css"
+
+// optional fonts
+import "@ory/elements-preact/assets/inter-font.css"
+import "@ory/elements-preact/assets/jetbrains-mono-font.css"
+
+// required styles for Ory Elements
 import "@ory/elements-preact/style.css"
 
 const Main = () => {
