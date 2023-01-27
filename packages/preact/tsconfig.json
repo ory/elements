@@ -5,4 +5,5 @@
     "jsxImportSource": "preact",
   },
   "extends": "../../tsconfig.build.json",
+  "include": ["../../src", "vite.config.ts", "package.json"]
 }
