@@ -5,11 +5,10 @@ import {
   createGlobalTheme,
   createGlobalThemeContract,
 } from "@vanilla-extract/css"
-import { ThemeVars } from "@vanilla-extract/css/dist/declarations/src/types"
 
-import { defaultLightTheme, Theme } from "./consts"
+import { defaultLightTheme } from "./consts"
 
-export const oryTheme: ThemeVars<Theme> = createGlobalThemeContract(
+export const oryTheme = createGlobalThemeContract(
   {
     fontFamily: "font-family",
     fontStyle: "font-style",
