@@ -269,6 +269,50 @@
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "discord",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link discord",
+            "type": "info",
+            "context": {
+              "provider": "discord"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "facebook",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link facebook",
+            "type": "info",
+            "context": {
+              "provider": "facebook"
+            }
+          }
+        }
       }
     ]
   },
