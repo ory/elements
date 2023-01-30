@@ -21,11 +21,6 @@ module.exports = {
   },
   async viteFinal(config) {
     return mergeConfig(config, {
-      build: {
-        rollupOptions: {
-          external: ["react-dom/client"],
-        },
-      },
       plugins: [vanillaExtractPlugin()],
     })
   },
