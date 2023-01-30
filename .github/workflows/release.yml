@@ -25,4 +25,4 @@ jobs:
           git config --global user.name "ory-bot"
           git add -A
       - run: |
-          npx lerna publish -y ${{ github.event.release.tag_name }} --no-push --message 'chore(release): bump version to %s'
+          npx lerna publish -y ${{ github.event.release.tag_name }} --message 'chore(release): bump version to %s' --no-git-tag-version
