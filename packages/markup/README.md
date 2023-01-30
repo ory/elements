@@ -15,24 +15,24 @@ Ory Elements supports integrating with:
 
 - React
 - Preact
-- ExpressJs (experimental)
+- Express.js (experimental)
 
 ## Getting Started
 
-Install Ory Elements into your ExpressJS application
+Install Ory Elements into your Express.js application
 
 ```shell
 npm i @ory/elements-markup --save
 ```
 
-In ExpressJS we can render the component server-side and inject the rendered
-HTML into the page using a template rendering engine. In this case we could use
-HandlebarsJS.
+In Express.js we can render the component server-side and inject the rendered
+HTML into the page using a template rendering engine. In this case, we could use
+Handlebars.js.
 
-An important feature of Ory Elements is theming which can be done through its
+An important feature of Ory Elements is theming, which can be done through its
 css variables.
 
-In ExpressJS Ory Elements provides us with helper routes to expose static css
+In Express.js Ory Elements provides us with helper routes to expose static css
 files as well as a way to override those css variables to essentially theme the
 page.
 
@@ -55,7 +55,7 @@ Create a view template called `login.hbs` which will accept raw HTML through the
 </div>
 ```
 
-Create a new login route in `login.ts` which does all of the logic for the login
+Create a new login route in `login.ts` which does all the logic for the login
 flow.
 
 ```ts
