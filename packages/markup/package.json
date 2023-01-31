@@ -30,15 +30,10 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "overrides": {
-    "@vanilla-extract/vite-plugin": {
-      "vite": "^3"
-    }
-  },
   "devDependencies": {
-    "@vanilla-extract/vite-plugin": "^3.3.1",
-    "@vitejs/plugin-react": "^2.0.1",
-    "eslint": "^8.22.0"
+    "@vanilla-extract/vite-plugin": "3.7.1",
+    "@vitejs/plugin-react": "3.0.1",
+    "eslint": "8.33.0"
   },
   "files": [
     "dist/*"
