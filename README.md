@@ -75,9 +75,9 @@ browser!
 
 ## Breaking Changes
 
-### Before v0.0.2-alpha.1
+### Before v0.0.1-beta.1
 
-Before v0.0.2-alpha.1, Ory Elements exposed a singular `style.css` file which
+Before v0.0.1-beta.1, Ory Elements exposed a singular `style.css` file which
 contained all the required fonts and icons necessary to work out of the box.
 This was convenient for elements to work out of the box, but caused the bundle
 size to be larger than necessary, especially for applications that only use a
