@@ -35,7 +35,19 @@ folder.
 
 ```tsx
 // other imports here
-// import our Ory elements css
+// Ory Elements
+// optional global css reset
+import "@ory/elements/assets/normalize.css"
+// optional fontawesome icons
+import "@ory/elements/assets/fa-brands.min.css"
+import "@ory/elements/assets/fa-solid.min.css"
+import "@ory/elements/assets/fontawesome.min.css"
+
+// optional fonts
+import "@ory/elements/assets/inter-font.css"
+import "@ory/elements/assets/jetbrains-mono-font.css"
+
+// required styles for Ory Elements
 import "@ory/elements/style.css"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -60,7 +72,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 Ory Elements supports integrating with Ory out of the box with the
 `<UserAuthCard/>`, `<UserSettingsCard />` and `<UserErrorCard />`.
 
-Each flow can be mapped using these compontents with only a few lines of caode.
+Each flow can be mapped using these components with only a few lines of code.
 
 Let's create a login example, create `login.tsx`.
 

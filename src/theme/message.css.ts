@@ -12,7 +12,7 @@ const SeverityTypes = [
   "default",
 ] as const
 
-export type Severity = typeof SeverityTypes[number]
+export type Severity = (typeof SeverityTypes)[number]
 
 type MessageVariants = {
   textPosition: Record<string, any>

@@ -10,13 +10,13 @@ import { MouseEvent } from "react"
 import { pxToRem } from "../../../common"
 import { gridStyle } from "../../../theme"
 import { Button, ButtonProps } from "../../button"
+import { ButtonLink } from "../../button-link"
 import { ButtonSocial, ButtonSocialProps } from "../../button-social"
 import { Checkbox } from "../../checkbox"
 import { Image } from "../../image"
 import { InputField } from "../../input-field"
 import { Typography } from "../../typography"
 import { NodeMessages } from "./error-messages"
-import { ButtonLink } from "../../button-link"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined

@@ -1,5 +1,5 @@
 import { FlowError } from "@ory/client"
-import React from "react"
+
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { ButtonLink } from "../button-link"
 import { Card } from "../card"

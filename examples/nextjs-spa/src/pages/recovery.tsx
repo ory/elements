@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
@@ -14,10 +13,12 @@ import { AxiosError } from "axios"
 
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the recovery form.
+import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
-const Recovery: NextPage = () => {
+const Recovery: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<RecoveryFlow>()
 
   // Get flow information from the URL
@@ -142,5 +143,7 @@ const Recovery: NextPage = () => {
     <div>Loading...</div>
   )
 }
+
+Recovery.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Recovery

@@ -1,9 +1,9 @@
-import "./app.css"
-import { Typography } from "@ory/elements-preact"
-import { sdk, sdkError } from "./sdk"
-import { useEffect, useState } from "preact/hooks"
 import { Session } from "@ory/client"
+import { Typography } from "@ory/elements-preact"
+import { useEffect, useState } from "preact/hooks"
 import { useLocation } from "wouter"
+import "./app.css"
+import { sdk, sdkError } from "./sdk"
 
 export const Dashboard = () => {
   const [session, setSession] = useState<Session | null>(null)

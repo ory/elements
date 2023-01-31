@@ -3,10 +3,11 @@
 
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { pxToRem } from "../common"
+import { oryTheme } from "./theme.css"
 
 export const inputTypographyStyle = recipe({
   base: {
-    fontFamily: "Inter",
+    fontFamily: oryTheme.fontFamily,
     textDecoration: "none",
   },
 
@@ -43,7 +44,7 @@ export type InputTypographyStyle = RecipeVariants<typeof inputTypographyStyle>
 
 export const typographyStyle = recipe({
   base: {
-    fontFamily: "Inter",
+    fontFamily: oryTheme.fontFamily,
     textDecoration: "none",
   },
 

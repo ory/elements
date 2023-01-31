@@ -1,10 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { NullableTokens } from "@vanilla-extract/css/dist/declarations/src/types"
 import { pxToEm } from "../common"
 
-export interface Font extends NullableTokens {
+export interface Font {
   fontFamily: string
   fontStyle: string
 }

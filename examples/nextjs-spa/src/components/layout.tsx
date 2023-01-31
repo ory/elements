@@ -1,19 +1,11 @@
-// Next.js
-import type { AppProps } from "next/app"
-
-// Import CSS
-import "../styles/globals.css"
-
-// Ory Elements
-import "@ory/elements/style.css"
-// This is what we use to apply themes with Ory Elements.
 import { Nav, ThemeProvider } from "@ory/elements"
 import Head from "next/head"
 
-export default function App({ Component, pageProps }: AppProps) {
-  // create a theme object here and add it to the `themeOverrides` below to customize Ory Elements without css overrides.
-  // const theme = { ... }
+interface LayoutProps {
+  children: React.ReactNode
+}
 
+export default function Layout({ children }: LayoutProps) {
   return (
     <ThemeProvider themeOverrides={{}}>
       <Head>
@@ -62,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
           ]}
         />
         <div className="contentContainer">
-          <Component className={"content"} {...pageProps} />
+          <div className="content">{children}</div>
         </div>
       </div>
     </ThemeProvider>

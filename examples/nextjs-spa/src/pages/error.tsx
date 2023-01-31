@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -10,13 +9,15 @@ import { useRouter } from "next/router"
 import { ory } from "../pkg/sdk"
 
 // Misc.
+import Layout from "@/components/layout"
 import { CodeBox } from "@ory/elements"
 import { AxiosError } from "axios"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
 // We will use CodeBox from Ory Elements to display the session information.
 
-const Error: NextPage = () => {
+const Error: NextPageWithLayout = () => {
   const [error, setError] = useState<string>()
   const handleError = HandleError()
   const router = useRouter()
@@ -65,5 +66,7 @@ const Error: NextPage = () => {
     </>
   )
 }
+
+Error.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Error

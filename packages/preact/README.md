@@ -34,7 +34,19 @@ your project. All source code is available in the Ory Elements
 folder.
 
 ```tsx
-// import Ory elements css
+// Ory Elements
+// optional global css reset
+import "@ory/elements-preact/assets/normalize.css"
+// optional fontawesome icons
+import "@ory/elements-preact/assets/fa-brands.min.css"
+import "@ory/elements-preact/assets/fa-solid.min.css"
+import "@ory/elements-preact/assets/fontawesome.min.css"
+
+// optional fonts
+import "@ory/elements-preact/assets/inter-font.css"
+import "@ory/elements-preact/assets/jetbrains-mono-font.css"
+
+// required styles for Ory Elements
 import "@ory/elements-preact/style.css"
 
 const Main = () => {
@@ -58,7 +70,7 @@ render(<Main />, document.getElementById("app") as HTMLElement)
 Ory Elements supports integrating with Ory out of the box with the
 `<UserAuthCard/>`, `<UserSettingsCard />` and `<UserErrorCard />`.
 
-Each flow can be mapped using these compontents with only a few lines of code.
+Each flow can be mapped using these components with only a few lines of code.
 
 Let's create a login example, create `login.tsx`.
 

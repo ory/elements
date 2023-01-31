@@ -1,6 +1,14 @@
-import React from "react"
 import { ThemeProvider } from "@ory/elements"
+import "@ory/elements/assets/normalize.css"
+
+import "@ory/elements/assets/fa-brands.min.css"
+import "@ory/elements/assets/fa-solid.min.css"
+import "@ory/elements/assets/fontawesome.min.css"
+import "@ory/elements/assets/inter-font.css"
+import "@ory/elements/assets/jetbrains-mono-font.css"
 import "@ory/elements/style.css"
+
+import React from "react"
 
 export const globalTypes = {
   theme: {
@@ -20,7 +28,7 @@ export const globalTypes = {
 export const withTheme = (StoryFn, context) => {
   const theme = context.globals.theme
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} enableFontSmoothing={true}>
       <StoryFn />
     </ThemeProvider>
   )

@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
@@ -14,11 +13,13 @@ import { AxiosError } from "axios"
 
 // Ory Elements
 // We will use UserAuthCard from Ory Elements to display the verification form.
+import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
 import { QueryParams } from "../pkg/helpers"
 import { HandleError } from "../pkg/hooks"
+import { NextPageWithLayout } from "./_app"
 
-const Verification: NextPage = () => {
+const Verification: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
 
   const handleError = HandleError()
@@ -171,5 +172,7 @@ const Verification: NextPage = () => {
     <div>Loading...</div>
   )
 }
+
+Verification.getLayout = (page) => <Layout>{page}</Layout>
 
 export default Verification

@@ -15,12 +15,12 @@ Ory Elements supports integrating with:
 
 - React
 - Preact
-- ExpressJs (experimental)
+- Express.js (experimental)
 
 ## Getting Started
 
-Install Ory Elements into your existing React / Preact or ExpressJS application.
-You can find example apps [here](#example-apps)
+Install Ory Elements into your existing React / Preact or Express.js
+application. You can find example apps [here](#example-apps)
 
 **React**
 
@@ -34,7 +34,7 @@ npm install @ory/elements --save
 npm install @ory/elements-preact --save
 ```
 
-**ExpressJs**
+**Express.js**
 
 ```shell
 npm install @ory/elements-markup --save
@@ -72,6 +72,37 @@ have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
 
 Now you can see Ory Elements in action by opening http://localhost:3000 in your
 browser!
+
+## Breaking Changes
+
+### Before v0.0.1-beta.1
+
+Before v0.0.1-beta.1, Ory Elements exposed a singular `style.css` file which
+contained all the required fonts and icons necessary to work out of the box.
+This was convenient for elements to work out of the box, but caused the bundle
+size to be larger than necessary, especially for applications that only use a
+few components or their own icons and fonts.
+
+The new version of Ory Elements now only exposes the CSS for the components in
+the `style.css` file, and the rest of the CSS are optional and can be imported
+individually.
+
+```tsx
+// Ory Elements
+// optional global css reset
+import "@ory/elements/assets/normalize.css"
+// optional fontawesome icons
+import "@ory/elements/assets/fa-brands.min.css"
+import "@ory/elements/assets/fa-solid.min.css"
+import "@ory/elements/assets/fontawesome.min.css"
+
+// optional fonts
+import "@ory/elements/assets/inter-font.css"
+import "@ory/elements/assets/jetbrains-mono-font.css"
+
+// required styles for Ory Elements
+import "@ory/elements/style.css"
+```
 
 ## Quickstart: Storybook
 
@@ -227,7 +258,21 @@ Inside our components we provide the `<ThemeProvider />` which exposes the
 `themeOverrides` property so that you can implement your own theme.
 
 ```tsx
+// Ory Elements
+// optional global css reset
+import "@ory/elements-preact/assets/normalize.css"
+// optional fontawesome icons
+import "@ory/elements-preact/assets/fa-brands.min.css"
+import "@ory/elements-preact/assets/fa-solid.min.css"
+import "@ory/elements-preact/assets/fontawesome.min.css"
+
+// optional fonts
+import "@ory/elements-preact/assets/inter-font.css"
+import "@ory/elements-preact/assets/jetbrains-mono-font.css"
+
+// required styles for Ory Elements
 import "@ory/elements-preact/style.css"
+
 const Main = () => {
   return (
     <ThemeProvider themeOverrides={customTheme}>
@@ -244,10 +289,10 @@ const Main = () => {
 }
 ```
 
-### Theme CSS in ExpressJS
+### Theme CSS in Express.js
 
-For ExpressJS the library also exports a helper function which registers all the
-CSS the library produces.
+For Express.js the library also exports a helper function which registers all
+the CSS the library produces.
 
 ```ts
 import express, { Application } from "express"
@@ -323,16 +368,16 @@ provides support to a large React based ecosystem. The project then bundles
 these components to their respective needs. An example is bundling for Preact
 which you can find in the
 [packages](https://github.com/ory/elements/tree/main/packages)' folder. It uses
-the React components directly in this case but bundles it specifically for
+the React components directly in this case, but bundles it specifically for
 Preact support.
 
 Each component relies on some CSS styles, which are located in the
 [theme](https://github.com/ory/elements/tree/main/src/theme) directory. To
 understand how this works, please refer to the [CSS System](#css-system)
 
-#### Express JS systems
+#### Express.js systems
 
-Express JS is an edge-case which requires the React components to be wrapped by
+Express.js is an edge-case which requires the React components to be wrapped by
 the `ReactDOMServer` to produce static HTML. This essentially does server-side
 rendering of the components and removes any client-side JavaScript. Each
 component needs to be wrapped by `ComponentWrapper` which essentially uses
@@ -366,15 +411,15 @@ and are sometimes required by a component. An example is the
 ## Versioning and Publishing
 
 Ory Elements uses a fully automatic release publishing pipeline. All that is
-necessary is to create a new release on GitHub after which the workflow runs all
-the necessary steps to release the modules to the NPM registry.
+necessary is to create a new release on GitHub, after which the workflow runs
+all the necessary steps to release the modules to the NPM registry.
 
 ## Using local Ory SDKs
 
 Most of the time, new features to this repository need some work in the
 corresponding Ory products to work. To make the development cycle more
-productive, it's possible to generate the SDK from a local OpenAPI/Swagger spec
-file.
+productive, it's possible to generate the SDK from a local OpenAPI / Swagger
+spec file.
 
 ```bash
 export KRATOS_DIR=/path/to/kratos # point this variable to the root of your local Kratos clone
@@ -385,14 +430,14 @@ make build-sdk
 This copies the current OpenAPI spec from the local Kratos repository to the
 current Elements directory (`./contrib/sdk/api.json`).
 
-After that it generates the Typescript SDK according to the spec and copies it
+After that, it generates the Typescript SDK according to the spec and copies it
 to the `node_modules` directory. This overrides the currently installed module!
 
 Now you can use the updated SDK without publishing to NPM first.
 
 ## Testing `@ory/elements` changes locally
 
-To test local changes in `@ory/elements` in a local Ory examples repository you
+To test local changes in `@ory/elements` in a local Ory examples repository, you
 can point NPM to use a local directory instead of a remote package from the
 registry.
 

@@ -1,5 +1,5 @@
 import cn from "classnames"
-import React from "react"
+
 import { typographyStyle } from "../theme"
 import {
   buttonLinkContainerStyle,
@@ -7,11 +7,6 @@ import {
   buttonLinkIconStyle,
   buttonLinkStyle,
 } from "../theme/button-link.css"
-
-// we use the fontawesome checkmark instead of the standard checkmark
-// so we need fontawesome to be loaded
-import "../assets/fa-solid.min.css"
-import "../assets/fontawesome.min.css"
 
 export type ButtonLinkProps = {
   children?: React.ReactNode

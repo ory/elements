@@ -10,7 +10,7 @@ export const buttonStyle = recipe({
     // keep `all: unset` at the top since this removes the standard html styling from the button
     all: "unset",
     boxSizing: "border-box",
-    fontFamily: "Inter",
+    fontFamily: oryTheme.fontFamily,
     textDecoration: "none",
     color: oryTheme.text.def,
     background: oryTheme.accent.def,

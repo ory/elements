@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements-markup",
-  "version": "0.0.1-alpha.29",
+  "version": "0.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -9,7 +9,10 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json",
+    "./assets/*": "./dist/assets/*",
+    "./assets/**/*": "./dist/assets/**/*"
   },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
@@ -27,15 +30,10 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "overrides": {
-    "@vanilla-extract/vite-plugin": {
-      "vite": "^3"
-    }
-  },
   "devDependencies": {
-    "@vanilla-extract/vite-plugin": "^3.3.1",
-    "@vitejs/plugin-react": "^2.0.1",
-    "eslint": "^8.22.0"
+    "@vanilla-extract/vite-plugin": "3.7.1",
+    "@vitejs/plugin-react": "3.0.1",
+    "eslint": "8.33.0"
   },
   "files": [
     "dist/*"

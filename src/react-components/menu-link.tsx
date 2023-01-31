@@ -1,5 +1,5 @@
 import cn from "classnames"
-import React from "react"
+
 import { colorSprinkle, typographyStyle } from "../theme"
 import {
   menuLinkIconLeftStyle,
