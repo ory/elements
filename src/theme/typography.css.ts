@@ -115,7 +115,7 @@ export const typographyStyle = recipe({
         lineHeight: pxToRem(144),
       },
       monoCaption: {
-        fontFamily: "JetBrainsMono",
+        fontFamily: oryTheme.fontFamilyMono,
         fontSize: pxToRem(14),
         lineHeight: pxToRem(20),
       },
