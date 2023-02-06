@@ -10,7 +10,7 @@ export const buttonSocialStyle = recipe({
   base: {
     all: "unset",
     boxSizing: "border-box",
-    fontFamily: "Inter",
+    fontFamily: oryTheme.fontFamily,
     textDecoration: "none",
     display: "flex",
     flexDirection: "row",

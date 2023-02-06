@@ -5,6 +5,7 @@ import { pxToEm } from "../common"
 
 export interface Font {
   fontFamily: string
+  fontFamilyMono: string
   fontStyle: string
 }
 
@@ -29,6 +30,7 @@ export const defaultBreakpoints: BreakPoints = {
 
 export type Theme = {
   fontFamily: string
+  fontFamilyMono: string
   fontStyle: string
   accent: {
     def: string
@@ -77,11 +79,13 @@ export type Theme = {
 
 export const defaultFont: Font = {
   fontFamily: "Inter",
+  fontFamilyMono: "JetBrainsMono",
   fontStyle: "normal",
 }
 
 export const defaultLightTheme: Theme = {
   fontFamily: "Inter",
+  fontFamilyMono: "JetBrainsMono",
   fontStyle: "normal",
   accent: {
     def: "#3D53F5",
@@ -130,6 +134,7 @@ export const defaultLightTheme: Theme = {
 
 export const defaultDarkTheme: Theme = {
   fontFamily: "Inter",
+  fontFamilyMono: "JetBrainsMono",
   fontStyle: "normal",
   accent: {
     def: "#6475f7",
