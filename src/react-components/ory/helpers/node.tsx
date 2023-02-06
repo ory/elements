@@ -146,7 +146,7 @@ export const Node = ({
         }
 
         // the recovery code resend button
-        if (node.meta.label?.id === 1070007) {
+        if (node.meta.label?.id === 1070008) {
           // on html forms the required flag on an input field will prevent the form from submitting.
           // we disable validation for this form since the resend button does not rely on any input fields
           submit.formNoValidate = true
