@@ -11,6 +11,7 @@ import { defaultLightTheme } from "./consts"
 export const oryTheme = createGlobalThemeContract(
   {
     fontFamily: "font-family",
+    fontFamilyMono: "font-family-mono",
     fontStyle: "font-style",
     accent: {
       def: "accent-def",
