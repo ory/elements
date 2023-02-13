@@ -1,5 +1,5 @@
 // React
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 // Next.js
 import Router from "next/router"
@@ -22,8 +22,6 @@ import { NextPageWithLayout } from "./_app"
 
 const Home: NextPageWithLayout = () => {
   const [session, setSession] = useState<Session>()
-  // React18 strict mode triggers useEffect twice - this will prevent it
-  const checkSession = useRef(false)
 
   const handleError = useCallback((error: AxiosError) => {
     const handle = HandleError(undefined, undefined, "/login")
@@ -31,9 +29,6 @@ const Home: NextPageWithLayout = () => {
   }, [])
 
   useEffect(() => {
-    if (checkSession.current) return
-    checkSession.current = true
-
     // If the router is not ready yet, or we already have a session, do nothing.
     ory
       .toSession()
