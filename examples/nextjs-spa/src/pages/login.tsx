@@ -41,7 +41,6 @@ const Login: NextPageWithLayout = () => {
         .getLoginFlow({ id })
         .then(({ data }) => setFlow(data))
         .catch(handleError),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
@@ -84,7 +83,6 @@ const Login: NextPageWithLayout = () => {
 
     // Otherwise we initialize it
     createFlow(refresh, aal, returnTo)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
   const submitFlow = (values: UpdateLoginFlowBody) =>

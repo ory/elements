@@ -38,7 +38,6 @@ const Registration: NextPageWithLayout = () => {
           SetUriFlow(Router, data.id)
         })
         .catch(handleError),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
@@ -77,7 +76,6 @@ const Registration: NextPageWithLayout = () => {
 
     // Otherwise we initialize it
     createFlow(returnTo)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
   const submitFlow = (values: UpdateRegistrationFlowBody) =>

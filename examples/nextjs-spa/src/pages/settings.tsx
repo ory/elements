@@ -39,7 +39,6 @@ const Settings: NextPageWithLayout = () => {
           setFlow(data)
         })
         .catch(handleError),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
@@ -80,7 +79,6 @@ const Settings: NextPageWithLayout = () => {
 
     // Otherwise we initialize it
     createFlow(returnTo)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
   const onSubmit = (values: UpdateSettingsFlowBody) =>
