@@ -2,11 +2,11 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
 import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
-import { ory } from "../pkg/sdk"
+import { ory } from "@/pkg/sdk"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -15,7 +15,8 @@ import { AxiosError } from "axios"
 // We will use UserAuthCard from Ory Elements to display the recovery form.
 import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
-import { HandleError } from "../pkg/hooks"
+import { HandleError } from "@/pkg/hooks"
+import { SetUriFlow } from "@/pkg/helpers"
 import { NextPageWithLayout } from "./_app"
 
 const Recovery: NextPageWithLayout = () => {
@@ -23,42 +24,31 @@ const Recovery: NextPageWithLayout = () => {
 
   // Get flow information from the URL
   const router = useRouter()
-  const handleError = HandleError()
 
   const flowId = String(router.query.flow || "")
   const returnTo = String(router.query.return_to || "")
 
-  const getRecoveryFlow = useCallback(
+  const getFlow = useCallback(
     (id: string) =>
       ory
         .getRecoveryFlow({ id })
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch((err: AxiosError) => handleError(err))
-        .catch((err: AxiosError) => {
-          switch (err.response?.status) {
-            case 410:
-              // Status code 410 means the request has expired - so let's load a fresh flow!
-              router.push("/recovery")
-            case 403:
-              // Status code 403 implies some other issue (e.g. CSRF) - let's reload!
-              router.push("/recovery")
-            default:
-              router.push({
-                pathname: "/error",
-                query: {
-                  error: JSON.stringify(err, null, 2),
-                  id: err.response?.data.error?.id,
-                  flowType: router.pathname,
-                },
-              })
-          }
-        }),
-    [handleError, router],
+        .catch(handleError),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
   )
 
-  const createRecoveryFlow = useCallback(
+  const handleError = useCallback(
+    (error: AxiosError) => {
+      const handle = HandleError(getFlow, setFlow, "/registration", true)
+      return handle(error)
+    },
+    [getFlow],
+  )
+
+  const createFlow = useCallback(
     (returnTo: string) =>
       ory
         .createBrowserRecoveryFlow({
@@ -66,18 +56,10 @@ const Recovery: NextPageWithLayout = () => {
         })
         .then(({ data }) => {
           setFlow(data)
-          router.push(`/recovery?flow=${data.id}`, undefined, { shallow: true })
+          SetUriFlow(Router, data.id)
         })
-        .catch((error: AxiosError) => handleError(error))
-        .catch((err: AxiosError) => {
-          // If the previous handler did not catch the error it's most likely a form validation error
-          if (err.response?.status === 400) {
-            // Yup, it is!
-            setFlow(err.response?.data)
-            return
-          }
-        }),
-    [handleError, router],
+        .catch(handleError),
+    [handleError],
   )
 
   useEffect(() => {
@@ -87,17 +69,15 @@ const Recovery: NextPageWithLayout = () => {
 
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
-      getRecoveryFlow(flowId).catch(
-        (err: AxiosError) =>
-          err.response?.status === 410 ?? createRecoveryFlow(returnTo),
-      )
+      getFlow(flowId).catch(() => createFlow(returnTo))
       // if the flow is expired, we create a new one
       return
     }
 
     // Otherwise we initialize it
-    createRecoveryFlow(returnTo)
-  }, [flowId, returnTo, getRecoveryFlow, createRecoveryFlow, router.isReady])
+    createFlow(returnTo)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady])
 
   const submitFlow = (values: UpdateRecoveryFlowBody) =>
     ory
@@ -109,17 +89,7 @@ const Recovery: NextPageWithLayout = () => {
         // Form submission was successful, show the message to the user!
         setFlow(data)
       })
-      .catch((error: AxiosError) => handleError(error))
-      .catch((err: AxiosError) => {
-        // If the previous handler did not catch the error it's most likely a form validation error
-        if (err.response?.status === 400) {
-          // Yup, it is!
-          setFlow(err.response?.data)
-          return
-        }
-
-        return Promise.reject(err)
-      })
+      .catch(handleError)
 
   return flow ? (
     // create a recovery form that dynamically renders based on the flow data using Ory Elements

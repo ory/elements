@@ -13,9 +13,9 @@ const axios = axiosFactory.create({
 axios.interceptors.response.use(
   (v) => Promise.resolve(v),
   (error: AxiosError) => {
-    console.debug(`Axios Intercepted Error ${JSON.stringify(error.response)}`)
-
     if (!error.config || !error.response) {
+      console.debug(`Axios Intercepted Error ${JSON.stringify(error.response)}`)
+
       // it's a network error
       return Promise.reject({
         response: {

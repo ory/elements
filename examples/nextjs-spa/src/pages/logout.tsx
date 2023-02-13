@@ -1,6 +1,6 @@
 import { NextPage } from "next"
 import { useEffect } from "react"
-import { LogoutLink } from "../pkg/hooks"
+import { LogoutLink } from "@/pkg/hooks"
 
 const Logout: NextPage = () => {
   const onLogout = LogoutLink()
