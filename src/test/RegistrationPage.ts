@@ -1,3 +1,6 @@
+// Copyright © 2023 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Page } from "@playwright/test"
 import { AuthPage, defaultTraits } from "./AuthPage"
 import { Traits } from "./types"
