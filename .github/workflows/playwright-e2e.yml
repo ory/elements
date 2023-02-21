@@ -1,4 +1,4 @@
-name: Playwright Component Tests
+name: Playwright E2E Tests
 on:
   push:
     branches: [main, master]
@@ -21,11 +21,15 @@ jobs:
         run: npm run build:clean
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npm run test
+      - name: Install Ory CLI
+        run: make .bin/ory
+      - name: Run examples/react-spa tests
+        run: cd examples/react-spa && npm run test
       - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: examples/react-spa playwright-report
+          path: |
+            examples/react-spa/playwright-report/
+            examples/react-spa/test-results/
           retention-days: 7

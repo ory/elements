@@ -77,7 +77,7 @@ export default defineConfig({
         APPLICATION_URL: "http://localhost:3000",
         PROXY_URL: "http://localhost:4000",
       },
-      command: "ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
+      command: "../../.bin/ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
       port: 4000,
     },
     {
