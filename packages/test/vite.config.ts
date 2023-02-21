@@ -17,7 +17,7 @@ export default defineConfig({
     lib: {
       name: "@ory/elements-test",
       entry: path.resolve(__dirname, "../../src/tests.ts"),
-      formats: ["es"],
+      formats: ["es", "umd"],
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),
     },
     rollupOptions: {

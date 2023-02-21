@@ -14,7 +14,6 @@
     "build:preact": "lerna run build --stream --scope=@ory/elements-preact",
     "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
     "test": "playwright test -c playwright-ct.config.ts",
-    "test-e2e": "playwright test -c playwright.config.ts",
     "docs": "typedoc --entryPointStrategy packages . --out docs"
   },
   "repository": {

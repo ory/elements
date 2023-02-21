@@ -1,11 +1,11 @@
 import {
   AuthPage,
   loginFixture,
+  loginRefreshFixture,
   recoveryFixture,
   registrationFixture,
   twoFactorLoginFixture,
   verificationFixture,
-  loginRefreshFixture,
 } from "@ory/elements-test"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { UserAuthCard } from "./user-auth-card"
