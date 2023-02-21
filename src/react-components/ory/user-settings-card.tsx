@@ -109,7 +109,12 @@ export const UserSettingsCard = ({
           {cardTitle}
         </h3>
       )}
-      <UserAuthForm flow={flow} onSubmit={onSubmit} className={className}>
+      <UserAuthForm
+        flow={flow}
+        onSubmit={onSubmit}
+        className={className}
+        data-testid={`${flowType}-settings-card`}
+      >
         {$flow}
       </UserAuthForm>
     </div>

@@ -3,3 +3,8 @@
 
 export * from "./AuthPage"
 export * from "./Fixtures"
+export * from "./LoginPage"
+export * from "./playwright-fixture"
+export * from "./RecoveryPage"
+export * from "./RegistrationPage"
+export * from "./VerificationPage"

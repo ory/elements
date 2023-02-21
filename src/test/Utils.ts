@@ -24,3 +24,10 @@ export const inputNodesToRecord = (nodes: UiNode[]): Record<string, Traits> => {
     return map
   }, {})
 }
+
+export const RandomString = (length = 20) => {
+  return Array(length)
+    .fill(null)
+    .map(() => Math.random().toString(36).substring(2))
+    .join("")
+}

@@ -4,7 +4,40 @@
 import { UiNode } from "@ory/client"
 import { expect, Locator } from "@playwright/test"
 import { Traits } from "./types"
-import { inputNodesToRecord, isUiNode } from "./Utils"
+import { inputNodesToRecord, isUiNode, RandomString } from "./Utils"
+
+const email = `${RandomString()}@example.com`
+const password = RandomString()
+
+export const defaultLoginTraits: Record<string, Traits> = {
+  identifier: {
+    label: "Email",
+    type: "input",
+    value: email,
+  },
+  password: {
+    label: "Password",
+    type: "input",
+    value: password,
+  },
+}
+
+export const defaultTraits: Record<string, Traits> = {
+  "traits.email": {
+    label: "Email",
+    type: "input",
+    value: email,
+  },
+  password: {
+    label: "Password",
+    type: "input",
+    value: password,
+  },
+}
+
+export const defaultVerificationTraits: Record<string, Traits> = {
+  "traits.email": defaultTraits["traits.email"],
+}
 
 export class AuthPage {
   readonly locator: Locator
