@@ -3,7 +3,7 @@
 
 import { UiNode } from "@ory/client"
 import { isUiNodeInputAttributes } from "@ory/integrations/ui"
-import { Traits } from "./types"
+import { Traits } from "./models/types"
 
 export const isUiNode = (a: unknown): a is UiNode[] => {
   return (

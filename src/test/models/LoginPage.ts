@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Page } from "@playwright/test"
+import { Page, Response } from "@playwright/test"
 import { AuthPage, defaultLoginTraits } from "./AuthPage"
 import { Traits } from "./types"
 
@@ -25,5 +25,17 @@ export class LoginPage extends AuthPage {
 
   async goto() {
     await this.page.goto(this.pageUrl.href)
+  }
+
+  async interceptCreateRequest(): Promise<Response> {
+    return super.interceptCreateRequest("login")
+  }
+
+  async interceptFetchRequest(): Promise<Response> {
+    return super.interceptFetchRequest("login")
+  }
+
+  async interceptSubmitRequest(): Promise<Response> {
+    return super.interceptSubmitRequest("login")
   }
 }

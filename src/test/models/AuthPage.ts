@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode } from "@ory/client"
-import { expect, Locator } from "@playwright/test"
+import { expect, Locator, Response } from "@playwright/test"
 import { Traits } from "./types"
-import { inputNodesToRecord, isUiNode, RandomString } from "./Utils"
+import { inputNodesToRecord, isUiNode, RandomString } from "../utils"
 
 const email = `${RandomString()}@example.com`
 const password = RandomString()
@@ -43,6 +43,7 @@ export class AuthPage {
   readonly locator: Locator
   readonly traits: Record<string, Traits>
   readonly formFields: Record<string, Locator> = {}
+  readonly errorMessage: Locator
 
   constructor(traits: Record<string, Traits> | UiNode[], locator: Locator) {
     this.locator = locator
@@ -50,6 +51,7 @@ export class AuthPage {
     for (const key in traits) {
       this.formFields[key] = locator.locator(`input[name="${key}"]`)
     }
+    this.errorMessage = locator.locator("*[data-testid*='ui/message/'")
   }
 
   async expectTraitFields() {
@@ -77,5 +79,25 @@ export class AuthPage {
       }
     }
     await this.locator.locator('[type="submit"]').click()
+  }
+
+  async expectErorr(text: string) {
+    await expect(this.errorMessage).toContainText(text)
+  }
+
+  async interceptCreateRequest(flow: string): Promise<Response> {
+    return this.locator
+      .page()
+      .waitForResponse(`**/self-service/${flow}/browser`)
+  }
+
+  async interceptFetchRequest(flow: string): Promise<Response> {
+    return this.locator
+      .page()
+      .waitForResponse(`**/self-service/${flow}/flows?id=*`)
+  }
+
+  async interceptSubmitRequest(flow: string): Promise<Response> {
+    return this.locator.page().waitForResponse(`**/self-service/${flow}?flow=*`)
   }
 }

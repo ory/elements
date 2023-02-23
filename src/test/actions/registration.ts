@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FrontendApi } from "@ory/client"
-import { Traits } from "./types"
+import { Traits } from "../models/types"
 
 export const registerAccount = async (
   sdk: FrontendApi,

@@ -3,8 +3,8 @@
 
 import { UiNode } from "@ory/client"
 import { expect, Locator } from "@playwright/test"
-import { Traits } from "./types"
-import { inputNodesToRecord, isUiNode } from "./Utils"
+import { Traits } from "./models/types"
+import { inputNodesToRecord, isUiNode } from "./utils"
 
 export class ConsentPage {
   readonly locator: Locator
