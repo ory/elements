@@ -1,42 +1,138 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client"
+import { Session, UiNode } from "@ory/client"
 import { expect, Locator, Response } from "@playwright/test"
-import { Traits } from "./types"
+import { merge } from "lodash"
 import { inputNodesToRecord, isUiNode, RandomString } from "../utils"
+import { MockFlowResponse, Traits } from "./types"
 
 const email = `${RandomString()}@example.com`
 const password = RandomString()
 
 export const defaultLoginTraits: Record<string, Traits> = {
   identifier: {
+    group: "default",
+    label: "Email",
+    type: "input",
+    value: email,
+    node_type: "input",
+    required: true,
+  },
+  password: {
+    group: "password",
+    node_type: "input",
+    required: true,
+    label: "Password",
+    type: "input",
+    value: password,
+  },
+  submitButton: {
+    group: "password",
+    node_type: "input",
+    label: "Sign in",
+    type: "submit",
+    value: "password",
+  },
+}
+
+export const defaultRegistrationTraits: Record<string, Traits> = {
+  "traits.email": {
+    group: "password",
+    node_type: "input",
+    required: true,
     label: "Email",
     type: "input",
     value: email,
   },
   password: {
+    group: "password",
+    node_type: "input",
+    required: true,
     label: "Password",
     type: "input",
     value: password,
+  },
+  tos: {
+    group: "default",
+    node_type: "input",
+    required: true,
+    label: "I agree to the terms of service",
+    type: "checkbox",
+    value: "",
+  },
+  submitButton: {
+    group: "default",
+    node_type: "input",
+    label: "Sign up",
+    type: "submit",
+    value: "password",
   },
 }
 
 export const defaultTraits: Record<string, Traits> = {
   "traits.email": {
+    group: "default",
+    node_type: "input",
+    required: true,
     label: "Email",
-    type: "input",
+    type: "email",
     value: email,
   },
   password: {
+    group: "password",
+    node_type: "input",
+    required: true,
     label: "Password",
-    type: "input",
+    type: "password",
     value: password,
+  },
+}
+
+export const defaultRecoveryTraits: Record<string, Traits> = {
+  email: {
+    group: "code",
+    label: "Email",
+    type: "email",
+    value: email,
+    node_type: "input",
+    required: true,
+  },
+  submitButton: {
+    group: "code",
+    node_type: "input",
+    label: "Submit",
+    type: "submit",
+    value: "code",
+  },
+}
+
+export const defaultRecoveryTraitsWithCode: Record<string, Traits> = {
+  ...defaultRecoveryTraits,
+  code: {
+    group: "code",
+    label: "Verify code",
+    type: "input",
+    value: "123456",
+    node_type: "input",
+    required: true,
+  },
+  resendButton: {
+    group: "code",
+    node_type: "input",
+    label: "Resend Code",
+    type: "submit",
+    value: email,
   },
 }
 
 export const defaultVerificationTraits: Record<string, Traits> = {
   "traits.email": defaultTraits["traits.email"],
+}
+
+export type MockFlow = {
+  flow: string
+  response?: MockFlowResponse
 }
 
 export class AuthPage {
@@ -54,9 +150,10 @@ export class AuthPage {
     this.errorMessage = locator.locator("*[data-testid*='ui/message/'")
   }
 
-  async expectTraitFields() {
-    for (const key in this.traits) {
-      if (this.traits[key].type === "hidden") {
+  async expectTraitFields(traits?: Record<string, Traits>) {
+    const t = traits || this.traits
+    for (const key in t) {
+      if (t[key].type === "hidden") {
         await expect(this.locator.locator(`*[name="${key}"]`)).toBeHidden()
       } else {
         await expect(this.locator.locator(`*[name="${key}"]`)).toBeVisible()
@@ -85,19 +182,105 @@ export class AuthPage {
     await expect(this.errorMessage).toContainText(text)
   }
 
-  async interceptCreateRequest(flow: string): Promise<Response> {
+  async registerMockCreateResponse({ flow, response }: MockFlow) {
     return this.locator
       .page()
-      .waitForResponse(`**/self-service/${flow}/browser`)
+      .route(`**/self-service/${flow}/browser**`, async (route) => {
+        route.fulfill({
+          ...response,
+          body: JSON.stringify(response?.body),
+        })
+      })
   }
 
-  async interceptFetchRequest(flow: string): Promise<Response> {
+  async registerMockFetchResponse({ flow, response }: MockFlow) {
     return this.locator
       .page()
-      .waitForResponse(`**/self-service/${flow}/flows?id=*`)
+      .route(`**/self-service/${flow}/flows**`, async (route) => {
+        route.fulfill({
+          ...response,
+          body: JSON.stringify(response?.body),
+        })
+      })
   }
 
-  async interceptSubmitRequest(flow: string): Promise<Response> {
-    return this.locator.page().waitForResponse(`**/self-service/${flow}?flow=*`)
+  async registerMockSubmitResponse({ flow, response }: MockFlow) {
+    return this.locator
+      .page()
+      .route(`**/self-service/${flow}?flow**`, async (route) => {
+        route.fulfill({
+          ...response,
+          body: JSON.stringify(response?.body),
+        })
+      })
+  }
+
+  async registerMockWhoamiResponse({ response }: MockFlow) {
+    return this.locator.page().route("**/sessions/whoami", async (route) => {
+      await route.fulfill({
+        ...merge(
+          {},
+          {
+            status: 200,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: {
+              active: true,
+              id: RandomString(),
+              identity: {
+                id: RandomString(),
+                traits: this.traits,
+                schema_id: "default",
+                schema_url: `/schemas/default`,
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+                recovery_addresses: [
+                  {
+                    id: RandomString(),
+                    value: email,
+                    via: "email",
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString(),
+                  },
+                ],
+                verifiable_addresses: [
+                  {
+                    id: RandomString(),
+                    value: email,
+                    via: "email",
+                    status: "verified",
+                    verified: true,
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString(),
+                    verified_at: new Date().toISOString(),
+                  },
+                ],
+              },
+            } as Session,
+          },
+          response,
+        ),
+        body: JSON.stringify(response?.body),
+      })
+    })
+  }
+
+  async interceptCreateResponse(flow: string): Promise<Response> {
+    return this.locator
+      .page()
+      .waitForResponse(`**/self-service/${flow}/browser**`)
+  }
+
+  async interceptFetchResponse(flow: string): Promise<Response> {
+    return this.locator
+      .page()
+      .waitForResponse(`**/self-service/${flow}/flows?id=**`)
+  }
+
+  async interceptSubmitResponse(flow: string): Promise<Response> {
+    return this.locator
+      .page()
+      .waitForResponse(`**/self-service/${flow}?flow=**`)
   }
 }

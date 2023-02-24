@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  SelfServiceLoginFlow,
-  SelfServiceRecoveryFlow,
-  SelfServiceRegistrationFlow,
-  SelfServiceSettingsFlow,
-  SelfServiceVerificationFlow,
+  LoginFlow,
+  RecoveryFlow,
+  RegistrationFlow,
+  SettingsFlow,
+  VerificationFlow,
 } from "@ory/client"
 
-export const loginFixture: SelfServiceLoginFlow = {
+export const loginFixture: LoginFlow = {
   id: "31f9170d-c28d-4f6c-8cf8-54b999a4f172",
   type: "browser",
   expires_at: "2022-08-29T10:21:13.298704656Z",
@@ -103,7 +103,7 @@ export const loginFixture: SelfServiceLoginFlow = {
   requested_aal: "aal1",
 }
 
-export const loginPasswordlessFixture: SelfServiceLoginFlow = {
+export const loginPasswordlessFixture: LoginFlow = {
   id: "13de599b-5fc0-472c-9635-b1d19c0ea9e3",
   type: "browser",
   expires_at: "2022-08-29T10:22:39.093619222Z",
@@ -177,7 +177,7 @@ export const loginPasswordlessFixture: SelfServiceLoginFlow = {
   requested_aal: "aal1",
 }
 
-export const twoFactorLoginFixture: SelfServiceLoginFlow = {
+export const twoFactorLoginFixture: LoginFlow = {
   id: "3f9319a6-7105-4004-aa16-80d3f5281164",
   type: "browser",
   expires_at: "2022-09-22T15:59:26.051983Z",
@@ -325,7 +325,7 @@ export const twoFactorLoginFixture: SelfServiceLoginFlow = {
   requested_aal: "aal2",
 }
 
-export const verificationFixture: SelfServiceVerificationFlow = {
+export const verificationFixture: VerificationFlow = {
   id: "5c857a5a-6a21-48cb-9acd-da9b81c1ed13",
   state: "choose_method",
   type: "browser",
@@ -392,7 +392,7 @@ export const verificationFixture: SelfServiceVerificationFlow = {
   expires_at: "2022-08-22T22:02:15.825471Z",
 }
 
-export const recoveryFixture: SelfServiceRecoveryFlow = {
+export const recoveryFixture: RecoveryFlow = {
   id: "5c857a5a-6a21-48cb-9acd-da9b81c1ed13",
   state: "choose_method",
   type: "browser",
@@ -459,7 +459,7 @@ export const recoveryFixture: SelfServiceRecoveryFlow = {
   expires_at: "2022-08-22T22:02:15.825471Z",
 }
 
-export const registrationPasswordlessFixture: SelfServiceRegistrationFlow = {
+export const registrationPasswordlessFixture: RegistrationFlow = {
   id: "e8cc19c1-66f1-4c22-8099-66126a420353",
   type: "browser",
   expires_at: "2022-08-29T10:12:12.731545764Z",
@@ -598,7 +598,7 @@ export const registrationPasswordlessFixture: SelfServiceRegistrationFlow = {
   },
 }
 
-export const registrationFixture: SelfServiceRegistrationFlow = {
+export const registrationFixture: RegistrationFlow = {
   id: "1c09e31f-fb4c-4eac-8f17-ec7ae01cab97",
   type: "browser",
   expires_at: "2022-08-29T10:19:47.350346654Z",
@@ -707,7 +707,7 @@ export const registrationFixture: SelfServiceRegistrationFlow = {
   },
 }
 
-export const registrationNoneFixture: SelfServiceRegistrationFlow = {
+export const registrationNoneFixture: RegistrationFlow = {
   id: "d045d585-0813-45fe-bb91-ef8d44e39dc9",
   type: "browser",
   expires_at: "2022-08-29T10:16:42.581562361Z",
@@ -721,7 +721,7 @@ export const registrationNoneFixture: SelfServiceRegistrationFlow = {
   },
 }
 
-export const loginNoneFixture: SelfServiceLoginFlow = {
+export const loginNoneFixture: LoginFlow = {
   id: "62a8739b-5866-4a4c-9951-acb39a49709c",
   type: "browser",
   expires_at: "2022-08-29T10:17:27.87015684Z",
@@ -755,7 +755,7 @@ export const loginNoneFixture: SelfServiceLoginFlow = {
   requested_aal: "aal1",
 }
 
-export const settingsFixture: SelfServiceSettingsFlow = {
+export const settingsFixture: SettingsFlow = {
   id: "211d1b28-6144-4b0e-9001-8f73e18c4a82",
   type: "browser",
   expires_at: "2022-08-29T14:09:37.514116692Z",
@@ -1068,7 +1068,7 @@ export const settingsFixture: SelfServiceSettingsFlow = {
   state: "show_form",
 }
 
-export const loginRefreshFixture: SelfServiceLoginFlow = {
+export const loginRefreshFixture: LoginFlow = {
   id: "8a23a143-c08d-4635-b9fc-f9036db53227",
   oauth2_login_challenge: null,
   type: "browser",

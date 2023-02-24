@@ -1,15 +1,16 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { RegistrationPage, test } from "@ory/elements-test"
+import { RegistrationMocks, RegistrationPage, test } from "@ory/elements-test"
 
 test("registration", async ({ environment, page }) => {
+  const { applicationUrl, oryProjectUrl } = environment
+
   const registrationPage = new RegistrationPage(
     page,
-    environment.applicationUrl,
+    applicationUrl,
+    oryProjectUrl,
   )
-  await registrationPage.goto()
 
-  await registrationPage.expectTraitFields()
-  await registrationPage.submitForm()
+  await RegistrationMocks.RegistrationSuccessTest(registrationPage)
 })

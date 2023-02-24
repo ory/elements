@@ -71,15 +71,15 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: [
-    {
-      env: {
-        ORY_PROJECT_SLUG: process.env.ORY_PROJECT_SLUG || "playground",
-        APPLICATION_URL: "http://localhost:3000",
-        PROXY_URL: "http://localhost:4000",
-      },
-      command: "../../.bin/ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
-      port: 4000,
-    },
+    // {
+    //   env: {
+    //     ORY_PROJECT_SLUG: process.env.ORY_PROJECT_SLUG || "playground",
+    //     APPLICATION_URL: "http://localhost:3000",
+    //     PROXY_URL: "http://localhost:4000",
+    //   },
+    //   command: "../../.bin/ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
+    //   port: 4000,
+    // },
     {
       env: {
         VITE_ORY_SDK_URL: "http://localhost:4000",

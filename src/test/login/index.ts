@@ -1,48 +1,69 @@
 import { expect } from "@playwright/test"
 import { LoginPage } from "../models/LoginPage"
+import { RandomString } from "../utils"
 
-export const LoginSuccessTest = async (loginPage: LoginPage) => {
-  const createRequest = loginPage.interceptCreateRequest()
-  await loginPage.goto()
+export const LoginMocks = {
+  LoginSuccessTest: async (loginPage: LoginPage) => {
+    // mock the Ory Network service
+    await loginPage.registerMockCreateResponse({})
 
-  const createResponse = await createRequest
+    // create a network intercept for the login response
+    const createRequest = loginPage.interceptCreateResponse()
 
-  await expect(createResponse.status).toBe(200)
+    // navigate to the login page
+    // this should trigger the create request
+    await loginPage.goto()
 
-  await loginPage.expectTraitFields()
+    // intercept the create response
+    const createResponse = await createRequest
+    await expect(createResponse.status()).toBe(200)
 
-  const fetchRequest = loginPage.interceptFetchRequest()
-  await loginPage.page.reload()
+    // validate that the form fields are present
+    await loginPage.expectTraitFields()
 
-  const fetchResponse = await fetchRequest
-  await expect(fetchResponse.status).toBe(200)
+    // mock the Ory Network service
+    await loginPage.registerMockFetchResponse({})
 
-  const submitRequest = loginPage.interceptSubmitRequest()
-  await loginPage.submitForm()
+    const fetchRequest = loginPage.interceptFetchResponse()
 
-  const submitResponse = await submitRequest
-  await expect(submitResponse.status).toBe(200)
-}
+    // reload the page to trigger the fetch request since the flow id should be in the url
+    await loginPage.page.goto(
+      new URL("?flow=" + RandomString(), loginPage.page.url()).href,
+    )
 
-export const LoginErrorTest = async (loginPage: LoginPage) => {
-  const createRequest = loginPage.interceptCreateRequest()
-  await loginPage.goto()
+    const fetchResponse = await fetchRequest
+    await expect(fetchResponse.status()).toBe(200)
 
-  const createResponse = await createRequest
+    // mock the Ory Network service
+    await loginPage.registerMockSubmitResponse({})
 
-  await expect(createResponse.status).toBe(200)
+    const submitRequest = loginPage.interceptSubmitResponse()
+    await loginPage.submitForm()
 
-  await loginPage.expectTraitFields()
+    const submitResponse = await submitRequest
+    await expect(submitResponse.status()).toBe(200)
+  },
+  LoginErrorTest: async (loginPage: LoginPage) => {
+    const createRequest = loginPage.interceptCreateResponse()
 
-  const fetchRequest = loginPage.interceptFetchRequest()
-  await loginPage.page.reload()
+    await loginPage.goto()
 
-  const fetchResponse = await fetchRequest
-  await expect(fetchResponse.status).toBe(200)
+    const createResponse = await createRequest
 
-  const submitRequest = loginPage.interceptSubmitRequest()
-  await loginPage.submitForm()
+    await expect(createResponse.status()).toBe(200)
 
-  const submitResponse = await submitRequest
-  await expect(submitResponse.status).toBe(400)
+    await loginPage.expectTraitFields()
+
+    const fetchRequest = loginPage.interceptFetchResponse()
+    await loginPage.page.reload()
+
+    const fetchResponse = await fetchRequest
+    await expect(fetchResponse.status()).toBe(200)
+
+    const submitRequest = loginPage.interceptSubmitResponse()
+    await loginPage.submitForm()
+
+    const submitResponse = await submitRequest
+    await expect(submitResponse.status()).toBe(400)
+  },
 }
