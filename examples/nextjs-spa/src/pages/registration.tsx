@@ -2,11 +2,11 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
 import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
-import { ory } from "../pkg/sdk"
+import { ory } from "@/pkg/sdk"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -15,14 +15,12 @@ import { AxiosError } from "axios"
 // We will use UserAuthCard from Ory Elements to display the registration form.
 import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
-import { QueryParams } from "../pkg/helpers"
-import { HandleError } from "../pkg/hooks"
+import { SetUriFlow } from "@/pkg/helpers"
+import { HandleError } from "@/pkg/hooks"
 import { NextPageWithLayout } from "./_app"
 
 const Registration: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<RegistrationFlow>()
-
-  const handleError = HandleError()
 
   // Get flow information from the URL
   const router = useRouter()
@@ -30,19 +28,28 @@ const Registration: NextPageWithLayout = () => {
   const flowId = String(router.query.flow || "")
   const returnTo = String(router.query.return_to || "")
 
-  const getRegistrationFlow = useCallback(
+  const getFlow = useCallback(
     (id: string) =>
       ory
         .getRegistrationFlow({ id })
         .then(({ data }) => {
           // We received the flow - let's use its data and render the form!
           setFlow(data)
+          SetUriFlow(Router, data.id)
         })
-        .catch((error: AxiosError) => handleError(error)),
-    [handleError],
+        .catch(handleError),
+    [],
   )
 
-  const createRegistrationFlow = useCallback(
+  const handleError = useCallback(
+    (error: AxiosError) => {
+      const handle = HandleError(getFlow, setFlow, "/registration", true)
+      return handle(error)
+    },
+    [getFlow],
+  )
+
+  const createFlow = useCallback(
     (returnTo: string) =>
       ory
         .createBrowserRegistrationFlow({
@@ -50,12 +57,10 @@ const Registration: NextPageWithLayout = () => {
         })
         .then(({ data }) => {
           setFlow(data)
-          router.push(`/registration?flow=${data.id}`, undefined, {
-            shallow: true,
-          })
+          SetUriFlow(Router, data.id)
         })
-        .catch((error: AxiosError) => handleError(error)),
-    [handleError, router],
+        .catch(handleError),
+    [handleError],
   )
 
   useEffect(() => {
@@ -65,23 +70,13 @@ const Registration: NextPageWithLayout = () => {
 
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
-      getRegistrationFlow(String(flowId || "")).catch(
-        (error: AxiosError) =>
-          error.response?.status === 410 ?? createRegistrationFlow(returnTo),
-        // if the flow is expired, we create a new one
-      )
+      getFlow(String(flowId || "")).catch(() => createFlow(returnTo))
       return
     }
 
     // Otherwise we initialize it
-    createRegistrationFlow(returnTo)
-  }, [
-    createRegistrationFlow,
-    getRegistrationFlow,
-    router.isReady,
-    flowId,
-    returnTo,
-  ])
+    createFlow(returnTo)
+  }, [router.isReady])
 
   const submitFlow = (values: UpdateRegistrationFlowBody) =>
     ory
@@ -95,35 +90,9 @@ const Registration: NextPageWithLayout = () => {
           window.location.href = flow?.return_to
           return
         }
-        router.push("/")
+        Router.push("/")
       })
-      .catch((error: AxiosError) => handleError(error))
-      // If the previous handler did not catch the error it's most likely a form validation error
-      .catch((error: AxiosError) => {
-        switch (error.response?.status) {
-          case 400:
-            // Yup, it is!
-            setFlow(error.response?.data)
-            break
-          case 422:
-            // get new flow data based on the flow id in the redirect url
-            const flow =
-              QueryParams(error.response.data.redirect_browser_to).get(
-                "flow",
-              ) || ""
-            // add the new flowid to the URL
-            router.push(
-              `/registration${flow ? `?flow=${flow}` : ""}`,
-              undefined,
-              {
-                shallow: true,
-              },
-            )
-            break
-          default:
-            return Promise.reject(error)
-        }
-      })
+      .catch(handleError)
 
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements

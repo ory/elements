@@ -1,12 +1,11 @@
 // React
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 import { useCallback, useEffect, useState } from "react"
-
-// Next.js
 
 // Ory SDK
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
-import { ory } from "../pkg/sdk"
+import { ory } from "@/pkg/sdk"
+import { SetUriFlow } from "@/pkg/helpers"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -20,12 +19,11 @@ import {
   UserSettingsCard,
   UserSettingsFlowType,
 } from "@ory/elements"
-import { HandleError } from "../pkg/hooks"
+import { HandleError } from "@/pkg/hooks"
 import { NextPageWithLayout } from "./_app"
 
 const Settings: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<SettingsFlow>()
-  const handleError = HandleError()
 
   // Get flow information from the URL
   const router = useRouter()
@@ -33,24 +31,26 @@ const Settings: NextPageWithLayout = () => {
   const flowId = String(router.query.flow || "")
   const returnTo = String(router.query.return_to || "")
 
-  const getSettingsFlow = useCallback(
+  const getFlow = useCallback(
     (id: string) =>
       ory
         .getSettingsFlow({ id })
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch((err: AxiosError) => {
-          if (err.response?.status === 401) {
-            router.push("/login")
-          }
-          return err
-        })
-        .catch((err: AxiosError) => handleError(err)),
-    [handleError, router],
+        .catch(handleError),
+    [],
   )
 
-  const createSettingsFlow = useCallback(
+  const handleError = useCallback(
+    (error: AxiosError) => {
+      const handle = HandleError(getFlow, setFlow, "/settings", true)
+      return handle(error)
+    },
+    [getFlow],
+  )
+
+  const createFlow = useCallback(
     (returnTo: string) =>
       ory
         .createBrowserSettingsFlow({
@@ -58,17 +58,10 @@ const Settings: NextPageWithLayout = () => {
         })
         .then(({ data }) => {
           setFlow(data)
-          router.push(`/settings?flow=${data.id}`, undefined, { shallow: true })
+          SetUriFlow(Router, data.id)
         })
-        .catch((err: AxiosError) => handleError(err))
-        .catch((err: AxiosError) => {
-          if (err.response?.status === 401) {
-            router.push("/login")
-            return
-          }
-          return err
-        }),
-    [handleError, router],
+        .catch(handleError),
+    [handleError],
   )
 
   useEffect(() => {
@@ -78,17 +71,15 @@ const Settings: NextPageWithLayout = () => {
 
     // If ?flow=.. was in the URL, we fetch it
     if (flowId) {
-      getSettingsFlow(String(flowId || "")).catch(
-        (err: AxiosError) =>
-          err.response?.status === 410 ??
-          createSettingsFlow(String(returnTo || "")),
+      getFlow(String(flowId || "")).catch(() =>
+        createFlow(String(returnTo || "")),
       )
       return
     }
 
     // Otherwise we initialize it
-    createSettingsFlow(returnTo)
-  }, [createSettingsFlow, getSettingsFlow, flowId, returnTo, router.isReady])
+    createFlow(returnTo)
+  }, [router.isReady])
 
   const onSubmit = (values: UpdateSettingsFlowBody) =>
     ory
@@ -100,29 +91,7 @@ const Settings: NextPageWithLayout = () => {
         // The settings have been saved and the flow was updated. Let's show it to the user!
         setFlow(data)
       })
-      .catch((err: AxiosError) => handleError(err))
-      .catch((err: AxiosError) => {
-        // If the previous handler did not catch the error it's most likely a form validation error
-        switch (err.response?.status) {
-          case 400:
-            // Yup, it is!
-            setFlow(err.response?.data)
-            return
-          case 401:
-            // The user is not authenticated anymore.
-            // Let's redirect them to the login page.
-            router.push("/login")
-            return
-          default:
-            // Otherwise, we show the error page.
-            router.push({
-              pathname: "/error",
-              query: {
-                error: JSON.stringify(err, null, 2),
-              },
-            })
-        }
-      })
+      .catch(handleError)
 
   // if the flow is not set, we show a loading indicator
   return flow ? (

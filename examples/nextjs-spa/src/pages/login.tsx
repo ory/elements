@@ -2,11 +2,11 @@
 import { useCallback, useEffect, useState } from "react"
 
 // Next.js
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 
 // Ory SDK & Ory Client
 import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
-import { ory } from "../pkg/sdk"
+import { ory } from "@/pkg/sdk"
 
 // Misc.
 import { AxiosError } from "axios"
@@ -15,14 +15,12 @@ import { AxiosError } from "axios"
 // We will use UserAuthCard from Ory Elements to display the login form.
 import Layout from "@/components/layout"
 import { UserAuthCard } from "@ory/elements"
-import { QueryParams } from "../pkg/helpers"
-import { HandleError } from "../pkg/hooks"
+import { SetUriFlow } from "@/pkg/helpers"
+import { HandleError } from "@/pkg/hooks"
 import { NextPageWithLayout } from "./_app"
 
 const Login: NextPageWithLayout = () => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
-  const handleError = HandleError()
-  // Get flow information from the URL
   const router = useRouter()
 
   const returnTo = String(router.query.return_to || "")
@@ -36,16 +34,22 @@ const Login: NextPageWithLayout = () => {
   // to perform two-factor authentication/verification.
   const aal = String(router.query.aal || "")
 
-  const getLoginFlow = useCallback(
+  const getFlow = useCallback(
     (id: string) =>
       // If ?flow=.. was in the URL, we fetch it
       ory
         .getLoginFlow({ id })
-        .then(({ data }) => {
-          setFlow(data)
-        })
-        .catch((error: AxiosError) => handleError(error)),
-    [handleError],
+        .then(({ data }) => setFlow(data))
+        .catch(handleError),
+    [],
+  )
+
+  const handleError = useCallback(
+    (error: AxiosError) => {
+      const handle = HandleError(getFlow, setFlow, "/login", true)
+      return handle(error)
+    },
+    [getFlow],
   )
 
   const createFlow = useCallback(
@@ -59,10 +63,10 @@ const Login: NextPageWithLayout = () => {
         })
         .then(({ data }) => {
           setFlow(data)
-          router.push(`/login?flow=${data.id}`, undefined, { shallow: true })
+          SetUriFlow(Router, data.id)
         })
-        .catch((error: AxiosError) => handleError(error)),
-    [handleError, router],
+        .catch(handleError),
+    [handleError],
   )
 
   useEffect(() => {
@@ -71,16 +75,15 @@ const Login: NextPageWithLayout = () => {
     }
 
     if (flowId) {
-      getLoginFlow(flowId).catch(
-        (err: AxiosError) =>
-          err.response?.status === 410 ?? createFlow(refresh, aal, returnTo),
-      ) // if for some reason the flow has expired, we need to get a new one
+      getFlow(flowId).catch(() => {
+        createFlow(refresh, aal, returnTo)
+      })
       return
     }
 
     // Otherwise we initialize it
     createFlow(refresh, aal, returnTo)
-  }, [createFlow, getLoginFlow, refresh, aal, returnTo, flowId, router.isReady])
+  }, [router.isReady])
 
   const submitFlow = (values: UpdateLoginFlowBody) =>
     ory
@@ -94,30 +97,9 @@ const Login: NextPageWithLayout = () => {
           window.location.href = flow?.return_to
           return
         }
-        router.push("/")
+        Router.push("/")
       })
-      .catch((err: AxiosError) => handleError(err))
-      .catch((err: AxiosError) => {
-        switch (err.response?.status) {
-          // If the previous handler did not catch the error it's most likely a form validation error
-          case 400:
-            // Yup, it is!
-            setFlow(err.response?.data)
-            break
-          case 422:
-            // get new flow data based on the flow id in the redirect url
-            const flow =
-              QueryParams(err.response.data.redirect_browser_to).get("flow") ||
-              ""
-            // add the new flowid to the URL
-            router.push(`/login${flow ? `?flow=${flow}` : ""}`, undefined, {
-              shallow: true,
-            })
-            break
-          default:
-            return Promise.reject(err)
-        }
-      })
+      .catch(handleError)
 
   return flow ? (
     // create a login form that dynamically renders based on the flow data using Ory Elements

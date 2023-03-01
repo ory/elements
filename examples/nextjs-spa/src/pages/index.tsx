@@ -1,10 +1,11 @@
 // React
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 // Next.js
+import Router from "next/router"
 
 // Ory SDK
-import { ory } from "../pkg/sdk"
+import { ory } from "@/pkg/sdk"
 
 // Import CSS
 import styles from "../styles/Dashboard.module.css"
@@ -14,23 +15,42 @@ import { AxiosError } from "axios"
 
 // We will use CodeBox from Ory Elements to display the session information.
 import Layout from "@/components/layout"
+import { Session } from "@ory/client"
 import { CodeBox } from "@ory/elements"
-import { HandleError } from "../pkg/hooks"
+import { HandleError } from "@/pkg/hooks"
 import { NextPageWithLayout } from "./_app"
 
 const Home: NextPageWithLayout = () => {
-  const [session, setSession] = useState<string>()
-  const handleError = HandleError()
+  const [session, setSession] = useState<Session>()
+
+  const handleError = useCallback((error: AxiosError) => {
+    const handle = HandleError(undefined, undefined, "/login")
+    return handle(error)
+  }, [])
 
   useEffect(() => {
     // If the router is not ready yet, or we already have a session, do nothing.
     ory
       .toSession()
-      .then((session) => {
-        setSession(JSON.stringify(session, null, 2))
+      .then(({ data: session }) => {
+        // we set the session data which contains the user Identifier and other traits.
+        setSession(session)
       })
-      .catch((err: AxiosError) => handleError(err))
-  })
+      .catch(handleError)
+      .catch((error) => {
+        // Handle all other errors like error.message "network error" if Kratos can not be connected etc.
+        if (error.message) {
+          return Router.push(
+            `/error?error=${encodeURIComponent(error.message)}`,
+          )
+        }
+
+        // Just stringify error and print all data
+        return Router.push(
+          `/error?error=${encodeURIComponent(JSON.stringify(error))}`,
+        )
+      })
+  }, [handleError])
 
   return session ? (
     <div className={styles.container}>
@@ -52,7 +72,7 @@ const Home: NextPageWithLayout = () => {
         <h3>Session Information</h3>
         <div className={styles.sessionDisplay}>
           {/* Displays the current session information */}
-          <CodeBox>{session}</CodeBox>
+          <CodeBox>{JSON.stringify(session, null, 2)}</CodeBox>
         </div>
       </main>
     </div>
