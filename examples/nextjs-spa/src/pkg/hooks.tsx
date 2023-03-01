@@ -1,7 +1,6 @@
 import { AxiosError } from "axios"
 import Router from "next/router"
 import React, { useEffect, useState } from "react"
-import { QueryParams } from "@/pkg/helpers"
 import { ory } from "./sdk"
 
 export const HandleError = (
@@ -66,8 +65,13 @@ export const HandleError = (
       }
       case 404: {
         console.warn("sdkError 404: Navigate to Error")
-        const errorMsg = error.response?.data || error
-        errorMsg.url = window.location.href
+        const errorMsg = {
+          data: error.response?.data || error,
+          status: error.response?.status,
+          statusText: error.response?.statusText,
+          url: window.location.href,
+        }
+
         await Router.push(
           `/error?error=${encodeURIComponent(JSON.stringify(errorMsg))}`,
         )
@@ -101,10 +105,25 @@ export const HandleError = (
       // or passwordless login
       case 422: {
         if (responseData.redirect_browser_to !== undefined) {
+          const currentUrl = new URL(window.location.href)
+          const redirect = new URL(responseData.redirect_browser_to)
+
+          // host name has changed, then change location
+          if (currentUrl.host !== redirect.host) {
+            console.warn("sdkError 422: Host changed redirect")
+            window.location = responseData.redirect_browser_to
+            return Promise.resolve()
+          }
+
+          // Path has changed
+          if (currentUrl.pathname !== redirect.pathname) {
+            console.warn("sdkError 422: Update path")
+            Router.push(redirect.pathname + redirect.search)
+            return Promise.resolve()
+          }
+
           // for webauthn we need to reload the flow
-          const flowId = QueryParams(responseData.redirect_browser_to).get(
-            "flow",
-          )
+          const flowId = redirect.searchParams.get("flow")
 
           if (flowId != null && getFlow !== undefined) {
             // get new flow data based on the flow id in the redirect url
