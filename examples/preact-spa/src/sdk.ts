@@ -124,7 +124,9 @@ export const sdkError = (
             // Path has changed
             if (currentUrl.pathname !== redirect.pathname) {
               console.warn("sdkError 422: Update path")
-              setLocation(redirect.pathname + redirect.search, { replace: true })
+              setLocation(redirect.pathname + redirect.search, {
+                replace: true,
+              })
               return Promise.resolve()
             }
 
