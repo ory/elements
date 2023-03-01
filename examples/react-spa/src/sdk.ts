@@ -112,10 +112,25 @@ export const sdkError = (
         }
         case 422: {
           if (responseData.redirect_browser_to !== undefined) {
+            const currentUrl = new URL(window.location.href)
+            const redirect = new URL(responseData.redirect_browser_to)
+
+            // host name has changed, then change location
+            if (currentUrl.host !== redirect.host) {
+              console.warn("sdkError 422: Host changed redirect")
+              window.location = responseData.redirect_browser_to
+              return Promise.resolve()
+            }
+
+            // Path has changed
+            if (currentUrl.pathname !== redirect.pathname) {
+              console.warn("sdkError 422: Update path")
+              navigate(redirect.pathname + redirect.search, { replace: true })
+              return Promise.resolve()
+            }
+
             // for webauthn we need to reload the flow
-            const flowId = new URL(
-              responseData.redirect_browser_to,
-            ).searchParams.get("flow")
+            const flowId = redirect.searchParams.get("flow")
 
             if (flowId != null && getFlow !== undefined) {
               // get new flow data based on the flow id in the redirect url
