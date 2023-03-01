@@ -71,8 +71,13 @@ export const sdkError = (
         case 404: {
           if (defaultNav !== undefined) {
             console.warn("sdkError 404: Navigate to Error")
-            const errorMsg = error.response?.data || error
-            errorMsg.url = window.location.href
+            const errorMsg = {
+              data: error.response?.data || error,
+              status: error.response?.status,
+              statusText: error.response?.statusText,
+              url: window.location.href,
+            }
+
             setLocation(
               `/error?error=${encodeURIComponent(JSON.stringify(errorMsg))}`,
               {
