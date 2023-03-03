@@ -28,7 +28,7 @@ export const inputFieldStyle = style({
     "&:active": {
       border: `1px solid ${oryTheme.accent.emphasis}`,
     },
-    "&:not(:focus):not(:placeholder-shown):invalid": {
+    "&:not(:placeholder-shown):invalid": {
       border: `1px solid ${oryTheme.error.emphasis}`,
     },
     "&:not(:focus):not(:placeholder-shown):valid": {
