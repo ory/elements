@@ -42,9 +42,9 @@ export const Recovery = () => {
 
     sdk
       .updateRecoveryFlow({ flow: flow.id, updateRecoveryFlowBody: body })
-      .then(() => {
-        // we successfully submitted the login flow, so lets redirect to the dashboard
-        navigate("/", { replace: true })
+      .then(({ data: flow }) => {
+        // Form submission was successful, show the message to the user!
+        setFlow(flow)
       })
       .catch(sdkErrorHandler)
   }
