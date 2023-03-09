@@ -54,7 +54,12 @@ export const UserConsentCard = ({
           </div>
           <div className={gridStyle({ gap: 4 })}>
             {requested_scope.map((scope) => (
-              <Checkbox label={scope} value={scope} name="grant_scope" />
+              <Checkbox
+                key={scope}
+                label={scope}
+                value={scope}
+                name="grant_scope"
+              />
             ))}
           </div>
           <div className={gridStyle({ gap: 4 })}>
@@ -65,12 +70,12 @@ export const UserConsentCard = ({
           </div>
           <div className={gridStyle({ direction: "row" })}>
             {client?.policy_uri && (
-              <a href={client.policy_uri} target="_blank">
+              <a href={client.policy_uri} target="_blank" rel="noreferrer">
                 <Typography size="xsmall">Privacy Policy</Typography>
               </a>
             )}
             {client?.tos_uri && (
-              <a href={client.tos_uri} target="_blank">
+              <a href={client.tos_uri} target="_blank" rel="noreferrer">
                 <Typography size="xsmall">Terms of Service</Typography>
               </a>
             )}
@@ -78,7 +83,7 @@ export const UserConsentCard = ({
           <Divider />
           <div className={gridStyle({ gap: 8 })}>
             <Checkbox
-              label="Remember my decision"
+              label="remember my decision"
               id="remember"
               name="remember"
             />

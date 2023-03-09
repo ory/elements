@@ -1,14 +1,5 @@
 import { OAuth2ConsentRequest } from "@ory/client"
-import {
-  AuthPage,
-  loginFixture,
-  recoveryFixture,
-  registrationFixture,
-  twoFactorLoginFixture,
-  verificationFixture,
-} from "@ory/elements-test"
-import { expect, test } from "@playwright/experimental-ct-react"
-import { ComponentProps } from "react"
+import { test } from "@playwright/experimental-ct-react"
 import { ConsentPage } from "../../test/ConsentPage"
 import { UserConsentCard } from "./user-consent-card"
 

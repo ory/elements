@@ -26,7 +26,7 @@ export const Checkbox = ({
   dataTestid,
   ...props
 }: CheckboxProps): JSX.Element => {
-  const id = Math.random().toString(36).substring(2)
+  const id = props.id ?? Math.random().toString(36).substring(2)
   return (
     <div
       data-testid={dataTestid}

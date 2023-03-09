@@ -46,6 +46,7 @@ import {
   UserAuthForm as userAuthForm,
   UserAuthFormProps,
   UserConsentCard as userConsentCard,
+  UserLogoutCard as userLogoutCard,
   UserConsentCardProps,
   UserErrorCard as userErrorCard,
   UserErrorCardProps,
@@ -53,6 +54,7 @@ import {
   UserSettingsCardProps,
   WebAuthnSettingsProps,
   WebAuthnSettingsSection as webAuthnSettingsSection,
+  UserLogoutCardProps,
 } from "../react-components"
 import { CodeBoxProps } from "../react-components/codebox"
 import { ComponentWrapper } from "./component-wrapper"
@@ -162,6 +164,9 @@ export const LookupSecretSettingsSection = (
 export const UserConsentCard = (props: UserConsentCardProps) =>
   ComponentWrapper(userConsentCard(props))
 
+export const UserLogoutCard = (props: UserLogoutCardProps) =>
+  ComponentWrapper(userLogoutCard(props))
+
 export type {
   ButtonLinkProps,
   ButtonProps,
@@ -187,6 +192,7 @@ export type {
   UserAuthCardProps,
   UserAuthFormProps,
   UserConsentCardProps,
+  UserLogoutCardProps,
   UserErrorCardProps,
   UserSettingsCardProps,
   UserSettingsFlowType,
