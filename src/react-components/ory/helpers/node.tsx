@@ -208,9 +208,8 @@ export const Node = ({
             header={getNodeLabel(node)}
             type={attrs.type}
             autoComplete={
-              attrs.autocomplete || attrs.name === "identifier"
-                ? "username"
-                : ""
+              attrs.autocomplete ||
+              (attrs.name === "identifier" ? "username" : "")
             }
             defaultValue={attrs.value}
             required={attrs.required}
