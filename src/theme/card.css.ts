@@ -36,10 +36,8 @@ export const cardTitleStyle = style({
 })
 
 export const cardTitleImage = style({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: pxToRem(42),
+  objectFit: "contain",
+  maxHeight: pxToRem(42),
 })
 
 // recipe for the card style
