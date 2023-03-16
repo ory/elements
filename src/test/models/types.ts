@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  GenericError,
   LoginFlow,
   RecoveryFlow,
   RegistrationFlow,
@@ -35,6 +36,8 @@ export type MockFlowResponse = {
     | VerificationFlow
     | SettingsFlow
     | Session
+    | GenericError
+    | null
   status: number
   headers: Record<string, string>
 }

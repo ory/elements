@@ -1,38 +1,48 @@
 import { expect } from "@playwright/test"
+import { loginSubmitErrorFixture } from "../fixtures"
+import { defaultMockFlowResponse } from "../models"
 import { LoginPage } from "../models/LoginPage"
 import { RandomString } from "../utils"
 
+const setupLoginFlow = async (loginPage: LoginPage) => {
+  loginPage.registerMockWhoamiResponse({
+    state: "session_forbidden",
+  })
+
+  // mock the Ory Network service
+  await loginPage.registerMockCreateResponse({})
+
+  // create a network intercept for the login response
+  const createRequest = loginPage.interceptCreateResponse()
+
+  // navigate to the login page
+  // this should trigger the create request
+  await loginPage.goto()
+
+  // intercept the create response
+  const createResponse = await createRequest
+  expect(createResponse.status()).toBe(200)
+
+  // validate that the form fields are present
+  await loginPage.expectTraitFields()
+
+  // mock the Ory Network service
+  await loginPage.registerMockFetchResponse({})
+
+  const fetchRequest = loginPage.interceptFetchResponse()
+
+  // reload the page to trigger the fetch request since the flow id should be in the url
+  await loginPage.page.goto(
+    new URL("?flow=" + RandomString(), loginPage.page.url()).href,
+  )
+
+  const fetchResponse = await fetchRequest
+  expect(fetchResponse.status()).toBe(200)
+}
+
 export const LoginMocks = {
   LoginSuccessTest: async (loginPage: LoginPage) => {
-    // mock the Ory Network service
-    await loginPage.registerMockCreateResponse({})
-
-    // create a network intercept for the login response
-    const createRequest = loginPage.interceptCreateResponse()
-
-    // navigate to the login page
-    // this should trigger the create request
-    await loginPage.goto()
-
-    // intercept the create response
-    const createResponse = await createRequest
-    await expect(createResponse.status()).toBe(200)
-
-    // validate that the form fields are present
-    await loginPage.expectTraitFields()
-
-    // mock the Ory Network service
-    await loginPage.registerMockFetchResponse({})
-
-    const fetchRequest = loginPage.interceptFetchResponse()
-
-    // reload the page to trigger the fetch request since the flow id should be in the url
-    await loginPage.page.goto(
-      new URL("?flow=" + RandomString(), loginPage.page.url()).href,
-    )
-
-    const fetchResponse = await fetchRequest
-    await expect(fetchResponse.status()).toBe(200)
+    await setupLoginFlow(loginPage)
 
     // mock the Ory Network service
     await loginPage.registerMockSubmitResponse({})
@@ -41,29 +51,31 @@ export const LoginMocks = {
     await loginPage.submitForm()
 
     const submitResponse = await submitRequest
-    await expect(submitResponse.status()).toBe(200)
+    expect(submitResponse.status()).toBe(200)
+
+    // register an active session
+    await loginPage.registerMockWhoamiResponse({
+      state: "session_active",
+    })
   },
-  LoginErrorTest: async (loginPage: LoginPage) => {
-    const createRequest = loginPage.interceptCreateResponse()
+  LoginInvalidLoginCredentialsTest: async (loginPage: LoginPage) => {
+    await setupLoginFlow(loginPage)
 
-    await loginPage.goto()
-
-    const createResponse = await createRequest
-
-    await expect(createResponse.status()).toBe(200)
-
-    await loginPage.expectTraitFields()
-
-    const fetchRequest = loginPage.interceptFetchResponse()
-    await loginPage.page.reload()
-
-    const fetchResponse = await fetchRequest
-    await expect(fetchResponse.status()).toBe(200)
+    // mock the Ory Network service
+    await loginPage.registerMockSubmitResponse({
+      response: {
+        ...defaultMockFlowResponse,
+        status: 400,
+        body: loginSubmitErrorFixture,
+      },
+    })
 
     const submitRequest = loginPage.interceptSubmitResponse()
     await loginPage.submitForm()
 
     const submitResponse = await submitRequest
-    await expect(submitResponse.status()).toBe(400)
+    expect(submitResponse.status()).toBe(400)
+
+    await loginPage.expectErorr("provided credentials are invalid")
   },
 }

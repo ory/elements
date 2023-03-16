@@ -4,6 +4,7 @@
 import { Session, UiNode } from "@ory/client"
 import { expect, Locator, Response } from "@playwright/test"
 import { merge } from "lodash"
+import { sessionForbiddenFixture } from "../fixtures"
 import { inputNodesToRecord, isUiNode, RandomString } from "../utils"
 import { MockFlowResponse, Traits } from "./types"
 
@@ -70,6 +71,24 @@ export const defaultRegistrationTraits: Record<string, Traits> = {
   },
 }
 
+export const defaultVerificationEmailTraits: Record<string, Traits> = {
+  email: {
+    group: "code",
+    label: "Email",
+    type: "input",
+    value: email,
+    node_type: "input",
+    required: true,
+  },
+  submitButton: {
+    group: "code",
+    node_type: "input",
+    label: "Submit",
+    type: "submit",
+    value: "code",
+  },
+}
+
 export const defaultTraits: Record<string, Traits> = {
   "traits.email": {
     group: "default",
@@ -133,6 +152,19 @@ export const defaultVerificationTraits: Record<string, Traits> = {
 export type MockFlow = {
   flow: string
   response?: MockFlowResponse
+  state?:
+    | "verification_submit_email"
+    | "verification_submit_code"
+    | "session_forbidden"
+    | "session_active"
+}
+
+export const defaultMockFlowResponse: MockFlowResponse = {
+  status: 200,
+  body: null,
+  headers: {
+    "Content-Type": "application/json",
+  },
 }
 
 export class AuthPage {
@@ -147,7 +179,7 @@ export class AuthPage {
     for (const key in traits) {
       this.formFields[key] = locator.locator(`input[name="${key}"]`)
     }
-    this.errorMessage = locator.locator("*[data-testid*='ui/message/'")
+    this.errorMessage = locator.locator("*[data-testid*='ui/message/']")
   }
 
   async expectTraitFields(traits?: Record<string, Traits>) {
@@ -180,6 +212,58 @@ export class AuthPage {
 
   async expectErorr(text: string) {
     await expect(this.errorMessage).toContainText(text)
+  }
+
+  sessionForbiddenResponse(): MockFlowResponse {
+    return {
+      status: 403,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: sessionForbiddenFixture,
+    }
+  }
+
+  sessionSuccessResponse(): MockFlowResponse {
+    return {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        active: true,
+        id: RandomString(),
+        identity: {
+          id: RandomString(),
+          traits: this.traits,
+          schema_id: "default",
+          schema_url: `/schemas/default`,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+          recovery_addresses: [
+            {
+              id: RandomString(),
+              value: email,
+              via: "email",
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            },
+          ],
+          verifiable_addresses: [
+            {
+              id: RandomString(),
+              value: email,
+              via: "email",
+              status: "verified",
+              verified: true,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+              verified_at: new Date().toISOString(),
+            },
+          ],
+        },
+      } as Session,
+    }
   }
 
   async registerMockCreateResponse({ flow, response }: MockFlow) {
@@ -215,50 +299,18 @@ export class AuthPage {
       })
   }
 
-  async registerMockWhoamiResponse({ response }: MockFlow) {
+  async registerMockWhoamiResponse({
+    response,
+    state,
+  }: Omit<MockFlow, "flow">) {
+    !state && (state = "session_forbidden")
     return this.locator.page().route("**/sessions/whoami", async (route) => {
       await route.fulfill({
         ...merge(
           {},
-          {
-            status: 200,
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: {
-              active: true,
-              id: RandomString(),
-              identity: {
-                id: RandomString(),
-                traits: this.traits,
-                schema_id: "default",
-                schema_url: `/schemas/default`,
-                created_at: new Date().toISOString(),
-                updated_at: new Date().toISOString(),
-                recovery_addresses: [
-                  {
-                    id: RandomString(),
-                    value: email,
-                    via: "email",
-                    created_at: new Date().toISOString(),
-                    updated_at: new Date().toISOString(),
-                  },
-                ],
-                verifiable_addresses: [
-                  {
-                    id: RandomString(),
-                    value: email,
-                    via: "email",
-                    status: "verified",
-                    verified: true,
-                    created_at: new Date().toISOString(),
-                    updated_at: new Date().toISOString(),
-                    verified_at: new Date().toISOString(),
-                  },
-                ],
-              },
-            } as Session,
-          },
+          state === "session_active"
+            ? this.sessionSuccessResponse
+            : this.sessionForbiddenResponse(),
           response,
         ),
         body: JSON.stringify(response?.body),

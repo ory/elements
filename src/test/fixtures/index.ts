@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  GenericError,
   LoginFlow,
   RecoveryFlow,
   RegistrationFlow,
@@ -1162,4 +1163,341 @@ export const loginRefreshFixture: LoginFlow = {
   updated_at: "2023-01-09T13:00:47.48922Z",
   refresh: true,
   requested_aal: "aal1",
+}
+
+export const loginSubmitErrorFixture: LoginFlow = {
+  id: "400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
+  oauth2_login_challenge: null,
+  type: "browser",
+  expires_at: "2023-03-16T12:49:22.219258Z",
+  issued_at: "2023-03-16T12:19:22.219258Z",
+  request_url:
+    "https://localhost:4000/self-service/login/browser?refresh=true\u0026aal=aal1",
+  ui: {
+    action:
+      "https://localhost:4000/self-service/login?flow=400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "discord",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with Discord",
+            type: "info",
+            context: { provider: "Discord" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "facebook",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with Facebook",
+            type: "info",
+            context: { provider: "Facebook" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "github",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with GitHub",
+            type: "info",
+            context: { provider: "GitHub" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "google",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with Google",
+            type: "info",
+            context: { provider: "Google" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "Tj03XA71hPNteczHS2gPV5r+Bwo9BVwrO8m3l8bMG/erq0Ea8SBnlU53ndj14MGiwUcp52socpZliGL7YpbUow==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          value: "asdasfew@fwefwe.com",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070004, text: "ID", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "webauthn",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010001,
+            text: "Sign in with security key",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "current-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070001, text: "Password", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: { id: 1010001, text: "Sign in", type: "info", context: {} },
+        },
+      },
+    ],
+    messages: [
+      {
+        id: 4000006,
+        text: "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number.",
+        type: "error",
+        context: {},
+      },
+    ],
+  },
+  created_at: "2023-03-16T12:19:22.331239Z",
+  updated_at: "2023-03-16T12:19:22.331239Z",
+  refresh: false,
+  requested_aal: "aal1",
+}
+
+export const verificationSubmitEmailFixture: VerificationFlow = {
+  id: "62032417-d78a-4282-b735-79e4f471df0e",
+  type: "browser",
+  expires_at: "2023-03-16T13:37:46.821552Z",
+  issued_at: "2023-03-16T13:07:46.821552Z",
+  request_url: "https://localhost:4000/self-service/verification/browser",
+  active: "code",
+  ui: {
+    action:
+      "https://localhost:4000/self-service/verification?flow=62032417-d78a-4282-b735-79e4f471df0e",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "code",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070006, text: "Verify code", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "hidden",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070005, text: "Submit", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "email",
+          type: "submit",
+          value: "sdfwetrq2r@sdfasdfwqef",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070008, text: "Resend code", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "+Qx9HfyNOqHx1gHU9uWMxfhS/J0x9NzW2qq1cq1+DBocmgtbA1jZx9LYUMtIbUIwo+vScGfZ8muE62AeCSTDTg==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+    ],
+    messages: [
+      {
+        id: 1080003,
+        text: "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+        type: "info",
+        context: {},
+      },
+    ],
+  },
+  state: "sent_email",
+}
+
+export const verificationSubmitCodeFixture: VerificationFlow = {
+  id: "b800d5a7-9199-43a2-a8c6-068c1caac0cd",
+  type: "browser",
+  expires_at: "2023-03-16T14:54:40.201568Z",
+  issued_at: "2023-03-16T14:24:40.201568Z",
+  request_url: "https://localhost:4000/self-service/verification/browser",
+  active: "code",
+  ui: {
+    action: "https://localhost:4000/",
+    method: "GET",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "Ql2fapJ/hpjARJeaMH6tQaCKJww9E5xxjIAhHKMDw+2ny+ksbapl/uNKxoWO9mO0+zMJ4Ws+sszSwfRwB1kMuQ==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "a",
+        group: "code",
+        attributes: {
+          href: "https://localhost:4000/",
+          title: { id: 1070009, text: "Continue", type: "info" },
+          id: "continue",
+          node_type: "a",
+        },
+        messages: [],
+        meta: { label: { id: 1070009, text: "Continue", type: "info" } },
+      },
+    ],
+    messages: [
+      {
+        id: 1080002,
+        text: "You successfully verified your email address.",
+        type: "success",
+      },
+    ],
+  },
+  state: "passed_challenge",
+}
+
+export const sessionForbiddenFixture: GenericError = {
+  code: 401,
+  status: "Unauthorized",
+  request: "3e5ab082-3be2-9cba-b7ff-30d980a9b122",
+  reason: "No valid session credentials found in the request.",
+  message: "The request could not be authorized",
 }

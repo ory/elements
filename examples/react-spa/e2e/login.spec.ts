@@ -3,8 +3,16 @@
 
 import { LoginMocks, LoginPage, test } from "@ory/elements-test"
 
-test("login", async ({ environment, page }) => {
-  const { applicationUrl, oryProjectUrl } = environment
-  const loginPage = new LoginPage(page, applicationUrl, oryProjectUrl)
-  await LoginMocks.LoginSuccessTest(loginPage)
+test.describe.parallel("Login Page", () => {
+  test("login success", async ({ environment, page }) => {
+    const { applicationUrl, oryProjectUrl } = environment
+    const loginPage = new LoginPage(page, applicationUrl, oryProjectUrl)
+    await LoginMocks.LoginSuccessTest(loginPage)
+  })
+
+  test("login with invalid credentials", async ({ environment, page }) => {
+    const { applicationUrl, oryProjectUrl } = environment
+    const loginPage = new LoginPage(page, applicationUrl, oryProjectUrl)
+    await LoginMocks.LoginInvalidLoginCredentialsTest(loginPage)
+  })
 })

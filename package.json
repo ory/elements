@@ -13,6 +13,7 @@
     "build:react": "lerna run build --stream --scope=@ory/elements",
     "build:preact": "lerna run build --stream --scope=@ory/elements-preact",
     "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
+    "build:test": "lerna run build --stream --scope=@ory/elements-test",
     "test": "playwright test -c playwright-ct.config.ts",
     "docs": "typedoc --entryPointStrategy packages . --out docs"
   },
@@ -29,8 +30,8 @@
     "@babel/core": "^7.18.10",
     "@ory/client": "1.1.7",
     "@ory/integrations": "1.1.0",
-    "@playwright/experimental-ct-react": "1.30.0",
-    "@playwright/test": "1.30.0",
+    "@playwright/experimental-ct-react": "1.31.2",
+    "@playwright/test": "1.31.2",
     "@preact/preset-vite": "2.5.0",
     "@storybook/addon-docs": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",

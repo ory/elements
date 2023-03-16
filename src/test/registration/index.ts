@@ -4,6 +4,10 @@ import { RandomString } from "../utils"
 
 export const RegistrationMocks = {
   RegistrationSuccessTest: async (registrationPage: RegistrationPage) => {
+    await registrationPage.registerMockWhoamiResponse({
+      state: "session_forbidden",
+    })
+
     // Mock the Ory Network service
     await registrationPage.registerMockCreateResponse({})
 
@@ -16,7 +20,7 @@ export const RegistrationMocks = {
 
     // Intercept the create response
     const createResponse = await createRequest
-    await expect(createResponse.status()).toBe(200)
+    expect(createResponse.status()).toBe(200)
 
     // Validate that the form fields are present
     await registrationPage.expectTraitFields()
@@ -31,7 +35,7 @@ export const RegistrationMocks = {
     )
 
     const fetchResponse = await fetchRequest
-    await expect(fetchResponse.status()).toBe(200)
+    expect(fetchResponse.status()).toBe(200)
 
     // Mock the Ory Network service
     await registrationPage.registerMockSubmitResponse({})
@@ -39,6 +43,11 @@ export const RegistrationMocks = {
     await registrationPage.submitForm()
 
     const submitResponse = await submitRequest
-    await expect(submitResponse.status()).toBe(200)
+    expect(submitResponse.status()).toBe(200)
+
+    // register an active session
+    await registrationPage.registerMockWhoamiResponse({
+      state: "session_active",
+    })
   },
 }

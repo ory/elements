@@ -14,7 +14,7 @@ export const RecoveryMocks = {
 
     // Intercept the create response
     const createResponse = await createRequest
-    await expect(createResponse.status()).toBe(200)
+    expect(createResponse.status()).toBe(200)
 
     // Validate that the form fields are present
     await recoveryPage.expectTraitFields()
@@ -29,7 +29,7 @@ export const RecoveryMocks = {
     )
 
     const fetchResponse = await fetchRequest
-    await expect(fetchResponse.status()).toBe(200)
+    expect(fetchResponse.status()).toBe(200)
 
     await test.step("submit the recovery form with a valid email", async () => {
       // Mock Ory Network service
@@ -39,7 +39,7 @@ export const RecoveryMocks = {
       await recoveryPage.submitForm()
 
       const submitResponse = await submitRequest
-      await expect(submitResponse.status()).toBe(200)
+      expect(submitResponse.status()).toBe(200)
     })
 
     await test.step("submit the recovery form again with a code", async () => {
@@ -52,7 +52,7 @@ export const RecoveryMocks = {
       await recoveryPage.submitForm()
 
       const submitResponse = await submitRequest
-      await expect(submitResponse.status()).toBe(200)
+      expect(submitResponse.status()).toBe(200)
     })
   },
 }
