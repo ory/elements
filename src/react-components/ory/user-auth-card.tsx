@@ -2,6 +2,7 @@ import { LoginFlow } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 
 import { gridStyle, typographyStyle } from "../../theme"
+import type { Href } from "../button-link.js"
 import { Card } from "../card"
 import { Divider } from "../divider"
 import { Message } from "../message"
@@ -29,21 +30,21 @@ import { PasswordlessSection } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
 
 export type LoginSectionAdditionalProps = {
-  forgotPasswordURL?: string
-  signupURL?: string
-  logoutURL?: string
+  forgotPasswordURL?: Href
+  signupURL?: Href
+  logoutURL?: Href
 }
 
 export type RegistrationSectionAdditionalProps = {
-  loginURL?: string
+  loginURL?: Href
 }
 
 export type VerificationSectionAdditionalProps = {
-  signupURL?: string
+  signupURL?: Href
 }
 
 export type RecoverySectionAdditionalProps = {
-  loginURL?: string
+  loginURL?: Href
 }
 
 /**

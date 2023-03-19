@@ -1,4 +1,5 @@
 import cn from "classnames"
+import { MouseEvent } from "react"
 
 import { typographyStyle } from "../theme"
 import {
@@ -8,12 +9,15 @@ import {
   buttonLinkStyle,
 } from "../theme/button-link.css"
 
+export type HrefWithHandler = [url: string, handler: (url: string) => void]
+export type Href = string | HrefWithHandler
+
 export type ButtonLinkProps = {
   children?: React.ReactNode
-  href?: string | undefined
+  href?: Href | undefined
   icon?: string
   className?: string
-} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
   ButtonLinkContainerStyle
 
 export const ButtonLink = ({
@@ -24,6 +28,17 @@ export const ButtonLink = ({
   position,
   ...props
 }: ButtonLinkProps): JSX.Element => {
+  let handleClick
+
+  if (Array.isArray(href)) {
+    const [realHref, handler] = href
+    href = realHref
+    handleClick = (event: MouseEvent) => {
+      event.preventDefault()
+      handler(realHref)
+    }
+  }
+
   return (
     <div
       className={cn(
@@ -32,7 +47,12 @@ export const ButtonLink = ({
         buttonLinkContainerStyle({ position }),
       )}
     >
-      <a className={buttonLinkStyle()} href={href} {...props}>
+      <a
+        className={buttonLinkStyle()}
+        href={href}
+        onClick={handleClick}
+        {...props}
+      >
         {icon && <i className={cn(`fa fa-${icon}`, buttonLinkIconStyle)}></i>}
         {children}
       </a>

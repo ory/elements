@@ -1,7 +1,7 @@
 import { FlowError } from "@ory/client"
 
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
-import { ButtonLink } from "../button-link"
+import { ButtonLink, Href } from "../button-link"
 import { Card } from "../card"
 import { CodeBox } from "../codebox"
 import { Message } from "../message"
@@ -10,7 +10,7 @@ import { Message } from "../message"
 export type UserErrorCardProps = {
   title: string
   error: FlowError
-  backUrl: string
+  backUrl: Href
   cardImage?: string | React.ReactElement
   contactSupportEmail?: string
   className?: string
