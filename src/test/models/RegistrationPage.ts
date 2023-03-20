@@ -4,7 +4,7 @@
 import { RegistrationFlow } from "@ory/client"
 import { Page, Response } from "@playwright/test"
 import { merge } from "lodash"
-import { RandomString, traitsToNodes } from "../utils"
+import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage, defaultRegistrationTraits, MockFlow } from "./AuthPage"
 import { MockFlowResponse, Traits } from "./types"
 
@@ -38,7 +38,7 @@ export class RegistrationPage extends AuthPage {
   getRegistrationFlowResponse(): MockFlowResponse {
     return {
       body: {
-        id: RandomString(20),
+        id: UUIDv4(),
         expires_at: new Date().toISOString(),
         issued_at: new Date().toISOString(),
         type: "browser",

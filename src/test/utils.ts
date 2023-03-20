@@ -33,7 +33,7 @@ export const traitsToNodes = (
   includeCsrf?: boolean,
 ): UiNode[] => {
   const nodes = Object.entries(traits).map<UiNode>(
-    ([name, { group, label, type, value, node_type, required }]) => {
+    ([key, { group, label, type, value, node_type, required, name }]) => {
       return {
         group: group,
         messages: [],
@@ -41,12 +41,12 @@ export const traitsToNodes = (
         meta: {
           label: {
             id: Math.floor(Math.random() * 6) + 1,
-            text: label || name,
+            text: label || name || key,
             type: "info",
           },
         } as UiNodeMeta,
         attributes: {
-          name,
+          name: name || key,
           value,
           type,
           node_type: node_type || "input",
@@ -81,3 +81,5 @@ export const RandomString = (length = 20) => {
     .map(() => Math.random().toString(36).substring(2))
     .join("")
 }
+
+export const UUIDv4 = () => `22b3ad6f-c50a-4c2f-8c94-${RandomString(12)}`

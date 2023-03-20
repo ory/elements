@@ -10,10 +10,10 @@
     "refresh": "lerna bootstrap --hoist",
     "build:clean": "lerna run build --skip-nx-cache",
     "build": "lerna run build --stream",
-    "build:react": "lerna run build --stream --scope=@ory/elements",
-    "build:preact": "lerna run build --stream --scope=@ory/elements-preact",
-    "build:markup": "lerna run build --stream --scope=@ory/elements-markup",
-    "build:test": "lerna run build --stream --scope=@ory/elements-test",
+    "build:react": "lerna run build --stream --scope=@ory/elements --skip-nx-cache",
+    "build:preact": "lerna run build --stream --scope=@ory/elements-preact --skip-nx-cache",
+    "build:markup": "lerna run build --stream --scope=@ory/elements-markup --skip-nx-cache",
+    "build:test": "lerna run build --stream --scope=@ory/elements-test --skip-nx-cache",
     "test": "playwright test -c playwright-ct.config.ts",
     "docs": "typedoc --entryPointStrategy packages . --out docs"
   },
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@babel/core": "^7.18.10",
-    "@ory/client": "1.1.7",
+    "@ory/client": "1.1.22",
     "@ory/integrations": "1.1.0",
     "@playwright/experimental-ct-react": "1.31.2",
     "@playwright/test": "1.31.2",

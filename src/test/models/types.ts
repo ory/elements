@@ -13,6 +13,7 @@ import {
 } from "@ory/client"
 
 export type Traits = {
+  name?: string
   group: UiNodeGroupEnum
   value: string
   type:
@@ -28,6 +29,11 @@ export type Traits = {
   node_type?: string
 }
 
+export type ErrorBrowserLocationChangeRequired = {
+  error: GenericError
+  redirect_browser_to: string
+}
+
 export type MockFlowResponse = {
   body:
     | LoginFlow
@@ -37,6 +43,7 @@ export type MockFlowResponse = {
     | SettingsFlow
     | Session
     | GenericError
+    | ErrorBrowserLocationChangeRequired
     | null
   status: number
   headers: Record<string, string>

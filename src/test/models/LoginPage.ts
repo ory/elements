@@ -4,7 +4,7 @@
 import { LoginFlow, Session } from "@ory/client"
 import { Page, Response } from "@playwright/test"
 import { merge } from "lodash"
-import { RandomString, traitsToNodes } from "../utils"
+import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage, defaultLoginTraits, MockFlow } from "./AuthPage"
 import { MockFlowResponse, Traits } from "./types"
 
@@ -38,7 +38,7 @@ export class LoginPage extends AuthPage {
   getLoginFlowResponse(): MockFlowResponse {
     return {
       body: {
-        id: RandomString(20),
+        id: UUIDv4(),
         expires_at: new Date().toISOString(),
         issued_at: new Date().toISOString(),
         type: "browser",
@@ -84,9 +84,9 @@ export class LoginPage extends AuthPage {
       flow: "login",
       response: response || {
         body: {
-          id: RandomString(20),
+          id: UUIDv4(),
           identity: {
-            id: RandomString(20),
+            id: UUIDv4(),
             traits: this.traits,
             schema_id: "default",
             schema_url: `${this.oryProjectUrl}/schemas/default`,

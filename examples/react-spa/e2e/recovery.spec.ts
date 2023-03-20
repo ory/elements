@@ -3,9 +3,11 @@
 
 import { RecoveryMocks, RecoveryPage, test } from "@ory/elements-test"
 
-test("recovery", async ({ environment, page }) => {
-  const { applicationUrl, oryProjectUrl } = environment
-  const recoveryPage = new RecoveryPage(page, applicationUrl, oryProjectUrl)
+test.describe.parallel("Recovery Page", () => {
+  test("recovery success", async ({ environment, page }) => {
+    const { applicationUrl, oryProjectUrl } = environment
+    const recoveryPage = new RecoveryPage(page, applicationUrl, oryProjectUrl)
 
-  await RecoveryMocks.RecoverySuccessTest(recoveryPage)
+    await RecoveryMocks.RecoverySuccessTest(recoveryPage)
+  })
 })

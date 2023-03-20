@@ -8,7 +8,7 @@ import {
   verificationSubmitCodeFixture,
   verificationSubmitEmailFixture,
 } from "../fixtures"
-import { RandomString, traitsToNodes } from "../utils"
+import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage, defaultVerificationEmailTraits, MockFlow } from "./AuthPage"
 import { MockFlowResponse, Traits } from "./types"
 
@@ -42,7 +42,7 @@ export class VerificationPage extends AuthPage {
   getVerificationFlowResponse(): MockFlowResponse {
     return {
       body: {
-        id: RandomString(20),
+        id: UUIDv4(),
         expires_at: new Date().toISOString(),
         issued_at: new Date().toISOString(),
         state: "choose_method",
@@ -91,7 +91,7 @@ export class VerificationPage extends AuthPage {
       flow: "verification",
       response: response || {
         body: {
-          id: RandomString(20),
+          id: UUIDv4(),
           state:
             state === "verification_submit_email"
               ? "sent_email"

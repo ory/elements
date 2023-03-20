@@ -1,10 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client"
 import { expect, Locator } from "@playwright/test"
-import { Traits } from "./models/types"
-import { inputNodesToRecord, isUiNode } from "./utils"
 
 export class ConsentPage {
   readonly locator: Locator

@@ -1,6 +1,9 @@
+// Copyright © 2023 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import test, { expect } from "@playwright/test"
 import { VerificationPage } from "../models"
-import { RandomString } from "../utils"
+import { UUIDv4 } from "../utils"
 
 export const VerificationMocks = {
   VerificationSuccessTest: async (verificationPage: VerificationPage) => {
@@ -27,14 +30,14 @@ export const VerificationMocks = {
       await verificationPage.expectTraitFields()
     })
 
-    await test.step("mock the fetch verification response", async () => {
+    await test.step("mock the fetch verification flow", async () => {
       // Mock the Ory Network service
       await verificationPage.registerMockFetchResponse({})
       const fetchRequest = verificationPage.interceptFetchResponse()
 
       // Reload the page to trigger the fetch request since the flow id should be in the url
       await verificationPage.page.goto(
-        new URL("?flow=" + RandomString(), verificationPage.page.url()).href,
+        new URL("?flow=" + UUIDv4(), verificationPage.page.url()).href,
       )
 
       const fetchResponse = await fetchRequest

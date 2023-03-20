@@ -4,14 +4,20 @@
 import { RecoveryFlow, RecoveryFlowState } from "@ory/client"
 import { Page, Response } from "@playwright/test"
 import { merge } from "lodash"
-import { RandomString, traitsToNodes } from "../utils"
+import { recoverySubmitCodeFixture } from "../fixtures"
+import { traitsToNodes, UUIDv4 } from "../utils"
 import {
   AuthPage,
+  defaultMockFlowResponse,
   defaultRecoveryTraits,
   defaultRecoveryTraitsWithCode,
   MockFlow,
 } from "./AuthPage"
-import { MockFlowResponse, Traits } from "./types"
+import {
+  ErrorBrowserLocationChangeRequired,
+  MockFlowResponse,
+  Traits,
+} from "./types"
 
 export class RecoveryPage extends AuthPage {
   readonly pageUrl: URL
@@ -43,9 +49,16 @@ export class RecoveryPage extends AuthPage {
   getRecoveryFlowResponse(
     state: RecoveryFlowState = "choose_method",
   ): MockFlowResponse {
+    if (state === "passed_challenge") {
+      return {
+        ...defaultMockFlowResponse,
+        status: 422,
+        body: recoverySubmitCodeFixture as ErrorBrowserLocationChangeRequired,
+      }
+    }
     return {
       body: {
-        id: RandomString(20),
+        id: UUIDv4(),
         type: "browser",
         state: state,
         expires_at: new Date().toISOString(),
@@ -90,10 +103,19 @@ export class RecoveryPage extends AuthPage {
 
   registerMockSubmitResponse({
     response,
+    state,
   }: Omit<MockFlow, "flow">): Promise<void> {
     return super.registerMockSubmitResponse({
       flow: "recovery",
-      response: merge({}, this.getRecoveryFlowResponse(), response),
+      response: merge(
+        {},
+        this.getRecoveryFlowResponse(
+          state && state === "recovery_submit_email"
+            ? "sent_email"
+            : "passed_challenge" || "choose_method",
+        ),
+        response,
+      ),
     })
   }
 

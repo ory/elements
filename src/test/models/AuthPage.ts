@@ -1,15 +1,15 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Session, UiNode } from "@ory/client"
+import { Session } from "@ory/client"
 import { expect, Locator, Response } from "@playwright/test"
 import { merge } from "lodash"
 import { sessionForbiddenFixture } from "../fixtures"
-import { inputNodesToRecord, isUiNode, RandomString } from "../utils"
+import { inputNodesToRecord, isUiNode, RandomString, UUIDv4 } from "../utils"
 import { MockFlowResponse, Traits } from "./types"
 
 const email = `${RandomString()}@example.com`
-const password = RandomString()
+const password = RandomString(10)
 
 export const defaultLoginTraits: Record<string, Traits> = {
   identifier: {
@@ -127,7 +127,6 @@ export const defaultRecoveryTraits: Record<string, Traits> = {
 }
 
 export const defaultRecoveryTraitsWithCode: Record<string, Traits> = {
-  ...defaultRecoveryTraits,
   code: {
     group: "code",
     label: "Verify code",
@@ -141,7 +140,16 @@ export const defaultRecoveryTraitsWithCode: Record<string, Traits> = {
     node_type: "input",
     label: "Resend Code",
     type: "submit",
+    name: "email",
     value: email,
+  },
+  submitButton: {
+    name: "method",
+    group: "code",
+    node_type: "input",
+    label: "Submit",
+    type: "submit",
+    value: "code",
   },
 }
 
@@ -155,6 +163,8 @@ export type MockFlow = {
   state?:
     | "verification_submit_email"
     | "verification_submit_code"
+    | "recovery_submit_email"
+    | "recovery_submit_code"
     | "session_forbidden"
     | "session_active"
 }
@@ -173,11 +183,13 @@ export class AuthPage {
   readonly formFields: Record<string, Locator> = {}
   readonly errorMessage: Locator
 
-  constructor(traits: Record<string, Traits> | UiNode[], locator: Locator) {
+  constructor(traits: Record<string, Traits>, locator: Locator) {
     this.locator = locator
     this.traits = isUiNode(traits) ? inputNodesToRecord(traits) : traits
     for (const key in traits) {
-      this.formFields[key] = locator.locator(`input[name="${key}"]`)
+      this.formFields[key] = locator.locator(
+        `input[name="${traits[key].name || key}"]`,
+      )
     }
     this.errorMessage = locator.locator("*[data-testid*='ui/message/']")
   }
@@ -188,7 +200,9 @@ export class AuthPage {
       if (t[key].type === "hidden") {
         await expect(this.locator.locator(`*[name="${key}"]`)).toBeHidden()
       } else {
-        await expect(this.locator.locator(`*[name="${key}"]`)).toBeVisible()
+        await expect(
+          this.locator.locator(`*[name="${t[key].name || key}"]`),
+        ).toBeVisible()
       }
     }
   }
@@ -199,7 +213,7 @@ export class AuthPage {
     }
   }
 
-  async submitForm() {
+  async submitForm(buttonLocator?: string) {
     for (const key in this.traits) {
       if (this.traits[key].type === "input") {
         await this.formFields[key].fill(this.traits[key].value)
@@ -207,7 +221,7 @@ export class AuthPage {
         await this.formFields[key].click()
       }
     }
-    await this.locator.locator('[type="submit"]').click()
+    await this.locator.locator(buttonLocator || '[type="submit"]').click()
   }
 
   async expectErorr(text: string) {
@@ -232,9 +246,9 @@ export class AuthPage {
       },
       body: {
         active: true,
-        id: RandomString(),
+        id: UUIDv4(),
         identity: {
-          id: RandomString(),
+          id: UUIDv4(),
           traits: this.traits,
           schema_id: "default",
           schema_url: `/schemas/default`,
@@ -242,7 +256,7 @@ export class AuthPage {
           updated_at: new Date().toISOString(),
           recovery_addresses: [
             {
-              id: RandomString(),
+              id: UUIDv4(),
               value: email,
               via: "email",
               created_at: new Date().toISOString(),
@@ -251,7 +265,7 @@ export class AuthPage {
           ],
           verifiable_addresses: [
             {
-              id: RandomString(),
+              id: UUIDv4(),
               value: email,
               via: "email",
               status: "verified",

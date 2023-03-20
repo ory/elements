@@ -3,14 +3,28 @@
 
 import { RegistrationMocks, RegistrationPage, test } from "@ory/elements-test"
 
-test("registration", async ({ environment, page }) => {
-  const { applicationUrl, oryProjectUrl } = environment
+test.describe.parallel("Registration Page", () => {
+  test("registration success", async ({ environment, page }) => {
+    const { applicationUrl, oryProjectUrl } = environment
 
-  const registrationPage = new RegistrationPage(
-    page,
-    applicationUrl,
-    oryProjectUrl,
-  )
+    const registrationPage = new RegistrationPage(
+      page,
+      applicationUrl,
+      oryProjectUrl,
+    )
 
-  await RegistrationMocks.RegistrationSuccessTest(registrationPage)
+    await RegistrationMocks.RegistrationSuccessTest(registrationPage)
+  })
+
+  test("registration duplicate account", async ({ environment, page }) => {
+    const { applicationUrl, oryProjectUrl } = environment
+
+    const registrationPage = new RegistrationPage(
+      page,
+      applicationUrl,
+      oryProjectUrl,
+    )
+
+    await RegistrationMocks.RegistrationDuplicateAccountTest(registrationPage)
+  })
 })

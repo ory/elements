@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  ErrorBrowserLocationChangeRequired,
   GenericError,
   LoginFlow,
   RecoveryFlow,
@@ -1165,14 +1166,14 @@ export const loginRefreshFixture: LoginFlow = {
   requested_aal: "aal1",
 }
 
-export const loginSubmitErrorFixture: LoginFlow = {
+export const loginSubmitIncorrectCredentialsFixture: LoginFlow = {
   id: "400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
   oauth2_login_challenge: null,
   type: "browser",
   expires_at: "2023-03-16T12:49:22.219258Z",
   issued_at: "2023-03-16T12:19:22.219258Z",
   request_url:
-    "https://localhost:4000/self-service/login/browser?refresh=true\u0026aal=aal1",
+    "https://localhost:4000/self-service/login/browser?refresh=true&aal=aal1",
   ui: {
     action:
       "https://localhost:4000/self-service/login?flow=400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
@@ -1352,6 +1353,252 @@ export const loginSubmitErrorFixture: LoginFlow = {
   requested_aal: "aal1",
 }
 
+export const registrationSubmitDuplicateAccountFixture: RegistrationFlow = {
+  id: "cabee281-f75c-4239-8014-10bbdfdcede4",
+  oauth2_login_challenge: null,
+  type: "browser",
+  expires_at: "2023-03-20T15:46:54.152799Z",
+  issued_at: "2023-03-20T15:16:54.152799Z",
+  request_url: "https://localhost:4000/self-service/registration/browser",
+  ui: {
+    action:
+      "https://localhost:4000/self-service/registration?flow=cabee281-f75c-4239-8014-10bbdfdcede4",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "traits.email",
+          type: "email",
+          required: true,
+          autocomplete: "email",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070002, text: "E-Mail", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "traits.tos",
+          type: "checkbox",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070002, text: "Accept Tos", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "vmmwe7f2wCUjNFSqDzb+yDekr0u+FsvPswxHjhCjC4DlqgNkOStsL/nzCfMsxImixjB+t/VpkG/+GcrA0p2yRA==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "discord",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040002,
+            text: "Sign up with Discord",
+            type: "info",
+            context: { provider: "Discord" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "facebook",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040002,
+            text: "Sign up with Facebook",
+            type: "info",
+            context: { provider: "Facebook" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "github",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040002,
+            text: "Sign up with GitHub",
+            type: "info",
+            context: { provider: "GitHub" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "google",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040002,
+            text: "Sign up with Google",
+            type: "info",
+            context: { provider: "Google" },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_register_displayname",
+          type: "text",
+          value: "",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1050013,
+            text: "Name of the security key",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_register",
+          type: "hidden",
+          value: "",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_register_trigger",
+          type: "button",
+          value: "",
+          disabled: false,
+          onclick:
+            'window.__oryWebAuthnRegistration({"publicKey":{"challenge":"/rIbvxaP8Yrcs7Dk4lLvgVFydqZpIq6OOuHjkUJzhho=","rp":{"name":"","id":"example.com"},"user":{"name":"placeholder","icon":"https://via.placeholder.com/128","displayName":"placeholder","id":"DUx1NdG4RyKx41vpmWmYJA=="},"pubKeyCredParams":[{"type":"public-key","alg":-7},{"type":"public-key","alg":-35},{"type":"public-key","alg":-36},{"type":"public-key","alg":-257},{"type":"public-key","alg":-258},{"type":"public-key","alg":-259},{"type":"public-key","alg":-37},{"type":"public-key","alg":-38},{"type":"public-key","alg":-39},{"type":"public-key","alg":-8}],"authenticatorSelection":{"userVerification":"discouraged"},"timeout":60000}})',
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040004,
+            text: "Sign up with security key",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "script",
+        group: "webauthn",
+        attributes: {
+          src: "https://localhost:4000/.well-known/ory/webauthn.js",
+          async: true,
+          referrerpolicy: "no-referrer",
+          crossorigin: "anonymous",
+          integrity:
+            "sha512-8GWpMHzEByiefeXeZNxg1k16eFoSoff1mQVa4vUUruBughTU/Yt4WGl7yteMa11UgygiMEbH8Xn1oKxh8PbkiA==",
+          type: "text/javascript",
+          id: "webauthn_script",
+          nonce: "1331af6d-20e0-4775-b5b9-b93d502ff8f7",
+          node_type: "script",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "new-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070001, text: "Password", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: { id: 1040001, text: "Sign up", type: "info", context: {} },
+        },
+      },
+    ],
+    messages: [
+      {
+        id: 4000007,
+        text: "An account with the same identifier (email, phone, username, ...) exists already.",
+        type: "error",
+        context: {},
+      },
+    ],
+  },
+}
+
 export const verificationSubmitEmailFixture: VerificationFlow = {
   id: "62032417-d78a-4282-b735-79e4f471df0e",
   type: "browser",
@@ -1492,6 +1739,115 @@ export const verificationSubmitCodeFixture: VerificationFlow = {
     ],
   },
   state: "passed_challenge",
+}
+
+export const recoverySubmitEmailFixture: RecoveryFlow = {
+  id: "ccd0d54c-ebc2-408c-ae7e-97d96dae832b",
+  type: "browser",
+  expires_at: "2023-03-21T07:55:14.102072Z",
+  issued_at: "2023-03-21T07:25:14.102072Z",
+  request_url: "http://localhost:4000/self-service/recovery/browser",
+  active: "code",
+  ui: {
+    action:
+      "http://localhost:4000/self-service/recovery?flow=ccd0d54c-ebc2-408c-ae7e-97d96dae832b",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "YE0J2zNLlx/GnvYeJ/G6cRrd9BLccwMt+Jn+9bkUWKU0JGh8V/lVZwD5PWBbs33za8UJ9UOJcKpxR2enhW1g3A==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "code",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070006, text: "Verify code", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "hidden",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070005, text: "Submit", type: "info" } },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "email",
+          type: "submit",
+          value: "example@example.com",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: { label: { id: 1070008, text: "Resend code", type: "info" } },
+      },
+    ],
+    messages: [
+      {
+        id: 1060003,
+        text: "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+        type: "info",
+        context: {},
+      },
+    ],
+  },
+  state: "sent_email",
+}
+
+export const recoverySubmitCodeFixture: Omit<
+  ErrorBrowserLocationChangeRequired,
+  "message"
+> & {
+  error: GenericError
+} = {
+  error: {
+    id: "browser_location_change_required",
+    code: 422,
+    status: "Unprocessable Entity",
+    reason:
+      "In order to complete this flow please redirect the browser to: /ui/settings?flow=22b3ad6f-c50a-4c2f-8c94-a16e9dc20083",
+    message: "browser location change required",
+  },
+  redirect_browser_to: "/ui/settings?flow=22b3ad6f-c50a-4c2f-8c94-a16e9dc20083",
 }
 
 export const sessionForbiddenFixture: GenericError = {
