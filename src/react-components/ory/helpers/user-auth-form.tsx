@@ -12,17 +12,19 @@ import { formStyle } from "../../../theme"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 import { SelfServiceFlow } from "./types"
 
+export type UpdateBody =
+  | UpdateLoginFlowBody
+  | UpdateRegistrationFlowBody
+  | UpdateRecoveryFlowBody
+  | UpdateVerificationFlowBody
+  | UpdateSettingsFlowBody
+
 export type UserAuthFormAdditionalProps = {
   onSubmit?: ({
     body,
     event,
   }: {
-    body:
-      | UpdateLoginFlowBody
-      | UpdateRegistrationFlowBody
-      | UpdateRecoveryFlowBody
-      | UpdateVerificationFlowBody
-      | UpdateSettingsFlowBody
+    body: UpdateBody
     event?: React.FormEvent<HTMLFormElement>
   }) => void
 }
@@ -36,6 +38,34 @@ export interface UserAuthFormProps
   formFilterOverride?: FilterNodesByGroups
   submitOnEnter?: boolean
   className?: string
+}
+
+const traitRegexp = /^traits\.(.+)$/
+
+const unflattenFormData = (formData: FormData): UpdateBody => {
+  const body: Record<string, string | object> = {}
+  const traits: Record<string, string> = {}
+
+  for (const [key, value] of formData) {
+    if (typeof value !== "string") {
+      continue
+    }
+
+    const match = traitRegexp.exec(key)
+
+    if (!match) {
+      body[key] = value
+      continue
+    }
+
+    traits[match[1]] = value
+  }
+
+  if (Object.keys(traits).length > 0) {
+    body.traits = traits
+  }
+
+  return body as unknown as UpdateBody
 }
 
 export const UserAuthForm = ({
@@ -65,12 +95,7 @@ export const UserAuthForm = ({
         const formData = new FormData(form)
 
         // map the entire form data to JSON for the request body
-        let body = Object.fromEntries(formData) as unknown as
-          | UpdateLoginFlowBody
-          | UpdateRegistrationFlowBody
-          | UpdateRecoveryFlowBody
-          | UpdateVerificationFlowBody
-          | UpdateSettingsFlowBody
+        let body = unflattenFormData(formData)
 
         // We need the method specified from the name and value of the submit button.
         // when multiple submit buttons are present, the clicked one's value is used.
