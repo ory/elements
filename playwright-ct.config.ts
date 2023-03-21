@@ -1,15 +1,14 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import type { PlaywrightTestConfig } from "@playwright/experimental-ct-react"
-import { devices } from "@playwright/experimental-ct-react"
+import { defineConfig, devices } from "@playwright/experimental-ct-react"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import react from "@vitejs/plugin-react"
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
+export default defineConfig({
   testDir: "./src/react-components",
   /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
   snapshotDir: "./__snapshots__",
@@ -58,6 +57,4 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-}
-
-export default config
+})

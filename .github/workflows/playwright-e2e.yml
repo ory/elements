@@ -30,7 +30,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: examples/react-spa playwright-report
+          name: react-spa playwright-report
           path: |
             examples/react-spa/playwright-report/
             examples/react-spa/test-results/

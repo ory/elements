@@ -28,14 +28,6 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "overrides": {
-    "@vanilla-extract/vite-plugin": {
-      "vite": "^3"
-    }
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^2.0.1"
-  },
   "files": [
     "dist/*"
   ],

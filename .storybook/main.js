@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 const { vanillaExtractPlugin } = require("@vanilla-extract/vite-plugin")
-const { resolve } = require("path")
 const { mergeConfig } = require("vite")
 
 module.exports = {
