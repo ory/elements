@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { defineConfig, devices } from "@playwright/test"
+import path from "path"
 
 /**
  * Read environment variables from file.
@@ -13,7 +14,7 @@ import { defineConfig, devices } from "@playwright/test"
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "e2e",
+  testDir: path.join(__dirname, "e2e"),
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -74,7 +75,7 @@ export default defineConfig({
     // {
     //   env: {
     //     ORY_PROJECT_SLUG: process.env.ORY_PROJECT_SLUG || "playground",
-    //     APPLICATION_URL: "http://localhost:3000",
+    //     APPLICATION_URL: "http://localhost:3100",
     //     PROXY_URL: "http://localhost:4000",
     //   },
     //   command: "../../.bin/ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
@@ -82,10 +83,11 @@ export default defineConfig({
     // },
     {
       env: {
-        VITE_ORY_SDK_URL: "http://localhost:4000",
+        NEXT_PUBLIC_ORY_SDK_URL: "http://localhost:4000",
       },
-      command: "npm run dev",
-      port: 3000,
+      command: "npm run dev -- --port 3100",
+      timeout: 120 * 1000,
+      port: 3100,
       reuseExistingServer: !process.env.CI,
     },
   ],

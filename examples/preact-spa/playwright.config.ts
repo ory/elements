@@ -13,7 +13,7 @@ import { defineConfig, devices } from "@playwright/test"
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "e2e",
+  testDir: "./e2e",
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -74,7 +74,7 @@ export default defineConfig({
     // {
     //   env: {
     //     ORY_PROJECT_SLUG: process.env.ORY_PROJECT_SLUG || "playground",
-    //     APPLICATION_URL: "http://localhost:3000",
+    //     APPLICATION_URL: "http://localhost:3200",
     //     PROXY_URL: "http://localhost:4000",
     //   },
     //   command: "../../.bin/ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
@@ -84,8 +84,8 @@ export default defineConfig({
       env: {
         VITE_ORY_SDK_URL: "http://localhost:4000",
       },
-      command: "npm run dev",
-      port: 3000,
+      command: "npm run dev -- --port 3200",
+      port: 3200,
       reuseExistingServer: !process.env.CI,
     },
   ],

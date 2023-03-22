@@ -9,11 +9,20 @@ import dts from "vite-plugin-dts"
 export default defineConfig({
   plugins: [
     dts({
+      root: path.resolve(__dirname, "../../src/test"),
       insertTypesEntry: true,
+      tsConfigFilePath: path.resolve(__dirname, "tsconfig.json"),
+      outputDir: path.resolve(__dirname, "dist"),
+      exclude: [
+        "node_modules",
+        "dist",
+        "**/*.spec.ts",
+        path.resolve(__dirname, "../../node_modules"),
+      ],
     }),
   ],
   build: {
-    target: "esnext",
+    target: "ESNext",
     lib: {
       name: "@ory/elements-test",
       entry: path.resolve(__dirname, "../../src/tests.ts"),
@@ -23,6 +32,11 @@ export default defineConfig({
     rollupOptions: {
       treeshake: "smallest",
       external: ["@playwright/test"],
+      output: {
+        globals: {
+          "@playwright/test": "playwright",
+        },
+      },
     },
   },
 })

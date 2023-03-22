@@ -22,6 +22,7 @@ export const inputNodesToRecord = (nodes: UiNode[]): Record<string, Traits> => {
         value: attributes.value,
         type: attributes.type as Traits["type"],
         label: attributes.label?.text || "",
+        name: attributes.name,
       }
     }
     return map

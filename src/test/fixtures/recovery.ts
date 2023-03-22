@@ -1,8 +1,11 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { GenericError, RecoveryFlow } from "@ory/client"
-import { ErrorBrowserLocationChangeRequired } from "@ory/elements-test"
+import {
+  ErrorBrowserLocationChangeRequired,
+  GenericError,
+  RecoveryFlow,
+} from "@ory/client"
 
 export const recoverySubmitEmailFixture: RecoveryFlow = {
   id: "ccd0d54c-ebc2-408c-ae7e-97d96dae832b",
