@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { VerificationFlow } from "@ory/client"
+import { VerificationFlow, VerificationFlowState } from "@ory/client"
 import { Page, Response } from "@playwright/test"
 import { merge } from "lodash"
 import {
@@ -9,7 +9,12 @@ import {
   verificationSubmitEmailFixture,
 } from "../fixtures"
 import { traitsToNodes, UUIDv4 } from "../utils"
-import { AuthPage, defaultVerificationEmailTraits, MockFlow } from "./AuthPage"
+import {
+  AuthPage,
+  defaultMockFlowResponse,
+  defaultVerificationEmailTraits,
+  MockFlow,
+} from "./AuthPage"
 import { MockFlowResponse, Traits } from "./types"
 
 export class VerificationPage extends AuthPage {
@@ -39,28 +44,32 @@ export class VerificationPage extends AuthPage {
     await this.page.goto(this.pageUrl.href)
   }
 
-  getVerificationFlowResponse(): MockFlowResponse {
+  getVerificationFlowResponse(
+    state: VerificationFlowState = "choose_method",
+  ): MockFlowResponse {
+    if (state === "passed_challenge") {
+      return {
+        ...defaultMockFlowResponse,
+        body: verificationSubmitCodeFixture,
+      }
+    }
     return {
+      ...defaultMockFlowResponse,
       body: {
         id: UUIDv4(),
         expires_at: new Date().toISOString(),
         issued_at: new Date().toISOString(),
-        state: "choose_method",
+        state: state,
         type: "browser",
         request_url: this.pageUrl.href,
-        refresh: false,
-        requested_aal: "aal1",
         updated_at: new Date().toISOString(),
         ui: {
           action: new URL(this.verificationActionPath, this.oryProjectUrl).href,
           method: "POST",
           nodes: traitsToNodes(this.traits, true),
+          messages: [],
         },
       } as VerificationFlow,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      status: 200,
     }
   }
 

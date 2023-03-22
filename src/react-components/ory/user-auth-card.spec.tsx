@@ -2,9 +2,9 @@ import {
   AuthPage,
   loginFixture,
   loginRefreshFixture,
+  loginTwoFactorFixture,
   recoveryFixture,
   registrationFixture,
-  twoFactorLoginFixture,
   verificationFixture,
 } from "@ory/elements-test"
 import { expect, test } from "@playwright/experimental-ct-react"
@@ -122,7 +122,7 @@ test("ory auth card recovery flow", async ({ mount }) => {
 test("ory auth card login 2fa flow", async ({ mount }) => {
   const component = await mount(
     <UserAuthCard
-      flow={twoFactorLoginFixture}
+      flow={loginTwoFactorFixture}
       flowType={"login"}
       additionalProps={{
         logoutURL: "/logout",

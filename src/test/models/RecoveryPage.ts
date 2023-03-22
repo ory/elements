@@ -55,31 +55,41 @@ export class RecoveryPage extends AuthPage {
         status: 422,
         body: recoverySubmitCodeFixture as ErrorBrowserLocationChangeRequired,
       }
+    } else if (state === "choose_method") {
+      return {
+        ...defaultMockFlowResponse,
+        body: {
+          id: UUIDv4(),
+          type: "browser",
+          state: state,
+          expires_at: new Date().toISOString(),
+          issued_at: new Date().toISOString(),
+          request_url: this.pageUrl.href,
+          ui: {
+            action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
+            method: "POST",
+            nodes: traitsToNodes(this.traits, true),
+            messages: [],
+          },
+        } as RecoveryFlow,
+      }
     }
     return {
+      ...defaultMockFlowResponse,
       body: {
         id: UUIDv4(),
         type: "browser",
         state: state,
         expires_at: new Date().toISOString(),
         issued_at: new Date().toISOString(),
-        request_url: this.oryProjectUrl.href,
+        request_url: this.pageUrl.href,
         ui: {
           action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
           method: "POST",
-          nodes: traitsToNodes(
-            state === "choose_method"
-              ? this.traits
-              : defaultRecoveryTraitsWithCode,
-            true,
-          ),
+          nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true),
           messages: [],
         },
       } as RecoveryFlow,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      status: 200,
     }
   }
 
