@@ -5,19 +5,16 @@ import { RecoveryFlow, RecoveryFlowState } from "@ory/client"
 import { Page, Response } from "@playwright/test"
 import { merge } from "lodash"
 import { recoverySubmitCodeFixture } from "../fixtures"
-import { traitsToNodes, UUIDv4 } from "../utils"
-import {
-  AuthPage,
-  defaultMockFlowResponse,
-  defaultRecoveryTraits,
-  defaultRecoveryTraitsWithCode,
-  MockFlow,
-} from "./AuthPage"
+import { defaultMockFlowResponse } from "../mock"
+import { defaultRecoveryTraits, defaultRecoveryTraitsWithCode } from "../traits"
 import {
   ErrorBrowserLocationChangeRequired,
+  MockFlow,
   MockFlowResponse,
   Traits,
-} from "./types"
+} from "../types"
+import { traitsToNodes, UUIDv4 } from "../utils"
+import { AuthPage } from "./AuthPage"
 
 export class RecoveryPage extends AuthPage {
   readonly pageUrl: URL

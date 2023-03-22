@@ -1,3 +1,6 @@
+// Copyright © 2023 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { GenericError, RecoveryFlow } from "@ory/client"
 import { ErrorBrowserLocationChangeRequired } from "@ory/elements-test"
 

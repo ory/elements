@@ -3,8 +3,9 @@
 
 import test, { expect } from "@playwright/test"
 import { registrationSubmitDuplicateAccountFixture } from "../fixtures"
-import { defaultMockFlowResponse, RegistrationPage } from "../models"
+import { RegistrationPage } from "../models"
 import { UUIDv4 } from "../utils"
+import { defaultMockFlowResponse } from "./utils"
 
 const setupRegistrationFlow = async (registrationPage: RegistrationPage) => {
   await test.step("mock the whoami response to be logged in", async () => {

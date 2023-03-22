@@ -3,7 +3,7 @@
 
 import { UiNode, UiNodeAttributes, UiNodeMeta } from "@ory/client"
 import { isUiNodeInputAttributes } from "@ory/integrations/ui"
-import { Traits } from "./models/types"
+import { Traits } from "./types"
 
 export const isUiNode = (a: unknown): a is UiNode[] => {
   return (
@@ -83,3 +83,6 @@ export const RandomString = (length = 20) => {
 }
 
 export const UUIDv4 = () => `22b3ad6f-c50a-4c2f-8c94-${RandomString(12)}`
+
+export const RandomEmail = () => `${RandomString(4)}@${RandomString(4)}.com`
+export const RandomPassword = () => RandomString(10)

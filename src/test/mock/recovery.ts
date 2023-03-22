@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import test, { expect } from "@playwright/test"
-import { defaultRecoveryTraitsWithCode } from "../models"
 import { RecoveryPage } from "../models/RecoveryPage"
+import { defaultRecoveryTraitsWithCode } from "../traits"
 import { UUIDv4 } from "../utils"
 
 export const RecoveryMocks = {

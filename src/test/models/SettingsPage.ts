@@ -2,8 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Page } from "@playwright/test"
-import { AuthPage, defaultTraits } from "./AuthPage"
-import { Traits } from "./types"
+import { defaultTraits } from "../traits"
+import { Traits } from "../types"
+import { AuthPage } from "./AuthPage"
 
 export class SettingsPage extends AuthPage {
   readonly pageUrl: URL

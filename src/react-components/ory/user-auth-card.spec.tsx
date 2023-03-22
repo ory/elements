@@ -1,13 +1,13 @@
+import { expect, test } from "@playwright/experimental-ct-react"
 import {
-  AuthPage,
   loginFixture,
   loginRefreshFixture,
   loginTwoFactorFixture,
   recoveryFixture,
   registrationFixture,
   verificationFixture,
-} from "@ory/elements-test"
-import { expect, test } from "@playwright/experimental-ct-react"
+} from "../../test/fixtures"
+import { AuthPage } from "../../test/models/AuthPage"
 import { UserAuthCard } from "./user-auth-card"
 
 test("ory auth card login flow", async ({ mount }) => {

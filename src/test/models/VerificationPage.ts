@@ -8,14 +8,11 @@ import {
   verificationSubmitCodeFixture,
   verificationSubmitEmailFixture,
 } from "../fixtures"
+import { defaultMockFlowResponse } from "../mock"
+import { defaultVerificationEmailTraits } from "../traits"
+import { MockFlow, MockFlowResponse, Traits } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
-import {
-  AuthPage,
-  defaultMockFlowResponse,
-  defaultVerificationEmailTraits,
-  MockFlow,
-} from "./AuthPage"
-import { MockFlowResponse, Traits } from "./types"
+import { AuthPage } from "./AuthPage"
 
 export class VerificationPage extends AuthPage {
   readonly pageUrl: URL
@@ -47,29 +44,42 @@ export class VerificationPage extends AuthPage {
   getVerificationFlowResponse(
     state: VerificationFlowState = "choose_method",
   ): MockFlowResponse {
+    const body: VerificationFlow = {
+      id: UUIDv4(),
+      expires_at: new Date().toISOString(),
+      issued_at: new Date().toISOString(),
+      state: state,
+      type: "browser",
+      request_url: this.pageUrl.href,
+      ui: {
+        action: new URL(this.verificationActionPath, this.oryProjectUrl).href,
+        method: "POST",
+        nodes: traitsToNodes(this.traits, true),
+        messages: [],
+      },
+    }
+
     if (state === "passed_challenge") {
       return {
         ...defaultMockFlowResponse,
         body: verificationSubmitCodeFixture,
       }
+    } else if (state === "choose_method") {
+      return {
+        ...defaultMockFlowResponse,
+        body,
+      }
     }
+
     return {
       ...defaultMockFlowResponse,
       body: {
-        id: UUIDv4(),
-        expires_at: new Date().toISOString(),
-        issued_at: new Date().toISOString(),
-        state: state,
-        type: "browser",
-        request_url: this.pageUrl.href,
-        updated_at: new Date().toISOString(),
+        ...body,
         ui: {
-          action: new URL(this.verificationActionPath, this.oryProjectUrl).href,
-          method: "POST",
-          nodes: traitsToNodes(this.traits, true),
-          messages: [],
+          ...body.ui,
+          nodes: traitsToNodes(this.traits, false),
         },
-      } as VerificationFlow,
+      },
     }
   }
 

@@ -4,9 +4,10 @@
 import { LoginFlow, Session } from "@ory/client"
 import { Page, Response } from "@playwright/test"
 import { merge } from "lodash"
+import { defaultLoginTraits } from "../traits"
+import { MockFlow, MockFlowResponse, Traits } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
-import { AuthPage, defaultLoginTraits, MockFlow } from "./AuthPage"
-import { MockFlowResponse, Traits } from "./types"
+import { AuthPage } from "./AuthPage"
 
 export class LoginPage extends AuthPage {
   readonly pageUrl: URL

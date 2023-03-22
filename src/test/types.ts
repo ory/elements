@@ -12,6 +12,18 @@ import {
   VerificationFlow,
 } from "@ory/client"
 
+export type MockFlow = {
+  flow: string
+  response?: MockFlowResponse
+  state?:
+    | "verification_submit_email"
+    | "verification_submit_code"
+    | "recovery_submit_email"
+    | "recovery_submit_code"
+    | "session_forbidden"
+    | "session_active"
+}
+
 export type Traits = {
   name?: string
   group: UiNodeGroupEnum

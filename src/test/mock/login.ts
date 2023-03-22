@@ -3,9 +3,9 @@
 
 import test, { expect } from "@playwright/test"
 import { loginSubmitIncorrectCredentialsFixture } from "../fixtures"
-import { defaultMockFlowResponse } from "../models"
 import { LoginPage } from "../models/LoginPage"
 import { UUIDv4 } from "../utils"
+import { defaultMockFlowResponse } from "./utils"
 
 const setupLoginFlow = async (loginPage: LoginPage) => {
   await test.step("mock the whoami response to be logged out", async () => {

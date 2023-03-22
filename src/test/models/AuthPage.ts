@@ -1,181 +1,12 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Session } from "@ory/client"
+import { Session, UiNode } from "@ory/client"
 import { expect, Locator, Response } from "@playwright/test"
 import { merge } from "lodash"
 import { sessionForbiddenFixture } from "../fixtures"
-import { inputNodesToRecord, isUiNode, RandomString, UUIDv4 } from "../utils"
-import { MockFlowResponse, Traits } from "./types"
-
-const email = `${RandomString()}@example.com`
-const password = RandomString(10)
-
-export const defaultLoginTraits: Record<string, Traits> = {
-  identifier: {
-    group: "default",
-    label: "Email",
-    type: "input",
-    value: email,
-    node_type: "input",
-    required: true,
-  },
-  password: {
-    group: "password",
-    node_type: "input",
-    required: true,
-    label: "Password",
-    type: "input",
-    value: password,
-  },
-  submitButton: {
-    group: "password",
-    node_type: "input",
-    label: "Sign in",
-    type: "submit",
-    value: "password",
-  },
-}
-
-export const defaultRegistrationTraits: Record<string, Traits> = {
-  "traits.email": {
-    group: "password",
-    node_type: "input",
-    required: true,
-    label: "Email",
-    type: "input",
-    value: email,
-  },
-  password: {
-    group: "password",
-    node_type: "input",
-    required: true,
-    label: "Password",
-    type: "input",
-    value: password,
-  },
-  tos: {
-    group: "default",
-    node_type: "input",
-    required: true,
-    label: "I agree to the terms of service",
-    type: "checkbox",
-    value: "",
-  },
-  submitButton: {
-    group: "default",
-    node_type: "input",
-    label: "Sign up",
-    type: "submit",
-    value: "password",
-  },
-}
-
-export const defaultVerificationEmailTraits: Record<string, Traits> = {
-  email: {
-    group: "code",
-    label: "Email",
-    type: "input",
-    value: email,
-    node_type: "input",
-    required: true,
-  },
-  submitButton: {
-    group: "code",
-    node_type: "input",
-    label: "Submit",
-    type: "submit",
-    value: "code",
-  },
-}
-
-export const defaultTraits: Record<string, Traits> = {
-  "traits.email": {
-    group: "default",
-    node_type: "input",
-    required: true,
-    label: "Email",
-    type: "email",
-    value: email,
-  },
-  password: {
-    group: "password",
-    node_type: "input",
-    required: true,
-    label: "Password",
-    type: "password",
-    value: password,
-  },
-}
-
-export const defaultRecoveryTraits: Record<string, Traits> = {
-  email: {
-    group: "code",
-    label: "Email",
-    type: "email",
-    value: email,
-    node_type: "input",
-    required: true,
-  },
-  submitButton: {
-    group: "code",
-    node_type: "input",
-    label: "Submit",
-    type: "submit",
-    value: "code",
-  },
-}
-
-export const defaultRecoveryTraitsWithCode: Record<string, Traits> = {
-  code: {
-    group: "code",
-    label: "Verify code",
-    type: "input",
-    value: "123456",
-    node_type: "input",
-    required: true,
-  },
-  resendButton: {
-    group: "code",
-    node_type: "input",
-    label: "Resend Code",
-    type: "submit",
-    name: "email",
-    value: email,
-  },
-  submitButton: {
-    name: "method",
-    group: "code",
-    node_type: "input",
-    label: "Submit",
-    type: "submit",
-    value: "code",
-  },
-}
-
-export const defaultVerificationTraits: Record<string, Traits> = {
-  "traits.email": defaultTraits["traits.email"],
-}
-
-export type MockFlow = {
-  flow: string
-  response?: MockFlowResponse
-  state?:
-    | "verification_submit_email"
-    | "verification_submit_code"
-    | "recovery_submit_email"
-    | "recovery_submit_code"
-    | "session_forbidden"
-    | "session_active"
-}
-
-export const defaultMockFlowResponse: MockFlowResponse = {
-  status: 200,
-  body: null,
-  headers: {
-    "Content-Type": "application/json",
-  },
-}
+import { MockFlow, MockFlowResponse, Traits } from "../types"
+import { inputNodesToRecord, isUiNode, RandomEmail, UUIDv4 } from "../utils"
 
 export class AuthPage {
   readonly locator: Locator
@@ -183,14 +14,16 @@ export class AuthPage {
   readonly formFields: Record<string, Locator> = {}
   readonly errorMessage: Locator
 
-  constructor(traits: Record<string, Traits>, locator: Locator) {
+  constructor(traits: Record<string, Traits> | UiNode[], locator: Locator) {
     this.locator = locator
     this.traits = isUiNode(traits) ? inputNodesToRecord(traits) : traits
-    for (const key in traits) {
+
+    for (const key in this.traits) {
       this.formFields[key] = locator.locator(
-        `input[name="${traits[key].name || key}"]`,
+        `input[name="${this.traits[key].name || key}"]`,
       )
     }
+
     this.errorMessage = locator.locator("*[data-testid*='ui/message/']")
   }
 
@@ -257,7 +90,7 @@ export class AuthPage {
           recovery_addresses: [
             {
               id: UUIDv4(),
-              value: email,
+              value: RandomEmail(),
               via: "email",
               created_at: new Date().toISOString(),
               updated_at: new Date().toISOString(),
@@ -266,7 +99,7 @@ export class AuthPage {
           verifiable_addresses: [
             {
               id: UUIDv4(),
-              value: email,
+              value: RandomEmail(),
               via: "email",
               status: "verified",
               verified: true,

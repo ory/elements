@@ -1,11 +1,11 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-export * from "./actions"
+export * from "./error-messages"
 export * from "./fixtures"
-export * from "./login"
+export * from "./mock"
 export * from "./models"
 export * from "./playwright-fixture"
-export * from "./recovery"
-export * from "./registration"
-export * from "./verification"
+export * from "./traits"
+export * from "./types"
+export * from "./utils"
