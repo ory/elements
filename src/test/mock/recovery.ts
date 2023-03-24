@@ -47,7 +47,7 @@ export const RecoveryMocks = {
     await test.step("submit the recovery form with a valid email", async () => {
       // Mock Ory Network service
       await recoveryPage.registerMockSubmitResponse({
-        state: "recovery_submit_email",
+        state: "recovery_sent_email",
       })
       const submitRequest = recoveryPage.interceptSubmitResponse()
 
@@ -60,7 +60,7 @@ export const RecoveryMocks = {
     await test.step("submit the recovery form again with a valid code", async () => {
       // Mock Ory Network service
       await recoveryPage.registerMockSubmitResponse({
-        state: "recovery_submit_code",
+        state: "recovery_passed_challenge",
       })
       const submitRequest = recoveryPage.interceptSubmitResponse()
 

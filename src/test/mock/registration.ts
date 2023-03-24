@@ -90,7 +90,9 @@ export const RegistrationMocks = {
       const submitResponse = await submitRequest
       expect(submitResponse.status()).toBe(400)
 
-      await registrationPage.expectErorr("An account with the same identifier")
+      await registrationPage.expectFlowMessage(
+        "An account with the same identifier",
+      )
     })
   },
 }

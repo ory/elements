@@ -3,6 +3,7 @@
 
 import test, { expect } from "@playwright/test"
 import { VerificationPage } from "../models"
+import { defaultVerificationTraitsWithCode } from "../traits"
 import { UUIDv4 } from "../utils"
 
 export const VerificationMocks = {
@@ -47,7 +48,7 @@ export const VerificationMocks = {
     await test.step("mock the submit email verification response", async () => {
       // mock the Ory Network service
       await verificationPage.registerMockSubmitResponse({
-        state: "verification_submit_email",
+        state: "verification_sent_email",
       })
 
       const submitRequest = verificationPage.interceptSubmitResponse()
@@ -67,6 +68,27 @@ export const VerificationMocks = {
           required: true,
         },
       })
+    })
+
+    await test.step("mock the submit verification code response", async () => {
+      // mock the Ory Network service
+      await verificationPage.registerMockSubmitResponse({
+        state: "verification_passed_challenge",
+      })
+
+      const submitRequest = verificationPage.interceptSubmitResponse()
+      // check that the form fields expect a code input field
+      await verificationPage.expectTraitFields(
+        defaultVerificationTraitsWithCode,
+      )
+      await verificationPage.submitForm("[name='method'][type='submit']")
+
+      const submitResponse = await submitRequest
+      expect(submitResponse.status()).toBe(200)
+
+      await verificationPage.expectFlowMessage(
+        "You successfully verified your email address",
+      )
     })
   },
 }

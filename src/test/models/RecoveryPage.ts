@@ -9,9 +9,9 @@ import { defaultMockFlowResponse } from "../mock"
 import { defaultRecoveryTraits, defaultRecoveryTraitsWithCode } from "../traits"
 import {
   ErrorBrowserLocationChangeRequired,
+  getFlowState,
   MockFlow,
   MockFlowResponse,
-  Traits,
 } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage } from "./AuthPage"
@@ -27,11 +27,10 @@ export class RecoveryPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    traits?: Record<string, Traits>,
     path?: string,
   ) {
     super(
-      traits || defaultRecoveryTraits,
+      defaultRecoveryTraits,
       page.locator("*[data-testid='recovery-auth-card']"),
     )
     this.page = page
@@ -46,47 +45,49 @@ export class RecoveryPage extends AuthPage {
   getRecoveryFlowResponse(
     state: RecoveryFlowState = "choose_method",
   ): MockFlowResponse {
-    if (state === "passed_challenge") {
-      return {
-        ...defaultMockFlowResponse,
-        status: 422,
-        body: recoverySubmitCodeFixture as ErrorBrowserLocationChangeRequired,
-      }
-    } else if (state === "choose_method") {
-      return {
-        ...defaultMockFlowResponse,
-        body: {
-          id: UUIDv4(),
-          type: "browser",
-          state: state,
-          expires_at: new Date().toISOString(),
-          issued_at: new Date().toISOString(),
-          request_url: this.pageUrl.href,
-          ui: {
-            action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
-            method: "POST",
-            nodes: traitsToNodes(this.traits, true),
-            messages: [],
-          },
-        } as RecoveryFlow,
-      }
+    const body: RecoveryFlow = {
+      id: UUIDv4(),
+      type: "browser",
+      state: state,
+      expires_at: new Date().toISOString(),
+      issued_at: new Date().toISOString(),
+      request_url: this.pageUrl.href,
+      ui: {
+        action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
+        method: "POST",
+        nodes: traitsToNodes(this.traits, true),
+        messages: [],
+      },
     }
-    return {
-      ...defaultMockFlowResponse,
-      body: {
-        id: UUIDv4(),
-        type: "browser",
-        state: state,
-        expires_at: new Date().toISOString(),
-        issued_at: new Date().toISOString(),
-        request_url: this.pageUrl.href,
-        ui: {
-          action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
-          method: "POST",
-          nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true),
-          messages: [],
-        },
-      } as RecoveryFlow,
+
+    switch (state) {
+      case "choose_method":
+        return {
+          ...defaultMockFlowResponse,
+          body,
+        }
+      case "sent_email":
+        return {
+          ...defaultMockFlowResponse,
+          body: {
+            ...body,
+            ui: {
+              ...body.ui,
+              nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true),
+            },
+          },
+        }
+      case "passed_challenge":
+        return {
+          ...defaultMockFlowResponse,
+          status: 422,
+          body: recoverySubmitCodeFixture as ErrorBrowserLocationChangeRequired,
+        }
+      default:
+        return {
+          ...defaultMockFlowResponse,
+          body,
+        }
     }
   }
 
@@ -117,9 +118,7 @@ export class RecoveryPage extends AuthPage {
       response: merge(
         {},
         this.getRecoveryFlowResponse(
-          state && state === "recovery_submit_email"
-            ? "sent_email"
-            : "passed_challenge" || "choose_method",
+          state ? getFlowState(state, "recovery") : "choose_method",
         ),
         response,
       ),

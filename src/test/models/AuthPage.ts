@@ -12,7 +12,7 @@ export class AuthPage {
   readonly locator: Locator
   readonly traits: Record<string, Traits>
   readonly formFields: Record<string, Locator> = {}
-  readonly errorMessage: Locator
+  readonly flowMessage: Locator
 
   constructor(traits: Record<string, Traits> | UiNode[], locator: Locator) {
     this.locator = locator
@@ -24,7 +24,7 @@ export class AuthPage {
       )
     }
 
-    this.errorMessage = locator.locator("*[data-testid*='ui/message/']")
+    this.flowMessage = locator.locator("*[data-testid*='ui/message/']")
   }
 
   async expectTraitFields(traits?: Record<string, Traits>) {
@@ -57,8 +57,8 @@ export class AuthPage {
     await this.locator.locator(buttonLocator || '[type="submit"]').click()
   }
 
-  async expectErorr(text: string) {
-    await expect(this.errorMessage).toContainText(text)
+  async expectFlowMessage(text: string) {
+    await expect(this.flowMessage).toContainText(text)
   }
 
   sessionForbiddenResponse(): MockFlowResponse {

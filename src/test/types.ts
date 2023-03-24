@@ -5,24 +5,36 @@ import {
   GenericError,
   LoginFlow,
   RecoveryFlow,
+  RecoveryFlowState,
   RegistrationFlow,
   Session,
   SettingsFlow,
   UiNodeGroupEnum,
   VerificationFlow,
+  VerificationFlowState,
 } from "@ory/client"
+
+export type MockFlowStates =
+  | "verification_choose_method"
+  | "verification_sent_email"
+  | "verification_passed_challenge"
+  | "recovery_choose_method"
+  | "recovery_sent_email"
+  | "recovery_passed_challenge"
+  | "session_forbidden"
+  | "session_active"
 
 export type MockFlow = {
   flow: string
   response?: MockFlowResponse
-  state?:
-    | "verification_submit_email"
-    | "verification_submit_code"
-    | "recovery_submit_email"
-    | "recovery_submit_code"
-    | "session_forbidden"
-    | "session_active"
+  state?: MockFlowStates
 }
+
+export const getFlowState = (
+  a: MockFlowStates,
+  flow: "verification" | "recovery",
+): VerificationFlowState | RecoveryFlowState =>
+  a.replace(flow + "_", "") as VerificationFlowState | RecoveryFlowState
 
 export type Traits = {
   name?: string

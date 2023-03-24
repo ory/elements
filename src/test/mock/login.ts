@@ -90,7 +90,7 @@ export const LoginMocks = {
       const submitResponse = await submitRequest
       expect(submitResponse.status()).toBe(400)
 
-      await loginPage.expectErorr("provided credentials are invalid")
+      await loginPage.expectFlowMessage("provided credentials are invalid")
     })
   },
 }
