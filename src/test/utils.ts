@@ -77,10 +77,11 @@ export const traitsToNodes = (
 }
 
 export const RandomString = (length = 20) => {
-  return Array(length)
+  return Array(Math.ceil(length * 0.1))
     .fill(null)
     .map(() => Math.random().toString(36).substring(2))
     .join("")
+    .substring(0, length)
 }
 
 export const UUIDv4 = () => `22b3ad6f-c50a-4c2f-8c94-${RandomString(12)}`

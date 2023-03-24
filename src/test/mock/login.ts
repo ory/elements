@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import test, { expect } from "@playwright/test"
+import { expect, test } from "@playwright/test"
 import { loginSubmitIncorrectCredentialsFixture } from "../fixtures"
 import { LoginPage } from "../models/LoginPage"
 import { UUIDv4 } from "../utils"

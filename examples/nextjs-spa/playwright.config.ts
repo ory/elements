@@ -58,10 +58,11 @@ export default defineConfig({
       use: { ...devices["Desktop Firefox"] },
     },
 
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
-    },
+    // disabling for now as it cancels reloading the page on the same URL
+    // {
+    //   name: "webkit",
+    //   use: { ...devices["Desktop Safari"] },
+    // },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

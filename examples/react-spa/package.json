@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "playwright test",
-    "debug": "playwright test --debug"
+    "debug": "playwright test --ui"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -18,7 +18,7 @@
   "devDependencies": {
     "@ory/elements": "*",
     "@ory/elements-test": "*",
-    "@playwright/test": "1.31.2",
+    "@playwright/test": "1.32.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "@typescript-eslint/eslint-plugin": "5.49.0",

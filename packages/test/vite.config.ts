@@ -22,7 +22,8 @@ export default defineConfig({
     }),
   ],
   build: {
-    target: "ESNext",
+    target: "esnext",
+    sourcemap: true,
     lib: {
       name: "@ory/elements-test",
       entry: path.resolve(__dirname, "../../src/tests.ts"),
@@ -34,7 +35,7 @@ export default defineConfig({
       external: ["@playwright/test"],
       output: {
         globals: {
-          "@playwright/test": "playwright",
+          "@playwright/test": "Playwright",
         },
       },
     },

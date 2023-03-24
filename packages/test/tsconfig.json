@@ -3,7 +3,6 @@
     "target": "ES6",
     "useDefineForClassFields": true,
     "emitDeclarationOnly": false,
-    "declarationDir": "dist",
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,7 +17,7 @@
     "noEmit": false,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "dist",
+    "outDir": "dist"
   },
   "include": ["../../src/test", "vite.config.ts", "package.json"],
   "exclude": [

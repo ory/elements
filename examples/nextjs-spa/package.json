@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "playwright test",
-    "debug": "playwright test --debug"
+    "debug": "playwright test --ui"
   },
   "dependencies": {
     "@next/font": "13.1.5",
@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@ory/elements": "*",
-    "@ory/elements-test": "*",
-    "@playwright/test": "1.31.2"
+    "@ory/elements-test": "*"
   }
 }
