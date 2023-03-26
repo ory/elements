@@ -17,6 +17,13 @@ Ory Elements supports integrating with:
 - Preact
 - Express.js (experimental)
 
+Ory Elements stands apart from the SDK and your application data layer. This is
+intentional so that you still have control over how you would like to interact
+with Ory in your application. How you manage your application state is all up to
+you. Below is a simple diagram of how Ory Elements fits into your application.
+
+![Ory Elements](./.assets/ory-stack.png)
+
 ## Getting Started
 
 Install Ory Elements into your existing React / Preact or Express.js
