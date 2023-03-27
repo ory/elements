@@ -7,6 +7,14 @@ import { defaultRecoveryTraitsWithCode } from "../traits"
 import { UUIDv4 } from "../utils"
 
 export const RecoveryMocks = {
+  // RecoverySuccessTest is a mock for a successful recovery `code` flow
+  // it mocks the following requests:
+  // - whoami response to be logged out
+  // - create recovery response
+  // - fetch recovery flow
+  // - submit email recovery response
+  // - submit code reocvery response
+  // - whoami response to be logged in
   RecoverySuccessTest: async (recoveryPage: RecoveryPage) => {
     await test.step("mock the whoami response to be logged in", async () => {
       await recoveryPage.registerMockWhoamiResponse({
@@ -62,6 +70,10 @@ export const RecoveryMocks = {
       await recoveryPage.registerMockSubmitResponse({
         state: "recovery_passed_challenge",
       })
+      await recoveryPage.registerMockWhoamiResponse({
+        state: "session_active",
+      })
+
       const submitRequest = recoveryPage.interceptSubmitResponse()
 
       // check that the form fields expect a code input field

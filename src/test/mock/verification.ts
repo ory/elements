@@ -7,6 +7,13 @@ import { defaultVerificationTraitsWithCode } from "../traits"
 import { UUIDv4 } from "../utils"
 
 export const VerificationMocks = {
+  // VerificationSuccessTest is a mock for a successful verification flow
+  // it mocks the following requests:
+  // - whoami response to be logged in
+  // - create verification response
+  // - fetch verification flow
+  // - submit email verification response
+  // - submit verification code response
   VerificationSuccessTest: async (verificationPage: VerificationPage) => {
     await test.step("mock the whoami response to be logged in", async () => {
       await verificationPage.registerMockWhoamiResponse({

@@ -49,6 +49,13 @@ const setupRegistrationFlow = async (registrationPage: RegistrationPage) => {
 }
 
 export const RegistrationMocks = {
+  // RegistrationSuccessTest is a mock for a successful registration flow
+  // it mocks the following requests:
+  // - whoami response to be logged out
+  // - create registration response
+  // - fetch registration flow
+  // - submit registration response
+  // - whoami response to be logged in
   RegistrationSuccessTest: async (registrationPage: RegistrationPage) => {
     await setupRegistrationFlow(registrationPage)
 
@@ -69,6 +76,12 @@ export const RegistrationMocks = {
       })
     })
   },
+  // RegistrationDuplicateAccountTest is a mock for a registration flow with a duplicate account
+  // it mocks the following requests:
+  // - whoami response to be logged out
+  // - create registration response
+  // - fetch registration flow
+  // - submit registration error response (duplicate account)
   RegistrationDuplicateAccountTest: async (
     registrationPage: RegistrationPage,
   ) => {

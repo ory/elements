@@ -73,6 +73,23 @@ have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
 Now you can see Ory Elements in action by opening http://localhost:3000 in your
 browser!
 
+## End-to-end Testing with Playwright
+
+Ory Elements also provides an end-to-end library based on
+[Playwright](https://playwright.dev/). This library can be used to test your
+application's login, registration, recovery, verification and settings pages
+with Ory Elements or with your own custom components.
+
+It also provides a set of functions that can mock the Ory APIs and provide
+fixtures mocking the Ory API responses. This is perfect for testing your
+application's logic without having to run it against an Ory Network project,
+making it really fast and easy to implement.
+
+This is a great way for running on your CI/CD pipeline to catch any regressions
+that may have been introduced.
+
+Read more about the [Ory Elements E2E library](./packages/test/README.md).
+
 ## Breaking Changes
 
 ### Before v0.0.1-beta.1

@@ -4,10 +4,11 @@
 const globlSetup = async () => {
   process.env.APPLICATION_URL =
     process.env.APPLICATION_URL || "http://localhost:3200"
-  process.env.PROXY_URL = process.env.PROXY_URL || "http://localhost:4000"
-  process.env.ORY_PROJECT_SLUG = process.env.ORY_PROJECT_SLUG || "playground"
 
-  //return exec("ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q")
+  process.env.ORY_PROJECT_URL =
+    process.env.ORY_PROJECT_URL || "http://localhost:4000"
+
+  process.env.ORY_PROJECT_API_TOKEN = ""
 }
 
 export default globlSetup

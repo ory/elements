@@ -50,6 +50,13 @@ const setupLoginFlow = async (loginPage: LoginPage) => {
 }
 
 export const LoginMocks = {
+  // LoginSuccessTest is a mock for a successful login flow
+  // it mocks the following requests:
+  // - whoami response to be logged out
+  // - create login response
+  // - fetch login flow
+  // - submit login response
+  // - whoami response to be logged in
   LoginSuccessTest: async (loginPage: LoginPage) => {
     await setupLoginFlow(loginPage)
 
@@ -71,6 +78,12 @@ export const LoginMocks = {
       })
     })
   },
+  // LoginInvalidLoginCredentialsTest is a mock for a login flow with invalid credentials
+  // it mocks the following requests:
+  // - whoami response to be logged out
+  // - create login response
+  // - fetch login flow
+  // - submit login flow with error response (invalid credentials)
   LoginInvalidLoginCredentialsTest: async (loginPage: LoginPage) => {
     await setupLoginFlow(loginPage)
 
