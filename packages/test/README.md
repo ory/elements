@@ -1,11 +1,11 @@
 # Ory Elements Test
 
 Ory Elements also provides a testing library built on top of
-[Playwright](https://playwright.dev/). It allows you to verify your Web
-Application integration with Ory automatically.
+[Playwright](https://playwright.dev/). It allows you to test your application
+integration with Ory automatically.
 
-A lot of the common use-cases have been done for you so you can focus on only
-writing tests for your specific edge-cases.
+A lot of tests for common use-cases have been implemented in the library so that
+you can focus on only writing tests for your specific edge-cases.
 
 ## Installation
 
@@ -20,8 +20,13 @@ an older version of playwright, you will need to update it.
 ---
 
 ```shell
+npm i @ory/elements-test @playwright/test --save-dev
+```
+
+To set up the playwright configuration, run the following command:
+
+```shell
 npm init playwright@latest
-npm i @ory/elements-test --save-dev
 ```
 
 ## Usage
@@ -33,19 +38,15 @@ and specify which directory contains your tests. In this example, all tests will
 be located in the `e2e` directory under the root of your project.
 
 Environment variables can be setup through a bash script or any other method you
-prefer. In this example, we will add the `APPLICATION_URL` and `PROXY_URL`
+prefer. In this example, we will add the `APPLICATION_URL` and `ORY_PROJECT_URL`
 environment variables inside the `global-setup.ts` file which should be created
 by you in the root of your project.
 
 ```ts
 const globlSetup = async () => {
-  process.env.APPLICATION_URL =
-    process.env.APPLICATION_URL || "http://localhost:3000"
+  process.env.APPLICATION_URL = "http://localhost:3000"
 
-  process.env.ORY_PROJECT_URL =
-    process.env.ORY_PROJECT_URL || "http://localhost:4000"
-
-  process.env.ORY_PROJECT_API_TOKEN = ""
+  process.env.ORY_PROJECT_URL = "http://localhost:4000"
 }
 
 export default globlSetup
@@ -78,11 +79,10 @@ to your configuration.
 webServer: [
   {
     env: {
-      ORY_PROJECT_SLUG: process.env.ORY_PROJECT_SLUG || "playground",
       APPLICATION_URL: "http://localhost:3000", // <-- the url where your application is running
-      PROXY_URL: "http://localhost:4000",
+      ORY_PROJECT_URL: "http://localhost:4000",
     },
-    command: "ory tunnel ${APPLICATION_URL} ${PROXY_URL} -q",
+    command: "ory tunnel ${APPLICATION_URL} ${ORY_PROJECT_URL} -q",
     port: 4000,
   },
   // ...
@@ -100,9 +100,13 @@ test.describe.parallel("Login Page", () => {
     // get the application url and ory project url from the environment
     // variables
     // APPLICATION_URL is the url where your application is running
-    // ORY_PROJECT_URL is the url of your Ory Network project (in this case we mock it)
+    // ORY_PROJECT_URL is the url of the Ory tunnel mirroring your Ory Network project (in this case we mock it)
     const { applicationUrl, oryProjectUrl } = environment
+    // create a new login page instance
+    // the login page instance contains helper
+    // functions for selecting elements on the page
     const loginPage = new LoginPage(page, applicationUrl, oryProjectUrl)
+    // We run the login success mock test from the `@ory/elements-test` library
     await LoginMocks.LoginSuccessTest(loginPage)
   })
 })
