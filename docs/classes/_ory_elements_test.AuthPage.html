@@ -19,13 +19,18 @@
       <div class="tsd-toolbar-contents container">
         <div class="table-cell" id="tsd-search" data-base="..">
           <div class="field">
-            <label for="tsd-search-field" class="tsd-widget search no-caption"
+            <label
+              for="tsd-search-field"
+              class="tsd-widget tsd-toolbar-icon search no-caption"
               ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z"
                   fill="var(--color-text)"
                 ></path></svg></label
             ><input type="text" id="tsd-search-field" aria-label="Search" />
+          </div>
+          <div class="field">
+            <div id="tsd-toolbar-links"></div>
           </div>
           <ul class="results">
             <li class="state loading">Preparing search index...</li>
@@ -36,7 +41,7 @@
         <div class="table-cell" id="tsd-widgets">
           <a
             href="#"
-            class="tsd-widget menu no-caption"
+            class="tsd-widget tsd-toolbar-icon menu no-caption"
             data-toggle="menu"
             aria-label="Menu"
             ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -82,7 +87,51 @@
         <section class="tsd-panel tsd-hierarchy">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
-            <li><span class="target">AuthPage</span></li>
+            <li>
+              <span class="target">AuthPage</span>
+              <ul class="tsd-hierarchy">
+                <li>
+                  <a
+                    href="_ory_elements_test.LoginPage.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Class"
+                    >LoginPage</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="_ory_elements_test.RecoveryPage.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Class"
+                    >RecoveryPage</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="_ory_elements_test.RegistrationPage.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Class"
+                    >RegistrationPage</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="_ory_elements_test.SettingsPage.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Class"
+                    >SettingsPage</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="_ory_elements_test.VerificationPage.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Class"
+                    >VerificationPage</a
+                  >
+                </li>
+              </ul>
+            </li>
           </ul>
         </section>
         <aside class="tsd-sources">
@@ -90,8 +139,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L6"
-                >src/test/AuthPage.ts:6</a
+                href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L11"
+                >src/test/models/AuthPage.ts:11</a
               >
             </li>
           </ul>
@@ -152,7 +201,7 @@
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="_ory_elements_test.AuthPage.html#formFields"
+                      href="_ory_elements_test.AuthPage.html#flowMessage"
                       class="tsd-index-link tsd-kind-property tsd-parent-kind-class"
                       ><svg
                         class="tsd-kind-icon"
@@ -176,6 +225,19 @@
                           fill="var(--color-text)"
                           id="icon-1024-text"
                         ></path></svg
+                      ><span>flow<wbr />Message</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#formFields"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
                       ><span>form<wbr />Fields</span></a
                     >
                     <a
@@ -210,7 +272,7 @@
                   <h3 class="tsd-index-heading">Methods</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="_ory_elements_test.AuthPage.html#expectTraitFields"
+                      href="_ory_elements_test.AuthPage.html#expectFlowMessage"
                       class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
                       ><svg
                         class="tsd-kind-icon"
@@ -234,6 +296,19 @@
                           fill="var(--color-text)"
                           id="icon-2048-text"
                         ></path></svg
+                      ><span>expect<wbr />Flow<wbr />Message</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#expectTraitFields"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
                       ><span>expect<wbr />Trait<wbr />Fields</span></a
                     >
                     <a
@@ -248,6 +323,131 @@
                         <use href="#icon-2048-path"></use>
                         <use href="#icon-2048-text"></use></svg
                       ><span>expect<wbr />Trait<wbr />Labels</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#interceptCreateResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>intercept<wbr />Create<wbr />Response</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#interceptFetchResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>intercept<wbr />Fetch<wbr />Response</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#interceptSubmitResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>intercept<wbr />Submit<wbr />Response</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#registerMockCreateResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span
+                        >register<wbr />Mock<wbr />Create<wbr />Response</span
+                      ></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#registerMockFetchResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span
+                        >register<wbr />Mock<wbr />Fetch<wbr />Response</span
+                      ></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#registerMockSubmitResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span
+                        >register<wbr />Mock<wbr />Submit<wbr />Response</span
+                      ></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#registerMockWhoamiResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span
+                        >register<wbr />Mock<wbr />Whoami<wbr />Response</span
+                      ></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#sessionForbiddenResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>session<wbr />Forbidden<wbr />Response</span></a
+                    >
+                    <a
+                      href="_ory_elements_test.AuthPage.html#sessionSuccessResponse"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>session<wbr />Success<wbr />Response</span></a
                     >
                     <a
                       href="_ory_elements_test.AuthPage.html#submitForm"
@@ -322,7 +522,11 @@
                 ><span class="tsd-signature-symbol">&lt;</span
                 ><span class="tsd-signature-type">string</span
                 ><span class="tsd-signature-symbol">, </span
-                ><span class="tsd-signature-type">Traits</span
+                ><a
+                  href="../types/_ory_elements_test.Traits.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >Traits</a
                 ><span class="tsd-signature-symbol">&gt;</span>, locator<span
                   class="tsd-signature-symbol"
                   >: </span
@@ -365,7 +569,11 @@
                         ><span class="tsd-signature-symbol">&lt;</span
                         ><span class="tsd-signature-type">string</span
                         ><span class="tsd-signature-symbol">, </span
-                        ><span class="tsd-signature-type">Traits</span
+                        ><a
+                          href="../types/_ory_elements_test.Traits.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >Traits</a
                         ><span class="tsd-signature-symbol">&gt;</span>
                       </h5>
                     </li>
@@ -390,8 +598,8 @@
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L11"
-                        >src/test/AuthPage.ts:11</a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L17"
+                        >src/test/models/AuthPage.ts:17</a
                       >
                     </li>
                   </ul>
@@ -402,6 +610,47 @@
         </section>
         <section class="tsd-panel-group tsd-member-group">
           <h2>Properties</h2>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"
+          >
+            <a id="flowMessage" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagReadonly">Readonly</code>
+              <span>flow<wbr />Message</span
+              ><a
+                href="#flowMessage"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              flow<wbr />Message<span class="tsd-signature-symbol">:</span>
+              <span class="tsd-signature-type">Locator</span>
+            </div>
+            <aside class="tsd-sources">
+              <ul>
+                <li>
+                  Defined in
+                  <a
+                    href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L15"
+                    >src/test/models/AuthPage.ts:15</a
+                  >
+                </li>
+              </ul>
+            </aside>
+          </section>
           <section
             class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"
           >
@@ -442,8 +691,8 @@
                 <li>
                   Defined in
                   <a
-                    href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L9"
-                    >src/test/AuthPage.ts:9</a
+                    href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L14"
+                    >src/test/models/AuthPage.ts:14</a
                   >
                 </li>
               </ul>
@@ -480,8 +729,8 @@
                 <li>
                   Defined in
                   <a
-                    href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L7"
-                    >src/test/AuthPage.ts:7</a
+                    href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L12"
+                    >src/test/models/AuthPage.ts:12</a
                   >
                 </li>
               </ul>
@@ -515,7 +764,11 @@
               ><span class="tsd-signature-symbol">&lt;</span
               ><span class="tsd-signature-type">string</span
               ><span class="tsd-signature-symbol">, </span
-              ><span class="tsd-signature-type">Traits</span
+              ><a
+                href="../types/_ory_elements_test.Traits.html"
+                class="tsd-signature-type"
+                data-tsd-kind="Type alias"
+                >Traits</a
               ><span class="tsd-signature-symbol">&gt;</span>
             </div>
             <aside class="tsd-sources">
@@ -523,8 +776,8 @@
                 <li>
                   Defined in
                   <a
-                    href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L8"
-                    >src/test/AuthPage.ts:8</a
+                    href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L13"
+                    >src/test/models/AuthPage.ts:13</a
                   >
                 </li>
               </ul>
@@ -533,6 +786,95 @@
         </section>
         <section class="tsd-panel-group tsd-member-group">
           <h2>Methods</h2>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="expectFlowMessage" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>expect<wbr />Flow<wbr />Message</span
+              ><a
+                href="#expectFlowMessage"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="expectFlowMessage.expectFlowMessage-1"
+              >
+                expect<wbr />Flow<wbr />Message<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >text<span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">void</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#expectFlowMessage.expectFlowMessage-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        text: <span class="tsd-signature-type">string</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">void</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L60"
+                        >src/test/models/AuthPage.ts:60</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
           <section
             class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
           >
@@ -565,6 +907,17 @@
                 expect<wbr />Trait<wbr />Fields<span
                   class="tsd-signature-symbol"
                   >(</span
+                >traits<span class="tsd-signature-symbol">?: </span
+                ><span class="tsd-signature-type">Record</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">, </span
+                ><a
+                  href="../types/_ory_elements_test.Traits.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >Traits</a
+                ><span class="tsd-signature-symbol">&gt;</span
                 ><span class="tsd-signature-symbol">)</span
                 ><span class="tsd-signature-symbol">: </span
                 ><span class="tsd-signature-type">Promise</span
@@ -590,6 +943,26 @@
                 ></a>
               </li>
               <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        <code class="tsd-tag ts-flagOptional">Optional</code>
+                        traits: <span class="tsd-signature-type">Record</span
+                        ><span class="tsd-signature-symbol">&lt;</span
+                        ><span class="tsd-signature-type">string</span
+                        ><span class="tsd-signature-symbol">, </span
+                        ><a
+                          href="../types/_ory_elements_test.Traits.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >Traits</a
+                        ><span class="tsd-signature-symbol">&gt;</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
                 <h4 class="tsd-returns-title">
                   Returns <span class="tsd-signature-type">Promise</span
                   ><span class="tsd-signature-symbol">&lt;</span
@@ -601,8 +974,8 @@
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L19"
-                        >src/test/AuthPage.ts:19</a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L30"
+                        >src/test/models/AuthPage.ts:30</a
                       >
                     </li>
                   </ul>
@@ -678,8 +1051,842 @@
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L29"
-                        >src/test/AuthPage.ts:29</a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L43"
+                        >src/test/models/AuthPage.ts:43</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="interceptCreateResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>intercept<wbr />Create<wbr />Response</span
+              ><a
+                href="#interceptCreateResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="interceptCreateResponse.interceptCreateResponse-1"
+              >
+                intercept<wbr />Create<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >flow<span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">Response</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#interceptCreateResponse.interceptCreateResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        flow: <span class="tsd-signature-type">string</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">Response</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L168"
+                        >src/test/models/AuthPage.ts:168</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="interceptFetchResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>intercept<wbr />Fetch<wbr />Response</span
+              ><a
+                href="#interceptFetchResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="interceptFetchResponse.interceptFetchResponse-1"
+              >
+                intercept<wbr />Fetch<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >flow<span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">Response</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#interceptFetchResponse.interceptFetchResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        flow: <span class="tsd-signature-type">string</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">Response</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L174"
+                        >src/test/models/AuthPage.ts:174</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="interceptSubmitResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>intercept<wbr />Submit<wbr />Response</span
+              ><a
+                href="#interceptSubmitResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="interceptSubmitResponse.interceptSubmitResponse-1"
+              >
+                intercept<wbr />Submit<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >flow<span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">Response</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#interceptSubmitResponse.interceptSubmitResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        flow: <span class="tsd-signature-type">string</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">Response</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L180"
+                        >src/test/models/AuthPage.ts:180</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="registerMockCreateResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>register<wbr />Mock<wbr />Create<wbr />Response</span
+              ><a
+                href="#registerMockCreateResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="registerMockCreateResponse.registerMockCreateResponse-1"
+              >
+                register<wbr />Mock<wbr />Create<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >__namedParameters<span class="tsd-signature-symbol">: </span
+                ><a
+                  href="../types/_ory_elements_test.MockFlow.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >MockFlow</a
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">void</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#registerMockCreateResponse.registerMockCreateResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        __namedParameters:
+                        <a
+                          href="../types/_ory_elements_test.MockFlow.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >MockFlow</a
+                        >
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">void</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L116"
+                        >src/test/models/AuthPage.ts:116</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="registerMockFetchResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>register<wbr />Mock<wbr />Fetch<wbr />Response</span
+              ><a
+                href="#registerMockFetchResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="registerMockFetchResponse.registerMockFetchResponse-1"
+              >
+                register<wbr />Mock<wbr />Fetch<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >__namedParameters<span class="tsd-signature-symbol">: </span
+                ><a
+                  href="../types/_ory_elements_test.MockFlow.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >MockFlow</a
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">void</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#registerMockFetchResponse.registerMockFetchResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        __namedParameters:
+                        <a
+                          href="../types/_ory_elements_test.MockFlow.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >MockFlow</a
+                        >
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">void</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L127"
+                        >src/test/models/AuthPage.ts:127</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="registerMockSubmitResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>register<wbr />Mock<wbr />Submit<wbr />Response</span
+              ><a
+                href="#registerMockSubmitResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="registerMockSubmitResponse.registerMockSubmitResponse-1"
+              >
+                register<wbr />Mock<wbr />Submit<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >__namedParameters<span class="tsd-signature-symbol">: </span
+                ><a
+                  href="../types/_ory_elements_test.MockFlow.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >MockFlow</a
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">void</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#registerMockSubmitResponse.registerMockSubmitResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        __namedParameters:
+                        <a
+                          href="../types/_ory_elements_test.MockFlow.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >MockFlow</a
+                        >
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">void</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L138"
+                        >src/test/models/AuthPage.ts:138</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="registerMockWhoamiResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>register<wbr />Mock<wbr />Whoami<wbr />Response</span
+              ><a
+                href="#registerMockWhoamiResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="registerMockWhoamiResponse.registerMockWhoamiResponse-1"
+              >
+                register<wbr />Mock<wbr />Whoami<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                >__namedParameters<span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Omit</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><a
+                  href="../types/_ory_elements_test.MockFlow.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >MockFlow</a
+                ><span class="tsd-signature-symbol">, </span
+                ><span class="tsd-signature-type">&quot;flow&quot;</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">Promise</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">void</span
+                ><span class="tsd-signature-symbol">&gt;</span
+                ><a
+                  href="#registerMockWhoamiResponse.registerMockWhoamiResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        __namedParameters:
+                        <span class="tsd-signature-type">Omit</span
+                        ><span class="tsd-signature-symbol">&lt;</span
+                        ><a
+                          href="../types/_ory_elements_test.MockFlow.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >MockFlow</a
+                        ><span class="tsd-signature-symbol">, </span
+                        ><span class="tsd-signature-type">&quot;flow&quot;</span
+                        ><span class="tsd-signature-symbol">&gt;</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">Promise</span
+                  ><span class="tsd-signature-symbol">&lt;</span
+                  ><span class="tsd-signature-type">void</span
+                  ><span class="tsd-signature-symbol">&gt;</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L149"
+                        >src/test/models/AuthPage.ts:149</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="sessionForbiddenResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>session<wbr />Forbidden<wbr />Response</span
+              ><a
+                href="#sessionForbiddenResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="sessionForbiddenResponse.sessionForbiddenResponse-1"
+              >
+                session<wbr />Forbidden<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><a
+                  href="../types/_ory_elements_test.MockFlowResponse.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >MockFlowResponse</a
+                ><a
+                  href="#sessionForbiddenResponse.sessionForbiddenResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <h4 class="tsd-returns-title">
+                  Returns
+                  <a
+                    href="../types/_ory_elements_test.MockFlowResponse.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Type alias"
+                    >MockFlowResponse</a
+                  >
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L64"
+                        >src/test/models/AuthPage.ts:64</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="sessionSuccessResponse" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>session<wbr />Success<wbr />Response</span
+              ><a
+                href="#sessionSuccessResponse"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="sessionSuccessResponse.sessionSuccessResponse-1"
+              >
+                session<wbr />Success<wbr />Response<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><a
+                  href="../types/_ory_elements_test.MockFlowResponse.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >MockFlowResponse</a
+                ><a
+                  href="#sessionSuccessResponse.sessionSuccessResponse-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <h4 class="tsd-returns-title">
+                  Returns
+                  <a
+                    href="../types/_ory_elements_test.MockFlowResponse.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Type alias"
+                    >MockFlowResponse</a
+                  >
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L74"
+                        >src/test/models/AuthPage.ts:74</a
                       >
                     </li>
                   </ul>
@@ -717,6 +1924,8 @@
                 id="submitForm.submitForm-1"
               >
                 submit<wbr />Form<span class="tsd-signature-symbol">(</span
+                >buttonLocator<span class="tsd-signature-symbol">?: </span
+                ><span class="tsd-signature-type">string</span
                 ><span class="tsd-signature-symbol">)</span
                 ><span class="tsd-signature-symbol">: </span
                 ><span class="tsd-signature-type">Promise</span
@@ -742,6 +1951,18 @@
                 ></a>
               </li>
               <li class="tsd-description">
+                <div class="tsd-parameters">
+                  <h4 class="tsd-parameters-title">Parameters</h4>
+                  <ul class="tsd-parameter-list">
+                    <li>
+                      <h5>
+                        <code class="tsd-tag ts-flagOptional">Optional</code>
+                        buttonLocator:
+                        <span class="tsd-signature-type">string</span>
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
                 <h4 class="tsd-returns-title">
                   Returns <span class="tsd-signature-type">Promise</span
                   ><span class="tsd-signature-symbol">&lt;</span
@@ -753,8 +1974,8 @@
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/ory/elements/blob/6616472/src/test/AuthPage.ts#L35"
-                        >src/test/AuthPage.ts:35</a
+                        href="https://github.com/ory/elements/blob/fe0e50d/src/test/models/AuthPage.ts#L49"
+                        >src/test/models/AuthPage.ts:49</a
                       >
                     </li>
                   </ul>
@@ -1014,6 +2235,21 @@
                 </li>
                 <li class="tsd-kind-property tsd-parent-kind-class">
                   <a
+                    href="_ory_elements_test.AuthPage.html#flowMessage"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >flow<wbr />Message</a
+                  >
+                </li>
+                <li class="tsd-kind-property tsd-parent-kind-class">
+                  <a
                     href="_ory_elements_test.AuthPage.html#formFields"
                     class="tsd-index-link"
                     ><svg
@@ -1059,6 +2295,21 @@
                 </li>
                 <li class="tsd-kind-method tsd-parent-kind-class">
                   <a
+                    href="_ory_elements_test.AuthPage.html#expectFlowMessage"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >expect<wbr />Flow<wbr />Message</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
                     href="_ory_elements_test.AuthPage.html#expectTraitFields"
                     class="tsd-index-link"
                     ><svg
@@ -1085,6 +2336,141 @@
                       <use href="#icon-2048-path"></use>
                       <use href="#icon-2048-text"></use></svg
                     >expect<wbr />Trait<wbr />Labels</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#interceptCreateResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >intercept<wbr />Create<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#interceptFetchResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >intercept<wbr />Fetch<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#interceptSubmitResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >intercept<wbr />Submit<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#registerMockCreateResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >register<wbr />Mock<wbr />Create<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#registerMockFetchResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >register<wbr />Mock<wbr />Fetch<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#registerMockSubmitResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >register<wbr />Mock<wbr />Submit<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#registerMockWhoamiResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >register<wbr />Mock<wbr />Whoami<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#sessionForbiddenResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >session<wbr />Forbidden<wbr />Response</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a
+                    href="_ory_elements_test.AuthPage.html#sessionSuccessResponse"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >session<wbr />Success<wbr />Response</a
                   >
                 </li>
                 <li class="tsd-kind-method tsd-parent-kind-class">

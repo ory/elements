@@ -19,13 +19,18 @@
       <div class="tsd-toolbar-contents container">
         <div class="table-cell" id="tsd-search" data-base="..">
           <div class="field">
-            <label for="tsd-search-field" class="tsd-widget search no-caption"
+            <label
+              for="tsd-search-field"
+              class="tsd-widget tsd-toolbar-icon search no-caption"
               ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z"
                   fill="var(--color-text)"
                 ></path></svg></label
             ><input type="text" id="tsd-search-field" aria-label="Search" />
+          </div>
+          <div class="field">
+            <div id="tsd-toolbar-links"></div>
           </div>
           <ul class="results">
             <li class="state loading">Preparing search index...</li>
@@ -36,7 +41,7 @@
         <div class="table-cell" id="tsd-widgets">
           <a
             href="#"
-            class="tsd-widget menu no-caption"
+            class="tsd-widget tsd-toolbar-icon menu no-caption"
             data-toggle="menu"
             aria-label="Menu"
             ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -81,8 +86,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/ory/elements/blob/6616472/src/react.ts#L1"
-                >src/react.ts:1</a
+                href="https://github.com/ory/elements/blob/fe0e50d/src/react.ts#L4"
+                >src/react.ts:4</a
               >
             </li>
           </ul>
@@ -131,7 +136,7 @@
               <h2>Getting Started</h2>
             </a>
             <p>Install Ory Elements into your Preact application</p>
-            <pre><code class="language-shell"><span class="hl-0">npm i @ory/elements-preact --save</span>
+            <pre><code class="language-shell"><span class="hl-0">npm </span><span class="hl-1">i</span><span class="hl-0"> </span><span class="hl-1">@ory/elements-preact</span><span class="hl-0"> </span><span class="hl-1">--save</span>
 </code></pre>
             <p>
               Ory Elements provides you with the ability to theme your
@@ -149,7 +154,7 @@
               >
               folder.
             </p>
-            <pre><code class="language-tsx"><span class="hl-1">// import Ory elements css</span><br/><span class="hl-2">import</span><span class="hl-0"> </span><span class="hl-3">&quot;@ory/elements-preact/style.css&quot;</span><br/><br/><span class="hl-8">const</span><span class="hl-0"> </span><span class="hl-5">Main</span><span class="hl-0"> = () </span><span class="hl-8">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> (</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;</span><span class="hl-6">ThemeProvider</span><span class="hl-0"> </span><span class="hl-9">themeOverrides</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">customTheme</span><span class="hl-8">}</span><span class="hl-7">&gt;</span><br/><span class="hl-0">      </span><span class="hl-7">&lt;</span><span class="hl-6">Router</span><span class="hl-7">&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-3">&quot;/&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Dashboard</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-3">&quot;/login&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Login</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-3">&quot;/signup&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Register</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-3">&quot;/verification&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Verification</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-3">&quot;/recovery&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Recovery</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-3">&quot;/settings&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Settings</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">      </span><span class="hl-7">&lt;/</span><span class="hl-6">Router</span><span class="hl-7">&gt;</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;/</span><span class="hl-6">ThemeProvider</span><span class="hl-7">&gt;</span><br/><span class="hl-0">  )</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-5">render</span><span class="hl-0">(</span><span class="hl-7">&lt;</span><span class="hl-6">Main</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><span class="hl-0">, </span><span class="hl-4">document</span><span class="hl-0">.</span><span class="hl-5">getElementById</span><span class="hl-0">(</span><span class="hl-3">&quot;app&quot;</span><span class="hl-0">) </span><span class="hl-2">as</span><span class="hl-0"> </span><span class="hl-6">HTMLElement</span><span class="hl-0">)</span>
+            <pre><code class="language-tsx"><span class="hl-2">// Ory Elements</span><br/><span class="hl-2">// optional global css reset</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/assets/normalize.css&quot;</span><br/><span class="hl-2">// optional fontawesome icons</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/assets/fa-brands.min.css&quot;</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/assets/fa-solid.min.css&quot;</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/assets/fontawesome.min.css&quot;</span><br/><br/><span class="hl-2">// optional fonts</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/assets/inter-font.css&quot;</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/assets/jetbrains-mono-font.css&quot;</span><br/><br/><span class="hl-2">// required styles for Ory Elements</span><br/><span class="hl-3">import</span><span class="hl-0"> </span><span class="hl-1">&quot;@ory/elements-preact/style.css&quot;</span><br/><br/><span class="hl-8">const</span><span class="hl-0"> </span><span class="hl-5">Main</span><span class="hl-0"> = () </span><span class="hl-8">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-3">return</span><span class="hl-0"> (</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;</span><span class="hl-6">ThemeProvider</span><span class="hl-0"> </span><span class="hl-9">themeOverrides</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">customTheme</span><span class="hl-8">}</span><span class="hl-7">&gt;</span><br/><span class="hl-0">      </span><span class="hl-7">&lt;</span><span class="hl-6">Router</span><span class="hl-7">&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-1">&quot;/&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Dashboard</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-1">&quot;/login&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Login</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-1">&quot;/signup&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Register</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-1">&quot;/verification&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Verification</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-1">&quot;/recovery&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Recovery</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">        </span><span class="hl-7">&lt;</span><span class="hl-6">Route</span><span class="hl-0"> </span><span class="hl-9">path</span><span class="hl-0">=</span><span class="hl-1">&quot;/settings&quot;</span><span class="hl-0"> </span><span class="hl-9">component</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">Settings</span><span class="hl-8">}</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">      </span><span class="hl-7">&lt;/</span><span class="hl-6">Router</span><span class="hl-7">&gt;</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;/</span><span class="hl-6">ThemeProvider</span><span class="hl-7">&gt;</span><br/><span class="hl-0">  )</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-5">render</span><span class="hl-0">(</span><span class="hl-7">&lt;</span><span class="hl-6">Main</span><span class="hl-0"> </span><span class="hl-7">/&gt;</span><span class="hl-0">, </span><span class="hl-4">document</span><span class="hl-0">.</span><span class="hl-5">getElementById</span><span class="hl-0">(</span><span class="hl-1">&quot;app&quot;</span><span class="hl-0">) </span><span class="hl-3">as</span><span class="hl-0"> </span><span class="hl-6">HTMLElement</span><span class="hl-0">)</span>
 </code></pre>
             <p>
               Ory Elements supports integrating with Ory out of the box with the
@@ -158,13 +163,13 @@
               <code>&lt;UserErrorCard /&gt;</code>.
             </p>
             <p>
-              Each flow can be mapped using these compontents with only a few
+              Each flow can be mapped using these components with only a few
               lines of code.
             </p>
             <p>
               Let&#39;s create a login example, create <code>login.tsx</code>.
             </p>
-            <pre><code class="language-tsx"><span class="hl-2">export</span><span class="hl-0"> </span><span class="hl-8">const</span><span class="hl-0"> </span><span class="hl-5">Login</span><span class="hl-0"> = () </span><span class="hl-8">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-1">// do sdk calls to get the flow data from Ory</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> </span><span class="hl-4">flow</span><span class="hl-0"> ? (</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;</span><span class="hl-6">UserAuthCard</span><br/><span class="hl-0">      </span><span class="hl-9">flow</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">flow</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">flowType</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-3">&quot;login&quot;</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">additionalProps</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-10">{</span><br/><span class="hl-10">        </span><span class="hl-4">forgotPasswordURL:</span><span class="hl-10"> </span><span class="hl-3">&quot;/recovery&quot;</span><span class="hl-10">,</span><br/><span class="hl-10">        </span><span class="hl-4">signupURL:</span><span class="hl-10"> </span><span class="hl-3">&quot;/signup&quot;</span><span class="hl-10">,</span><br/><span class="hl-10">      }</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">title</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-3">&quot;Login&quot;</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">includeScripts</span><span class="hl-0">=</span><span class="hl-8">{true}</span><br/><span class="hl-0">      </span><span class="hl-9">onSubmit</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">submitFormData</span><span class="hl-8">}</span><br/><span class="hl-0">    </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">  ) : (</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;</span><span class="hl-11">div</span><span class="hl-7">&gt;</span><span class="hl-0">Loading...</span><span class="hl-7">&lt;/</span><span class="hl-11">div</span><span class="hl-7">&gt;</span><br/><span class="hl-0">  )</span><br/><span class="hl-0">}</span>
+            <pre><code class="language-tsx"><span class="hl-3">export</span><span class="hl-0"> </span><span class="hl-8">const</span><span class="hl-0"> </span><span class="hl-5">Login</span><span class="hl-0"> = () </span><span class="hl-8">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">// do sdk calls to get the flow data from Ory</span><br/><span class="hl-0">  </span><span class="hl-3">return</span><span class="hl-0"> </span><span class="hl-4">flow</span><span class="hl-0"> ? (</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;</span><span class="hl-6">UserAuthCard</span><br/><span class="hl-0">      </span><span class="hl-9">flow</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">flow</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">flowType</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-1">&quot;login&quot;</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">additionalProps</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-10">{</span><br/><span class="hl-10">        </span><span class="hl-4">forgotPasswordURL:</span><span class="hl-10"> </span><span class="hl-1">&quot;/recovery&quot;</span><span class="hl-10">,</span><br/><span class="hl-10">        </span><span class="hl-4">signupURL:</span><span class="hl-10"> </span><span class="hl-1">&quot;/signup&quot;</span><span class="hl-10">,</span><br/><span class="hl-10">      }</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">title</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-1">&quot;Login&quot;</span><span class="hl-8">}</span><br/><span class="hl-0">      </span><span class="hl-9">includeScripts</span><span class="hl-0">=</span><span class="hl-8">{true}</span><br/><span class="hl-0">      </span><span class="hl-9">onSubmit</span><span class="hl-0">=</span><span class="hl-8">{</span><span class="hl-4">submitFormData</span><span class="hl-8">}</span><br/><span class="hl-0">    </span><span class="hl-7">/&gt;</span><br/><span class="hl-0">  ) : (</span><br/><span class="hl-0">    </span><span class="hl-7">&lt;</span><span class="hl-11">div</span><span class="hl-7">&gt;</span><span class="hl-0">Loading...</span><span class="hl-7">&lt;/</span><span class="hl-11">div</span><span class="hl-7">&gt;</span><br/><span class="hl-0">  )</span><br/><span class="hl-0">}</span>
 </code></pre>
           </section>
         </section>
@@ -175,7 +180,7 @@
               <h3 class="tsd-index-heading">Interfaces</h3>
               <div class="tsd-index-list">
                 <a
-                  href="../interfaces/_ory_elements_preact.ButtonLinkProps.html"
+                  href="../interfaces/_ory_elements_preact.ButtonProps.html"
                   class="tsd-index-link tsd-kind-interface tsd-parent-kind-module"
                   ><svg
                     class="tsd-kind-icon"
@@ -199,19 +204,6 @@
                       fill="var(--color-text)"
                       id="icon-256-text"
                     ></path></svg
-                  ><span>Button<wbr />Link<wbr />Props</span></a
-                >
-                <a
-                  href="../interfaces/_ory_elements_preact.ButtonProps.html"
-                  class="tsd-index-link tsd-kind-interface tsd-parent-kind-module"
-                  ><svg
-                    class="tsd-kind-icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <use href="#icon-256-path"></use>
-                    <use href="#icon-256-text"></use></svg
                   ><span>Button<wbr />Props</span></a
                 >
                 <a
@@ -440,6 +432,32 @@
                     <use href="#icon-4194304-path"></use>
                     <use href="#icon-4194304-text"></use></svg
                   ><span>Break<wbr />Points</span></a
+                >
+                <a
+                  href="../types/_ory_elements_preact.ButtonLinkContainerStyle.html"
+                  class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-4194304-path"></use>
+                    <use href="#icon-4194304-text"></use></svg
+                  ><span>Button<wbr />Link<wbr />Container<wbr />Style</span></a
+                >
+                <a
+                  href="../types/_ory_elements_preact.ButtonLinkProps.html"
+                  class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-4194304-path"></use>
+                    <use href="#icon-4194304-text"></use></svg
+                  ><span>Button<wbr />Link<wbr />Props</span></a
                 >
                 <a
                   href="../types/_ory_elements_preact.ButtonSocialStyle.html"
@@ -801,6 +819,19 @@
                   ><span>Self<wbr />Service<wbr />Flow</span></a
                 >
                 <a
+                  href="../types/_ory_elements_preact.Severity.html"
+                  class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-4194304-path"></use>
+                    <use href="#icon-4194304-text"></use></svg
+                  ><span>Severity</span></a
+                >
+                <a
                   href="../types/_ory_elements_preact.TOTPSettingsProps.html"
                   class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
                   ><svg
@@ -881,6 +912,19 @@
                   ></a
                 >
                 <a
+                  href="../types/_ory_elements_preact.UserConsentCardProps.html"
+                  class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-4194304-path"></use>
+                    <use href="#icon-4194304-text"></use></svg
+                  ><span>User<wbr />Consent<wbr />Card<wbr />Props</span></a
+                >
+                <a
                   href="../types/_ory_elements_preact.UserErrorCardProps.html"
                   class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
                   ><svg
@@ -892,6 +936,19 @@
                     <use href="#icon-4194304-path"></use>
                     <use href="#icon-4194304-text"></use></svg
                   ><span>User<wbr />Error<wbr />Card<wbr />Props</span></a
+                >
+                <a
+                  href="../types/_ory_elements_preact.UserLogoutCardProps.html"
+                  class="tsd-index-link tsd-kind-type-alias tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-4194304-path"></use>
+                    <use href="#icon-4194304-text"></use></svg
+                  ><span>User<wbr />Logout<wbr />Card<wbr />Props</span></a
                 >
                 <a
                   href="../types/_ory_elements_preact.UserSettingsCardProps.html"
@@ -1733,6 +1790,19 @@
                   ><span>User<wbr />Auth<wbr />Form</span></a
                 >
                 <a
+                  href="../functions/_ory_elements_preact.UserConsentCard.html"
+                  class="tsd-index-link tsd-kind-function tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-64-path"></use>
+                    <use href="#icon-64-text"></use></svg
+                  ><span>User<wbr />Consent<wbr />Card</span></a
+                >
+                <a
                   href="../functions/_ory_elements_preact.UserErrorCard.html"
                   class="tsd-index-link tsd-kind-function tsd-parent-kind-module"
                   ><svg
@@ -1744,6 +1814,19 @@
                     <use href="#icon-64-path"></use>
                     <use href="#icon-64-text"></use></svg
                   ><span>User<wbr />Error<wbr />Card</span></a
+                >
+                <a
+                  href="../functions/_ory_elements_preact.UserLogoutCard.html"
+                  class="tsd-index-link tsd-kind-function tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-64-path"></use>
+                    <use href="#icon-64-text"></use></svg
+                  ><span>User<wbr />Logout<wbr />Card</span></a
                 >
                 <a
                   href="../functions/_ory_elements_preact.UserSettingsCard.html"
@@ -1770,6 +1853,19 @@
                     <use href="#icon-64-path"></use>
                     <use href="#icon-64-text"></use></svg
                   ><span>Web<wbr />Authn<wbr />Settings<wbr />Section</span></a
+                >
+                <a
+                  href="../functions/_ory_elements_preact.buttonLinkContainerStyle-1.html"
+                  class="tsd-index-link tsd-kind-function tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-64-path"></use>
+                    <use href="#icon-64-text"></use></svg
+                  ><span>button<wbr />Link<wbr />Container<wbr />Style</span></a
                 >
                 <a
                   href="../functions/_ory_elements_preact.buttonLinkStyle.html"
@@ -1891,6 +1987,19 @@
                     <use href="#icon-64-path"></use>
                     <use href="#icon-64-text"></use></svg
                   ><span>grid<wbr />Style</span></a
+                >
+                <a
+                  href="../functions/_ory_elements_preact.hasHiddenIdentifier.html"
+                  class="tsd-index-link tsd-kind-function tsd-parent-kind-module"
+                  ><svg
+                    class="tsd-kind-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <use href="#icon-64-path"></use>
+                    <use href="#icon-64-text"></use></svg
+                  ><span>has<wbr />Hidden<wbr />Identifier</span></a
                 >
                 <a
                   href="../functions/_ory_elements_preact.hasLookupSecret.html"
@@ -2248,21 +2357,6 @@
           <ul>
             <li class="tsd-kind-interface tsd-parent-kind-module">
               <a
-                href="../interfaces/_ory_elements_preact.ButtonLinkProps.html"
-                class="tsd-index-link"
-                ><svg
-                  class="tsd-kind-icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <use href="#icon-256-path"></use>
-                  <use href="#icon-256-text"></use></svg
-                >Button<wbr />Link<wbr />Props</a
-              >
-            </li>
-            <li class="tsd-kind-interface tsd-parent-kind-module">
-              <a
                 href="../interfaces/_ory_elements_preact.ButtonProps.html"
                 class="tsd-index-link"
                 ><svg
@@ -2514,6 +2608,36 @@
                   <use href="#icon-4194304-path"></use>
                   <use href="#icon-4194304-text"></use></svg
                 >Break<wbr />Points</a
+              >
+            </li>
+            <li class="tsd-kind-type-alias tsd-parent-kind-module">
+              <a
+                href="../types/_ory_elements_preact.ButtonLinkContainerStyle.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-4194304-path"></use>
+                  <use href="#icon-4194304-text"></use></svg
+                >Button<wbr />Link<wbr />Container<wbr />Style</a
+              >
+            </li>
+            <li class="tsd-kind-type-alias tsd-parent-kind-module">
+              <a
+                href="../types/_ory_elements_preact.ButtonLinkProps.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-4194304-path"></use>
+                  <use href="#icon-4194304-text"></use></svg
+                >Button<wbr />Link<wbr />Props</a
               >
             </li>
             <li class="tsd-kind-type-alias tsd-parent-kind-module">
@@ -2923,6 +3047,21 @@
             </li>
             <li class="tsd-kind-type-alias tsd-parent-kind-module">
               <a
+                href="../types/_ory_elements_preact.Severity.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-4194304-path"></use>
+                  <use href="#icon-4194304-text"></use></svg
+                >Severity</a
+              >
+            </li>
+            <li class="tsd-kind-type-alias tsd-parent-kind-module">
+              <a
                 href="../types/_ory_elements_preact.TOTPSettingsProps.html"
                 class="tsd-index-link"
                 ><svg
@@ -3013,6 +3152,21 @@
             </li>
             <li class="tsd-kind-type-alias tsd-parent-kind-module">
               <a
+                href="../types/_ory_elements_preact.UserConsentCardProps.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-4194304-path"></use>
+                  <use href="#icon-4194304-text"></use></svg
+                >User<wbr />Consent<wbr />Card<wbr />Props</a
+              >
+            </li>
+            <li class="tsd-kind-type-alias tsd-parent-kind-module">
+              <a
                 href="../types/_ory_elements_preact.UserErrorCardProps.html"
                 class="tsd-index-link"
                 ><svg
@@ -3024,6 +3178,21 @@
                   <use href="#icon-4194304-path"></use>
                   <use href="#icon-4194304-text"></use></svg
                 >User<wbr />Error<wbr />Card<wbr />Props</a
+              >
+            </li>
+            <li class="tsd-kind-type-alias tsd-parent-kind-module">
+              <a
+                href="../types/_ory_elements_preact.UserLogoutCardProps.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-4194304-path"></use>
+                  <use href="#icon-4194304-text"></use></svg
+                >User<wbr />Logout<wbr />Card<wbr />Props</a
               >
             </li>
             <li class="tsd-kind-type-alias tsd-parent-kind-module">
@@ -3943,6 +4112,21 @@
             </li>
             <li class="tsd-kind-function tsd-parent-kind-module">
               <a
+                href="../functions/_ory_elements_preact.UserConsentCard.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-64-path"></use>
+                  <use href="#icon-64-text"></use></svg
+                >User<wbr />Consent<wbr />Card</a
+              >
+            </li>
+            <li class="tsd-kind-function tsd-parent-kind-module">
+              <a
                 href="../functions/_ory_elements_preact.UserErrorCard.html"
                 class="tsd-index-link"
                 ><svg
@@ -3954,6 +4138,21 @@
                   <use href="#icon-64-path"></use>
                   <use href="#icon-64-text"></use></svg
                 >User<wbr />Error<wbr />Card</a
+              >
+            </li>
+            <li class="tsd-kind-function tsd-parent-kind-module">
+              <a
+                href="../functions/_ory_elements_preact.UserLogoutCard.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-64-path"></use>
+                  <use href="#icon-64-text"></use></svg
+                >User<wbr />Logout<wbr />Card</a
               >
             </li>
             <li class="tsd-kind-function tsd-parent-kind-module">
@@ -3984,6 +4183,21 @@
                   <use href="#icon-64-path"></use>
                   <use href="#icon-64-text"></use></svg
                 >Web<wbr />Authn<wbr />Settings<wbr />Section</a
+              >
+            </li>
+            <li class="tsd-kind-function tsd-parent-kind-module">
+              <a
+                href="../functions/_ory_elements_preact.buttonLinkContainerStyle-1.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-64-path"></use>
+                  <use href="#icon-64-text"></use></svg
+                >button<wbr />Link<wbr />Container<wbr />Style</a
               >
             </li>
             <li class="tsd-kind-function tsd-parent-kind-module">
@@ -4119,6 +4333,21 @@
                   <use href="#icon-64-path"></use>
                   <use href="#icon-64-text"></use></svg
                 >grid<wbr />Style</a
+              >
+            </li>
+            <li class="tsd-kind-function tsd-parent-kind-module">
+              <a
+                href="../functions/_ory_elements_preact.hasHiddenIdentifier.html"
+                class="tsd-index-link"
+                ><svg
+                  class="tsd-kind-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#icon-64-path"></use>
+                  <use href="#icon-64-text"></use></svg
+                >has<wbr />Hidden<wbr />Identifier</a
               >
             </li>
             <li class="tsd-kind-function tsd-parent-kind-module">

@@ -41,7 +41,32 @@ export.
 Now you can see Ory Elements in action by opening http://localhost:3000 in your
 browser!
 
+### Using and Modifying the Example
+
+If you want to re-use this example in your own project, you can do so by
+installing the dependencies through NPM instead of using the latest build from
+master.
+
+```shell
+cp -r examples/nextjs-spa <your-project>
+cd <your-project>
+npm i @ory/elements @ory/client
+```
+
+Nothing else is required. You can now start modifying the example to your needs.
+
+### End-to-End Testing
+
+This example comes with a set of end-to-end tests that can be run with
+`npm run test`. The tests are written with [Playwright](https://playwright.dev/)
+and can be found in the `e2e` directory.
+
+To use the tests, you need to have [Playwright](https://playwright.dev/) and
+`@ory/elements-test` installed as a dev dependency.
+
+For more details, see [End-to-End Testing](../../packages/test/README.md).
+
 ### Contributing
 
 Found a bug or want to add a new feature? Please fork this repository and create
-a pull request. If your changes are large please open an issue first.
+a pull request. If your changes are large, please open an issue first.

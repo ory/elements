@@ -1,4 +1,4 @@
-import { SelfServiceError } from "@ory/client"
+import { FlowError } from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
@@ -20,7 +20,7 @@ export const ErrorAuthCard = Template.bind({})
 
 ErrorAuthCard.args = {
   title: "An error occurred",
-  error: authError as SelfServiceError,
+  error: authError as FlowError,
   backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",
 }

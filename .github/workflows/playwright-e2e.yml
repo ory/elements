@@ -35,3 +35,23 @@ jobs:
             examples/react-spa/playwright-report/
             examples/react-spa/test-results/
           retention-days: 7
+      - name: Run examples/preact-spa tests
+        run: cd examples/preact-spa && npm run test
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: preact-spa playwright-report
+          path: |
+            examples/preact-spa/playwright-report/
+            examples/preact-spa/test-results/
+          retention-days: 7
+      - name: Run examples/nextjs-spa tests
+        run: cd examples/nextjs-spa && npm run test
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: nextjs-spa playwright-report
+          path: |
+            examples/nextjs-spa/playwright-report/
+            examples/nextjs-spa/test-results/
+          retention-days: 7

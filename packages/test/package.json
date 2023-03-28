@@ -9,8 +9,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
-    "./package.json": "./package.json",
-    "./assets/*.json": "./dist/assets/*.json"
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
