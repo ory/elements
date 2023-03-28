@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@ory/elements": "*",
-    "@ory/elements-test": "*"
+    "@ory/elements-test": "*",
+    "@playwright/test": "1.32.1"
   }
 }
