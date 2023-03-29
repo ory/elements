@@ -75,7 +75,7 @@ browser!
 
 ## End-to-end Testing with Playwright
 
-Ory Elements also provides an end-to-end library based on
+Ory Elements provides an end-to-end library based on
 [Playwright](https://playwright.dev/). This library can be used to test your
 application's login, registration, recovery, verification and settings pages
 with Ory Elements or with your own custom components.

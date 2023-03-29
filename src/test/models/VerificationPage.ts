@@ -29,7 +29,7 @@ export class VerificationPage extends AuthPage {
   ) {
     super(
       defaultVerificationEmailTraits,
-      page.locator("*[data-testid='verification-auth-card']"),
+      page.getByTestId("verification-auth-card"),
     )
     this.page = page
     this.pageUrl = new URL(path || "/verification", baseUrl)

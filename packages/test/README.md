@@ -1,6 +1,6 @@
 # Ory Elements Test
 
-Ory Elements also provides a testing library built on top of
+Ory Elements provides a testing library built on top of
 [Playwright](https://playwright.dev/). It allows you to test your application
 integration with Ory automatically.
 
@@ -15,7 +15,7 @@ library using npm.
 ---
 
 `@ory/elements-test` only supports playwright 1.32.0 or higher. If you are using
-an older version of playwright, you will need to update it.
+an older version of playwright, please update it.
 
 ---
 
@@ -71,8 +71,8 @@ Below is an example of running Next.js on port 3000.
   ],
 ```
 
-To test against an Ory Network project, you will need to also add the Ory Tunnel
-to your configuration.
+To test against an Ory Network project, add the Ory Tunnel to your
+configuration.
 
 ```ts
 /* Run your local dev server before starting the tests */

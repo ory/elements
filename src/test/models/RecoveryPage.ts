@@ -29,10 +29,7 @@ export class RecoveryPage extends AuthPage {
     oryProjectUrl: string,
     path?: string,
   ) {
-    super(
-      defaultRecoveryTraits,
-      page.locator("*[data-testid='recovery-auth-card']"),
-    )
+    super(defaultRecoveryTraits, page.getByTestId("recovery-auth-card"))
     this.page = page
     this.pageUrl = new URL(path || "/recovery", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)

@@ -25,7 +25,7 @@ export class RegistrationPage extends AuthPage {
   ) {
     super(
       traits || defaultRegistrationTraits,
-      page.locator("*[data-testid='registration-auth-card']"),
+      page.getByTestId("registration-auth-card"),
     )
     this.page = page
     this.pageUrl = new URL(path || "/registration", baseUrl)

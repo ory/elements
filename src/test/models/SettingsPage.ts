@@ -16,10 +16,7 @@ export class SettingsPage extends AuthPage {
     traits?: Record<string, Traits>,
     path?: string,
   ) {
-    super(
-      traits || defaultTraits,
-      page.locator("*[data-testid='settings-settings-card']"),
-    )
+    super(traits || defaultTraits, page.getByTestId("settings-settings-card"))
     this.page = page
     this.pageUrl = new URL(path || "/settings", baseUrl)
   }

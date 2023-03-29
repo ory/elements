@@ -1,12 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Configuration, FrontendApi, IdentityApi } from "@ory/client"
 import { test as base } from "@playwright/test"
 
 type TestFixtures = {
-  sdk: FrontendApi
-  adminSdk: IdentityApi
   environment: {
     applicationUrl: string
     oryProjectUrl: string
@@ -35,28 +32,6 @@ export const test = base.extend<TestFixtures>({
         projectApiToken: process.env.ORY_PROJECT_API_TOKEN || "",
       }
       await use(environment)
-    },
-    { auto: false },
-  ],
-  sdk: [
-    async ({ environment }, use) => {
-      const sdk = new FrontendApi(
-        new Configuration({
-          basePath: environment.oryProjectUrl,
-        }),
-      )
-      await use(sdk)
-    },
-    { auto: false },
-  ],
-  adminSdk: [
-    async ({ environment }, use) => {
-      const sdk = new IdentityApi(
-        new Configuration({
-          apiKey: environment.projectApiToken,
-        }),
-      )
-      await use(sdk)
     },
     { auto: false },
   ],

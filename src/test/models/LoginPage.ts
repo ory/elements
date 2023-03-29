@@ -23,10 +23,7 @@ export class LoginPage extends AuthPage {
     traits?: Record<string, Traits>,
     path?: string,
   ) {
-    super(
-      traits || defaultLoginTraits,
-      page.locator("*[data-testid='login-auth-card']"),
-    )
+    super(traits || defaultLoginTraits, page.getByTestId("login-auth-card"))
     this.page = page
     this.pageUrl = new URL(path || "/login", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
