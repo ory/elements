@@ -24,6 +24,12 @@ export class AuthPage {
       )
     }
 
+    // a wildcard selector for any ui/message node in the flow
+    // this is used to check for error messages
+    // since there is no way to check for a specific message
+    // inside of this model, we use a wildcard selector
+    // this can of course be chained with other selectors to be more specific
+    // this.flowmessage.locator("*[data-testid*='ui/message/10000']")
     this.flowMessage = locator.locator("*[data-testid*='ui/message/']")
   }
 
