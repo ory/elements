@@ -21,8 +21,8 @@ import {
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import { LoggedInfo } from "./sections/logged-info"
 import { LinkSection } from "./sections/link-section"
+import { LoggedInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import { PasswordlessSection } from "./sections/passwordless-section"
@@ -275,6 +275,7 @@ export const UserAuthCard = ({
         </h2>
       }
       image={cardImage}
+      data-testid={`${flowType}-auth-card`}
     >
       <div className={gridStyle({ gap: 32 })}>
         {subtitle && <Message severity="default">{subtitle}</Message>}
@@ -282,7 +283,9 @@ export const UserAuthCard = ({
         {$oidc && (
           <>
             <Divider />
-            <UserAuthForm flow={flow}>{$oidc}</UserAuthForm>
+            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
+              {$oidc}
+            </UserAuthForm>
           </>
         )}
         {$flow && !isTwoFactor() && (

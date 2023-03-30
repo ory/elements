@@ -39,6 +39,13 @@ export const sdkError = (
 
       switch (error.response?.status) {
         case 400: {
+          if (error.response.data?.error?.id === "session_already_available") {
+            console.warn(
+              "sdkError 400: `session_already_available`. Navigate to /",
+            )
+            navigate("/", { replace: true })
+            return Promise.resolve()
+          }
           // the request could contain invalid parameters which would set error messages in the flow
           if (setFlow !== undefined) {
             console.warn("sdkError 400: update flow data")
@@ -113,18 +120,18 @@ export const sdkError = (
         case 422: {
           if (responseData.redirect_browser_to !== undefined) {
             const currentUrl = new URL(window.location.href)
-            const redirect = new URL(responseData.redirect_browser_to)
-
-            // host name has changed, then change location
-            if (currentUrl.host !== redirect.host) {
-              console.warn("sdkError 422: Host changed redirect")
-              window.location = responseData.redirect_browser_to
-              return Promise.resolve()
-            }
+            const redirect = new URL(
+              responseData.redirect_browser_to,
+              // need to add the base url since the `redirect_browser_to` is a relative url with no hostname
+              window.location.origin,
+            )
 
             // Path has changed
             if (currentUrl.pathname !== redirect.pathname) {
               console.warn("sdkError 422: Update path")
+              // remove /ui prefix from the path in case it is present (not setup correctly inside the project config)
+              // since this is an SPA we don't need to redirect to the Account Experience.
+              redirect.pathname = redirect.pathname.replace("/ui", "")
               navigate(redirect.pathname + redirect.search, {
                 replace: true,
               })

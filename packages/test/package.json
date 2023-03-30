@@ -9,8 +9,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
-    "./package.json": "./package.json",
-    "./assets/*.json": "./dist/assets/*.json"
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
@@ -28,14 +27,6 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "overrides": {
-    "@vanilla-extract/vite-plugin": {
-      "vite": "^3"
-    }
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^2.0.1"
-  },
   "files": [
     "dist/*"
   ],
