@@ -216,7 +216,6 @@ export const Node = ({
             required={attrs.required}
             disabled={attrs.disabled}
             pattern={attrs.pattern}
-            key={attrs.key}
             fullWidth
           />
         )
