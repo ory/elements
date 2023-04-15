@@ -42,6 +42,24 @@ test("ory auth card login flow", async ({ mount }) => {
   })
 })
 
+test("ory auth card login flow without signupURL", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      title={"Sign in"}
+      flowType={"login"}
+      additionalProps={{
+        forgotPasswordURL: "/forgot",
+      }}
+      flow={loginFixture}
+    />,
+  )
+
+  await expect(component).not.toContainText("Don't have an account", {
+    ignoreCase: true,
+  })
+
+});
+
 test("ory auth card registration flow", async ({ mount }) => {
   const component = await mount(
     <UserAuthCard
