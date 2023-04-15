@@ -35,7 +35,7 @@ export default defineConfig({
     },
     rollupOptions: {
       treeshake: "smallest",
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "react/jsx-runtime"],
     },
   },
 })

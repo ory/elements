@@ -31,7 +31,7 @@ export default defineConfig({
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),
     },
     rollupOptions: {
-      external: ["express"],
+      external: ["express", "react", "react-dom", "react/jsx-runtime", "react-dom/server"],
       output: {
         globals: {
           express: "express",
