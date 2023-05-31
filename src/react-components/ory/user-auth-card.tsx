@@ -54,7 +54,6 @@ export type RecoverySectionAdditionalProps = {
  * @property {string} subtitle - subtitle of the user auth card, usually used to display additional information
  * @property {string | React.ReactElement} - an image to display on the card header (usually a logo)
  * @property {LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps} additionalProps - additional props to pass to the form
- * @property {boolean | undefined } enableSignUpOnLoginFlow - flag indicating if the User Sign Up should be visible or not for the Login Flow. Is enabled per default.
  */
 export type UserAuthCardProps = {
   flow: SelfServiceFlow
@@ -70,7 +69,6 @@ export type UserAuthCardProps = {
   includeScripts?: boolean
   className?: string
   children?: string
-  enableSignUpOnLoginFlow?: boolean
 } & UserAuthFormAdditionalProps
 
 /**
@@ -88,7 +86,6 @@ export const UserAuthCard = ({
   onSubmit,
   includeScripts,
   className,
-  enableSignUpOnLoginFlow = true
 }: UserAuthCardProps): JSX.Element => {
   if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
@@ -215,19 +212,21 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      message = isLoggedIn(flow as LoginFlow)
-        ? {
-            text: <>Something&#39;s not working?</>,
-            buttonText: "Logout",
-            url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
-            dataTestId: "logout-link",
-          }
-        : enableSignUpOnLoginFlow ? {
-            buttonText: "Sign up",
-            url: (additionalProps as LoginSectionAdditionalProps).signupURL,
-            text: <>Don&#39;t have an account?</>,
-            dataTestId: "signup-link",
-          } : null
+      if (isLoggedIn(flow as LoginFlow)) {
+        message = {
+          text: <>Something&#39;s not working?</>,
+          buttonText: "Logout",
+          url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
+          dataTestId: "logout-link",
+        }
+      } else if ((additionalProps as LoginSectionAdditionalProps).signupURL) {
+        message = {
+          buttonText: "Sign up",
+          url: (additionalProps as LoginSectionAdditionalProps).signupURL,
+          text: <>Don&#39;t have an account?</>,
+          dataTestId: "signup-link",
+        }
+      }
       break
     case "registration":
       $passwordless = PasswordlessSection(flow)

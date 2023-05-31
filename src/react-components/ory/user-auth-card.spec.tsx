@@ -10,42 +10,55 @@ import {
 import { AuthPage } from "../../test/models/AuthPage"
 import { UserAuthCard } from "./user-auth-card"
 
-[true, false, undefined].forEach((enableSignUp) => {
-  test("ory auth card login flow. sign up enabled: " + enableSignUp, async ({ mount }) => {
-    const component = await mount(buildLoginUserAuthCard(enableSignUp))
+;[true, false].forEach((enableSignUp) => {
+  test(
+    "ory auth card login flow. signup enabled: " + enableSignUp,
+    async ({ mount }) => {
+      const signUp = enableSignUp ? "/signup" : undefined
 
-    const loginComponent = new AuthPage(loginFixture.ui.nodes, component)
-    await loginComponent.expectTraitFields()
-    await loginComponent.expectTraitLabels()
+      const component = await mount(
+        <UserAuthCard
+          title={"Sign in"}
+          flowType={"login"}
+          additionalProps={{
+            forgotPasswordURL: "/forgot",
+            signupURL: signUp,
+          }}
+          flow={loginFixture}
+        />,
+      )
 
-    await expect(component).toContainText("Sign in")
-    await expect(component).toContainText("Forgot password?", {
-      ignoreCase: true,
-    })
-    await expect(
-      component.locator('a[data-testid="forgot-password-link"]'),
-    ).toHaveAttribute("href", "/forgot")
+      const loginComponent = new AuthPage(loginFixture.ui.nodes, component)
+      await loginComponent.expectTraitFields()
+      await loginComponent.expectTraitLabels()
 
-    // signup
-    if (enableSignUp == undefined || enableSignUp) {
-      await expect(
-        component.locator('a[data-testid="signup-link"]'),
-      ).toHaveAttribute("href", "/signup")
-      await expect(component).toContainText("Don't have an account", {
+      await expect(component).toContainText("Sign in")
+      await expect(component).toContainText("Forgot password?", {
         ignoreCase: true,
       })
-    } else {
       await expect(
+        component.locator('a[data-testid="forgot-password-link"]'),
+      ).toHaveAttribute("href", "/forgot")
+
+      // signup
+      if (enableSignUp) {
+        await expect(
           component.locator('a[data-testid="signup-link"]'),
-      ).not.toBeVisible()
-      await expect(component).not.toContainText("Don't have an account", {
-        ignoreCase: true,
-      })
-    }
-  })
+        ).toHaveAttribute("href", "/signup")
+        await expect(component).toContainText("Don't have an account", {
+          ignoreCase: true,
+        })
+      } else {
+        await expect(
+          component.locator('a[data-testid="signup-link"]'),
+        ).not.toBeVisible()
+        await expect(component).not.toContainText("Don't have an account", {
+          ignoreCase: true,
+        })
+      }
+    },
+  )
 })
-
-
 
 test("ory auth card registration flow", async ({ mount }) => {
   const component = await mount(
@@ -157,29 +170,3 @@ test("ory auth card login refresh flow", async ({ mount }) => {
   await expect(component).toContainText("You're logged in as:")
   await expect(component).toContainText("johndoe@acme.com")
 })
-
-const buildLoginUserAuthCard = (enableSignUp: boolean|undefined) => {
-  if (enableSignUp != undefined) {
-    return (<UserAuthCard
-        title={"Sign in"}
-        flowType={"login"}
-        enableSignUpOnLoginFlow={enableSignUp}
-        additionalProps={{
-          forgotPasswordURL: "/forgot",
-          signupURL: "/signup",
-        }}
-        flow={loginFixture}
-    />)
-  } else {
-    // leave out optional enableSignUp parameter -> default to true
-    return (<UserAuthCard
-        title={"Sign in"}
-        flowType={"login"}
-        additionalProps={{
-          forgotPasswordURL: "/forgot",
-          signupURL: "/signup",
-        }}
-        flow={loginFixture}
-    />)
-  }
-}
