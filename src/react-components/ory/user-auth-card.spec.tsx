@@ -9,7 +9,6 @@ import {
 } from "../../test/fixtures"
 import { AuthPage } from "../../test/models/AuthPage"
 import { UserAuthCard } from "./user-auth-card"
-
 ;[true, false].forEach((enableSignUp) => {
   test(
     "ory auth card login flow. signup enabled: " + enableSignUp,
