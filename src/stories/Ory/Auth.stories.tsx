@@ -124,6 +124,17 @@ LoginAuthCardUiError.args = {
   },
 }
 
+export const LoginAuthCardWithoutRegistrationUrl = Template.bind({})
+
+LoginAuthCardWithoutRegistrationUrl.args = {
+  title: "Sign in to your Acme account",
+  flow: loginFlow as LoginFlow,
+  flowType: "login",
+  additionalProps: {
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
 export const RegistrationAuthCard = Template.bind({})
 
 RegistrationAuthCard.args = {
