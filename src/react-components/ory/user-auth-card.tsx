@@ -212,19 +212,21 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      message = isLoggedIn(flow as LoginFlow)
-        ? {
-            text: <>Something&#39;s not working?</>,
-            buttonText: "Logout",
-            url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
-            dataTestId: "logout-link",
-          }
-        : {
-            buttonText: "Sign up",
-            url: (additionalProps as LoginSectionAdditionalProps).signupURL,
-            text: <>Don&#39;t have an account?</>,
-            dataTestId: "signup-link",
-          }
+      if (isLoggedIn(flow as LoginFlow)) {
+        message = {
+          text: <>Something&#39;s not working?</>,
+          buttonText: "Logout",
+          url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
+          dataTestId: "logout-link",
+        }
+      } else if ((additionalProps as LoginSectionAdditionalProps).signupURL) {
+        message = {
+          buttonText: "Sign up",
+          url: (additionalProps as LoginSectionAdditionalProps).signupURL,
+          text: <>Don&#39;t have an account?</>,
+          dataTestId: "signup-link",
+        }
+      }
       break
     case "registration":
       $passwordless = PasswordlessSection(flow)
