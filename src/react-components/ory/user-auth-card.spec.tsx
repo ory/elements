@@ -169,3 +169,21 @@ test("ory auth card login refresh flow", async ({ mount }) => {
   await expect(component).toContainText("You're logged in as:")
   await expect(component).toContainText("johndoe@acme.com")
 })
+
+test("ory auth card link handler", async ({ mount }) => {
+  let linkClicked = false
+
+  const component = await mount(
+    <UserAuthCard
+      flow={loginRefreshFixture}
+      flowType="login"
+      title="Verify that's you"
+      additionalProps={{
+        logoutURL: { href: "/logout", handler: () => (linkClicked = true) },
+      }}
+    />,
+  )
+
+  await component.locator('a:text("Logout")').click()
+  expect(linkClicked).toEqual(true)
+})
