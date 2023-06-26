@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
+    "@types/flat": "5.0.2",
+    "flat": "5.0.2",
     "@babel/core": "^7.18.10",
     "@ory/client": "1.1.22",
     "@ory/integrations": "1.1.0",

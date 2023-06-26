@@ -7,6 +7,7 @@ import {
 } from "@ory/client"
 import { FilterNodesByGroups } from "@ory/integrations/ui"
 import cn from "classnames"
+import { unflatten } from "flat"
 
 import { formStyle } from "../../../theme"
 import { FilterFlowNodes } from "./filter-flow-nodes"
@@ -40,34 +41,6 @@ export interface UserAuthFormProps
   className?: string
 }
 
-const traitRegexp = /^traits\.(.+)$/
-
-const unflattenFormData = (formData: FormData): UpdateBody => {
-  const body: Record<string, string | object> = {}
-  const traits: Record<string, string> = {}
-
-  for (const [key, value] of formData) {
-    if (typeof value !== "string") {
-      continue
-    }
-
-    const match = traitRegexp.exec(key)
-
-    if (!match) {
-      body[key] = value
-      continue
-    }
-
-    traits[match[1]] = value
-  }
-
-  if (Object.keys(traits).length > 0) {
-    body.traits = traits
-  }
-
-  return body as unknown as UpdateBody
-}
-
 export const UserAuthForm = ({
   flow,
   children,
@@ -95,7 +68,7 @@ export const UserAuthForm = ({
         const formData = new FormData(form)
 
         // map the entire form data to JSON for the request body
-        let body = unflattenFormData(formData)
+        let body = Object.fromEntries(formData) as unknown as UpdateBody
 
         // We need the method specified from the name and value of the submit button.
         // when multiple submit buttons are present, the clicked one's value is used.
@@ -109,7 +82,7 @@ export const UserAuthForm = ({
           }
         }
 
-        onSubmit({ body, event })
+        onSubmit({ body: unflatten(body) as UpdateBody, event })
       },
     })}
     {...props}
