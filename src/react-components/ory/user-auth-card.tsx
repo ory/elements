@@ -2,7 +2,7 @@ import { LoginFlow } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
 
 import { gridStyle, typographyStyle } from "../../theme"
-import type { Href } from "../button-link.js"
+import type { CustomHref } from "../button-link"
 import { Card } from "../card"
 import { Divider } from "../divider"
 import { Message } from "../message"
@@ -30,21 +30,21 @@ import { PasswordlessSection } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
 
 export type LoginSectionAdditionalProps = {
-  forgotPasswordURL?: Href
-  signupURL?: Href
-  logoutURL?: Href
+  forgotPasswordURL?: CustomHref | string
+  signupURL?: CustomHref | string
+  logoutURL?: CustomHref | string
 }
 
 export type RegistrationSectionAdditionalProps = {
-  loginURL?: Href
+  loginURL?: CustomHref | string
 }
 
 export type VerificationSectionAdditionalProps = {
-  signupURL?: Href
+  signupURL?: CustomHref | string
 }
 
 export type RecoverySectionAdditionalProps = {
-  loginURL?: Href
+  loginURL?: CustomHref | string
 }
 
 /**
@@ -61,10 +61,10 @@ export type UserAuthCardProps = {
   title: string
   flowType: "login" | "registration" | "recovery" | "verification"
   additionalProps:
-    | LoginSectionAdditionalProps
-    | RegistrationSectionAdditionalProps
-    | RecoverySectionAdditionalProps
-    | VerificationSectionAdditionalProps
+  | LoginSectionAdditionalProps
+  | RegistrationSectionAdditionalProps
+  | RecoverySectionAdditionalProps
+  | VerificationSectionAdditionalProps
   subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean

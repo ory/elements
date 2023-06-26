@@ -178,7 +178,9 @@ test("ory auth card link handler", async ({ mount }) => {
       flow={loginRefreshFixture}
       flowType="login"
       title="Verify that's you"
-      additionalProps={{ logoutURL: ["/logout", () => (linkClicked = true)] }}
+      additionalProps={{
+        logoutURL: { href: "/logout", handler: () => (linkClicked = true) },
+      }}
     />,
   )
 

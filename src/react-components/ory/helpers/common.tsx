@@ -1,5 +1,5 @@
 import { colorSprinkle } from "../../../theme"
-import { ButtonLink, Href } from "../../button-link"
+import { ButtonLink, CustomHref } from "../../button-link"
 import { Message } from "../../message"
 
 export type ErrorProps = {
@@ -15,14 +15,14 @@ export type ErrorProps = {
 }
 
 export type AdditionalProps = {
-  forgotPasswordURL?: Href
-  signupURL?: Href
-  logoutURL?: Href
-  loginURL?: Href
+  forgotPasswordURL?: CustomHref | string
+  signupURL?: CustomHref | string
+  logoutURL?: CustomHref | string
+  loginURL?: CustomHref | string
 }
 
 export type MessageSectionProps = {
-  url: Href | undefined
+  url?: CustomHref | string
   buttonText: string
   dataTestId?: string
   text?: React.ReactNode

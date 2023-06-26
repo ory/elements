@@ -9,12 +9,20 @@ import {
   buttonLinkStyle,
 } from "../theme/button-link.css"
 
-export type HrefWithHandler = [url: string, handler: (url: string) => void]
-export type Href = string | HrefWithHandler
+export type CustomHref = {
+  href: string
+  handler: (url: string) => void
+}
+
+const isCustomHref = (
+  href: CustomHref | string | undefined,
+): href is CustomHref => {
+  return href !== undefined && (href as CustomHref).href !== undefined
+}
 
 export type ButtonLinkProps = {
   children?: React.ReactNode
-  href?: Href | undefined
+  href?: CustomHref | string
   icon?: string
   className?: string
 } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
@@ -28,14 +36,23 @@ export const ButtonLink = ({
   position,
   ...props
 }: ButtonLinkProps): JSX.Element => {
-  let handleClick
+  let linkProps: React.AnchorHTMLAttributes<HTMLAnchorElement> = {
+    ...props,
+  }
 
-  if (Array.isArray(href)) {
-    const [realHref, handler] = href
-    href = realHref
-    handleClick = (event: MouseEvent) => {
-      event.preventDefault()
-      handler(realHref)
+  if (isCustomHref(href)) {
+    linkProps = {
+      ...linkProps,
+      href: href.href,
+      onClick: (e: MouseEvent) => {
+        e.preventDefault()
+        href.handler(href.href)
+      },
+    }
+  } else {
+    linkProps = {
+      ...linkProps,
+      href: href,
     }
   }
 
@@ -47,12 +64,7 @@ export const ButtonLink = ({
         buttonLinkContainerStyle({ position }),
       )}
     >
-      <a
-        className={buttonLinkStyle()}
-        href={href}
-        onClick={handleClick}
-        {...props}
-      >
+      <a className={buttonLinkStyle()} {...linkProps}>
         {icon && <i className={cn(`fa fa-${icon}`, buttonLinkIconStyle)}></i>}
         {children}
       </a>
