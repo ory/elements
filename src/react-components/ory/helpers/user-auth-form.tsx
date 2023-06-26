@@ -7,22 +7,25 @@ import {
 } from "@ory/client"
 import { FilterNodesByGroups } from "@ory/integrations/ui"
 import cn from "classnames"
+import { unflatten } from "flat"
 
 import { formStyle } from "../../../theme"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 import { SelfServiceFlow } from "./types"
+
+export type UpdateBody =
+  | UpdateLoginFlowBody
+  | UpdateRegistrationFlowBody
+  | UpdateRecoveryFlowBody
+  | UpdateVerificationFlowBody
+  | UpdateSettingsFlowBody
 
 export type UserAuthFormAdditionalProps = {
   onSubmit?: ({
     body,
     event,
   }: {
-    body:
-      | UpdateLoginFlowBody
-      | UpdateRegistrationFlowBody
-      | UpdateRecoveryFlowBody
-      | UpdateVerificationFlowBody
-      | UpdateSettingsFlowBody
+    body: UpdateBody
     event?: React.FormEvent<HTMLFormElement>
   }) => void
 }
@@ -65,12 +68,7 @@ export const UserAuthForm = ({
         const formData = new FormData(form)
 
         // map the entire form data to JSON for the request body
-        let body = Object.fromEntries(formData) as unknown as
-          | UpdateLoginFlowBody
-          | UpdateRegistrationFlowBody
-          | UpdateRecoveryFlowBody
-          | UpdateVerificationFlowBody
-          | UpdateSettingsFlowBody
+        let body = Object.fromEntries(formData) as unknown as UpdateBody
 
         // We need the method specified from the name and value of the submit button.
         // when multiple submit buttons are present, the clicked one's value is used.
@@ -84,7 +82,7 @@ export const UserAuthForm = ({
           }
         }
 
-        onSubmit({ body, event })
+        onSubmit({ body: unflatten(body) as UpdateBody, event })
       },
     })}
     {...props}
