@@ -78,7 +78,9 @@ export const UserAuthForm = ({
       }
     }}
     {...(onSubmit && {
-      onSubmit: CustomOnSubmit<UpdateBody>,
+      onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+        CustomOnSubmit<UpdateBody>(event, onSubmit)
+      },
     })}
     {...props}
   >

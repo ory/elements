@@ -31,7 +31,7 @@ export class ConsentPage {
     ).toBeVisible()
   }
 
-  async submitForm(value?: string) {
-    await this.locator.locator(value ? `[value="${value}"]` : "").click()
+  async submitForm(buttonLocator?: string) {
+    await this.locator.locator(buttonLocator || "[type='submit']").click()
   }
 }

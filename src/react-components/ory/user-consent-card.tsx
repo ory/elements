@@ -40,7 +40,7 @@ export interface UserConsentCardProps {
   client_name: string
   requested_scope?: string[]
   client?: OAuth2Client
-  action: string
+  action?: string
   className?: string
   onSubmit?: CustomOnSubmitCallback<ConsentFormPayload>
 }
@@ -69,10 +69,14 @@ export const UserConsentCard = ({
       image={cardImage}
     >
       <form
-        action={action}
         method="post"
+        {...(action && {
+          action: action,
+        })}
         {...(onSubmit && {
-          onSubmit: CustomOnSubmit<AcceptOAuth2ConsentRequest>,
+          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+            CustomOnSubmit<ConsentFormPayload>(event, onSubmit)
+          },
         })}
       >
         <input type="hidden" name="_csrf" value={csrfToken} />

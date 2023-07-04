@@ -1,7 +1,12 @@
 import { OAuth2ConsentRequest } from "@ory/client"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { ConsentPage } from "../../test/models/ConsentPage"
-import { UserConsentCard, UserConsentCardProps } from "./user-consent-card"
+import { CustomOnSubmitCallback } from "./helpers/common"
+import {
+  ConsentFormPayload,
+  UserConsentCard,
+  UserConsentCardProps,
+} from "./user-consent-card"
 
 test("ory consent card login flow", async ({ mount }) => {
   const defaults = {
@@ -29,10 +34,13 @@ test("ory consent card login flow", async ({ mount }) => {
   await consentComponent.expectAllowSubmit()
 })
 
-test.only("ory consent card login flow with custom onSubmit", async ({
-  mount,
-}) => {
+test("ory consent card login flow with custom onSubmit", async ({ mount }) => {
   let submitBody: unknown
+
+  const submit: CustomOnSubmitCallback<ConsentFormPayload> = ({ body }) => {
+    submitBody = body
+  }
+
   const defaults: UserConsentCardProps = {
     csrfToken: "csrfToken_example",
     action: "consent",
@@ -43,9 +51,7 @@ test.only("ory consent card login flow with custom onSubmit", async ({
     },
     consent: {} as OAuth2ConsentRequest,
     requested_scope: ["test_scope1", "test_scope2", "test_scope3"],
-    onSubmit: ({ body }) => {
-      submitBody = body
-    },
+    onSubmit: submit,
   }
 
   const component = await mount(<UserConsentCard {...defaults} />)
@@ -57,8 +63,19 @@ test.only("ory consent card login flow with custom onSubmit", async ({
     "https://test_policy_uri/",
   ])
   await consentComponent.expectAllowSubmit()
-  await consentComponent.submitForm("allow")
+  await consentComponent.locator
+    .locator('input[type="checkbox"]')
+    .all()
+    .then(async (elements) => {
+      for (const e of elements) {
+        await e.check()
+      }
+    })
+
+  await consentComponent.submitForm("button[value='allow']")
 
   expect(submitBody).toBeTruthy()
-  expect(submitBody).toEqual(defaults)
+  expect(submitBody).toEqual({
+    grant_scope: defaults.requested_scope,
+  })
 })
