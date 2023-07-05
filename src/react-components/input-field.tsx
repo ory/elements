@@ -7,6 +7,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
+import { useId } from "react"
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
@@ -26,18 +27,24 @@ export const InputField = ({
   fullWidth,
   className,
   dataTestid,
+  id,
   ...props
 }: InputFieldProps): JSX.Element => {
+  const inputId = id ?? useId()
+
   return (
     <div
       data-testid={dataTestid}
       className={cn(className, gridStyle({ gap: 4 }))}
     >
       {title && (
-        <div className={typographyStyle({ size: "small", type: "regular" })}>
+        <label
+          htmlFor={inputId}
+          className={typographyStyle({ size: "small", type: "regular" })}
+        >
           {title}{" "}
           {props.required && <span className={inputFieldTitleStyle}>*</span>}
-        </div>
+        </label>
       )}
       <input
         className={cn(
@@ -46,6 +53,7 @@ export const InputField = ({
         )}
         style={{ width: fullWidth ? "100%" : "auto" }}
         placeholder={" "} // we need this so the input css field border is not green by default
+        id={inputId}
         {...props}
       />
       {typeof helperMessage === "string" ? (
