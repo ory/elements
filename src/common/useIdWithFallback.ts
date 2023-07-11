@@ -1,4 +1,7 @@
-import React from 'react'
+// Copyright © 2023 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
+import React from "react"
 
 /**
  * A function to obtain a unique ID. If react is available, this

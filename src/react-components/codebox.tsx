@@ -8,7 +8,7 @@ import {
   gridStyle,
   typographyStyle,
 } from "../theme"
-import { useIdWithFallback } from '../common/useIdWithFallback'
+import { useIdWithFallback } from "../common/useIdWithFallback"
 
 export interface CodeBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode

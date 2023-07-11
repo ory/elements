@@ -7,7 +7,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
-import { useIdWithFallback } from '../common/useIdWithFallback'
+import { useIdWithFallback } from "../common/useIdWithFallback"
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

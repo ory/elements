@@ -12,7 +12,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { MenuLink, MenuLinkProps } from "./menu-link"
-import { useIdWithFallback } from '../common/useIdWithFallback'
+import { useIdWithFallback } from "../common/useIdWithFallback"
 
 export type NavSectionLinks = {
   name: string
