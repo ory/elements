@@ -7,7 +7,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
-import { useId } from "react"
+import { useIdWithFallback } from '../common/useIdWithFallback'
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
@@ -27,7 +27,7 @@ export const Checkbox = ({
   dataTestid,
   ...props
 }: CheckboxProps): JSX.Element => {
-  const id = props.id ?? useId()
+  const id = props.id ?? useIdWithFallback()
   return (
     <div
       data-testid={dataTestid}

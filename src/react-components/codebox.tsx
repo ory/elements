@@ -8,7 +8,7 @@ import {
   gridStyle,
   typographyStyle,
 } from "../theme"
-import { useId } from "react"
+import { useIdWithFallback } from '../common/useIdWithFallback'
 
 export interface CodeBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -20,7 +20,7 @@ export const CodeBox = ({
   className,
   ...props
 }: CodeBoxProps): JSX.Element => {
-  const id = useId()
+  const id = useIdWithFallback()
   return (
     <div
       className={cn(className, gridStyle({ gap: 16 }), codeboxStyle)}

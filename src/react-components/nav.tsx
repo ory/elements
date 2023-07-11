@@ -12,7 +12,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { MenuLink, MenuLinkProps } from "./menu-link"
-import { useId } from "react"
+import { useIdWithFallback } from '../common/useIdWithFallback'
 
 export type NavSectionLinks = {
   name: string
@@ -39,7 +39,7 @@ export const Nav = ({
   className,
   ...props
 }: NavProps) => {
-  const collapseNavId = `collapse-ory-elements-nav-${useId()}`
+  const collapseNavId = `collapse-ory-elements-nav-${useIdWithFallback()}`
 
   return (
     <nav role="navigation" className={cn(navStyle, className)} {...props}>

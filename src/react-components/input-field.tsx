@@ -7,7 +7,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
-import { useId } from "react"
+import { useIdWithFallback } from '../common/useIdWithFallback'
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
@@ -30,7 +30,7 @@ export const InputField = ({
   id,
   ...props
 }: InputFieldProps): JSX.Element => {
-  const inputId = id ?? useId()
+  const inputId = id ?? useIdWithFallback()
 
   return (
     <div
