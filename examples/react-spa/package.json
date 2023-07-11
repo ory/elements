@@ -19,10 +19,10 @@
     "@ory/elements": "*",
     "@ory/elements-test": "*",
     "@playwright/test": "1.32.1",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
     "@typescript-eslint/eslint-plugin": "5.49.0",
-    "@vitejs/plugin-react": "3.0.1",
+    "@vitejs/plugin-react": "4.0.3",
     "eslint": "8.33.0",
     "eslint-config-standard-with-typescript": "33.0.0",
     "eslint-plugin-import": "2.27.5",
@@ -30,6 +30,6 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-react": "7.32.2",
     "typescript": "4.9.4",
-    "vite": "4.0.4"
+    "vite": "4.4.2"
   }
 }
