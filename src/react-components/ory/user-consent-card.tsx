@@ -75,6 +75,7 @@ export const UserConsentCard = ({
         })}
         {...(onSubmit && {
           onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+            console.log("Submitting Consent page")
             CustomOnSubmit<ConsentFormPayload>(event, onSubmit)
           },
         })}

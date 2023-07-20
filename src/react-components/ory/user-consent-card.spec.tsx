@@ -43,7 +43,7 @@ test("ory consent card login flow with custom onSubmit", async ({ mount }) => {
 
   const defaults: UserConsentCardProps = {
     csrfToken: "csrfToken_example",
-    action: "consent",
+    action: "/consent",
     client_name: "Best App",
     client: {
       tos_uri: "https://test_tos_uri/",
