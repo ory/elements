@@ -6,7 +6,9 @@ export type AuthCodeSectionProps = {
   nodes: UiNode[]
 }
 
-export const AuthCodeSection = ({ nodes }: AuthCodeSectionProps): JSX.Element => (
+export const AuthCodeSection = ({
+  nodes,
+}: AuthCodeSectionProps): JSX.Element => (
   <div className={gridStyle({ gap: 32 })}>
     <div className={gridStyle({ gap: 16 })}>
       <FilterFlowNodes

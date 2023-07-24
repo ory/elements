@@ -99,10 +99,10 @@ test("ory auth card registration code flow", async ({ mount }) => {
       title="Sign up"
       flowType="registration"
       additionalProps={{
-        loginURL: "/registration"
+        loginURL: "/registration",
       }}
       flow={registrationCodeFixture}
-      />
+    />,
   )
 
   const registrationComponent = new AuthPage(
@@ -114,7 +114,7 @@ test("ory auth card registration code flow", async ({ mount }) => {
   await expect(component).toContainText("Sign up", { ignoreCase: true })
   await expect(component).toContainText("Already have an account?", {
     ignoreCase: true,
-    })
+  })
   await expect(component.locator('button[type="code"]')).toHaveText("Submit")
 })
 

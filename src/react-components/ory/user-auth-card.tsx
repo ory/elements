@@ -62,10 +62,10 @@ export type UserAuthCardProps = {
   title: string
   flowType: "login" | "registration" | "recovery" | "verification"
   additionalProps:
-  | LoginSectionAdditionalProps
-  | RegistrationSectionAdditionalProps
-  | RecoverySectionAdditionalProps
-  | VerificationSectionAdditionalProps
+    | LoginSectionAdditionalProps
+    | RegistrationSectionAdditionalProps
+    | RecoverySectionAdditionalProps
+    | VerificationSectionAdditionalProps
   subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean

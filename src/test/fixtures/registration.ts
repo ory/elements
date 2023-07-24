@@ -591,7 +591,7 @@ export const registrationCodeFixture: RegistrationFlow = {
             id: 1040006,
             text: "Sign up with code",
             type: "info",
-          }
+          },
         },
       },
       {
@@ -675,5 +675,4 @@ export const registrationCodeFixture: RegistrationFlow = {
       },
     ],
   },
-
 }
