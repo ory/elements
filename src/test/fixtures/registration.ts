@@ -510,3 +510,170 @@ export const registrationPasswordlessFixture: RegistrationFlow = {
     ],
   },
 }
+
+export const registrationCodeFixture: RegistrationFlow = {
+  id: "1c09e31f-fb4c-4eac-8f17-ec7ae01cab97",
+  type: "browser",
+  expires_at: "2022-08-29T10:19:47.350346654Z",
+  issued_at: "2022-08-29T09:49:47.350346654Z",
+  request_url: "http://localhost:4000/self-service/registration/browser",
+  ui: {
+    action:
+      "http://localhost:4000/self-service/registration?flow=1c09e31f-fb4c-4eac-8f17-ec7ae01cab97",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "uWnnuBgYQAXyeCuZ+c6aBNfj55zPo+0ACTcp+rzrIcQ9VurmCXnaw9xggOde9S+DSjPnjXqpa2RKTBAlLmKG+A==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "traits.email",
+          type: "email",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070002,
+            text: "E-Mail",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "traits.firstName",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070002,
+            text: "First Name",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040006,
+            text: "Sign up with code",
+            type: "info",
+          }
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "traits.email",
+          type: "email",
+          required: true,
+          autocomplete: "email",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070002,
+            text: "E-Mail",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "new-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: "Password",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "traits.firstName",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070002,
+            text: "First Name",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1040001,
+            text: "Sign up",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+    ],
+  },
+
+}

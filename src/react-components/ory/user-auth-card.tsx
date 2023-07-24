@@ -22,6 +22,7 @@ import {
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
+import { AuthCodeSection } from "./sections/auth-code-section"
 import { LinkSection } from "./sections/link-section"
 import { LoggedInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
@@ -208,7 +209,7 @@ export const UserAuthCard = ({
     case "login":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
-      $code = LinkSection({ nodes: flow.ui.nodes })
+      $code = AuthCodeSection({ nodes: flow.ui.nodes })
 
       $flow = LoginSection({
         nodes: flow.ui.nodes,
@@ -234,7 +235,7 @@ export const UserAuthCard = ({
     case "registration":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
-      $code = LinkSection({ nodes: flow.ui.nodes })
+      $code = AuthCodeSection({ nodes: flow.ui.nodes })
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
       })

@@ -5,6 +5,7 @@ import {
   loginTwoFactorFixture,
   recoveryFixture,
   registrationFixture,
+  registrationCodeFixture,
   verificationFixture,
 } from "../../test/fixtures"
 import { AuthPage } from "../../test/models/AuthPage"
@@ -77,7 +78,6 @@ test("ory auth card registration flow", async ({ mount }) => {
   )
 
   await registrationComponent.expectTraitFields()
-  await registrationComponent.expectTraitFields()
 
   await expect(component).toContainText("Sign up", { ignoreCase: true })
   await expect(component).toContainText("Already have an account?", {
@@ -91,6 +91,31 @@ test("ory auth card registration flow", async ({ mount }) => {
   const submit = component.locator('button[type="submit"]')
   await expect(submit).toBeVisible()
   await expect(submit).toHaveText("Sign up")
+})
+
+test("ory auth card registration code flow", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      title="Sign up"
+      flowType="registration"
+      additionalProps={{
+        loginURL: "/registration"
+      }}
+      flow={registrationCodeFixture}
+      />
+  )
+
+  const registrationComponent = new AuthPage(
+    registrationCodeFixture.ui.nodes,
+    component,
+  )
+  await registrationComponent.expectTraitFields()
+
+  await expect(component).toContainText("Sign up", { ignoreCase: true })
+  await expect(component).toContainText("Already have an account?", {
+    ignoreCase: true,
+    })
+  await expect(component.locator('button[type="code"]')).toHaveText("Submit")
 })
 
 test("ory auth card verification flow", async ({ mount }) => {
