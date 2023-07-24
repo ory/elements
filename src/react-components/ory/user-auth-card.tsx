@@ -61,10 +61,10 @@ export type UserAuthCardProps = {
   title: string
   flowType: "login" | "registration" | "recovery" | "verification"
   additionalProps:
-    | LoginSectionAdditionalProps
-    | RegistrationSectionAdditionalProps
-    | RecoverySectionAdditionalProps
-    | VerificationSectionAdditionalProps
+  | LoginSectionAdditionalProps
+  | RegistrationSectionAdditionalProps
+  | RecoverySectionAdditionalProps
+  | VerificationSectionAdditionalProps
   subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean
@@ -94,6 +94,7 @@ export const UserAuthCard = ({
 
   let $flow = null
   let $oidc = null
+  let $code = null
   let $passwordless: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
@@ -207,6 +208,7 @@ export const UserAuthCard = ({
     case "login":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+      $code = LinkSection({ nodes: flow.ui.nodes })
 
       $flow = LoginSection({
         nodes: flow.ui.nodes,
@@ -232,6 +234,7 @@ export const UserAuthCard = ({
     case "registration":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+      $code = LinkSection({ nodes: flow.ui.nodes })
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
       })
@@ -288,6 +291,14 @@ export const UserAuthCard = ({
             <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
               {$oidc}
+            </UserAuthForm>
+          </>
+        )}
+        {$code && (
+          <>
+            <Divider />
+            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-code`}>
+              {$code}
             </UserAuthForm>
           </>
         )}
