@@ -1,9 +1,8 @@
 import { oryIdentity, oryOAuth } from "@/pkg/sdk"
-import type { NextApiRequest, NextApiResponse } from "next"
 import { redirect } from "next/navigation"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url || "")
 
   const consent_challenge = searchParams.get("consent_challenge") || ""
@@ -94,7 +93,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     })
 }
 
-export async function POST(req: Request, res: NextApiResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   // The challenge is a hidden input field, so we have to retrieve it from the request body
   const body = await req.json()
   const challenge = body.consent_challenge

@@ -41,6 +41,22 @@ export.
 Now you can see Ory Elements in action by opening http://localhost:3000 in your
 browser!
 
+#### OAuth2 Login/Consent page
+
+This example provides a working Login/Consent page using the Ory Elements UserAuthCard and UserConsentCard.
+
+To use the Consent page, the NextJS application will need a Ory API Token set as an environment variable.
+
+```
+export NEXT_ADMIN_ORY_API_KEY=ory_pat_xxxxx
+```
+
+The `NEXT_PUBLIC_ORY_SDK_URL` will be used for admin API calls as well since Ory Network projects expose both endpoint under the same URL.
+
+Take a look at the Ory Documentation to configure your Ory Network project to use this NextJS application as a custom consent UI. 
+https://www.ory.sh/docs/oauth2-oidc/custom-login-consent/flow#consent
+
+
 ### Using and Modifying the Example
 
 If you want to re-use this example in your own project, you can do so by
