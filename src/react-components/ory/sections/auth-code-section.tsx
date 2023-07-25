@@ -14,8 +14,8 @@ export const AuthCodeSection = ({
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["code"],
-          excludeAttributes: "submit",
+          groups: ["default", "code"],
+          excludeAttributes: ["submit", "hidden"],
         }}
       />
     </div>
