@@ -1,5 +1,5 @@
 import { JSX } from "react"
-
+import { isArray, isString, mergeWith } from "lodash"
 import { colorSprinkle } from "../../../theme"
 import { ButtonLink, CustomHref } from "../../button-link"
 import { Message } from "../../message"
@@ -59,7 +59,21 @@ export function CustomOnSubmit<Type>(
   event.preventDefault()
   const form = event.currentTarget
   const formData = new FormData(form)
-  let body: Type = Object.fromEntries(formData.entries()) as Type
+
+  let body: Type = {} as Type
+  for (const [key, value] of formData) {
+    body = mergeWith(
+      body,
+      { [key]: value },
+      (objValue: unknown, srcValue: unknown) => {
+        if (isString(objValue) && isString(srcValue)) {
+          return [objValue, srcValue]
+        } else if (isArray(objValue) && isString(srcValue)) {
+          return objValue.concat(srcValue)
+        }
+      },
+    )
+  }
 
   // We need the method specified from the name and value of the submit button.
   // when multiple submit buttons are present, the clicked one's value is used.
@@ -68,12 +82,12 @@ export function CustomOnSubmit<Type>(
       event.nativeEvent as unknown as { submitter: HTMLInputElement }
     ).submitter
     body = {
-      ...body,
+      ...(body as Type),
       ...{ [method.name]: method.value },
     }
   }
 
-  callback && callback({ body, event })
+  callback && callback({ body: body as Type, event })
 
-  return body
+  return body as Type
 }

@@ -3,11 +3,7 @@ import { Button } from "../button"
 import { Card } from "../card"
 import { Typography } from "../typography"
 
-import {
-  OAuth2Client,
-  OAuth2ConsentRequest,
-  AcceptOAuth2ConsentRequest,
-} from "@ory/client"
+import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
 
 import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
@@ -75,7 +71,6 @@ export const UserConsentCard = ({
         })}
         {...(onSubmit && {
           onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-            console.log("Submitting Consent page")
             CustomOnSubmit<ConsentFormPayload>(event, onSubmit)
           },
         })}

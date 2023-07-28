@@ -1,3 +1,6 @@
+// Copyright © 2023 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import csrf from "edge-csrf"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"

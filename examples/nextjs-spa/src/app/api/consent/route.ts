@@ -1,3 +1,6 @@
+// Copyright © 2023 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { oryIdentity, oryOAuth } from "@/pkg/sdk"
 import { redirect } from "next/navigation"
 import { NextRequest, NextResponse } from "next/server"

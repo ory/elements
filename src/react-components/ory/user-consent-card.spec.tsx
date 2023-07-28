@@ -72,10 +72,16 @@ test("ory consent card login flow with custom onSubmit", async ({ mount }) => {
       }
     })
 
-  await consentComponent.submitForm("button[value='allow']")
+  await consentComponent.submitForm(
+    "button[name='consent_action'][value=accept]",
+  )
 
   expect(submitBody).toBeTruthy()
   expect(submitBody).toEqual({
+    remember: "1",
+    consent_challenge: "",
+    consent_action: "accept",
+    _csrf: defaults.csrfToken,
     grant_scope: defaults.requested_scope,
   })
 })
