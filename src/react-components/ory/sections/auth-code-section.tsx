@@ -18,6 +18,14 @@ export const AuthCodeSection = ({
           excludeAttributes: ["submit", "hidden"],
         }}
       />
+      {/* important to have the hidden field here for resend button*/}
+      <FilterFlowNodes
+        filter={{
+          nodes: nodes,
+          groups: ["code"],
+          attributes: "hidden",
+        }}
+      />
     </div>
     <FilterFlowNodes
       filter={{
