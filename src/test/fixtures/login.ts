@@ -635,3 +635,75 @@ export const loginPasswordlessFixture: LoginFlow = {
   refresh: false,
   requested_aal: "aal1",
 }
+
+export const loginCodeFixture: LoginFlow = {
+  id: "358af16b-1144-4b1d-ab5f-7ce6a4db0898",
+  type: "browser",
+  expires_at: "2023-08-02T16:39:13.03051608Z",
+  issued_at: "2023-08-02T15:39:13.03051608Z",
+  request_url: "http://localhost:4455/self-service/login/browser",
+  ui: {
+    action:
+      "http://localhost:4455/self-service/login?flow=358af16b-1144-4b1d-ab5f-7ce6a4db0898",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "7R0S6XM68dBm2zwjm9pSZ3XTRkS2a5VlTPdKqomCekv7r6sqO399sprAeMv9L9y6/DjiTEmcLeaa8/OWvzSkvg==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010015,
+            text: "Sign in with code",
+            type: "info",
+          },
+        },
+      },
+    ],
+  },
+  created_at: "2023-08-02T17:39:13.034442+02:00",
+  updated_at: "2023-08-02T17:39:13.034442+02:00",
+  refresh: false,
+  requested_aal: "aal1",
+}

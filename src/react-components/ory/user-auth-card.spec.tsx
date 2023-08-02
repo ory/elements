@@ -7,6 +7,7 @@ import {
   registrationFixture,
   registrationCodeFixture,
   verificationFixture,
+  loginCodeFixture,
 } from "../../test/fixtures"
 import { AuthPage } from "../../test/models/AuthPage"
 import { UserAuthCard } from "./user-auth-card"
@@ -115,7 +116,9 @@ test("ory auth card registration code flow", async ({ mount }) => {
   await expect(component).toContainText("Already have an account?", {
     ignoreCase: true,
   })
-  await expect(component.locator('button[type="code"]')).toHaveText("Submit")
+  await expect(component.locator('button[type="submit"]')).toHaveText(
+    "Sign up with code",
+  )
 })
 
 test("ory auth card verification flow", async ({ mount }) => {
@@ -211,4 +214,28 @@ test("ory auth card link handler", async ({ mount }) => {
 
   await component.locator('a:text("Logout")').click()
   expect(linkClicked).toEqual(true)
+})
+
+test("ory auth card login with code", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      title="Sign In"
+      flowType="login"
+      additionalProps={{
+        signupURL: "/signup",
+      }}
+      flow={loginCodeFixture}
+    />,
+  )
+
+  const loginComponent = new AuthPage(loginCodeFixture.ui.nodes, component)
+  await loginComponent.expectTraitFields()
+
+  await expect(component).toContainText("Sign in", { ignoreCase: true })
+  await expect(component).toContainText("Don't have an account?", {
+    ignoreCase: true,
+  })
+  await expect(component.locator('button[type="submit"]')).toHaveText(
+    "Sign in with code",
+  )
 })

@@ -1,6 +1,7 @@
 import { UiNode } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
+import { hasCode } from "../helpers/utils"
 
 export type AuthCodeSectionProps = {
   nodes: UiNode[]
@@ -8,31 +9,28 @@ export type AuthCodeSectionProps = {
 
 export const AuthCodeSection = ({
   nodes,
-}: AuthCodeSectionProps): JSX.Element => (
-  <div className={gridStyle({ gap: 32 })}>
-    <div className={gridStyle({ gap: 16 })}>
+}: AuthCodeSectionProps): JSX.Element | null =>
+  hasCode(nodes) ? (
+    <div className={gridStyle({ gap: 32 })}>
+      <div className={gridStyle({ gap: 16 })}>
+        {/* default group is used here automatically for login */}
+        <FilterFlowNodes
+          filter={{
+            nodes: nodes,
+            groups: "code",
+            excludeAttributes: ["submit", "hidden"],
+          }}
+        />
+      </div>
+      {/* include hidden here because we want to have resend support */}
+      {/* exclude default group because we dont want to map csrf twice */}
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["default", "code"],
-          excludeAttributes: ["submit", "hidden"],
-        }}
-      />
-      {/* important to have the hidden field here for resend button*/}
-      <FilterFlowNodes
-        filter={{
-          nodes: nodes,
-          groups: ["code"],
-          attributes: "hidden",
+          groups: "code",
+          withoutDefaultGroup: true,
+          attributes: ["submit", "hidden"],
         }}
       />
     </div>
-    <FilterFlowNodes
-      filter={{
-        nodes: nodes,
-        groups: ["code"],
-        attributes: "submit",
-      }}
-    />
-  </div>
-)
+  ) : null
