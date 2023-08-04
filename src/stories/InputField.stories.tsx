@@ -24,6 +24,7 @@ export const NormalInputField = Template.bind({})
 NormalInputField.args = {
   header: "Password",
   required: true,
+  type: "password",
 }
 
 export const InputWithHelperText = Template.bind({})
