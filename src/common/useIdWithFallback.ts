@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { useId } from "react"
+import * as React from "react"
 
 /**
  * A function to obtain a unique ID. If react is available, this
@@ -11,7 +11,7 @@ import { useId } from "react"
  */
 export const useIdWithFallback = () => {
   try {
-    return useId()
+    return React.useId()
   } catch (e) {
     return Math.random().toString(36).substring(2)
   }
