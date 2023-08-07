@@ -3,44 +3,11 @@
 
 import { globalStyle, style } from "@vanilla-extract/css"
 import { pxToRem } from "../common"
+import { password } from "../test"
 import { oryTheme } from "./theme.css"
 
 export const inputFieldTitleStyle = style({
   color: oryTheme.accent.def,
-})
-
-export const inputFieldVisibilityContainerStyle = style({
-  display: "flex",
-  flexDirection: "row",
-  boxSizing: "border-box",
-  alignItems: "center",
-  gap: 0,
-  padding: 0,
-  width: "fit-content",
-  background: oryTheme.input.background,
-  border: `1px solid ${oryTheme.border.def}`,
-  borderRadius: pxToRem(4),
-  selectors: {
-    "&:hover": {
-      border: `1px solid ${oryTheme.accent.muted}`,
-    },
-    "&:focus": {
-      inset: `4px`,
-      borderColor: oryTheme.accent.muted,
-    },
-    "&:active": {
-      border: `1px solid ${oryTheme.accent.emphasis}`,
-    },
-    "&:not(:focus):not(:placeholder-shown):invalid": {
-      border: `1px solid ${oryTheme.error.emphasis}`,
-    },
-    "&:not(:focus):not(:placeholder-shown):valid": {
-      border: `1px solid ${oryTheme.success.emphasis}`,
-    },
-    "&:disabled": {
-      border: `1px solid ${oryTheme.input.disabled}`,
-    },
-  },
 })
 
 // attached to the input field itself
@@ -77,6 +44,34 @@ export const inputFieldStyle = style({
   },
 })
 
+// a div container that wraps the input field with the icon
+// this is used when we want an icon on the input field
+// we then take over the border styling from the input field on the container
+export const passwordInputContainerStyle = style({
+  display: "none",
+  flexDirection: "row",
+  boxSizing: "border-box",
+  alignItems: "center",
+  gap: 0,
+  padding: 0,
+  width: "fit-content",
+  background: oryTheme.input.background,
+  border: `1px solid ${oryTheme.border.def}`,
+  borderRadius: pxToRem(4),
+  selectors: {
+    "&:hover": {
+      border: `1px solid ${oryTheme.accent.muted}`,
+    },
+    "&:focus": {
+      inset: `4px`,
+      borderColor: oryTheme.accent.muted,
+    },
+    "&:active": {
+      border: `1px solid ${oryTheme.accent.emphasis}`,
+    },
+  },
+})
+
 // input field with obfuscated text
 // this can be attached to a input[type=text] and act
 // as an input[type=password]
@@ -96,14 +91,10 @@ export const inputFieldSecurityStyle = style({
     "&:hover": {
       border: `none`,
     },
-    "&:focus": {},
+    "&:focus": {
+      border: `none`,
+    },
     "&:active": {
-      border: `none`,
-    },
-    "&:not(:focus):not(:placeholder-shown):invalid": {
-      border: `none`,
-    },
-    "&:not(:focus):not(:placeholder-shown):valid": {
       border: `none`,
     },
     "&:disabled": {
@@ -154,8 +145,44 @@ globalStyle(
 )
 
 globalStyle(
+  `${inputFieldSecurityStyle}:not(:focus):not(:placehoder-shown):valid > ${passwordInputContainerStyle}`,
+  {
+    border: `1px solid ${oryTheme.success.emphasis}`,
+  },
+)
+
+globalStyle(
+  `${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):invalid > ${passwordInputContainerStyle}`,
+  {
+    border: `1px solid ${oryTheme.error.emphasis}`,
+  },
+)
+
+globalStyle(
+  `${inputFieldSecurityStyle}:disabled > ${passwordInputContainerStyle}`,
+  {
+    border: `1px solid ${oryTheme.input.disabled}`,
+  },
+)
+
+globalStyle(
   `${inputFieldVisibilityToggleStyle}:checked ~ ${inputFieldSecurityStyle}`,
   {
     ["-webkit-text-security"]: "none",
+  },
+)
+
+globalStyle(`${passwordInputContainerStyle}`, {
+  "@supports": {
+    "(-webkit-text-security: disc)": {
+      display: "flex",
+    },
+  },
+})
+
+globalStyle(
+  `${passwordInputContainerStyle}:[display=flex] ~ ${inputFieldStyle}`,
+  {
+    display: "none",
   },
 )

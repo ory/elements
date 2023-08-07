@@ -6,7 +6,7 @@ import {
   inputFieldSecurityStyle,
   inputFieldStyle,
   inputFieldTitleStyle,
-  inputFieldVisibilityContainerStyle,
+  passwordInputContainerStyle,
   inputFieldVisibilityToggleLabelStyle,
   inputFieldVisibilityToggleStyle,
   typographyStyle,
@@ -85,8 +85,8 @@ export const InputField = ({
           {props.required && <span className={inputFieldTitleStyle}>*</span>}
         </label>
       )}
-      {props.type === "password" ? (
-        <div className={inputFieldVisibilityContainerStyle}>
+      {props.type === "password" && (
+        <div className={passwordInputContainerStyle}>
           <input
             className={inputFieldVisibilityToggleStyle}
             id={inputId + "-visibility-toggle"}
@@ -113,18 +113,18 @@ export const InputField = ({
             {visibilityOffToggle}
           </label>
         </div>
-      ) : (
-        <input
-          className={cn(
-            inputFieldStyle,
-            typographyStyle({ size: "small", type: "regular" }),
-          )}
-          style={{ width: fullWidth ? "100%" : "auto" }}
-          placeholder={" "} // we need this so the input css field border is not green by default
-          id={inputId}
-          {...props}
-        />
       )}
+
+      <input
+        className={cn(
+          inputFieldStyle,
+          typographyStyle({ size: "small", type: "regular" }),
+        )}
+        style={{ width: fullWidth ? "100%" : "auto" }}
+        placeholder={" "} // we need this so the input css field border is not green by default
+        id={inputId}
+        {...props}
+      />
 
       {typeof helperMessage === "string" ? (
         <Message data-testid={messageTestId} severity={props.severity}>
