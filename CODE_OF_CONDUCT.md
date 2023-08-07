@@ -1,3 +1,6 @@
+<!-- AUTO-GENERATED, DO NOT EDIT! -->
+<!-- Please edit the original at https://github.com/ory/meta/blob/master/templates/repository/common/CODE_OF_CONDUCT.md -->
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
@@ -35,6 +38,16 @@ Examples of unacceptable behavior include:
   without their explicit permission
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
+
+## Open Source Community Support
+
+Ory Open source software is collaborative and based on contributions by
+developers in the Ory community. There is no obligation from Ory to help with
+individual problems. If Ory open source software is used in production in a
+for-profit company or enterprise environment, we mandate a paid support contract
+where Ory is obligated under their service level agreements (SLAs) to offer a
+defined level of availability and responsibility. For more information about
+paid support please contact us at sales@ory.sh.
 
 ## Enforcement Responsibilities
 
