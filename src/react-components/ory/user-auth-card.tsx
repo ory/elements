@@ -61,10 +61,10 @@ export type UserAuthCardProps = {
   title: string
   flowType: "login" | "registration" | "recovery" | "verification"
   additionalProps:
-  | LoginSectionAdditionalProps
-  | RegistrationSectionAdditionalProps
-  | RecoverySectionAdditionalProps
-  | VerificationSectionAdditionalProps
+    | LoginSectionAdditionalProps
+    | RegistrationSectionAdditionalProps
+    | RecoverySectionAdditionalProps
+    | VerificationSectionAdditionalProps
   subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean
@@ -286,9 +286,7 @@ export const UserAuthCard = ({
         {$oidc && (
           <>
             <Divider />
-            <UserAuthForm
-              flow={flow}
-              data-testid={`${flowType}-flow-oidc`}>
+            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
               {$oidc}
             </UserAuthForm>
           </>
