@@ -5,19 +5,23 @@ import { SelfServiceFlow } from "../helpers/types"
 import { hasOidc } from "../helpers/utils"
 
 export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
+  const hasOidcTraits =
+    filterNodesByGroups({
+      nodes: flow.ui.nodes,
+      groups: "oidc",
+      withoutDefaultGroup: true,
+      excludeAttributes: "submit",
+    }).length > 0
+
   return hasOidc(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
-      {filterNodesByGroups({
-        nodes: flow.ui.nodes,
-        groups: "oidc",
-        withoutDefaultGroup: true,
-      }).some((node) => node.messages.length > 0) && (
+      {hasOidcTraits && (
         <div className={gridStyle({ gap: 16 })}>
-          {/*  we need other OIDC fields here such as input fields when an OIDC registration flow occured and it redirects us back to complete the missing traits */}
           <FilterFlowNodes
             filter={{
               nodes: flow.ui.nodes,
-              groups: ["oidc"],
+              groups: "oidc",
+              withoutDefaultGroup: true,
               excludeAttributes: "submit",
             }}
           />
