@@ -79,8 +79,8 @@ ory tunnel http://localhost:3000 --project <project-slug> --dev
 The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
 have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
 
-Now you can see Ory Elements in action by opening <http://localhost:3000> in your
-browser!
+Now you can see Ory Elements in action by opening <http://localhost:3000> in
+your browser!
 
 ## End-to-end Testing with Playwright
 
