@@ -1,9 +1,13 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { globalStyle, style } from "@vanilla-extract/css"
+import {
+  globalStyle,
+  GlobalStyleRule,
+  ComplexStyleRule,
+  style,
+} from "@vanilla-extract/css"
 import { pxToRem } from "../common"
-import { password } from "../test"
 import { oryTheme } from "./theme.css"
 
 export const inputFieldTitleStyle = style({
@@ -102,6 +106,8 @@ export const inputFieldSecurityStyle = style({
     },
   },
   ["-webkit-text-security"]: "disc",
+} as ComplexStyleRule & {
+  ["-webkit-text-security"]: "disc"
 })
 
 // this is attached to a checkbox that toggles the visibility of the input field
@@ -144,45 +150,85 @@ globalStyle(
   },
 )
 
+/**
+ * Workaround for the custom input field with the security icon
+ * We want to pass along the state of the input field to the container
+ *
+ * Below we ensure the browser supports the :has selector, so this won't be applied to browsers that don't support it
+ */
 globalStyle(
-  `${inputFieldSecurityStyle}:not(:focus):not(:placehoder-shown):valid > ${passwordInputContainerStyle}`,
+  `${passwordInputContainerStyle}:has(${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):valid)`,
   {
     border: `1px solid ${oryTheme.success.emphasis}`,
   },
 )
 
+/**
+ * Workaround for the custom input field with the security icon
+ * We want to pass along the state of the input field to the container
+ *
+ * Below we ensure the browser supports the :has selector, so this won't be applied to browsers that don't support it
+ */
 globalStyle(
-  `${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):invalid > ${passwordInputContainerStyle}`,
+  `${passwordInputContainerStyle}:has(${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):invalid)`,
   {
     border: `1px solid ${oryTheme.error.emphasis}`,
   },
 )
 
+/**
+ * Workaround for the custom input field with the security icon
+ * We want to pass along the state of the input field to the container
+ *
+ * Below we ensure the browser supports the :has selector, so this won't be applied to browsers that don't support it
+ */
 globalStyle(
-  `${inputFieldSecurityStyle}:disabled > ${passwordInputContainerStyle}`,
+  `${passwordInputContainerStyle}:has(:not(:focus):not(:placeholder-shown):valid)`,
   {
     border: `1px solid ${oryTheme.input.disabled}`,
   },
 )
 
+/**
+ * On selecting the visibility checkbox, we want to show the text in the input field
+ *
+ **/
 globalStyle(
   `${inputFieldVisibilityToggleStyle}:checked ~ ${inputFieldSecurityStyle}`,
   {
     ["-webkit-text-security"]: "none",
+  } as GlobalStyleRule & {
+    ["-webkit-text-security"]: "none"
   },
 )
 
+/**
+ * Firefox does not support the :has selector yet, so we need to test for this
+ * https://caniuse.com/css-has
+ * https://caniuse.com/mdn-css_properties_-webkit-text-security
+ * If both the :has selector and the -webkit-text-security: disc are supported,
+ * we can show the password input field with a visibility toggle
+ * and hide the fallback password input field
+ **/
 globalStyle(`${passwordInputContainerStyle}`, {
   "@supports": {
-    "(-webkit-text-security: disc)": {
+    "(-webkit-text-security: disc) and selector(:has(a,b))": {
       display: "flex",
     },
   },
 })
 
-globalStyle(
-  `${passwordInputContainerStyle}:[display=flex] ~ ${inputFieldStyle}`,
-  {
-    display: "none",
+/**
+ * Firefox does not support the :has selector yet, so we need to test for this
+ * https://caniuse.com/css-has
+ * https://caniuse.com/mdn-css_properties_-webkit-text-security
+ * If both the :has selector and the -webkit-text-security: disc are supported,
+ * we hide this input field in favor of the custom password input field
+ **/
+globalStyle(`${inputFieldStyle}[type="password"]`, {
+  "@supports": {
+    "(-webkit-text-security: disc) and selector(:has(a,b))": {
+      display: "none",
+    },
   },
-)
+})

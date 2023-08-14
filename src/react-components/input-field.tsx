@@ -2,7 +2,6 @@ import cn from "classnames"
 
 import {
   gridStyle,
-  inputFieldIcon,
   inputFieldSecurityStyle,
   inputFieldStyle,
   inputFieldTitleStyle,

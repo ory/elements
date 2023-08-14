@@ -22,9 +22,9 @@ const Template: Story<InputFieldProps> = (args: InputFieldProps) => (
 export const NormalInputField = Template.bind({})
 
 NormalInputField.args = {
-  header: "Password",
+  header: "Name",
   required: true,
-  type: "password",
+  type: "text",
 }
 
 export const InputWithHelperText = Template.bind({})
@@ -45,4 +45,16 @@ InputWithMessageComponentHelperText.args = {
     </Message>
   ),
   required: true,
+}
+
+export const PasswordInputField = Template.bind({})
+
+PasswordInputField.args = {
+  header: "Password",
+  helperMessage: "Password must be at least 8 characters long",
+  placeholder: "Enter password",
+  required: true,
+  type: "password",
+  maxlength: 10,
+  minLength: 8,
 }
