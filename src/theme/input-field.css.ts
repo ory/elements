@@ -28,51 +28,22 @@ export const inputFieldStyle = style({
   width: "100%",
   selectors: {
     "&:hover": {
-      border: `1px solid ${oryTheme.accent.muted}`,
+      borderColor: oryTheme.accent.muted,
     },
     "&:focus": {
-      inset: `4px`,
       borderColor: oryTheme.accent.muted,
     },
     "&:active": {
-      border: `1px solid ${oryTheme.accent.emphasis}`,
+      borderColor: oryTheme.accent.emphasis,
     },
     "&:not(:focus):not(:placeholder-shown):invalid": {
-      border: `1px solid ${oryTheme.error.emphasis}`,
+      borderColor: oryTheme.error.emphasis,
     },
     "&:not(:focus):not(:placeholder-shown):valid": {
-      border: `1px solid ${oryTheme.success.emphasis}`,
+      borderColor: oryTheme.success.emphasis,
     },
     "&:disabled": {
-      border: `1px solid ${oryTheme.input.disabled}`,
-    },
-  },
-})
-
-// a div container that wraps the input field with the icon
-// this is used when we want an icon on the input field
-// we then take over the border styling from the input field on the container
-export const passwordInputContainerStyle = style({
-  display: "none",
-  flexDirection: "row",
-  boxSizing: "border-box",
-  alignItems: "center",
-  gap: 0,
-  padding: 0,
-  width: "fit-content",
-  background: oryTheme.input.background,
-  border: `1px solid ${oryTheme.border.def}`,
-  borderRadius: pxToRem(4),
-  selectors: {
-    "&:hover": {
-      border: `1px solid ${oryTheme.accent.muted}`,
-    },
-    "&:focus": {
-      inset: `4px`,
-      borderColor: oryTheme.accent.muted,
-    },
-    "&:active": {
-      border: `1px solid ${oryTheme.accent.emphasis}`,
+      borderColor: oryTheme.input.disabled,
     },
   },
 })
@@ -110,6 +81,44 @@ export const inputFieldSecurityStyle = style({
   ["-webkit-text-security"]: "disc",
 } as ComplexStyleRule & {
   ["-webkit-text-security"]: "disc"
+})
+
+// a div container that wraps the input field with the icon
+// this is used when we want an icon on the input field
+// we then take over the border styling from the input field on the container
+export const passwordInputContainerStyle = style({
+  display: "none",
+  flexDirection: "row",
+  boxSizing: "border-box",
+  alignItems: "center",
+  gap: 0,
+  padding: 0,
+  width: "fit-content",
+  background: oryTheme.input.background,
+  border: `1px solid ${oryTheme.border.def}`,
+  borderRadius: pxToRem(4),
+  selectors: {
+    "&:hover": {
+      borderColor: oryTheme.accent.muted,
+    },
+    "&:focus-within": {
+      borderColor: oryTheme.accent.muted,
+    },
+    [`&:has(${inputFieldSecurityStyle}:active)`]: {
+      borderColor: oryTheme.accent.emphasis,
+    },
+    [`&:has(${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):invalid)`]:
+      {
+        borderColor: oryTheme.error.emphasis,
+      },
+    [`&:has(${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):valid)`]:
+      {
+        borderColor: oryTheme.success.emphasis,
+      },
+    [`&:has(${inputFieldSecurityStyle}:disabled)`]: {
+      borderColor: oryTheme.input.disabled,
+    },
+  },
 })
 
 // this is attached to a checkbox that toggles the visibility of the input field
@@ -151,45 +160,6 @@ globalStyle(
   `${inputFieldVisibilityToggleStyle}:not(:checked) ~ label svg:first-child`,
   {
     display: "none",
-  },
-)
-
-/**
- * Workaround for the custom input field with the security icon
- * We want to pass along the state of the input field to the container
- *
- * Below we ensure the browser supports the :has selector, so this won't be applied to browsers that don't support it
- */
-globalStyle(
-  `${passwordInputContainerStyle}:has(${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):valid)`,
-  {
-    border: `1px solid ${oryTheme.success.emphasis}`,
-  },
-)
-
-/**
- * Workaround for the custom input field with the security icon
- * We want to pass along the state of the input field to the container
- *
- * Below we ensure the browser supports the :has selector, so this won't be applied to browsers that don't support it
- */
-globalStyle(
-  `${passwordInputContainerStyle}:has(${inputFieldSecurityStyle}:not(:focus):not(:placeholder-shown):invalid)`,
-  {
-    border: `1px solid ${oryTheme.error.emphasis}`,
-  },
-)
-
-/**
- * Workaround for the custom input field with the security icon
- * We want to pass along the state of the input field to the container
- *
- * Below we ensure the browser supports the :has selector, so this won't be applied to browsers that don't support it
- */
-globalStyle(
-  `${passwordInputContainerStyle}:has(:not(:focus):not(:placeholder-shown):valid)`,
-  {
-    border: `1px solid ${oryTheme.border.def}`,
   },
 )
 
