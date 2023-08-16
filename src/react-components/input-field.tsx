@@ -8,6 +8,7 @@ import {
   passwordInputContainerStyle,
   inputFieldVisibilityToggleLabelStyle,
   inputFieldVisibilityToggleStyle,
+  inputFieldFallbackWrapperStyle,
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
@@ -51,7 +52,10 @@ export const InputField = ({
         </label>
       )}
       {props.type === "password" && (
-        <div className={passwordInputContainerStyle}>
+        <div
+          className={passwordInputContainerStyle}
+          style={{ width: fullWidth ? "100%" : "auto" }}
+        >
           <input
             className={inputFieldVisibilityToggleStyle}
             id={inputId + "-visibility-toggle"}
@@ -64,7 +68,6 @@ export const InputField = ({
               inputFieldSecurityStyle,
               typographyStyle({ size: "small", type: "regular" }),
             )}
-            style={{ width: fullWidth ? "100%" : "auto" }}
             placeholder={" "} // we need this so the input css field border is not green by default
             id={inputId}
             {...props}
@@ -106,16 +109,20 @@ export const InputField = ({
         </div>
       )}
 
-      <input
-        className={cn(
-          inputFieldStyle,
-          typographyStyle({ size: "small", type: "regular" }),
-        )}
+      <div
+        className={inputFieldFallbackWrapperStyle}
         style={{ width: fullWidth ? "100%" : "auto" }}
-        placeholder={" "} // we need this so the input css field border is not green by default
-        id={inputId}
-        {...props}
-      />
+      >
+        <input
+          className={cn(
+            inputFieldStyle,
+            typographyStyle({ size: "small", type: "regular" }),
+          )}
+          placeholder={" "} // we need this so the input css field border is not green by default
+          id={inputId}
+          {...props}
+        />
+      </div>
 
       {typeof helperMessage === "string" ? (
         <Message data-testid={messageTestId} severity={props.severity}>

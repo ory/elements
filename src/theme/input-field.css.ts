@@ -25,6 +25,7 @@ export const inputFieldStyle = style({
   borderRadius: pxToRem(4),
   padding: pxToRem(12, 24),
   background: oryTheme.input.background,
+  width: "100%",
   selectors: {
     "&:hover": {
       border: `1px solid ${oryTheme.accent.muted}`,
@@ -91,6 +92,7 @@ export const inputFieldSecurityStyle = style({
   background: oryTheme.input.background,
   border: "none",
   margin: 0,
+  flexGrow: 1,
   selectors: {
     "&:hover": {
       border: `none`,
@@ -135,6 +137,8 @@ export const inputFieldVisibilityToggleLabelStyle = style({
   WebkitUserSelect: "none",
   margin: pxToRem(0, 18, 0, 0),
 })
+
+export const inputFieldFallbackWrapperStyle = style({})
 
 globalStyle(
   `${inputFieldVisibilityToggleStyle}:checked ~ label svg:last-child`,
@@ -210,9 +214,9 @@ globalStyle(
  * we can show the password input field with a visibility toggle
  * and hide the fallback password input field
  **/
-globalStyle(`${passwordInputContainerStyle}`, {
+globalStyle(`${passwordInputContainerStyle}:has(*)`, {
   "@supports": {
-    "(-webkit-text-security: disc) and selector(:has(a,b))": {
+    "(-webkit-text-security: disc)": {
       display: "flex",
     },
   },
@@ -225,10 +229,13 @@ globalStyle(`${passwordInputContainerStyle}`, {
  * If both the :has selector and the -webkit-text-security: disc are supported,
  * we hide this input field in favor of the custom password input field
  **/
-globalStyle(`${inputFieldStyle}[type="password"]`, {
-  "@supports": {
-    "(-webkit-text-security: disc) and selector(:has(a,b))": {
-      display: "none",
+globalStyle(
+  `${inputFieldFallbackWrapperStyle}:has(${inputFieldStyle}[type="password"])`,
+  {
+    "@supports": {
+      "(-webkit-text-security: disc)": {
+        display: "none",
+      },
     },
   },
-})
+)
