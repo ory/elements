@@ -7,21 +7,20 @@ import path from "path"
 import { defineConfig } from "vite"
 import dts from "vite-plugin-dts"
 import { viteStaticCopy } from "vite-plugin-static-copy"
-import autoprefixer from "autoprefixer";
+import autoprefixer from "autoprefixer"
 
 // https://vitejs.dev/config/
 export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        autoprefixer({
-        }) // add options if needed
+        autoprefixer({}), // add options if needed
       ],
-    }
+    },
   },
   plugins: [
     vanillaExtractPlugin({
-      emitCssInSsr: true
+      emitCssInSsr: true,
     }),
     dts({
       insertTypesEntry: true,
