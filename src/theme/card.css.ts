@@ -50,7 +50,6 @@ export const cardStyle = recipe({
       },
       wide: {
         maxWidth: pxToRem(1200),
-        minWidth: pxToRem(1200),
       },
     },
   },
