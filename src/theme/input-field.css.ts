@@ -185,7 +185,7 @@ globalStyle(
 globalStyle(
   `${passwordInputContainerStyle}:has(:not(:focus):not(:placeholder-shown):valid)`,
   {
-    border: `1px solid ${oryTheme.input.disabled}`,
+    border: `1px solid ${oryTheme.border.def}`,
   },
 )
 
