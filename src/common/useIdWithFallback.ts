@@ -11,8 +11,13 @@ const fallback = () => Math.random().toString(36).substring(2)
  * consistent across SSR and CSR. Otherwise, it will be a random and
  * unique ID on every call.
  */
-export const useIdWithFallback =
-  // This weird import circumvents webpack's exportPresence check,
-  // since we're fine if the import doesn't exist, and we don't want
-  // it to cause a build error.
-  React["useId".toString() as "useId"] ?? fallback
+export const useIdWithFallback = () => {
+  try {
+    // This weird import circumvents webpack's exportPresence check,
+    // since we're fine if the import doesn't exist, and we don't want
+    // it to cause a build error.
+    React["useId".toString() as "useId"]() ?? fallback()
+  } catch (e) {
+    return fallback()
+  }
+}
