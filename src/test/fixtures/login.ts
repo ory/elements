@@ -637,204 +637,208 @@ export const loginPasswordlessFixture: LoginFlow = {
 }
 
 export const loginCodeFixture: LoginFlow = {
-  "id": "abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
-  "type": "browser",
-  "expires_at": "2023-08-22T07:02:40.795179386Z",
-  "issued_at": "2023-08-22T06:02:40.795179386Z",
-  "request_url": "http://localhost:4433/self-service/login/browser",
-  "ui": {
-    "action": "http://localhost:4455/self-service/login?flow=abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
-    "method": "POST",
-    "nodes": [
+  id: "abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
+  type: "browser",
+  expires_at: "2023-08-22T07:02:40.795179386Z",
+  issued_at: "2023-08-22T06:02:40.795179386Z",
+  request_url: "http://localhost:4433/self-service/login/browser",
+  ui: {
+    action:
+      "http://localhost:4455/self-service/login?flow=abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
+    method: "POST",
+    nodes: [
       {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "oh1/UgG2XUnGqK/GrmaAd2KPV5H2t6fQsQd5GXBPeIRJUZ5Bs5ViBMcLw3+Ydf1E5dKBNnLLf1GpTvhbSnWtoQ==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "oh1/UgG2XUnGqK/GrmaAd2KPV5H2t6fQsQd5GXBPeIRJUZ5Bs5ViBMcLw3+Ydf1E5dKBNnLLf1GpTvhbSnWtoQ==",
+          required: true,
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {}
+        messages: [],
+        meta: {},
       },
       {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070004,
-            "text": "ID",
-            "type": "info"
-          }
-        }
+        messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
       },
       {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "code",
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010015,
-            "text": "Sign in with code",
-            "type": "info"
-          }
-        }
-      }
-    ]
+        messages: [],
+        meta: {
+          label: {
+            id: 1010015,
+            text: "Sign in with code",
+            type: "info",
+          },
+        },
+      },
+    ],
   },
-  "created_at": "2023-08-22T08:02:40.797052+02:00",
-  "updated_at": "2023-08-22T08:02:40.797052+02:00",
-  "refresh": false,
-  "requested_aal": "aal1",
-  "state": "choose_method"
+  created_at: "2023-08-22T08:02:40.797052+02:00",
+  updated_at: "2023-08-22T08:02:40.797052+02:00",
+  refresh: false,
+  requested_aal: "aal1",
+  state: "choose_method",
 }
 
 export const loginCodeTwoFixture: LoginFlow = {
-  "id": "2b739b09-4d06-4489-9895-6b8a55634ff6",
-  "type": "browser",
-  "expires_at": "2023-08-22T07:13:25.194774403Z",
-  "issued_at": "2023-08-22T06:13:25.194774403Z",
-  "request_url": "http://localhost:4433/self-service/login/browser",
-  "active": "code",
-  "ui": {
-    "action": "http://localhost:4455/self-service/login?flow=2b739b09-4d06-4489-9895-6b8a55634ff6",
-    "method": "POST",
-    "nodes": [
+  id: "2b739b09-4d06-4489-9895-6b8a55634ff6",
+  type: "browser",
+  expires_at: "2023-08-22T07:13:25.194774403Z",
+  issued_at: "2023-08-22T06:13:25.194774403Z",
+  request_url: "http://localhost:4433/self-service/login/browser",
+  active: "code",
+  ui: {
+    action:
+      "http://localhost:4455/self-service/login?flow=2b739b09-4d06-4489-9895-6b8a55634ff6",
+    method: "POST",
+    nodes: [
       {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "8oV4sZaVTX6Ho1+UdshHlsAA4fRkBcuaqLVGT2hWaaufINifEbCGaQ/emgdUiHp833a2duHjCv3axZ9907alzw==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "8oV4sZaVTX6Ho1+UdshHlsAA4fRkBcuaqLVGT2hWaaufINifEbCGaQ/emgdUiHp833a2duHjCv3axZ9907alzw==",
+          required: true,
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {}
+        messages: [],
+        meta: {},
       },
       {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "value": "example@example.com",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          value: "example@example.com",
+          required: true,
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070004,
-            "text": "ID",
-            "type": "info"
-          }
-        }
+        messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
       },
       {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "method",
-          "type": "hidden",
-          "value": "code",
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "hidden",
+          value: "code",
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {}
+        messages: [],
+        meta: {},
       },
       {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "code",
-          "type": "text",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "code",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070013,
-            "text": "Login code",
-            "type": "info"
-          }
-        }
+        messages: [],
+        meta: {
+          label: {
+            id: 1070013,
+            text: "Login code",
+            type: "info",
+          },
+        },
       },
       {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "code",
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070005,
-            "text": "Submit",
-            "type": "info"
-          }
-        }
+        messages: [],
+        meta: {
+          label: {
+            id: 1070005,
+            text: "Submit",
+            type: "info",
+          },
+        },
       },
       {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "resend",
-          "type": "submit",
-          "value": "code",
-          "disabled": false,
-          "node_type": "input"
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "resend",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
         },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070008,
-            "text": "Resend code",
-            "type": "info"
-          }
-        }
-      }
+        messages: [],
+        meta: {
+          label: {
+            id: 1070008,
+            text: "Resend code",
+            type: "info",
+          },
+        },
+      },
     ],
-    "messages": [
+    messages: [
       {
-        "id": 1010014,
-        "text": "An email containing a code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and retry the login.",
-        "type": "info",
-        "context": {}
-      }
-    ]
+        id: 1010014,
+        text: "An email containing a code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and retry the login.",
+        type: "info",
+        context: {},
+      },
+    ],
   },
-  "created_at": "2023-08-22T08:13:25.196412+02:00",
-  "updated_at": "2023-08-22T08:13:25.196412+02:00",
-  "refresh": false,
-  "requested_aal": "aal1",
-  "state": "sent_email"
+  created_at: "2023-08-22T08:13:25.196412+02:00",
+  updated_at: "2023-08-22T08:13:25.196412+02:00",
+  refresh: false,
+  requested_aal: "aal1",
+  state: "sent_email",
 }
