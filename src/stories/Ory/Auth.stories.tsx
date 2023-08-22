@@ -6,6 +6,8 @@ import { Container } from "../storyhelper"
 import loginFlow2FA from "./login-flow-2fa.json"
 import loginFlowRefresh from "./login-flow-refresh.json"
 import loginFlow from "./login-flow.json"
+import loginFlowCodeOne from "./login-flow-code-1.json"
+import loginFlowCodeTwo from "./login-flow-code-2.json"
 
 import loginFlowError from "./login-flow-error.json"
 import loginFlowUiError from "./login-flow-ui-error.json"
@@ -21,7 +23,7 @@ import verificationSubmitted from "./verification-submit-flow.json"
 import logo from "../assets/logo.svg"
 
 export default {
-  title: "Ory/SelfServiceFlowCard",
+  title: "Ory/UserAuthCard",
   component: UserAuthCard,
 } as ComponentMeta<typeof UserAuthCard>
 
@@ -129,6 +131,28 @@ export const LoginAuthCardWithoutRegistrationUrl = Template.bind({})
 LoginAuthCardWithoutRegistrationUrl.args = {
   title: "Sign in to your Acme account",
   flow: loginFlow as LoginFlow,
+  flowType: "login",
+  additionalProps: {
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardWithCodeInit = Template.bind({})
+
+LoginAuthCardWithCodeInit.args = {
+  title: "Sign in to your Acme account",
+  flow: loginFlowCodeOne as LoginFlow,
+  flowType: "login",
+  additionalProps: {
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardWithCodeSubmit = Template.bind({})
+
+LoginAuthCardWithCodeSubmit.args = {
+  title: "Sign in to your Acme account",
+  flow: loginFlowCodeTwo as LoginFlow,
   flowType: "login",
   additionalProps: {
     forgotPasswordURL: "https://acme.com/forgot-password",
