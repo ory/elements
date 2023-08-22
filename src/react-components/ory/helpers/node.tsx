@@ -6,7 +6,7 @@ import {
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
-import { MouseEvent } from "react"
+import { MouseEvent, JSX } from "react"
 import { pxToRem } from "../../../common"
 import { gridStyle } from "../../../theme"
 import { Button, ButtonProps } from "../../button"

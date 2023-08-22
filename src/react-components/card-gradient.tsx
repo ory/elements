@@ -1,4 +1,5 @@
 import cn from "classnames"
+import { ReactNode, JSX, HTMLAttributes } from "react"
 
 import { colorSprinkle, gridStyle, typographyStyle } from "../theme"
 import {
@@ -7,15 +8,14 @@ import {
   cardGradientOverlayStyle,
 } from "../theme/card-gradient.css"
 
-export interface CardGradientProps
-  extends React.HTMLAttributes<HTMLAnchorElement> {
-  heading: string | React.ReactNode
-  content: string | React.ReactNode
+export interface CardGradientProps extends HTMLAttributes<HTMLAnchorElement> {
+  heading: string | ReactNode
+  content: string | undefined
   action: string
   target?: string
   disabled?: boolean
   className?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export const CardGradient = ({

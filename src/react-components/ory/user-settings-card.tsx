@@ -1,5 +1,7 @@
 import { SettingsFlow } from "@ory/client"
 import cn from "classnames"
+import { JSX } from "react"
+
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { useScriptNodes } from "./helpers/node-script"
 import {

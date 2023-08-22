@@ -7,6 +7,7 @@ import {
 } from "@ory/client"
 import { FilterNodesByGroups } from "@ory/integrations/ui"
 import cn from "classnames"
+import { JSX } from "react"
 
 import { formStyle } from "../../../theme"
 import { FilterFlowNodes } from "./filter-flow-nodes"

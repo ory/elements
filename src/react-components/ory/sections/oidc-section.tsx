@@ -1,4 +1,6 @@
 import { filterNodesByGroups } from "@ory/integrations/ui"
+import { JSX } from "react"
+
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
