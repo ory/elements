@@ -34,7 +34,8 @@ export const UserErrorCard = ({
 }: UserErrorCardProps): JSX.Element => {
   const err = error.error as errorMessage
   const status = err.code
-  const message = status >= 500 ? JSON.stringify(error, null, 2) : err.reason
+  const is500 = status >= 500
+
   return (
     <Card
       className={className}
@@ -44,16 +45,21 @@ export const UserErrorCard = ({
         </h2>
       }
       image={cardImage}
+      size="wide"
     >
       <div
         className={gridStyle({ gap: 32, direction: "column" })}
-        data-testid={`ui/error/message`}
+        data-testid="ui/error/message"
       >
-        <Message severity="error">
-          An error occurred with the following message:&nbsp;
-          {status < 500 && message}
-        </Message>
-        {status >= 500 && <CodeBox data-testid={"code-box"}>{message}</CodeBox>}
+        {!is500 && (
+          <Message severity="error">
+            An error occurred with the following message:&nbsp;
+            {err.reason}
+          </Message>
+        )}
+        <CodeBox data-testid="code-box" toggleText="Error details">
+          {JSON.stringify(error, null, 2)}
+        </CodeBox>
         {contactSupportEmail && (
           <Message className={colorSprinkle({ color: "foregroundMuted" })}>
             If the problem persists, please contact&nbsp;

@@ -13,11 +13,13 @@ import { useIdWithFallback } from "../common/useIdWithFallback"
 export interface CodeBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   className?: string
+  toggleText?: string
 }
 
 export const CodeBox = ({
   children,
   className,
+  toggleText,
   ...props
 }: CodeBoxProps): JSX.Element => {
   const id = useIdWithFallback()
@@ -27,12 +29,13 @@ export const CodeBox = ({
       {...props}
     >
       <input id={id} type="checkbox" />
-      <div
+      <label
+        htmlFor={id}
         className={cn(typographyStyle({ size: "small" }), codeboxHeaderStyle)}
       >
-        <div>Toggle content</div>
+        <div>{toggleText || "Toggle content"}</div>
 
-        <label htmlFor={id}>
+        <span>
           <i
             className={cn(
               "fa fa-caret-down",
@@ -45,8 +48,8 @@ export const CodeBox = ({
               colorSprinkle({ color: "accentDefault" }),
             )}
           ></i>
-        </label>
-      </div>
+        </span>
+      </label>
       <pre
         className={cn(
           colorSprinkle({ color: "accentEmphasis" }),
