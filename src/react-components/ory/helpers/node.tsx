@@ -57,7 +57,7 @@ export const getNodeLabel = (node: UiNode): UiText | undefined => {
 }
 
 const uiTextToFormattedMessage = ({ id, context = {}, text }: UiText) => ({
-  id: `kratosMessages.${id}`,
+  id: `kratos-messages.${id}`,
   values: context as Record<string, string>,
   defaultMessage: text,
 })

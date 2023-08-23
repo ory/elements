@@ -1,0 +1,299 @@
+{
+  "kratos-messages.1010001": {
+    "defaultMessage": "Sign in with security key"
+  },
+  "kratos-messages.1010002": {
+    "defaultMessage": "Sign in with {provider}"
+  },
+  "kratos-messages.1010003": {
+    "defaultMessage": "Please confirm this action by verifying that it is you."
+  },
+  "kratos-messages.1010004": {
+    "defaultMessage": "Please complete the second authentication challenge."
+  },
+  "kratos-messages.1010005": {
+    "defaultMessage": "Verify"
+  },
+  "kratos-messages.1010006": {
+    "defaultMessage": "Authentication code"
+  },
+  "kratos-messages.1010007": {
+    "defaultMessage": "Backup recovery code"
+  },
+  "kratos-messages.1010008": {
+    "defaultMessage": "Use security key"
+  },
+  "kratos-messages.1010009": {
+    "defaultMessage": "Use Authenticator"
+  },
+  "kratos-messages.1010010": {
+    "defaultMessage": "Use backup recovery code"
+  },
+  "kratos-messages.1010011": {
+    "defaultMessage": "Continue with security key"
+  },
+  "kratos-messages.1010012": {
+    "defaultMessage": "Prepare your WebAuthn device (e.g. security key, biometrics scanner, ...) and press continue."
+  },
+  "kratos-messages.1010013": {
+    "defaultMessage": "Continue"
+  },
+  "kratos-messages.1040001": {
+    "defaultMessage": "Sign up"
+  },
+  "kratos-messages.1040002": {
+    "defaultMessage": "Sign up with {provider}"
+  },
+  "kratos-messages.1040003": {
+    "defaultMessage": "Continue"
+  },
+  "kratos-messages.1040004": {
+    "defaultMessage": "Sign up with security key"
+  },
+  "kratos-messages.1050001": {
+    "defaultMessage": "Your changes have been saved!"
+  },
+  "kratos-messages.1050002": {
+    "defaultMessage": "Link {provider}"
+  },
+  "kratos-messages.1050003": {
+    "defaultMessage": "Unlink {provider}"
+  },
+  "kratos-messages.1050004": {
+    "defaultMessage": "Unlink TOTP Authenticator App"
+  },
+  "kratos-messages.1050005": {
+    "defaultMessage": "Authenticator app QR code"
+  },
+  "kratos-messages.1050006": {
+    "defaultMessage": "{secret}"
+  },
+  "kratos-messages.1050007": {
+    "defaultMessage": "Reveal backup recovery codes"
+  },
+  "kratos-messages.1050008": {
+    "defaultMessage": "Generate new backup recovery codes"
+  },
+  "kratos-messages.1050009": {
+    "defaultMessage": "{secret}"
+  },
+  "kratos-messages.1050010": {
+    "defaultMessage": "These are your back up recovery codes. Please keep them in a safe place!"
+  },
+  "kratos-messages.1050011": {
+    "defaultMessage": "Confirm backup recovery codes"
+  },
+  "kratos-messages.1050012": {
+    "defaultMessage": "Add security key"
+  },
+  "kratos-messages.1050013": {
+    "defaultMessage": "Name of the security key"
+  },
+  "kratos-messages.1050014": {
+    "defaultMessage": "Secret was used at 2020-01-01 00:59:59 +0000 UTC"
+  },
+  "kratos-messages.1050015": {
+    "defaultMessage": "{code}, {code}"
+  },
+  "kratos-messages.1050016": {
+    "defaultMessage": "Disable this method"
+  },
+  "kratos-messages.1050017": {
+    "defaultMessage": "This is your authenticator app secret. Use it if you can not scan the QR code."
+  },
+  "kratos-messages.1050018": {
+    "defaultMessage": "Remove security key \"{name}\""
+  },
+  "kratos-messages.1060001": {
+    "defaultMessage": "You successfully recovered your account. Please change your password or set up an alternative login method (e.g. social sign in) within the next 0.02 minutes."
+  },
+  "kratos-messages.1060002": {
+    "defaultMessage": "An email containing a recovery link has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
+  },
+  "kratos-messages.1060003": {
+    "defaultMessage": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
+  },
+  "kratos-messages.1070001": {
+    "defaultMessage": "Password"
+  },
+  "kratos-messages.1070002": {
+    "defaultMessage": "{title}"
+  },
+  "kratos-messages.1070003": {
+    "defaultMessage": "Save"
+  },
+  "kratos-messages.1070004": {
+    "defaultMessage": "ID"
+  },
+  "kratos-messages.1070005": {
+    "defaultMessage": "Submit"
+  },
+  "kratos-messages.1070006": {
+    "defaultMessage": "Verify code"
+  },
+  "kratos-messages.1070007": {
+    "defaultMessage": "Email"
+  },
+  "kratos-messages.1070008": {
+    "defaultMessage": "Resend code"
+  },
+  "kratos-messages.1070009": {
+    "defaultMessage": "Continue"
+  },
+  "kratos-messages.1070010": {
+    "defaultMessage": "Recovery code"
+  },
+  "kratos-messages.1070011": {
+    "defaultMessage": "Verification code"
+  },
+  "kratos-messages.1080001": {
+    "defaultMessage": "An email containing a verification link has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
+  },
+  "kratos-messages.1080002": {
+    "defaultMessage": "You successfully verified your email address."
+  },
+  "kratos-messages.1080003": {
+    "defaultMessage": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
+  },
+  "kratos-messages.4000001": {
+    "defaultMessage": "{reason}"
+  },
+  "kratos-messages.4000002": {
+    "defaultMessage": "Property {field} is missing."
+  },
+  "kratos-messages.4000003": {
+    "defaultMessage": "length must be >= 5, but got 3"
+  },
+  "kratos-messages.4000004": {
+    "defaultMessage": "does not match pattern \"^[a-z]*$\""
+  },
+  "kratos-messages.4000005": {
+    "defaultMessage": "The password can not be used because {reason}."
+  },
+  "kratos-messages.4000006": {
+    "defaultMessage": "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number."
+  },
+  "kratos-messages.4000007": {
+    "defaultMessage": "An account with the same identifier (email, phone, username, ...) exists already."
+  },
+  "kratos-messages.4000008": {
+    "defaultMessage": "The provided authentication code is invalid, please try again."
+  },
+  "kratos-messages.4000009": {
+    "defaultMessage": "Could not find any login identifiers. Did you forget to set them? This could also be caused by a server misconfiguration."
+  },
+  "kratos-messages.4000010": {
+    "defaultMessage": "Account not active yet. Did you forget to verify your email address?"
+  },
+  "kratos-messages.4000011": {
+    "defaultMessage": "You have no TOTP device set up."
+  },
+  "kratos-messages.4000012": {
+    "defaultMessage": "This backup recovery code has already been used."
+  },
+  "kratos-messages.4000013": {
+    "defaultMessage": "You have no WebAuthn device set up."
+  },
+  "kratos-messages.4000014": {
+    "defaultMessage": "You have no backup recovery codes set up."
+  },
+  "kratos-messages.4000015": {
+    "defaultMessage": "This account does not exist or has no security key set up."
+  },
+  "kratos-messages.4000016": {
+    "defaultMessage": "The backup recovery code is not valid."
+  },
+  "kratos-messages.4000017": {
+    "defaultMessage": "length must be <= 5, but got 6"
+  },
+  "kratos-messages.4000018": {
+    "defaultMessage": "must be >= 5 but found 3"
+  },
+  "kratos-messages.4000019": {
+    "defaultMessage": "must be > 5 but found 5"
+  },
+  "kratos-messages.4000020": {
+    "defaultMessage": "must be <= 5 but found 6"
+  },
+  "kratos-messages.4000021": {
+    "defaultMessage": "must be < 5 but found 5"
+  },
+  "kratos-messages.4000022": {
+    "defaultMessage": "7 not multipleOf 3"
+  },
+  "kratos-messages.4000023": {
+    "defaultMessage": "maximum 3 items allowed, but found 4 items"
+  },
+  "kratos-messages.4000024": {
+    "defaultMessage": "minimum 3 items allowed, but found 2 items"
+  },
+  "kratos-messages.4000025": {
+    "defaultMessage": "items at index 0 and 2 are equal"
+  },
+  "kratos-messages.4000026": {
+    "defaultMessage": "expected number, but got string"
+  },
+  "kratos-messages.4000027": {
+    "defaultMessage": "An account with the same identifier (email, phone, username, ...) exists already. Please sign in to your existing account and link your social profile in the settings page."
+  },
+  "kratos-messages.4000028": {
+    "defaultMessage": "{reason}"
+  },
+  "kratos-messages.4010001": {
+    "defaultMessage": "The login flow expired 1.02 minutes ago, please try again."
+  },
+  "kratos-messages.4010002": {
+    "defaultMessage": "Could not find a strategy to log you in with. Did you fill out the form correctly?"
+  },
+  "kratos-messages.4010003": {
+    "defaultMessage": "Could not find a strategy to sign you up with. Did you fill out the form correctly?"
+  },
+  "kratos-messages.4010004": {
+    "defaultMessage": "Could not find a strategy to update your settings. Did you fill out the form correctly?"
+  },
+  "kratos-messages.4010005": {
+    "defaultMessage": "Could not find a strategy to recover your account with. Did you fill out the form correctly?"
+  },
+  "kratos-messages.4010006": {
+    "defaultMessage": "Could not find a strategy to verify your account with. Did you fill out the form correctly?"
+  },
+  "kratos-messages.4040001": {
+    "defaultMessage": "The registration flow expired -0.02 minutes ago, please try again."
+  },
+  "kratos-messages.4050001": {
+    "defaultMessage": "The settings flow expired -0.02 minutes ago, please try again."
+  },
+  "kratos-messages.4060001": {
+    "defaultMessage": "The request was already completed successfully and can not be retried."
+  },
+  "kratos-messages.4060002": {
+    "defaultMessage": "The recovery flow reached a failure state and must be retried."
+  },
+  "kratos-messages.4060004": {
+    "defaultMessage": "The recovery token is invalid or has already been used. Please retry the flow."
+  },
+  "kratos-messages.4060005": {
+    "defaultMessage": "The recovery flow expired -0.02 minutes ago, please try again."
+  },
+  "kratos-messages.4060006": {
+    "defaultMessage": "The recovery code is invalid or has already been used. Please try again."
+  },
+  "kratos-messages.4070001": {
+    "defaultMessage": "The verification token is invalid or has already been used. Please retry the flow."
+  },
+  "kratos-messages.4070002": {
+    "defaultMessage": "The request was already completed successfully and can not be retried."
+  },
+  "kratos-messages.4070003": {
+    "defaultMessage": "The verification flow reached a failure state and must be retried."
+  },
+  "kratos-messages.4070005": {
+    "defaultMessage": "The verification flow expired -0.02 minutes ago, please try again."
+  },
+  "kratos-messages.4070006": {
+    "defaultMessage": "The verification code is invalid or has already been used. Please try again."
+  },
+  "kratos-messages.5000001": {
+    "defaultMessage": "{reason}"
+  }
+}
