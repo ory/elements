@@ -27,7 +27,7 @@ export type MessageSectionProps = {
   url?: CustomHref | string
   buttonText: string
   dataTestId?: string
-  text?: React.ReactNode
+  text?: string
 }
 
 export const MessageSection = ({

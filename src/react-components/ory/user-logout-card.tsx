@@ -2,6 +2,7 @@ import { gridStyle } from "../../theme"
 import { Button } from "../button"
 import { Card } from "../card"
 import { Typography } from "../typography"
+import { FormattedMessage, useIntl } from "react-intl"
 
 export type UserLogoutCardProps = {
   csrfToken: string
@@ -18,12 +19,19 @@ export const UserLogoutCard = ({
   className,
   cardImage,
 }: UserLogoutCardProps) => {
+  const intl = useIntl()
+
   return (
     <Card
       className={className}
       heading={
         <div style={{ textAlign: "center" }}>
-          <Typography>Do you wish to log out?</Typography>
+          <Typography>
+            <FormattedMessage
+              id="logout.title"
+              defaultMessage="Do you wish to log out?"
+            />
+          </Typography>
         </div>
       }
       image={cardImage}
@@ -42,7 +50,10 @@ export const UserLogoutCard = ({
               value="No"
               name="submit"
               variant="error"
-              header="No"
+              header={intl.formatMessage({
+                id: "logout.reject-button",
+                defaultMessage: "No",
+              })}
             />
             <Button
               type="submit"
@@ -50,7 +61,10 @@ export const UserLogoutCard = ({
               value="Yes"
               name="submit"
               variant="semibold"
-              header="Yes"
+              header={intl.formatMessage({
+                id: "logout.accept-button",
+                defaultMessage: "Yes",
+              })}
             />
           </div>
         </div>

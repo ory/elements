@@ -6,10 +6,11 @@ import { ButtonLink, CustomHref } from "../button-link"
 import { Card } from "../card"
 import { CodeBox } from "../codebox"
 import { Message } from "../message"
+import { FormattedMessage, useIntl } from "react-intl"
 
 // SelfServiceErrorCard props
 export type UserErrorCardProps = {
-  title: string
+  title?: string
   error: FlowError
   backUrl: CustomHref | string
   cardImage?: string | React.ReactElement
@@ -33,9 +34,34 @@ export const UserErrorCard = ({
   contactSupportEmail,
   className,
 }: UserErrorCardProps): JSX.Element => {
+  const intl = useIntl()
+
   const err = error.error as errorMessage
   const status = err.code
   const message = status >= 500 ? JSON.stringify(error, null, 2) : err.reason
+
+  if (!title) {
+    switch (status) {
+      case 404:
+        title = intl.formatMessage({
+          id: "error.title-not-found",
+          defaultMessage: "404 - Page not found",
+        })
+        break
+      case 500:
+        title = intl.formatMessage({
+          id: "error.title-internal-server-error",
+          defaultMessage: "Internal Server Error",
+        })
+        break
+      default:
+        title = intl.formatMessage({
+          id: "error.title",
+          defaultMessage: "An error occurred",
+        })
+    }
+  }
+
   return (
     <Card
       className={className}
@@ -51,20 +77,35 @@ export const UserErrorCard = ({
         data-testid={`ui/error/message`}
       >
         <Message severity="error">
-          An error occurred with the following message:&nbsp;
+          <FormattedMessage
+            id="error.description"
+            defaultMessage="An error occurred with the following message:"
+          />
+          &nbsp;
           {status < 500 && message}
         </Message>
         {status >= 500 && <CodeBox data-testid={"code-box"}>{message}</CodeBox>}
         {contactSupportEmail && (
           <Message className={colorSprinkle({ color: "foregroundMuted" })}>
-            If the problem persists, please contact&nbsp;
-            <ButtonLink href={`mailto:${contactSupportEmail}`}>
-              {contactSupportEmail}
-            </ButtonLink>
+            <FormattedMessage
+              id="error.support-email-link"
+              description="A label and link below the error. The link href is 'mailto:{contactSupportEmail}'."
+              defaultMessage="If the problem persists, please contact <a>{contactSupportEmail}</a>"
+              values={{
+                contactSupportEmail,
+                a: (chunks) => (
+                  <ButtonLink href={`mailto:${contactSupportEmail}`}>
+                    {chunks}
+                  </ButtonLink>
+                ),
+              }}
+            />
           </Message>
         )}
         <Message>
-          <ButtonLink href={backUrl}>Go Back</ButtonLink>
+          <ButtonLink href={backUrl}>
+            <FormattedMessage id="error.back-button" defaultMessage="Go Back" />
+          </ButtonLink>
         </Message>
       </div>
     </Card>

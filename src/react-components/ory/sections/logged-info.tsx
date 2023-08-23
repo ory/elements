@@ -3,6 +3,7 @@ import {
   identifierStyle,
 } from "../../../theme/identifier.css"
 import { SelfServiceFlow } from "../helpers/types"
+import { FormattedMessage } from "react-intl"
 
 type IdentifierInfoProps = {
   flow: SelfServiceFlow
@@ -17,7 +18,10 @@ export const LoggedInfo = ({ flow }: IdentifierInfoProps) => {
 
   return (
     <div className={identifierStyle}>
-      You're logged in as:
+      <FormattedMessage
+        id="login.logged-in-as-label"
+        defaultMessage="You're logged in as:"
+      />
       <div className={identifierNameStyle}>{identifier.value}</div>
     </div>
   )

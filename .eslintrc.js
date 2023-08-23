@@ -24,8 +24,9 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["react", "@typescript-eslint", "eslint-plugin-tsdoc"],
+  plugins: ["react", "@typescript-eslint", "eslint-plugin-tsdoc", "formatjs"],
   rules: {
     "tsdoc/syntax": "warn",
+    "formatjs/no-offset": "error",
   },
 }

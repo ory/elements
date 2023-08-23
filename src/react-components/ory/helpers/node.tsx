@@ -1,12 +1,13 @@
 import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
 import {
-  getNodeLabel,
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
 import { MouseEvent, JSX } from "react"
+import { FormattedMessage, useIntl } from "react-intl"
+
 import { pxToRem } from "../../../common"
 import { gridStyle } from "../../../theme"
 import { Button, ButtonProps } from "../../button"
@@ -36,19 +37,58 @@ export type NodeProps = {
   className?: string
 } & NodeOverrideProps
 
+export const getNodeLabel = (node: UiNode): UiText | undefined => {
+  const attributes = node.attributes
+  if (isUiNodeAnchorAttributes(attributes)) {
+    return attributes.title
+  }
+
+  if (isUiNodeImageAttributes(attributes)) {
+    return node.meta.label
+  }
+
+  if (isUiNodeInputAttributes(attributes)) {
+    if (attributes.label) {
+      return attributes.label
+    }
+  }
+
+  return node.meta.label
+}
+
+const uiTextToFormattedMessage = ({ id, context = {}, text }: UiText) => ({
+  id: `kratosMessages.${id}`,
+  values: context as Record<string, string>,
+  defaultMessage: text,
+})
+
+const FormattedKratosMessage = (uiText: UiText) => {
+  const { values, ...rest } = uiTextToFormattedMessage(uiText)
+  return <FormattedMessage {...rest} values={values} />
+}
+
 export const Node = ({
   node,
   className,
   buttonOverrideProps,
   buttonSocialOverrideProps,
 }: NodeProps): JSX.Element | null => {
+  const intl = useIntl()
+  const formatMessage = (uiText: UiText | undefined) => {
+    if (!uiText) {
+      return ""
+    }
+    const { values, ...rest } = uiTextToFormattedMessage(uiText)
+    return intl.formatMessage(rest, values)
+  }
+
   if (isUiNodeImageAttributes(node.attributes)) {
     return (
       <Image
         src={node.attributes.src}
-        alt={node.meta.label?.text}
+        alt={formatMessage(node.meta.label)}
         data-testid={`node/image/${node.attributes.id}`}
-        header={node.meta.label?.text}
+        header={formatMessage(node.meta.label)}
         width={node.attributes.width}
         height={node.attributes.height}
       />
@@ -72,30 +112,32 @@ export const Node = ({
           data-testid={`node/text/${node.attributes.id}/label`}
           style={{ flexBasis: "100%" }}
         >
-          {node.meta.label?.text}
+          {node.meta.label && <FormattedKratosMessage {...node.meta.label} />}
         </Typography>
-        {(node.attributes.text.context as { secrets: UiText[] }).secrets.map(
-          ({ text, id }: UiText, index) => {
-            if (id === 1050014) {
-              // Code already used
-              return (
-                <pre key={index}>
-                  <del data-testid={`node/text/lookup_secret_codes/text`}>
-                    <code>Used</code>
-                  </del>
-                </pre>
-              )
-            }
-            return (
-              <pre
-                data-testid={`node/text/lookup_secret_codes/text`}
-                key={index}
-              >
-                <code>{text}</code>
-              </pre>
-            )
-          },
-        )}
+        {(
+          node.attributes.text.context as {
+            secrets: UiText[]
+          }
+        ).secrets.map((text: UiText, index) => {
+          // TODO move to translation
+          // if (id === 1050014) {
+          // Code already used
+          // return (
+          //   <pre key={index}>
+          //     <del data-testid={`node/text/lookup_secret_codes/text`}>
+          //       <code>Used</code>
+          //     </del>
+          //   </pre>
+          // )
+          // }
+          return (
+            <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
+              <code>
+                <FormattedKratosMessage {...text} />
+              </code>
+            </pre>
+          )
+        })}
       </div>
     ) : (
       <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
@@ -103,10 +145,12 @@ export const Node = ({
           variant="body1"
           data-testid={`node/text/${node.attributes.id}/label`}
         >
-          {node.meta.label?.text}
+          {node.meta.label && <FormattedKratosMessage {...node.meta.label} />}
         </Typography>
         <pre data-testid={`node/text/${id}/text`}>
-          <code>{node.attributes.text.text}</code>
+          <code>
+            <FormattedKratosMessage {...node.attributes.text} />
+          </code>
         </pre>
       </div>
     )
@@ -158,7 +202,7 @@ export const Node = ({
         return isSocial ? (
           <ButtonSocial
             className={className}
-            header={getNodeLabel(node)}
+            header={formatMessage(getNodeLabel(node))}
             brand={attrs.value.toLowerCase()}
             variant={"semibold"}
             size={"medium"}
@@ -170,7 +214,7 @@ export const Node = ({
         ) : (
           <Button
             className={className}
-            header={getNodeLabel(node)}
+            header={formatMessage(getNodeLabel(node))}
             variant={"semibold"}
             size={"medium"}
             fullWidth
@@ -187,7 +231,7 @@ export const Node = ({
             helperMessage={
               <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
             }
-            label={getNodeLabel(node)}
+            label={formatMessage(getNodeLabel(node))}
             name={attrs.name}
             required={attrs.required}
             defaultValue={attrs.value}
@@ -205,7 +249,7 @@ export const Node = ({
             dataTestid={`node/input/${attrs.name}`}
             className={className}
             name={attrs.name}
-            header={getNodeLabel(node)}
+            header={formatMessage(getNodeLabel(node))}
             type={attrs.type}
             autoComplete={
               attrs.autocomplete ||
@@ -222,12 +266,12 @@ export const Node = ({
     return (
       <ButtonLink
         href={node.attributes.href}
-        title={node.attributes.title.text}
+        title={formatMessage(node.attributes.title)}
         data-testid={`node/anchor/${node.attributes.id}`}
         className={className}
         position="center"
       >
-        {node.attributes.title.text}
+        <FormattedKratosMessage {...node.attributes.title} />
       </ButtonLink>
     )
   }
