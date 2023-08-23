@@ -17,6 +17,7 @@ const base = style({
   padding: pxToRem(48),
   background: oryTheme.background.surface,
   color: oryTheme.foreground.def,
+  boxSizing: "border-box",
   "@media": {
     [`screen and (max-width: ${defaultBreakpoints.sm})`]: {
       width: "100%",
@@ -45,11 +46,12 @@ export const cardStyle = recipe({
   variants: {
     size: {
       default: {
-        maxWidth: pxToRem(336),
-        minWidth: pxToRem(336),
+        maxWidth: pxToRem(434),
+        minWidth: pxToRem(434),
       },
       wide: {
         maxWidth: pxToRem(1200),
+        width: "100%",
       },
     },
   },
