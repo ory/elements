@@ -46,8 +46,8 @@ export const cardStyle = recipe({
   variants: {
     size: {
       default: {
-        maxWidth: pxToRem(432),
-        minWidth: pxToRem(432),
+        maxWidth: pxToRem(434),
+        minWidth: pxToRem(434),
       },
       wide: {
         maxWidth: pxToRem(1200),
