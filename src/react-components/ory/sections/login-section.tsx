@@ -1,12 +1,12 @@
 import { UiNode } from "@ory/client"
 import { gridStyle } from "../../../theme"
-import { ButtonLink, Href } from "../../button-link"
+import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
 
 export type LoginSectionProps = {
   nodes: UiNode[]
-  forgotPasswordURL?: Href
+  forgotPasswordURL?: CustomHref | string
 }
 
 export const LoginSection = ({

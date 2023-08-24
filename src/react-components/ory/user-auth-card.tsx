@@ -22,6 +22,7 @@ import {
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
+import { AuthCodeSection } from "./sections/auth-code-section"
 import { LinkSection } from "./sections/link-section"
 import { LoggedInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
@@ -92,8 +93,9 @@ export const UserAuthCard = ({
     useScriptNodes({ nodes: flow.ui.nodes })
   }
 
-  let $flow = null
-  let $oidc = null
+  let $flow: JSX.Element | null = null
+  let $oidc: JSX.Element | null = null
+  let $code: JSX.Element | null = null
   let $passwordless: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
@@ -207,6 +209,7 @@ export const UserAuthCard = ({
     case "login":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+      $code = AuthCodeSection({ nodes: flow.ui.nodes })
 
       $flow = LoginSection({
         nodes: flow.ui.nodes,
@@ -232,6 +235,7 @@ export const UserAuthCard = ({
     case "registration":
       $passwordless = PasswordlessSection(flow)
       $oidc = OIDCSection(flow)
+      $code = AuthCodeSection({ nodes: flow.ui.nodes })
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
       })
@@ -288,6 +292,14 @@ export const UserAuthCard = ({
             <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
               {$oidc}
+            </UserAuthForm>
+          </>
+        )}
+        {$code && (
+          <>
+            <Divider />
+            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-code`}>
+              {$code}
             </UserAuthForm>
           </>
         )}
