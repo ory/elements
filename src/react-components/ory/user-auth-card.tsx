@@ -93,9 +93,9 @@ export const UserAuthCard = ({
     useScriptNodes({ nodes: flow.ui.nodes })
   }
 
-  let $flow = null
-  let $oidc = null
-  let $code = null
+  let $flow: JSX.Element | null = null
+  let $oidc: JSX.Element | null = null
+  let $code: JSX.Element | null = null
   let $passwordless: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
