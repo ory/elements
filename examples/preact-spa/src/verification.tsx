@@ -64,7 +64,7 @@ export const Verification = () => {
       flow={flow}
       flowType={"verification"}
       additionalProps={{
-        loginURL: "/login",
+        signupURL: "/registration",
       }}
       title="Verification"
       // submit the verification form data to Ory

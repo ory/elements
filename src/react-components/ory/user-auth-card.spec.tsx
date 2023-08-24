@@ -1,13 +1,13 @@
 import { expect, test } from "@playwright/experimental-ct-react"
 import {
+  AuthPage,
   loginFixture,
   loginRefreshFixture,
   loginTwoFactorFixture,
   recoveryFixture,
   registrationFixture,
   verificationFixture,
-} from "../../test/fixtures"
-import { AuthPage } from "../../test/models/AuthPage"
+} from "../../test"
 import { UserAuthCard } from "./user-auth-card"
 ;[true, false].forEach((enableSignUp) => {
   test(

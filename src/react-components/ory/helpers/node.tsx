@@ -155,7 +155,7 @@ export const Node = ({
       </div>
     )
   } else if (isUiNodeInputAttributes(node.attributes)) {
-    const attrs = node.attributes as UiNodeInputAttributes
+    const attrs = node.attributes
     const nodeType = attrs.type
 
     const isSocial =

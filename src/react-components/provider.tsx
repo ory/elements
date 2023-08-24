@@ -1,7 +1,7 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import cn from "classnames"
-import { ReactElement, ReactNode } from "react"
-import { IntlProvider } from "react-intl"
+import { PropsWithChildren, ReactElement, ReactNode } from "react"
+import { IntlProvider as OriginalIntlProvider } from "react-intl"
 
 import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 import {
@@ -15,7 +15,6 @@ export type ThemeProviderProps = {
   themeOverrides?: Partial<Theme>
   enableFontSmoothing?: boolean
   children?: ReactNode | ReactElement | ReactElement[] | ReactNode[]
-  locale?: keyof typeof locales
 }
 
 export const ThemeProvider = ({
@@ -23,7 +22,6 @@ export const ThemeProvider = ({
   theme,
   themeOverrides,
   enableFontSmoothing,
-  locale = "en",
 }: ThemeProviderProps) => (
   <div
     className={cn(
@@ -35,15 +33,17 @@ export const ThemeProvider = ({
       ...themeOverrides,
     })}
   >
-    <IntlProvider
-      locale={locale}
-      defaultLocale="en"
-      messages={locales[locale]}
-      defaultRichTextElements={{
-        del: (chunks) => <del>{chunks}</del>,
-      }}
-    >
-      {children}
-    </IntlProvider>
+    {children}
   </div>
+)
+
+export const IntlProvider = ({
+  locale = "en",
+  children,
+}: PropsWithChildren<{
+  locale?: keyof typeof locales
+}>) => (
+  <OriginalIntlProvider locale={locale} messages={locales[locale]}>
+    {children}
+  </OriginalIntlProvider>
 )
