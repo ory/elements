@@ -10,10 +10,10 @@
     },
     "challenge": "whatever-chanllenge",
     "request_url": "https://acme.com",
-    "requested_scope":  ["openid", "offline"],
+    "requested_scope": ["openid", "offline"],
     "requested_access_token_audience": ["https://acme.com"],
     "skip": false,
-    "subject":  "user1"
+    "subject": "user1"
   },
   "ui": {
     "action": "http://test.com/self-service/login?flow=4a7c067f-ae1f-4015-b3e3-74e1de254b40",

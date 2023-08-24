@@ -1,4 +1,9 @@
-import { LoginFlow, RecoveryFlow, RegistrationFlow, VerificationFlow } from "@ory/client"
+import {
+  LoginFlow,
+  RecoveryFlow,
+  RegistrationFlow,
+  VerificationFlow,
+} from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserAuthCard, UserAuthCardProps } from "../../react-components"
 import { Container } from "../storyhelper"

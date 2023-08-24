@@ -11,7 +11,5 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "ignore": [
-    "node_modules"
-  ]
+  "ignore": ["node_modules"]
 }
