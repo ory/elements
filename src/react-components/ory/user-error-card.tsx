@@ -80,11 +80,11 @@ export const UserErrorCard = ({
         {!is500 && (
           <Message severity="error">
             <FormattedMessage
-            id="error.description"
-            defaultMessage="An error occurred with the following message:"
-          />
-          &nbsp;
-          {err.reason}
+              id="error.description"
+              defaultMessage="An error occurred with the following message:"
+            />
+            &nbsp;
+            {err.reason}
           </Message>
         )}
         <CodeBox data-testid="code-box" toggleText="Error details">
