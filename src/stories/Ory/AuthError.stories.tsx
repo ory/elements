@@ -3,10 +3,11 @@ import { ComponentMeta, Story } from "@storybook/react"
 import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
-import authError from "./auth-error.json"
+import authError400 from "./auth-error-400.json"
+import authError500 from "./auth-error-500.json"
 
 export default {
-  title: "Ory/SelfServiceErrorCard",
+  title: "Ory/ErrorAuthCard",
   component: UserErrorCard,
 } as ComponentMeta<typeof UserErrorCard>
 
@@ -16,11 +17,20 @@ const Template: Story<UserErrorCardProps> = (args: UserErrorCardProps) => (
   </Container>
 )
 
-export const ErrorAuthCard = Template.bind({})
+export const ErrorAuthCard400 = Template.bind({})
 
-ErrorAuthCard.args = {
+ErrorAuthCard400.args = {
   title: "An error occurred",
-  error: authError as FlowError,
+  error: authError400 as FlowError,
+  backUrl: "https://acme.com/login",
+  contactSupportEmail: "help@help.com",
+}
+
+export const ErrorAuthCard500 = Template.bind({})
+
+ErrorAuthCard500.args = {
+  title: "An error occurred",
+  error: authError500 as FlowError,
   backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",
 }

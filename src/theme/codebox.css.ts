@@ -16,7 +16,7 @@ export const codeboxStyle = style({
   border: "1px solid",
   borderColor: oryTheme.border.def,
   backgroundColor: oryTheme.background.surface,
-  padding: pxToRem(16, 24, 32),
+  padding: pxToRem(16, 24, 16),
   borderRadius: pxToRem(8),
   width: "100%",
 })
@@ -28,6 +28,8 @@ export const codeboxHeaderStyle = style({
   alignItems: "center",
   width: "100%",
   gap: pxToRem(32),
+  cursor: "pointer",
+  userSelect: "none",
 })
 
 export const codeboxContentStyle = style({
@@ -41,14 +43,9 @@ globalStyle(`${codeboxStyle} > input`, {
   display: "none",
 })
 
-// the label of the checkbox shouldn't be visible on desktop, but should be there on mobile
-globalStyle(`${codeboxStyle} > ${codeboxHeaderStyle} label`, {
-  cursor: "pointer",
-})
-
 // the icon needs to change to carret up when the checkbox is checked
 globalStyle(
-  `${codeboxStyle} input:checked ~ ${codeboxHeaderStyle} label i:first-child`,
+  `${codeboxStyle} input:checked ~ ${codeboxHeaderStyle} i:first-child`,
   {
     display: "none",
   },
@@ -56,7 +53,7 @@ globalStyle(
 
 // the icon needs to change to carret down when the checkbox is unchecked
 globalStyle(
-  `${codeboxStyle} input:not(:checked) ~ ${codeboxHeaderStyle} label i:last-child`,
+  `${codeboxStyle} input:not(:checked) ~ ${codeboxHeaderStyle} i:last-child`,
   {
     display: "none",
   },

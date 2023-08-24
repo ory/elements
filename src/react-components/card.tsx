@@ -14,6 +14,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   image?: string | React.ReactNode
   className?: string
   children?: React.ReactNode
+  size?: "wide" | "default"
 }
 
 export const Card = ({
@@ -21,11 +22,14 @@ export const Card = ({
   image,
   className,
   children,
+  size,
   ...props
 }: CardProps): JSX.Element => (
   <div
     className={cn(
-      cardStyle(),
+      cardStyle({
+        size,
+      }),
       typographyStyle({ type: "regular", size: "small" }),
       className,
     )}

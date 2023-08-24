@@ -16,7 +16,7 @@ export const useIdWithFallback = () => {
     // This weird import circumvents webpack's exportPresence check,
     // since we're fine if the import doesn't exist, and we don't want
     // it to cause a build error.
-    React["useId".toString() as "useId"]() ?? fallback()
+    return React["useId".toString() as "useId"]() ?? fallback()
   } catch (e) {
     return fallback()
   }
