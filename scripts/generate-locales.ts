@@ -20,7 +20,7 @@ type ExtendedMessageDocumentation = {
   }
 }
 ;(async () => {
-  const files = await glob("src/**/*.{ts,tsx}").then((files) =>
+  const files = await glob("../src/**/*.{ts,tsx}").then((files) =>
     files.filter((f) => !f.endsWith(".d.ts")),
   )
   const extractedMessages = await formatjs.extract(files, {})
@@ -37,14 +37,14 @@ type ExtendedMessageDocumentation = {
     )
     .then(Object.fromEntries)
 
-  await writeFile("src/locales/formatjs.json", extractedMessages)
+  await writeFile("../src/locales/formatjs.json", extractedMessages)
   await writeFile(
-    "src/locales/kratos-messages.json",
+    "../src/locales/kratos-messages.json",
     JSON.stringify(kratosMessages, null, 2),
   )
 
   await formatjs.compileAndWrite(
-    ["src/locales/formatjs.json", "src/locales/kratos-messages.json"],
-    { outFile: "src/locales/en.json" },
+    ["../src/locales/formatjs.json", "../src/locales/kratos-messages.json"],
+    { outFile: "../src/locales/en.json" },
   )
 })()

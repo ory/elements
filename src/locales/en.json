@@ -112,6 +112,7 @@
   "kratos-messages.4070005": "The verification flow expired -0.02 minutes ago, please try again.",
   "kratos-messages.4070006": "The verification code is invalid or has already been used. Please try again.",
   "kratos-messages.5000001": "{reason}",
+  "login.forgot-password": "Forgot password?",
   "login.logged-in-as-label": "You're logged in as:",
   "login.logout-button": "Logout",
   "login.logout-label": "Something's not working?",

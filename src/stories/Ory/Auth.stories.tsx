@@ -1,4 +1,4 @@
-import { LoginFlow, RecoveryFlow, RegistrationFlow } from "@ory/client"
+import { LoginFlow, RecoveryFlow, RegistrationFlow, VerificationFlow } from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserAuthCard, UserAuthCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
@@ -6,6 +6,7 @@ import { Container } from "../storyhelper"
 import loginFlow2FA from "./login-flow-2fa.json"
 import loginFlowRefresh from "./login-flow-refresh.json"
 import loginFlow from "./login-flow.json"
+import loginFlowHydra from "./login-flow-hydra.json"
 
 import loginFlowError from "./login-flow-error.json"
 import loginFlowUiError from "./login-flow-ui-error.json"
@@ -48,9 +49,7 @@ LoginAuthCard.args = {
 export const LoginAuthCardWithHydraClient = Template.bind({})
 
 LoginAuthCardWithHydraClient.args = {
-  title: "Sign in to your Acme account",
-  subtitle: "To authenticate client X",
-  flow: loginFlow as LoginFlow,
+  flow: loginFlowHydra as LoginFlow,
   flowType: "login",
   cardImage: logo,
   additionalProps: {
@@ -63,7 +62,6 @@ LoginAuthCardWithHydraClient.args = {
 export const LoginAuthCard2FA = Template.bind({})
 
 LoginAuthCard2FA.args = {
-  title: "Two-factor authentication",
   flow: loginFlow2FA as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -174,7 +172,7 @@ export const VerificationAuthCard = Template.bind({})
 
 VerificationAuthCard.args = {
   title: "Verify your Acme account",
-  flow: verificationFlow as LoginFlow,
+  flow: verificationFlow as VerificationFlow,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",
@@ -185,7 +183,7 @@ export const VerificationSubmittedAuthCard = Template.bind({})
 
 VerificationSubmittedAuthCard.args = {
   title: "Verify your Acme account",
-  flow: verificationSubmitted as LoginFlow,
+  flow: verificationSubmitted as VerificationFlow,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",

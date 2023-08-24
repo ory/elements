@@ -42,6 +42,9 @@
   "error.title-not-found": {
     "defaultMessage": "404 - Page not found"
   },
+  "login.forgot-password": {
+    "defaultMessage": "Forgot password?"
+  },
   "login.logged-in-as-label": {
     "defaultMessage": "You're logged in as:"
   },

@@ -1,0 +1,17 @@
+{
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      "esModuleInterop": true
+    }
+  },
+  "compilerOptions": {
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "ignore": [
+    "node_modules"
+  ]
+}

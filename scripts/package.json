@@ -1,12 +1,11 @@
 {
   "scripts": {
-    "generate-locales": "ts-node -p ./tsconfig.js --esm ./generate-locales.ts"
+    "generate-locales": "tsc --project ./tsconfig.json && node ./generate-locales.js && rm -rf ./generate-locales.js"
   },
   "type": "module",
   "devDependencies": {
     "@formatjs/cli-lib": "6.1.3",
     "glob": "10.3.3",
-    "node-fetch": "3.3.2",
-    "ts-node": "10.9.1"
+    "node-fetch": "3.3.2"
   }
 }

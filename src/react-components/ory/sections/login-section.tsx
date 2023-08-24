@@ -1,5 +1,6 @@
 import { UiNode } from "@ory/client"
 import { JSX } from "react"
+import { FormattedMessage } from "react-intl"
 
 import { gridStyle } from "../../../theme"
 import { ButtonLink, CustomHref } from "../../button-link"
@@ -30,7 +31,10 @@ export const LoginSection = ({
             data-testid="forgot-password-link"
             href={forgotPasswordURL}
           >
-            Forgot Password?
+            <FormattedMessage
+              id="login.forgot-password"
+              defaultMessage="Forgot password?"
+            />
           </ButtonLink>
         )}
       </div>
