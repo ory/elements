@@ -1,0 +1,70 @@
+{
+  "id": "abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
+  "type": "browser",
+  "expires_at": "2023-08-22T07:02:40.795179386Z",
+  "issued_at": "2023-08-22T06:02:40.795179386Z",
+  "request_url": "http://localhost:4433/self-service/login/browser",
+  "ui": {
+    "action": "http://localhost:4455/self-service/login?flow=abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "oh1/UgG2XUnGqK/GrmaAd2KPV5H2t6fQsQd5GXBPeIRJUZ5Bs5ViBMcLw3+Ydf1E5dKBNnLLf1GpTvhbSnWtoQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070004,
+            "text": "ID",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Sign in with code",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2023-08-22T08:02:40.797052+02:00",
+  "updated_at": "2023-08-22T08:02:40.797052+02:00",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

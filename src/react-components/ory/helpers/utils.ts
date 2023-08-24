@@ -18,6 +18,9 @@ export const hasLookupSecret = (nodes: UiNode[]) =>
 export const hasTotp = (nodes: UiNode[]) =>
   nodes.some(({ group }) => group === "totp")
 
+export const hasCode = (nodes: UiNode[]) =>
+  nodes.some(({ group }) => group === "code")
+
 export const hasHiddenIdentifier = (nodes: UiNode[]) =>
   nodes.some(
     ({ attributes }) =>

@@ -9,7 +9,7 @@ import { hasPassword } from "../helpers/utils"
 
 export type LoginSectionProps = {
   nodes: UiNode[]
-  forgotPasswordURL?: string | CustomHref
+  forgotPasswordURL?: CustomHref | string
 }
 
 export const LoginSection = ({
