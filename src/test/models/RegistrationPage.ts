@@ -13,6 +13,7 @@ export class RegistrationPage extends AuthPage {
   readonly pageUrl: URL
   readonly oryProjectUrl: URL
   readonly page: Page
+  readonly ssr: boolean
 
   readonly registrationActionPath = "/self-service/registration?flow="
 
@@ -20,16 +21,20 @@ export class RegistrationPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    traits?: Record<string, Traits>,
-    path?: string,
+    opts?: {
+      traits?: Record<string, Traits>
+      path?: string
+      ssr?: boolean
+    }
   ) {
     super(
-      traits || defaultRegistrationTraits,
+      opts?.traits || defaultRegistrationTraits,
       page.getByTestId("registration-auth-card"),
     )
     this.page = page
-    this.pageUrl = new URL(path || "/registration", baseUrl)
+    this.pageUrl = new URL(opts?.path || "/registration", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
+    this.ssr = opts?.ssr || false
   }
 
   async goto() {
@@ -51,10 +56,10 @@ export class RegistrationPage extends AuthPage {
           messages: [],
         },
       } as RegistrationFlow,
-      headers: {
+      headers: this.ssr ? { Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href } : {
         "Content-Type": "application/json",
       },
-      status: 200,
+      status: this.ssr ? 303 : 200,
     }
   }
 

@@ -28,12 +28,21 @@ export const VerificationMocks = {
       // Create a network intercept for the registration response
       const createRequest = verificationPage.interceptCreateResponse()
 
+      const fetchRequest = verificationPage.interceptFetchResponse()
+
       // Navigate to the registration page
       // This should trigger the create request
       await verificationPage.goto()
       // Intercept the create response
       const createResponse = await createRequest
-      expect(createResponse.status()).toBe(200)
+      expect(createResponse.status()).toBe(verificationPage.ssr ? 303 : 200)
+
+      if (verificationPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
+
       // Validate that the form fields are present
       await verificationPage.expectTraitFields()
     })
@@ -58,11 +67,23 @@ export const VerificationMocks = {
         state: "verification_sent_email",
       })
 
+      await verificationPage.registerMockFetchResponse({
+        state: "verification_sent_email",
+      })
+
+      const fetchRequest = verificationPage.interceptFetchResponse()
+
       const submitRequest = verificationPage.interceptSubmitResponse()
       await verificationPage.submitForm()
 
       const submitResponse = await submitRequest
       expect(submitResponse.status()).toBe(200)
+
+      if (verificationPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
 
       // Validate that the form fields are present
       await verificationPage.expectTraitFields({
@@ -83,15 +104,25 @@ export const VerificationMocks = {
         state: "verification_passed_challenge",
       })
 
+      await verificationPage.registerMockFetchResponse({
+        state: "verification_passed_challenge",
+      })
+
+      const fetchRequest = verificationPage.interceptFetchResponse()
       const submitRequest = verificationPage.interceptSubmitResponse()
       // check that the form fields expect a code input field
       await verificationPage.expectTraitFields(
         defaultVerificationTraitsWithCode,
       )
       await verificationPage.submitForm("[name='method'][type='submit']")
-
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(200)
+      expect(submitResponse.status()).toBe(verificationPage.ssr ? 303 : 200)
+
+      if (verificationPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
 
       await verificationPage.expectFlowMessage(
         "You successfully verified your email address",

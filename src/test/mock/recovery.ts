@@ -25,14 +25,22 @@ export const RecoveryMocks = {
     await test.step("mock the create recovery response", async () => {
       // Mock Ory Network service
       await recoveryPage.registerMockCreateResponse({})
+      await recoveryPage.registerMockFetchResponse({})
 
       // Create a network intercept for the recovery response
+      const fetchRequest = recoveryPage.interceptFetchResponse()
       const createRequest = recoveryPage.interceptCreateResponse()
       await recoveryPage.goto()
 
       // Intercept the create response
       const createResponse = await createRequest
-      expect(createResponse.status()).toBe(200)
+      expect(createResponse.status()).toBe(recoveryPage.ssr ? 303 : 200)
+
+      if (recoveryPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
 
       // Validate that the form fields are present
       await recoveryPage.expectTraitFields()
@@ -57,12 +65,23 @@ export const RecoveryMocks = {
       await recoveryPage.registerMockSubmitResponse({
         state: "recovery_sent_email",
       })
+      await recoveryPage.registerMockFetchResponse({
+        state: "recovery_sent_email",
+      })
+
+      const fetchRequest = recoveryPage.interceptFetchResponse()
       const submitRequest = recoveryPage.interceptSubmitResponse()
 
       await recoveryPage.submitForm()
 
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(200)
+      expect(submitResponse.status()).toBe(recoveryPage.ssr ? 303 : 200)
+
+      if (recoveryPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
     })
 
     await test.step("submit the recovery form again with a valid code", async () => {
@@ -74,6 +93,7 @@ export const RecoveryMocks = {
         state: "session_active",
       })
 
+      const fetchRequest = recoveryPage.interceptFetchResponse()
       const submitRequest = recoveryPage.interceptSubmitResponse()
 
       // check that the form fields expect a code input field
@@ -82,9 +102,18 @@ export const RecoveryMocks = {
       await recoveryPage.submitForm("[name='method'][type='submit']")
 
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(422)
-      const submitResponseBody = await submitResponse.json()
-      expect(submitResponseBody).toHaveProperty("redirect_browser_to")
+      expect(submitResponse.status()).toBe(recoveryPage.ssr ? 303 : 422)
+
+      if (recoveryPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+        const fetchResponseBody = await fetchResponse.json()
+        expect(fetchResponseBody).toHaveProperty("redirect_browser_to")
+      } else {
+        const submitResponseBody = await submitResponse.json()
+        expect(submitResponseBody).toHaveProperty("redirect_browser_to")
+      }
     })
   },
 }

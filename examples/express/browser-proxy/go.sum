@@ -1,0 +1,4 @@
+github.com/nlepage/go-js-promise v1.0.0 h1:K7OmJ3+0BgWJ2LfXchg2sI6RDr7AW/KWR8182epFwGQ=
+github.com/nlepage/go-js-promise v1.0.0/go.mod h1:bdOP0wObXu34euibyK39K1hoBCtlgTKXGc56AGflaRo=
+github.com/nlepage/go-wasm-http-server v1.1.0 h1:phw2NtSp71m/6NmGjE2veQ41PBPzWFcnE614cKucy5M=
+github.com/nlepage/go-wasm-http-server v1.1.0/go.mod h1:xpffUeN97vuv8CTlMJ2oC5tPsftfPoG9HkAgI9gkiPI=

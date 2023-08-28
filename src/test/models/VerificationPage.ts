@@ -18,6 +18,7 @@ export class VerificationPage extends AuthPage {
   readonly pageUrl: URL
   readonly page: Page
   readonly oryProjectUrl: URL
+  readonly ssr: boolean
 
   readonly verificationActionPath = "/self-service/verification?flow="
 
@@ -25,15 +26,19 @@ export class VerificationPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    path?: string,
+    opts?: {
+      path?: string,
+      ssr?: boolean
+    }
   ) {
     super(
       defaultVerificationEmailTraits,
       page.getByTestId("verification-auth-card"),
     )
     this.page = page
-    this.pageUrl = new URL(path || "/verification", baseUrl)
+    this.pageUrl = new URL(opts?.path || "/verification", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
+    this.ssr = opts?.ssr || false
   }
 
   async goto() {
@@ -74,11 +79,22 @@ export class VerificationPage extends AuthPage {
               nodes: traitsToNodes(defaultVerificationTraitsWithCode, false),
             },
           },
+          ...(this.ssr) ? {
+            status: 303, headers: {
+              "Location": new URL("?flow=" + UUIDv4(), this.pageUrl).href
+            },
+          } : {},
         }
       case "passed_challenge":
         return {
           ...defaultMockFlowResponse,
           body: verificationSubmitCodeFixture,
+          ...(this.ssr) ? {
+            status: 303,
+            headers: {
+              "Location": new URL("?flow=" + UUIDv4(), this.pageUrl).href
+            },
+          } : {},
         }
       default:
         return {
@@ -99,10 +115,13 @@ export class VerificationPage extends AuthPage {
 
   async registerMockFetchResponse({
     response,
+    state,
   }: Omit<MockFlow, "flow">): Promise<void> {
     return super.registerMockFetchResponse({
       flow: "verification",
-      response: merge({}, this.getVerificationFlowResponse(), response),
+      response: merge({}, this.getVerificationFlowResponse(
+        state ? getFlowState(state, "verification") : "choose_method",
+      ), response),
     })
   }
 

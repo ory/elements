@@ -10,10 +10,11 @@ import {
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
 import { useIdWithFallback } from "../common/useIdWithFallback"
+import React from "react"
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    MessageStyleProps {
+  MessageStyleProps {
   header: string
   helperMessage?: React.ReactNode | string
   messageTestId?: string
@@ -59,7 +60,7 @@ export const InputField = ({
               typographyStyle({ size: "small", type: "regular" }),
             )}
             placeholder={" "} // we need this so the input css field border is not green by default
-            id={inputId}
+            id={inputId + "-security"}
             {...props}
             type={visibility ? "text" : "password"}
           />
@@ -69,7 +70,7 @@ export const InputField = ({
               setVisibility(!visibility)
               e.currentTarget.dataset.checked =
                 e.currentTarget.dataset.checked =
-                  e.currentTarget.dataset.checked === "true" ? "false" : "true"
+                e.currentTarget.dataset.checked === "true" ? "false" : "true"
             }}
             data-checked="false"
             className={inputFieldVisibilityToggleLabelStyle}

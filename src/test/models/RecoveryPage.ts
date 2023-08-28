@@ -20,6 +20,7 @@ export class RecoveryPage extends AuthPage {
   readonly pageUrl: URL
   readonly oryProjectUrl: URL
   readonly page: Page
+  readonly ssr: boolean
 
   readonly recoveryActionPath = "/self-service/recovery?flow="
 
@@ -27,12 +28,16 @@ export class RecoveryPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    path?: string,
+    opts?: {
+      path?: string
+      ssr?: boolean
+    }
   ) {
     super(defaultRecoveryTraits, page.getByTestId("recovery-auth-card"))
     this.page = page
-    this.pageUrl = new URL(path || "/recovery", baseUrl)
+    this.pageUrl = new URL(opts?.path || "/recovery", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
+    this.ssr = opts?.ssr || false
   }
 
   async goto() {
@@ -62,6 +67,11 @@ export class RecoveryPage extends AuthPage {
         return {
           ...defaultMockFlowResponse,
           body,
+          ...(this.ssr) ? {
+            status: 303, headers: {
+              "Location": new URL("?flow=" + UUIDv4(), this.pageUrl).href
+            }
+          } : {},
         }
       case "sent_email":
         return {
@@ -73,12 +83,22 @@ export class RecoveryPage extends AuthPage {
               nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true),
             },
           },
+          ...(this.ssr) ? {
+            status: 303, headers: {
+              "Location": new URL("?flow=" + UUIDv4(), this.pageUrl).href
+            }
+          } : {},
         }
       case "passed_challenge":
         return {
           ...defaultMockFlowResponse,
           status: 422,
           body: recoverySubmitCodeFixture as ErrorBrowserLocationChangeRequired,
+          ...(this.ssr) ? {
+            status: 303, headers: {
+              "Location": new URL("?flow=" + UUIDv4(), this.pageUrl).href
+            }
+          } : {},
         }
       default:
         return {

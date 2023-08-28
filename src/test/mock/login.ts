@@ -17,9 +17,11 @@ const setupLoginFlow = async (loginPage: LoginPage) => {
   await test.step("mock the create login response", async () => {
     // mock the Ory Network service
     await loginPage.registerMockCreateResponse({})
+    await loginPage.registerMockFetchResponse({})
 
     // create a network intercept for the login response
     const createRequest = loginPage.interceptCreateResponse()
+    const fetchRequest = loginPage.interceptFetchResponse()
 
     // navigate to the login page
     // this should trigger the create request
@@ -27,7 +29,13 @@ const setupLoginFlow = async (loginPage: LoginPage) => {
 
     // intercept the create response
     const createResponse = await createRequest
-    expect(createResponse.status()).toBe(200)
+    expect(createResponse.status()).toBe(loginPage.ssr ? 303 : 200)
+
+    if (loginPage.ssr) {
+      // intercept the fetch response
+      const fetchResponse = await fetchRequest
+      expect(fetchResponse.status()).toBe(200)
+    }
 
     // validate that the form fields are present
     await loginPage.expectTraitFields()
@@ -68,7 +76,7 @@ export const LoginMocks = {
       await loginPage.submitForm()
 
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(200)
+      expect(submitResponse.status()).toBe(loginPage.ssr ? 303 : 200)
     })
 
     await test.step("mock the whoami response to be logged in", async () => {
@@ -92,16 +100,34 @@ export const LoginMocks = {
       await loginPage.registerMockSubmitResponse({
         response: {
           ...defaultMockFlowResponse,
-          status: 400,
+          status: loginPage.ssr ? 303 : 400,
           body: loginSubmitIncorrectCredentialsFixture,
         },
       })
+
+      if (loginPage.ssr) {
+        await loginPage.registerMockFetchResponse({
+          response: {
+            ...defaultMockFlowResponse,
+            status: 200,
+            body: loginSubmitIncorrectCredentialsFixture,
+            headers: { "Content-Type": "application/json" }
+          },
+        })
+      }
+
+      const fetchRequest = loginPage.interceptFetchResponse()
 
       const submitRequest = loginPage.interceptSubmitResponse()
       await loginPage.submitForm()
 
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(400)
+      expect(submitResponse.status()).toBe(loginPage.ssr ? 303 : 400)
+
+      if (loginPage.ssr) {
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
 
       await loginPage.expectFlowMessage("provided credentials are invalid")
     })

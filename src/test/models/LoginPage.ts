@@ -13,6 +13,7 @@ export class LoginPage extends AuthPage {
   readonly pageUrl: URL
   readonly oryProjectUrl: URL
   readonly page: Page
+  readonly ssr: boolean
 
   readonly loginActionPath = "/self-service/login?flow="
 
@@ -20,13 +21,17 @@ export class LoginPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    traits?: Record<string, Traits>,
-    path?: string,
+    opts?: {
+      traits?: Record<string, Traits>
+      path?: string
+      ssr?: boolean
+    }
   ) {
-    super(traits || defaultLoginTraits, page.getByTestId("login-auth-card"))
+    super(opts?.traits || defaultLoginTraits, page.getByTestId("login-auth-card"))
     this.page = page
-    this.pageUrl = new URL(path || "/login", baseUrl)
+    this.pageUrl = new URL(opts?.path || "/login", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
+    this.ssr = opts?.ssr || false
   }
 
   async goto() {
@@ -50,10 +55,10 @@ export class LoginPage extends AuthPage {
           nodes: traitsToNodes(this.traits, true),
         },
       } as LoginFlow,
-      headers: {
+      headers: this.ssr ? { Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href } : {
         "Content-Type": "application/json",
       },
-      status: 200,
+      status: this.ssr ? 303 : 200,
     }
   }
 
@@ -90,10 +95,8 @@ export class LoginPage extends AuthPage {
             schema_url: `${this.oryProjectUrl}/schemas/default`,
           },
         } as Session,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        status: 200,
+        headers: this.ssr ? { Location: new URL("?flow=" + UUIDv4(), this.page.url()).href } : { "Content-Type": "application/json" },
+        status: this.ssr ? 303 : 200,
       },
     })
   }
