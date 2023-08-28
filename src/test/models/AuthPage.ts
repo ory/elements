@@ -40,7 +40,7 @@ export class AuthPage {
         await expect(this.locator.locator(`*[name="${key}"]`)).toBeHidden()
       } else {
         await expect(
-          this.locator.locator(`*[name="${t[key].name || key}"]`),
+          this.locator.locator(`*[name="${t[key].name || key}"]:visible`),
         ).toBeVisible()
       }
     }
