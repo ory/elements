@@ -26,6 +26,10 @@ const Login: NextPageWithLayout = () => {
   const returnTo = String(router.query.return_to || "")
   const flowId = String(router.query.flow || "")
 
+  // login_challenge is used for OAuth2 and OpenID Connect logins
+  // when this NextJS application is used as an OAuth provider for Single Sign on (SSO).
+  const loginChallenge = String(router.query.login_challenge || "")
+
   // Refresh means we want to refresh the session. This is needed, for example, when we want to update the password
   // of a user.
   const refresh = Boolean(router.query.refresh)
@@ -53,13 +57,14 @@ const Login: NextPageWithLayout = () => {
   )
 
   const createFlow = useCallback(
-    (refresh: boolean, aal: string, returnTo: string) =>
+    (refresh: boolean, aal: string, returnTo: string, loginChallenge?: string) =>
       ory
         .createBrowserLoginFlow({
           refresh: refresh,
           // Check for two-factor authentication
           aal: aal,
           returnTo: returnTo,
+          loginChallenge: loginChallenge,
         })
         .then(({ data }) => {
           setFlow(data)
@@ -76,13 +81,13 @@ const Login: NextPageWithLayout = () => {
 
     if (flowId) {
       getFlow(flowId).catch(() => {
-        createFlow(refresh, aal, returnTo)
+        createFlow(refresh, aal, returnTo, loginChallenge)
       })
       return
     }
 
     // Otherwise we initialize it
-    createFlow(refresh, aal, returnTo)
+    createFlow(refresh, aal, returnTo, loginChallenge)
   }, [router.isReady])
 
   const submitFlow = (values: UpdateLoginFlowBody) =>
@@ -118,6 +123,13 @@ const Login: NextPageWithLayout = () => {
       includeScripts={true}
       // we submit the form data to Ory
       onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
+
+      // OAauth2 and OpenID Connect
+      {...(flow.oauth2_login_request && {
+        subtitle: `To authenticate ${flow.oauth2_login_request.client?.client_name ||
+          flow.oauth2_login_request.client?.client_id
+          }`
+      })}
     />
   ) : (
     <div>Loading...</div>
