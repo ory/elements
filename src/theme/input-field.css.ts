@@ -145,6 +145,7 @@ export const inputFieldVisibilityToggleLabelStyle = style({
   MozUserSelect: "none",
   WebkitUserSelect: "none",
   margin: pxToRem(0, 18, 0, 0),
+  display: "inline-flex",
 })
 
 export const inputFieldFallbackWrapperStyle = style({})
