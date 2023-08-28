@@ -65,7 +65,7 @@ export type RecoverySectionAdditionalProps = {
  * @property {LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps} additionalProps - additional props to pass to the form
  */
 export type UserAuthCardProps = {
-  title: string
+  title?: string
   subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean
