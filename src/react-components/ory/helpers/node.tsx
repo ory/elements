@@ -1,12 +1,12 @@
-import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
+import { UiNode, UiText } from "@ory/client"
 import {
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
-import { MouseEvent, JSX } from "react"
-import { FormattedMessage, useIntl } from "react-intl"
+import { JSX, MouseEvent } from "react"
+import { IntlShape, useIntl } from "react-intl"
 
 import { pxToRem } from "../../../common"
 import { gridStyle } from "../../../theme"
@@ -56,16 +56,23 @@ export const getNodeLabel = (node: UiNode): UiText | undefined => {
   return node.meta.label
 }
 
-const uiTextToFormattedMessage = ({ id, context = {}, text }: UiText) => ({
-  id: `kratos-messages.${id}`,
-  values: context as Record<string, string>,
-  defaultMessage: text,
-})
-
-const FormattedKratosMessage = (uiText: UiText) => {
-  const { values, ...rest } = uiTextToFormattedMessage(uiText)
-  return <FormattedMessage {...rest} values={values} />
-}
+const uiTextToFormattedMessage = (
+  { id, context = {}, text }: UiText,
+  intl: IntlShape,
+) =>
+  intl.formatMessage(
+    {
+      id: `kratos-messages.${id}`,
+      defaultMessage: text,
+    },
+    Object.fromEntries(
+      Object.entries(context).map(([key, value]) =>
+        Array.isArray(value)
+          ? [key + "-list", intl.formatList(value)]
+          : [key, value],
+      ),
+    ),
+  )
 
 export const Node = ({
   node,
@@ -78,8 +85,7 @@ export const Node = ({
     if (!uiText) {
       return ""
     }
-    const { values, ...rest } = uiTextToFormattedMessage(uiText)
-    return intl.formatMessage(rest, values)
+    return uiTextToFormattedMessage(uiText, intl)
   }
 
   if (isUiNodeImageAttributes(node.attributes)) {
@@ -112,7 +118,7 @@ export const Node = ({
           data-testid={`node/text/${node.attributes.id}/label`}
           style={{ flexBasis: "100%" }}
         >
-          {node.meta.label && <FormattedKratosMessage {...node.meta.label} />}
+          {formatMessage(node.meta.label)}
         </Typography>
         {(
           node.attributes.text.context as {
@@ -132,9 +138,7 @@ export const Node = ({
           // }
           return (
             <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
-              <code>
-                <FormattedKratosMessage {...text} />
-              </code>
+              <code>{formatMessage(text)}</code>
             </pre>
           )
         })}
@@ -145,12 +149,10 @@ export const Node = ({
           variant="body1"
           data-testid={`node/text/${node.attributes.id}/label`}
         >
-          {node.meta.label && <FormattedKratosMessage {...node.meta.label} />}
+          {formatMessage(node.meta.label)}
         </Typography>
         <pre data-testid={`node/text/${id}/text`}>
-          <code>
-            <FormattedKratosMessage {...node.attributes.text} />
-          </code>
+          <code>{formatMessage(node.attributes.text)}</code>
         </pre>
       </div>
     )
@@ -271,7 +273,7 @@ export const Node = ({
         className={className}
         position="center"
       >
-        <FormattedKratosMessage {...node.attributes.title} />
+        {formatMessage(node.attributes.title)}
       </ButtonLink>
     )
   }

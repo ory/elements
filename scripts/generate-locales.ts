@@ -32,7 +32,7 @@ type ExtendedMessageDocumentation = {
     .then((messages) =>
       (messages as KratosMessage[]).map(({ id, text }) => [
         `kratos-messages.${id}`,
-        { defaultMessage: id !== 1050015 ? text : "{code}, {code}" }, // TODO fix this in Kratos
+        { defaultMessage: text },
       ]),
     )
     .then(Object.fromEntries)

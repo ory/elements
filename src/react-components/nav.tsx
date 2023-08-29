@@ -28,7 +28,7 @@ export type NavSection = {
 }
 
 export interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
-  navTitle: string
+  navTitle?: string
   navSections: NavSection[]
   className?: string
 }

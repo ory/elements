@@ -54,6 +54,8 @@ import {
   UserLogoutCardProps,
   UserSettingsCard as userSettingsCard,
   UserSettingsCardProps,
+  UserSettingsScreen as userSettingsScreen,
+  UserSettingsScreenProps,
   WebAuthnSettingsProps,
   WebAuthnSettingsSection as webAuthnSettingsSection,
 } from "../react-components"
@@ -130,6 +132,16 @@ export const UserSettingsCard = (
   context: Context = {},
 ) => {
   return ComponentWrapper(userSettingsCard, props, context)
+}
+
+export const UserSettingsScreen = (
+  props: UserSettingsScreenProps,
+  context: Context = {},
+) => {
+  return {
+    Nav: ComponentWrapper(userSettingsScreen.Nav, props, context),
+    Body: ComponentWrapper(userSettingsScreen.Body, props, context),
+  }
 }
 
 export const UserErrorCard = (

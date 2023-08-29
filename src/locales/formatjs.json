@@ -102,8 +102,38 @@
   "registration.title": {
     "defaultMessage": "Register an account"
   },
+  "settings.navigation-backup-codes": {
+    "defaultMessage": "2FA Backup Codes"
+  },
+  "settings.navigation-logout": {
+    "defaultMessage": "Logout"
+  },
+  "settings.navigation-oidc": {
+    "defaultMessage": "Social Sign In"
+  },
+  "settings.navigation-password": {
+    "defaultMessage": "Password"
+  },
+  "settings.navigation-profile": {
+    "defaultMessage": "Profile"
+  },
+  "settings.navigation-totp": {
+    "defaultMessage": "Authenticator App"
+  },
+  "settings.navigation-webauthn": {
+    "defaultMessage": "Hardware Tokens"
+  },
+  "settings.subtitle": {
+    "defaultMessage": "You are currently logged in as {userIdentifier}."
+  },
+  "settings.title": {
+    "defaultMessage": "Account Settings"
+  },
   "settings.title-lookup-secret": {
     "defaultMessage": "Manage 2FA Backup Recovery Codes"
+  },
+  "settings.title-navigation": {
+    "defaultMessage": "Account Settings"
   },
   "settings.title-oidc": {
     "defaultMessage": "Social Sign In"

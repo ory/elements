@@ -93,7 +93,7 @@
     "defaultMessage": "Secret was used at 2020-01-01 00:59:59 +0000 UTC"
   },
   "kratos-messages.1050015": {
-    "defaultMessage": "{code}, {code}"
+    "defaultMessage": "{secrets_list}"
   },
   "kratos-messages.1050016": {
     "defaultMessage": "Disable this method"
@@ -105,7 +105,7 @@
     "defaultMessage": "Remove security key \"{name}\""
   },
   "kratos-messages.1060001": {
-    "defaultMessage": "You successfully recovered your account. Please change your password or set up an alternative login method (e.g. social sign in) within the next 0.02 minutes."
+    "defaultMessage": "You successfully recovered your account. Please change your password or set up an alternative login method (e.g. social sign in) within the next 1.00 minutes."
   },
   "kratos-messages.1060002": {
     "defaultMessage": "An email containing a recovery link has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
@@ -165,7 +165,7 @@
     "defaultMessage": "length must be >= 5, but got 3"
   },
   "kratos-messages.4000004": {
-    "defaultMessage": "does not match pattern \"^[a-z]*$\""
+    "defaultMessage": "does not match pattern \"{pattern}\""
   },
   "kratos-messages.4000005": {
     "defaultMessage": "The password can not be used because {reason}."
@@ -219,7 +219,7 @@
     "defaultMessage": "must be < 5 but found 5"
   },
   "kratos-messages.4000022": {
-    "defaultMessage": "7 not multipleOf 3"
+    "defaultMessage": "3 not multipleOf 7"
   },
   "kratos-messages.4000023": {
     "defaultMessage": "maximum 3 items allowed, but found 4 items"
@@ -231,7 +231,7 @@
     "defaultMessage": "items at index 0 and 2 are equal"
   },
   "kratos-messages.4000026": {
-    "defaultMessage": "expected number, but got string"
+    "defaultMessage": "expected {allowed_types_list}, but got {actual_type}"
   },
   "kratos-messages.4000027": {
     "defaultMessage": "An account with the same identifier (email, phone, username, ...) exists already. Please sign in to your existing account and link your social profile in the settings page."
@@ -239,8 +239,26 @@
   "kratos-messages.4000028": {
     "defaultMessage": "{reason}"
   },
+  "kratos-messages.4000029": {
+    "defaultMessage": "must be equal to constant {expected}"
+  },
+  "kratos-messages.4000030": {
+    "defaultMessage": "const failed"
+  },
+  "kratos-messages.4000031": {
+    "defaultMessage": "The password can not be used because it is too similar to the identifier."
+  },
+  "kratos-messages.4000032": {
+    "defaultMessage": "The password must be at least 6 characters long, but got 5."
+  },
+  "kratos-messages.4000033": {
+    "defaultMessage": "The password must be at most 72 characters long, but got 80."
+  },
+  "kratos-messages.4000034": {
+    "defaultMessage": "The password has been found in data breaches and must no longer be used."
+  },
   "kratos-messages.4010001": {
-    "defaultMessage": "The login flow expired 1.02 minutes ago, please try again."
+    "defaultMessage": "The login flow expired 1.00 minutes ago, please try again."
   },
   "kratos-messages.4010002": {
     "defaultMessage": "Could not find a strategy to log you in with. Did you fill out the form correctly?"
@@ -258,10 +276,10 @@
     "defaultMessage": "Could not find a strategy to verify your account with. Did you fill out the form correctly?"
   },
   "kratos-messages.4040001": {
-    "defaultMessage": "The registration flow expired -0.02 minutes ago, please try again."
+    "defaultMessage": "The registration flow expired 1.00 minutes ago, please try again."
   },
   "kratos-messages.4050001": {
-    "defaultMessage": "The settings flow expired -0.02 minutes ago, please try again."
+    "defaultMessage": "The settings flow expired 1.00 minutes ago, please try again."
   },
   "kratos-messages.4060001": {
     "defaultMessage": "The request was already completed successfully and can not be retried."
@@ -273,7 +291,7 @@
     "defaultMessage": "The recovery token is invalid or has already been used. Please retry the flow."
   },
   "kratos-messages.4060005": {
-    "defaultMessage": "The recovery flow expired -0.02 minutes ago, please try again."
+    "defaultMessage": "The recovery flow expired 1.00 minutes ago, please try again."
   },
   "kratos-messages.4060006": {
     "defaultMessage": "The recovery code is invalid or has already been used. Please try again."
@@ -288,7 +306,7 @@
     "defaultMessage": "The verification flow reached a failure state and must be retried."
   },
   "kratos-messages.4070005": {
-    "defaultMessage": "The verification flow expired -0.02 minutes ago, please try again."
+    "defaultMessage": "The verification flow expired 1.00 minutes ago, please try again."
   },
   "kratos-messages.4070006": {
     "defaultMessage": "The verification code is invalid or has already been used. Please try again."
