@@ -1,11 +1,10 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { expect, test } from "@playwright/test"
 import { loginSubmitIncorrectCredentialsFixture } from "../fixtures"
 import { LoginPage } from "../models/LoginPage"
 import { UUIDv4 } from "../utils"
 import { defaultMockFlowResponse } from "./utils"
+import { expect, test } from "@playwright/test"
 
 const setupLoginFlow = async (loginPage: LoginPage) => {
   await test.step("mock the whoami response to be logged out", async () => {
@@ -19,22 +18,28 @@ const setupLoginFlow = async (loginPage: LoginPage) => {
     await loginPage.registerMockCreateResponse({})
     await loginPage.registerMockFetchResponse({})
 
-    // create a network intercept for the login response
-    const createRequest = loginPage.interceptCreateResponse()
-    const fetchRequest = loginPage.interceptFetchResponse()
-
-    // navigate to the login page
-    // this should trigger the create request
-    await loginPage.goto()
-
-    // intercept the create response
-    const createResponse = await createRequest
-    expect(createResponse.status()).toBe(loginPage.ssr ? 303 : 200)
-
     if (loginPage.ssr) {
+      const fetchRequest = loginPage.interceptFetchResponse()
+
+      // navigate to the login page
+      // this should trigger the create request
+      const [, fetchResponse] = await Promise.all([
+        loginPage.goto(),
+        fetchRequest,
+      ])
       // intercept the fetch response
-      const fetchResponse = await fetchRequest
       expect(fetchResponse.status()).toBe(200)
+    } else {
+      // create a network intercept for the login response
+      const createRequest = loginPage.interceptCreateResponse()
+
+      // navigate to the login page
+      // this should trigger the create request
+      await loginPage.goto()
+
+      // intercept the create response
+      const createResponse = await createRequest
+      expect(createResponse.status()).toBe(200)
     }
 
     // validate that the form fields are present
@@ -111,7 +116,7 @@ export const LoginMocks = {
             ...defaultMockFlowResponse,
             status: 200,
             body: loginSubmitIncorrectCredentialsFixture,
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
           },
         })
       }

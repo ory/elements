@@ -1,10 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { Page } from "@playwright/test"
 import { defaultTraits } from "../traits"
 import { Traits } from "../types"
 import { AuthPage } from "./AuthPage"
+import { Page } from "@playwright/test"
 
 export class SettingsPage extends AuthPage {
   readonly pageUrl: URL
@@ -13,12 +12,19 @@ export class SettingsPage extends AuthPage {
   constructor(
     page: Page,
     baseUrl: string,
-    traits?: Record<string, Traits>,
-    path?: string,
+    opts?: {
+      traits?: Record<string, Traits>
+      path?: string
+      ssr?: boolean
+    },
   ) {
-    super(traits || defaultTraits, page.getByTestId("settings-settings-card"))
+    super(
+      opts?.traits || defaultTraits,
+      page.getByTestId("settings-settings-card"),
+      opts?.ssr,
+    )
     this.page = page
-    this.pageUrl = new URL(path || "/settings", baseUrl)
+    this.pageUrl = new URL(opts?.path || "/settings", baseUrl)
   }
 
   async goto() {

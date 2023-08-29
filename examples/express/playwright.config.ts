@@ -1,6 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { defineConfig, devices } from "@playwright/test"
 import path from "path"
 
@@ -74,14 +73,8 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: "cd browser-proxy && GOARCH=wasm GOOS=js go build -o main.wasm && npx -y http-server ./ --port 4002",
-      timeout: 120 * 1000,
-      port: 4002,
-      reuseExistingServer: !process.env.CI,
-    },
-    {
       env: {
-        ORY_SDK_URL: "http://localhost:4001",
+        ORY_SDK_URL: "http://localhost:4000",
       },
       command: "PORT=3200 npm run start",
       timeout: 120 * 1000,

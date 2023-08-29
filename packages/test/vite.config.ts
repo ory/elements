@@ -1,6 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import path from "path"
 import { defineConfig } from "vite"
 import dts from "vite-plugin-dts"
@@ -32,10 +31,12 @@ export default defineConfig({
     },
     rollupOptions: {
       treeshake: "smallest",
-      external: ["@playwright/test"],
+      external: ["@playwright/test", "msw", "msw/node"],
       output: {
         globals: {
           "@playwright/test": "Playwright",
+          "msw/node": "msw/node",
+          msw: "msw",
         },
       },
     },

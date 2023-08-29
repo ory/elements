@@ -1,22 +1,30 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { Session, UiNode } from "@ory/client"
-import { expect, Locator, Response } from "@playwright/test"
-import { merge } from "lodash"
 import { sessionForbiddenFixture } from "../fixtures"
 import { MockFlow, MockFlowResponse, Traits } from "../types"
 import { inputNodesToRecord, isUiNode, RandomEmail, UUIDv4 } from "../utils"
+import { Session, UiNode } from "@ory/client"
+import { expect, Locator, Response } from "@playwright/test"
+import { merge } from "lodash"
+import { rest } from "msw"
+import { setupServer, SetupServerApi } from "msw/node"
 
 export class AuthPage {
   readonly locator: Locator
   readonly traits: Record<string, Traits>
   readonly formFields: Record<string, Locator> = {}
   readonly flowMessage: Locator
+  readonly ssr?: boolean
+  readonly server?: SetupServerApi
 
-  constructor(traits: Record<string, Traits> | UiNode[], locator: Locator) {
+  constructor(
+    traits: Record<string, Traits> | UiNode[],
+    locator: Locator,
+    ssr?: boolean,
+  ) {
     this.locator = locator
     this.traits = isUiNode(traits) ? inputNodesToRecord(traits) : traits
+    this.ssr = ssr
 
     for (const key in this.traits) {
       this.formFields[key] = locator.locator(
@@ -31,6 +39,10 @@ export class AuthPage {
     // this can of course be chained with other selectors to be more specific
     // this.flowmessage.locator("*[data-testid*='ui/message/10000']")
     this.flowMessage = locator.locator("*[data-testid*='ui/message/']")
+
+    if (this.ssr) {
+      this.server = setupServer()
+    }
   }
 
   async expectTraitFields(traits?: Record<string, Traits>) {
@@ -119,73 +131,229 @@ export class AuthPage {
     }
   }
 
-  async registerMockCreateResponse({ flow, response }: MockFlow) {
-    return this.locator
-      .page()
-      .route(`**/self-service/${flow}/browser**`, async (route) => {
-        route.fulfill({
-          ...response,
-          body: JSON.stringify(response?.body),
+  async registerMockCreateResponse({ flow, response, ssrOverride }: MockFlow) {
+    const resp = {
+      ...response,
+      body: JSON.stringify(response?.body),
+    }
+
+    console.log(
+      `registerMockCreateResponse ${flow}. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
+    )
+
+    return this.server && !!ssrOverride
+      ? this.server.use(
+        rest.get(`**/self-service/${flow}/browser**`, async (_, res, ctx) => {
+          return res.once(ctx.json(resp))
+        }),
+      )
+      : this.locator
+        .page()
+        .route(`**/self-service/${flow}/browser**`, async (route) => {
+          route.fulfill(resp)
         })
-      })
   }
 
-  async registerMockFetchResponse({ flow, response }: MockFlow) {
-    return this.locator
-      .page()
-      .route(`**/self-service/${flow}/flows**`, async (route) => {
-        route.fulfill({
-          ...response,
-          body: JSON.stringify(response?.body),
+  async registerMockFetchResponse({ flow, response, ssrOverride }: MockFlow) {
+    const resp = {
+      ...response,
+      body: JSON.stringify(response?.body),
+    }
+
+    console.log(
+      `registerMockFetchResponse ${flow}. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
+    )
+
+    return this.server
+      ? this.server.use(
+        rest.get(`**/self-service/${flow}/flows**`, async (_, res, ctx) => {
+          return res.once(ctx.json(resp))
+        }),
+      )
+      : this.locator
+        .page()
+        .route(`**/self-service/${flow}/flows**`, async (route) => {
+          route.fulfill(resp)
         })
-      })
   }
 
-  async registerMockSubmitResponse({ flow, response }: MockFlow) {
-    return this.locator
-      .page()
-      .route(`**/self-service/${flow}?flow**`, async (route) => {
-        route.fulfill({
-          ...response,
-          body: JSON.stringify(response?.body),
+  async registerMockSubmitResponse({ flow, response, ssrOverride }: MockFlow) {
+    const resp = {
+      ...response,
+      body: JSON.stringify(response?.body),
+    }
+
+    console.log(
+      `registerMockSubmitResponse ${flow}. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
+    )
+
+    return this.server && !!ssrOverride
+      ? this.server.use(
+        rest.post(`**/self-service/${flow}?flow**`, async (_, res, ctx) => {
+          return res.once(ctx.json(resp))
+        }),
+      )
+      : this.locator
+        .page()
+        .route(`**/self-service/${flow}?flow**`, async (route) => {
+          route.fulfill(resp)
         })
-      })
   }
 
   async registerMockWhoamiResponse({
     response,
     state,
+    ssrOverride,
   }: Omit<MockFlow, "flow">) {
     !state && (state = "session_forbidden")
-    return this.locator.page().route("**/sessions/whoami", async (route) => {
-      await route.fulfill({
-        ...merge(
-          {},
-          state === "session_active"
-            ? this.sessionSuccessResponse
-            : this.sessionForbiddenResponse(),
-          response,
-        ),
-        body: JSON.stringify(response?.body),
+    const resp = {
+      ...merge(
+        {},
+        state === "session_active"
+          ? this.sessionSuccessResponse
+          : this.sessionForbiddenResponse(),
+        response,
+      ),
+      body: JSON.stringify(response?.body),
+    }
+
+    console.log(
+      `registerMockWhoamiResponse. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
+    )
+
+    return this.server && !!ssrOverride
+      ? this.server.use(
+        rest.get("**/sessions/whoami", async (_, res, ctx) => {
+          return res.once(ctx.json(resp))
+        }),
+      )
+      : this.locator.page().route("**/sessions/whoami", async (route) => {
+        await route.fulfill(resp)
       })
-    })
   }
 
-  async interceptCreateResponse(flow: string): Promise<Response> {
-    return this.locator
-      .page()
-      .waitForResponse(`**/self-service/${flow}/browser**`)
+  async interceptCreateResponse(
+    flow: string,
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    console.log(
+      `interceptCreateResponse. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
+    )
+    if (this.server && !!ssrOverride) {
+      console.log("interceptCreateResponse server-side")
+      return new Promise<Response>((resolve, reject) => {
+        const requests = new Map()
+
+        this.server?.events.on("request:start", (req) => {
+          if (
+            req.url.toString().includes(`/self-service/${flow}/browser`) &&
+            req.method === "GET"
+          ) {
+            requests.set(req.id, req)
+          }
+        })
+        this.server?.events.on("response:mocked", (res, reqId) => {
+          const req = requests.get(reqId)
+          if (req) {
+            resolve(res as unknown as Response)
+          } else {
+            reject(new Error("Response not found"))
+          }
+        })
+      })
+    } else {
+      return this.locator
+        .page()
+        .waitForResponse(`**/self-service/${flow}/browser**`)
+    }
   }
 
-  async interceptFetchResponse(flow: string): Promise<Response> {
-    return this.locator
-      .page()
-      .waitForResponse(`**/self-service/${flow}/flows?id=**`)
+  async interceptFetchResponse(
+    flow: string,
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    console.log(
+      `interceptFetchResponse. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${!!ssrOverride}`,
+    )
+    if (this.server) {
+      console.log("interceptFetchResponse server-side")
+      return new Promise<Response>((resolve, reject) => {
+        console.log("interceptFetchResponse server-side promise")
+        const requests = new Map()
+
+        this.server?.events.on("request:start", (req) => {
+          console.log(
+            "interceptFetchResponse server-side request:start: ",
+            req.id,
+          )
+          if (
+            req.url.toString().includes(`/self-service/${flow}/flows`) &&
+            req.method === "GET"
+          ) {
+            requests.set(req.id, req)
+          }
+        })
+        this.server?.events.on("response:mocked", (res, reqId) => {
+          console.log(
+            "interceptFetchResponse server-side response:mocked: ",
+            reqId,
+          )
+
+          const req = requests.get(reqId)
+          if (req) {
+            resolve(res as unknown as Response)
+          } else {
+            reject(new Error("Response not found"))
+          }
+        })
+      })
+    } else {
+      return this.locator
+        .page()
+        .waitForResponse(`**/self-service/${flow}/flows?id=**`)
+    }
   }
 
-  async interceptSubmitResponse(flow: string): Promise<Response> {
-    return this.locator
-      .page()
-      .waitForResponse(`**/self-service/${flow}?flow=**`)
+  async interceptSubmitResponse(
+    flow: string,
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    console.log(
+      `interceptSubmitResponse. Is Server-side rendering: ${this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
+    )
+    if (this.server && !!ssrOverride) {
+      console.log("interceptSubmitResponse server-side")
+      return new Promise<Response>((resolve, reject) => {
+        const requests = new Map()
+
+        this.server?.events.on("request:start", (req) => {
+          if (
+            req.url.toString().includes(`/self-service/${flow}/flow`) &&
+            req.method === "POST"
+          ) {
+            requests.set(req.id, req)
+          }
+        })
+        this.server?.events.on("response:mocked", (res, reqId) => {
+          const req = requests.get(reqId)
+          if (req) {
+            resolve(res as unknown as Response)
+          } else {
+            reject(new Error("Response not found"))
+          }
+        })
+      })
+    } else {
+      return this.locator
+        .page()
+        .waitForResponse(`**/self-service/${flow}?flow=**`)
+    }
   }
 }
