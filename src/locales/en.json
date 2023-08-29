@@ -145,7 +145,7 @@
   "settings.navigation-profile": "Profile",
   "settings.navigation-totp": "Authenticator App",
   "settings.navigation-webauthn": "Hardware Tokens",
-  "settings.subtitle": "You are currently logged in as {userIdentifier}.",
+  "settings.subtitle-instructions": "Here you can manage settings related to your account. Keep in mind that certain actions require you to re-authenticate.",
   "settings.title": "Account Settings",
   "settings.title-lookup-secret": "Manage 2FA Backup Recovery Codes",
   "settings.title-navigation": "Account Settings",

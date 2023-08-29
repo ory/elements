@@ -123,8 +123,8 @@
   "settings.navigation-webauthn": {
     "defaultMessage": "Hardware Tokens"
   },
-  "settings.subtitle": {
-    "defaultMessage": "You are currently logged in as {userIdentifier}."
+  "settings.subtitle-instructions": {
+    "defaultMessage": "Here you can manage settings related to your account. Keep in mind that certain actions require you to re-authenticate."
   },
   "settings.title": {
     "defaultMessage": "Account Settings"
