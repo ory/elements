@@ -6,6 +6,7 @@ import {
   VerificationFlow,
 } from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
+import { useIntl } from "react-intl"
 
 import { gridStyle, typographyStyle } from "../../theme"
 import type { CustomHref } from "../button-link"
@@ -35,7 +36,6 @@ import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import { PasswordlessSection } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
-import { useIntl } from "react-intl"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: CustomHref | string
@@ -57,7 +57,7 @@ export type RecoverySectionAdditionalProps = {
 
 /**
  * @typedef {Object} UserAuthCardProps
- * @property {SelfServiceLoginFlow} flow - can be any of the login, registration, verification, recovery flows
+ * @property {LoginFlow | RegistrationFlow | RecoveryFlow | VerificationFlow} flow - can be any of the login, registration, verification, recovery flows
  * @property {string} title - title of the user auth card
  * @property {"login" | "registration" | "verification" | "recovery"} flowType - specify the type of flow to render
  * @property {string} subtitle - subtitle of the user auth card, usually used to display additional information

@@ -65,12 +65,36 @@ const uiTextToFormattedMessage = (
       id: `kratos-messages.${id}`,
       defaultMessage: text,
     },
-    Object.fromEntries(
-      Object.entries(context).map(([key, value]) =>
+    Object.entries(context).reduce<Record<string, any>>(
+      (values, [key, value]) =>
         Array.isArray(value)
-          ? [key + "-list", intl.formatList(value)]
-          : [key, value],
-      ),
+          ? {
+              ...values,
+              [key]: value,
+              [key + "_list"]: intl.formatList(value),
+            }
+          : key.endsWith("_unix")
+          ? {
+              ...values,
+              [key]: intl.formatDate(new Date(value * 1000)),
+              [key + "_since"]: intl.formatDateTimeRange(
+                new Date(value),
+                new Date(),
+              ),
+              [key + "_since_minutes"]:
+                (value - new Date().getTime() / 1000) / 60,
+              [key + "_until"]: intl.formatDateTimeRange(
+                new Date(),
+                new Date(value),
+              ),
+              [key + "_until_minutes"]:
+                (new Date().getTime() / 1000 - value) / 60,
+            }
+          : {
+              ...values,
+              [key]: value,
+            },
+      {},
     ),
   )
 

@@ -38,6 +38,12 @@
   "kratos-messages.1010013": {
     "defaultMessage": "Continue"
   },
+  "kratos-messages.1010014": {
+    "defaultMessage": "An email containing a code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and retry the login."
+  },
+  "kratos-messages.1010015": {
+    "defaultMessage": "Sign in with code"
+  },
   "kratos-messages.1040001": {
     "defaultMessage": "Sign up"
   },
@@ -49,6 +55,12 @@
   },
   "kratos-messages.1040004": {
     "defaultMessage": "Sign up with security key"
+  },
+  "kratos-messages.1040005": {
+    "defaultMessage": "An email containing a code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and retry the registration."
+  },
+  "kratos-messages.1040006": {
+    "defaultMessage": "Sign up with code"
   },
   "kratos-messages.1050001": {
     "defaultMessage": "Your changes have been saved!"
@@ -90,7 +102,7 @@
     "defaultMessage": "Name of the security key"
   },
   "kratos-messages.1050014": {
-    "defaultMessage": "Secret was used at 2020-01-01 00:59:59 +0000 UTC"
+    "defaultMessage": "Secret was used at {used_at, date, long}"
   },
   "kratos-messages.1050015": {
     "defaultMessage": "{secrets_list}"
@@ -105,7 +117,7 @@
     "defaultMessage": "Remove security key \"{name}\""
   },
   "kratos-messages.1060001": {
-    "defaultMessage": "You successfully recovered your account. Please change your password or set up an alternative login method (e.g. social sign in) within the next 1.00 minutes."
+    "defaultMessage": "You successfully recovered your account. Please change your password or set up an alternative login method (e.g. social sign in) within the next {privileged_session_expires_at_unix_until_minutes} minutes."
   },
   "kratos-messages.1060002": {
     "defaultMessage": "An email containing a recovery link has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
@@ -145,6 +157,12 @@
   },
   "kratos-messages.1070011": {
     "defaultMessage": "Verification code"
+  },
+  "kratos-messages.1070012": {
+    "defaultMessage": "Registration code"
+  },
+  "kratos-messages.1070013": {
+    "defaultMessage": "Login code"
   },
   "kratos-messages.1080001": {
     "defaultMessage": "An email containing a verification link has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with."
@@ -257,8 +275,14 @@
   "kratos-messages.4000034": {
     "defaultMessage": "The password has been found in data breaches and must no longer be used."
   },
+  "kratos-messages.4000035": {
+    "defaultMessage": "This account does not exist or has not setup sign in with code."
+  },
+  "kratos-messages.4000036": {
+    "defaultMessage": "The provided traits do not match the traits previously associated with this flow."
+  },
   "kratos-messages.4010001": {
-    "defaultMessage": "The login flow expired 1.00 minutes ago, please try again."
+    "defaultMessage": "The login flow expired {expired_at_unix_since_minutes} minutes ago, please try again."
   },
   "kratos-messages.4010002": {
     "defaultMessage": "Could not find a strategy to log you in with. Did you fill out the form correctly?"
@@ -275,11 +299,23 @@
   "kratos-messages.4010006": {
     "defaultMessage": "Could not find a strategy to verify your account with. Did you fill out the form correctly?"
   },
+  "kratos-messages.4010007": {
+    "defaultMessage": "The request was already completed successfully and can not be retried."
+  },
+  "kratos-messages.4010008": {
+    "defaultMessage": "The login code is invalid or has already been used. Please try again."
+  },
   "kratos-messages.4040001": {
-    "defaultMessage": "The registration flow expired 1.00 minutes ago, please try again."
+    "defaultMessage": "The registration flow expired {expired_at_unix_since_minutes} minutes ago, please try again."
+  },
+  "kratos-messages.4040002": {
+    "defaultMessage": "The request was already completed successfully and can not be retried."
+  },
+  "kratos-messages.4040003": {
+    "defaultMessage": "The registration code is invalid or has already been used. Please try again."
   },
   "kratos-messages.4050001": {
-    "defaultMessage": "The settings flow expired 1.00 minutes ago, please try again."
+    "defaultMessage": "The settings flow expired {expired_at_unix_since_minutes} minutes ago, please try again."
   },
   "kratos-messages.4060001": {
     "defaultMessage": "The request was already completed successfully and can not be retried."
@@ -291,7 +327,7 @@
     "defaultMessage": "The recovery token is invalid or has already been used. Please retry the flow."
   },
   "kratos-messages.4060005": {
-    "defaultMessage": "The recovery flow expired 1.00 minutes ago, please try again."
+    "defaultMessage": "The recovery flow expired {expired_at_unix_since_minutes} minutes ago, please try again."
   },
   "kratos-messages.4060006": {
     "defaultMessage": "The recovery code is invalid or has already been used. Please try again."
@@ -306,7 +342,7 @@
     "defaultMessage": "The verification flow reached a failure state and must be retried."
   },
   "kratos-messages.4070005": {
-    "defaultMessage": "The verification flow expired 1.00 minutes ago, please try again."
+    "defaultMessage": "The verification flow expired {expired_at_unix_since_minutes} minutes ago, please try again."
   },
   "kratos-messages.4070006": {
     "defaultMessage": "The verification code is invalid or has already been used. Please try again."

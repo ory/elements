@@ -13,6 +13,18 @@ type KratosMessage = {
   context: Record<string, any>
 }
 
+const kratosMessageOverrides: { [id: number]: (text: string) => string } = {
+  1050014: (text) =>
+    text.replace("2020-01-01 00:59:59 +0000 UTC", "{used_at, date, long}"),
+  1060001: (text) =>
+    text.replace("1.00", "{privileged_session_expires_at_unix_until_minutes}"),
+  4010001: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
+  4040001: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
+  4050001: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
+  4060005: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
+  4070005: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
+}
+
 type ExtendedMessageDocumentation = {
   [id: string]: {
     defaultMessage?: string
@@ -23,7 +35,9 @@ type ExtendedMessageDocumentation = {
   const files = await glob("../src/**/*.{ts,tsx}").then((files) =>
     files.filter((f) => !f.endsWith(".d.ts")),
   )
+  Intl.DateTimeFormat().formatToParts(new Date("2020-01-01 00:59:59 +0000 UTC"))
   const extractedMessages = await formatjs.extract(files, {})
+  await writeFile("../src/locales/formatjs.json", extractedMessages)
 
   const kratosMessages: ExtendedMessageDocumentation = await fetch(
     "https://raw.githubusercontent.com/ory/docs/master/docs/kratos/concepts/messages.json",
@@ -32,12 +46,11 @@ type ExtendedMessageDocumentation = {
     .then((messages) =>
       (messages as KratosMessage[]).map(({ id, text }) => [
         `kratos-messages.${id}`,
-        { defaultMessage: text },
+        { defaultMessage: kratosMessageOverrides[id]?.(text) ?? text },
       ]),
     )
     .then(Object.fromEntries)
 
-  await writeFile("../src/locales/formatjs.json", extractedMessages)
   await writeFile(
     "../src/locales/kratos-messages.json",
     JSON.stringify(kratosMessages, null, 2),

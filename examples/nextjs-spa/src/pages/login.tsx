@@ -105,7 +105,6 @@ const Login: NextPageWithLayout = () => {
     // create a login form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
       cardImage="/ory.svg"
-      title={"Login"}
       // This defines what kind of card we want to render.
       flowType={"login"}
       // we always need the flow data which populates the form fields and error messages dynamically
