@@ -23,6 +23,24 @@ const kratosMessageOverrides: { [id: number]: (text: string) => string } = {
   4050001: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
   4060005: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
   4070005: (text) => text.replace("1.00", "{expired_at_unix_since_minutes}"),
+  4000003: (text) =>
+    text.replace("5", "{min_length}").replace("3", "{actual_length}"), // "length must be >= 5, but got 3",
+  4000017: (text) =>
+    text.replace("5", "{max_length}").replace("6", "{actual_length}"), // "length must be <= 5, but got 6",
+  4000018: (text) => text.replace("5", "{minimum}").replace("3", "{actual}"), // "must be >= 5 but found 3",
+  4000019: (text) => text.replace("5", "{minimum}").replace("5", "{actual}"), // "must be > 5 but found 5",
+  4000020: (text) => text.replace("5", "{maximum}").replace("6", "{actual}"), // "must be <= 5 but found 6",
+  4000021: (text) => text.replace("5", "{maximum}").replace("5", "{actual}"), // "must be < 5 but found 5",
+  4000022: (text) => text.replace("3", "{actual}").replace("7", "{base}"), // "3 not multipleOf 7",
+  4000023: (text) =>
+    text.replace("3", "{max_items}").replace("4", "{actual_items}"), // "maximum 3 items allowed, but found 4 items",
+  4000024: (text) =>
+    text.replace("3", "{min_items}").replace("2", "{actual_items}"), // "minimum 3 items allowed, but found 2 items",
+  4000025: (text) => text.replace("0", "{index_a}").replace("2", "{index_b}"), // "items at index 0 and 2 are equal",
+  4000032: (text) =>
+    text.replace("6", "{min_length}").replace("5", "{actual_length}"), // "The password must be at least 6 characters long, but got 5.",
+  4000033: (text) =>
+    text.replace("72", "{max_length}").replace("80", "{actual_length}"), // "The password must be at most 72 characters long, but got 80.",
 }
 
 type ExtendedMessageDocumentation = {

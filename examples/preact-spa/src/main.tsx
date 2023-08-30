@@ -11,6 +11,7 @@ import { Recovery } from "./recovery"
 import { Register } from "./register"
 import { Settings } from "./settings"
 import { Verification } from "./verification"
+import { IntlProvider, ThemeProvider } from "@ory/elements-preact"
 
 // Ory Elements
 // optional fontawesome icons
@@ -23,21 +24,22 @@ import "@ory/elements-preact/assets/inter-font.css"
 import "@ory/elements-preact/assets/jetbrains-mono-font.css"
 
 // required styles for Ory Elements
-import { ThemeProvider } from "@ory/elements-preact"
 import "@ory/elements-preact/style.css"
 
 const Main = () => {
   return (
     <ThemeProvider>
-      <Router>
-        <Route path="/" component={Dashboard} />
-        <Route path="/login" component={Login} />
-        <Route path="/registration" component={Register} />
-        <Route path="/verification" component={Verification} />
-        <Route path="/recovery" component={Recovery} />
-        <Route path="/settings" component={Settings} />
-        <Route path="/error" component={Error} />
-      </Router>
+      <IntlProvider>
+        <Router>
+          <Route path="/" component={Dashboard} />
+          <Route path="/login" component={Login} />
+          <Route path="/registration" component={Register} />
+          <Route path="/verification" component={Verification} />
+          <Route path="/recovery" component={Recovery} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/error" component={Error} />
+        </Router>
+      </IntlProvider>
     </ThemeProvider>
   )
 }
