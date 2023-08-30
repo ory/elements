@@ -5,13 +5,14 @@ import { SettingsFlow } from "@ory/client"
 import { NodeMessages } from "./helpers/error-messages"
 import { Divider } from "../divider"
 import { UserSettingsCard, UserSettingsFlowType } from "./user-settings-card"
-import { hasOidc, hasPassword } from "./helpers/utils"
+import { NavSectionLinks } from "../nav"
 import {
+  hasOidc,
+  hasPassword,
   hasLookupSecret,
   hasTotp,
   hasWebauthn,
-  NavSectionLinks,
-} from "@ory/elements-markup"
+} from "./helpers/utils"
 
 export type UserSettingsScreenProps = {
   navClassName?: string

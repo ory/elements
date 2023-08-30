@@ -62,7 +62,7 @@ const uiTextToFormattedMessage = (
 ) =>
   intl.formatMessage(
     {
-      id: `kratos-messages.${id}`,
+      id: `identities.messages.${id}`,
       defaultMessage: text,
     },
     Object.entries(context).reduce<Record<string, any>>(

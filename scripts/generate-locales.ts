@@ -45,19 +45,19 @@ type ExtendedMessageDocumentation = {
     .then((res) => res.json())
     .then((messages) =>
       (messages as KratosMessage[]).map(({ id, text }) => [
-        `kratos-messages.${id}`,
+        `identities.messages.${id}`,
         { defaultMessage: kratosMessageOverrides[id]?.(text) ?? text },
       ]),
     )
     .then(Object.fromEntries)
 
   await writeFile(
-    "../src/locales/kratos-messages.json",
+    "../src/locales/identities.messages.json",
     JSON.stringify(kratosMessages, null, 2),
   )
 
   await formatjs.compileAndWrite(
-    ["../src/locales/formatjs.json", "../src/locales/kratos-messages.json"],
+    ["../src/locales/formatjs.json", "../src/locales/identities.messages.json"],
     { outFile: "../src/locales/en.json" },
   )
 })()
