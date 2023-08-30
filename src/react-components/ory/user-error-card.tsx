@@ -100,7 +100,7 @@ export const UserErrorCard = ({
                 contactSupportEmail,
                 a: (chunks) => (
                   <ButtonLink href={`mailto:${contactSupportEmail}`}>
-                    {chunks}
+                    &nbsp;{chunks}
                   </ButtonLink>
                 ),
               }}
