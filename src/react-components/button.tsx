@@ -1,3 +1,5 @@
+import { JSX } from "react"
+
 import { ButtonStyle, buttonStyle } from "../theme/button.css"
 
 // required since interfaces cannot extend types whose properties are not statically known

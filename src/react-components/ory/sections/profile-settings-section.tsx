@@ -1,3 +1,5 @@
+import { JSX } from "react"
+
 import { SettingsFlow } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"

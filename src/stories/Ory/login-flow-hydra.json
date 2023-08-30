@@ -4,6 +4,17 @@
   "expires_at": "2022-08-23T18:50:56.82053129Z",
   "issued_at": "2022-08-23T18:20:56.82053129Z",
   "request_url": "http://test.com/self-service/login/browser",
+  "oauth2_login_request": {
+    "client": {
+      "client_name": "ACME Inc."
+    },
+    "challenge": "whatever-chanllenge",
+    "request_url": "https://acme.com",
+    "requested_scope": ["openid", "offline"],
+    "requested_access_token_audience": ["https://acme.com"],
+    "skip": false,
+    "subject": "user1"
+  },
   "ui": {
     "action": "http://test.com/self-service/login?flow=4a7c067f-ae1f-4015-b3e3-74e1de254b40",
     "method": "POST",

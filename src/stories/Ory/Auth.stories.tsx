@@ -1,4 +1,9 @@
-import { LoginFlow, RecoveryFlow, RegistrationFlow } from "@ory/client"
+import {
+  LoginFlow,
+  RecoveryFlow,
+  RegistrationFlow,
+  VerificationFlow,
+} from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserAuthCard, UserAuthCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
@@ -8,6 +13,7 @@ import loginFlowRefresh from "./login-flow-refresh.json"
 import loginFlow from "./login-flow.json"
 import loginFlowCodeOne from "./login-flow-code-1.json"
 import loginFlowCodeTwo from "./login-flow-code-2.json"
+import loginFlowHydra from "./login-flow-hydra.json"
 
 import loginFlowError from "./login-flow-error.json"
 import loginFlowUiError from "./login-flow-ui-error.json"
@@ -36,7 +42,6 @@ const Template: Story<UserAuthCardProps> = (args: UserAuthCardProps) => (
 export const LoginAuthCard = Template.bind({})
 
 LoginAuthCard.args = {
-  title: "Sign in to your Acme account",
   flow: loginFlow as LoginFlow,
   flowType: "login",
   cardImage: logo,
@@ -50,9 +55,7 @@ LoginAuthCard.args = {
 export const LoginAuthCardWithHydraClient = Template.bind({})
 
 LoginAuthCardWithHydraClient.args = {
-  title: "Sign in to your Acme account",
-  subtitle: "To authenticate client X",
-  flow: loginFlow as LoginFlow,
+  flow: loginFlowHydra as LoginFlow,
   flowType: "login",
   cardImage: logo,
   additionalProps: {
@@ -65,7 +68,6 @@ LoginAuthCardWithHydraClient.args = {
 export const LoginAuthCard2FA = Template.bind({})
 
 LoginAuthCard2FA.args = {
-  title: "Two-factor authentication",
   flow: loginFlow2FA as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -76,7 +78,6 @@ LoginAuthCard2FA.args = {
 export const LoginAuthCardPasswordless = Template.bind({})
 
 LoginAuthCardPasswordless.args = {
-  title: "Sign in with passwordless",
   flow: loginFlow as LoginFlow,
   flowType: "login",
   includeScripts: true,
@@ -89,7 +90,6 @@ LoginAuthCardPasswordless.args = {
 export const LoginAuthCardRefresh = Template.bind({})
 
 LoginAuthCardRefresh.args = {
-  title: "Confirm it is you",
   flow: loginFlowRefresh as LoginFlow,
   flowType: "login",
   cardImage: logo,
@@ -103,7 +103,6 @@ LoginAuthCardRefresh.args = {
 export const LoginAuthCardError = Template.bind({})
 
 LoginAuthCardError.args = {
-  title: "Sign in to your Acme account",
   flow: loginFlowError as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -116,7 +115,6 @@ LoginAuthCardError.args = {
 export const LoginAuthCardUiError = Template.bind({})
 
 LoginAuthCardUiError.args = {
-  title: "Sign in to your Acme account",
   flow: loginFlowUiError as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -129,7 +127,6 @@ LoginAuthCardUiError.args = {
 export const LoginAuthCardWithoutRegistrationUrl = Template.bind({})
 
 LoginAuthCardWithoutRegistrationUrl.args = {
-  title: "Sign in to your Acme account",
   flow: loginFlow as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -140,7 +137,6 @@ LoginAuthCardWithoutRegistrationUrl.args = {
 export const LoginAuthCardWithCodeInit = Template.bind({})
 
 LoginAuthCardWithCodeInit.args = {
-  title: "Sign in to your Acme account",
   flow: loginFlowCodeOne as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -151,7 +147,6 @@ LoginAuthCardWithCodeInit.args = {
 export const LoginAuthCardWithCodeSubmit = Template.bind({})
 
 LoginAuthCardWithCodeSubmit.args = {
-  title: "Sign in to your Acme account",
   flow: loginFlowCodeTwo as LoginFlow,
   flowType: "login",
   additionalProps: {
@@ -162,7 +157,6 @@ LoginAuthCardWithCodeSubmit.args = {
 export const RegistrationAuthCard = Template.bind({})
 
 RegistrationAuthCard.args = {
-  title: "Create an account for Acme",
   flow: registrationFlow as RegistrationFlow,
   cardImage: logo,
   flowType: "registration",
@@ -197,8 +191,7 @@ RecoveryAuthCard.args = {
 export const VerificationAuthCard = Template.bind({})
 
 VerificationAuthCard.args = {
-  title: "Verify your Acme account",
-  flow: verificationFlow as LoginFlow,
+  flow: verificationFlow as VerificationFlow,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",
@@ -208,8 +201,7 @@ VerificationAuthCard.args = {
 export const VerificationSubmittedAuthCard = Template.bind({})
 
 VerificationSubmittedAuthCard.args = {
-  title: "Verify your Acme account",
-  flow: verificationSubmitted as LoginFlow,
+  flow: verificationSubmitted as VerificationFlow,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",

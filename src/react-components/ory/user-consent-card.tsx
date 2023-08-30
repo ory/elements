@@ -7,6 +7,7 @@ import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
 
 import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
+import { FormattedMessage, useIntl } from "react-intl"
 
 export type UserConsentCardProps = {
   csrfToken: string
@@ -29,6 +30,8 @@ export const UserConsentCard = ({
   action,
   className,
 }: UserConsentCardProps) => {
+  const intl = useIntl()
+
   return (
     <Card
       className={className}
@@ -49,7 +52,10 @@ export const UserConsentCard = ({
         <div className={gridStyle({ gap: 16 })}>
           <div className={gridStyle({ gap: 4 })} style={{ marginBottom: 16 }}>
             <Typography>
-              The application requests access to the following permissions:
+              <FormattedMessage
+                id="consent.requested-permissions-label"
+                defaultMessage="The application requests access to the following permissions:"
+              />
             </Typography>
           </div>
           <div className={gridStyle({ gap: 4 })}>
@@ -64,32 +70,49 @@ export const UserConsentCard = ({
           </div>
           <div className={gridStyle({ gap: 4 })}>
             <Typography size="xsmall">
-              Only grant permissions if you trust this site or app. You do not
-              need to accept all permissions.
+              <FormattedMessage
+                id="consent.description"
+                defaultMessage="Only grant permissions if you trust this site or app. You do not need to accept all permissions."
+              />
             </Typography>
           </div>
           <div className={gridStyle({ direction: "row" })}>
             {client?.policy_uri && (
               <a href={client.policy_uri} target="_blank" rel="noreferrer">
-                <Typography size="xsmall">Privacy Policy</Typography>
+                <Typography size="xsmall">
+                  <FormattedMessage
+                    id="consent.privacy-policy-label"
+                    defaultMessage="Privacy Policy"
+                  />
+                </Typography>
               </a>
             )}
             {client?.tos_uri && (
               <a href={client.tos_uri} target="_blank" rel="noreferrer">
-                <Typography size="xsmall">Terms of Service</Typography>
+                <Typography size="xsmall">
+                  <FormattedMessage
+                    id="consent.terms-of-service-label"
+                    defaultMessage="Terms of Service"
+                  />
+                </Typography>
               </a>
             )}
           </div>
           <Divider />
           <div className={gridStyle({ gap: 8 })}>
             <Checkbox
-              label="remember my decision"
+              label={intl.formatMessage({
+                id: "consent.remember-tooltip",
+                defaultMessage: "remember my decision",
+              })}
               id="remember"
               name="remember"
             />
             <Typography size="xsmall">
-              Remember this decision for next time. The application will not be
-              able to ask for additional permissions without your consent.
+              <FormattedMessage
+                id="consent.remember-label"
+                defaultMessage="Remember this decision for next time. The application will not be able to ask for additional permissions without your consent."
+              />
             </Typography>
           </div>
           <div
@@ -102,7 +125,10 @@ export const UserConsentCard = ({
               name="consent_action"
               value="reject"
               variant="error"
-              header="Deny"
+              header={intl.formatMessage({
+                id: "consent.action-reject",
+                defaultMessage: "Deny",
+              })}
             />
             <Button
               type="submit"
@@ -110,7 +136,10 @@ export const UserConsentCard = ({
               name="consent_action"
               value="accept"
               variant="semibold"
-              header="Allow"
+              header={intl.formatMessage({
+                id: "consent.action-accept",
+                defaultMessage: "Allow",
+              })}
             />
           </div>
         </div>

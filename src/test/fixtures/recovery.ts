@@ -101,7 +101,7 @@ export const recoverySubmitEmailFixture: RecoveryFlow = {
 
 export const recoverySubmitCodeFixture: Omit<
   ErrorBrowserLocationChangeRequired,
-  "message"
+  "error"
 > & {
   error: GenericError
 } = {

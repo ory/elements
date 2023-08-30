@@ -90,7 +90,6 @@ const Verification: NextPageWithLayout = () => {
     // create a verification form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
       cardImage="/ory.svg"
-      title={"Verification"}
       flowType={"verification"}
       // we always need the flow data which populates the form fields and error messages dynamically
       flow={flow}

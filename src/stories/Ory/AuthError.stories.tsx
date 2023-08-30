@@ -20,7 +20,6 @@ const Template: Story<UserErrorCardProps> = (args: UserErrorCardProps) => (
 export const ErrorAuthCard400 = Template.bind({})
 
 ErrorAuthCard400.args = {
-  title: "An error occurred",
   error: authError400 as FlowError,
   backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",
@@ -29,7 +28,6 @@ ErrorAuthCard400.args = {
 export const ErrorAuthCard500 = Template.bind({})
 
 ErrorAuthCard500.args = {
-  title: "An error occurred",
   error: authError500 as FlowError,
   backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",

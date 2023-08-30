@@ -1,5 +1,12 @@
-import { LoginFlow } from "@ory/client"
+import { JSX } from "react"
+import {
+  LoginFlow,
+  RecoveryFlow,
+  RegistrationFlow,
+  VerificationFlow,
+} from "@ory/client"
 import { filterNodesByGroups } from "@ory/integrations/ui"
+import { useIntl } from "react-intl"
 
 import { gridStyle, typographyStyle } from "../../theme"
 import type { CustomHref } from "../button-link"
@@ -50,7 +57,7 @@ export type RecoverySectionAdditionalProps = {
 
 /**
  * @typedef {Object} UserAuthCardProps
- * @property {SelfServiceLoginFlow} flow - can be any of the login, registration, verification, recovery flows
+ * @property {LoginFlow | RegistrationFlow | RecoveryFlow | VerificationFlow} flow - can be any of the login, registration, verification, recovery flows
  * @property {string} title - title of the user auth card
  * @property {"login" | "registration" | "verification" | "recovery"} flowType - specify the type of flow to render
  * @property {string} subtitle - subtitle of the user auth card, usually used to display additional information
@@ -58,20 +65,35 @@ export type RecoverySectionAdditionalProps = {
  * @property {LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps} additionalProps - additional props to pass to the form
  */
 export type UserAuthCardProps = {
-  flow: SelfServiceFlow
-  title: string
-  flowType: "login" | "registration" | "recovery" | "verification"
-  additionalProps:
-    | LoginSectionAdditionalProps
-    | RegistrationSectionAdditionalProps
-    | RecoverySectionAdditionalProps
-    | VerificationSectionAdditionalProps
+  title?: string
   subtitle?: string
   cardImage?: string | React.ReactElement
   includeScripts?: boolean
   className?: string
   children?: string
-} & UserAuthFormAdditionalProps
+} & UserAuthFormAdditionalProps &
+  (
+    | {
+        flow: LoginFlow
+        flowType: "login"
+        additionalProps: LoginSectionAdditionalProps
+      }
+    | {
+        flow: RegistrationFlow
+        flowType: "registration"
+        additionalProps: RegistrationSectionAdditionalProps
+      }
+    | {
+        flow: RecoveryFlow
+        flowType: "recovery"
+        additionalProps: RecoverySectionAdditionalProps
+      }
+    | {
+        flow: VerificationFlow
+        flowType: "verification"
+        additionalProps: VerificationSectionAdditionalProps
+      }
+  )
 
 /**
  *
@@ -89,8 +111,85 @@ export const UserAuthCard = ({
   includeScripts,
   className,
 }: UserAuthCardProps): JSX.Element => {
+  const intl = useIntl()
+
   if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
+  }
+
+  if (!title) {
+    switch (flowType) {
+      case "login":
+        if (flow.refresh) {
+          title = intl.formatMessage({
+            id: "login.title-refresh",
+            defaultMessage: "Confirm it's you",
+          })
+        } else if (flow.requested_aal === "aal2") {
+          title = intl.formatMessage({
+            id: "login.title-aal2",
+            defaultMessage: "Two-Factor Authentication",
+          })
+        } else {
+          title = intl.formatMessage({
+            id: "login.title",
+            defaultMessage: "Sign in",
+          })
+        }
+        break
+      case "registration":
+        title = intl.formatMessage({
+          id: "registration.title",
+          defaultMessage: "Register an account",
+        })
+        break
+      case "recovery":
+        title = intl.formatMessage({
+          id: "recovery.title",
+          defaultMessage: "Recover your account",
+        })
+        break
+      case "verification":
+        title = intl.formatMessage({
+          id: "verification.title",
+          defaultMessage: "Verify your account",
+        })
+        break
+    }
+  }
+  if (!subtitle) {
+    switch (flowType) {
+      case "login":
+        if (flow.oauth2_login_request) {
+          subtitle = intl.formatMessage(
+            {
+              id: "login.subtitle-oauth2",
+              defaultMessage: "To authenticate {clientName}",
+            },
+            {
+              clientName:
+                flow.oauth2_login_request.client?.client_name ||
+                flow.oauth2_login_request.client?.client_uri,
+            },
+          )
+        }
+        break
+      case "registration":
+        if (flow.oauth2_login_request) {
+          subtitle = intl.formatMessage(
+            {
+              id: "registration.subtitle-oauth2",
+              defaultMessage: "To authenticate {clientName}",
+            },
+            {
+              clientName:
+                flow.oauth2_login_request.client?.client_name ||
+                flow.oauth2_login_request.client?.client_uri,
+            },
+          )
+        }
+        break
+    }
   }
 
   let $flow: JSX.Element | null = null
@@ -112,17 +211,17 @@ export const UserAuthCard = ({
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
-    isLoggedIn(flow as LoginFlow) &&
     flowType === "login" &&
+    isLoggedIn(flow) &&
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
-  // we check if nodes have hidden identifier so we can display "you're looged in as" information
+  // we check if nodes have hidden identifier, so we can display "you're looged in as" information
   const showLoggedAccount = hasHiddenIdentifier(flow.ui.nodes)
 
-  // this function will map all of the 2fa flows with their own respective forms.
-  // it also helps with spacing them and adding visual dividers between each flow *if* there are more than 1 flows.
+  // This function will map all the 2fa flows with their own respective forms.
+  // It also helps with spacing them and adding visual dividers between each flow *if* there are more than one flow.
   const twoFactorFlows = () =>
     isTwoFactor() &&
     [
@@ -216,18 +315,30 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      if (isLoggedIn(flow as LoginFlow)) {
+      if (isLoggedIn(flow)) {
         message = {
-          text: <>Something&#39;s not working?</>,
-          buttonText: "Logout",
-          url: (additionalProps as LoginSectionAdditionalProps).logoutURL,
+          text: intl.formatMessage({
+            id: "login.logout-label",
+            defaultMessage: "Something's not working?",
+          }),
+          buttonText: intl.formatMessage({
+            id: "login.logout-button",
+            defaultMessage: "Logout",
+          }),
+          url: additionalProps.logoutURL,
           dataTestId: "logout-link",
         }
-      } else if ((additionalProps as LoginSectionAdditionalProps).signupURL) {
+      } else if (additionalProps.signupURL) {
         message = {
-          buttonText: "Sign up",
-          url: (additionalProps as LoginSectionAdditionalProps).signupURL,
-          text: <>Don&#39;t have an account?</>,
+          text: intl.formatMessage({
+            id: "login.registration-label",
+            defaultMessage: "Don't have an account?",
+          }),
+          buttonText: intl.formatMessage({
+            id: "login.registration-button",
+            defaultMessage: "Sign up",
+          }),
+          url: additionalProps.signupURL,
           dataTestId: "signup-link",
         }
       }
@@ -240,9 +351,15 @@ export const UserAuthCard = ({
         nodes: flow.ui.nodes,
       })
       message = {
-        text: "Already have an account?",
-        url: (additionalProps as RegistrationSectionAdditionalProps).loginURL,
-        buttonText: "Sign in",
+        text: intl.formatMessage({
+          id: "registration.login-label",
+          defaultMessage: "Already have an account?",
+        }),
+        url: additionalProps.loginURL,
+        buttonText: intl.formatMessage({
+          id: "registration.login-button",
+          defaultMessage: "Sign in",
+        }),
         dataTestId: "cta-link",
       }
       break
@@ -252,9 +369,15 @@ export const UserAuthCard = ({
         nodes: flow.ui.nodes,
       })
       message = {
-        text: "Remember your credentials?",
-        url: (additionalProps as RecoverySectionAdditionalProps).loginURL,
-        buttonText: "Sign in",
+        text: intl.formatMessage({
+          id: "recovery.login-label",
+          defaultMessage: "Remember your credentials?",
+        }),
+        buttonText: intl.formatMessage({
+          id: "recovery.login-button",
+          defaultMessage: "Sign in",
+        }),
+        url: additionalProps.loginURL,
         dataTestId: "cta-link",
       }
       break
@@ -263,9 +386,15 @@ export const UserAuthCard = ({
         nodes: flow.ui.nodes,
       })
       message = {
-        text: "Don't have an account?",
-        url: (additionalProps as VerificationSectionAdditionalProps).signupURL,
-        buttonText: "Sign up",
+        text: intl.formatMessage({
+          id: "verification.registration-label",
+          defaultMessage: "Don't have an account?",
+        }),
+        buttonText: intl.formatMessage({
+          id: "verification.registration-button",
+          defaultMessage: "Sign up",
+        }),
+        url: additionalProps.signupURL,
         dataTestId: "cta-link",
       }
       break

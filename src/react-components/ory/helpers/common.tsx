@@ -1,3 +1,5 @@
+import { JSX } from "react"
+
 import { colorSprinkle } from "../../../theme"
 import { ButtonLink, CustomHref } from "../../button-link"
 import { Message } from "../../message"
@@ -25,7 +27,7 @@ export type MessageSectionProps = {
   url?: CustomHref | string
   buttonText: string
   dataTestId?: string
-  text?: React.ReactNode
+  text?: string
 }
 
 export const MessageSection = ({

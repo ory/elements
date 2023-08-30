@@ -69,13 +69,12 @@ export const Verification = (): JSX.Element => {
   return flow ? (
     // create a new verification form with the flow data using Ory Elements
     <UserAuthCard
-      title="Verification"
       flowType={"verification"}
       // we always need to provide the flow data since it contains the form fields, error messages and csrf token
       flow={flow}
       // we want users to be able to go back to the login page from the verification page
       additionalProps={{
-        loginURL: "/login",
+        signupURL: "/registration",
       }}
       // submit the verification form data to Ory
       onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}

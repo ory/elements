@@ -1,4 +1,6 @@
 import { UiNode } from "@ory/client"
+import { JSX } from "react"
+
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 

@@ -1,12 +1,13 @@
-import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client"
+import { UiNode, UiText } from "@ory/client"
 import {
-  getNodeLabel,
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
-import { MouseEvent } from "react"
+import { JSX, MouseEvent } from "react"
+import { IntlShape, useIntl } from "react-intl"
+
 import { pxToRem } from "../../../common"
 import { gridStyle } from "../../../theme"
 import { Button, ButtonProps } from "../../button"
@@ -36,19 +37,88 @@ export type NodeProps = {
   className?: string
 } & NodeOverrideProps
 
+export const getNodeLabel = (node: UiNode): UiText | undefined => {
+  const attributes = node.attributes
+  if (isUiNodeAnchorAttributes(attributes)) {
+    return attributes.title
+  }
+
+  if (isUiNodeImageAttributes(attributes)) {
+    return node.meta.label
+  }
+
+  if (isUiNodeInputAttributes(attributes)) {
+    if (attributes.label) {
+      return attributes.label
+    }
+  }
+
+  return node.meta.label
+}
+
+const uiTextToFormattedMessage = (
+  { id, context = {}, text }: UiText,
+  intl: IntlShape,
+) =>
+  intl.formatMessage(
+    {
+      id: `identities.messages.${id}`,
+      defaultMessage: text,
+    },
+    Object.entries(context).reduce<Record<string, any>>(
+      (values, [key, value]) =>
+        Array.isArray(value)
+          ? {
+              ...values,
+              [key]: value,
+              [key + "_list"]: intl.formatList(value),
+            }
+          : key.endsWith("_unix")
+          ? {
+              ...values,
+              [key]: intl.formatDate(new Date(value * 1000)),
+              [key + "_since"]: intl.formatDateTimeRange(
+                new Date(value),
+                new Date(),
+              ),
+              [key + "_since_minutes"]:
+                (value - new Date().getTime() / 1000) / 60,
+              [key + "_until"]: intl.formatDateTimeRange(
+                new Date(),
+                new Date(value),
+              ),
+              [key + "_until_minutes"]:
+                (new Date().getTime() / 1000 - value) / 60,
+            }
+          : {
+              ...values,
+              [key]: value,
+            },
+      {},
+    ),
+  )
+
 export const Node = ({
   node,
   className,
   buttonOverrideProps,
   buttonSocialOverrideProps,
 }: NodeProps): JSX.Element | null => {
+  const intl = useIntl()
+  const formatMessage = (uiText: UiText | undefined) => {
+    if (!uiText) {
+      return ""
+    }
+    return uiTextToFormattedMessage(uiText, intl)
+  }
+
   if (isUiNodeImageAttributes(node.attributes)) {
     return (
       <Image
         src={node.attributes.src}
-        alt={node.meta.label?.text}
+        alt={formatMessage(node.meta.label)}
         data-testid={`node/image/${node.attributes.id}`}
-        header={node.meta.label?.text}
+        header={formatMessage(node.meta.label)}
         width={node.attributes.width}
         height={node.attributes.height}
       />
@@ -72,30 +142,17 @@ export const Node = ({
           data-testid={`node/text/${node.attributes.id}/label`}
           style={{ flexBasis: "100%" }}
         >
-          {node.meta.label?.text}
+          {formatMessage(node.meta.label)}
         </Typography>
-        {(node.attributes.text.context as { secrets: UiText[] }).secrets.map(
-          ({ text, id }: UiText, index) => {
-            if (id === 1050014) {
-              // Code already used
-              return (
-                <pre key={index}>
-                  <del data-testid={`node/text/lookup_secret_codes/text`}>
-                    <code>Used</code>
-                  </del>
-                </pre>
-              )
-            }
-            return (
-              <pre
-                data-testid={`node/text/lookup_secret_codes/text`}
-                key={index}
-              >
-                <code>{text}</code>
-              </pre>
-            )
-          },
-        )}
+        {(
+          node.attributes.text.context as {
+            secrets: UiText[]
+          }
+        ).secrets.map((text: UiText, index) => (
+          <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
+            <code>{formatMessage(text)}</code>
+          </pre>
+        ))}
       </div>
     ) : (
       <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>
@@ -103,15 +160,15 @@ export const Node = ({
           variant="body1"
           data-testid={`node/text/${node.attributes.id}/label`}
         >
-          {node.meta.label?.text}
+          {formatMessage(node.meta.label)}
         </Typography>
         <pre data-testid={`node/text/${id}/text`}>
-          <code>{node.attributes.text.text}</code>
+          <code>{formatMessage(node.attributes.text)}</code>
         </pre>
       </div>
     )
   } else if (isUiNodeInputAttributes(node.attributes)) {
-    const attrs = node.attributes as UiNodeInputAttributes
+    const attrs = node.attributes
     const nodeType = attrs.type
 
     const isSocial =
@@ -158,7 +215,7 @@ export const Node = ({
         return isSocial ? (
           <ButtonSocial
             className={className}
-            header={getNodeLabel(node)}
+            header={formatMessage(getNodeLabel(node))}
             brand={attrs.value.toLowerCase()}
             variant={"semibold"}
             size={"medium"}
@@ -170,7 +227,7 @@ export const Node = ({
         ) : (
           <Button
             className={className}
-            header={getNodeLabel(node)}
+            header={formatMessage(getNodeLabel(node))}
             variant={"semibold"}
             size={"medium"}
             fullWidth
@@ -187,7 +244,7 @@ export const Node = ({
             helperMessage={
               <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
             }
-            label={getNodeLabel(node)}
+            label={formatMessage(getNodeLabel(node))}
             name={attrs.name}
             required={attrs.required}
             defaultValue={attrs.value}
@@ -205,7 +262,7 @@ export const Node = ({
             dataTestid={`node/input/${attrs.name}`}
             className={className}
             name={attrs.name}
-            header={getNodeLabel(node)}
+            header={formatMessage(getNodeLabel(node))}
             type={attrs.type}
             autoComplete={
               attrs.autocomplete ||
@@ -222,12 +279,12 @@ export const Node = ({
     return (
       <ButtonLink
         href={node.attributes.href}
-        title={node.attributes.title.text}
+        title={formatMessage(node.attributes.title)}
         data-testid={`node/anchor/${node.attributes.id}`}
         className={className}
         position="center"
       >
-        {node.attributes.title.text}
+        {formatMessage(node.attributes.title)}
       </ButtonLink>
     )
   }

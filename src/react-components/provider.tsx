@@ -1,12 +1,14 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import cn from "classnames"
-import { ReactElement, ReactNode } from "react"
+import { PropsWithChildren, ReactElement, ReactNode } from "react"
+import { IntlProvider as OriginalIntlProvider } from "react-intl"
 
 import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 import {
   themeProviderFontRenderingStyle,
   themeProviderStyle,
 } from "../theme/theme-provider.css"
+import * as locales from "./../locales"
 
 export type ThemeProviderProps = {
   theme?: "light" | "dark"
@@ -33,4 +35,15 @@ export const ThemeProvider = ({
   >
     {children}
   </div>
+)
+
+export const IntlProvider = ({
+  locale = "en",
+  children,
+}: PropsWithChildren<{
+  locale?: keyof typeof locales
+}>) => (
+  <OriginalIntlProvider locale={locale} messages={locales[locale]}>
+    {children}
+  </OriginalIntlProvider>
 )

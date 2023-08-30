@@ -15,6 +15,7 @@ import {
   Checkbox as checkbox,
   CheckboxProps,
   CodeBox as codeBox,
+  CodeBoxProps,
   Divider as divider,
   DividerProps,
   InputField as inputField,
@@ -46,126 +47,180 @@ import {
   UserAuthForm as userAuthForm,
   UserAuthFormProps,
   UserConsentCard as userConsentCard,
-  UserLogoutCard as userLogoutCard,
   UserConsentCardProps,
   UserErrorCard as userErrorCard,
   UserErrorCardProps,
+  UserLogoutCard as userLogoutCard,
+  UserLogoutCardProps,
   UserSettingsCard as userSettingsCard,
   UserSettingsCardProps,
+  UserSettingsScreen as userSettingsScreen,
+  UserSettingsScreenProps,
   WebAuthnSettingsProps,
   WebAuthnSettingsSection as webAuthnSettingsSection,
-  UserLogoutCardProps,
 } from "../react-components"
-import { CodeBoxProps } from "../react-components/codebox"
-import { ComponentWrapper } from "./component-wrapper"
+import { ComponentWrapper, Context } from "./component-wrapper"
 
-export const ButtonLink = (props: ButtonLinkProps) => {
-  return ComponentWrapper(buttonLink(props))
+export const ButtonLink = (props: ButtonLinkProps, context: Context = {}) => {
+  return ComponentWrapper(buttonLink, props, context)
 }
 
-export const ButtonSocial = (props: ButtonSocialProps) => {
-  return ComponentWrapper(buttonSocial(props))
+export const ButtonSocial = (
+  props: ButtonSocialProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(buttonSocial, props, context)
 }
 
-export const Button = (props: ButtonProps) => {
-  return ComponentWrapper(button(props))
+export const Button = (props: ButtonProps, context: Context = {}) => {
+  return ComponentWrapper(button, props, context)
 }
 
-export const Card = (props: CardProps) => {
-  return ComponentWrapper(card(props))
+export const Card = (props: CardProps, context: Context = {}) => {
+  return ComponentWrapper(card, props, context)
 }
 
-export const CardGradient = (props: CardGradientProps) => {
-  return ComponentWrapper(cardGradient(props))
+export const CardGradient = (
+  props: CardGradientProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(cardGradient, props, context)
 }
-export const Checkbox = (props: CheckboxProps) => {
-  return ComponentWrapper(checkbox(props))
-}
-
-export const Divider = (props: DividerProps) => {
-  return ComponentWrapper(divider(props))
-}
-
-export const Typography = (props: TypographyProps) => {
-  return ComponentWrapper(typography(props))
+export const Checkbox = (props: CheckboxProps, context: Context = {}) => {
+  return ComponentWrapper(checkbox, props, context)
 }
 
-export const ThemeProvider = (props: ThemeProviderProps) => {
-  return ComponentWrapper(themeProvider(props))
+export const Divider = (props: DividerProps, context: Context = {}) => {
+  return ComponentWrapper(divider, props, context)
 }
 
-export const InputField = (props: InputFieldProps) => {
-  return ComponentWrapper(inputField(props))
+export const Typography = (props: TypographyProps, context: Context = {}) => {
+  return ComponentWrapper(typography, props, context)
 }
 
-export const Message = (props: MessageProps) => {
-  return ComponentWrapper(message(props))
+export const ThemeProvider = (
+  props: ThemeProviderProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(themeProvider, props, context)
 }
 
-export const UserAuthCard = (props: UserAuthCardProps) => {
-  return ComponentWrapper(userAuthCard(props))
+export const InputField = (props: InputFieldProps, context: Context = {}) => {
+  return ComponentWrapper(inputField, props, context)
 }
 
-export const UserAuthForm = (props: UserAuthFormProps) => {
-  return ComponentWrapper(userAuthForm(props))
+export const Message = (props: MessageProps, context: Context = {}) => {
+  return ComponentWrapper(message, props, context)
 }
 
-export const UserSettingsCard = (props: UserSettingsCardProps) => {
-  const component = userSettingsCard(props)
-  return component ? ComponentWrapper(component) : ""
+export const UserAuthCard = (
+  props: UserAuthCardProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(userAuthCard, props, context)
 }
 
-export const UserErrorCard = (props: UserErrorCardProps) => {
-  return ComponentWrapper(userErrorCard(props))
+export const UserAuthForm = (
+  props: UserAuthFormProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(userAuthForm, props, context)
 }
 
-export const NodeMessages = (props: NodeMessagesProps) => {
-  return ComponentWrapper(nodeMessages(props))
+export const UserSettingsCard = (
+  props: UserSettingsCardProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(userSettingsCard, props, context)
 }
 
-export const MenuLink = (props: MenuLinkProps) => {
-  return ComponentWrapper(menuLink(props))
+export const UserSettingsScreen = (
+  props: UserSettingsScreenProps,
+  context: Context = {},
+) => {
+  return {
+    Nav: ComponentWrapper(userSettingsScreen.Nav, props, context),
+    Body: ComponentWrapper(userSettingsScreen.Body, props, context),
+  }
 }
 
-export const Nav = (props: NavProps) => {
-  return ComponentWrapper(nav(props))
+export const UserErrorCard = (
+  props: UserErrorCardProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(userErrorCard, props, context)
 }
 
-export const CodeBox = (props: CodeBoxProps) => {
-  return ComponentWrapper(codeBox(props))
+export const NodeMessages = (
+  props: NodeMessagesProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(nodeMessages, props, context)
 }
 
-export const ProfileSettingsSection = (props: ProfileSettingsProps) => {
-  return ComponentWrapper(profileSettingsSection(props))
+export const MenuLink = (props: MenuLinkProps, context: Context = {}) => {
+  return ComponentWrapper(menuLink, props, context)
 }
 
-export const PasswordSettingsSection = (props: PasswordSettingsProps) => {
-  return ComponentWrapper(passwordSettingsSection(props))
+export const Nav = (props: NavProps, context: Context = {}) => {
+  return ComponentWrapper(nav, props, context)
 }
 
-export const WebAuthnSettingsSection = (props: WebAuthnSettingsProps) => {
-  return ComponentWrapper(webAuthnSettingsSection(props))
+export const CodeBox = (props: CodeBoxProps, context: Context = {}) => {
+  return ComponentWrapper(codeBox, props, context)
 }
 
-export const OIDCSettingsSection = (props: OIDCSettingsProps) => {
-  return ComponentWrapper(oidcSettingsSection(props))
+export const ProfileSettingsSection = (
+  props: ProfileSettingsProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(profileSettingsSection, props, context)
 }
 
-export const TOTPSettingsSection = (props: TOTPSettingsProps) => {
-  return ComponentWrapper(totpSettingsSection(props))
+export const PasswordSettingsSection = (
+  props: PasswordSettingsProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(passwordSettingsSection, props, context)
+}
+
+export const WebAuthnSettingsSection = (
+  props: WebAuthnSettingsProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(webAuthnSettingsSection, props, context)
+}
+
+export const OIDCSettingsSection = (
+  props: OIDCSettingsProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(oidcSettingsSection, props, context)
+}
+
+export const TOTPSettingsSection = (
+  props: TOTPSettingsProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(totpSettingsSection, props, context)
 }
 
 export const LookupSecretSettingsSection = (
   props: LookupSecretSettingsProps,
+  context: Context = {},
 ) => {
-  return ComponentWrapper(lookupSecretSettingsSection(props))
+  return ComponentWrapper(lookupSecretSettingsSection, props, context)
 }
 
-export const UserConsentCard = (props: UserConsentCardProps) =>
-  ComponentWrapper(userConsentCard(props))
+export const UserConsentCard = (
+  props: UserConsentCardProps,
+  context: Context = {},
+) => ComponentWrapper(userConsentCard, props, context)
 
-export const UserLogoutCard = (props: UserLogoutCardProps) =>
-  ComponentWrapper(userLogoutCard(props))
+export const UserLogoutCard = (
+  props: UserLogoutCardProps,
+  context: Context = {},
+) => ComponentWrapper(userLogoutCard, props, context)
 
 export type {
   ButtonLinkProps,

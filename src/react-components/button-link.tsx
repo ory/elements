@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { MouseEvent } from "react"
+import { MouseEvent, JSX } from "react"
 
 import { typographyStyle } from "../theme"
 import {

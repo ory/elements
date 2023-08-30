@@ -93,7 +93,6 @@ const Recovery: NextPageWithLayout = () => {
     // create a recovery form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
       cardImage="/ory.svg"
-      title={"Recovery"}
       // This defines what kind of card we want to render.
       flowType={"recovery"}
       // we always need the flow data which populates the form fields and error messages dynamically
