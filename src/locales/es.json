@@ -13,7 +13,7 @@
   "error.title": "Se produjo un error",
   "error.title-internal-server-error": "Error del servidor interno",
   "error.title-not-found": "404 - Página no encontrada",
-  "identities.messages.1010001": "Iniciar sesión con clave de seguridad",
+  "identities.messages.1010001": "Iniciar sesión",
   "identities.messages.1010002": "Iniciar sesión con {provider}",
   "identities.messages.1010003": "Confirme esta acción verificando que es usted.",
   "identities.messages.1010004": "Complete el segundo desafío de autenticación.",

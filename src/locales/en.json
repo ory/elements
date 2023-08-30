@@ -13,7 +13,7 @@
   "error.title": "An error occurred",
   "error.title-internal-server-error": "Internal Server Error",
   "error.title-not-found": "404 - Page not found",
-  "identities.messages.1010001": "Sign in with security key",
+  "identities.messages.1010001": "Sign in",
   "identities.messages.1010002": "Sign in with {provider}",
   "identities.messages.1010003": "Please confirm this action by verifying that it is you.",
   "identities.messages.1010004": "Please complete the second authentication challenge.",

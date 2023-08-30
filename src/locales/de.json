@@ -13,7 +13,7 @@
   "error.title": "Ein Fehler ist aufgetreten",
   "error.title-internal-server-error": "Interner Serverfehler",
   "error.title-not-found": "404 - Seite nicht gefunden",
-  "identities.messages.1010001": "Mit Sicherheitsschlüssel anmelden",
+  "identities.messages.1010001": "Anmelden",
   "identities.messages.1010002": "Mit {provider} anmelden",
   "identities.messages.1010003": "Bitte bestätigen Sie diese Aktion, indem Sie überprüfen, dass Sie es sind.",
   "identities.messages.1010004": "Bitte schließen Sie die zweite Authentifizierungsprüfung ab.",
