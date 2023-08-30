@@ -12,6 +12,7 @@ export class SettingsPage extends AuthPage {
   constructor(
     page: Page,
     baseUrl: string,
+    oryProjectUrl: string,
     opts?: {
       traits?: Record<string, Traits>
       path?: string
@@ -21,6 +22,7 @@ export class SettingsPage extends AuthPage {
     super(
       opts?.traits || defaultTraits,
       page.getByTestId("settings-settings-card"),
+      oryProjectUrl,
       opts?.ssr,
     )
     this.page = page

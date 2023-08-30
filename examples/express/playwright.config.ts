@@ -15,13 +15,13 @@ import path from "path"
 export default defineConfig({
   testDir: path.join(__dirname, "e2e"),
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: 10 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000,
+    timeout: 2000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -67,19 +67,19 @@ export default defineConfig({
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
 
-  globalSetup: "./global-setup",
-  //globalTeardown: "./global-teardown",
+  globalSetup: path.join(__dirname, "global-setup.ts"),
+  globalTeardown: path.join(__dirname, "global-teardown.ts"),
 
   /* Run your local dev server before starting the tests */
   webServer: [
-    {
-      env: {
-        ORY_SDK_URL: "http://localhost:4000",
-      },
-      command: "PORT=3200 npm run start",
-      timeout: 120 * 1000,
-      port: 3200,
-      reuseExistingServer: !process.env.CI,
-    },
+    // {
+    //   env: {
+    //     ORY_SDK_URL: "http://localhost:4000",
+    //   },
+    //   command: "PORT=3200 npm run start",
+    //   timeout: 120 * 1000,
+    //   port: 3200,
+    //   reuseExistingServer: !process.env.CI,
+    // },
   ],
 })

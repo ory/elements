@@ -1,10 +1,5 @@
 // Copyright © 2022 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-import cookieParser from "cookie-parser"
-import express, { Request, Response } from "express"
-import { engine } from "express-handlebars"
-import * as fs from "fs"
-import * as https from "https"
 import { handlebarsHelpers } from "./pkg"
 import { middleware as middlewareLogger } from "./pkg/logger"
 import {
@@ -23,6 +18,22 @@ import {
   registerVerificationRoute,
   registerWelcomeRoute,
 } from "./routes"
+import { RemoteHttpInterceptor } from "@mswjs/interceptors/RemoteHttpInterceptor"
+import cookieParser from "cookie-parser"
+import express, { Request, Response } from "express"
+import { engine } from "express-handlebars"
+import * as fs from "fs"
+import * as https from "https"
+
+if (process.env.MOCK_SERVER === "true") {
+  const interceptor = new RemoteHttpInterceptor()
+
+  interceptor.apply()
+
+  process.on("disconnect", () => {
+    interceptor.dispose()
+  })
+}
 
 const baseUrl = process.env.BASE_PATH || "/"
 

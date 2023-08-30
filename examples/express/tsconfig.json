@@ -1,26 +1,32 @@
 {
+  // Most ts-node options can be specified here using their programmatic names.
+  "ts-node": {
+    // It is faster to skip typechecking.
+    // Remove if you want ts-node to do typechecking.
+    "transpileOnly": false,
+
+    "files": true,
+
+    "compilerOptions": {
+      // compilerOptions specified here will override those declared below,
+      // but *only* in ts-node.  Useful if you want ts-node and tsc to use
+      // different options with a single tsconfig.json.
+      "moduleResolution": "Node"
+    }
+  },
   "compilerOptions": {
     "declaration": true,
     "resolveJsonModule": true,
-    "target": "es5",
-    "module": "commonjs",
-    "lib": [
-      "es2019",
-      "dom"
-    ],
+    "moduleResolution": "Node",
+    "target": "esnext",
+    "module": "nodenext",
+    "lib": ["esnext"],
     "outDir": "./lib",
     "strict": true,
-    "typeRoots": [
-      "./types"
-    ],
+    "typeRoots": ["./types"],
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "e2e"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "e2e"]
 }

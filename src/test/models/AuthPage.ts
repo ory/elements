@@ -7,24 +7,27 @@ import { Session, UiNode } from "@ory/client"
 import { expect, Locator, Response } from "@playwright/test"
 import { merge } from "lodash"
 import { rest } from "msw"
-import { setupServer, SetupServerApi } from "msw/node"
+import { setupServer, SetupServer } from "msw/node"
 
 export class AuthPage {
   readonly locator: Locator
   readonly traits: Record<string, Traits>
   readonly formFields: Record<string, Locator> = {}
   readonly flowMessage: Locator
+  readonly oryProjectUrl: URL
   readonly ssr?: boolean
-  readonly server?: SetupServerApi
+  readonly server?: SetupServer
 
   constructor(
     traits: Record<string, Traits> | UiNode[],
     locator: Locator,
+    oryProjectUrl: string,
     ssr?: boolean,
   ) {
     this.locator = locator
     this.traits = isUiNode(traits) ? inputNodesToRecord(traits) : traits
     this.ssr = ssr
+    this.oryProjectUrl = new URL(oryProjectUrl)
 
     for (const key in this.traits) {
       this.formFields[key] = locator.locator(
@@ -131,7 +134,11 @@ export class AuthPage {
     }
   }
 
-  async registerMockCreateResponse({ flow, response, ssrOverride }: MockFlow) {
+  async registerMockCreateResponse({
+    flow,
+    response,
+    ssrOverride = false,
+  }: MockFlow) {
     const resp = {
       ...response,
       body: JSON.stringify(response?.body),
@@ -142,11 +149,14 @@ export class AuthPage {
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
-    return this.server && !!ssrOverride
+    return this.server && !ssrOverride
       ? this.server.use(
-        rest.get(`**/self-service/${flow}/browser**`, async (_, res, ctx) => {
-          return res.once(ctx.json(resp))
-        }),
+        rest.get(
+          `${this.oryProjectUrl.href}/self-service/${flow}/browser`,
+          async (_, res, ctx) => {
+            return res.once(ctx.json(resp))
+          },
+        ),
       )
       : this.locator
         .page()
@@ -155,7 +165,11 @@ export class AuthPage {
         })
   }
 
-  async registerMockFetchResponse({ flow, response, ssrOverride }: MockFlow) {
+  async registerMockFetchResponse({
+    flow,
+    response,
+    ssrOverride = false,
+  }: MockFlow) {
     const resp = {
       ...response,
       body: JSON.stringify(response?.body),
@@ -166,11 +180,14 @@ export class AuthPage {
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
-    return this.server
+    return this.server && !ssrOverride
       ? this.server.use(
-        rest.get(`**/self-service/${flow}/flows**`, async (_, res, ctx) => {
-          return res.once(ctx.json(resp))
-        }),
+        rest.get(
+          `${this.oryProjectUrl}/self-service/${flow}/flows`,
+          async (_, res, ctx) => {
+            return res.once(ctx.json(resp))
+          },
+        ),
       )
       : this.locator
         .page()
@@ -179,7 +196,11 @@ export class AuthPage {
         })
   }
 
-  async registerMockSubmitResponse({ flow, response, ssrOverride }: MockFlow) {
+  async registerMockSubmitResponse({
+    flow,
+    response,
+    ssrOverride = false,
+  }: MockFlow) {
     const resp = {
       ...response,
       body: JSON.stringify(response?.body),
@@ -190,11 +211,14 @@ export class AuthPage {
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
-    return this.server && !!ssrOverride
+    return this.server && !ssrOverride
       ? this.server.use(
-        rest.post(`**/self-service/${flow}?flow**`, async (_, res, ctx) => {
-          return res.once(ctx.json(resp))
-        }),
+        rest.post(
+          `${this.oryProjectUrl.href}/self-service/${flow}?flow**`,
+          async (_, res, ctx) => {
+            return res.once(ctx.json(resp))
+          },
+        ),
       )
       : this.locator
         .page()
@@ -206,7 +230,7 @@ export class AuthPage {
   async registerMockWhoamiResponse({
     response,
     state,
-    ssrOverride,
+    ssrOverride = false,
   }: Omit<MockFlow, "flow">) {
     !state && (state = "session_forbidden")
     const resp = {
@@ -225,11 +249,14 @@ export class AuthPage {
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
-    return this.server && !!ssrOverride
+    return this.server && !ssrOverride
       ? this.server.use(
-        rest.get("**/sessions/whoami", async (_, res, ctx) => {
-          return res.once(ctx.json(resp))
-        }),
+        rest.get(
+          `${this.oryProjectUrl.href}/sessions/whoami`,
+          async (_, res, ctx) => {
+            return res.once(ctx.json(resp))
+          },
+        ),
       )
       : this.locator.page().route("**/sessions/whoami", async (route) => {
         await route.fulfill(resp)
@@ -238,13 +265,13 @@ export class AuthPage {
 
   async interceptCreateResponse(
     flow: string,
-    ssrOverride?: boolean,
+    ssrOverride = false,
   ): Promise<Response> {
     console.log(
       `interceptCreateResponse. Is Server-side rendering: ${this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
-    if (this.server && !!ssrOverride) {
+    if (this.server && !ssrOverride) {
       console.log("interceptCreateResponse server-side")
       return new Promise<Response>((resolve, reject) => {
         const requests = new Map()
@@ -275,13 +302,13 @@ export class AuthPage {
 
   async interceptFetchResponse(
     flow: string,
-    ssrOverride?: boolean,
+    ssrOverride = false,
   ): Promise<Response> {
     console.log(
       `interceptFetchResponse. Is Server-side rendering: ${this.server !== undefined
       }. Override Server-side rendering: ${!!ssrOverride}`,
     )
-    if (this.server) {
+    if (this.server && !ssrOverride) {
       console.log("interceptFetchResponse server-side")
       return new Promise<Response>((resolve, reject) => {
         console.log("interceptFetchResponse server-side promise")
@@ -322,13 +349,13 @@ export class AuthPage {
 
   async interceptSubmitResponse(
     flow: string,
-    ssrOverride?: boolean,
+    ssrOverride = false,
   ): Promise<Response> {
     console.log(
       `interceptSubmitResponse. Is Server-side rendering: ${this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
-    if (this.server && !!ssrOverride) {
+    if (this.server && !ssrOverride) {
       console.log("interceptSubmitResponse server-side")
       return new Promise<Response>((resolve, reject) => {
         const requests = new Map()

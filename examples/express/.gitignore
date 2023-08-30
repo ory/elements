@@ -2,3 +2,4 @@
 /lib/
 /test-results/
 /playwright-report/
+/tests-out/

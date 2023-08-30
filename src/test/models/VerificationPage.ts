@@ -16,8 +16,6 @@ import { merge } from "lodash"
 export class VerificationPage extends AuthPage {
   readonly pageUrl: URL
   readonly page: Page
-  readonly oryProjectUrl: URL
-
   readonly verificationActionPath = "/self-service/verification?flow="
 
   constructor(
@@ -32,10 +30,10 @@ export class VerificationPage extends AuthPage {
     super(
       defaultVerificationEmailTraits,
       page.getByTestId("verification-auth-card"),
+      oryProjectUrl,
     )
     this.page = page
     this.pageUrl = new URL(opts?.path || "/verification", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
   }
 
   async goto() {

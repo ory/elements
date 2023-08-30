@@ -17,7 +17,6 @@ import { merge } from "lodash"
 
 export class RecoveryPage extends AuthPage {
   readonly pageUrl: URL
-  readonly oryProjectUrl: URL
   readonly page: Page
 
   readonly recoveryActionPath = "/self-service/recovery?flow="
@@ -34,11 +33,11 @@ export class RecoveryPage extends AuthPage {
     super(
       defaultRecoveryTraits,
       page.getByTestId("recovery-auth-card"),
+      oryProjectUrl,
       opts?.ssr,
     )
     this.page = page
     this.pageUrl = new URL(opts?.path || "/recovery", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
   }
 
   async goto() {

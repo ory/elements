@@ -22,6 +22,7 @@ const sdk = {
   oauth2: new OAuth2Api(
     new Configuration({
       basePath: apiBaseUrl,
+      baseOptions: hydraBaseOptions,
     }),
   ),
   identity: new IdentityApi(

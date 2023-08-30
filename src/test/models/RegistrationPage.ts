@@ -10,7 +10,6 @@ import { merge } from "lodash"
 
 export class RegistrationPage extends AuthPage {
   readonly pageUrl: URL
-  readonly oryProjectUrl: URL
   readonly page: Page
 
   readonly registrationActionPath = "/self-service/registration?flow="
@@ -28,11 +27,11 @@ export class RegistrationPage extends AuthPage {
     super(
       opts?.traits || defaultRegistrationTraits,
       page.getByTestId("registration-auth-card"),
+      oryProjectUrl,
       opts?.ssr,
     )
     this.page = page
     this.pageUrl = new URL(opts?.path || "/registration", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
   }
 
   async goto() {
