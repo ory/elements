@@ -148,24 +148,11 @@ export const Node = ({
           node.attributes.text.context as {
             secrets: UiText[]
           }
-        ).secrets.map((text: UiText, index) => {
-          // TODO move to translation
-          // if (id === 1050014) {
-          // Code already used
-          // return (
-          //   <pre key={index}>
-          //     <del data-testid={`node/text/lookup_secret_codes/text`}>
-          //       <code>Used</code>
-          //     </del>
-          //   </pre>
-          // )
-          // }
-          return (
-            <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
-              <code>{formatMessage(text)}</code>
-            </pre>
-          )
-        })}
+        ).secrets.map((text: UiText, index) => (
+          <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
+            <code>{formatMessage(text)}</code>
+          </pre>
+        ))}
       </div>
     ) : (
       <div className={gridStyle({ gap: 4 })} data-testid={`node/text/${id}`}>

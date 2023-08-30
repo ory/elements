@@ -47,7 +47,7 @@
   "identities.messages.1050011": "Backup-Wiederherstellungscode bestätigen",
   "identities.messages.1050012": "Sicherheitsschlüssel hinzufügen",
   "identities.messages.1050013": "Name des Sicherheitsschlüssels",
-  "identities.messages.1050014": "Das Geheimnis wurde am {used_at, date, long} verwendet",
+  "identities.messages.1050014": "<del>Verwendet</del>",
   "identities.messages.1050015": "{secrets_list}",
   "identities.messages.1050016": "Diese Methode deaktivieren",
   "identities.messages.1050017": "Dies ist Ihr Authentifizierungs-App-Geheimnis. Verwenden Sie es, wenn Sie den QR-Code nicht scannen können.",

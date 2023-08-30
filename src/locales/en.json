@@ -47,7 +47,7 @@
   "identities.messages.1050011": "Confirm backup recovery codes",
   "identities.messages.1050012": "Add security key",
   "identities.messages.1050013": "Name of the security key",
-  "identities.messages.1050014": "Secret was used at {used_at, date, long}",
+  "identities.messages.1050014": "<del>Used</del>",
   "identities.messages.1050015": "{secrets_list}",
   "identities.messages.1050016": "Disable this method",
   "identities.messages.1050017": "This is your authenticator app secret. Use it if you can not scan the QR code.",
