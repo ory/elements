@@ -1,15 +1,11 @@
 import cn from "classnames"
-import { JSX } from "react"
+import { JSX, useEffect, useRef, useState } from "react"
 
 import {
   gridStyle,
-  inputFieldSecurityStyle,
   inputFieldStyle,
   inputFieldTitleStyle,
-  passwordInputContainerStyle,
   inputFieldVisibilityToggleLabelStyle,
-  inputFieldVisibilityToggleStyle,
-  inputFieldFallbackWrapperStyle,
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
@@ -30,13 +26,15 @@ export const InputField = ({
   header: title,
   helperMessage,
   messageTestId,
-  fullWidth,
   className,
   dataTestid,
   id,
   ...props
 }: InputFieldProps): JSX.Element => {
   const inputId = id ?? useIdWithFallback()
+
+  const [visibility, setVisibility] = useState(false)
+  const visibilityToggleRef = useRef<HTMLDivElement>(null)
 
   return (
     <div
@@ -52,31 +50,31 @@ export const InputField = ({
           {props.required && <span className={inputFieldTitleStyle}>*</span>}
         </label>
       )}
-      {props.type === "password" && (
-        <div
-          className={passwordInputContainerStyle}
-          style={{ width: fullWidth ? "100%" : "auto" }}
-        >
-          <input
-            className={inputFieldVisibilityToggleStyle}
-            id={inputId + "-visibility-toggle"}
-            type="checkbox"
-            value={0}
-          />
 
+      {props.type === "password" ? (
+        <div style={{ position: "relative" }}>
           <input
             className={cn(
-              inputFieldSecurityStyle,
+              inputFieldStyle,
               typographyStyle({ size: "small", type: "regular" }),
             )}
             placeholder={" "} // we need this so the input css field border is not green by default
             id={inputId}
             {...props}
-            type="text"
+            type={visibility ? "text" : "password"}
           />
-          <label
+          <div
+            ref={visibilityToggleRef}
+            onClick={(e) => {
+              setVisibility(!visibility)
+              e.currentTarget.dataset.checked =
+                e.currentTarget.dataset.checked =
+                  e.currentTarget.dataset.checked === "true" ? "false" : "true"
+            }}
+            data-checked="false"
             className={inputFieldVisibilityToggleLabelStyle}
-            htmlFor={inputId + "-visibility-toggle"}
+            tabIndex={0}
+            aria-label="Toggle password visibility"
           >
             <svg
               width="22"
@@ -106,14 +104,9 @@ export const InputField = ({
                 fill="#0F172A"
               />
             </svg>
-          </label>
+          </div>
         </div>
-      )}
-
-      <div
-        className={inputFieldFallbackWrapperStyle}
-        style={{ width: fullWidth ? "100%" : "auto" }}
-      >
+      ) : (
         <input
           className={cn(
             inputFieldStyle,
@@ -123,7 +116,7 @@ export const InputField = ({
           id={inputId}
           {...props}
         />
-      </div>
+      )}
 
       {typeof helperMessage === "string" ? (
         <Message data-testid={messageTestId} severity={props.severity}>
