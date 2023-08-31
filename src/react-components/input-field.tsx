@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { JSX, useEffect } from "react"
+import { JSX, useEffect, useRef } from "react"
 
 import {
   gridStyle,
@@ -38,13 +38,18 @@ export const InputField = ({
 }: InputFieldProps): JSX.Element => {
   const inputId = id ?? useIdWithFallback()
 
+  const customInput = useRef<HTMLInputElement>(null)
+  const fallbackInput = useRef<HTMLInputElement>(null)
   try {
     useEffect(() => {
-      const input = document.getElementById(inputId + "-security")
-      if (input && window.getComputedStyle(input).display !== "none") {
-        document.getElementById(inputId)?.remove()
+      if (
+        customInput?.current?.offsetWidth ||
+        customInput?.current?.offsetHeight ||
+        customInput?.current?.getClientRects().length
+      ) {
+        fallbackInput?.current?.remove()
       } else {
-        input?.remove()
+        customInput?.current?.remove()
       }
     }, [])
   } catch (e) {
@@ -78,6 +83,7 @@ export const InputField = ({
           />
 
           <input
+            ref={customInput}
             className={cn(
               inputFieldSecurityStyle,
               typographyStyle({ size: "small", type: "regular" }),
@@ -128,6 +134,7 @@ export const InputField = ({
         style={{ width: fullWidth ? "100%" : "auto" }}
       >
         <input
+          ref={fallbackInput}
           className={cn(
             inputFieldStyle,
             typographyStyle({ size: "small", type: "regular" }),
