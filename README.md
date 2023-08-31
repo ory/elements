@@ -101,7 +101,7 @@ Read more about the [Ory Elements E2E library](./packages/test/README.md).
 
 ## Breaking Changes
 
-### v0.0.1-beta.14
+### v0.1.0-beta.1
 
 All components have to be wrapped in a `<IntlProvider />` component. Either use
 the default one from Ory Elements, or provide your custom messages through the
@@ -178,13 +178,13 @@ Below is an example of how you should add the package.
 
 ### Default Translations
 
-Ory Elements comes with default translations for any language that was added
-yet. They are located in the `src/locales` directory. The English messages are
-extracted from the code and merged with Kratos messages. To update them, run
-`npm run generate-locales`. They need to be updated every time new messages are
-added to Elements or Kratos. All other languages are derived from the English
-messages (currently as a PR in this repository). The default translations are
-loaded by the `IntlProvider` from Ory Elements.
+Ory Elements comes with default translations for a few language, like Spanish
+and German. The language files are located in the `src/locales` directory. The
+English messages are extracted from this codebase and merged with Kratos
+messages. To update them, run `npm run generate-locales`. They need to be
+updated every time new messages are added to Elements or Kratos. All other
+languages are derived from the English messages. The `IntlProvider` from Ory
+Elements loads the default translations.
 
 ## Understanding Ory Elements
 
