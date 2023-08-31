@@ -3,7 +3,7 @@
 
 import { FunctionComponent } from "react"
 import ReactDOMServer from "react-dom/server"
-import { IntlProvider } from "react-intl"
+import { IntlProvider } from "../react-components"
 import * as locales from "../locales"
 
 export type Context = {
@@ -16,14 +16,7 @@ export const ComponentWrapper = <Props extends {}>(
   { locale = "en" }: Context,
 ) => {
   return ReactDOMServer.renderToStaticMarkup(
-    <IntlProvider
-      locale={locale}
-      defaultLocale="en"
-      messages={locales[locale]}
-      defaultRichTextElements={{
-        del: (chunks) => <del>{chunks}</del>,
-      }}
-    >
+    <IntlProvider locale={locale}>
       <Component {...props} />
     </IntlProvider>,
   )

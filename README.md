@@ -101,6 +101,12 @@ Read more about the [Ory Elements E2E library](./packages/test/README.md).
 
 ## Breaking Changes
 
+### v0.0.1-beta.14
+
+All components have to be wrapped in a `<IntlProvider />` component. Either use
+the default one from Ory Elements, or provide your custom messages through the
+`<IntlProvider />` from `react-intl`.
+
 ### Before v0.0.1-beta.1
 
 Before v0.0.1-beta.1, Ory Elements exposed a singular `style.css` file which
@@ -165,7 +171,7 @@ Below is an example of how you should add the package.
 ```json
 ...
 "devDependencies": {
-  "@ory/elements": "*"
+"@ory/elements": "*"
 }
 ...
 ```
@@ -315,6 +321,40 @@ const Main = () => {
 }
 ```
 
+### Internalization (i18n)
+
+Ory Elements uses [react-intl](https://formatjs.io/docs/react-intl/) to format
+messages and provide translations. The default language is american English, but
+you can provide your own translations by using the `IntlProvider` component. The
+default translations of Ory Elements are located in the `src/locales` directory.
+They can be loaded using the `IntlProvider` from Ory Elements. Please note that
+it is necessary to wrap all Ory Element components either in the `IntlProvider`
+from `react-intl` or Ory Elements.
+
+```tsx
+import { IntlProvider } from "@ory/elements-react"
+
+const Main = () => {
+  return (
+    <IntlProvider locale="de">
+      <Router>
+        <Route path="/" component={Dashboard} />
+        {/* ... */}
+      </Router>
+    </IntlProvider>
+  )
+}
+```
+
+### Default Translations
+
+Ory Elements comes with default translations for any language that was added
+yet. They are located in the `src/locales` directory. The English messages are
+extracted from the code and merged with Kratos messages. To update them, run
+`npm run generate-locales`. All other languages are derived from the English
+messages (currently as a PR in this repository). The default translations are
+loaded by the `IntlProvider` from Ory Elements.
+
 ### Theme CSS in Express.js
 
 For Express.js the library also exports a helper function which registers all
@@ -346,6 +386,10 @@ page:
 <link rel="stylesheet" href="style.css" /> // the default theme variables
 <link rel="stylesheet" href="theme.css" /> // the overidden theme variables
 ```
+
+### i18n in Express.js
+
+The markup component
 
 ### Rendering components
 
@@ -408,7 +452,9 @@ the `ReactDOMServer` to produce static HTML. This essentially does server-side
 rendering of the components and removes any client-side JavaScript. Each
 component needs to be wrapped by `ComponentWrapper` which essentially uses
 `ReactDOMServer`. The `elements-markup` package then bundles the React library
-with it so that the React code lives with the component library.
+with it so that the React code lives with the component library. The exported
+function takes the component props and context. The context is used for context
+providers, such as the `IntlProvider` from `react-intl`.
 
 Here is an example of exporting the `UserAuthCard`.
 
@@ -417,9 +463,13 @@ import {
   UserAuthCard as userAuthCard,
   UserAuthCardProps,
 } from "../react-components"
+import { ComponentWrapper, Context } from "./component-wrapper"
 
-export const UserAuthCard = (props: UserAuthCardProps) => {
-  return ComponentWrapper(userAuthCard(props))
+export const UserAuthCard = (
+  props: UserAuthCardProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(userAuthCard, props, context)
 }
 
 export type { UserAuthCardProps } from "../react-components"

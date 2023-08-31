@@ -43,7 +43,14 @@ export const IntlProvider = ({
 }: PropsWithChildren<{
   locale?: keyof typeof locales
 }>) => (
-  <OriginalIntlProvider locale={locale} messages={locales[locale]}>
+  <OriginalIntlProvider
+    locale={locale}
+    defaultLocale="en"
+    messages={locales[locale]}
+    defaultRichTextElements={{
+      del: (chunks) => <del>{chunks}</del>,
+    }}
+  >
     {children}
   </OriginalIntlProvider>
 )
