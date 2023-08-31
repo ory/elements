@@ -1,15 +1,12 @@
 import cn from "classnames"
-import { JSX, useEffect, useRef } from "react"
+import { JSX, useState } from "react"
 
 import {
   gridStyle,
-  inputFieldSecurityStyle,
   inputFieldStyle,
   inputFieldTitleStyle,
-  passwordInputContainerStyle,
   inputFieldVisibilityToggleLabelStyle,
   inputFieldVisibilityToggleStyle,
-  inputFieldFallbackWrapperStyle,
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
@@ -30,7 +27,6 @@ export const InputField = ({
   header: title,
   helperMessage,
   messageTestId,
-  fullWidth,
   className,
   dataTestid,
   id,
@@ -38,23 +34,7 @@ export const InputField = ({
 }: InputFieldProps): JSX.Element => {
   const inputId = id ?? useIdWithFallback()
 
-  const customInput = useRef<HTMLInputElement>(null)
-  const fallbackInput = useRef<HTMLInputElement>(null)
-  try {
-    useEffect(() => {
-      if (
-        customInput?.current?.offsetWidth ||
-        customInput?.current?.offsetHeight ||
-        customInput?.current?.getClientRects().length
-      ) {
-        fallbackInput?.current?.remove()
-      } else {
-        customInput?.current?.remove()
-      }
-    }, [])
-  } catch (e) {
-    // ignore (this only affects non-react environments)
-  }
+  const [visibility, setVisibility] = useState(false)
 
   return (
     <div
@@ -70,32 +50,31 @@ export const InputField = ({
           {props.required && <span className={inputFieldTitleStyle}>*</span>}
         </label>
       )}
-      {props.type === "password" && (
-        <div
-          className={passwordInputContainerStyle}
-          style={{ width: fullWidth ? "100%" : "auto" }}
-        >
+
+      {props.type === "password" ? (
+        <div style={{ position: "relative" }}>
           <input
             className={inputFieldVisibilityToggleStyle}
             id={inputId + "-visibility-toggle"}
             type="checkbox"
             value={0}
+            onChange={() => setVisibility(!visibility)}
           />
 
           <input
-            ref={customInput}
             className={cn(
-              inputFieldSecurityStyle,
+              inputFieldStyle,
               typographyStyle({ size: "small", type: "regular" }),
             )}
             placeholder={" "} // we need this so the input css field border is not green by default
             id={inputId}
             {...props}
-            type="text"
+            type={visibility ? "text" : "password"}
           />
           <label
             className={inputFieldVisibilityToggleLabelStyle}
             htmlFor={inputId + "-visibility-toggle"}
+            tabIndex={0}
           >
             <svg
               width="22"
@@ -127,14 +106,8 @@ export const InputField = ({
             </svg>
           </label>
         </div>
-      )}
-
-      <div
-        className={inputFieldFallbackWrapperStyle}
-        style={{ width: fullWidth ? "100%" : "auto" }}
-      >
+      ) : (
         <input
-          ref={fallbackInput}
           className={cn(
             inputFieldStyle,
             typographyStyle({ size: "small", type: "regular" }),
@@ -143,7 +116,7 @@ export const InputField = ({
           id={inputId}
           {...props}
         />
-      </div>
+      )}
 
       {typeof helperMessage === "string" ? (
         <Message data-testid={messageTestId} severity={props.severity}>
