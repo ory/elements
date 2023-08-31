@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { JSX } from "react"
+import { JSX, useEffect } from "react"
 
 import {
   gridStyle,
@@ -37,6 +37,19 @@ export const InputField = ({
   ...props
 }: InputFieldProps): JSX.Element => {
   const inputId = id ?? useIdWithFallback()
+
+  try {
+    useEffect(() => {
+      const input = document.getElementById(inputId + "-security")
+      if (input && window.getComputedStyle(input).display !== "none") {
+        document.getElementById(inputId)?.remove()
+      } else {
+        input?.remove()
+      }
+    }, [])
+  } catch (e) {
+    // ignore (this only affects non-react environments)
+  }
 
   return (
     <div
