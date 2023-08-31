@@ -1,12 +1,11 @@
 import cn from "classnames"
-import { JSX, useState } from "react"
+import { JSX, useEffect, useRef, useState } from "react"
 
 import {
   gridStyle,
   inputFieldStyle,
   inputFieldTitleStyle,
   inputFieldVisibilityToggleLabelStyle,
-  inputFieldVisibilityToggleStyle,
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
@@ -35,6 +34,7 @@ export const InputField = ({
   const inputId = id ?? useIdWithFallback()
 
   const [visibility, setVisibility] = useState(false)
+  const visibilityToggleRef = useRef<HTMLDivElement>(null)
 
   return (
     <div
@@ -54,14 +54,6 @@ export const InputField = ({
       {props.type === "password" ? (
         <div style={{ position: "relative" }}>
           <input
-            className={inputFieldVisibilityToggleStyle}
-            id={inputId + "-visibility-toggle"}
-            type="checkbox"
-            value={0}
-            onChange={() => setVisibility(!visibility)}
-          />
-
-          <input
             className={cn(
               inputFieldStyle,
               typographyStyle({ size: "small", type: "regular" }),
@@ -71,10 +63,18 @@ export const InputField = ({
             {...props}
             type={visibility ? "text" : "password"}
           />
-          <label
+          <div
+            ref={visibilityToggleRef}
+            onClick={(e) => {
+              setVisibility(!visibility)
+              e.currentTarget.dataset.checked =
+                e.currentTarget.dataset.checked =
+                  e.currentTarget.dataset.checked === "true" ? "false" : "true"
+            }}
+            data-checked="false"
             className={inputFieldVisibilityToggleLabelStyle}
-            htmlFor={inputId + "-visibility-toggle"}
             tabIndex={0}
+            aria-label="Toggle password visibility"
           >
             <svg
               width="22"
@@ -104,7 +104,7 @@ export const InputField = ({
                 fill="#0F172A"
               />
             </svg>
-          </label>
+          </div>
         </div>
       ) : (
         <input

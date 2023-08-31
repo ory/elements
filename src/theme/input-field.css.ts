@@ -9,9 +9,6 @@ export const inputFieldTitleStyle = style({
   color: oryTheme.accent.def,
 })
 
-// attached to the input field itself
-// when using the icon: 'security' variant,
-// we expect the container to show the border instead
 export const inputFieldStyle = style({
   all: "unset",
   boxSizing: "border-box",
@@ -44,21 +41,6 @@ export const inputFieldStyle = style({
   },
 })
 
-// this is attached to a checkbox that toggles the visibility of the input field
-// we don't want to show the checkbox, but we want to show the label
-export const inputFieldVisibilityToggleStyle = style({
-  cursor: "pointer",
-  WebkitAppearance: "none",
-  MozAppearance: "none",
-  appearance: "none",
-  display: "none",
-  userSelect: "none",
-  MozUserSelect: "none",
-  WebkitUserSelect: "none",
-})
-
-// this is a label attached to the checkbox that toggles the visibility of the input field
-// we don't want to show the checkbox, but we want to show the label
 export const inputFieldVisibilityToggleLabelStyle = style({
   cursor: "pointer",
   WebkitAppearance: "none",
@@ -78,14 +60,14 @@ export const inputFieldVisibilityToggleLabelStyle = style({
 })
 
 globalStyle(
-  `${inputFieldVisibilityToggleStyle}:checked ~ label svg:last-child`,
+  `${inputFieldVisibilityToggleLabelStyle}[data-checked="true"] svg:last-child`,
   {
     display: "none",
   },
 )
 
 globalStyle(
-  `${inputFieldVisibilityToggleStyle}:not(:checked) ~ label svg:first-child`,
+  `${inputFieldVisibilityToggleLabelStyle}[data-checked="false"] svg:first-child`,
   {
     display: "none",
   },
