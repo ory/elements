@@ -1,5 +1,6 @@
 {
     "name": "root",
+    "prettier": "ory-prettier-styles",
     "private": "true",
     "homepage": "https://github.com/ory/elements#readme",
     "bugs": {
@@ -18,21 +19,21 @@
         "examples/*"
     ],
     "scripts": {
-        "build": "lerna run build --stream",
-        "build-storybook": "storybook build",
-        "build:clean": "lerna run build --skip-nx-cache",
-        "build:markup": "lerna run build --stream --scope=@ory/elements-markup --skip-nx-cache",
-        "build:preact": "lerna run build --stream --scope=@ory/elements-preact --skip-nx-cache",
-        "build:react": "lerna run build --stream --scope=@ory/elements --skip-nx-cache",
-        "build:test": "lerna run build --stream --scope=@ory/elements-test --skip-nx-cache",
-        "clean": "npx lerna@5.6.2 clean --yes",
-        "docs": "typedoc --entryPointStrategy packages . --out docs",
-        "initialize": "npm run clean && npx lerna@5.6.2 bootstrap --hoist",
-        "refresh": "lerna bootstrap --hoist",
         "storybook": "storybook dev -p 6006",
-        "test": "playwright test -c playwright-ct.config.ts"
+        "initialize": "npm run clean && npx lerna@5.6.2 bootstrap --hoist",
+        "clean": "npx lerna@5.6.2 clean --yes",
+        "build-storybook": "storybook build",
+        "refresh": "lerna bootstrap --hoist",
+        "build:clean": "lerna run build --skip-nx-cache",
+        "build": "lerna run build --stream",
+        "build:react": "lerna run build --stream --scope=@ory/elements --skip-nx-cache",
+        "build:preact": "lerna run build --stream --scope=@ory/elements-preact --skip-nx-cache",
+        "build:markup": "lerna run build --stream --scope=@ory/elements-markup --skip-nx-cache",
+        "build:test": "lerna run build --stream --scope=@ory/elements-test --skip-nx-cache",
+        "test": "playwright test -c playwright-ct.config.ts",
+        "docs": "typedoc --entryPointStrategy packages . --out docs",
+        "generate-locales": "cd scripts && npm run generate-locales"
     },
-    "prettier": "ory-prettier-styles",
     "dependencies": {
         "lodash": "4.17.21"
     },
@@ -68,6 +69,7 @@
         "chromatic": "6.21.0",
         "classnames": "2.3.2",
         "eslint": "8.32.0",
+        "eslint-plugin-formatjs": "4.10.3",
         "eslint-plugin-react": "7.32.2",
         "eslint-plugin-react-hooks": "4.6.0",
         "eslint-plugin-storybook": "0.6.13",
@@ -81,11 +83,12 @@
         "prettier": "2.8.3",
         "react": "18.2.0",
         "react-dom": "18.2.0",
+        "react-intl": "6.4.4",
         "storybook": "7.2.1",
         "typedoc": "0.23.16",
         "typescript": "4.9.4",
-        "vite": "4.4.2",
-        "vite-plugin-dts": "1.7.1",
+        "vite": "4.4.9",
+        "vite-plugin-dts": "3.5.2",
         "vite-plugin-static-copy": "0.13.1"
     },
     "engines": {
