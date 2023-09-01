@@ -1,7 +1,3 @@
-import { SettingsFlow } from "@ory/client"
-import cn from "classnames"
-import { JSX } from "react"
-
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { useScriptNodes } from "./helpers/node-script"
 import {
@@ -21,6 +17,9 @@ import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { ProfileSettingsSection } from "./sections/profile-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
+import { SettingsFlow } from "@ory/client"
+import cn from "classnames"
+import { JSX } from "react"
 import { useIntl } from "react-intl"
 
 export type UserSettingsFlowType =

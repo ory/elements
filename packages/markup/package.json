@@ -1,9 +1,16 @@
 {
   "name": "@ory/elements-markup",
   "version": "0.0.0",
-  "publishConfig": {
-    "access": "public"
+  "homepage": "https://github.com/ory/elements#readme",
+  "bugs": {
+    "url": "https://github.com/ory/elements/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/markup"
+  },
+  "license": "Apache License 2.0",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -36,30 +43,23 @@
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "vite build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/ory/elements.git",
-    "directory": "packages/markup"
-  },
-  "license": "Apache License 2.0",
-  "bugs": {
-    "url": "https://github.com/ory/elements/issues"
-  },
-  "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@vanilla-extract/vite-plugin": "3.7.1",
     "@vitejs/plugin-react": "3.0.1",
     "eslint": "8.33.0"
   },
-  "files": [
-    "dist/*"
-  ],
   "engines": {
     "node": ">=16.16.0",
     "npm": ">=8.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "typedoc": {
     "entryPoint": "../../src/markup.ts"

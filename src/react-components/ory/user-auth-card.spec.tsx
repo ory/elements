@@ -1,4 +1,3 @@
-import { expect, test } from "@playwright/experimental-ct-react"
 import {
   AuthPage,
   loginFixture,
@@ -11,6 +10,7 @@ import {
   loginCodeFixture,
 } from "../../test"
 import { UserAuthCard } from "./user-auth-card"
+import { expect, test } from "@playwright/experimental-ct-react"
 ;[true, false].forEach((enableSignUp) => {
   test(
     "ory auth card login flow. signup enabled: " + enableSignUp,

@@ -1,9 +1,8 @@
-import { SettingsFlow } from "@ory/client"
-import { JSX } from "react"
-
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
+import { SettingsFlow } from "@ory/client"
+import { JSX } from "react"
 
 export type PasswordSettingsProps = {
   flow: SettingsFlow

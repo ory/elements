@@ -1,7 +1,7 @@
-import { OAuth2ConsentRequest } from "@ory/client"
-import { test } from "@playwright/experimental-ct-react"
 import { ConsentPage } from "../../test/models/ConsentPage"
 import { UserConsentCard } from "./user-consent-card"
+import { OAuth2ConsentRequest } from "@ory/client"
+import { test } from "@playwright/experimental-ct-react"
 
 test("ory consent card login flow", async ({ mount }) => {
   const defaults = {

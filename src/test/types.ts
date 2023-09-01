@@ -41,13 +41,13 @@ export type Traits = {
   group: UiNodeGroupEnum
   value: string
   type:
-  | "input"
-  | "checkbox"
-  | "button"
-  | "hidden"
-  | "submit"
-  | "email"
-  | "password"
+    | "input"
+    | "checkbox"
+    | "button"
+    | "hidden"
+    | "submit"
+    | "email"
+    | "password"
   label: string
   required?: boolean
   node_type?: string
@@ -60,15 +60,15 @@ export type ErrorBrowserLocationChangeRequired = {
 
 export type MockFlowResponse = {
   body:
-  | LoginFlow
-  | RegistrationFlow
-  | RecoveryFlow
-  | VerificationFlow
-  | SettingsFlow
-  | Session
-  | GenericError
-  | ErrorBrowserLocationChangeRequired
-  | null
+    | LoginFlow
+    | RegistrationFlow
+    | RecoveryFlow
+    | VerificationFlow
+    | SettingsFlow
+    | Session
+    | GenericError
+    | ErrorBrowserLocationChangeRequired
+    | null
   status: number
   headers: Record<string, string>
 }

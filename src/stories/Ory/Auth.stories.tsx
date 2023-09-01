@@ -1,3 +1,19 @@
+import { UserAuthCard, UserAuthCardProps } from "../../react-components"
+import logo from "../assets/logo.svg"
+import { Container } from "../storyhelper"
+import loginFlow2FA from "./login-flow-2fa.json"
+import loginFlowCodeOne from "./login-flow-code-1.json"
+import loginFlowCodeTwo from "./login-flow-code-2.json"
+import loginFlowError from "./login-flow-error.json"
+import loginFlowHydra from "./login-flow-hydra.json"
+import loginFlowRefresh from "./login-flow-refresh.json"
+import loginFlowUiError from "./login-flow-ui-error.json"
+import loginFlow from "./login-flow.json"
+import recoveryFlow from "./recovery-flow.json"
+import registrationFlowWebAuthn from "./register-flow-webauthn.json"
+import registrationFlow from "./register-flow.json"
+import verificationFlow from "./verification-flow.json"
+import verificationSubmitted from "./verification-submit-flow.json"
 import {
   LoginFlow,
   RecoveryFlow,
@@ -5,28 +21,6 @@ import {
   VerificationFlow,
 } from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
-import { UserAuthCard, UserAuthCardProps } from "../../react-components"
-import { Container } from "../storyhelper"
-
-import loginFlow2FA from "./login-flow-2fa.json"
-import loginFlowRefresh from "./login-flow-refresh.json"
-import loginFlow from "./login-flow.json"
-import loginFlowCodeOne from "./login-flow-code-1.json"
-import loginFlowCodeTwo from "./login-flow-code-2.json"
-import loginFlowHydra from "./login-flow-hydra.json"
-
-import loginFlowError from "./login-flow-error.json"
-import loginFlowUiError from "./login-flow-ui-error.json"
-
-import registrationFlowWebAuthn from "./register-flow-webauthn.json"
-import registrationFlow from "./register-flow.json"
-
-import recoveryFlow from "./recovery-flow.json"
-
-import verificationFlow from "./verification-flow.json"
-import verificationSubmitted from "./verification-submit-flow.json"
-
-import logo from "../assets/logo.svg"
 
 export default {
   title: "Ory/UserAuthCard",

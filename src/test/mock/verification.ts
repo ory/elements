@@ -1,10 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { expect, test } from "@playwright/test"
 import { VerificationPage } from "../models"
 import { defaultVerificationTraitsWithCode } from "../traits"
 import { UUIDv4 } from "../utils"
+import { expect, test } from "@playwright/test"
 
 export const VerificationMocks = {
   // VerificationSuccessTest is a mock for a successful verification flow

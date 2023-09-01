@@ -1,12 +1,11 @@
-import cn from "classnames"
-import { ReactNode, JSX, HTMLAttributes } from "react"
-
 import { colorSprinkle, gridStyle, typographyStyle } from "../theme"
 import {
   cardContainer,
   cardGradientActionStyle,
   cardGradientOverlayStyle,
 } from "../theme/card-gradient.css"
+import cn from "classnames"
+import { ReactNode, JSX, HTMLAttributes } from "react"
 
 export interface CardGradientProps extends HTMLAttributes<HTMLAnchorElement> {
   heading: string | ReactNode

@@ -1,5 +1,4 @@
-import cn from "classnames"
-
+import { useIdWithFallback } from "../common/useIdWithFallback"
 import {
   colorSprinkle,
   gridStyle,
@@ -12,7 +11,7 @@ import {
   typographyStyle,
 } from "../theme"
 import { MenuLink, MenuLinkProps } from "./menu-link"
-import { useIdWithFallback } from "../common/useIdWithFallback"
+import cn from "classnames"
 
 export type NavSectionLinks = {
   name: string

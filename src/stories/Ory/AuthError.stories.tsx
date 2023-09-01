@@ -1,10 +1,9 @@
-import { FlowError } from "@ory/client"
-import { ComponentMeta, Story } from "@storybook/react"
 import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
-
 import authError400 from "./auth-error-400.json"
 import authError500 from "./auth-error-500.json"
+import { FlowError } from "@ory/client"
+import { ComponentMeta, Story } from "@storybook/react"
 
 export default {
   title: "Ory/ErrorAuthCard",

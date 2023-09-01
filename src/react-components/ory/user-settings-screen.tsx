@@ -1,11 +1,8 @@
-import { Nav } from "../nav"
-import { Typography } from "../typography"
-import { FormattedMessage, useIntl } from "react-intl"
-import { SettingsFlow } from "@ory/client"
-import { NodeMessages } from "./helpers/error-messages"
 import { Divider } from "../divider"
-import { UserSettingsCard, UserSettingsFlowType } from "./user-settings-card"
+import { Nav } from "../nav"
 import { NavSectionLinks } from "../nav"
+import { Typography } from "../typography"
+import { NodeMessages } from "./helpers/error-messages"
 import {
   hasOidc,
   hasPassword,
@@ -13,6 +10,9 @@ import {
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
+import { UserSettingsCard, UserSettingsFlowType } from "./user-settings-card"
+import { SettingsFlow } from "@ory/client"
+import { FormattedMessage, useIntl } from "react-intl"
 
 export type UserSettingsScreenProps = {
   navClassName?: string

@@ -1,6 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { test, VerificationMocks, VerificationPage } from "@ory/elements-test"
 
 test.describe.parallel("Verification Page", () => {
@@ -12,7 +11,7 @@ test.describe.parallel("Verification Page", () => {
       oryProjectUrl,
       {
         ssr: true,
-      }
+      },
     )
     await VerificationMocks.VerificationSuccessTest(verificationPage)
   })

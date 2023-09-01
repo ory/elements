@@ -37,16 +37,14 @@ folder.
 // other imports here
 // Ory Elements
 // optional global css reset
-import "@ory/elements/assets/normalize.css"
 // optional fontawesome icons
 import "@ory/elements/assets/fa-brands.min.css"
 import "@ory/elements/assets/fa-solid.min.css"
 import "@ory/elements/assets/fontawesome.min.css"
-
 // optional fonts
 import "@ory/elements/assets/inter-font.css"
 import "@ory/elements/assets/jetbrains-mono-font.css"
-
+import "@ory/elements/assets/normalize.css"
 // required styles for Ory Elements
 import "@ory/elements/style.css"
 

@@ -23,10 +23,9 @@ const setupLoginFlow = async (loginPage: LoginPage) => {
 
       // navigate to the login page
       // this should trigger the create request
-      const [, fetchResponse] = await Promise.all([
-        loginPage.goto(),
-        fetchRequest,
-      ])
+      await loginPage.goto()
+
+      const fetchResponse = await fetchRequest
       // intercept the fetch response
       expect(fetchResponse.status()).toBe(200)
     } else {

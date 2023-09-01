@@ -1,6 +1,4 @@
-import cn from "classnames"
-import { JSX } from "react"
-
+import { useIdWithFallback } from "../common/useIdWithFallback"
 import {
   checkboxInputStyle,
   checkboxStyle,
@@ -8,7 +6,8 @@ import {
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
-import { useIdWithFallback } from "../common/useIdWithFallback"
+import cn from "classnames"
+import { JSX } from "react"
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

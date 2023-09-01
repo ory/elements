@@ -76,11 +76,11 @@ export class VerificationPage extends AuthPage {
           },
           ...(this.ssr
             ? {
-              status: 303,
-              headers: {
-                Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
-              },
-            }
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
             : {}),
         }
       case "passed_challenge":
@@ -89,11 +89,11 @@ export class VerificationPage extends AuthPage {
           body: verificationSubmitCodeFixture,
           ...(this.ssr
             ? {
-              status: 303,
-              headers: {
-                Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
-              },
-            }
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
             : {}),
         }
       default:

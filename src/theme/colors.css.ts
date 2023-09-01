@@ -1,8 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
 import { oryTheme } from "./theme.css"
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
 
 export const colorProperties = defineProperties({
   properties: {

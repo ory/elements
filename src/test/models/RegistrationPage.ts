@@ -56,8 +56,8 @@ export class RegistrationPage extends AuthPage {
       headers: this.ssr
         ? { Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href }
         : {
-          "Content-Type": "application/json",
-        },
+            "Content-Type": "application/json",
+          },
       status: this.ssr ? 303 : 200,
     }
   }

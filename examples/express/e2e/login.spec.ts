@@ -1,7 +1,6 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 import { LoginMocks, LoginPage, test as base, UUIDv4 } from "@ory/elements-test"
-import { rest } from "msw"
 
 const test = base.extend<{ loginPage: LoginPage }>({
   loginPage: async ({ page, environment }, use) => {
@@ -32,20 +31,6 @@ test.describe.parallel("Login Page", () => {
         },
       })
     })
-    loginPage.server?.use(
-      rest.get(
-        "http://localhost:4000/self-service/login/flows",
-        async (_, res, ctx) => {
-          return res.once(
-            ctx.json({
-              id: UUIDv4(),
-              active: true,
-            }),
-          )
-        },
-      ),
-    )
-
     await LoginMocks.LoginSuccessTest(loginPage)
   })
 

@@ -122,16 +122,14 @@ individually.
 ```tsx
 // Ory Elements
 // optional global css reset
-import "@ory/elements/assets/normalize.css"
 // optional fontawesome icons
 import "@ory/elements/assets/fa-brands.min.css"
 import "@ory/elements/assets/fa-solid.min.css"
 import "@ory/elements/assets/fontawesome.min.css"
-
 // optional fonts
 import "@ory/elements/assets/inter-font.css"
 import "@ory/elements/assets/jetbrains-mono-font.css"
-
+import "@ory/elements/assets/normalize.css"
 // required styles for Ory Elements
 import "@ory/elements/style.css"
 ```
@@ -302,16 +300,14 @@ Inside our components we provide the `<ThemeProvider />` which exposes the
 ```tsx
 // Ory Elements
 // optional global css reset
-import "@ory/elements-preact/assets/normalize.css"
 // optional fontawesome icons
 import "@ory/elements-preact/assets/fa-brands.min.css"
 import "@ory/elements-preact/assets/fa-solid.min.css"
 import "@ory/elements-preact/assets/fontawesome.min.css"
-
 // optional fonts
 import "@ory/elements-preact/assets/inter-font.css"
 import "@ory/elements-preact/assets/jetbrains-mono-font.css"
-
+import "@ory/elements-preact/assets/normalize.css"
 // required styles for Ory Elements
 import "@ory/elements-preact/style.css"
 
@@ -382,9 +378,9 @@ For Express.js the library also exports a helper function which registers all
 the CSS the library produces.
 
 ```ts
-import express, { Application } from "express"
-import { assignInlineVars } from "@vanilla-extract/dynamic"
 import { oryTheme, Theme } from "../theme"
+import { assignInlineVars } from "@vanilla-extract/dynamic"
+import express, { Application } from "express"
 
 export const RegisterOryElementsExpress = (app: Application, theme: Theme) => {
   app.use("/theme.css", (req, res) => {

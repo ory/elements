@@ -1,6 +1,6 @@
-import { ComponentMeta, Story } from "@storybook/react"
 import { CodeBox, CodeBoxProps } from "../react-components/codebox"
 import { Container } from "./storyhelper"
+import { ComponentMeta, Story } from "@storybook/react"
 
 export default {
   title: "Component/CodeBox",

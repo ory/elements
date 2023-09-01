@@ -1,11 +1,10 @@
-import { FlowError } from "@ory/client"
-import { JSX } from "react"
-
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { ButtonLink, CustomHref } from "../button-link"
 import { Card } from "../card"
 import { CodeBox } from "../codebox"
 import { Message } from "../message"
+import { FlowError } from "@ory/client"
+import { JSX } from "react"
 import { FormattedMessage, useIntl } from "react-intl"
 
 // SelfServiceErrorCard props

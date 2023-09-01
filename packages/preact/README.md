@@ -36,16 +36,14 @@ folder.
 ```tsx
 // Ory Elements
 // optional global css reset
-import "@ory/elements-preact/assets/normalize.css"
 // optional fontawesome icons
 import "@ory/elements-preact/assets/fa-brands.min.css"
 import "@ory/elements-preact/assets/fa-solid.min.css"
 import "@ory/elements-preact/assets/fontawesome.min.css"
-
 // optional fonts
 import "@ory/elements-preact/assets/inter-font.css"
 import "@ory/elements-preact/assets/jetbrains-mono-font.css"
-
+import "@ory/elements-preact/assets/normalize.css"
 // required styles for Ory Elements
 import "@ory/elements-preact/style.css"
 

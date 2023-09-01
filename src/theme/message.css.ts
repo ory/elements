@@ -1,8 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { oryTheme } from "./theme.css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 
 const SeverityTypes = [
   "error",

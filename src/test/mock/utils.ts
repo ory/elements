@@ -1,6 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { MockFlowResponse } from "../types"
 
 // defaultMockFlowResponse is the default response for any flow request

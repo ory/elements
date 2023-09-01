@@ -35,17 +35,16 @@ ory tunnel http://localhost:3000 --project <project-slug> --dev
 ```
 
 The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
-have explicity told our Express.JS app to use through the `ORY_SDK_URL`
-export.
+have explicity told our Express.JS app to use through the `ORY_SDK_URL` export.
 
-Now you can see Ory Elements in action by opening <http://localhost:3000> in your
-browser!
+Now you can see Ory Elements in action by opening <http://localhost:3000> in
+your browser!
 
 ### Configurations
 
-- `ORY_SDK_URL` (required): The URL where ORY Kratos's Public API is
-  located at. If this app and ORY Kratos are running in the same private
-  network, this should be the private network address (e.g.
+- `ORY_SDK_URL` (required): The URL where ORY Kratos's Public API is located at.
+  If this app and ORY Kratos are running in the same private network, this
+  should be the private network address (e.g.
   `kratos-public.svc.cluster.local`).
 - `TLS_CERT_PATH` (optional): Path to certificate file. Should be set up
   together with `TLS_KEY_PATH` to enable HTTPS.
@@ -103,5 +102,5 @@ For more details, see [End-to-End Testing](../../packages/test/README.md).
 ### Contributing
 
 Found a bug or want to add a new feature? Please fork this repository and create
-a pull request. If your changes are large, please open an issue first.
-This application can be configured using two environment variables:
+a pull request. If your changes are large, please open an issue first. This
+application can be configured using two environment variables:

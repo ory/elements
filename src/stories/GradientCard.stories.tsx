@@ -1,6 +1,6 @@
-import { ComponentMeta, Story } from "@storybook/react"
 import { CardGradient, CardGradientProps } from "../react-components"
 import { Container } from "./storyhelper"
+import { ComponentMeta, Story } from "@storybook/react"
 
 export default {
   title: "Component/CardGradient",

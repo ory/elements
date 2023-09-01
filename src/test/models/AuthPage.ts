@@ -145,24 +145,25 @@ export class AuthPage {
     }
 
     console.log(
-      `registerMockCreateResponse ${flow}. Is Server-side rendering: ${this.server !== undefined
+      `registerMockCreateResponse ${flow}. Is Server-side rendering: ${
+        this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
     return this.server && !ssrOverride
       ? this.server.use(
-        rest.get(
-          `${this.oryProjectUrl.href}/self-service/${flow}/browser`,
-          async (_, res, ctx) => {
-            return res.once(ctx.json(resp))
-          },
-        ),
-      )
+          rest.get(
+            `${this.oryProjectUrl.href}/self-service/${flow}/browser`,
+            async (_, res, ctx) => {
+              return res.once(ctx.json(resp))
+            },
+          ),
+        )
       : this.locator
-        .page()
-        .route(`**/self-service/${flow}/browser**`, async (route) => {
-          route.fulfill(resp)
-        })
+          .page()
+          .route(`**/self-service/${flow}/browser**`, async (route) => {
+            route.fulfill(resp)
+          })
   }
 
   async registerMockFetchResponse({
@@ -176,24 +177,25 @@ export class AuthPage {
     }
 
     console.log(
-      `registerMockFetchResponse ${flow}. Is Server-side rendering: ${this.server !== undefined
+      `registerMockFetchResponse ${flow}. Is Server-side rendering: ${
+        this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
     return this.server && !ssrOverride
       ? this.server.use(
-        rest.get(
-          `${this.oryProjectUrl}/self-service/${flow}/flows`,
-          async (_, res, ctx) => {
-            return res.once(ctx.json(resp))
-          },
-        ),
-      )
+          rest.get(
+            `${this.oryProjectUrl}/self-service/${flow}/flows`,
+            async (_, res, ctx) => {
+              return res.once(ctx.json(resp))
+            },
+          ),
+        )
       : this.locator
-        .page()
-        .route(`**/self-service/${flow}/flows**`, async (route) => {
-          route.fulfill(resp)
-        })
+          .page()
+          .route(`**/self-service/${flow}/flows**`, async (route) => {
+            route.fulfill(resp)
+          })
   }
 
   async registerMockSubmitResponse({
@@ -207,24 +209,25 @@ export class AuthPage {
     }
 
     console.log(
-      `registerMockSubmitResponse ${flow}. Is Server-side rendering: ${this.server !== undefined
+      `registerMockSubmitResponse ${flow}. Is Server-side rendering: ${
+        this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
     return this.server && !ssrOverride
       ? this.server.use(
-        rest.post(
-          `${this.oryProjectUrl.href}/self-service/${flow}?flow**`,
-          async (_, res, ctx) => {
-            return res.once(ctx.json(resp))
-          },
-        ),
-      )
+          rest.post(
+            `${this.oryProjectUrl.href}/self-service/${flow}?flow**`,
+            async (_, res, ctx) => {
+              return res.once(ctx.json(resp))
+            },
+          ),
+        )
       : this.locator
-        .page()
-        .route(`**/self-service/${flow}?flow**`, async (route) => {
-          route.fulfill(resp)
-        })
+          .page()
+          .route(`**/self-service/${flow}?flow**`, async (route) => {
+            route.fulfill(resp)
+          })
   }
 
   async registerMockWhoamiResponse({
@@ -245,22 +248,23 @@ export class AuthPage {
     }
 
     console.log(
-      `registerMockWhoamiResponse. Is Server-side rendering: ${this.server !== undefined
+      `registerMockWhoamiResponse. Is Server-side rendering: ${
+        this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
 
     return this.server && !ssrOverride
       ? this.server.use(
-        rest.get(
-          `${this.oryProjectUrl.href}/sessions/whoami`,
-          async (_, res, ctx) => {
-            return res.once(ctx.json(resp))
-          },
-        ),
-      )
+          rest.get(
+            `${this.oryProjectUrl.href}/sessions/whoami`,
+            async (_, res, ctx) => {
+              return res.once(ctx.json(resp))
+            },
+          ),
+        )
       : this.locator.page().route("**/sessions/whoami", async (route) => {
-        await route.fulfill(resp)
-      })
+          await route.fulfill(resp)
+        })
   }
 
   async interceptCreateResponse(
@@ -268,7 +272,8 @@ export class AuthPage {
     ssrOverride = false,
   ): Promise<Response> {
     console.log(
-      `interceptCreateResponse. Is Server-side rendering: ${this.server !== undefined
+      `interceptCreateResponse. Is Server-side rendering: ${
+        this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
     if (this.server && !ssrOverride) {
@@ -305,8 +310,9 @@ export class AuthPage {
     ssrOverride = false,
   ): Promise<Response> {
     console.log(
-      `interceptFetchResponse. Is Server-side rendering: ${this.server !== undefined
-      }. Override Server-side rendering: ${!!ssrOverride}`,
+      `interceptFetchResponse. Is Server-side rendering: ${
+        this.server !== undefined
+      }. Override Server-side rendering: ${ssrOverride}`,
     )
     if (this.server && !ssrOverride) {
       console.log("interceptFetchResponse server-side")
@@ -352,7 +358,8 @@ export class AuthPage {
     ssrOverride = false,
   ): Promise<Response> {
     console.log(
-      `interceptSubmitResponse. Is Server-side rendering: ${this.server !== undefined
+      `interceptSubmitResponse. Is Server-side rendering: ${
+        this.server !== undefined
       }. Override Server-side rendering: ${ssrOverride}`,
     )
     if (this.server && !ssrOverride) {

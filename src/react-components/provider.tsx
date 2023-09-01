@@ -1,14 +1,13 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic"
-import cn from "classnames"
-import { PropsWithChildren, ReactElement, ReactNode } from "react"
-import { IntlProvider as OriginalIntlProvider } from "react-intl"
-
 import { defaultDarkTheme, defaultLightTheme, oryTheme, Theme } from "../theme"
 import {
   themeProviderFontRenderingStyle,
   themeProviderStyle,
 } from "../theme/theme-provider.css"
 import * as locales from "./../locales"
+import { assignInlineVars } from "@vanilla-extract/dynamic"
+import cn from "classnames"
+import { PropsWithChildren, ReactElement, ReactNode } from "react"
+import { IntlProvider as OriginalIntlProvider } from "react-intl"
 
 export type ThemeProviderProps = {
   theme?: "light" | "dark"

@@ -1,7 +1,7 @@
-import { UiNode } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasCode } from "../helpers/utils"
+import { UiNode } from "@ory/client"
 
 export type AuthCodeSectionProps = {
   nodes: UiNode[]

@@ -1,11 +1,10 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { expect, test } from "@playwright/test"
 import { registrationSubmitDuplicateAccountFixture } from "../fixtures"
 import { RegistrationPage } from "../models"
 import { UUIDv4 } from "../utils"
 import { defaultMockFlowResponse } from "./utils"
+import { expect, test } from "@playwright/test"
 
 const setupRegistrationFlow = async (registrationPage: RegistrationPage) => {
   await test.step("mock the whoami response to be logged in", async () => {

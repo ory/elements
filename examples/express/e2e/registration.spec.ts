@@ -1,6 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { RegistrationMocks, RegistrationPage, test } from "@ory/elements-test"
 
 test.describe.parallel("Registration Page", () => {
@@ -12,8 +11,8 @@ test.describe.parallel("Registration Page", () => {
       applicationUrl,
       oryProjectUrl,
       {
-        ssr: true
-      }
+        ssr: true,
+      },
     )
 
     await RegistrationMocks.RegistrationSuccessTest(registrationPage)
@@ -27,8 +26,8 @@ test.describe.parallel("Registration Page", () => {
       applicationUrl,
       oryProjectUrl,
       {
-        ssr: true
-      }
+        ssr: true,
+      },
     )
 
     await RegistrationMocks.RegistrationDuplicateAccountTest(registrationPage)

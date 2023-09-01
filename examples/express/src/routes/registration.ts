@@ -1,11 +1,5 @@
 // Copyright © 2022 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-import { UiNodeInputAttributes } from "@ory/client"
-import { UserAuthCard } from "@ory/elements-markup"
-import {
-  filterNodesByGroups,
-  isUiNodeInputAttributes,
-} from "@ory/integrations/ui"
 import {
   defaultConfig,
   getUrlForFlow,
@@ -16,6 +10,12 @@ import {
   RouteCreator,
   RouteRegistrator,
 } from "../pkg"
+import { UiNodeInputAttributes } from "@ory/client"
+import { UserAuthCard } from "@ory/elements-markup"
+import {
+  filterNodesByGroups,
+  isUiNodeInputAttributes,
+} from "@ory/integrations/ui"
 
 // A simple express handler that shows the registration screen.
 export const createRegistrationRoute: RouteCreator =

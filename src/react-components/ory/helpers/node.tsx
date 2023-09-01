@@ -1,13 +1,3 @@
-import { UiNode, UiText } from "@ory/client"
-import {
-  isUiNodeAnchorAttributes,
-  isUiNodeImageAttributes,
-  isUiNodeInputAttributes,
-  isUiNodeTextAttributes,
-} from "@ory/integrations/ui"
-import { JSX, MouseEvent } from "react"
-import { IntlShape, useIntl } from "react-intl"
-
 import { pxToRem } from "../../../common"
 import { gridStyle } from "../../../theme"
 import { Button, ButtonProps } from "../../button"
@@ -18,6 +8,15 @@ import { Image } from "../../image"
 import { InputField } from "../../input-field"
 import { Typography } from "../../typography"
 import { NodeMessages } from "./error-messages"
+import { UiNode, UiText } from "@ory/client"
+import {
+  isUiNodeAnchorAttributes,
+  isUiNodeImageAttributes,
+  isUiNodeInputAttributes,
+  isUiNodeTextAttributes,
+} from "@ory/integrations/ui"
+import { JSX, MouseEvent } from "react"
+import { IntlShape, useIntl } from "react-intl"
 
 interface ButtonSubmit {
   type: "submit" | "reset" | "button" | undefined

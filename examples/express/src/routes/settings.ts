@@ -1,5 +1,15 @@
 // Copyright © 2022 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
+import {
+  defaultConfig,
+  getUrlForFlow,
+  isQuerySet,
+  logger,
+  redirectOnSoftError,
+  requireAuth,
+  RouteCreator,
+  RouteRegistrator,
+} from "../pkg"
 import { UiNodeInputAttributes } from "@ory/client"
 import {
   Divider,
@@ -19,16 +29,6 @@ import {
   filterNodesByGroups,
   isUiNodeInputAttributes,
 } from "@ory/integrations/ui"
-import {
-  defaultConfig,
-  getUrlForFlow,
-  isQuerySet,
-  logger,
-  redirectOnSoftError,
-  requireAuth,
-  RouteCreator,
-  RouteRegistrator,
-} from "../pkg"
 
 export const createSettingsRoute: RouteCreator =
   (createHelpers) => async (req, res, next) => {

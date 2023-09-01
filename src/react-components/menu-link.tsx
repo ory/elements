@@ -1,12 +1,11 @@
-import cn from "classnames"
-import { JSX } from "react"
-
 import { colorSprinkle, typographyStyle } from "../theme"
 import {
   menuLinkIconLeftStyle,
   menuLinkStyle,
   menuLinkTextStyle,
 } from "../theme/menu-link.css"
+import cn from "classnames"
+import { JSX } from "react"
 
 export interface MenuLinkProps extends React.HTMLAttributes<HTMLDivElement> {
   href: string
