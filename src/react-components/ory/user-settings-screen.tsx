@@ -147,19 +147,22 @@ const body = ({
         "webauthn",
         "totp",
       ] as UserSettingsFlowType[]
-    ).map(
-      (flowType) =>
-        flow.ui.nodes.some(({ group }) => group === flowType) && (
-          <div
-            className={settingsCardContainerClassName}
-            id={flowType}
-            key={flowType}
-          >
-            <UserSettingsCard flowType={flowType} flow={flow} />
-            <Divider fullWidth={false} className={dividerClassName} />
-          </div>
-        ),
-    )}
+    ).map((flowType) => {
+      const $card = <UserSettingsCard flowType={flowType} flow={flow} />
+      if (!$card) {
+        return null
+      }
+      return (
+        <div
+          className={settingsCardContainerClassName}
+          id={flowType}
+          key={flowType}
+        >
+          {$card}
+          <Divider fullWidth={false} className={dividerClassName} />
+        </div>
+      )
+    })}
   </>
 )
 
