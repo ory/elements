@@ -10,3 +10,4 @@ CONTRIBUTING.md
 docs
 .next
 .cache
+*.hbs

@@ -1,9 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { VerificationFlow, VerificationFlowState } from "@ory/client"
-import { Page, Response } from "@playwright/test"
-import { merge } from "lodash"
 import { verificationSubmitCodeFixture } from "../fixtures"
 import { defaultMockFlowResponse } from "../mock"
 import {
@@ -13,27 +9,31 @@ import {
 import { getFlowState, MockFlow, MockFlowResponse } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage } from "./AuthPage"
+import { VerificationFlow, VerificationFlowState } from "@ory/client"
+import { Page, Response } from "@playwright/test"
+import { merge } from "lodash"
 
 export class VerificationPage extends AuthPage {
   readonly pageUrl: URL
   readonly page: Page
-  readonly oryProjectUrl: URL
-
   readonly verificationActionPath = "/self-service/verification?flow="
 
   constructor(
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    path?: string,
+    opts?: {
+      path?: string
+      ssr?: boolean
+    },
   ) {
     super(
       defaultVerificationEmailTraits,
       page.getByTestId("verification-auth-card"),
+      oryProjectUrl,
     )
     this.page = page
-    this.pageUrl = new URL(path || "/verification", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
+    this.pageUrl = new URL(opts?.path || "/verification", baseUrl)
   }
 
   async goto() {
@@ -74,11 +74,27 @@ export class VerificationPage extends AuthPage {
               nodes: traitsToNodes(defaultVerificationTraitsWithCode, false),
             },
           },
+          ...(this.ssr
+            ? {
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
+            : {}),
         }
       case "passed_challenge":
         return {
           ...defaultMockFlowResponse,
           body: verificationSubmitCodeFixture,
+          ...(this.ssr
+            ? {
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
+            : {}),
         }
       default:
         return {
@@ -99,10 +115,17 @@ export class VerificationPage extends AuthPage {
 
   async registerMockFetchResponse({
     response,
+    state,
   }: Omit<MockFlow, "flow">): Promise<void> {
     return super.registerMockFetchResponse({
       flow: "verification",
-      response: merge({}, this.getVerificationFlowResponse(), response),
+      response: merge(
+        {},
+        this.getVerificationFlowResponse(
+          state ? getFlowState(state, "verification") : "choose_method",
+        ),
+        response,
+      ),
     })
   }
 

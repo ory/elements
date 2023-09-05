@@ -1,9 +1,8 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+import { oryTheme, Theme } from "../theme"
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import express from "express"
-import { oryTheme, Theme } from "../theme"
 
 export const RegisterOryElementsExpress = (
   app: express.Application,

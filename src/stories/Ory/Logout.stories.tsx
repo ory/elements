@@ -1,9 +1,8 @@
-import { ComponentProps } from "react"
-import { ComponentMeta, Story } from "@storybook/react"
-
-import { Container } from "../storyhelper"
 import { UserLogoutCard } from "../../react-components"
 import logo from "../assets/logo.svg"
+import { Container } from "../storyhelper"
+import { ComponentMeta, Story } from "@storybook/react"
+import { ComponentProps } from "react"
 
 export default {
   title: "Ory/UserLogoutCard",

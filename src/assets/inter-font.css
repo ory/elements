@@ -3,7 +3,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("inter/Inter-Regular.woff2?v=3.19") format("woff2"),
+  src:
+    url("inter/Inter-Regular.woff2?v=3.19") format("woff2"),
     url("inter/Inter-Regular.woff?v=3.19") format("woff");
 }
 
@@ -12,7 +13,8 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("inter/Inter-Bold.woff2?v=3.19") format("woff2"),
+  src:
+    url("inter/Inter-Bold.woff2?v=3.19") format("woff2"),
     url("inter/Inter-Bold.woff?v=3.19") format("woff");
 }
 
@@ -21,6 +23,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("inter/Inter-SemiBold.woff2?v=3.19") format("woff2"),
+  src:
+    url("inter/Inter-SemiBold.woff2?v=3.19") format("woff2"),
     url("inter/Inter-SemiBold.woff?v=3.19") format("woff");
 }

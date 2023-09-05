@@ -1,11 +1,10 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { style } from "@vanilla-extract/css"
-import { RecipeVariants, recipe } from "@vanilla-extract/recipes"
 import { pxToRem } from "../common"
 import { defaultBreakpoints } from "./consts"
 import { oryTheme } from "./theme.css"
+import { style } from "@vanilla-extract/css"
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes"
 
 // the base card style with media queries
 const base = style({

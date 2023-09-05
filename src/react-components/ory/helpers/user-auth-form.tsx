@@ -1,3 +1,6 @@
+import { formStyle } from "../../../theme"
+import { FilterFlowNodes } from "./filter-flow-nodes"
+import { SelfServiceFlow } from "./types"
 import {
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
@@ -8,10 +11,6 @@ import {
 import { FilterNodesByGroups } from "@ory/integrations/ui"
 import cn from "classnames"
 import { JSX } from "react"
-
-import { formStyle } from "../../../theme"
-import { FilterFlowNodes } from "./filter-flow-nodes"
-import { SelfServiceFlow } from "./types"
 
 export type UserAuthFormAdditionalProps = {
   onSubmit?: ({

@@ -1,10 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { globalStyle, style } from "@vanilla-extract/css"
 import { pxToRem } from "../common"
 import { defaultBreakpoints } from "./consts"
 import { oryTheme } from "./theme.css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 export const navStyle = style({
   // disable text highlight inside the nav

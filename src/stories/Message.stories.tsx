@@ -1,7 +1,7 @@
-import { ComponentMeta, Story } from "@storybook/react"
 import { Message, MessageProps } from "../react-components"
 import { colorSprinkle } from "../theme"
 import { Container } from "./storyhelper"
+import { ComponentMeta, Story } from "@storybook/react"
 
 export default {
   title: "Component/Message",

@@ -1,9 +1,8 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+import { Traits } from "./types"
 import { UiNode, UiNodeAttributes, UiNodeMeta } from "@ory/client"
 import { isUiNodeInputAttributes } from "@ory/integrations/ui"
-import { Traits } from "./types"
 
 export const isUiNode = (a: unknown): a is UiNode[] => {
   return (

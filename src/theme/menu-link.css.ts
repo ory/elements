@@ -1,8 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { style } from "@vanilla-extract/css"
 import { pxToEm, pxToRem } from "../common"
+import { style } from "@vanilla-extract/css"
 
 export const menuLinkStyle = style({
   boxSizing: "border-box",

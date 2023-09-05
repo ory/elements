@@ -1,11 +1,10 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { expect, test } from "@playwright/test"
 import { registrationSubmitDuplicateAccountFixture } from "../fixtures"
 import { RegistrationPage } from "../models"
 import { UUIDv4 } from "../utils"
 import { defaultMockFlowResponse } from "./utils"
+import { expect, test } from "@playwright/test"
 
 const setupRegistrationFlow = async (registrationPage: RegistrationPage) => {
   await test.step("mock the whoami response to be logged in", async () => {
@@ -17,9 +16,11 @@ const setupRegistrationFlow = async (registrationPage: RegistrationPage) => {
   await test.step("mock the create registration response", async () => {
     // Mock the Ory Network service
     await registrationPage.registerMockCreateResponse({})
+    await registrationPage.registerMockFetchResponse({})
 
     // Create a network intercept for the registration response
     const createRequest = registrationPage.interceptCreateResponse()
+    const fetchRequest = registrationPage.interceptFetchResponse()
 
     // Navigate to the registration page
     // This should trigger the create request
@@ -27,7 +28,13 @@ const setupRegistrationFlow = async (registrationPage: RegistrationPage) => {
 
     // Intercept the create response
     const createResponse = await createRequest
-    expect(createResponse.status()).toBe(200)
+    expect(createResponse.status()).toBe(registrationPage.ssr ? 303 : 200)
+
+    if (registrationPage.ssr) {
+      // Intercept the fetch response
+      const fetchResponse = await fetchRequest
+      expect(fetchResponse.status()).toBe(200)
+    }
 
     // Validate that the form fields are present
     await registrationPage.expectTraitFields()
@@ -62,11 +69,20 @@ export const RegistrationMocks = {
     await test.step("mock the submit registration response", async () => {
       // Mock the Ory Network service
       await registrationPage.registerMockSubmitResponse({})
+      await registrationPage.registerMockFetchResponse({})
+
+      const fetchRequest = registrationPage.interceptFetchResponse()
       const submitRequest = registrationPage.interceptSubmitResponse()
       await registrationPage.submitForm()
 
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(200)
+      expect(submitResponse.status()).toBe(registrationPage.ssr ? 303 : 200)
+
+      if (registrationPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
     })
 
     await test.step("mock the whoami response to be logged in", async () => {
@@ -92,16 +108,30 @@ export const RegistrationMocks = {
       await registrationPage.registerMockSubmitResponse({
         response: {
           ...defaultMockFlowResponse,
-          status: 400,
+          status: registrationPage.ssr ? 303 : 400,
+          body: registrationSubmitDuplicateAccountFixture,
+        },
+      })
+      await registrationPage.registerMockFetchResponse({
+        response: {
+          ...defaultMockFlowResponse,
+          status: 200,
           body: registrationSubmitDuplicateAccountFixture,
         },
       })
 
+      const fetchRequest = registrationPage.interceptFetchResponse()
       const submitRequest = registrationPage.interceptSubmitResponse()
       await registrationPage.submitForm()
 
       const submitResponse = await submitRequest
-      expect(submitResponse.status()).toBe(400)
+      expect(submitResponse.status()).toBe(registrationPage.ssr ? 303 : 400)
+
+      if (registrationPage.ssr) {
+        // Intercept the fetch response
+        const fetchResponse = await fetchRequest
+        expect(fetchResponse.status()).toBe(200)
+      }
 
       await registrationPage.expectFlowMessage(
         "An account with the same identifier",

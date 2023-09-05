@@ -1,12 +1,10 @@
 import { gridStyle } from "../../theme"
 import { Button } from "../button"
 import { Card } from "../card"
-import { Typography } from "../typography"
-
-import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
-
 import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
+import { Typography } from "../typography"
+import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
 import { FormattedMessage, useIntl } from "react-intl"
 
 export type UserConsentCardProps = {

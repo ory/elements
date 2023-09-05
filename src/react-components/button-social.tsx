@@ -1,12 +1,11 @@
-import cn from "classnames"
-import { JSX } from "react"
-
 import {
   buttonSocialIconEndStyle,
   buttonSocialIconStartStyle,
   ButtonSocialStyle,
   buttonSocialStyle,
 } from "../theme/button-social.css"
+import cn from "classnames"
+import { JSX } from "react"
 
 // required since interfaces cannot extend types whose properties are not statically known
 type buttonSocialStyle = ButtonSocialStyle & Record<string, unknown>

@@ -1,17 +1,15 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { LoginFlow, Session } from "@ory/client"
-import { Page, Response } from "@playwright/test"
-import { merge } from "lodash"
 import { defaultLoginTraits } from "../traits"
 import { MockFlow, MockFlowResponse, Traits } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage } from "./AuthPage"
+import { LoginFlow, Session } from "@ory/client"
+import { Page, Response } from "@playwright/test"
+import { merge } from "lodash"
 
 export class LoginPage extends AuthPage {
   readonly pageUrl: URL
-  readonly oryProjectUrl: URL
   readonly page: Page
 
   readonly loginActionPath = "/self-service/login?flow="
@@ -20,13 +18,20 @@ export class LoginPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    traits?: Record<string, Traits>,
-    path?: string,
+    opts?: {
+      traits?: Record<string, Traits>
+      path?: string
+      ssr?: boolean
+    },
   ) {
-    super(traits || defaultLoginTraits, page.getByTestId("login-auth-card"))
+    super(
+      opts?.traits || defaultLoginTraits,
+      page.getByTestId("login-auth-card"),
+      oryProjectUrl,
+      opts?.ssr,
+    )
     this.page = page
-    this.pageUrl = new URL(path || "/login", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
+    this.pageUrl = new URL(opts?.path || "/login", baseUrl)
   }
 
   async goto() {
@@ -50,10 +55,12 @@ export class LoginPage extends AuthPage {
           nodes: traitsToNodes(this.traits, true),
         },
       } as LoginFlow,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      status: 200,
+      headers: this.ssr
+        ? { Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href }
+        : {
+            "Content-Type": "application/json",
+          },
+      status: this.ssr ? 303 : 200,
     }
   }
 
@@ -90,23 +97,32 @@ export class LoginPage extends AuthPage {
             schema_url: `${this.oryProjectUrl}/schemas/default`,
           },
         } as Session,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        status: 200,
+        headers: this.ssr
+          ? { Location: new URL("?flow=" + UUIDv4(), this.page.url()).href }
+          : { "Content-Type": "application/json" },
+        status: this.ssr ? 303 : 200,
       },
     })
   }
 
-  async interceptCreateResponse(): Promise<Response> {
-    return super.interceptCreateResponse("login")
+  async interceptCreateResponse(
+    flow = "login",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptCreateResponse(flow, ssrOverride)
   }
 
-  async interceptFetchResponse(): Promise<Response> {
-    return super.interceptFetchResponse("login")
+  async interceptFetchResponse(
+    flow = "login",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptFetchResponse(flow, ssrOverride)
   }
 
-  async interceptSubmitResponse(): Promise<Response> {
-    return super.interceptSubmitResponse("login")
+  async interceptSubmitResponse(
+    flow = "login",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptSubmitResponse(flow, ssrOverride)
   }
 }

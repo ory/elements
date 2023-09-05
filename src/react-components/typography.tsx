@@ -1,11 +1,10 @@
-import cn from "classnames"
-
 import {
   ColorSprinkle,
   colorSprinkle,
   TypographyStyle,
   typographyStyle,
 } from "../theme"
+import cn from "classnames"
 
 // required since interfaces cannot extend types whose properties are not statically known
 type typographyStyle = TypographyStyle & Record<string, unknown>

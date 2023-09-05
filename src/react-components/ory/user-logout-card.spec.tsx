@@ -1,6 +1,6 @@
+import { UserLogoutCard } from "./user-logout-card"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { Locator, Request } from "@playwright/test"
-import { UserLogoutCard } from "./user-logout-card"
 
 let component: Locator
 

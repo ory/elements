@@ -1,11 +1,10 @@
-import { UiNode } from "@ory/client"
-import { JSX } from "react"
-import { FormattedMessage } from "react-intl"
-
 import { gridStyle } from "../../../theme"
 import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
+import { UiNode } from "@ory/client"
+import { JSX } from "react"
+import { FormattedMessage } from "react-intl"
 
 export type LoginSectionProps = {
   nodes: UiNode[]

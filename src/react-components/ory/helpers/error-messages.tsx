@@ -1,8 +1,7 @@
-import { UiNode, UiText } from "@ory/client"
-import { JSX } from "react"
-
 import { GridStyle, gridStyle, Severity } from "../../../theme"
 import { Message, MessageStyleProps } from "../../message"
+import { UiNode, UiText } from "@ory/client"
+import { JSX } from "react"
 
 export type NodeMessagesProps = {
   nodes?: UiNode[]

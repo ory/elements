@@ -1,6 +1,4 @@
-import cn from "classnames"
-import { JSX, useEffect, useRef, useState } from "react"
-
+import { useIdWithFallback } from "../common/useIdWithFallback"
 import {
   gridStyle,
   inputFieldStyle,
@@ -9,7 +7,8 @@ import {
   typographyStyle,
 } from "../theme"
 import { Message, MessageStyleProps } from "./message"
-import { useIdWithFallback } from "../common/useIdWithFallback"
+import cn from "classnames"
+import { JSX, useEffect, useRef, useState } from "react"
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

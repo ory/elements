@@ -1,6 +1,5 @@
-import { JSX } from "react"
-
 import { ButtonStyle, buttonStyle } from "../theme/button.css"
+import { JSX } from "react"
 
 // required since interfaces cannot extend types whose properties are not statically known
 type buttonStyle = ButtonStyle & Record<string, unknown>

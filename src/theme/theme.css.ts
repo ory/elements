@@ -1,12 +1,10 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+import { defaultLightTheme } from "./consts"
 import {
   createGlobalTheme,
   createGlobalThemeContract,
 } from "@vanilla-extract/css"
-
-import { defaultLightTheme } from "./consts"
 
 export const oryTheme = createGlobalThemeContract(
   {

@@ -1,9 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { RecoveryFlow, RecoveryFlowState } from "@ory/client"
-import { Page, Response } from "@playwright/test"
-import { merge } from "lodash"
 import { recoverySubmitCodeFixture } from "../fixtures"
 import { defaultMockFlowResponse } from "../mock"
 import { defaultRecoveryTraits, defaultRecoveryTraitsWithCode } from "../traits"
@@ -15,10 +11,12 @@ import {
 } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage } from "./AuthPage"
+import { RecoveryFlow, RecoveryFlowState } from "@ory/client"
+import { Page, Response } from "@playwright/test"
+import { merge } from "lodash"
 
 export class RecoveryPage extends AuthPage {
   readonly pageUrl: URL
-  readonly oryProjectUrl: URL
   readonly page: Page
 
   readonly recoveryActionPath = "/self-service/recovery?flow="
@@ -27,12 +25,19 @@ export class RecoveryPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    path?: string,
+    opts?: {
+      path?: string
+      ssr?: boolean
+    },
   ) {
-    super(defaultRecoveryTraits, page.getByTestId("recovery-auth-card"))
+    super(
+      defaultRecoveryTraits,
+      page.getByTestId("recovery-auth-card"),
+      oryProjectUrl,
+      opts?.ssr,
+    )
     this.page = page
-    this.pageUrl = new URL(path || "/recovery", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
+    this.pageUrl = new URL(opts?.path || "/recovery", baseUrl)
   }
 
   async goto() {
@@ -62,6 +67,14 @@ export class RecoveryPage extends AuthPage {
         return {
           ...defaultMockFlowResponse,
           body,
+          ...(this.ssr
+            ? {
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
+            : {}),
         }
       case "sent_email":
         return {
@@ -73,12 +86,28 @@ export class RecoveryPage extends AuthPage {
               nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true),
             },
           },
+          ...(this.ssr
+            ? {
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
+            : {}),
         }
       case "passed_challenge":
         return {
           ...defaultMockFlowResponse,
           status: 422,
           body: recoverySubmitCodeFixture as ErrorBrowserLocationChangeRequired,
+          ...(this.ssr
+            ? {
+                status: 303,
+                headers: {
+                  Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href,
+                },
+              }
+            : {}),
         }
       default:
         return {
@@ -122,15 +151,24 @@ export class RecoveryPage extends AuthPage {
     })
   }
 
-  interceptCreateResponse(): Promise<Response> {
-    return super.interceptCreateResponse("recovery")
+  interceptCreateResponse(
+    flow = "recovery",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptCreateResponse(flow, ssrOverride)
   }
 
-  interceptFetchResponse(): Promise<Response> {
-    return super.interceptFetchResponse("recovery")
+  interceptFetchResponse(
+    flow = "recovery",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptFetchResponse(flow, ssrOverride)
   }
 
-  interceptSubmitResponse(): Promise<Response> {
-    return super.interceptSubmitResponse("recovery")
+  interceptSubmitResponse(
+    flow = "recovery",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptSubmitResponse(flow, ssrOverride)
   }
 }

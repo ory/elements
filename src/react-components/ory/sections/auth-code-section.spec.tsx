@@ -1,6 +1,6 @@
-import { expect, test } from "@playwright/experimental-ct-react"
 import { loginCodeFixture } from "../../../test"
 import { AuthCodeSection } from "./auth-code-section"
+import { expect, test } from "@playwright/experimental-ct-react"
 
 test("should render when ui nodes contain `code` group", async ({ mount }) => {
   const container = await mount(

@@ -1,8 +1,8 @@
-import { ComponentMeta, Story } from "@storybook/react"
 import { Card, CardProps, Message } from "../react-components"
 import logo from "./assets/logo.svg"
 import oryLogo from "./assets/ory_logomark.svg"
 import { Container } from "./storyhelper"
+import { ComponentMeta, Story } from "@storybook/react"
 
 export default {
   title: "Component/Card",

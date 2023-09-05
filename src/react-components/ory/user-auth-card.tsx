@@ -1,13 +1,3 @@
-import { JSX } from "react"
-import {
-  LoginFlow,
-  RecoveryFlow,
-  RegistrationFlow,
-  VerificationFlow,
-} from "@ory/client"
-import { filterNodesByGroups } from "@ory/integrations/ui"
-import { useIntl } from "react-intl"
-
 import { gridStyle, typographyStyle } from "../../theme"
 import type { CustomHref } from "../button-link"
 import { Card } from "../card"
@@ -36,6 +26,15 @@ import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import { PasswordlessSection } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
+import {
+  LoginFlow,
+  RecoveryFlow,
+  RegistrationFlow,
+  VerificationFlow,
+} from "@ory/client"
+import { filterNodesByGroups } from "@ory/integrations/ui"
+import { JSX } from "react"
+import { useIntl } from "react-intl"
 
 export type LoginSectionAdditionalProps = {
   forgotPasswordURL?: CustomHref | string

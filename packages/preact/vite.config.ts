@@ -1,6 +1,5 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import preact from "@preact/preset-vite"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import path from "path"

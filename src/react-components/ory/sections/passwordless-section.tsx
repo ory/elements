@@ -1,9 +1,8 @@
-import { JSX } from "react"
-
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
 import { hasWebauthn } from "../helpers/utils"
+import { JSX } from "react"
 
 export const PasswordlessSection = (
   flow: SelfServiceFlow,

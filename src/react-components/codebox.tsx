@@ -1,6 +1,4 @@
-import cn from "classnames"
-import { JSX } from "react"
-
+import { useIdWithFallback } from "../common/useIdWithFallback"
 import {
   codeboxContentStyle,
   codeboxHeaderStyle,
@@ -9,7 +7,8 @@ import {
   gridStyle,
   typographyStyle,
 } from "../theme"
-import { useIdWithFallback } from "../common/useIdWithFallback"
+import cn from "classnames"
+import { JSX } from "react"
 
 export interface CodeBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode

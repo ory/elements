@@ -1,10 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+import { oryTheme, Theme } from "../theme"
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import express, { Request, Response, Router } from "express"
 import { cloneDeep, merge } from "lodash"
-import { oryTheme, Theme } from "../theme"
 
 type CreateHelpers = (
   req: Request,

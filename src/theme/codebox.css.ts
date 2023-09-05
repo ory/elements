@@ -1,9 +1,8 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { globalStyle, style } from "@vanilla-extract/css"
 import { pxToRem } from "../common"
 import { oryTheme } from "./theme.css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 export const codeboxStyle = style({
   boxSizing: "border-box",

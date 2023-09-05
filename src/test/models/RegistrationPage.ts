@@ -1,17 +1,15 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { RegistrationFlow } from "@ory/client"
-import { Page, Response } from "@playwright/test"
-import { merge } from "lodash"
 import { defaultRegistrationTraits } from "../traits"
 import { MockFlow, MockFlowResponse, Traits } from "../types"
 import { traitsToNodes, UUIDv4 } from "../utils"
 import { AuthPage } from "./AuthPage"
+import { RegistrationFlow } from "@ory/client"
+import { Page, Response } from "@playwright/test"
+import { merge } from "lodash"
 
 export class RegistrationPage extends AuthPage {
   readonly pageUrl: URL
-  readonly oryProjectUrl: URL
   readonly page: Page
 
   readonly registrationActionPath = "/self-service/registration?flow="
@@ -20,16 +18,20 @@ export class RegistrationPage extends AuthPage {
     page: Page,
     baseUrl: string,
     oryProjectUrl: string,
-    traits?: Record<string, Traits>,
-    path?: string,
+    opts?: {
+      traits?: Record<string, Traits>
+      path?: string
+      ssr?: boolean
+    },
   ) {
     super(
-      traits || defaultRegistrationTraits,
+      opts?.traits || defaultRegistrationTraits,
       page.getByTestId("registration-auth-card"),
+      oryProjectUrl,
+      opts?.ssr,
     )
     this.page = page
-    this.pageUrl = new URL(path || "/registration", baseUrl)
-    this.oryProjectUrl = new URL(oryProjectUrl)
+    this.pageUrl = new URL(opts?.path || "/registration", baseUrl)
   }
 
   async goto() {
@@ -51,10 +53,12 @@ export class RegistrationPage extends AuthPage {
           messages: [],
         },
       } as RegistrationFlow,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      status: 200,
+      headers: this.ssr
+        ? { Location: new URL("?flow=" + UUIDv4(), this.pageUrl).href }
+        : {
+            "Content-Type": "application/json",
+          },
+      status: this.ssr ? 303 : 200,
     }
   }
 
@@ -85,15 +89,24 @@ export class RegistrationPage extends AuthPage {
     })
   }
 
-  interceptCreateResponse(): Promise<Response> {
-    return super.interceptCreateResponse("registration")
+  interceptCreateResponse(
+    flow = "registration",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptCreateResponse(flow, ssrOverride)
   }
 
-  interceptFetchResponse(): Promise<Response> {
-    return super.interceptFetchResponse("registration")
+  interceptFetchResponse(
+    flow = "registration",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptFetchResponse(flow, ssrOverride)
   }
 
-  interceptSubmitResponse(): Promise<Response> {
-    return super.interceptSubmitResponse("registration")
+  interceptSubmitResponse(
+    flow = "registration",
+    ssrOverride?: boolean,
+  ): Promise<Response> {
+    return super.interceptSubmitResponse(flow, ssrOverride)
   }
 }

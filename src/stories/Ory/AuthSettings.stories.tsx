@@ -1,10 +1,9 @@
-import { ComponentMeta, Story } from "@storybook/react"
 import { UserSettingsCard, UserSettingsCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
-
-import { SettingsFlow } from "@ory/client"
 import settingsFlow from "./settings-flow.json"
 import settingsUnlinkFlow from "./settings-unlink-flow.json"
+import { SettingsFlow } from "@ory/client"
+import { ComponentMeta, Story } from "@storybook/react"
 
 export default {
   title: "Ory/UserSettingsCard",

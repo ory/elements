@@ -1,10 +1,9 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import fetch from "node-fetch"
-import { writeFile } from "fs/promises"
 import formatjs from "@formatjs/cli-lib"
+import { writeFile } from "fs/promises"
 import glob from "glob-promise"
+import fetch from "node-fetch"
 
 type KratosMessage = {
   id: number
