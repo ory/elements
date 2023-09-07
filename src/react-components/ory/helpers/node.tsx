@@ -56,8 +56,8 @@ export const getNodeLabel = (node: UiNode): UiText | undefined => {
   return node.meta.label
 }
 
-const uiTextToFormattedMessage = (
-  { id, context = {}, text }: UiText,
+export const uiTextToFormattedMessage = (
+  { id, context = {}, text }: Omit<UiText, "type">,
   intl: IntlShape,
 ) =>
   intl.formatMessage(
