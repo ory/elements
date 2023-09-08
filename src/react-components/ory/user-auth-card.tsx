@@ -385,17 +385,19 @@ export const UserAuthCard = ({
       $flow = LinkSection({
         nodes: flow.ui.nodes,
       })
-      message = {
-        text: intl.formatMessage({
-          id: "verification.registration-label",
-          defaultMessage: "Don't have an account?",
-        }),
-        buttonText: intl.formatMessage({
-          id: "verification.registration-button",
-          defaultMessage: "Sign up",
-        }),
-        url: additionalProps.signupURL,
-        dataTestId: "cta-link",
+      if (additionalProps.signupURL) {
+        message = {
+          text: intl.formatMessage({
+            id: "verification.registration-label",
+            defaultMessage: "Don't have an account?",
+          }),
+          buttonText: intl.formatMessage({
+            id: "verification.registration-button",
+            defaultMessage: "Sign up",
+          }),
+          url: additionalProps.signupURL,
+          dataTestId: "cta-link",
+        }
       }
       break
     default:
