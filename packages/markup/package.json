@@ -49,11 +49,6 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "devDependencies": {
-    "@vanilla-extract/vite-plugin": "3.7.1",
-    "@vitejs/plugin-react": "3.0.1",
-    "eslint": "8.33.0"
-  },
   "files": [
     "dist/*"
   ],
