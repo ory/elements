@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { JSX, useEffect, useRef, useState } from "react"
+import { JSX, useRef, useState } from "react"
 
 import {
   gridStyle,
@@ -13,7 +13,7 @@ import { useIdWithFallback } from "../common/useIdWithFallback"
 
 export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    MessageStyleProps {
+  MessageStyleProps {
   header: string
   helperMessage?: React.ReactNode | string
   messageTestId?: string
@@ -28,6 +28,7 @@ export const InputField = ({
   messageTestId,
   className,
   dataTestid,
+  fullWidth,
   id,
   ...props
 }: InputFieldProps): JSX.Element => {
@@ -69,7 +70,7 @@ export const InputField = ({
               setVisibility(!visibility)
               e.currentTarget.dataset.checked =
                 e.currentTarget.dataset.checked =
-                  e.currentTarget.dataset.checked === "true" ? "false" : "true"
+                e.currentTarget.dataset.checked === "true" ? "false" : "true"
             }}
             data-checked="false"
             className={inputFieldVisibilityToggleLabelStyle}

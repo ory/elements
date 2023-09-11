@@ -60,7 +60,7 @@ export const Dashboard = () => {
     <>
       <Typography size={"headline37"}>Welcome to the dashboard!</Typography>
       <Typography size={"headline21"}>
-        {session?.identity.traits.firstName} you can logout here:{" "}
+        {session?.identity?.traits.firstName} you can logout here:{" "}
         <a href={logoutUrl}>Logout</a> or go to your settings page here:{" "}
         <a href="/settings">Settings</a>
       </Typography>

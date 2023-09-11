@@ -7,6 +7,7 @@ import { pxToRem } from "../common"
 export const gridStyle = recipe({
   base: {
     display: "flex",
+    alignContent: "stretch",
     flexDirection: "column",
     gap: pxToRem(16),
     overflow: "auto",
