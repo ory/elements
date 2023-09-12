@@ -1,4 +1,4 @@
-import { UserAuthCard } from "@ory/elements"
+import { IntlProvider, ThemeProvider, UserAuthCard } from "@ory/elements"
 import { useCallback, useContext, useState } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { AuthContext } from "./AuthProvider"
@@ -8,7 +8,6 @@ import { SessionContext } from "./helpers/auth"
 import { StackScreenProps } from "@react-navigation/stack"
 import { RootStackParamList } from "./App"
 import { Text, View } from "react-native"
-
 
 type Props = StackScreenProps<RootStackParamList, "Login">
 
@@ -43,7 +42,7 @@ const Login = ({ navigation, route }: Props) => {
       return () => {
         setFlow(undefined)
       }
-    }, []),
+    }, [route.params]),
   )
 
   const setSessionAndRedirect = (session: SessionContext) => {
@@ -70,20 +69,43 @@ const Login = ({ navigation, route }: Props) => {
         })
       : Promise.resolve()
 
-  return flow ? (
-    <UserAuthCard
-      className="isolate"
-      flow={flow}
-      flowType="login"
-      onSubmit={({ body }) => onSubmit(body as UpdateLoginFlowBody)}
-      additionalProps={{
-        signupURL: "/registration",
-        logoutURL: "/logout",
-        forgotPasswordURL: "/recovery",
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
       }}
-    />
-  ) : (
-    <Text>Loading...</Text>
+    >
+      {flow ? (
+        <ThemeProvider>
+          <IntlProvider>
+            <UserAuthCard
+              flow={flow}
+              flowType="login"
+              onSubmit={({ body }) => onSubmit(body as UpdateLoginFlowBody)}
+              additionalProps={{
+                signupURL: {
+                  href: "",
+                  handler: () => navigation.navigate("Registration"),
+                },
+                logoutURL: {
+                  href: "",
+                  // TODO: change me!
+                  handler: () => navigation.navigate("Home"),
+                },
+                forgotPasswordURL: {
+                  href: "",
+                  handler: () => navigation.navigate("Recovery"),
+                },
+              }}
+            />
+          </IntlProvider>
+        </ThemeProvider>
+      ) : (
+        <Text>Loading...</Text>
+      )}
+    </View>
   )
 }
 

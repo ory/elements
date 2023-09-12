@@ -17,7 +17,6 @@ import { MessageSection, MessageSectionProps } from "./helpers/common"
 import { NodeMessages } from "./helpers/error-messages"
 import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
 import { useScriptNodes } from "./helpers/node-script"
-import { SelfServiceFlow } from "./helpers/types"
 import {
   UserAuthForm,
   UserAuthFormAdditionalProps,
@@ -74,25 +73,25 @@ export type UserAuthCardProps = {
 } & UserAuthFormAdditionalProps &
   (
     | {
-        flow: LoginFlow
-        flowType: "login"
-        additionalProps: LoginSectionAdditionalProps
-      }
+      flow: LoginFlow
+      flowType: "login"
+      additionalProps: LoginSectionAdditionalProps
+    }
     | {
-        flow: RegistrationFlow
-        flowType: "registration"
-        additionalProps: RegistrationSectionAdditionalProps
-      }
+      flow: RegistrationFlow
+      flowType: "registration"
+      additionalProps: RegistrationSectionAdditionalProps
+    }
     | {
-        flow: RecoveryFlow
-        flowType: "recovery"
-        additionalProps: RecoverySectionAdditionalProps
-      }
+      flow: RecoveryFlow
+      flowType: "recovery"
+      additionalProps: RecoverySectionAdditionalProps
+    }
     | {
-        flow: VerificationFlow
-        flowType: "verification"
-        additionalProps: VerificationSectionAdditionalProps
-      }
+      flow: VerificationFlow
+      flowType: "verification"
+      additionalProps: VerificationSectionAdditionalProps
+    }
   )
 
 /**
