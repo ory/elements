@@ -17,7 +17,6 @@ import { MessageSection, MessageSectionProps } from "./helpers/common"
 import { NodeMessages } from "./helpers/error-messages"
 import { FilterFlowNodes } from "./helpers/filter-flow-nodes"
 import { useScriptNodes } from "./helpers/node-script"
-import { SelfServiceFlow } from "./helpers/types"
 import {
   UserAuthForm,
   UserAuthFormAdditionalProps,
@@ -76,22 +75,22 @@ export type UserAuthCardProps = {
     | {
         flow: LoginFlow
         flowType: "login"
-        additionalProps: LoginSectionAdditionalProps
+        additionalProps?: LoginSectionAdditionalProps
       }
     | {
         flow: RegistrationFlow
         flowType: "registration"
-        additionalProps: RegistrationSectionAdditionalProps
+        additionalProps?: RegistrationSectionAdditionalProps
       }
     | {
         flow: RecoveryFlow
         flowType: "recovery"
-        additionalProps: RecoverySectionAdditionalProps
+        additionalProps?: RecoverySectionAdditionalProps
       }
     | {
         flow: VerificationFlow
         flowType: "verification"
-        additionalProps: VerificationSectionAdditionalProps
+        additionalProps?: VerificationSectionAdditionalProps
       }
   )
 
@@ -315,7 +314,7 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      if (isLoggedIn(flow)) {
+      if (isLoggedIn(flow) && additionalProps?.logoutURL) {
         message = {
           text: intl.formatMessage({
             id: "login.logout-label",
@@ -325,10 +324,10 @@ export const UserAuthCard = ({
             id: "login.logout-button",
             defaultMessage: "Logout",
           }),
-          url: additionalProps.logoutURL,
           dataTestId: "logout-link",
+          url: additionalProps.logoutURL,
         }
-      } else if (additionalProps.signupURL) {
+      } else if (additionalProps?.signupURL) {
         message = {
           text: intl.formatMessage({
             id: "login.registration-label",
@@ -350,17 +349,19 @@ export const UserAuthCard = ({
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
       })
-      message = {
-        text: intl.formatMessage({
-          id: "registration.login-label",
-          defaultMessage: "Already have an account?",
-        }),
-        url: additionalProps.loginURL,
-        buttonText: intl.formatMessage({
-          id: "registration.login-button",
-          defaultMessage: "Sign in",
-        }),
-        dataTestId: "cta-link",
+      if (additionalProps?.loginURL) {
+        message = {
+          text: intl.formatMessage({
+            id: "registration.login-label",
+            defaultMessage: "Already have an account?",
+          }),
+          url: additionalProps.loginURL,
+          buttonText: intl.formatMessage({
+            id: "registration.login-button",
+            defaultMessage: "Sign in",
+          }),
+          dataTestId: "cta-link",
+        }
       }
       break
     // both verification and recovery use the same flow.
@@ -368,24 +369,26 @@ export const UserAuthCard = ({
       $flow = LinkSection({
         nodes: flow.ui.nodes,
       })
-      message = {
-        text: intl.formatMessage({
-          id: "recovery.login-label",
-          defaultMessage: "Remember your credentials?",
-        }),
-        buttonText: intl.formatMessage({
-          id: "recovery.login-button",
-          defaultMessage: "Sign in",
-        }),
-        url: additionalProps.loginURL,
-        dataTestId: "cta-link",
+      if (additionalProps?.loginURL) {
+        message = {
+          text: intl.formatMessage({
+            id: "recovery.login-label",
+            defaultMessage: "Remember your credentials?",
+          }),
+          buttonText: intl.formatMessage({
+            id: "recovery.login-button",
+            defaultMessage: "Sign in",
+          }),
+          url: additionalProps.loginURL,
+          dataTestId: "cta-link",
+        }
       }
       break
     case "verification":
       $flow = LinkSection({
         nodes: flow.ui.nodes,
       })
-      if (additionalProps.signupURL) {
+      if (additionalProps?.signupURL) {
         message = {
           text: intl.formatMessage({
             id: "verification.registration-label",

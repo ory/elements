@@ -154,6 +154,13 @@ LoginAuthCardWithCodeSubmit.args = {
   },
 }
 
+export const LoginAuthCardWithoutAdditionalProps = Template.bind({})
+
+LoginAuthCardWithoutAdditionalProps.args = {
+  flow: loginFlow as LoginFlow,
+  flowType: "login",
+}
+
 export const RegistrationAuthCard = Template.bind({})
 
 RegistrationAuthCard.args = {
@@ -168,13 +175,18 @@ RegistrationAuthCard.args = {
 export const RegistrationAuthCardWebAuthn = Template.bind({})
 
 RegistrationAuthCardWebAuthn.args = {
-  title: "Create an account for Acme",
   flow: registrationFlowWebAuthn as RegistrationFlow,
   flowType: "registration",
   includeScripts: true,
   additionalProps: {
     loginURL: "https://acme.com/login",
   },
+}
+
+export const RegistrationAuthCardWithoutAdditionalProps = Template.bind({})
+RegistrationAuthCardWithoutAdditionalProps.args = {
+  flow: registrationFlow as RegistrationFlow,
+  flowType: "registration",
 }
 
 export const RecoveryAuthCard = Template.bind({})
@@ -186,6 +198,12 @@ RecoveryAuthCard.args = {
   additionalProps: {
     loginURL: "https://acme.com/login",
   },
+}
+
+export const RecoveryAuthCardWithoutAdditionalProps = Template.bind({})
+RecoveryAuthCardWithoutAdditionalProps.args = {
+  flow: recoveryFlow as RecoveryFlow,
+  flowType: "recovery",
 }
 
 export const VerificationAuthCard = Template.bind({})
@@ -206,4 +224,11 @@ VerificationSubmittedAuthCard.args = {
   additionalProps: {
     signupURL: "https://acme.com/login",
   },
+}
+
+export const VerificationAuthCardWithoutAdditionalProps = Template.bind({})
+
+VerificationAuthCardWithoutAdditionalProps.args = {
+  flow: verificationFlow as VerificationFlow,
+  flowType: "verification",
 }
