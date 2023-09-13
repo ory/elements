@@ -142,6 +142,10 @@ test("ory auth card verification flow", async ({ mount }) => {
 
   await expect(component).toContainText("Verification")
   await expect(component.locator('a[href="/signup"]')).toBeVisible()
+
+  await expect(component).toContainText("Don't have an account?", {
+    ignoreCase: true,
+  })
 })
 
 test("ory auth card recovery flow", async ({ mount }) => {
@@ -238,4 +242,78 @@ test("ory auth card login with code", async ({ mount }) => {
   await expect(component.locator('button[type="submit"]')).toHaveText(
     "Sign in with code",
   )
+})
+
+test("ory auth card login should work without additionalProps", async ({
+  mount,
+}) => {
+  const component = await mount(
+    <UserAuthCard flowType="login" flow={loginCodeFixture} />,
+  )
+
+  const loginComponent = new AuthPage(loginCodeFixture.ui.nodes, component)
+  await loginComponent.expectTraitFields()
+
+  await expect(component).toContainText("Sign in", { ignoreCase: true })
+  await expect(component).not.toContainText("Don't have an account?", {
+    ignoreCase: true,
+  })
+})
+
+test("ory auth card registration should work without additionalProps", async ({
+  mount,
+}) => {
+  const component = await mount(
+    <UserAuthCard flowType="registration" flow={registrationCodeFixture} />,
+  )
+
+  const registrationComponent = new AuthPage(
+    registrationCodeFixture.ui.nodes,
+    component,
+  )
+  await registrationComponent.expectTraitFields()
+
+  await expect(component).toContainText("Sign up", { ignoreCase: true })
+  await expect(component).not.toContainText("Already have an account?", {
+    ignoreCase: true,
+  })
+})
+
+test("ory auth card recovery should work without additionalProps", async ({
+  mount,
+}) => {
+  const component = await mount(
+    <UserAuthCard flowType="recovery" flow={recoveryFixture} />,
+  )
+
+  const recoveryComponent = new AuthPage(recoveryFixture.ui.nodes, component)
+  await recoveryComponent.expectTraitFields()
+
+  await expect(component).toContainText("Recover your account", {
+    ignoreCase: true,
+  })
+  await expect(component).not.toContainText("Already have an account?", {
+    ignoreCase: true,
+  })
+})
+
+test("ory auth card verification should work without additionalProps", async ({
+  mount,
+}) => {
+  const component = await mount(
+    <UserAuthCard flowType="verification" flow={verificationFixture} />,
+  )
+
+  const verificationComponent = new AuthPage(
+    verificationFixture.ui.nodes,
+    component,
+  )
+  await verificationComponent.expectTraitFields()
+
+  await expect(component).toContainText("Verify your account", {
+    ignoreCase: true,
+  })
+  await expect(component).not.toContainText("Don't have an account?", {
+    ignoreCase: true,
+  })
 })

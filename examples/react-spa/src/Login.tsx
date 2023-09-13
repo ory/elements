@@ -35,7 +35,7 @@ export const Login = (): JSX.Element => {
       // flow contains the form fields and csrf token
       .then(({ data: flow }) => {
         // Update URI query params to include flow id
-        setSearchParams({})
+        setSearchParams({ ["flow"]: flow.id })
         // Set the flow data
         setFlow(flow)
       })
