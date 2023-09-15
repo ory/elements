@@ -104,3 +104,77 @@ test("shouldn't render anything with no code group", async ({ mount }) => {
 
   await expect(container.locator("input[name=identifier]")).not.toBeVisible()
 })
+
+test("should render traits on default group", async ({ mount }) => {
+  const container = await mount(
+    <AuthCodeSection
+      nodes={[
+        {
+          group: "default",
+          attributes: {
+            name: "traits.email",
+            node_type: "input",
+            type: "text",
+            required: true,
+            disabled: false,
+          },
+          messages: [],
+          type: "input",
+          meta: {
+            label: {
+              id: 1070002,
+              text: "E-Mail",
+              type: "info",
+              context: {
+                title: "E-Mail",
+              },
+            },
+          },
+        },
+        {
+          group: "default",
+          attributes: {
+            name: "traits.name",
+            node_type: "input",
+            type: "text",
+            required: true,
+            disabled: false,
+          },
+          messages: [],
+          type: "input",
+          meta: {
+            label: {
+              id: 1070001,
+              text: "Name",
+              type: "info",
+            },
+          },
+        },
+        {
+          group: "code",
+          attributes: {
+            name: "method",
+            node_type: "input",
+            type: "submit",
+            required: true,
+            disabled: false,
+            value: "code",
+          },
+          messages: [],
+          type: "input",
+          meta: {
+            label: {
+              id: 1040006,
+              text: "Sign up with code",
+              type: "info",
+            },
+          },
+        },
+      ]}
+    />,
+  )
+
+  await expect(container.locator("input[name='traits.email']")).toBeVisible()
+  await expect(container.locator("input[name='traits.name']")).toBeVisible()
+  await expect(container.locator("button[name=method]")).toBeVisible()
+})
