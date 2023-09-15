@@ -13,6 +13,7 @@ import loginFlowRefresh from "./login-flow-refresh.json"
 import loginFlow from "./login-flow.json"
 import loginFlowCodeOne from "./login-flow-code-1.json"
 import loginFlowCodeTwo from "./login-flow-code-2.json"
+
 import loginFlowHydra from "./login-flow-hydra.json"
 
 import loginFlowError from "./login-flow-error.json"
@@ -20,6 +21,7 @@ import loginFlowUiError from "./login-flow-ui-error.json"
 
 import registrationFlowWebAuthn from "./register-flow-webauthn.json"
 import registrationFlow from "./register-flow.json"
+import registrationFlowCode from "./register-flow-code.json"
 
 import recoveryFlow from "./recovery-flow.json"
 
@@ -204,6 +206,12 @@ export const RecoveryAuthCardWithoutAdditionalProps = Template.bind({})
 RecoveryAuthCardWithoutAdditionalProps.args = {
   flow: recoveryFlow as RecoveryFlow,
   flowType: "recovery",
+}
+
+export const RegistrationAuthCardFlowCode = Template.bind({})
+RegistrationAuthCardFlowCode.args = {
+  flow: registrationFlowCode as RegistrationFlow,
+  flowType: "registration",
 }
 
 export const VerificationAuthCard = Template.bind({})

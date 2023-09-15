@@ -18,7 +18,8 @@ export const AuthCodeSection = ({
           filter={{
             nodes: nodes,
             groups: "code",
-            excludeAttributes: ["submit", "hidden"],
+            withoutDefaultAttributes: true,
+            excludeAttributes: ["hidden", "button", "submit"], // the form will take care of hidden fields
           }}
         />
       </div>
@@ -28,8 +29,8 @@ export const AuthCodeSection = ({
         filter={{
           nodes: nodes,
           groups: "code",
-          withoutDefaultGroup: true,
-          attributes: ["submit", "hidden"],
+          withoutDefaultAttributes: true,
+          attributes: ["button", "submit"],
         }}
       />
     </div>
