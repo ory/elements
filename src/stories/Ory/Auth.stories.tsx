@@ -24,9 +24,11 @@ import registrationFlow from "./register-flow.json"
 import registrationFlowCode from "./register-flow-code.json"
 
 import recoveryFlow from "./recovery-flow.json"
+import recoveryCodeSubmitFlow from "./recovery-code-submit-flow.json"
 
 import verificationFlow from "./verification-flow.json"
 import verificationSubmitted from "./verification-submit-flow.json"
+import verificationCodeSubmitFlow from "./verification-code-submit-flow.json"
 
 import logo from "../assets/logo.svg"
 
@@ -208,6 +210,13 @@ RecoveryAuthCardWithoutAdditionalProps.args = {
   flowType: "recovery",
 }
 
+export const RecoveryAuthCardCodeSubmit = Template.bind({})
+
+RecoveryAuthCardCodeSubmit.args = {
+  flow: recoveryCodeSubmitFlow as RecoveryFlow,
+  flowType: "recovery",
+}
+
 export const RegistrationAuthCardFlowCode = Template.bind({})
 RegistrationAuthCardFlowCode.args = {
   flow: registrationFlowCode as RegistrationFlow,
@@ -239,4 +248,14 @@ export const VerificationAuthCardWithoutAdditionalProps = Template.bind({})
 VerificationAuthCardWithoutAdditionalProps.args = {
   flow: verificationFlow as VerificationFlow,
   flowType: "verification",
+}
+
+export const VerificationAuthCardCodeSubmit = Template.bind({})
+
+VerificationAuthCardCodeSubmit.args = {
+  flow: verificationCodeSubmitFlow as VerificationFlow,
+  flowType: "verification",
+  additionalProps: {
+    signupURL: "https://acme.com/login",
+  },
 }

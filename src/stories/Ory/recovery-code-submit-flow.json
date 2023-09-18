@@ -1,0 +1,106 @@
+{
+  "id": "81b5a86d-79ef-4ab5-be52-9623b4309ffc",
+  "type": "browser",
+  "expires_at": "2023-09-18T13:45:08.228419Z",
+  "issued_at": "2023-09-18T12:45:08.228419Z",
+  "request_url": "https://brave-mclean-yf1idvgo2x.projects.oryapis:8080/self-service/recovery/browser?return_to=",
+  "active": "code",
+  "ui": {
+    "action": "https://brave-mclean-yf1idvgo2x.projects.oryapis:8080/self-service/recovery?flow=81b5a86d-79ef-4ab5-be52-9623b4309ffc",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "RgBW3EcRaTq1xmfks3CoSSjsDnQvF6lKhYR7XIoqx1yeu2ajlzfxDk3BzrmyN+fn8qMnI4A4Fq/ik0BsSTkUpQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070010,
+            "text": "Recovery code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "hidden",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070005,
+            "text": "Submit",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "email",
+          "type": "submit",
+          "value": "alano@ory.sh",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1060003,
+        "text": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+        "type": "info"
+      }
+    ]
+  },
+  "state": "sent_email"
+}
