@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { JSX, useEffect, useRef, useState } from "react"
+import { JSX, useRef, useState } from "react"
 
 import {
   gridStyle,
@@ -18,7 +18,6 @@ export interface InputFieldProps
   helperMessage?: React.ReactNode | string
   messageTestId?: string
   dataTestid?: string
-  fullWidth?: boolean
   className?: string
 }
 

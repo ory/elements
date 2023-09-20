@@ -77,7 +77,7 @@ export default defineConfig({
       env: {
         NEXT_PUBLIC_ORY_SDK_URL: "http://localhost:4000",
       },
-      command: "npm run dev -- --port 3100",
+      command: "npm run build && npm run start -- --port 3100",
       timeout: 120 * 1000,
       port: 3100,
       reuseExistingServer: !process.env.CI,

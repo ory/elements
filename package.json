@@ -29,10 +29,10 @@
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@babel/core": "7.18.10",
-    "@ory/client": "1.2.4",
+    "@ory/client": "1.2.8",
     "@ory/integrations": "1.1.5",
-    "@playwright/experimental-ct-react": "1.32.1",
-    "@playwright/test": "1.32.1",
+    "@playwright/experimental-ct-react": "1.38.0",
+    "@playwright/test": "1.38.0",
     "@preact/preset-vite": "2.5.0",
     "@storybook/addon-docs": "7.4.0",
     "@storybook/addon-essentials": "7.4.0",

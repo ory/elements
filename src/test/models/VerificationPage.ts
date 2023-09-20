@@ -53,7 +53,7 @@ export class VerificationPage extends AuthPage {
       ui: {
         action: new URL(this.verificationActionPath, this.oryProjectUrl).href,
         method: "POST",
-        nodes: traitsToNodes(this.traits, true),
+        nodes: traitsToNodes(this.traits, true, false),
         messages: [],
       },
     }

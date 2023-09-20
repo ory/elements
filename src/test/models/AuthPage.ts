@@ -123,7 +123,7 @@ export class AuthPage {
     return this.locator
       .page()
       .route(`**/self-service/${flow}/browser**`, async (route) => {
-        route.fulfill({
+        await route.fulfill({
           ...response,
           body: JSON.stringify(response?.body),
         })
@@ -134,7 +134,7 @@ export class AuthPage {
     return this.locator
       .page()
       .route(`**/self-service/${flow}/flows**`, async (route) => {
-        route.fulfill({
+        await route.fulfill({
           ...response,
           body: JSON.stringify(response?.body),
         })
@@ -145,7 +145,7 @@ export class AuthPage {
     return this.locator
       .page()
       .route(`**/self-service/${flow}?flow**`, async (route) => {
-        route.fulfill({
+        await route.fulfill({
           ...response,
           body: JSON.stringify(response?.body),
         })

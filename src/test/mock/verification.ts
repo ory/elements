@@ -36,6 +36,8 @@ export const VerificationMocks = {
       expect(createResponse.status()).toBe(200)
       // Validate that the form fields are present
       await verificationPage.expectTraitFields()
+
+      await expect(verificationPage.page).toHaveScreenshot()
     })
 
     await test.step("mock the fetch verification flow", async () => {
@@ -59,6 +61,9 @@ export const VerificationMocks = {
       })
 
       const submitRequest = verificationPage.interceptSubmitResponse()
+      await verificationPage.locator
+        .locator("input[name='email']")
+        .fill(verificationPage.traits.email.value)
       await verificationPage.submitForm()
 
       const submitResponse = await submitRequest
@@ -75,6 +80,8 @@ export const VerificationMocks = {
           required: true,
         },
       })
+
+      await expect(verificationPage.page).toHaveScreenshot()
     })
 
     await test.step("mock the submit verification code response", async () => {
@@ -88,6 +95,9 @@ export const VerificationMocks = {
       await verificationPage.expectTraitFields(
         defaultVerificationTraitsWithCode,
       )
+      await verificationPage.locator
+        .locator("input[name='code']")
+        .fill(defaultVerificationTraitsWithCode.code.value)
       await verificationPage.submitForm("[name='method'][type='submit']")
 
       const submitResponse = await submitRequest
