@@ -34,7 +34,7 @@ export const CodeBox = ({
         htmlFor={id}
         className={cn(typographyStyle({ size: "small" }), codeboxHeaderStyle)}
       >
-        <div>{toggleText || "Toggle content"}</div>
+        <div>{toggleText ?? "Toggle content"}</div>
 
         <span>
           <i

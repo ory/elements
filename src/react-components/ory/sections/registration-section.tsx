@@ -5,7 +5,7 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
 
-export type RegistrationSectionProps = {
+export interface RegistrationSectionProps {
   nodes: UiNode[]
 }
 

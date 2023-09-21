@@ -3,10 +3,16 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasCode } from "../helpers/utils"
 
-export type AuthCodeSectionProps = {
+export interface AuthCodeSectionProps {
   nodes: UiNode[]
 }
 
+/**
+ * AuthCodeSection renders the fields for login and registration via one-time code.
+ * Please see the Ory docs for more information: https://www.ory.sh/docs/kratos/passwordless/one-time-code
+ * @param nodes - Ory UiNode[]
+ * @see AuthCodeSectionProps
+ */
 export const AuthCodeSection = ({
   nodes,
 }: AuthCodeSectionProps): JSX.Element | null =>

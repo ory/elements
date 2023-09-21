@@ -13,7 +13,13 @@ import { formStyle } from "../../../theme"
 import { FilterFlowNodes } from "./filter-flow-nodes"
 import { SelfServiceFlow } from "./types"
 
-export type UserAuthFormAdditionalProps = {
+/**
+ * Additional props that can be passed to the UserAuthForm component
+ * @see UserAuthForm
+ *
+ * @param onSubmit - function that is called when the form is submitted. It automatically maps the form data to the request body and prevents native form submits.
+ */
+export interface UserAuthFormAdditionalProps {
   onSubmit?: ({
     body,
     event,
@@ -28,7 +34,16 @@ export type UserAuthFormAdditionalProps = {
   }) => void
 }
 
-// SelfServiceFlowForm props
+/**
+ * UserAuthFormProps is the props interface for the UserAuthForm component
+ * @see UserAuthForm
+ *
+ * @param flow - the Ory flow object that is used to add the form action and method and add csrf tokens to the form
+ * @param children - the children of the form
+ * @param formFilterOverride - the filter that is used to filter the form nodes. By default, only hidden fields are included.
+ * @param submitOnEnter - if true, the form will be submitted when the enter key is pressed. Otherwise, the enter key will be ignored.
+ * @param className - css class overrides for the form component
+ */
 export interface UserAuthFormProps
   extends Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit">,
     UserAuthFormAdditionalProps {
@@ -39,6 +54,13 @@ export interface UserAuthFormProps
   className?: string
 }
 
+/**
+ * UserAuthForm is a component that renders a form for a given Ory flow.
+ * It automatically adds the form action and method and adds csrf tokens to the form.
+ * When the `onSubmit` parameter is passed, it also automatically maps the form data to the request body and prevents native form submits.
+ * @see UserAuthFormProps
+ * @returns JSX.Element
+ */
 export const UserAuthForm = ({
   flow,
   children,
@@ -94,7 +116,7 @@ export const UserAuthForm = ({
       {/*always add csrf token and other hidden fields to form*/}
       <FilterFlowNodes
         filter={
-          formFilterOverride || {
+          formFilterOverride ?? {
             nodes: flow.ui.nodes,
             groups: "default", // we only want to map hidden default fields here
             attributes: "hidden",

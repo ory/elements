@@ -7,7 +7,7 @@ import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
 
-export type LoginSectionProps = {
+export interface LoginSectionProps {
   nodes: UiNode[]
   forgotPasswordURL?: CustomHref | string
 }

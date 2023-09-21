@@ -26,7 +26,7 @@ test("submits when user clicks 'Yes'", async () => {
   const request = await submitForm(/yes/i)
 
   expect(request.method()).toBe("POST")
-  const data = request.postDataJSON()
+  const data = request.postDataJSON() as unknown
   expect(data).toHaveProperty("_csrf", "CSRF token")
   expect(data).toHaveProperty("challenge", "logout challenge")
   expect(data).toHaveProperty("submit", "Yes")
@@ -36,7 +36,7 @@ test("submits when user clicks 'No'", async () => {
   const request = await submitForm(/no/i)
 
   expect(request.method()).toBe("POST")
-  const data = request.postDataJSON()
+  const data = request.postDataJSON() as unknown
   expect(data).toHaveProperty("_csrf", "CSRF token")
   expect(data).toHaveProperty("challenge", "logout challenge")
   expect(data).toHaveProperty("submit", "No")

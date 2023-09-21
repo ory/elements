@@ -61,7 +61,7 @@ export const UserSettingsCard = ({
     case "profile":
       hasFlow = true
       cardTitle =
-        title ||
+        title ??
         intl.formatMessage({
           id: "settings.title-profile",
           defaultMessage: "Profile Settings",
@@ -72,7 +72,7 @@ export const UserSettingsCard = ({
       if (hasPassword(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
-          title ||
+          title ??
           intl.formatMessage({
             id: "settings.title-password",
             defaultMessage: "Change Password",
@@ -84,7 +84,7 @@ export const UserSettingsCard = ({
       if (hasWebauthn(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
-          title ||
+          title ??
           intl.formatMessage({
             id: "settings.title-webauthn",
             defaultMessage: "Manage Hardware Tokens",
@@ -96,7 +96,7 @@ export const UserSettingsCard = ({
       if (hasLookupSecret(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
-          title ||
+          title ??
           intl.formatMessage({
             id: "settings.title-lookup-secret",
             defaultMessage: "Manage 2FA Backup Recovery Codes",
@@ -108,7 +108,7 @@ export const UserSettingsCard = ({
       if (hasOidc(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
-          title ||
+          title ??
           intl.formatMessage({
             id: "settings.title-oidc",
             defaultMessage: "Social Sign In",
@@ -120,7 +120,7 @@ export const UserSettingsCard = ({
       if (hasTotp(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
-          title ||
+          title ??
           intl.formatMessage({
             id: "settings.title-totp",
             defaultMessage: "Manage 2FA TOTP Authenticator App",

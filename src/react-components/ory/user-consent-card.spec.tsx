@@ -1,5 +1,5 @@
 import { OAuth2ConsentRequest } from "@ory/client"
-import { test } from "@playwright/experimental-ct-react"
+import { expect, test } from "@playwright/experimental-ct-react"
 import { ConsentPage } from "../../test/models/ConsentPage"
 import { UserConsentCard } from "./user-consent-card"
 
@@ -26,4 +26,5 @@ test("ory consent card login flow", async ({ mount }) => {
     "https://test_policy_uri/",
   ])
   await consentComponent.expectAllowSubmit()
+  await expect(component).toHaveScreenshot()
 })

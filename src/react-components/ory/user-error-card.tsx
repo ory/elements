@@ -8,8 +8,16 @@ import { CodeBox } from "../codebox"
 import { Message } from "../message"
 import { FormattedMessage, useIntl } from "react-intl"
 
-// SelfServiceErrorCard props
-export type UserErrorCardProps = {
+/**
+ * UserErrorCardProps
+ * @param title - the title of the error card
+ * @param error - Ory FlowError
+ * @param backUrl - the URL to redirect the user to. A custom function can be passed to the CustomHref type
+ * @param cardImage - card image is usually the company logo
+ * @param contactSupportEmail - the email address to contact support
+ * @param className - css class overrides for the UserErrorCard
+ */
+export interface UserErrorCardProps {
   title?: string
   error: FlowError
   backUrl: CustomHref | string
@@ -18,7 +26,7 @@ export type UserErrorCardProps = {
   className?: string
 }
 
-type errorMessage = {
+interface errorMessage {
   id: string
   message: string
   reason: string
@@ -26,6 +34,10 @@ type errorMessage = {
   code: number
 }
 
+/**
+ * UserErrorCard renders an error card for the user
+ * @see UserErrorCardProps
+ */
 export const UserErrorCard = ({
   title,
   error,

@@ -10,7 +10,7 @@ import {
 } from "../theme/theme-provider.css"
 import * as locales from "./../locales"
 
-export type ThemeProviderProps = {
+export interface ThemeProviderProps {
   theme?: "light" | "dark"
   themeOverrides?: Partial<Theme>
   enableFontSmoothing?: boolean

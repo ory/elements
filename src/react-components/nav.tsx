@@ -20,7 +20,7 @@ export type NavSectionLinks = {
   selected?: boolean
 } & Omit<MenuLinkProps, "children">
 
-export type NavSection = {
+export interface NavSection {
   title?: string
   titleIcon?: string
   floatBottom?: boolean

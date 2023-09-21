@@ -10,56 +10,73 @@ import {
   registrationCodeStepTwoFixture,
   verificationFixture,
   loginCodeFixture,
+  loginFixtureOAuth2,
 } from "../../test"
 import { UserAuthCard } from "./user-auth-card"
-;[true, false].forEach((enableSignUp) => {
-  test(
-    "ory auth card login flow. signup enabled: " + enableSignUp,
-    async ({ mount }) => {
-      const signUp = enableSignUp ? "/signup" : undefined
+import { OAuth2LoginRequest } from "@ory/client"
 
-      const component = await mount(
-        <UserAuthCard
-          title={"Sign in"}
-          flowType={"login"}
-          additionalProps={{
-            forgotPasswordURL: "/forgot",
-            signupURL: signUp,
-          }}
-          flow={loginFixture}
-        />,
-      )
-
-      const loginComponent = new AuthPage(loginFixture.ui.nodes, component)
-      await loginComponent.expectTraitFields()
-      await loginComponent.expectTraitLabels()
-
-      await expect(component).toContainText("Sign in")
-      await expect(component).toContainText("Forgot password?", {
-        ignoreCase: true,
-      })
-      await expect(
-        component.locator('a[data-testid="forgot-password-link"]'),
-      ).toHaveAttribute("href", "/forgot")
-
-      // signup
-      if (enableSignUp) {
-        await expect(
-          component.locator('a[data-testid="signup-link"]'),
-        ).toHaveAttribute("href", "/signup")
-        await expect(component).toContainText("Don't have an account", {
-          ignoreCase: true,
-        })
-      } else {
-        await expect(
-          component.locator('a[data-testid="signup-link"]'),
-        ).not.toBeVisible()
-        await expect(component).not.toContainText("Don't have an account", {
-          ignoreCase: true,
-        })
-      }
-    },
+test("ory auth card login flow. signup disabled", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      title={"Sign in"}
+      flowType={"login"}
+      additionalProps={{
+        forgotPasswordURL: "/forgot",
+        signupURL: undefined,
+      }}
+      flow={loginFixture}
+    />,
   )
+
+  const loginComponent = new AuthPage(loginFixture.ui.nodes, component)
+  await loginComponent.expectTraitFields()
+  await loginComponent.expectTraitLabels()
+
+  await expect(component).toContainText("Sign in")
+  await expect(component).toContainText("Forgot password?", {
+    ignoreCase: true,
+  })
+  await expect(
+    component.locator('a[data-testid="forgot-password-link"]'),
+  ).toHaveAttribute("href", "/forgot")
+
+  await expect(component.locator('a[data-testid="signup-link"]')).toBeHidden()
+  await expect(component).not.toContainText("Don't have an account", {
+    ignoreCase: true,
+  })
+})
+
+test("ory auth card login flow. signup enabled", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      title={"Sign in"}
+      flowType={"login"}
+      additionalProps={{
+        forgotPasswordURL: "/forgot",
+        signupURL: "/signup",
+      }}
+      flow={loginFixture}
+    />,
+  )
+
+  const loginComponent = new AuthPage(loginFixture.ui.nodes, component)
+  await loginComponent.expectTraitFields()
+  await loginComponent.expectTraitLabels()
+
+  await expect(component).toContainText("Sign in")
+  await expect(component).toContainText("Forgot password?", {
+    ignoreCase: true,
+  })
+  await expect(
+    component.locator('a[data-testid="forgot-password-link"]'),
+  ).toHaveAttribute("href", "/forgot")
+
+  await expect(
+    component.locator('a[data-testid="signup-link"]'),
+  ).toHaveAttribute("href", "/signup")
+  await expect(component).toContainText("Don't have an account", {
+    ignoreCase: true,
+  })
 })
 
 test("ory auth card registration flow", async ({ mount }) => {
@@ -347,4 +364,35 @@ test("ory auth card verification should work without additionalProps", async ({
   await expect(component).not.toContainText("Don't have an account?", {
     ignoreCase: true,
   })
+})
+
+test("ory auth card with oauth client", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard flowType="login" flow={loginFixtureOAuth2} />,
+  )
+
+  await expect(component).toContainText(
+    "https://www.ory.sh/docs/ecosystem/sdks",
+  )
+})
+
+test("ory auth card with oauh client name", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard
+      flowType="login"
+      flow={{
+        ...loginFixtureOAuth2,
+        oauth2_login_request: {
+          ...(loginFixtureOAuth2.oauth2_login_request ??
+            ({} as OAuth2LoginRequest)),
+          client: {
+            ...loginFixtureOAuth2.oauth2_login_request?.client,
+            client_name: "a-real-client-name",
+          },
+        },
+      }}
+    />,
+  )
+
+  await expect(component).toContainText("a-real-client-name")
 })

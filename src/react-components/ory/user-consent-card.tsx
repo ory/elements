@@ -9,7 +9,18 @@ import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
 import { FormattedMessage, useIntl } from "react-intl"
 
-export type UserConsentCardProps = {
+/**
+ * UserConsentCardProps
+ * @param csrfToken - CSRF token
+ * @param consent - Ory OAuth2ConsentRequest
+ * @param cardImage - card image is usually the logo of the client
+ * @param client_name - the client name to display to the user
+ * @param requested_scope - a list of requested scope
+ * @param client - Ory OAuth2Client
+ * @param action - the URL used for the form action
+ * @param className - css class overrides for the UserConsentCard
+ */
+export interface UserConsentCardProps {
   csrfToken: string
   consent: OAuth2ConsentRequest
   cardImage?: string | React.ReactElement

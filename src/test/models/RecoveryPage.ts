@@ -31,7 +31,7 @@ export class RecoveryPage extends AuthPage {
   ) {
     super(defaultRecoveryTraits, page.getByTestId("recovery-auth-card"))
     this.page = page
-    this.pageUrl = new URL(path || "/recovery", baseUrl)
+    this.pageUrl = new URL(path ?? "/recovery", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
   }
 
@@ -42,7 +42,7 @@ export class RecoveryPage extends AuthPage {
   getRecoveryFlowResponse(
     state: RecoveryFlowState = "choose_method",
   ): MockFlowResponse {
-    const body = (includeValues: boolean = false): RecoveryFlow => {
+    const body = (includeValues = false): RecoveryFlow => {
       return {
         id: UUIDv4(),
         type: "browser",

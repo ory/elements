@@ -24,11 +24,11 @@ export class RegistrationPage extends AuthPage {
     path?: string,
   ) {
     super(
-      traits || defaultRegistrationTraits,
+      traits ?? defaultRegistrationTraits,
       page.getByTestId("registration-auth-card"),
     )
     this.page = page
-    this.pageUrl = new URL(path || "/registration", baseUrl)
+    this.pageUrl = new URL(path ?? "/registration", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
   }
 
@@ -50,6 +50,7 @@ export class RegistrationPage extends AuthPage {
           nodes: traitsToNodes(this.traits, true),
           messages: [],
         },
+        state: "choose_method",
       } as RegistrationFlow,
       headers: {
         "Content-Type": "application/json",

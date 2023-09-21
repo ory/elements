@@ -1,17 +1,15 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { defineConfig, devices } from "@playwright/experimental-ct-react"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import react from "@vitejs/plugin-react"
+import dts from "vite-plugin-dts"
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./src/react-components",
-  /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
-  snapshotDir: "./__snapshots__",
+  testDir: "./src/react-components/",
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */
@@ -28,14 +26,19 @@ export default defineConfig({
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-
     /* Port to use for Playwright component endpoint. */
     ctPort: 3100,
     ctViteConfig: {
-      plugins: [vanillaExtractPlugin(), react()],
+      plugins: [
+        react(),
+        vanillaExtractPlugin({
+          emitCssInSsr: true,
+        }),
+        dts({ insertTypesEntry: true }),
+      ],
+      root: __dirname,
     },
   },
-
   /* Configure projects for major browsers */
   projects: [
     {

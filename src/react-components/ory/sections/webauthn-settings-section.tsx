@@ -5,7 +5,7 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasWebauthn } from "../helpers/utils"
 
-export type WebAuthnSettingsProps = {
+export interface WebAuthnSettingsProps {
   flow: SettingsFlow
 }
 

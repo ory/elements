@@ -19,9 +19,9 @@ export const inputNodesToRecord = (nodes: UiNode[]): Record<string, Traits> => {
         group: group,
         node_type: attributes.node_type,
         required: attributes.required,
-        value: attributes.value,
+        value: attributes.value as string,
         type: attributes.type as Traits["type"],
-        label: attributes.label?.text || "",
+        label: attributes.label?.text ?? "",
         name: attributes.name,
       }
     }
@@ -32,7 +32,7 @@ export const inputNodesToRecord = (nodes: UiNode[]): Record<string, Traits> => {
 export const traitsToNodes = (
   traits: Record<string, Traits>,
   includeCsrf?: boolean,
-  includeValue: boolean = true,
+  includeValue = true,
 ): UiNode[] => {
   const nodes = Object.entries(traits).map<UiNode>(
     ([key, { group, label, type, value, node_type, required, name }]) => {
@@ -43,16 +43,16 @@ export const traitsToNodes = (
         meta: {
           label: {
             id: Math.floor(Math.random() * 6) + 1,
-            text: label || name || key,
+            text: label ?? name ?? key,
             type: "info",
           },
         } as UiNodeMeta,
         attributes: {
-          name: name || key,
+          name: name ?? key,
           ...(includeValue && { value: value }),
           type,
-          node_type: node_type || "input",
-          required: required || false,
+          node_type: node_type ?? "input",
+          required: required ?? false,
         } as UiNodeAttributes,
       }
     },

@@ -30,38 +30,38 @@ import {
 } from "./helpers/utils"
 import { AuthCodeSection } from "./sections/auth-code-section"
 import { LinkSection } from "./sections/link-section"
-import { LoggedInfo } from "./sections/logged-info"
+import { LoggedInInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import { PasswordlessSection } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
 
-export type LoginSectionAdditionalProps = {
+export interface LoginSectionAdditionalProps {
   forgotPasswordURL?: CustomHref | string
   signupURL?: CustomHref | string
   logoutURL?: CustomHref | string
 }
 
-export type RegistrationSectionAdditionalProps = {
+export interface RegistrationSectionAdditionalProps {
   loginURL?: CustomHref | string
 }
 
-export type VerificationSectionAdditionalProps = {
+export interface VerificationSectionAdditionalProps {
   signupURL?: CustomHref | string
 }
 
-export type RecoverySectionAdditionalProps = {
+export interface RecoverySectionAdditionalProps {
   loginURL?: CustomHref | string
 }
 
 /**
- * @typedef {Object} UserAuthCardProps
- * @property {LoginFlow | RegistrationFlow | RecoveryFlow | VerificationFlow} flow - can be any of the login, registration, verification, recovery flows
- * @property {string} title - title of the user auth card
- * @property {"login" | "registration" | "verification" | "recovery"} flowType - specify the type of flow to render
- * @property {string} subtitle - subtitle of the user auth card, usually used to display additional information
- * @property {string | React.ReactElement} - an image to display on the card header (usually a logo)
- * @property {LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps} additionalProps - additional props to pass to the form
+ * UserAuthCardProps used by the UserAuthCard
+ * @param title - title of the user auth card
+ * @param subtitle - subtitle of the user auth card, usually used to display additional information
+ * @param cardImage - an image to display on the card header (usually a logo)
+ * @param includeScripts - include webauthn scripts in the card (optional)
+ * @param className - className to pass to the card component
+ * @param additionalProps - additional props to pass to the form (optional)
  */
 export type UserAuthCardProps = {
   title?: string
@@ -69,35 +69,35 @@ export type UserAuthCardProps = {
   cardImage?: string | React.ReactElement
   includeScripts?: boolean
   className?: string
-  children?: string
 } & UserAuthFormAdditionalProps &
   (
     | {
-        flow: LoginFlow
-        flowType: "login"
-        additionalProps?: LoginSectionAdditionalProps
-      }
+      flow: LoginFlow
+      flowType: "login"
+      additionalProps?: LoginSectionAdditionalProps
+    }
     | {
-        flow: RegistrationFlow
-        flowType: "registration"
-        additionalProps?: RegistrationSectionAdditionalProps
-      }
+      flow: RegistrationFlow
+      flowType: "registration"
+      additionalProps?: RegistrationSectionAdditionalProps
+    }
     | {
-        flow: RecoveryFlow
-        flowType: "recovery"
-        additionalProps?: RecoverySectionAdditionalProps
-      }
+      flow: RecoveryFlow
+      flowType: "recovery"
+      additionalProps?: RecoverySectionAdditionalProps
+    }
     | {
-        flow: VerificationFlow
-        flowType: "verification"
-        additionalProps?: VerificationSectionAdditionalProps
-      }
+      flow: VerificationFlow
+      flowType: "verification"
+      additionalProps?: VerificationSectionAdditionalProps
+    }
   )
 
 /**
- *
- * @param {{flow: SelfServiceFlow, title: string, flowType: "login" | "registration" | "recovery" | "verification", additionalProps: LoginSectionAdditionalProps | RegistrationSectionAdditionalProps | RecoverySectionAdditionalProps | VerificationSectionAdditionalProps, subtitle?: string, cardImage?: string | React.ReactElement, includeScripts?: boolean, className?: string, children?: string}} UserAuthCardProps
- * @returns
+ * UserAuthCard renders a login, registration, verification or recovery flow
+ * it can also handle multi factor authentication on login flows
+ * @param UserAuthCardProps - a card that renders a login, registration, verification or recovery flow
+ * @returns JSX.Element
  */
 export const UserAuthCard = ({
   flow,
@@ -167,7 +167,7 @@ export const UserAuthCard = ({
             },
             {
               clientName:
-                flow.oauth2_login_request.client?.client_name ||
+                flow.oauth2_login_request.client?.client_name ??
                 flow.oauth2_login_request.client?.client_uri,
             },
           )
@@ -182,7 +182,7 @@ export const UserAuthCard = ({
             },
             {
               clientName:
-                flow.oauth2_login_request.client?.client_name ||
+                flow.oauth2_login_request.client?.client_name ??
                 flow.oauth2_login_request.client?.client_uri,
             },
           )
@@ -199,21 +199,26 @@ export const UserAuthCard = ({
 
   // the user might need to logout on the second factor page.
   const isLoggedIn = (flow: LoginFlow): boolean => {
-    return flow.refresh || flow.requested_aal === "aal2"
+    if (flow.requested_aal === "aal2") {
+      return true
+    } else if (flow.refresh) {
+      return true
+    }
+    return false
   }
 
   // passwordless can be shown if the user is not logged in (e.g. exclude 2FA screen) or if the flow is a registration flow.
   // we want the login section to handle passwordless as well when we have a 2FA screen.
   const canShowPasswordless = () =>
     !!$passwordless &&
-    (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
+    (!isLoggedIn(flow as LoginFlow) ?? flowType === "registration")
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
     flowType === "login" &&
     isLoggedIn(flow) &&
-    (hasTotp(flow.ui.nodes) ||
-      hasWebauthn(flow.ui.nodes) ||
+    (hasTotp(flow.ui.nodes) ??
+      hasWebauthn(flow.ui.nodes) ??
       hasLookupSecret(flow.ui.nodes))
 
   // we check if nodes have hidden identifier, so we can display "you're looged in as" information
@@ -447,7 +452,7 @@ export const UserAuthCard = ({
               data-testid={`${flowType}-flow`}
             >
               {$flow}
-              {showLoggedAccount && <LoggedInfo flow={flow} />}
+              {showLoggedAccount && <LoggedInInfo flow={flow} />}
             </UserAuthForm>
           </>
         )}

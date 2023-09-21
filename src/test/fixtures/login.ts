@@ -95,6 +95,7 @@ export const loginFixture: LoginFlow = {
   updated_at: "2022-08-29T09:51:13.308547Z",
   refresh: false,
   requested_aal: "aal1",
+  state: "",
 }
 
 export const loginNoneFixture: LoginFlow = {
@@ -129,11 +130,12 @@ export const loginNoneFixture: LoginFlow = {
   updated_at: "2022-08-29T09:47:27.876079Z",
   refresh: false,
   requested_aal: "aal1",
+  state: "",
 }
 
 export const loginRefreshFixture: LoginFlow = {
   id: "8a23a143-c08d-4635-b9fc-f9036db53227",
-  oauth2_login_challenge: null,
+  oauth2_login_challenge: "",
   type: "browser",
   expires_at: "2023-01-09T14:00:47.355708383Z",
   issued_at: "2023-01-09T13:00:47.355708383Z",
@@ -225,11 +227,12 @@ export const loginRefreshFixture: LoginFlow = {
   updated_at: "2023-01-09T13:00:47.48922Z",
   refresh: true,
   requested_aal: "aal1",
+  state: "",
 }
 
 export const loginSubmitIncorrectCredentialsFixture: LoginFlow = {
   id: "400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
-  oauth2_login_challenge: null,
+  oauth2_login_challenge: "",
   type: "browser",
   expires_at: "2023-03-16T12:49:22.219258Z",
   issued_at: "2023-03-16T12:19:22.219258Z",
@@ -412,6 +415,7 @@ export const loginSubmitIncorrectCredentialsFixture: LoginFlow = {
   updated_at: "2023-03-16T12:19:22.331239Z",
   refresh: false,
   requested_aal: "aal1",
+  state: "",
 }
 
 export const loginTwoFactorFixture: LoginFlow = {
@@ -560,6 +564,7 @@ export const loginTwoFactorFixture: LoginFlow = {
   updated_at: "2022-09-22T15:29:26.311469Z",
   refresh: false,
   requested_aal: "aal2",
+  state: "",
 }
 
 export const loginPasswordlessFixture: LoginFlow = {
@@ -634,6 +639,7 @@ export const loginPasswordlessFixture: LoginFlow = {
   updated_at: "2022-08-29T09:52:39.101785Z",
   refresh: false,
   requested_aal: "aal1",
+  state: "",
 }
 
 export const loginCodeFixture: LoginFlow = {
@@ -841,4 +847,111 @@ export const loginCodeTwoFixture: LoginFlow = {
   refresh: false,
   requested_aal: "aal1",
   state: "sent_email",
+}
+
+export const loginFixtureOAuth2: LoginFlow = {
+  id: "31f9170d-c28d-4f6c-8cf8-54b999a4f172",
+  type: "browser",
+  oauth2_login_request: {
+    client: {
+      client_id: "oauth2-login-client",
+      client_uri: "https://www.ory.sh/docs/ecosystem/sdks",
+    },
+    challenge: "a1b2c3d4e5f6g7h8i9j0",
+    request_url: "http://localhost:4000/self-service/login/browser",
+    requested_access_token_audience: ["https://api.ory.sh/"],
+    requested_scope: ["offline", "openid"],
+    skip: false,
+    subject: "",
+  },
+  expires_at: "2022-08-29T10:21:13.298704656Z",
+  issued_at: "2022-08-29T09:51:13.298704656Z",
+  request_url: "http://localhost:4000/self-service/login/browser",
+  ui: {
+    action:
+      "http://localhost:4000/self-service/login?flow=31f9170d-c28d-4f6c-8cf8-54b999a4f172",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "gRBwj0LpxhDugD8sNq1/H6HABvVKMoZepLuLHU+7leIFL33RU4hc1sCYlFKRlsqYPBAG5P84ADrnwLLC3TIy3g==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          value: "",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "current-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: "Password",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010001,
+            text: "Sign in",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+    ],
+  },
+  created_at: "2022-08-29T09:51:13.308547Z",
+  updated_at: "2022-08-29T09:51:13.308547Z",
+  refresh: false,
+  requested_aal: "aal1",
+  state: "",
 }

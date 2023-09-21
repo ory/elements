@@ -5,7 +5,7 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasTotp } from "../helpers/utils"
 
-export type TOTPSettingsProps = {
+export interface TOTPSettingsProps {
   flow: SettingsFlow
 }
 
