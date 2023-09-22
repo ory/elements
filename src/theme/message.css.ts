@@ -14,11 +14,6 @@ const SeverityTypes = [
 
 export type Severity = (typeof SeverityTypes)[number]
 
-// interface MessageVariants {
-//   textPosition: Record<string, unknown>
-//   severity: Record<Severity, unknown>
-// }
-
 export const messageStyle = recipe({
   base: {
     boxSizing: "border-box",
