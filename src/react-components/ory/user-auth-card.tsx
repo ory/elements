@@ -72,25 +72,25 @@ export type UserAuthCardProps = {
 } & UserAuthFormAdditionalProps &
   (
     | {
-      flow: LoginFlow
-      flowType: "login"
-      additionalProps?: LoginSectionAdditionalProps
-    }
+        flow: LoginFlow
+        flowType: "login"
+        additionalProps?: LoginSectionAdditionalProps
+      }
     | {
-      flow: RegistrationFlow
-      flowType: "registration"
-      additionalProps?: RegistrationSectionAdditionalProps
-    }
+        flow: RegistrationFlow
+        flowType: "registration"
+        additionalProps?: RegistrationSectionAdditionalProps
+      }
     | {
-      flow: RecoveryFlow
-      flowType: "recovery"
-      additionalProps?: RecoverySectionAdditionalProps
-    }
+        flow: RecoveryFlow
+        flowType: "recovery"
+        additionalProps?: RecoverySectionAdditionalProps
+      }
     | {
-      flow: VerificationFlow
-      flowType: "verification"
-      additionalProps?: VerificationSectionAdditionalProps
-    }
+        flow: VerificationFlow
+        flowType: "verification"
+        additionalProps?: VerificationSectionAdditionalProps
+      }
   )
 
 /**
