@@ -11,7 +11,7 @@ import {
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: string | React.ReactNode
-  image?: string | React.ReactNode
+  image?: string | React.ReactNode | React.FunctionComponent
   className?: string
   children?: React.ReactNode
   size?: "wide" | "default"

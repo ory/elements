@@ -6,8 +6,8 @@ import {
   UserSettingsScreen,
   UserSettingsScreenProps,
 } from "../../react-components"
-import settingsFlow from "./settings-flow.json"
-import { SettingsFlow } from "@ory/client"
+
+import { settingsFlow } from "./settings-data"
 
 const Screen = (props: UserSettingsScreenProps) => (
   <div style={{ display: "flex", flexDirection: "row" }}>
@@ -31,6 +31,6 @@ const Template: StoryFn<ComponentProps<typeof Screen>> = (args) => (
 
 export const SettingsScreen = Template.bind({})
 SettingsScreen.args = {
-  flow: settingsFlow as SettingsFlow,
+  flow: settingsFlow,
   logoutUrl: "https://www.ory.sh",
 }
