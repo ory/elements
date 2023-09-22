@@ -1,4 +1,4 @@
-SHELL=/bin/bash -euo pipefail
+SHELL=/bin/bash -o pipefail
 
 export GO111MODULE        := on
 export PATH               := .bin:${PATH}
@@ -9,6 +9,11 @@ install:
 
 test:
 	npm run test
+
+test-containerized: 
+	# https://github.com/microsoft/playwright/issues/26482
+	# For unsupported distros, use the `test-containerized` target instead of `test`
+	sh -c ./playwright-docker.sh
 
 format: .bin/ory node_modules
 	.bin/ory dev headers copyright --type=open-source
