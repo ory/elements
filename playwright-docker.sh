@@ -14,14 +14,45 @@ do
   sleep 1
 done
 
-echo "testing ory elements components"
-PW_TEST_CONNECT_WS_ENDPOINT=ws://127.0.0.1:9009/ npm run test
 
-echo "testing nextjs app"
-(cd examples/nextjs-spa && PW_TEST_CONNECT_WS_ENDPOINT=ws://127.0.0.1:9009/ npm run test)
 
-echo "testing react app"
-(cd examples/react-spa && PW_TEST_CONNECT_WS_ENDPOINT=ws://127.0.0.1:9009/ npm run test)
+read -p "Select the project [elements, nextjs, react, preact]: " project
+read -p "Update snapshots? [y/n]: " update_snapshots
 
-echo "testing preact app"
-(cd examples/react-spa && PW_TEST_CONNECT_WS_ENDPOINT=ws://127.0.0.1:9009/ npm run test)
+params=()
+if [ "$update_snapshots" == "y" ]; then
+  params+=("--update-snapshots")
+fi
+
+runTest() {
+  echo "testing $1"
+  PW_TEST_CONNECT_WS_ENDPOINT=ws://127.0.0.1:9009/ npm run test -- "${params[@]}"
+}
+
+if [ "$project" != "elements" ] && [ "$project" != "nextjs" ] && [ "$project" != "react" ] && [ "$project" != "preact" ]; then
+  echo "Invalid project"
+  exit 1
+fi
+
+if [ "$project" == "elements" ]; then
+  echo "testing ory elements components"
+  runTest "elements"
+  exit 0
+fi
+
+if [ "$project" == "nextjs" ]; then
+  echo "testing nextjs app"
+  (cd examples/nextjs-spa && runTest "nextjs")
+  exit 0
+fi
+
+if [ "$project" == "react" ]; then
+  echo "testing react app"
+  (cd examples/react-spa && runTest "react")
+  exit 0
+fi
+
+if [ "$project" == "preact" ]; then
+  echo "testing preact app"
+  (cd examples/react-spa && runTest "preact")
+fi
