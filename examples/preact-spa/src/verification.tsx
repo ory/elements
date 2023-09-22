@@ -42,7 +42,8 @@ export const Verification = () => {
         updateVerificationFlowBody: body,
       })
       .then(({ data: flow }) => {
-        setFlow(flow)
+        setFlow(null)
+        getFlow(flow.id)
       })
       .catch(sdkErrorHandler)
   }

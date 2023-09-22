@@ -11,8 +11,8 @@ export default defineConfig({
     dts({
       root: path.resolve(__dirname, "../../src/test"),
       insertTypesEntry: true,
-      tsConfigFilePath: path.resolve(__dirname, "tsconfig.json"),
-      outputDir: path.resolve(__dirname, "dist"),
+      tsconfigPath: path.resolve(__dirname, "tsconfig.json"),
+      outDir: path.resolve(__dirname, "dist"),
       exclude: [
         "node_modules",
         "dist",

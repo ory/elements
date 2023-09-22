@@ -42,35 +42,44 @@ export class RecoveryPage extends AuthPage {
   getRecoveryFlowResponse(
     state: RecoveryFlowState = "choose_method",
   ): MockFlowResponse {
-    const body: RecoveryFlow = {
-      id: UUIDv4(),
-      type: "browser",
-      state: state,
-      expires_at: new Date().toISOString(),
-      issued_at: new Date().toISOString(),
-      request_url: this.pageUrl.href,
-      ui: {
-        action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
-        method: "POST",
-        nodes: traitsToNodes(this.traits, true),
-        messages: [],
-      },
+    const body = (includeValues: boolean = false): RecoveryFlow => {
+      return {
+        id: UUIDv4(),
+        type: "browser",
+        state: state,
+        expires_at: new Date().toISOString(),
+        issued_at: new Date().toISOString(),
+        request_url: this.pageUrl.href,
+        ui: {
+          action: new URL(this.recoveryActionPath, this.oryProjectUrl).href,
+          method: "POST",
+          nodes: traitsToNodes(this.traits, true, includeValues),
+          messages: [],
+        },
+      }
     }
 
     switch (state) {
       case "choose_method":
         return {
           ...defaultMockFlowResponse,
-          body,
+          body: body(),
         }
       case "sent_email":
         return {
           ...defaultMockFlowResponse,
           body: {
-            ...body,
+            ...body(),
             ui: {
-              ...body.ui,
-              nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true),
+              ...body().ui,
+              nodes: traitsToNodes(defaultRecoveryTraitsWithCode, true, false),
+              messages: [
+                {
+                  id: 1060003,
+                  text: "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+                  type: "info",
+                },
+              ],
             },
           },
         }
@@ -83,7 +92,7 @@ export class RecoveryPage extends AuthPage {
       default:
         return {
           ...defaultMockFlowResponse,
-          body,
+          body: body(),
         }
     }
   }

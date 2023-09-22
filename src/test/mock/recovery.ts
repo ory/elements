@@ -34,6 +34,7 @@ export const RecoveryMocks = {
       const createResponse = await createRequest
       expect(createResponse.status()).toBe(200)
 
+      await expect(recoveryPage.page).toHaveScreenshot()
       // Validate that the form fields are present
       await recoveryPage.expectTraitFields()
     })
@@ -59,10 +60,15 @@ export const RecoveryMocks = {
       })
       const submitRequest = recoveryPage.interceptSubmitResponse()
 
+      await recoveryPage.locator
+        .locator("input[name='email']")
+        .fill(recoveryPage.traits.email.value)
       await recoveryPage.submitForm()
 
       const submitResponse = await submitRequest
       expect(submitResponse.status()).toBe(200)
+
+      await expect(recoveryPage.page).toHaveScreenshot()
     })
 
     await test.step("submit the recovery form again with a valid code", async () => {
@@ -79,6 +85,9 @@ export const RecoveryMocks = {
       // check that the form fields expect a code input field
       await recoveryPage.expectTraitFields(defaultRecoveryTraitsWithCode)
 
+      await recoveryPage.locator
+        .locator("input[name='code']")
+        .fill(defaultRecoveryTraitsWithCode.code.value)
       await recoveryPage.submitForm("[name='method'][type='submit']")
 
       const submitResponse = await submitRequest

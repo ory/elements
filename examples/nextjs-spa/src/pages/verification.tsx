@@ -81,8 +81,10 @@ const Verification: NextPageWithLayout = () => {
         updateVerificationFlowBody: values,
       })
       .then(({ data }) => {
+        // reset the input fields
+        setFlow(null)
         // Form submission was successful, show the message to the user!
-        setFlow(data)
+        getFlow(data.id)
       })
       .catch(handleError)
 

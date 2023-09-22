@@ -20,7 +20,7 @@ import { SetUriFlow } from "@/pkg/helpers"
 import { NextPageWithLayout } from "./_app"
 
 const Recovery: NextPageWithLayout = () => {
-  const [flow, setFlow] = useState<RecoveryFlow>()
+  const [flow, setFlow] = useState<RecoveryFlow | null>()
 
   // Get flow information from the URL
   const router = useRouter()
@@ -84,8 +84,10 @@ const Recovery: NextPageWithLayout = () => {
         updateRecoveryFlowBody: values,
       })
       .then(({ data }) => {
+        // reset the form data completely
+        setFlow(null)
         // Form submission was successful, show the message to the user!
-        setFlow(data)
+        getFlow(data.id)
       })
       .catch(handleError)
 
