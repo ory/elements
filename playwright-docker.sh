@@ -54,5 +54,5 @@ fi
 
 if [ "$project" == "preact" ]; then
   echo "testing preact app"
-  (cd examples/react-spa && runTest "preact")
+  (cd examples/preact-spa && runTest "preact")
 fi
