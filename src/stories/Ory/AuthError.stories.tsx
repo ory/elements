@@ -1,10 +1,8 @@
-import { FlowError } from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
-import authError400 from "./auth-error-400.json"
-import authError500 from "./auth-error-500.json"
+import { authError400, authError500 } from "./auth-error-data"
 
 export default {
   title: "Ory/ErrorAuthCard",
@@ -20,7 +18,7 @@ const Template: Story<UserErrorCardProps> = (args: UserErrorCardProps) => (
 export const ErrorAuthCard400 = Template.bind({})
 
 ErrorAuthCard400.args = {
-  error: authError400 as FlowError,
+  error: authError400,
   backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",
 }
@@ -28,7 +26,7 @@ ErrorAuthCard400.args = {
 export const ErrorAuthCard500 = Template.bind({})
 
 ErrorAuthCard500.args = {
-  error: authError500 as FlowError,
+  error: authError500,
   backUrl: "https://acme.com/login",
   contactSupportEmail: "help@help.com",
 }
