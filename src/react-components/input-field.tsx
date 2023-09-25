@@ -40,7 +40,7 @@ export const InputField = ({
       data-testid={dataTestid}
       className={cn(className, gridStyle({ gap: 4 }))}
     >
-      {title && (
+      {title && props.type !== "hidden" && (
         <label
           htmlFor={inputId}
           className={typographyStyle({ size: "small", type: "regular" })}
