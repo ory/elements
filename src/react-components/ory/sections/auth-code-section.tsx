@@ -19,7 +19,7 @@ export const AuthCodeSection = ({
             nodes: nodes,
             groups: "code",
             withoutDefaultAttributes: true,
-            excludeAttributes: ["hidden", "button", "submit"], // the form will take care of hidden fields
+            excludeAttributes: ["button", "submit"], // the form will take care of default (csrf) hidden fields
           }}
         />
       </div>
