@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { expect, test as base } from "@playwright/experimental-ct-react"
-import * as supportedLanguages from "../locales"
+import * as supportedLanguages from "../../locales"
 
 type Language = {
   [K in keyof typeof supportedLanguages.en]: string

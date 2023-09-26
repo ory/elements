@@ -9,7 +9,7 @@ import dts from "vite-plugin-dts"
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./src/react-components/",
+  testDir: "./src",
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */
@@ -40,13 +40,20 @@ export default defineConfig({
     ctPort: 3100,
     ctViteConfig: {
       plugins: [
+        vanillaExtractPlugin(),
         react(),
-        vanillaExtractPlugin({
-          emitCssInSsr: true,
-        }),
         dts({ insertTypesEntry: true }),
       ],
-      root: __dirname,
+      build: {
+        rollupOptions: {
+          external: ["express"],
+          output: {
+            globals: {
+              express: "express",
+            },
+          },
+        },
+      },
     },
   },
   /* Configure projects for major browsers */
