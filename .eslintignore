@@ -2,3 +2,4 @@ node_modules
 dist
 src/markup-components/component-wrapper.tsx
 src/markup-components/components.ts
+src/markup-components/express.ts
