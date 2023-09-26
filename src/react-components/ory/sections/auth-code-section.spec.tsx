@@ -29,9 +29,28 @@ test("should render when ui nodes contain `code` group", async ({ mount }) => {
           group: "code",
           attributes: {
             name: "resend",
-            node_type: "hidden",
-            type: "hidden",
+            node_type: "input",
+            type: "submit",
             required: true,
+            disabled: false,
+            value: "code",
+          },
+          messages: [],
+          type: "input",
+          meta: {
+            label: {
+              id: 1070008,
+              text: "Resend Code",
+              type: "info",
+            },
+          },
+        },
+        {
+          group: "code",
+          attributes: {
+            name: "method",
+            node_type: "input",
+            type: "hidden",
             disabled: false,
             value: "code",
           },
@@ -45,7 +64,6 @@ test("should render when ui nodes contain `code` group", async ({ mount }) => {
             name: "method",
             node_type: "input",
             type: "submit",
-            required: true,
             disabled: false,
             value: "code",
           },
@@ -53,7 +71,7 @@ test("should render when ui nodes contain `code` group", async ({ mount }) => {
           type: "input",
           meta: {
             label: {
-              id: 1040006,
+              id: 1070005,
               text: "Sign up with code",
               type: "info",
             },
@@ -63,7 +81,10 @@ test("should render when ui nodes contain `code` group", async ({ mount }) => {
     />,
   )
   await expect(container.locator("input[name=code]")).toBeVisible()
-  await expect(container.locator("input[name=resend]")).toBeHidden()
+  await expect(
+    container.locator('input[name=method][value="code"]'),
+  ).toBeAttached()
+  await expect(container.locator("button[name=resend]")).toBeVisible()
   await expect(container.locator("button[name=method]")).toBeVisible()
 })
 

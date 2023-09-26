@@ -11,27 +11,38 @@ export const AuthCodeSection = ({
   nodes,
 }: AuthCodeSectionProps): JSX.Element | null =>
   hasCode(nodes) ? (
-    <div className={gridStyle({ gap: 32 })}>
-      <div className={gridStyle({ gap: 16 })}>
-        {/* default group is used here automatically for login */}
-        <FilterFlowNodes
-          filter={{
-            nodes: nodes,
-            groups: "code",
-            withoutDefaultAttributes: true,
-            excludeAttributes: ["hidden", "button", "submit"], // the form will take care of hidden fields
-          }}
-        />
-      </div>
-      {/* include hidden here because we want to have resend support */}
-      {/* exclude default group because we dont want to map csrf twice */}
+    <>
+      {/* place this outisde of the grid so that hidden fields dont break the layout */}
       <FilterFlowNodes
         filter={{
           nodes: nodes,
           groups: "code",
           withoutDefaultAttributes: true,
-          attributes: ["button", "submit"],
+          attributes: ["hidden"],
         }}
       />
-    </div>
+      <div className={gridStyle({ gap: 32 })}>
+        <div className={gridStyle({ gap: 16 })}>
+          {/* default group is used here automatically for login */}
+          <FilterFlowNodes
+            filter={{
+              nodes: nodes,
+              groups: "code",
+              withoutDefaultAttributes: true,
+              excludeAttributes: ["hidden", "button", "submit"], // the form will take care of default (csrf) hidden fields
+            }}
+          />
+        </div>
+        {/* include hidden here because we want to have resend support */}
+        {/* exclude default group because we dont want to map csrf twice */}
+        <FilterFlowNodes
+          filter={{
+            nodes: nodes,
+            groups: "code",
+            withoutDefaultAttributes: true,
+            attributes: ["button", "submit"],
+          }}
+        />
+      </div>
+    </>
   ) : null
