@@ -26,5 +26,7 @@ test("ory consent card login flow", async ({ mount }) => {
     "https://test_policy_uri/",
   ])
   await consentComponent.expectAllowSubmit()
+
+  await expect(component).toBeVisible()
   await expect(component).toHaveScreenshot()
 })
