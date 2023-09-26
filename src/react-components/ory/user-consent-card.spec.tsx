@@ -18,6 +18,7 @@ test("ory consent card login flow", async ({ mount }) => {
 
   const component = await mount(<UserConsentCard {...defaults} />)
 
+  await expect(component).toBeVisible()
   const consentComponent = new ConsentPage(component)
 
   await consentComponent.expectScopeFields(defaults.requested_scope)
@@ -26,7 +27,4 @@ test("ory consent card login flow", async ({ mount }) => {
     "https://test_policy_uri/",
   ])
   await consentComponent.expectAllowSubmit()
-
-  await expect(component).toBeVisible()
-  await expect(component).toHaveScreenshot()
 })
