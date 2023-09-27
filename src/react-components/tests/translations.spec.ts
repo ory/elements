@@ -50,7 +50,7 @@ test("language keys and templates match", async ({
   templates,
 }) => {
   await test.step("Checking language keys", () => {
-    for (const [, translation] of Object.entries(translations)) {
+    for (const translation of Object.values(translations)) {
       expect(Object.keys(translation).sort()).toEqual(Object.keys(en).sort())
     }
   })
