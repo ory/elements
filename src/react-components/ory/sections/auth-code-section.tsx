@@ -16,7 +16,11 @@ export const AuthCodeSection = ({
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: "code",
+          groups: ["code"],
+          // we don't want to map the default group twice
+          // the form already maps hidden fields under the default group
+          // we are only interested in hidden fields that are under the code group
+          withoutDefaultGroup: true,
           withoutDefaultAttributes: true,
           attributes: ["hidden"],
         }}

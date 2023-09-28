@@ -539,7 +539,7 @@ export const registrationCodeFixture: RegistrationFlow = {
       },
       {
         type: "input",
-        group: "code",
+        group: "default",
         attributes: {
           name: "traits.email",
           type: "email",
@@ -558,7 +558,7 @@ export const registrationCodeFixture: RegistrationFlow = {
       },
       {
         type: "input",
-        group: "code",
+        group: "default",
         attributes: {
           name: "traits.firstName",
           type: "text",
@@ -596,4 +596,162 @@ export const registrationCodeFixture: RegistrationFlow = {
       },
     ],
   },
+  state: "choose_method",
+}
+
+export const registrationCodeStepTwoFixture: RegistrationFlow = {
+  id: "28554fd0-cbf5-4ff3-a1f7-c033e5ad459c",
+  type: "browser",
+  expires_at: "2023-09-28T06:38:36.109217Z",
+  issued_at: "2023-09-28T06:08:36.109217Z",
+  request_url:
+    "https://auth.terblanche.eu/self-service/registration/browser?return_to=",
+  active: "code",
+  ui: {
+    action:
+      "https://auth.terblanche.eu/self-service/registration?flow=28554fd0-cbf5-4ff3-a1f7-c033e5ad459c",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "traits.email",
+          type: "hidden",
+          value: "alano@ory.sh",
+          required: true,
+          autocomplete: "email",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070002,
+            text: "E-Mail",
+            type: "info",
+            context: {
+              title: "E-Mail",
+            },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "traits.tos",
+          type: "hidden",
+          value: true,
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070002,
+            text: "Accept Tos",
+            type: "info",
+            context: {
+              title: "Accept Tos",
+            },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "RWrc7sJjlrv2xAdtlvlFmRg/vExgYOiXjdReeIYQ8uyptoPfF5vCqPdBmKW76qq6ZE6YjINL5yRPNO4ycAAHFQ==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "hidden",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "code",
+          type: "text",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070012,
+            text: "Registration code",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070005,
+            text: "Submit",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "code",
+        attributes: {
+          name: "resend",
+          type: "submit",
+          value: "code",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070008,
+            text: "Resend code",
+            type: "info",
+          },
+        },
+      },
+    ],
+    messages: [
+      {
+        id: 1040005,
+        text: "An email containing a code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and retry the registration.",
+        type: "info",
+      },
+    ],
+  },
+  state: "sent_email",
 }
