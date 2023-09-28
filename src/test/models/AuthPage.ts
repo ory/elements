@@ -37,10 +37,12 @@ export class AuthPage {
     const t = traits || this.traits
     for (const key in t) {
       if (t[key].type === "hidden") {
-        await expect(this.locator.locator(`*[name="${key}"]`)).toBeHidden()
+        await expect(this.locator.locator(`*[name="${key}"]`)).toBeAttached()
       } else {
         await expect(
-          this.locator.locator(`*[name="${t[key].name || key}"]`),
+          this.locator.locator(
+            `*[name="${t[key].name || key}"][type="${t[key].type}"]`,
+          ),
         ).toBeVisible()
       }
     }
