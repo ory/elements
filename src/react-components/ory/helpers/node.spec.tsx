@@ -160,3 +160,71 @@ test("uiTextToFormattedMessage on a list", async ({ mount }) => {
   await expect(component).toContainText("te45pbc0")
   await expect(component).toContainText("q3vvtd4i")
 })
+
+test("button with id 1070007 should have formnovalidate", async ({ mount }) => {
+  const component = await mount(
+    <Node
+      node={{
+        type: "input",
+        group: "default",
+        attributes: {
+          id: "111111",
+          name: "resend",
+          value: "code",
+          type: "submit",
+          node_type: "input",
+          required: true,
+          disabled: false,
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070007,
+            text: "",
+            type: "info",
+          },
+        },
+      }}
+    />,
+  )
+
+  // formnovalidate is inline and won't work with the .toHaveAttribute matcher
+  await expect(component.locator("[formnovalidate]")).toBeAttached()
+  // text is injected from the translation file
+  await expect(component).toHaveText("Email")
+})
+
+test("button with label id 1070008 should have formnovalidate", async ({
+  mount,
+}) => {
+  const component = await mount(
+    <Node
+      node={{
+        type: "input",
+        group: "default",
+        attributes: {
+          id: "111111",
+          name: "resend",
+          value: "code",
+          type: "submit",
+          node_type: "input",
+          required: true,
+          disabled: false,
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070008,
+            text: "",
+            type: "info",
+          },
+        },
+      }}
+    />,
+  )
+
+  // formnovalidate is inline and won't work with the .toHaveAttribute matcher
+  await expect(component.locator("[formnovalidate]")).toBeAttached()
+  // text is injected from the translation file
+  await expect(component).toHaveText("Resend code")
+})
