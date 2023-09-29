@@ -16,9 +16,9 @@ export class SettingsPage extends AuthPage {
     traits?: Record<string, Traits>,
     path?: string,
   ) {
-    super(traits || defaultTraits, page.getByTestId("settings-settings-card"))
+    super(traits ?? defaultTraits, page.getByTestId("settings-settings-card"))
     this.page = page
-    this.pageUrl = new URL(path || "/settings", baseUrl)
+    this.pageUrl = new URL(path ?? "/settings", baseUrl)
   }
 
   async goto() {

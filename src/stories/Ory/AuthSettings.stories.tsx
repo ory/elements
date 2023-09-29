@@ -2,9 +2,7 @@ import { ComponentMeta, Story } from "@storybook/react"
 import { UserSettingsCard, UserSettingsCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
-import { SettingsFlow } from "@ory/client"
-import settingsFlow from "./settings-flow.json"
-import settingsUnlinkFlow from "./settings-unlink-flow.json"
+import { settingsFlow, settingsUnlinkFlow } from "./settings-data"
 
 export default {
   title: "Ory/UserSettingsCard",
@@ -25,54 +23,54 @@ export const UserSettingsProfileCard = Template.bind({})
 
 UserSettingsProfileCard.args = {
   flowType: "profile",
-  flow: settingsFlow as SettingsFlow,
+  flow: settingsFlow,
 }
 
 export const UserSettingsPasswordCard = Template.bind({})
 
 UserSettingsPasswordCard.args = {
   flowType: "password",
-  flow: settingsFlow as SettingsFlow,
+  flow: settingsFlow,
 }
 
 export const UserSettingsWebauthnCard = Template.bind({})
 
 UserSettingsWebauthnCard.args = {
   flowType: "webauthn",
-  flow: settingsFlow as SettingsFlow,
+  flow: settingsFlow,
 }
 
 export const UserSettingsUnlinkWebauthnCard = Template.bind({})
 
 UserSettingsUnlinkWebauthnCard.args = {
   flowType: "webauthn",
-  flow: settingsUnlinkFlow as SettingsFlow,
+  flow: settingsUnlinkFlow,
 }
 
 export const UserSettingsTotpCard = Template.bind({})
 
 UserSettingsTotpCard.args = {
   flowType: "totp",
-  flow: settingsFlow as SettingsFlow,
+  flow: settingsFlow,
 }
 
 export const UserSettingsUnlinkTotpCard = Template.bind({})
 
 UserSettingsUnlinkTotpCard.args = {
   flowType: "totp",
-  flow: settingsUnlinkFlow as SettingsFlow,
+  flow: settingsUnlinkFlow,
 }
 
 export const UserSettingsOidcCard = Template.bind({})
 
 UserSettingsOidcCard.args = {
   flowType: "oidc",
-  flow: settingsFlow as SettingsFlow,
+  flow: settingsFlow,
 }
 
 export const UserSettingsUnlinkOidcCard = Template.bind({})
 
 UserSettingsUnlinkOidcCard.args = {
   flowType: "oidc",
-  flow: settingsUnlinkFlow as SettingsFlow,
+  flow: settingsUnlinkFlow,
 }

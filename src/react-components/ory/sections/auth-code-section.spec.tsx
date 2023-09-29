@@ -123,7 +123,7 @@ test("shouldn't render anything with no code group", async ({ mount }) => {
     />,
   )
 
-  await expect(container.locator("input[name=identifier]")).not.toBeVisible()
+  await expect(container.locator("input[name=identifier]")).toBeHidden()
 })
 
 test("should render traits on default group", async ({ mount }) => {

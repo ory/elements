@@ -24,7 +24,7 @@ export type MockFlowStates =
   | "session_forbidden"
   | "session_active"
 
-export type MockFlow = {
+export interface MockFlow {
   flow: string
   response?: MockFlowResponse
   state?: MockFlowStates
@@ -36,7 +36,7 @@ export const getFlowState = (
 ): VerificationFlowState | RecoveryFlowState =>
   a.replace(flow + "_", "") as VerificationFlowState | RecoveryFlowState
 
-export type Traits = {
+export interface Traits {
   name?: string
   group: UiNodeGroupEnum
   value: string
@@ -53,12 +53,12 @@ export type Traits = {
   node_type?: string
 }
 
-export type ErrorBrowserLocationChangeRequired = {
+export interface ErrorBrowserLocationChangeRequired {
   error: GenericError
   redirect_browser_to: string
 }
 
-export type MockFlowResponse = {
+export interface MockFlowResponse {
   body:
     | LoginFlow
     | RegistrationFlow

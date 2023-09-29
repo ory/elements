@@ -14,12 +14,20 @@ import {
   hasWebauthn,
 } from "./helpers/utils"
 
-export type UserSettingsScreenProps = {
+/**
+ * UserSettingsScreenProps
+ * @param navClassName - css class overrides for the Nav
+ * @param headerContainerClassName - css class overrides for the header container
+ * @param dividerClassName - css class overrides for the divider
+ * @param settingsCardContainerClassName - css class overrides for the settings card container
+ * @param flow - the Ory Settings flow object
+ * @param logoutUrl - the logout url
+ */
+export interface UserSettingsScreenProps {
   navClassName?: string
   headerContainerClassName?: string
   dividerClassName?: string
   settingsCardContainerClassName?: string
-
   flow: SettingsFlow
   logoutUrl: string
 }

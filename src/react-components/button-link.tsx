@@ -9,7 +9,7 @@ import {
   buttonLinkStyle,
 } from "../theme/button-link.css"
 
-export type CustomHref = {
+export interface CustomHref {
   href: string
   handler: (url: string) => void
 }

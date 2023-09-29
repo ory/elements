@@ -3,15 +3,15 @@
 
 import { LoginFlow } from "@ory/client"
 
-export const loginFixture: LoginFlow = {
-  id: "31f9170d-c28d-4f6c-8cf8-54b999a4f172",
+export const loginFlow: LoginFlow = {
+  id: "4a7c067f-ae1f-4015-b3e3-74e1de254b40",
   type: "browser",
-  expires_at: "2022-08-29T10:21:13.298704656Z",
-  issued_at: "2022-08-29T09:51:13.298704656Z",
-  request_url: "http://localhost:4000/self-service/login/browser",
+  expires_at: "2022-08-23T18:50:56.82053129Z",
+  issued_at: "2022-08-23T18:20:56.82053129Z",
+  request_url: "http://test.com/self-service/login/browser",
   ui: {
     action:
-      "http://localhost:4000/self-service/login?flow=31f9170d-c28d-4f6c-8cf8-54b999a4f172",
+      "http://test.com/self-service/login?flow=4a7c067f-ae1f-4015-b3e3-74e1de254b40",
     method: "POST",
     nodes: [
       {
@@ -21,7 +21,7 @@ export const loginFixture: LoginFlow = {
           name: "csrf_token",
           type: "hidden",
           value:
-            "gRBwj0LpxhDugD8sNq1/H6HABvVKMoZepLuLHU+7leIFL33RU4hc1sCYlFKRlsqYPBAG5P84ADrnwLLC3TIy3g==",
+            "6Ov489/mtfsZ9cnFjqsSzxITOj4F6F1DaLTlrznzZtmFNHE9hssysNvRxD6vmbjhxexBYUcJ4HMC14wSREegkg==",
           required: true,
           disabled: false,
           node_type: "input",
@@ -41,6 +41,153 @@ export const loginFixture: LoginFlow = {
           node_type: "input",
         },
         messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "webauthn",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010008,
+            text: "Use security key",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "current-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: "Password",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010001,
+            text: "Sign in",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+    ],
+  },
+  created_at: "2022-08-23T18:20:56.827165Z",
+  updated_at: "2022-08-23T18:20:56.827165Z",
+  refresh: false,
+  requested_aal: "aal1",
+  state: "",
+}
+
+export const loginFlowUiError: LoginFlow = {
+  id: "4825164f-0784-4ed3-ba8f-9d0bef2bc3f2",
+  type: "browser",
+  expires_at: "2022-09-27T12:07:40.581807Z",
+  issued_at: "2022-09-27T11:37:40.581807Z",
+  request_url:
+    "http://test.com/self-service/login/browser?refresh=true&aal=aal1",
+  ui: {
+    action:
+      "http://test.com/self-service/login?flow=4825164f-0784-4ed3-ba8f-9d0bef2bc3f2",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "github",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with GitHub",
+            type: "info",
+            context: {
+              provider: "GitHub",
+            },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "8sIxbFJwFrHHWTI4rYRfVwGjtbQ/a4z6bf5R+KMW8DBlxNcIO1mBNk7HjsleD/jSadbVlK9CJah2sZo9OrfM9g==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          value: "",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [
+          {
+            id: 4000002,
+            text: "Property identifier is missing.",
+            type: "error",
+            context: {
+              property: "identifier",
+            },
+          },
+        ],
         meta: {
           label: {
             id: 1070004,
@@ -91,58 +238,23 @@ export const loginFixture: LoginFlow = {
       },
     ],
   },
-  created_at: "2022-08-29T09:51:13.308547Z",
-  updated_at: "2022-08-29T09:51:13.308547Z",
+  created_at: "2022-09-27T11:37:40.673019Z",
+  updated_at: "2022-09-27T11:37:40.673019Z",
   refresh: false,
   requested_aal: "aal1",
   state: "",
 }
 
-export const loginNoneFixture: LoginFlow = {
-  id: "62a8739b-5866-4a4c-9951-acb39a49709c",
-  type: "browser",
-  expires_at: "2022-08-29T10:17:27.87015684Z",
-  issued_at: "2022-08-29T09:47:27.87015684Z",
-  request_url: "http://localhost:4000/self-service/login/browser",
-  ui: {
-    action:
-      "http://localhost:4000/self-service/login?flow=62a8739b-5866-4a4c-9951-acb39a49709c",
-    method: "POST",
-    nodes: [
-      {
-        type: "input",
-        group: "default",
-        attributes: {
-          name: "csrf_token",
-          type: "hidden",
-          value:
-            "FFydsmckUnGEN4NMGn5uuW1TTy0XNTd1YrAIS6szdbuQY5DsdkXIt6ovKDK9Rds+8INPPKI/sREhyzGUObrShw==",
-          required: true,
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {},
-      },
-    ],
-  },
-  created_at: "2022-08-29T09:47:27.876079Z",
-  updated_at: "2022-08-29T09:47:27.876079Z",
-  refresh: false,
-  requested_aal: "aal1",
-  state: "",
-}
-
-export const loginRefreshFixture: LoginFlow = {
+export const loginFlowRefresh: LoginFlow = {
   id: "8a23a143-c08d-4635-b9fc-f9036db53227",
   oauth2_login_challenge: "",
   type: "browser",
   expires_at: "2023-01-09T14:00:47.355708383Z",
   issued_at: "2023-01-09T13:00:47.355708383Z",
-  request_url: "http://localhost:4000/self-service/login/browser?refresh=true",
+  request_url: "http://test.com/self-service/login/browser?refresh=true",
   ui: {
     action:
-      "http://localhost:4000/self-service/login?flow=8a23a143-c08d-4635-b9fc-f9036db53227",
+      "http://test.com/self-service/login?flow=8a23a143-c08d-4635-b9fc-f9036db53227",
     method: "POST",
     nodes: [
       {
@@ -230,203 +342,26 @@ export const loginRefreshFixture: LoginFlow = {
   state: "",
 }
 
-export const loginSubmitIncorrectCredentialsFixture: LoginFlow = {
-  id: "400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
-  oauth2_login_challenge: "",
+export const loginFlowHydra: LoginFlow = {
+  id: "4a7c067f-ae1f-4015-b3e3-74e1de254b40",
   type: "browser",
-  expires_at: "2023-03-16T12:49:22.219258Z",
-  issued_at: "2023-03-16T12:19:22.219258Z",
-  request_url:
-    "https://localhost:4000/self-service/login/browser?refresh=true&aal=aal1",
-  ui: {
-    action:
-      "https://localhost:4000/self-service/login?flow=400c0e81-16ba-4c1c-a6e1-ab1eac2bd413",
-    method: "POST",
-    nodes: [
-      {
-        type: "input",
-        group: "oidc",
-        attributes: {
-          name: "provider",
-          type: "submit",
-          value: "discord",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010002,
-            text: "Sign in with Discord",
-            type: "info",
-            context: { provider: "Discord" },
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "oidc",
-        attributes: {
-          name: "provider",
-          type: "submit",
-          value: "facebook",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010002,
-            text: "Sign in with Facebook",
-            type: "info",
-            context: { provider: "Facebook" },
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "oidc",
-        attributes: {
-          name: "provider",
-          type: "submit",
-          value: "github",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010002,
-            text: "Sign in with GitHub",
-            type: "info",
-            context: { provider: "GitHub" },
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "oidc",
-        attributes: {
-          name: "provider",
-          type: "submit",
-          value: "google",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010002,
-            text: "Sign in with Google",
-            type: "info",
-            context: { provider: "Google" },
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "default",
-        attributes: {
-          name: "csrf_token",
-          type: "hidden",
-          value:
-            "Tj03XA71hPNteczHS2gPV5r+Bwo9BVwrO8m3l8bMG/erq0Ea8SBnlU53ndj14MGiwUcp52socpZliGL7YpbUow==",
-          required: true,
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {},
-      },
-      {
-        type: "input",
-        group: "default",
-        attributes: {
-          name: "identifier",
-          type: "text",
-          value: "asdasfew@fwefwe.com",
-          required: true,
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: { label: { id: 1070004, text: "ID", type: "info" } },
-      },
-      {
-        type: "input",
-        group: "webauthn",
-        attributes: {
-          name: "method",
-          type: "submit",
-          value: "webauthn",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010001,
-            text: "Sign in with security key",
-            type: "info",
-            context: {},
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "password",
-        attributes: {
-          name: "password",
-          type: "password",
-          required: true,
-          autocomplete: "current-password",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: { label: { id: 1070001, text: "Password", type: "info" } },
-      },
-      {
-        type: "input",
-        group: "password",
-        attributes: {
-          name: "method",
-          type: "submit",
-          value: "password",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: { id: 1010001, text: "Sign in", type: "info", context: {} },
-        },
-      },
-    ],
-    messages: [
-      {
-        id: 4000006,
-        text: "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number.",
-        type: "error",
-        context: {},
-      },
-    ],
+  expires_at: "2022-08-23T18:50:56.82053129Z",
+  issued_at: "2022-08-23T18:20:56.82053129Z",
+  request_url: "http://test.com/self-service/login/browser",
+  oauth2_login_request: {
+    client: {
+      client_name: "ACME Inc.",
+    },
+    challenge: "whatever-chanllenge",
+    request_url: "https://acme.com",
+    requested_scope: ["openid", "offline"],
+    requested_access_token_audience: ["https://acme.com"],
+    skip: false,
+    subject: "user1",
   },
-  created_at: "2023-03-16T12:19:22.331239Z",
-  updated_at: "2023-03-16T12:19:22.331239Z",
-  refresh: false,
-  requested_aal: "aal1",
-  state: "",
-}
-
-export const loginTwoFactorFixture: LoginFlow = {
-  id: "3f9319a6-7105-4004-aa16-80d3f5281164",
-  type: "browser",
-  expires_at: "2022-09-22T15:59:26.051983Z",
-  issued_at: "2022-09-22T15:29:26.051983Z",
-  request_url: "https://localhost:4000/self-service/login/browser?aal=aal2",
   ui: {
     action:
-      "https://localhost:4000/self-service/login?flow=3f9319a6-7105-4004-aa16-80d3f5281164",
+      "http://test.com/self-service/login?flow=4a7c067f-ae1f-4015-b3e3-74e1de254b40",
     method: "POST",
     nodes: [
       {
@@ -436,156 +371,7 @@ export const loginTwoFactorFixture: LoginFlow = {
           name: "csrf_token",
           type: "hidden",
           value:
-            "sylBsTLGrttAzMQtXZtb+Cpk4K/Pe9P+vz2WBUJoLunc8h5ff/7aloMMy/vJsnp/IwojlWaAfnuAwaqA5+i+Lg==",
-          required: true,
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {},
-      },
-      {
-        type: "input",
-        group: "default",
-        attributes: {
-          name: "identifier",
-          type: "hidden",
-          value: "aecaf2bf-b33f-4271-9c4d-0c0eb722fcf8",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {},
-      },
-      {
-        type: "input",
-        group: "webauthn",
-        attributes: {
-          name: "webauthn_login_trigger",
-          type: "button",
-          value: "",
-          disabled: false,
-          onclick:
-            'window.__oryWebAuthnLogin({"publicKey":{"challenge":"zk6j9Qfetb7N3DIZflBKrTSQvXwwAAw1/HFliAXJOR0=","timeout":60000,"rpId":"localhost:4000","allowCredentials":[{"type":"public-key","id":"jeuNGRy/jfYfxNhZ8JvfCy/dE5gs5m1djdMrtRb+Tuwq9tgP+U1o6JR8BWrt7oLWHQbxnh0t3Ebu1EtTKzwJbw=="}],"userVerification":"discouraged"}})',
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010008,
-            text: "Use security key",
-            type: "info",
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "webauthn",
-        attributes: {
-          name: "webauthn_login",
-          type: "hidden",
-          value: "",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {},
-      },
-      {
-        type: "script",
-        group: "webauthn",
-        attributes: {
-          src: "https://localhost:4000/.well-known/ory/webauthn.js",
-          async: true,
-          referrerpolicy: "no-referrer",
-          crossorigin: "anonymous",
-          integrity:
-            "sha512-E3ctShTQEYTkfWrjztRCbP77lN7L0jJC2IOd6j8vqUKslvqhX/Ho3QxlQJIeTI78krzAWUQlDXd9JQ0PZlKhzQ==",
-          type: "text/javascript",
-          id: "webauthn_script",
-          nonce: "c3c7199e-8a94-4878-b5ac-dddbfd94029e",
-          node_type: "script",
-        },
-        messages: [],
-        meta: {},
-      },
-      {
-        type: "input",
-        group: "totp",
-        attributes: {
-          name: "totp_code",
-          type: "text",
-          value: "",
-          required: true,
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010006,
-            text: "Authentication code",
-            type: "info",
-            context: {},
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "totp",
-        attributes: {
-          name: "method",
-          type: "submit",
-          value: "totp",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1010009,
-            text: "Use Authenticator",
-            type: "info",
-            context: {},
-          },
-        },
-      },
-    ],
-    messages: [
-      {
-        id: 1010004,
-        text: "Please complete the second authentication challenge.",
-        type: "info",
-        context: {},
-      },
-    ],
-  },
-  created_at: "2022-09-22T15:29:26.311469Z",
-  updated_at: "2022-09-22T15:29:26.311469Z",
-  refresh: false,
-  requested_aal: "aal2",
-  state: "",
-}
-
-export const loginPasswordlessFixture: LoginFlow = {
-  id: "13de599b-5fc0-472c-9635-b1d19c0ea9e3",
-  type: "browser",
-  expires_at: "2022-08-29T10:22:39.093619222Z",
-  issued_at: "2022-08-29T09:52:39.093619222Z",
-  request_url: "http://localhost:4000/self-service/login/browser",
-  ui: {
-    action:
-      "http://localhost:4000/self-service/login?flow=13de599b-5fc0-472c-9635-b1d19c0ea9e3",
-    method: "POST",
-    nodes: [
-      {
-        type: "input",
-        group: "default",
-        attributes: {
-          name: "csrf_token",
-          type: "hidden",
-          value:
-            "ze0GFCqJ9j8C+ePPezAZl1j/Hu+7BKPXX8wxAe/Ky1xJ0gtKO+hs+SzhSLHcC6wQxS8e/g4OJbMctwjefUNsYA==",
+            "6Ov489/mtfsZ9cnFjqsSzxITOj4F6F1DaLTlrznzZtmFNHE9hssysNvRxD6vmbjhxexBYUcJ4HMC14wSREegkg==",
           required: true,
           disabled: false,
           node_type: "input",
@@ -626,8 +412,48 @@ export const loginPasswordlessFixture: LoginFlow = {
         messages: [],
         meta: {
           label: {
+            id: 1010008,
+            text: "Use security key",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "current-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: "Password",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
             id: 1010001,
-            text: "Sign in with security key",
+            text: "Sign in",
             type: "info",
             context: {},
           },
@@ -635,14 +461,162 @@ export const loginPasswordlessFixture: LoginFlow = {
       },
     ],
   },
-  created_at: "2022-08-29T09:52:39.101785Z",
-  updated_at: "2022-08-29T09:52:39.101785Z",
+  created_at: "2022-08-23T18:20:56.827165Z",
+  updated_at: "2022-08-23T18:20:56.827165Z",
   refresh: false,
   requested_aal: "aal1",
   state: "",
 }
 
-export const loginCodeFixture: LoginFlow = {
+export const loginFlowError: LoginFlow = {
+  id: "e565dc97-17cd-462c-b02a-575cae0073d7",
+  type: "browser",
+  expires_at: "2022-08-11T09:58:08.397197Z",
+  issued_at: "2022-08-11T09:28:08.397197Z",
+  request_url:
+    "http://project.console.ory.sh/self-service/login/browser?refresh=false",
+  ui: {
+    action:
+      "https://project.console.ory.sh/self-service/login?flow=e565dc97-17cd-462c-b02a-575cae0073d7",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "github",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with github",
+            type: "info",
+            context: {
+              provider: "github",
+            },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "oidc",
+        attributes: {
+          name: "provider",
+          type: "submit",
+          value: "google",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010002,
+            text: "Sign in with google",
+            type: "info",
+            context: {
+              provider: "google",
+            },
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "9MLkOckkbh9rK3kgR9qE2GJ5l86+NTRNXXsYwxe91gjhKXtl9aHG1TvNZiaOpwW2ioypjvKPt/KlrUFIRSnCUQ==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          value: "sd@fsd",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "current-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: "Password",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010001,
+            text: "Sign in",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+    ],
+    messages: [
+      {
+        id: 4000006,
+        text: "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number.",
+        type: "error",
+        context: {},
+      },
+    ],
+  },
+  created_at: "2022-08-11T09:28:08.405977Z",
+  updated_at: "2022-08-11T09:28:08.405977Z",
+  refresh: false,
+  requested_aal: "aal1",
+  state: "",
+}
+
+export const loginFlowCodeStepOne: LoginFlow = {
   id: "abee8b51-4e39-4d0a-9ac7-64ff0ff6c502",
   type: "browser",
   expires_at: "2023-08-22T07:02:40.795179386Z",
@@ -715,7 +689,7 @@ export const loginCodeFixture: LoginFlow = {
   state: "choose_method",
 }
 
-export const loginCodeTwoFixture: LoginFlow = {
+export const loginFlowCodeStepTwo: LoginFlow = {
   id: "2b739b09-4d06-4489-9895-6b8a55634ff6",
   type: "browser",
   expires_at: "2023-08-22T07:13:25.194774403Z",
@@ -849,27 +823,16 @@ export const loginCodeTwoFixture: LoginFlow = {
   state: "sent_email",
 }
 
-export const loginFixtureOAuth2: LoginFlow = {
-  id: "31f9170d-c28d-4f6c-8cf8-54b999a4f172",
+export const loginFlowTwoFactor: LoginFlow = {
+  id: "0e21a525-6aa7-40e2-8dbf-5fa51f292dc1",
   type: "browser",
-  oauth2_login_request: {
-    client: {
-      client_id: "oauth2-login-client",
-      client_uri: "https://www.ory.sh/docs/ecosystem/sdks",
-    },
-    challenge: "a1b2c3d4e5f6g7h8i9j0",
-    request_url: "http://localhost:4000/self-service/login/browser",
-    requested_access_token_audience: ["https://api.ory.sh/"],
-    requested_scope: ["offline", "openid"],
-    skip: false,
-    subject: "",
-  },
-  expires_at: "2022-08-29T10:21:13.298704656Z",
-  issued_at: "2022-08-29T09:51:13.298704656Z",
-  request_url: "http://localhost:4000/self-service/login/browser",
+  expires_at: "2022-08-22T22:32:15.614434Z",
+  issued_at: "2022-08-22T22:02:15.614434Z",
+  request_url:
+    "http://project.console.ory.sh/self-service/login/browser?aal=aal2",
   ui: {
     action:
-      "http://localhost:4000/self-service/login?flow=31f9170d-c28d-4f6c-8cf8-54b999a4f172",
+      "https://project.console.ory.sh/self-service/login?flow=0e21a525-6aa7-40e2-8dbf-5fa51f292dc1",
     method: "POST",
     nodes: [
       {
@@ -879,7 +842,7 @@ export const loginFixtureOAuth2: LoginFlow = {
           name: "csrf_token",
           type: "hidden",
           value:
-            "gRBwj0LpxhDugD8sNq1/H6HABvVKMoZepLuLHU+7leIFL33RU4hc1sCYlFKRlsqYPBAG5P84ADrnwLLC3TIy3g==",
+            "daYqaGczESQOiLZ03a+YgBJC9eo/mHfVl52x4rFnS8gqrH/EoYRdnNT62zDsbHpeDdHvvNLmzxAPN+QBbmDpBw==",
           required: true,
           disabled: false,
           node_type: "input",
@@ -892,6 +855,71 @@ export const loginFixtureOAuth2: LoginFlow = {
         group: "default",
         attributes: {
           name: "identifier",
+          type: "hidden",
+          value: "aecaf2bf-b33f-4271-9c4d-0c0eb722fcf8",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_login_trigger",
+          type: "button",
+          value: "",
+          disabled: false,
+          onclick:
+            'window.__oryWebAuthnLogin({"publicKey":{"challenge":"=","timeout":60000,"rpId":"console.ory.sh","allowCredentials":[{"type":"public-key","id":"=="}],"userVerification":"discouraged"}})',
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010008,
+            text: "Use security key",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_login",
+          type: "hidden",
+          value: "",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "script",
+        group: "webauthn",
+        attributes: {
+          src: "https://project.console.ory.sh/.well-known/ory/webauthn.js",
+          async: true,
+          referrerpolicy: "no-referrer",
+          crossorigin: "anonymous",
+          integrity:
+            "sha512-E3ctShTQEYTkfWrjztRCbP77lN7L0jJC2IOd6j8vqUKslvqhX/Ho3QxlQJIeTI78krzAWUQlDXd9JQ0PZlKhzQ==",
+          type: "text/javascript",
+          id: "webauthn_script",
+          nonce: "6d2cacc8-9abd-4f8f-b2b9-cd5250bfa677",
+          node_type: "script",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "totp",
+        attributes: {
+          name: "totp_code",
           type: "text",
           value: "",
           required: true,
@@ -901,57 +929,46 @@ export const loginFixtureOAuth2: LoginFlow = {
         messages: [],
         meta: {
           label: {
-            id: 1070004,
-            text: "ID",
+            id: 1010006,
+            text: "Authentication code",
             type: "info",
+            context: {},
           },
         },
       },
       {
         type: "input",
-        group: "password",
-        attributes: {
-          name: "password",
-          type: "password",
-          required: true,
-          autocomplete: "current-password",
-          disabled: false,
-          node_type: "input",
-        },
-        messages: [],
-        meta: {
-          label: {
-            id: 1070001,
-            text: "Password",
-            type: "info",
-          },
-        },
-      },
-      {
-        type: "input",
-        group: "password",
+        group: "totp",
         attributes: {
           name: "method",
           type: "submit",
-          value: "password",
+          value: "totp",
           disabled: false,
           node_type: "input",
         },
         messages: [],
         meta: {
           label: {
-            id: 1010001,
-            text: "Sign in",
+            id: 1010009,
+            text: "Use Authenticator",
             type: "info",
             context: {},
           },
         },
       },
     ],
+    messages: [
+      {
+        id: 1010004,
+        text: "Please complete the second authentication challenge.",
+        type: "info",
+        context: {},
+      },
+    ],
   },
-  created_at: "2022-08-29T09:51:13.308547Z",
-  updated_at: "2022-08-29T09:51:13.308547Z",
+  created_at: "2022-08-22T22:02:15.825471Z",
+  updated_at: "2022-08-22T22:02:15.825471Z",
   refresh: false,
-  requested_aal: "aal1",
+  requested_aal: "aal2",
   state: "",
 }

@@ -9,7 +9,7 @@ import { defaultMockFlowResponse } from "./utils"
 
 const setupLoginFlow = async (loginPage: LoginPage) => {
   await test.step("mock the whoami response to be logged out", async () => {
-    loginPage.registerMockWhoamiResponse({
+    await loginPage.registerMockWhoamiResponse({
       state: "session_forbidden",
     })
   })

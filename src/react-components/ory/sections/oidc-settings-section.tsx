@@ -5,7 +5,7 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasOidc } from "../helpers/utils"
 
-export type OIDCSettingsProps = {
+export interface OIDCSettingsProps {
   flow: SettingsFlow
   title?: string
 }

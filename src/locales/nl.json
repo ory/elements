@@ -92,7 +92,7 @@
   "identities.messages.4000019": "moet > {minimum} zijn, maar is {actual}",
   "identities.messages.4000020": "moet <= {maximum} zijn, maar is {actual}",
   "identities.messages.4000021": "moet < {maximum} zijn, maar is {actual}",
-  "identities.messages.4000022": "{actual} is geen veelvoud van {basic}",
+  "identities.messages.4000022": "{actual} is geen veelvoud van {base}",
   "identities.messages.4000023": "maximaal {max_items} items toegestaan, maar er zijn {actual_items} items gevonden",
   "identities.messages.4000024": "minimaal {min_items} items toegestaan, maar er zijn {actual_items} items gevonden",
   "identities.messages.4000025": "items op index {index_a} en {index_b} zijn gelijk",

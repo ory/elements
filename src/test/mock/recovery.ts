@@ -5,6 +5,7 @@ import { expect, test } from "@playwright/test"
 import { RecoveryPage } from "../models/RecoveryPage"
 import { defaultRecoveryTraitsWithCode } from "../traits"
 import { UUIDv4 } from "../utils"
+import { ErrorBrowserLocationChangeRequired } from "@ory/client"
 
 export const RecoveryMocks = {
   // RecoverySuccessTest is a mock for a successful recovery `code` flow
@@ -92,7 +93,8 @@ export const RecoveryMocks = {
 
       const submitResponse = await submitRequest
       expect(submitResponse.status()).toBe(422)
-      const submitResponseBody = await submitResponse.json()
+      const submitResponseBody =
+        (await submitResponse.json()) as ErrorBrowserLocationChangeRequired
       expect(submitResponseBody).toHaveProperty("redirect_browser_to")
     })
   },

@@ -110,6 +110,7 @@ export const registrationFixture: RegistrationFlow = {
       },
     ],
   },
+  state: "",
 }
 
 export const registrationNoneFixture: RegistrationFlow = {
@@ -124,11 +125,11 @@ export const registrationNoneFixture: RegistrationFlow = {
     method: "POST",
     nodes: [],
   },
+  state: "",
 }
 
 export const registrationSubmitDuplicateAccountFixture: RegistrationFlow = {
   id: "cabee281-f75c-4239-8014-10bbdfdcede4",
-  oauth2_login_challenge: null,
   type: "browser",
   expires_at: "2023-03-20T15:46:54.152799Z",
   issued_at: "2023-03-20T15:16:54.152799Z",
@@ -370,6 +371,7 @@ export const registrationSubmitDuplicateAccountFixture: RegistrationFlow = {
       },
     ],
   },
+  state: "",
 }
 
 export const registrationPasswordlessFixture: RegistrationFlow = {
@@ -509,6 +511,7 @@ export const registrationPasswordlessFixture: RegistrationFlow = {
       },
     ],
   },
+  state: "",
 }
 
 export const registrationCodeFixture: RegistrationFlow = {

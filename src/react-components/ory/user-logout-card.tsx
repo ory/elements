@@ -4,7 +4,15 @@ import { Card } from "../card"
 import { Typography } from "../typography"
 import { FormattedMessage, useIntl } from "react-intl"
 
-export type UserLogoutCardProps = {
+/**
+ * UserLogoutCardProps
+ * @param csrfToken - CSRF token
+ * @param challenge - Ory LogoutRequest challenge
+ * @param action - the URL used for the form action
+ * @param className - css class overrides for the UserLogoutCard
+ * @param cardImage - card image is usually the company logo
+ */
+export interface UserLogoutCardProps {
   csrfToken: string
   challenge: string
   action: string
@@ -12,6 +20,10 @@ export type UserLogoutCardProps = {
   cardImage?: string | React.ReactElement
 }
 
+/**
+ * UserLogoutCard renders an OAuth2 logout card for the user
+ * @see UserLogoutCardProps
+ */
 export const UserLogoutCard = ({
   csrfToken,
   challenge,

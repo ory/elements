@@ -32,7 +32,7 @@ export class VerificationPage extends AuthPage {
       page.getByTestId("verification-auth-card"),
     )
     this.page = page
-    this.pageUrl = new URL(path || "/verification", baseUrl)
+    this.pageUrl = new URL(path ?? "/verification", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
   }
 

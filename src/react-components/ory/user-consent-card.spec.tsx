@@ -1,5 +1,5 @@
 import { OAuth2ConsentRequest } from "@ory/client"
-import { test } from "@playwright/experimental-ct-react"
+import { expect, test } from "@playwright/experimental-ct-react"
 import { ConsentPage } from "../../test/models/ConsentPage"
 import { UserConsentCard } from "./user-consent-card"
 
@@ -18,6 +18,7 @@ test("ory consent card login flow", async ({ mount }) => {
 
   const component = await mount(<UserConsentCard {...defaults} />)
 
+  await expect(component).toBeVisible()
   const consentComponent = new ConsentPage(component)
 
   await consentComponent.expectScopeFields(defaults.requested_scope)

@@ -8,7 +8,7 @@ import { uiTextToFormattedMessage } from "./node"
 
 export type NodeMessagesProps = {
   nodes?: UiNode[]
-  uiMessages?: Array<UiText>
+  uiMessages?: UiText[]
 } & GridStyle &
   MessageStyleProps
 
@@ -59,12 +59,12 @@ export const NodeMessages = ({
     nodeMessage({ message, key: `ui-messsage-${message.id}-${key}` }),
   )
 
-  const $allMessages = [...($groupMessages || []), ...($messages || [])]
+  const $allMessages = [...($groupMessages ?? []), ...($messages ?? [])]
 
   return $allMessages.length > 0 ? (
     <div
       className={gridStyle({
-        gap: gap || 16,
+        gap: gap ?? 16,
         direction: direction,
       })}
     >

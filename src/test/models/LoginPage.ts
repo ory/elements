@@ -23,9 +23,9 @@ export class LoginPage extends AuthPage {
     traits?: Record<string, Traits>,
     path?: string,
   ) {
-    super(traits || defaultLoginTraits, page.getByTestId("login-auth-card"))
+    super(traits ?? defaultLoginTraits, page.getByTestId("login-auth-card"))
     this.page = page
-    this.pageUrl = new URL(path || "/login", baseUrl)
+    this.pageUrl = new URL(path ?? "/login", baseUrl)
     this.oryProjectUrl = new URL(oryProjectUrl)
   }
 
@@ -49,6 +49,7 @@ export class LoginPage extends AuthPage {
           method: "POST",
           nodes: traitsToNodes(this.traits, true),
         },
+        state: "choose_method",
       } as LoginFlow,
       headers: {
         "Content-Type": "application/json",
@@ -80,14 +81,14 @@ export class LoginPage extends AuthPage {
   }: Omit<MockFlow, "flow">): Promise<void> {
     return super.registerMockSubmitResponse({
       flow: "login",
-      response: response || {
+      response: response ?? {
         body: {
           id: UUIDv4(),
           identity: {
             id: UUIDv4(),
             traits: this.traits,
             schema_id: "default",
-            schema_url: `${this.oryProjectUrl}/schemas/default`,
+            schema_url: new URL("/schemas/default", this.oryProjectUrl).href,
           },
         } as Session,
         headers: {

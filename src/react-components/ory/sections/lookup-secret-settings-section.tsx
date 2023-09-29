@@ -5,7 +5,7 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasLookupSecret } from "../helpers/utils"
 
-export type LookupSecretSettingsProps = {
+export interface LookupSecretSettingsProps {
   flow: SettingsFlow
 }
 

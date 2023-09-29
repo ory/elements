@@ -27,7 +27,7 @@ interface ButtonSubmit {
   value: string
 }
 
-export type NodeOverrideProps = {
+export interface NodeOverrideProps {
   buttonOverrideProps?: Partial<ButtonProps>
   buttonSocialOverrideProps?: Partial<ButtonSocialProps>
 }
@@ -56,47 +56,131 @@ export const getNodeLabel = (node: UiNode): UiText | undefined => {
   return node.meta.label
 }
 
+/**
+ * Converts a UiText to a FormattedMessage.
+ * The UiText contains the id of the message and the context.
+ * The context is used to inject values into the message from Kratos, e.g. a timestamp.
+ * For example a UI Node from Kratos might look like this:
+ *
+ * \{
+ *  "type":"input",
+ *  "group":"default",
+ *  "attributes": \{
+ *      "name":"traits.email",
+ *      "type":"email",
+ *      "required":true,
+ *      "autocomplete":"email",
+ *      "disabled":false,
+ *      "node_type":"input"
+ *  \},
+ *  "messages":[],
+ *  "meta": \{
+ *    "label": \{
+ *      "id":1070002,
+ *      "text":"E-Mail",
+ *      "type":"info",
+ *      "context":\{
+ *        "title":"E-Mail"
+ *      \},
+ *    \}
+ *  \}
+ * \}
+ *
+ * The context has the key "title" which matches the formatter template name "\{title\}"
+ * An example translation file would look like this:
+ * \{
+ *  "identities.messages.1070002": "\{title\}"
+ * \}
+ *
+ * The formwatter would then take the meta.label.id and look for the translation with the key matching the id.
+ * It would then replace the template "\{title\}" with the value from the context with the key "title".
+ *
+ * @param uiText - The UiText is part of the UiNode object sent by Kratos when performing a flow.
+ */
 export const uiTextToFormattedMessage = (
   { id, context = {}, text }: Omit<UiText, "type">,
   intl: IntlShape,
-) =>
-  intl.formatMessage(
+) => {
+  const contextInjectedMessage = Object.entries(context).reduce(
+    (accumulator, [key, value]) => {
+      // context might provide an array of objects instead of a single object
+      // for example when looking up a recovery code
+      /*
+      *
+      {
+      "text": {
+          "id": 1050015,
+          "text": "3r9noma8, tv14n5tu, ...",
+          "type": "info",
+          "context": {
+              "secrets": [
+                  {
+                      "context": {
+                          "secret": "3r9noma8"
+                      },
+                      "id": 1050009,
+                      "text": "3r9noma8",
+                      "type": "info"
+                  },
+                  {
+                      "context": {
+                          "secret": "tv14n5tu"
+                      },
+                      "id": 1050009,
+                      "text": "tv14n5tu",
+                      "type": "info"
+                  },
+              ]
+          }
+      },
+      "id": "lookup_secret_codes",
+      "node_type": "text"
+      }
+      */
+      if (Array.isArray(value)) {
+        return {
+          ...accumulator,
+          [key]: value,
+          [key + "_list"]: intl.formatList<string>(value),
+        }
+      } else if (key.endsWith("_unix")) {
+        if (typeof value === "number") {
+          return {
+            ...accumulator,
+            [key]: intl.formatDate(new Date(value * 1000)),
+            [key + "_since"]: intl.formatDateTimeRange(
+              new Date(value),
+              new Date(),
+            ),
+            [key + "_since_minutes"]: Math.abs(
+              (value - new Date().getTime() / 1000) / 60,
+            ).toFixed(2),
+            [key + "_until"]: intl.formatDateTimeRange(
+              new Date(),
+              new Date(value),
+            ),
+            [key + "_until_minutes"]: Math.abs(
+              (new Date().getTime() / 1000 - value) / 60,
+            ).toFixed(2),
+          }
+        }
+      }
+      return {
+        ...accumulator,
+        [key]: value as string | number,
+      }
+    },
+    {},
+  )
+
+  return intl.formatMessage(
     {
       id: `identities.messages.${id}`,
       defaultMessage: text,
     },
-    Object.entries(context).reduce<Record<string, any>>(
-      (values, [key, value]) =>
-        Array.isArray(value)
-          ? {
-              ...values,
-              [key]: value,
-              [key + "_list"]: intl.formatList(value),
-            }
-          : key.endsWith("_unix")
-          ? {
-              ...values,
-              [key]: intl.formatDate(new Date(value * 1000)),
-              [key + "_since"]: intl.formatDateTimeRange(
-                new Date(value),
-                new Date(),
-              ),
-              [key + "_since_minutes"]:
-                (value - new Date().getTime() / 1000) / 60,
-              [key + "_until"]: intl.formatDateTimeRange(
-                new Date(),
-                new Date(value),
-              ),
-              [key + "_until_minutes"]:
-                (new Date().getTime() / 1000 - value) / 60,
-            }
-          : {
-              ...values,
-              [key]: value,
-            },
-      {},
-    ),
+    contextInjectedMessage,
   )
+}
 
 export const Node = ({
   node,
@@ -178,8 +262,8 @@ export const Node = ({
     const submit: ButtonSubmit = {
       type: attrs.type as "submit" | "reset" | "button" | undefined,
       name: attrs.name,
-      ...(attrs.value && { value: attrs.value }),
-    }
+      ...(attrs.value && { value: attrs.value as string }),
+    } as ButtonSubmit
 
     switch (nodeType) {
       case "button":
@@ -204,7 +288,7 @@ export const Node = ({
 
         // the recovery code resend button
         if (
-          node.meta.label?.id === 1070007 || // TODO: remove this once everyone has migrated to the fix (https://github.com/ory/kratos/pull/3067)
+          node.meta.label?.id === 1070007 ?? // TODO: remove this once everyone has migrated to the fix (https://github.com/ory/kratos/pull/3067)
           node.meta.label?.id === 1070008
         ) {
           // on html forms the required flag on an input field will prevent the form from submitting.
@@ -216,7 +300,7 @@ export const Node = ({
           <ButtonSocial
             className={className}
             header={formatMessage(getNodeLabel(node))}
-            brand={attrs.value.toLowerCase()}
+            brand={(attrs.value as string).toLowerCase()}
             variant={"semibold"}
             size={"medium"}
             fullWidth
@@ -247,7 +331,7 @@ export const Node = ({
             label={formatMessage(getNodeLabel(node))}
             name={attrs.name}
             required={attrs.required}
-            defaultValue={attrs.value}
+            defaultValue={attrs.value as string | number | string[]}
             disabled={attrs.disabled}
             defaultChecked={Boolean(attrs.value)}
             dataTestid={`node/input/${attrs.name}`}
@@ -265,10 +349,10 @@ export const Node = ({
             header={formatMessage(getNodeLabel(node))}
             type={attrs.type}
             autoComplete={
-              attrs.autocomplete ||
+              attrs.autocomplete ??
               (attrs.name === "identifier" ? "username" : "")
             }
-            defaultValue={attrs.value}
+            defaultValue={attrs.value as string | number | string[]}
             required={attrs.required}
             disabled={attrs.disabled}
           />
