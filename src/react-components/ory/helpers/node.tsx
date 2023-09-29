@@ -288,7 +288,7 @@ export const Node = ({
 
         // the recovery code resend button
         if (
-          node.meta.label?.id === 1070007 ?? // TODO: remove this once everyone has migrated to the fix (https://github.com/ory/kratos/pull/3067)
+          node.meta.label?.id === 1070007 || // TODO: remove this once everyone has migrated to the fix (https://github.com/ory/kratos/pull/3067)
           node.meta.label?.id === 1070008
         ) {
           // on html forms the required flag on an input field will prevent the form from submitting.
