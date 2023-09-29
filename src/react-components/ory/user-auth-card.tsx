@@ -211,14 +211,14 @@ export const UserAuthCard = ({
   // we want the login section to handle passwordless as well when we have a 2FA screen.
   const canShowPasswordless = () =>
     !!$passwordless &&
-    (!isLoggedIn(flow as LoginFlow) ?? flowType === "registration")
+    (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
     flowType === "login" &&
     isLoggedIn(flow) &&
-    (hasTotp(flow.ui.nodes) ??
-      hasWebauthn(flow.ui.nodes) ??
+    (hasTotp(flow.ui.nodes) ||
+      hasWebauthn(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
   // we check if nodes have hidden identifier, so we can display "you're looged in as" information
@@ -465,6 +465,7 @@ export const UserAuthCard = ({
               })}
             />
             {twoFactorFlows()}
+            {showLoggedAccount && <LoggedInInfo flow={flow} />}
           </>
         )}
 

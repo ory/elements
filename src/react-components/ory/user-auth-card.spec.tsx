@@ -11,9 +11,11 @@ import {
   verificationFixture,
   loginCodeFixture,
   loginFixtureOAuth2,
+  loginConfirmWithTwoFactor,
 } from "../../test"
 import { UserAuthCard } from "./user-auth-card"
-import { OAuth2LoginRequest } from "@ory/client"
+import { OAuth2LoginRequest, UiNode, UiNodeInputAttributes } from "@ory/client"
+import { isUiNodeInputAttributes } from "@ory/integrations/ui"
 
 test("ory auth card login flow. signup disabled", async ({ mount }) => {
   const component = await mount(
@@ -395,4 +397,26 @@ test("ory auth card with oauh client name", async ({ mount }) => {
   )
 
   await expect(component).toContainText("a-real-client-name")
+})
+
+test("ory auth card login two factor confirmation", async ({ mount }) => {
+  const component = await mount(
+    <UserAuthCard flowType="login" flow={loginConfirmWithTwoFactor} />,
+  )
+
+  await expect(component).toContainText("Confirm it's you", {
+    ignoreCase: true,
+  })
+  await expect(component).toHaveAttribute("data-testid", "login-auth-card")
+
+  const identifier = loginConfirmWithTwoFactor.ui.nodes.find(
+    ({ attributes }) =>
+      isUiNodeInputAttributes(attributes) && attributes.name === "identifier",
+  )?.attributes as UiNodeInputAttributes
+
+  expect(identifier).not.toBeNull()
+  expect(String(identifier.value)).toContain("@ory.sh")
+  await expect(component).toContainText(
+    `You're logged in as:${identifier.value}`,
+  )
 })

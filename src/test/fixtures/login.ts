@@ -955,3 +955,112 @@ export const loginFixtureOAuth2: LoginFlow = {
   requested_aal: "aal1",
   state: "",
 }
+
+export const loginConfirmWithTwoFactor: LoginFlow = {
+  id: "e4e5b13b-9bd5-4bd1-8a63-1750d9f48647",
+  organization_id: null,
+  type: "browser",
+  expires_at: "2023-09-29T14:34:42.513317131Z",
+  issued_at: "2023-09-29T13:34:42.513317131Z",
+  request_url:
+    "http://localhost:4433/self-service/login/browser?aal=aal2&refresh=true&return_to=&organization=",
+  ui: {
+    action:
+      "http://localhost:4455/self-service/login?flow=e4e5b13b-9bd5-4bd1-8a63-1750d9f48647",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "iCA+nEJQI5nnQe4EumaNq2xbW4/5slDiPSI2Ky33LqqzpzO/hR41Vi3DnJhP7g+wsrfUQCHZmUqNjBeGcLXZ1w==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "hidden",
+          value: "0.lazsin4d3eb@ory.sh",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_login_trigger",
+          type: "button",
+          value: "",
+          disabled: false,
+          onclick:
+            'window.__oryWebAuthnLogin({"publicKey":{"challenge":"96kZd1xu1hmcjQA7mLiM4PrBTiZrVnTuFsDZwjwzgNk","timeout":120000,"rpId":"localhost","allowCredentials":[{"type":"public-key","id":"NvEfBTQBiQF6iv5plEpA2nC9xyjF_Ok09-2ZmAJ1zs8"}],"userVerification":"discouraged"}})',
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010008,
+            text: "Use security key",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "webauthn",
+        attributes: {
+          name: "webauthn_login",
+          type: "hidden",
+          value: "",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "script",
+        group: "webauthn",
+        attributes: {
+          src: "http://localhost:4455/.well-known/ory/webauthn.js",
+          async: true,
+          referrerpolicy: "no-referrer",
+          crossorigin: "anonymous",
+          integrity:
+            "sha512-RI23aG5lwYTo7zknGdc++eHUMimUWhkyFzrGid6HkVSdUSjdESPtM3KufXGq/lo4Ut0jI9mDiZeT8tHoSvaHvg==",
+          type: "text/javascript",
+          id: "webauthn_script",
+          nonce: "4ff0f844-fd4a-45cf-9ab0-ddebf9bc7f92",
+          node_type: "script",
+        },
+        messages: [],
+        meta: {},
+      },
+    ],
+    messages: [
+      {
+        id: 1010003,
+        text: "Please confirm this action by verifying that it is you.",
+        type: "info",
+      },
+    ],
+  },
+  created_at: "2023-09-29T15:34:42.517067+02:00",
+  updated_at: "2023-09-29T15:34:42.517067+02:00",
+  refresh: true,
+  requested_aal: "aal2",
+  state: "choose_method",
+}
