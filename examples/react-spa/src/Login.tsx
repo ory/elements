@@ -7,6 +7,9 @@ import { sdk, sdkError } from "./sdk"
 export const Login = (): JSX.Element => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
+  const aal2 = searchParams.get("aal2")
+  const loginChallenge = searchParams.get("login_challenge")
+  const returnTo = searchParams.get("return_to")
 
   const navigate = useNavigate()
 
@@ -26,12 +29,16 @@ export const Login = (): JSX.Element => {
 
   // Create a new login flow
   const createFlow = () => {
-    const aal2 = searchParams.get("aal2")
     sdk
       // aal2 is a query parameter that can be used to request Two-Factor authentication
       // aal1 is the default authentication level (Single-Factor)
       // we always pass refresh (true) on login so that the session can be refreshed when there is already an active session
-      .createBrowserLoginFlow({ refresh: true, aal: aal2 ? "aal2" : "aal1" })
+      .createBrowserLoginFlow({
+        refresh: true,
+        aal: aal2 ? "aal2" : "aal1",
+        ...(loginChallenge && { loginChallenge: loginChallenge }),
+        ...(returnTo && { returnTo: returnTo }),
+      })
       // flow contains the form fields and csrf token
       .then(({ data: flow }) => {
         // Update URI query params to include flow id
@@ -80,8 +87,34 @@ export const Login = (): JSX.Element => {
       flow={flow}
       // the login card should allow the user to go to the registration page and the recovery page
       additionalProps={{
-        forgotPasswordURL: "/recovery",
-        signupURL: "/registration",
+        forgotPasswordURL: {
+          handler: () => {
+            const search = new URLSearchParams()
+            flow.return_to && search.set("return_to", flow.return_to)
+            navigate(
+              {
+                pathname: "/recovery",
+                search: search.toString(),
+              },
+              { replace: true },
+            )
+          },
+        },
+        signupURL: {
+          handler: () => {
+            const search = new URLSearchParams()
+            flow.return_to && search.set("return_to", flow.return_to)
+            flow.oauth2_login_challenge &&
+              search.set("login_challenge", flow.oauth2_login_challenge)
+            navigate(
+              {
+                pathname: "/registration",
+                search: search.toString(),
+              },
+              { replace: true },
+            )
+          },
+        },
       }}
       // we might need webauthn support which requires additional js
       includeScripts={true}

@@ -8,6 +8,9 @@ export const Registration = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
+  const returnTo = searchParams.get("return_to")
+  const loginChallenge = searchParams.get("login_challenge")
+
   const navigate = useNavigate()
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
@@ -28,7 +31,10 @@ export const Registration = () => {
   const createFlow = () => {
     sdk
       // we don't need to specify the return_to here since we are building an SPA. In server-side browser flows we would need to specify the return_to
-      .createBrowserRegistrationFlow()
+      .createBrowserRegistrationFlow({
+        ...(returnTo && { returnTo: returnTo }),
+        ...(loginChallenge && { loginChallenge: loginChallenge }),
+      })
       .then(({ data: flow }) => {
         // Update URI query params to include flow id
         setSearchParams({ ["flow"]: flow.id })
@@ -77,7 +83,18 @@ export const Registration = () => {
       flow={flow}
       // the registration card needs a way to navigate to the login page
       additionalProps={{
-        loginURL: "/login",
+        loginURL: {
+          handler: () => {
+            const search = new URLSearchParams()
+            flow.return_to && search.set("return_to", flow.return_to)
+            flow.oauth2_login_challenge &&
+              search.set("login_challenge", flow.oauth2_login_challenge)
+            navigate(
+              { pathname: "/login", search: search.toString() },
+              { replace: true },
+            )
+          },
+        },
       }}
       // include the necessary scripts for webauthn to work
       includeScripts={true}
