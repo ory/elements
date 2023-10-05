@@ -69,7 +69,8 @@ export function CustomOnSubmit<Type>(
         if (isString(objValue) && isString(srcValue)) {
           return [objValue, srcValue]
         } else if (isArray(objValue) && isString(srcValue)) {
-          return objValue.concat(srcValue)
+          objValue.push(srcValue)
+          return objValue as string[]
         }
       },
     )
@@ -82,12 +83,12 @@ export function CustomOnSubmit<Type>(
       event.nativeEvent as unknown as { submitter: HTMLInputElement }
     ).submitter
     body = {
-      ...(body as Type),
+      ...body,
       ...{ [method.name]: method.value },
     }
   }
 
-  callback && callback({ body: body as Type, event })
+  callback && callback({ body: body, event })
 
-  return body as Type
+  return body
 }

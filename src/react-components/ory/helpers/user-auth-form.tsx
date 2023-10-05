@@ -27,8 +27,8 @@ export type UpdateBody =
   | UpdateVerificationFlowBody
   | UpdateSettingsFlowBody
 
-export interface UserAuthFormAdditionalProps = {
-  onSubmit ?: CustomOnSubmitCallback<UpdateBody>
+export interface UserAuthFormAdditionalProps {
+  onSubmit?: CustomOnSubmitCallback<UpdateBody>
 }
 
 /**
@@ -43,7 +43,7 @@ export interface UserAuthFormAdditionalProps = {
  */
 export interface UserAuthFormProps
   extends Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit">,
-  UserAuthFormAdditionalProps {
+    UserAuthFormAdditionalProps {
   flow: SelfServiceFlow
   children: React.ReactNode
   formFilterOverride?: FilterNodesByGroups

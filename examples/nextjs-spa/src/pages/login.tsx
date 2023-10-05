@@ -57,7 +57,12 @@ const Login: NextPageWithLayout = () => {
   )
 
   const createFlow = useCallback(
-    (refresh: boolean, aal: string, returnTo: string, loginChallenge?: string) =>
+    (
+      refresh: boolean,
+      aal: string,
+      returnTo: string,
+      loginChallenge?: string,
+    ) =>
       ory
         .createBrowserLoginFlow({
           refresh: refresh,
@@ -123,12 +128,12 @@ const Login: NextPageWithLayout = () => {
       includeScripts={true}
       // we submit the form data to Ory
       onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
-
       // OAauth2 and OpenID Connect
       {...(flow.oauth2_login_request && {
-        subtitle: `To authenticate ${flow.oauth2_login_request.client?.client_name ||
+        subtitle: `To authenticate ${
+          flow.oauth2_login_request.client?.client_name ||
           flow.oauth2_login_request.client?.client_id
-          }`
+        }`,
       })}
     />
   ) : (
