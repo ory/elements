@@ -4,11 +4,30 @@ import { useCallback, useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { sdk, sdkError } from "./sdk"
 
+/** Registration is a React component that renders the Registration form using Ory Elements.
+ * It is used to handle the registration flow for a variety of authentication methods.
+ *
+ * The Registration component also handles the OAuth2 registration flow (as an OAuth2 provider)
+ * For more information regarding OAuth2 registration, please see the following documentation:
+ * https://www.ory.sh/docs/oauth2-oidc/custom-login-consent/flow
+ *
+ */
 export const Registration = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
+  // The return_to is a query parameter is set by you when you would like to redirect
+  // the user back to a specific URL after registration is successful
+  // In most cases it is not necessary to set a return_to if the UI business logic is
+  // handled by the SPA.
+  // In OAuth flows this value might be ignored in favor of keeping the OAuth flow
+  // intact between multiple flows (e.g. Login -> Recovery -> Settings -> OAuth2 Consent)
+  // https://www.ory.sh/docs/oauth2-oidc/identity-provider-integration-settings
   const returnTo = searchParams.get("return_to")
+
+  // The login_challenge is a query parameter set by the Ory OAuth2 registration flow
+  // Switching between pages should keep the login_challenge in the URL so that the
+  // OAuth flow can be completed upon completion of another flow (e.g. Login).
   const loginChallenge = searchParams.get("login_challenge")
 
   const navigate = useNavigate()

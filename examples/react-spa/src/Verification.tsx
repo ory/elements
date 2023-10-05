@@ -75,7 +75,11 @@ export const Verification = (): JSX.Element => {
       flow={flow}
       // we want users to be able to go back to the login page from the verification page
       additionalProps={{
-        signupURL: "/registration",
+        signupURL: {
+          handler: () => {
+            navigate({ pathname: "/registration" }, { replace: true })
+          },
+        },
       }}
       // submit the verification form data to Ory
       onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}
