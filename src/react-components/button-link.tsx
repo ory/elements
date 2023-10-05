@@ -10,14 +10,14 @@ import {
 } from "../theme/button-link.css"
 
 export interface CustomHref {
-  href: string
-  handler: (url: string) => void
+  href?: string
+  handler: () => void
 }
 
 const isCustomHref = (
   href: CustomHref | string | undefined,
 ): href is CustomHref => {
-  return href !== undefined && (href as CustomHref).href !== undefined
+  return href !== undefined && (href as CustomHref).handler !== undefined
 }
 
 export type ButtonLinkProps = {
@@ -43,10 +43,10 @@ export const ButtonLink = ({
   if (isCustomHref(href)) {
     linkProps = {
       ...linkProps,
-      href: href.href,
+      href: href.href ?? "",
       onClick: (e: MouseEvent) => {
         e.preventDefault()
-        href.handler(href.href)
+        href.handler()
       },
     }
   } else {

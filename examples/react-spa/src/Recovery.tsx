@@ -71,7 +71,18 @@ export const Recovery = () => {
       // the flow is always required since it contains the UI form elements, UI error messages and csrf token
       flow={flow}
       // the recovery form should allow users to navigate to the login page
-      additionalProps={{ loginURL: "/login" }}
+      additionalProps={{
+        loginURL: {
+          handler: () => {
+            navigate(
+              {
+                pathname: "/login",
+              },
+              { replace: true },
+            )
+          },
+        },
+      }}
       // submit the form data to Ory
       onSubmit={({ body }) => submitFlow(body as UpdateRecoveryFlowBody)}
     />
