@@ -8,6 +8,17 @@ export const Verification = (): JSX.Element => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
+  // The return_to is a query parameter is set by you when you would like to redirect
+  // the user back to a specific URL after registration is successful
+  // In most cases it is not necessary to set a return_to if the UI business logic is
+  // handled by the SPA.
+  // In OAuth flows this value might be ignored in favor of keeping the OAuth flow
+  // intact between multiple flows (e.g. Login -> Recovery -> Settings -> OAuth2 Consent)
+  // https://www.ory.sh/docs/oauth2-oidc/identity-provider-integration-settings
+  const returnTo = searchParams.get("return_to")
+
+  const flowId = searchParams.get("flow")
+
   const navigate = useNavigate()
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
@@ -27,7 +38,9 @@ export const Verification = (): JSX.Element => {
   // create a new verification flow
   const createFlow = () => {
     sdk
-      .createBrowserVerificationFlow()
+      .createBrowserVerificationFlow({
+        ...(returnTo && { returnTo: returnTo }),
+      })
       // flow contains the form fields, error messages and csrf token
       .then(({ data: flow }) => {
         // Update URI query params to include flow id
@@ -57,7 +70,6 @@ export const Verification = (): JSX.Element => {
 
   useEffect(() => {
     // it could happen that we are redirected here with an existing flow
-    const flowId = searchParams.get("flow")
     if (flowId) {
       // if the flow failed to get since it could be expired or invalid, we create a new one
       getFlow(flowId).catch(createFlow)
