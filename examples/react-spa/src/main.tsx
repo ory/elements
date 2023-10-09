@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@ory/elements"
+import { ThemeProvider, IntlProvider } from "@ory/elements"
 
 // optional global css reset
 import "@ory/elements/assets/normalize.css"
@@ -33,15 +33,17 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <BrowserRouter>
       {/* We add the Ory themes here */}
       <ThemeProvider themeOverrides={{}}>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/recovery" element={<Recovery />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/error" element={<Error />} />
-        </Routes>
+        <IntlProvider>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/verification" element={<Verification />} />
+            <Route path="/recovery" element={<Recovery />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/error" element={<Error />} />
+          </Routes>
+        </IntlProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,10 +1,12 @@
-import { SelfServiceSettingsFlow } from "@ory/client"
+import { JSX } from "react"
+
+import { SettingsFlow } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasTotp } from "../helpers/utils"
 
-export type TOTPSettingsProps = {
-  flow: SelfServiceSettingsFlow
+export interface TOTPSettingsProps {
+  flow: SettingsFlow
 }
 
 export const TOTPSettingsSection = ({

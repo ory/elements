@@ -1,31 +1,32 @@
-import {
-  SelfServiceLoginFlow,
-  SelfServiceRecoveryFlow,
-  SelfServiceRegistrationFlow,
-} from "@ory/client"
 import { ComponentMeta, Story } from "@storybook/react"
 import { UserAuthCard, UserAuthCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
-import loginFlow2FA from "./login-flow-2fa.json"
-import loginFlow from "./login-flow.json"
-import loginFlowRefresh from "./login-flow-refresh.json"
+import {
+  loginFlowTwoFactor,
+  loginFlowRefresh,
+  loginFlow,
+  loginFlowCodeStepOne,
+  loginFlowCodeStepTwo,
+  loginFlowHydra,
+  loginFlowError,
+  loginFlowUiError,
+} from "./login-data"
 
-import loginFlowError from "./login-flow-error.json"
-import loginFlowUiError from "./login-flow-ui-error.json"
+import {
+  registrationFlow,
+  registrationWebAuthnFlow,
+  registrationFlowCode,
+} from "./registration-data"
 
-import registrationFlowWebAuthn from "./register-flow-webauthn.json"
-import registrationFlow from "./register-flow.json"
+import { recoveryFlow } from "./recovery-data"
 
-import recoveryFlow from "./recovery-flow.json"
-
-import verificationFlow from "./verification-flow.json"
-import verificationSubmitted from "./verification-submit-flow.json"
+import { verificationFlow, verificationFlowSubmit } from "./verification-data"
 
 import logo from "../assets/logo.svg"
 
 export default {
-  title: "Ory/SelfServiceFlowCard",
+  title: "Ory/UserAuthCard",
   component: UserAuthCard,
 } as ComponentMeta<typeof UserAuthCard>
 
@@ -38,8 +39,7 @@ const Template: Story<UserAuthCardProps> = (args: UserAuthCardProps) => (
 export const LoginAuthCard = Template.bind({})
 
 LoginAuthCard.args = {
-  title: "Sign in to your Acme account",
-  flow: loginFlow as SelfServiceLoginFlow,
+  flow: loginFlow,
   flowType: "login",
   cardImage: logo,
   additionalProps: {
@@ -52,9 +52,7 @@ LoginAuthCard.args = {
 export const LoginAuthCardWithHydraClient = Template.bind({})
 
 LoginAuthCardWithHydraClient.args = {
-  title: "Sign in to your Acme account",
-  subtitle: "To authenticate client X",
-  flow: loginFlow as SelfServiceLoginFlow,
+  flow: loginFlowHydra,
   flowType: "login",
   cardImage: logo,
   additionalProps: {
@@ -67,8 +65,7 @@ LoginAuthCardWithHydraClient.args = {
 export const LoginAuthCard2FA = Template.bind({})
 
 LoginAuthCard2FA.args = {
-  title: "Two-factor authentication",
-  flow: loginFlow2FA as SelfServiceLoginFlow,
+  flow: loginFlowTwoFactor,
   flowType: "login",
   additionalProps: {
     logoutURL: "https://acme.com/logout",
@@ -78,8 +75,7 @@ LoginAuthCard2FA.args = {
 export const LoginAuthCardPasswordless = Template.bind({})
 
 LoginAuthCardPasswordless.args = {
-  title: "Sign in with passwordless",
-  flow: loginFlow as SelfServiceLoginFlow,
+  flow: loginFlow,
   flowType: "login",
   includeScripts: true,
   additionalProps: {
@@ -91,8 +87,7 @@ LoginAuthCardPasswordless.args = {
 export const LoginAuthCardRefresh = Template.bind({})
 
 LoginAuthCardRefresh.args = {
-  title: "Confirm it is you",
-  flow: loginFlowRefresh as SelfServiceLoginFlow,
+  flow: loginFlowRefresh,
   flowType: "login",
   cardImage: logo,
   includeScripts: true,
@@ -105,8 +100,7 @@ LoginAuthCardRefresh.args = {
 export const LoginAuthCardError = Template.bind({})
 
 LoginAuthCardError.args = {
-  title: "Sign in to your Acme account",
-  flow: loginFlowError as SelfServiceLoginFlow,
+  flow: loginFlowError,
   flowType: "login",
   additionalProps: {
     signupURL: "https://acme.com/login",
@@ -118,8 +112,7 @@ LoginAuthCardError.args = {
 export const LoginAuthCardUiError = Template.bind({})
 
 LoginAuthCardUiError.args = {
-  title: "Sign in to your Acme account",
-  flow: loginFlowUiError as SelfServiceLoginFlow,
+  flow: loginFlowUiError,
   flowType: "login",
   additionalProps: {
     signupURL: "https://acme.com/login",
@@ -128,11 +121,47 @@ LoginAuthCardUiError.args = {
   },
 }
 
+export const LoginAuthCardWithoutRegistrationUrl = Template.bind({})
+
+LoginAuthCardWithoutRegistrationUrl.args = {
+  flow: loginFlow,
+  flowType: "login",
+  additionalProps: {
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardWithCodeInit = Template.bind({})
+
+LoginAuthCardWithCodeInit.args = {
+  flow: loginFlowCodeStepOne,
+  flowType: "login",
+  additionalProps: {
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardWithCodeSubmit = Template.bind({})
+
+LoginAuthCardWithCodeSubmit.args = {
+  flow: loginFlowCodeStepTwo,
+  flowType: "login",
+  additionalProps: {
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardWithoutAdditionalProps = Template.bind({})
+
+LoginAuthCardWithoutAdditionalProps.args = {
+  flow: loginFlow,
+  flowType: "login",
+}
+
 export const RegistrationAuthCard = Template.bind({})
 
 RegistrationAuthCard.args = {
-  title: "Create an account for Acme",
-  flow: registrationFlow as SelfServiceRegistrationFlow,
+  flow: registrationFlow,
   cardImage: logo,
   flowType: "registration",
   additionalProps: {
@@ -143,8 +172,7 @@ RegistrationAuthCard.args = {
 export const RegistrationAuthCardWebAuthn = Template.bind({})
 
 RegistrationAuthCardWebAuthn.args = {
-  title: "Create an account for Acme",
-  flow: registrationFlowWebAuthn as SelfServiceRegistrationFlow,
+  flow: registrationWebAuthnFlow,
   flowType: "registration",
   includeScripts: true,
   additionalProps: {
@@ -152,22 +180,39 @@ RegistrationAuthCardWebAuthn.args = {
   },
 }
 
+export const RegistrationAuthCardWithoutAdditionalProps = Template.bind({})
+RegistrationAuthCardWithoutAdditionalProps.args = {
+  flow: registrationFlow,
+  flowType: "registration",
+}
+
+export const RegistrationAuthCardFlowCode = Template.bind({})
+RegistrationAuthCardFlowCode.args = {
+  flow: registrationFlowCode,
+  flowType: "registration",
+}
+
 export const RecoveryAuthCard = Template.bind({})
 
 RecoveryAuthCard.args = {
   title: "Recover your Acme account",
-  flow: recoveryFlow as SelfServiceRecoveryFlow,
+  flow: recoveryFlow,
   flowType: "recovery",
   additionalProps: {
     loginURL: "https://acme.com/login",
   },
 }
 
+export const RecoveryAuthCardWithoutAdditionalProps = Template.bind({})
+
+RecoveryAuthCardWithoutAdditionalProps.args = {
+  flow: recoveryFlow,
+  flowType: "recovery",
+}
 export const VerificationAuthCard = Template.bind({})
 
 VerificationAuthCard.args = {
-  title: "Verify your Acme account",
-  flow: verificationFlow as SelfServiceLoginFlow,
+  flow: verificationFlow,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",
@@ -177,10 +222,16 @@ VerificationAuthCard.args = {
 export const VerificationSubmittedAuthCard = Template.bind({})
 
 VerificationSubmittedAuthCard.args = {
-  title: "Verify your Acme account",
-  flow: verificationSubmitted as SelfServiceLoginFlow,
+  flow: verificationFlowSubmit,
   flowType: "verification",
   additionalProps: {
     signupURL: "https://acme.com/login",
   },
+}
+
+export const VerificationAuthCardWithoutAdditionalProps = Template.bind({})
+
+VerificationAuthCardWithoutAdditionalProps.args = {
+  flow: verificationFlow,
+  flowType: "verification",
 }

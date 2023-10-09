@@ -81,8 +81,10 @@ const Verification: NextPageWithLayout = () => {
         updateVerificationFlowBody: values,
       })
       .then(({ data }) => {
+        // reset the input fields
+        setFlow(null)
         // Form submission was successful, show the message to the user!
-        setFlow(data)
+        getFlow(data.id)
       })
       .catch(handleError)
 
@@ -90,7 +92,6 @@ const Verification: NextPageWithLayout = () => {
     // create a verification form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
       cardImage="/ory.svg"
-      title={"Verification"}
       flowType={"verification"}
       // we always need the flow data which populates the form fields and error messages dynamically
       flow={flow}

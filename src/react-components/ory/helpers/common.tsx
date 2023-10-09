@@ -1,8 +1,10 @@
+import { JSX } from "react"
+
 import { colorSprinkle } from "../../../theme"
-import { ButtonLink } from "../../button-link"
+import { ButtonLink, CustomHref } from "../../button-link"
 import { Message } from "../../message"
 
-export type ErrorProps = {
+export interface ErrorProps {
   code: number
   details: {
     docs: string
@@ -14,18 +16,18 @@ export type ErrorProps = {
   reason: string
 }
 
-export type AdditionalProps = {
-  forgotPasswordURL?: string
-  signupURL?: string
-  logoutURL?: string
-  loginURL?: string
+export interface AdditionalProps {
+  forgotPasswordURL?: CustomHref | string
+  signupURL?: CustomHref | string
+  logoutURL?: CustomHref | string
+  loginURL?: CustomHref | string
 }
 
-export type MessageSectionProps = {
-  url: string | undefined
+export interface MessageSectionProps {
+  url?: CustomHref | string
   buttonText: string
   dataTestId?: string
-  text?: React.ReactNode
+  text?: string
 }
 
 export const MessageSection = ({

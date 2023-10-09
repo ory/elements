@@ -36,6 +36,7 @@ export const dividerStyle = recipe({
     borderTop: `${pxToRem(4)} solid`,
     borderColor: oryTheme.border.def,
     width: pxToRem(64),
+    margin: "auto !important",
   },
   variants: {
     sizes: {

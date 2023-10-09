@@ -1,4 +1,4 @@
-SHELL=/bin/bash -euo pipefail
+SHELL=/bin/bash -o pipefail
 
 export GO111MODULE        := on
 export PATH               := .bin:${PATH}
@@ -10,8 +10,10 @@ install:
 test:
 	npm run test
 
-test-e2e:
-	./test-e2e.sh
+test-containerized: 
+	# https://github.com/microsoft/playwright/issues/26482
+	# For unsupported distros, use the `test-containerized` target instead of `test`
+	sh -c ./playwright-docker.sh
 
 format: .bin/ory node_modules
 	.bin/ory dev headers copyright --type=open-source
@@ -24,7 +26,7 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 	curl https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
 
 .bin/ory: Makefile
-	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory v0.1.48
+	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory v0.2.2
 	touch .bin/ory
 
 node_modules: package-lock.json

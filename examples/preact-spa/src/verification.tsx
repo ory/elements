@@ -42,7 +42,8 @@ export const Verification = () => {
         updateVerificationFlowBody: body,
       })
       .then(({ data: flow }) => {
-        setFlow(flow)
+        setFlow(null)
+        getFlow(flow.id)
       })
       .catch(sdkErrorHandler)
   }
@@ -64,7 +65,7 @@ export const Verification = () => {
       flow={flow}
       flowType={"verification"}
       additionalProps={{
-        loginURL: "/login",
+        signupURL: "/registration",
       }}
       title="Verification"
       // submit the verification form data to Ory

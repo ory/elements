@@ -23,6 +23,7 @@ Ory Elements supports integrating with:
 git clone --depth 1 git@github.com:ory/elements.git
 cd elements
 npm run initialize
+npm run build:clean
 cd examples/preact-spa
 export VITE_ORY_SDK_URL=http://localhost:4000
 npm run dev -- --port 3000
@@ -40,7 +41,30 @@ have explicity told our Preact app to use through the `VITE_ORY_SDK_URL` export.
 Now you can see Ory Elements in action by opening http://localhost:3000 in your
 browser!
 
+### Using and Modifying the Example
+
+If you want to re-use this example in your own project, you can do so by
+installing the dependencies through NPM instead of using the latest build from
+master.
+
+```shell
+cp -r examples/preact-spa <your-project>
+cd <your-project>
+npm i @ory/elements-preact @ory/client
+```
+
+### End-to-End Testing
+
+This example comes with a set of end-to-end tests that can be run with
+`npm run test`. The tests are written with [Playwright](https://playwright.dev/)
+and can be found in the `e2e` directory.
+
+To use the tests, you need to have [Playwright](https://playwright.dev/) and
+`@ory/elements-test` installed as a dev dependency.
+
+For more details, see [End-to-End Testing](../../packages/test/README.md).
+
 ### Contributing
 
 Found a bug or want to add a new feature? Please fork this repository and create
-a pull request. If your changes are large please open an issue first.
+a pull request. If your changes are large, please open an issue first.

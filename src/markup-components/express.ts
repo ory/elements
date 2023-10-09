@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { assignInlineVars } from "@vanilla-extract/dynamic"
-import express, { Application, Request, Response } from "express"
+import express, { Request, Response, Router } from "express"
 import { cloneDeep, merge } from "lodash"
 import { oryTheme, Theme } from "../theme"
 
@@ -14,13 +14,13 @@ type CreateHelpers = (
 }
 
 type OryEelementsExpressRoute = (
-  app: Application,
+  app: Router,
   defaultTheme: Theme,
   createHelpers: CreateHelpers,
 ) => void
 
 export const RegisterOryElementsExpress: OryEelementsExpressRoute = (
-  app: Application,
+  app: Router,
   defaultTheme: Theme,
   createHelpers: CreateHelpers,
 ) => {

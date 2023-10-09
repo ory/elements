@@ -12,7 +12,7 @@ import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 export const Settings = () => {
   const [flow, setFlow] = useState<SettingsFlow | null>(null)
 
-  const [location, setLocation] = useLocation()
+  const [, setLocation] = useLocation()
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(

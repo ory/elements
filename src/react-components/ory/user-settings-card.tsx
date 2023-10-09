@@ -1,5 +1,7 @@
 import { SettingsFlow } from "@ory/client"
 import cn from "classnames"
+import { JSX } from "react"
+
 import { colorSprinkle, gridStyle, typographyStyle } from "../../theme"
 import { useScriptNodes } from "./helpers/node-script"
 import {
@@ -19,6 +21,7 @@ import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { ProfileSettingsSection } from "./sections/profile-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
+import { useIntl } from "react-intl"
 
 export type UserSettingsFlowType =
   | "profile"
@@ -44,6 +47,8 @@ export const UserSettingsCard = ({
   onSubmit,
   className,
 }: UserSettingsCardProps): JSX.Element | null => {
+  const intl = useIntl()
+
   if (includeScripts) {
     useScriptNodes({ nodes: flow.ui.nodes })
   }
@@ -55,41 +60,71 @@ export const UserSettingsCard = ({
   switch (flowType) {
     case "profile":
       hasFlow = true
-      cardTitle = title || "Profile Settings"
+      cardTitle =
+        title ??
+        intl.formatMessage({
+          id: "settings.title-profile",
+          defaultMessage: "Profile Settings",
+        })
       $flow = <ProfileSettingsSection flow={flow} />
       break
     case "password":
       if (hasPassword(flow.ui.nodes)) {
         hasFlow = true
-        cardTitle = title || "Change Password"
+        cardTitle =
+          title ??
+          intl.formatMessage({
+            id: "settings.title-password",
+            defaultMessage: "Change Password",
+          })
         $flow = <PasswordSettingsSection flow={flow} />
       }
       break
     case "webauthn":
       if (hasWebauthn(flow.ui.nodes)) {
         hasFlow = true
-        cardTitle = title || "Manage Hardware Tokens"
+        cardTitle =
+          title ??
+          intl.formatMessage({
+            id: "settings.title-webauthn",
+            defaultMessage: "Manage Hardware Tokens",
+          })
         $flow = <WebAuthnSettingsSection flow={flow} />
       }
       break
     case "lookupSecret":
       if (hasLookupSecret(flow.ui.nodes)) {
         hasFlow = true
-        cardTitle = title || "Manage 2FA Backup Recovery Codes"
+        cardTitle =
+          title ??
+          intl.formatMessage({
+            id: "settings.title-lookup-secret",
+            defaultMessage: "Manage 2FA Backup Recovery Codes",
+          })
         $flow = <LookupSecretSettingsSection flow={flow} />
       }
       break
     case "oidc":
       if (hasOidc(flow.ui.nodes)) {
         hasFlow = true
-        cardTitle = title || "Social Sign In"
+        cardTitle =
+          title ??
+          intl.formatMessage({
+            id: "settings.title-oidc",
+            defaultMessage: "Social Sign In",
+          })
         $flow = <OIDCSettingsSection flow={flow} />
       }
       break
     case "totp":
       if (hasTotp(flow.ui.nodes)) {
         hasFlow = true
-        cardTitle = title || "Manage 2FA TOTP Authenticator App"
+        cardTitle =
+          title ??
+          intl.formatMessage({
+            id: "settings.title-totp",
+            defaultMessage: "Manage 2FA TOTP Authenticator App",
+          })
         $flow = <TOTPSettingsSection flow={flow} />
       }
       break
@@ -109,7 +144,12 @@ export const UserSettingsCard = ({
           {cardTitle}
         </h3>
       )}
-      <UserAuthForm flow={flow} onSubmit={onSubmit} className={className}>
+      <UserAuthForm
+        flow={flow}
+        onSubmit={onSubmit}
+        className={className}
+        data-testid={`${flowType}-settings-card`}
+      >
         {$flow}
       </UserAuthForm>
     </div>

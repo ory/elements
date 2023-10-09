@@ -1,12 +1,15 @@
 import { UiNode } from "@ory/client"
+import { JSX } from "react"
+import { FormattedMessage } from "react-intl"
+
 import { gridStyle } from "../../../theme"
-import { ButtonLink } from "../../button-link"
+import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
 
-export type LoginSectionProps = {
+export interface LoginSectionProps {
   nodes: UiNode[]
-  forgotPasswordURL?: string
+  forgotPasswordURL?: CustomHref | string
 }
 
 export const LoginSection = ({
@@ -28,7 +31,10 @@ export const LoginSection = ({
             data-testid="forgot-password-link"
             href={forgotPasswordURL}
           >
-            Forgot Password?
+            <FormattedMessage
+              id="login.forgot-password"
+              defaultMessage="Forgot password?"
+            />
           </ButtonLink>
         )}
       </div>

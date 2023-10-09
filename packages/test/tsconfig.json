@@ -1,4 +1,30 @@
 {
-  "extends": "../../tsconfig.build.json",
-  "include": ["../../src", "vite.config.ts", "package.json"]
+  "compilerOptions": {
+    "target": "ES6",
+    "useDefineForClassFields": true,
+    "emitDeclarationOnly": false,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext", "ES6", "DOM"],
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist"
+  },
+  "include": ["../../src/test", "vite.config.ts", "package.json"],
+  "exclude": [
+    "**/*.spec.*",
+    "**/*.test.*",
+    "**/*.stories.*",
+    "node_modules",
+    "dist"
+  ]
 }

@@ -5,6 +5,8 @@ import {
   getNodeInputType,
   isUiNodeInputAttributes,
 } from "@ory/integrations/ui"
+import { JSX } from "react"
+
 import { gridStyle } from "../../../theme"
 import { Node, NodeOverrideProps } from "./node"
 

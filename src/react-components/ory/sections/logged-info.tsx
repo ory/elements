@@ -3,12 +3,17 @@ import {
   identifierStyle,
 } from "../../../theme/identifier.css"
 import { SelfServiceFlow } from "../helpers/types"
+import { FormattedMessage } from "react-intl"
 
-type IdentifierInfoProps = {
+export interface IdentifierInfoProps {
   flow: SelfServiceFlow
 }
 
-export const LoggedInfo = ({ flow }: IdentifierInfoProps) => {
+/**
+ * LoggedInInfo renders the identifier of the user that is currently logged in.
+ * @param flow - Ory Flow object
+ */
+export const LoggedInInfo = ({ flow }: IdentifierInfoProps) => {
   const identifier = flow.ui.nodes.find(
     (i) => "name" in i.attributes && i.attributes.name === "identifier",
   )?.attributes
@@ -17,7 +22,10 @@ export const LoggedInfo = ({ flow }: IdentifierInfoProps) => {
 
   return (
     <div className={identifierStyle}>
-      You're logged in as:
+      <FormattedMessage
+        id="login.logged-in-as-label"
+        defaultMessage="You're logged in as:"
+      />
       <div className={identifierNameStyle}>{identifier.value}</div>
     </div>
   )

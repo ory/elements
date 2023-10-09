@@ -1,10 +1,12 @@
-import { SelfServiceSettingsFlow } from "@ory/client"
+import { SettingsFlow } from "@ory/client"
+import { JSX } from "react"
+
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasOidc } from "../helpers/utils"
 
-export type OIDCSettingsProps = {
-  flow: SelfServiceSettingsFlow
+export interface OIDCSettingsProps {
+  flow: SettingsFlow
   title?: string
 }
 

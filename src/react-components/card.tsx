@@ -1,4 +1,5 @@
 import cn from "classnames"
+import { JSX } from "react"
 
 import {
   cardStyle,
@@ -10,9 +11,10 @@ import {
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: string | React.ReactNode
-  image?: string | React.ReactNode
+  image?: string | React.ReactNode | React.FunctionComponent
   className?: string
   children?: React.ReactNode
+  size?: "wide" | "default"
 }
 
 export const Card = ({
@@ -20,11 +22,14 @@ export const Card = ({
   image,
   className,
   children,
+  size,
   ...props
 }: CardProps): JSX.Element => (
   <div
     className={cn(
-      cardStyle(),
+      cardStyle({
+        size,
+      }),
       typographyStyle({ type: "regular", size: "small" }),
       className,
     )}
@@ -32,12 +37,10 @@ export const Card = ({
   >
     <div className={gridStyle({ gap: 32 })}>
       {image && (
-        <div className={cardTitleImage}>
+        <>
           {typeof image === "string" ? (
             <img
-              style={{
-                width: "auto",
-              }}
+              className={cardTitleImage}
               src={image}
               alt={image}
               width="100%"
@@ -46,7 +49,7 @@ export const Card = ({
           ) : (
             image
           )}
-        </div>
+        </>
       )}
 
       <div className={cardTitleStyle}>

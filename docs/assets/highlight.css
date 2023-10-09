@@ -1,12 +1,12 @@
 :root {
   --light-hl-0: #000000;
   --dark-hl-0: #d4d4d4;
-  --light-hl-1: #008000;
-  --dark-hl-1: #6a9955;
-  --light-hl-2: #af00db;
-  --dark-hl-2: #c586c0;
-  --light-hl-3: #a31515;
-  --dark-hl-3: #ce9178;
+  --light-hl-1: #a31515;
+  --dark-hl-1: #ce9178;
+  --light-hl-2: #008000;
+  --dark-hl-2: #6a9955;
+  --light-hl-3: #af00db;
+  --dark-hl-3: #c586c0;
   --light-hl-4: #001080;
   --dark-hl-4: #9cdcfe;
   --light-hl-5: #795e26;
@@ -17,7 +17,7 @@
   --dark-hl-7: #808080;
   --light-hl-8: #0000ff;
   --dark-hl-8: #569cd6;
-  --light-hl-9: #ff0000;
+  --light-hl-9: #e50000;
   --dark-hl-9: #9cdcfe;
   --light-hl-10: #000000ff;
   --dark-hl-10: #d4d4d4;
@@ -25,6 +25,12 @@
   --dark-hl-11: #569cd6;
   --light-hl-12: #0000ff;
   --dark-hl-12: #ce9178;
+  --light-hl-13: #0070c1;
+  --dark-hl-13: #4fc1ff;
+  --light-hl-14: #000000;
+  --dark-hl-14: #c8c8c8;
+  --light-hl-15: #098658;
+  --dark-hl-15: #b5cea8;
   --light-code-background: #ffffff;
   --dark-code-background: #1e1e1e;
 }
@@ -44,6 +50,9 @@
     --hl-10: var(--light-hl-10);
     --hl-11: var(--light-hl-11);
     --hl-12: var(--light-hl-12);
+    --hl-13: var(--light-hl-13);
+    --hl-14: var(--light-hl-14);
+    --hl-15: var(--light-hl-15);
     --code-background: var(--light-code-background);
   }
 }
@@ -63,6 +72,9 @@
     --hl-10: var(--dark-hl-10);
     --hl-11: var(--dark-hl-11);
     --hl-12: var(--dark-hl-12);
+    --hl-13: var(--dark-hl-13);
+    --hl-14: var(--dark-hl-14);
+    --hl-15: var(--dark-hl-15);
     --code-background: var(--dark-code-background);
   }
 }
@@ -81,6 +93,9 @@
   --hl-10: var(--light-hl-10);
   --hl-11: var(--light-hl-11);
   --hl-12: var(--light-hl-12);
+  --hl-13: var(--light-hl-13);
+  --hl-14: var(--light-hl-14);
+  --hl-15: var(--light-hl-15);
   --code-background: var(--light-code-background);
 }
 
@@ -98,6 +113,9 @@
   --hl-10: var(--dark-hl-10);
   --hl-11: var(--dark-hl-11);
   --hl-12: var(--dark-hl-12);
+  --hl-13: var(--dark-hl-13);
+  --hl-14: var(--dark-hl-14);
+  --hl-15: var(--dark-hl-15);
   --code-background: var(--dark-code-background);
 }
 
@@ -139,6 +157,15 @@
 }
 .hl-12 {
   color: var(--hl-12);
+}
+.hl-13 {
+  color: var(--hl-13);
+}
+.hl-14 {
+  color: var(--hl-14);
+}
+.hl-15 {
+  color: var(--hl-15);
 }
 pre,
 code {

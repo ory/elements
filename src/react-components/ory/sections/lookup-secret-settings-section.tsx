@@ -1,10 +1,12 @@
-import { SelfServiceSettingsFlow } from "@ory/client"
+import { SettingsFlow } from "@ory/client"
+import { JSX } from "react"
+
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasLookupSecret } from "../helpers/utils"
 
-export type LookupSecretSettingsProps = {
-  flow: SelfServiceSettingsFlow
+export interface LookupSecretSettingsProps {
+  flow: SettingsFlow
 }
 
 export const LookupSecretSettingsSection = ({

@@ -6,6 +6,7 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
@@ -50,8 +51,8 @@
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@preact/preset-vite": "2.5.0",
-    "vite": "4.0.4",
-    "preact": "10.11.3"
+    "preact": "10.13.1",
+    "vite": "4.0.5"
   },
   "files": [
     "dist/*"

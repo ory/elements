@@ -1,18 +1,15 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import type { PlaywrightTestConfig } from "@playwright/experimental-ct-react"
-import { devices } from "@playwright/experimental-ct-react"
+import { defineConfig, devices } from "@playwright/experimental-ct-react"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import react from "@vitejs/plugin-react"
+import dts from "vite-plugin-dts"
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
-  testDir: "./src/react-components",
-  /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
-  snapshotDir: "./__snapshots__",
+export default defineConfig({
+  testDir: "./src",
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */
@@ -26,17 +23,39 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  expect: {
+    /**
+     * Maximum time expect() should wait for the condition to be met.
+     * For example in `await expect(locator).toHaveText();`
+     */
+    timeout: 5000,
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.05,
+    },
+  },
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-
     /* Port to use for Playwright component endpoint. */
     ctPort: 3100,
     ctViteConfig: {
-      plugins: [vanillaExtractPlugin(), react()],
+      plugins: [
+        vanillaExtractPlugin(),
+        react(),
+        dts({ insertTypesEntry: true }),
+      ],
+      build: {
+        rollupOptions: {
+          external: ["express"],
+          output: {
+            globals: {
+              express: "express",
+            },
+          },
+        },
+      },
     },
   },
-
   /* Configure projects for major browsers */
   projects: [
     {
@@ -58,6 +77,4 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-}
-
-export default config
+})

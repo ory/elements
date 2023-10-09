@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { style } from "@vanilla-extract/css"
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes"
 import { pxToRem } from "../common"
 import { defaultBreakpoints } from "./consts"
 import { oryTheme } from "./theme.css"
 
 // the base card style with media queries
-const card = style({
+const base = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
@@ -17,8 +17,7 @@ const card = style({
   padding: pxToRem(48),
   background: oryTheme.background.surface,
   color: oryTheme.foreground.def,
-  maxWidth: pxToRem(336),
-  minWidth: pxToRem(336),
+  boxSizing: "border-box",
   "@media": {
     [`screen and (max-width: ${defaultBreakpoints.sm})`]: {
       width: "100%",
@@ -36,16 +35,29 @@ export const cardTitleStyle = style({
 })
 
 export const cardTitleImage = style({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: pxToRem(42),
+  objectFit: "contain",
+  maxHeight: pxToRem(42),
 })
 
 // recipe for the card style
 // this ensures we have themeable variations for the card
 export const cardStyle = recipe({
-  base: card,
+  base,
+  variants: {
+    size: {
+      default: {
+        maxWidth: pxToRem(434),
+        minWidth: pxToRem(434),
+      },
+      wide: {
+        maxWidth: pxToRem(1200),
+        width: "100%",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "default",
+  },
 })
 
 // Get the type

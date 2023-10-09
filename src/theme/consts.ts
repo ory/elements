@@ -9,7 +9,7 @@ export interface Font {
   fontStyle: string
 }
 
-export type BreakPoints = {
+export interface BreakPoints {
   xs: string
   sm: string
   md: string
@@ -28,7 +28,7 @@ export const defaultBreakpoints: BreakPoints = {
   xl2: pxToEm(1536),
 }
 
-export type Theme = {
+export interface Theme {
   fontFamily: string
   fontFamilyMono: string
   fontStyle: string

@@ -1,30 +1,35 @@
 import { UiNode, UiText } from "@ory/client"
+import { JSX } from "react"
+import { useIntl } from "react-intl"
+
 import { GridStyle, gridStyle, Severity } from "../../../theme"
 import { Message, MessageStyleProps } from "../../message"
+import { uiTextToFormattedMessage } from "./node"
 
 export type NodeMessagesProps = {
   nodes?: UiNode[]
-  uiMessages?: Array<UiText>
+  uiMessages?: UiText[]
 } & GridStyle &
   MessageStyleProps
 
 type nodeMessageProps = {
-  text: string
-  id: number
+  message: UiText
   key: string
-  type: string
 } & MessageStyleProps
 
-const nodeMessage = ({ text, id, type, key, ...props }: nodeMessageProps) => (
-  <Message
-    key={key}
-    data-testid={`ui/message/${id}`}
-    severity={type as Severity}
-    {...props}
-  >
-    {text}
-  </Message>
-)
+const nodeMessage = ({ key, message, ...props }: nodeMessageProps) => {
+  const intl = useIntl()
+  return (
+    <Message
+      key={key}
+      data-testid={`ui/message/${message.id}`}
+      severity={message.type as Severity}
+      {...props}
+    >
+      {uiTextToFormattedMessage(message, intl)}
+    </Message>
+  )
+}
 
 export const NodeMessages = ({
   nodes,
@@ -36,12 +41,10 @@ export const NodeMessages = ({
     (groups, { messages }) => {
       groups.push(
         ...messages
-          .map(({ text, id, type }, key) => {
+          .map((message, key) => {
             return nodeMessage({
-              text,
-              id,
-              type,
-              key: `node-group-message-${id}-${key}`,
+              message,
+              key: `node-group-message-${message.id}-${key}`,
               ...messageProps,
             })
           })
@@ -52,16 +55,16 @@ export const NodeMessages = ({
     [],
   )
 
-  const $messages = uiMessages?.map(({ text, id, type }, key) =>
-    nodeMessage({ text, id, type, key: `ui-messsage-${id}-${key}` }),
+  const $messages = uiMessages?.map((message, key) =>
+    nodeMessage({ message, key: `ui-messsage-${message.id}-${key}` }),
   )
 
-  const $allMessages = [...($groupMessages || []), ...($messages || [])]
+  const $allMessages = [...($groupMessages ?? []), ...($messages ?? [])]
 
   return $allMessages.length > 0 ? (
     <div
       className={gridStyle({
-        gap: gap || 16,
+        gap: gap ?? 16,
         direction: direction,
       })}
     >

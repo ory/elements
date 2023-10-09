@@ -1,9 +1,11 @@
 import { UiNode } from "@ory/client"
+import { JSX } from "react"
+
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasLookupSecret } from "../helpers/utils"
 
-export type LookupSecretsSectionProps = {
+export interface LookupSecretsSectionProps {
   nodes: UiNode[]
 }
 

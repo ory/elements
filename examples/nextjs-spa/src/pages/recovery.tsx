@@ -20,7 +20,7 @@ import { SetUriFlow } from "@/pkg/helpers"
 import { NextPageWithLayout } from "./_app"
 
 const Recovery: NextPageWithLayout = () => {
-  const [flow, setFlow] = useState<RecoveryFlow>()
+  const [flow, setFlow] = useState<RecoveryFlow | null>()
 
   // Get flow information from the URL
   const router = useRouter()
@@ -84,8 +84,10 @@ const Recovery: NextPageWithLayout = () => {
         updateRecoveryFlowBody: values,
       })
       .then(({ data }) => {
+        // reset the form data completely
+        setFlow(null)
         // Form submission was successful, show the message to the user!
-        setFlow(data)
+        getFlow(data.id)
       })
       .catch(handleError)
 
@@ -93,7 +95,6 @@ const Recovery: NextPageWithLayout = () => {
     // create a recovery form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
       cardImage="/ory.svg"
-      title={"Recovery"}
       // This defines what kind of card we want to render.
       flowType={"recovery"}
       // we always need the flow data which populates the form fields and error messages dynamically

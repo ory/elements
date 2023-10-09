@@ -6,6 +6,7 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
@@ -49,7 +50,7 @@
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
-    "@vitejs/plugin-react": "3.0.1"
+    "@vitejs/plugin-react": "4.0.4"
   },
   "files": [
     "dist/*"

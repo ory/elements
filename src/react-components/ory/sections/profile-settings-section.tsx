@@ -1,9 +1,11 @@
-import { SelfServiceSettingsFlow } from "@ory/client"
+import { JSX } from "react"
+
+import { SettingsFlow } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 
-export type ProfileSettingsProps = {
-  flow: SelfServiceSettingsFlow
+export interface ProfileSettingsProps {
+  flow: SettingsFlow
 }
 
 export const ProfileSettingsSection = ({

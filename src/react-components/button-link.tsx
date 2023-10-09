@@ -1,4 +1,5 @@
 import cn from "classnames"
+import { MouseEvent, JSX } from "react"
 
 import { typographyStyle } from "../theme"
 import {
@@ -8,12 +9,23 @@ import {
   buttonLinkStyle,
 } from "../theme/button-link.css"
 
+export interface CustomHref {
+  href?: string
+  handler: () => void
+}
+
+const isCustomHref = (
+  href: CustomHref | string | undefined,
+): href is CustomHref => {
+  return href !== undefined && (href as CustomHref).handler !== undefined
+}
+
 export type ButtonLinkProps = {
   children?: React.ReactNode
-  href?: string | undefined
+  href?: CustomHref | string
   icon?: string
   className?: string
-} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
   ButtonLinkContainerStyle
 
 export const ButtonLink = ({
@@ -24,6 +36,26 @@ export const ButtonLink = ({
   position,
   ...props
 }: ButtonLinkProps): JSX.Element => {
+  let linkProps: React.AnchorHTMLAttributes<HTMLAnchorElement> = {
+    ...props,
+  }
+
+  if (isCustomHref(href)) {
+    linkProps = {
+      ...linkProps,
+      href: href.href ?? "",
+      onClick: (e: MouseEvent) => {
+        e.preventDefault()
+        href.handler()
+      },
+    }
+  } else {
+    linkProps = {
+      ...linkProps,
+      href: href,
+    }
+  }
+
   return (
     <div
       className={cn(
@@ -32,7 +64,7 @@ export const ButtonLink = ({
         buttonLinkContainerStyle({ position }),
       )}
     >
-      <a className={buttonLinkStyle()} href={href} {...props}>
+      <a className={buttonLinkStyle()} {...linkProps}>
         {icon && <i className={cn(`fa fa-${icon}`, buttonLinkIconStyle)}></i>}
         {children}
       </a>

@@ -1,10 +1,12 @@
-import { SelfServiceSettingsFlow } from "@ory/client"
+import { JSX } from "react"
+
+import { SettingsFlow } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasWebauthn } from "../helpers/utils"
 
-export type WebAuthnSettingsProps = {
-  flow: SelfServiceSettingsFlow
+export interface WebAuthnSettingsProps {
+  flow: SettingsFlow
 }
 
 export const WebAuthnSettingsSection = ({
