@@ -25,20 +25,28 @@ export const FilterFlowNodes = ({
 
   const nodes = filterNodesByGroups(filter)
     // we don't want to map the csrf token every time, only on the form level
-    .filter((node) =>
-      getInputName(node) === "csrf_token" && !includeCSRF ? false : true,
-    )
-    .map((node, k) =>
-      ["hidden"].includes(getNodeInputType(node.attributes))
-        ? {
-            node: <Node node={node} key={k} {...overrides} />,
-            hidden: true,
+    .filter((node) => includeCSRF || !(getInputName(node) === "csrf_token"))
+    .map((node, k) => ({
+      node: (
+        <Node
+          node={node}
+          key={
+            // input node
+            "name" in node.attributes
+              ? node.attributes.name
+              : // image node
+              "src" in node.attributes
+              ? node.attributes.src
+              : // anchor, text & script node
+              "id" in node.attributes
+              ? node.attributes.id
+              : k
           }
-        : {
-            node: <Node node={node} key={k} {...overrides} />,
-            hidden: false,
-          },
-    )
+          {...overrides}
+        />
+      ),
+      hidden: getNodeInputType(node.attributes) === "hidden",
+    }))
   return nodes.length > 0 ? (
     <>
       {nodes.filter((node) => node.hidden).map((node) => node.node)}
