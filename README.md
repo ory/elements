@@ -82,6 +82,59 @@ have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
 Now you can see Ory Elements in action by opening <http://localhost:3000> in
 your browser!
 
+## Adding Translations
+
+Ory Elements supports translations out-of-the-box with the `IntlProvider`. The
+`IntlProvider` is required by Ory Elements so that the default languages can be
+mapped correctly, specifically English.
+
+The `IntlProvider` has the ability to accept custom translations through a
+`CustomLanguageFormats` object. You can specify to the `<IntlProvider>` that you
+would like to use a `CustomTranslations` type instead of the
+`SupportedLanguages` which will require providing the `customTranslations` prop.
+
+When providing a language, it is important to note that it will be merged with
+an existing supported language, with your provided values taking precedent. This
+is to reduce the work needed to get up and running and provide the ability to
+just modify one key from an already supported language, rather than modifying
+the entire translation file :)
+
+For example, I want to adjust the English translation to say `Email` instead of
+`ID` when a Login card is shown. So I provide the key-value pair
+`"identities.messages.1070004": "Email"`. By Default this value is `ID`. Ory
+Elements will now use the updated value `Email` instead of `ID` for this
+specific label, but will still keep the other defaults in-tact.
+
+Another scenario is when we add partial keys to an unsupported language such as
+`af` (Afrikaans). I add my key-value only for one entry
+`"identities.messages.1070004": "E-posadres"`, however, the language has no
+default inside Ory Elements. As a safe-guard we fall-back to English for the
+rest of the labels.
+
+```tsx
+import { ThemeProvider, IntlProvider, CustomTranslations } from "@ory/elements"
+
+const RootComponent = () => {
+  const myCustomTranslations: CustomLanguageFormats = {
+    en: {
+      "login.title": "Login",
+    },
+  }
+
+  return (
+    <ThemeProvider>
+      <IntlProvider<CustomTranslations>
+        customTranslations={myCustomTranslations}
+        locale="en"
+        defaultLocale="en"
+      >
+        // children
+      </IntlProvider>
+    </ThemeProvider>
+  )
+}
+```
+
 ## End-to-end Testing with Playwright
 
 Ory Elements provides an end-to-end library based on

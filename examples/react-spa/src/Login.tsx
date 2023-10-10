@@ -107,7 +107,6 @@ export const Login = (): JSX.Element => {
   return flow ? (
     // we render the login form using Ory Elements
     <UserAuthCard
-      title={"Login"}
       flowType={"login"}
       // we always need the flow data which populates the form fields and error messages dynamically
       flow={flow}
