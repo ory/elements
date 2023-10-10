@@ -70,7 +70,6 @@ export const Login = () => {
         forgotPasswordURL: "/recovery",
         signupURL: "/registration",
       }}
-      title={"Login"}
       includeScripts={true}
       onSubmit={({ body }) => submitFlow(body as UpdateLoginFlowBody)}
     />

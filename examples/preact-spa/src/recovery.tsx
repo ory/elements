@@ -64,7 +64,6 @@ export const Recovery = () => {
 
   return flow ? (
     <UserAuthCard
-      title="Recovery"
       flow={flow}
       flowType={"recovery"}
       additionalProps={{ loginURL: "/login" }}

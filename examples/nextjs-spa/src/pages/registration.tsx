@@ -98,7 +98,6 @@ const Registration: NextPageWithLayout = () => {
     // create a registration form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
       cardImage="/ory.svg"
-      title={"Registration"}
       // This defines what kind of card we want to render.
       flowType={"registration"}
       // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token

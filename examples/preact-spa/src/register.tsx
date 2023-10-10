@@ -66,7 +66,6 @@ export const Register = () => {
     <UserAuthCard
       flow={flow}
       flowType={"registration"}
-      title={"Registration"}
       additionalProps={{
         loginURL: "/login",
       }}
