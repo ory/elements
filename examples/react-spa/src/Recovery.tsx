@@ -65,7 +65,6 @@ export const Recovery = () => {
   return flow ? (
     // We create a dynamic Recovery form based on the flow using Ory Elements
     <UserAuthCard
-      title="Recovery"
       flowType={"recovery"}
       // the flow is always required since it contains the UI form elements, UI error messages and csrf token
       flow={flow}

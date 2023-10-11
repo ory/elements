@@ -66,7 +66,6 @@ export const Verification = () => {
       additionalProps={{
         signupURL: "/registration",
       }}
-      title="Verification"
       // submit the verification form data to Ory
       onSubmit={({ body }) => submitFlow(body as UpdateVerificationFlowBody)}
     />

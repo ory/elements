@@ -82,6 +82,126 @@ have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
 Now you can see Ory Elements in action by opening <http://localhost:3000> in
 your browser!
 
+## Internalization (i18n)
+
+Ory Elements supports translations out-of-the-box with the `IntlProvider`. The
+`IntlProvider` is required by Ory Elements and maps American English as the
+default language.
+
+```tsx
+import { ThemeProvider } from "@ory/elements"
+
+const RootComponent = () => {
+  return (
+    <ThemeProvider>
+      <IntlProvider>// children</IntlProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+To switch the language the UI should use, you can pass in the language code
+through the `locale` prop.
+
+```tsx
+import { ThemeProvider } from "@ory/elements"
+
+const RootComponent = () => {
+  return (
+    <ThemeProvider>
+      <IntlProvider locale="nl" defaultLocale="en">
+        // children
+      </IntlProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+The `IntlProvider` has the ability to accept custom translations through a
+`CustomLanguageFormats` type. You can specify to the `<IntlProvider>` that you
+would like to use a `CustomTranslations` instead of the
+`SupportedLanguages (default)` type which will require providing the
+`customTranslations` prop.
+
+More information on the Ory messages can be found
+[in the docs](https://www.ory.sh/docs/kratos/concepts/ui-user-interface#ui-message-codes)
+
+When providing a translation, you can merge an existing supported locale from
+Ory Elements so that you do not need to provide all keys for the entire
+tranlsation file :)
+
+For example, I want to adjust the English translation to say `Email` instead of
+`ID` when a Login card is shown. So I provide the key-value pair
+`"identities.messages.1070004": "Email"`. Another unsupported language such as
+`af` (Afrikaans) is also added only for one entry
+`"identities.messages.1070004": "E-posadres"`. We merge the supported `en`
+locale from Ory Elements so that we don't need to provide all key-value pairs.
+
+```tsx
+import {
+  ThemeProvider,
+  IntlProvider,
+  CustomTranslations,
+  locales,
+} from "@ory/elements"
+
+const RootComponent = () => {
+  const myCustomTranslations: CustomLanguageFormats = {
+    ...locales,
+    en: {
+      ...locales.en,
+      "identities.messages.1070004": "Email",
+    },
+    af: {
+      // fallback to English on other labels
+      ...locales.en,
+      "identities.messages.1070004": "E-posadres",
+    },
+  }
+
+  return (
+    <ThemeProvider>
+      <IntlProvider<CustomTranslations>
+        customTranslations={myCustomTranslations}
+        locale="af"
+        defaultLocale="en"
+      >
+        // children
+      </IntlProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+It is of course also possible to provide the `IntlProvider` directly from the
+[react-intl](https://formatjs.io/docs/react-intl/) library to format messages
+and provide translations. The default translations of Ory Elements are located
+in the `src/locales` directory.
+
+```tsx
+import { IntlProvider } from "react-intl"
+import { locales } from "@ory/elements"
+
+const customMessages = {
+  ...locales,
+  de: {
+    ...locales.de,
+    "login.title": "Login",
+  },
+}
+
+const Main = () => {
+  return (
+    <IntlProvider locale={customMessageLocale} messages={customMessages}>
+      <Router>
+        <Route path="/" component={Dashboard} />
+        {/* ... */}
+      </Router>
+    </IntlProvider>
+  )
+}
+```
+
 ## End-to-end Testing with Playwright
 
 Ory Elements provides an end-to-end library based on
@@ -327,51 +447,6 @@ const Main = () => {
         <Route path="/settings" component={Settings} />
       </Router>
     </ThemeProvider>
-  )
-}
-```
-
-### Internalization (i18n)
-
-Ory Elements uses [react-intl](https://formatjs.io/docs/react-intl/) to format
-messages and provide translations. The default language is american English, but
-you can provide your own translations by using the `IntlProvider` component. The
-default translations of Ory Elements are located in the `src/locales` directory.
-They can be loaded using the `IntlProvider` from Ory Elements. Please note that
-it is necessary to wrap all Ory Element components either in the `IntlProvider`
-from `react-intl` or Ory Elements.
-
-```tsx
-import { IntlProvider } from "@ory/elements"
-
-const Main = () => {
-  return (
-    <IntlProvider locale="de">
-      <Router>
-        <Route path="/" component={Dashboard} />
-        {/* ... */}
-      </Router>
-    </IntlProvider>
-  )
-}
-```
-
-Custom translations can be provided using the `IntlProvider` from `react-intl`.
-For reference, it is best to start with the auto-generated English defaults, as
-they include all keys. More information on the Kratos messages can be found
-[in the docs](https://www.ory.sh/docs/kratos/concepts/ui-user-interface#ui-message-codes).
-
-```tsx
-import { IntlProvider } from "react-intl"
-
-const Main = () => {
-  return (
-    <IntlProvider locale={customMessageLocale} messages={customMessages}>
-      <Router>
-        <Route path="/" component={Dashboard} />
-        {/* ... */}
-      </Router>
-    </IntlProvider>
   )
 }
 ```

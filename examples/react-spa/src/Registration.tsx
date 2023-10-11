@@ -96,7 +96,6 @@ export const Registration = () => {
   return flow ? (
     // create a registration form that dynamically renders based on the flow data using Ory Elements
     <UserAuthCard
-      title={"Registration"}
       flowType={"registration"}
       // we always need to pass the flow to the card since it contains the form fields, error messages and csrf token
       flow={flow}
