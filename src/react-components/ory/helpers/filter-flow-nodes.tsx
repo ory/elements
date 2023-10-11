@@ -3,7 +3,11 @@ import {
   FilterNodesByGroups,
   filterNodesByGroups,
   getNodeInputType,
+  isUiNodeAnchorAttributes,
+  isUiNodeImageAttributes,
   isUiNodeInputAttributes,
+  isUiNodeScriptAttributes,
+  isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
 import { JSX } from "react"
 
@@ -31,14 +35,13 @@ export const FilterFlowNodes = ({
         <Node
           node={node}
           key={
-            // input node
-            "name" in node.attributes
+            isUiNodeInputAttributes(node.attributes)
               ? node.attributes.name
-              : // image node
-              "src" in node.attributes
+              : isUiNodeImageAttributes(node.attributes)
               ? node.attributes.src
-              : // anchor, text & script node
-              "id" in node.attributes
+              : isUiNodeAnchorAttributes(node.attributes) ||
+                isUiNodeTextAttributes(node.attributes) ||
+                isUiNodeScriptAttributes(node.attributes)
               ? node.attributes.id
               : k
           }
