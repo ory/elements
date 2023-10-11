@@ -42,7 +42,9 @@ export type TranslationFile = {
   [K in keyof typeof locales.en]: string
 }
 
-export const CountryCodes = [
+// ISO 639-1 language codes
+// https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+export const LanguageCodes = [
   "ab",
   "aa",
   "af",
@@ -182,13 +184,13 @@ export const CountryCodes = [
 ] as const
 
 export type CustomLanguageFormats = {
-  [k in (typeof CountryCodes)[number]]?: Partial<TranslationFile>
+  [k in (typeof LanguageCodes)[number]]?: Partial<TranslationFile>
 }
 
 export interface CustomTranslations {
   customTranslations: Partial<CustomLanguageFormats>
-  locale?: (typeof CountryCodes)[number]
-  defaultLocale?: (typeof CountryCodes)[number]
+  locale?: (typeof LanguageCodes)[number]
+  defaultLocale?: (typeof LanguageCodes)[number]
 }
 
 const isCustomTranslations = (o: unknown): o is CustomTranslations => {
