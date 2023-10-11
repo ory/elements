@@ -3,7 +3,11 @@ import {
   FilterNodesByGroups,
   filterNodesByGroups,
   getNodeInputType,
+  isUiNodeAnchorAttributes,
+  isUiNodeImageAttributes,
   isUiNodeInputAttributes,
+  isUiNodeScriptAttributes,
+  isUiNodeTextAttributes,
 } from "@ory/integrations/ui"
 import { JSX } from "react"
 
@@ -25,20 +29,27 @@ export const FilterFlowNodes = ({
 
   const nodes = filterNodesByGroups(filter)
     // we don't want to map the csrf token every time, only on the form level
-    .filter((node) =>
-      getInputName(node) === "csrf_token" && !includeCSRF ? false : true,
-    )
-    .map((node, k) =>
-      ["hidden"].includes(getNodeInputType(node.attributes))
-        ? {
-            node: <Node node={node} key={k} {...overrides} />,
-            hidden: true,
+    .filter((node) => includeCSRF || !(getInputName(node) === "csrf_token"))
+    .map((node, k) => ({
+      node: (
+        <Node
+          node={node}
+          key={
+            isUiNodeInputAttributes(node.attributes)
+              ? node.attributes.name
+              : isUiNodeImageAttributes(node.attributes)
+              ? node.attributes.src
+              : isUiNodeAnchorAttributes(node.attributes) ||
+                isUiNodeTextAttributes(node.attributes) ||
+                isUiNodeScriptAttributes(node.attributes)
+              ? node.attributes.id
+              : k
           }
-        : {
-            node: <Node node={node} key={k} {...overrides} />,
-            hidden: false,
-          },
-    )
+          {...overrides}
+        />
+      ),
+      hidden: getNodeInputType(node.attributes) === "hidden",
+    }))
   return nodes.length > 0 ? (
     <>
       {nodes.filter((node) => node.hidden).map((node) => node.node)}

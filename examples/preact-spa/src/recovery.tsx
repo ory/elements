@@ -42,8 +42,7 @@ export const Recovery = () => {
       })
       .then(({ data: flow }) => {
         // Form submission was successful, show the message to the user!
-        setFlow(null)
-        getFlow(flow.id)
+        setFlow(flow)
       })
       .catch(sdkErrorHandler)
   }

@@ -84,10 +84,7 @@ const Recovery: NextPageWithLayout = () => {
         updateRecoveryFlowBody: values,
       })
       .then(({ data }) => {
-        // reset the form data completely
-        setFlow(null)
-        // Form submission was successful, show the message to the user!
-        getFlow(data.id)
+        setFlow(data)
       })
       .catch(handleError)
 
