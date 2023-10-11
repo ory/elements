@@ -189,8 +189,8 @@ export type CustomLanguageFormats = {
 
 export interface CustomTranslations {
   customTranslations: Partial<CustomLanguageFormats>
-  locale?: (typeof LanguageCodes)[number]
-  defaultLocale?: (typeof LanguageCodes)[number]
+  locale: (typeof LanguageCodes)[number]
+  defaultLocale: (typeof LanguageCodes)[number]
 }
 
 const isCustomTranslations = (o: unknown): o is CustomTranslations => {
@@ -226,17 +226,13 @@ export const IntlProvider = <
 
   const intlProps = isCustomTranslations(props)
     ? {
-        locale: props.locale ?? "en",
+        locale: props.locale,
         defaultLocale: props.defaultLocale,
-        messages: merge(
-          {},
-          translation,
-          props.customTranslations[props.locale ?? "en"],
-        ),
+        messages: props.customTranslations[props.locale],
       }
     : {
         locale: props.locale ?? "en",
-        defaultLocale: props.defaultLocale,
+        defaultLocale: props.defaultLocale ?? "en",
         messages: translation,
       }
 

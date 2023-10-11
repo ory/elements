@@ -85,8 +85,37 @@ your browser!
 ## Internalization (i18n)
 
 Ory Elements supports translations out-of-the-box with the `IntlProvider`. The
-`IntlProvider` is required by Ory Elements and allows the language to be mapped
-correctly, specifically American English.
+`IntlProvider` is required by Ory Elements and maps American English as the
+default language.
+
+```tsx
+import { ThemeProvider } from "@ory/elements"
+
+const RootComponent = () => {
+  return (
+    <ThemeProvider>
+      <IntlProvider>// children</IntlProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+To switch the language the UI should use, you can pass in the language code
+through the `locale` prop.
+
+```tsx
+import { ThemeProvider } from "@ory/elements"
+
+const RootComponent = () => {
+  return (
+    <ThemeProvider>
+      <IntlProvider locale="nl" defaultLocale="en">
+        // children
+      </IntlProvider>
+    </ThemeProvider>
+  )
+}
+```
 
 The `IntlProvider` has the ability to accept custom translations through a
 `CustomLanguageFormats` type. You can specify to the `<IntlProvider>` that you
@@ -94,33 +123,39 @@ would like to use a `CustomTranslations` instead of the
 `SupportedLanguages (default)` type which will require providing the
 `customTranslations` prop.
 
-When providing a translation, it is important to note that it will be merged
-with an existing supported language, with your provided values taking precedent.
-This is to allow modifying only one key from an already supported language,
-rather than modifying the entire translation file :)
-
-For example, I want to adjust the English translation to say `Email` instead of
-`ID` when a Login card is shown. So I provide the key-value pair
-`"identities.messages.1070004": "Email"`. Ory Elements will now use the updated
-value `Email` instead of `ID` for this specific label, but will still keep the
-other defaults in-tact.
-
-Another scenario is when we add partial keys to an unsupported language such as
-`af` (Afrikaans). I add my key-value only for one entry
-`"identities.messages.1070004": "E-posadres"`, however, the language has no
-default inside Ory Elements. As a safe-guard we fall-back to English for the
-rest of the labels.
-
 More information on the Ory messages can be found
 [in the docs](https://www.ory.sh/docs/kratos/concepts/ui-user-interface#ui-message-codes)
 
+When providing a translation, you can merge an existing supported locale from
+Ory Elements so that you do not need to provide all keys for the entire
+tranlsation file :)
+
+For example, I want to adjust the English translation to say `Email` instead of
+`ID` when a Login card is shown. So I provide the key-value pair
+`"identities.messages.1070004": "Email"`. Another unsupported language such as
+`af` (Afrikaans) is also added only for one entry
+`"identities.messages.1070004": "E-posadres"`. We merge the supported `en`
+locale from Ory Elements so that we don't need to provide all key-value pairs.
+
 ```tsx
-import { ThemeProvider, IntlProvider, CustomTranslations } from "@ory/elements"
+import {
+  ThemeProvider,
+  IntlProvider,
+  CustomTranslations,
+  locales,
+} from "@ory/elements"
 
 const RootComponent = () => {
   const myCustomTranslations: CustomLanguageFormats = {
+    ...locales,
     en: {
-      "login.title": "Login",
+      ...locales.en,
+      "identities.messages.1070004": "Email",
+    },
+    af: {
+      // fallback to English on other labels
+      ...locales.en,
+      "identities.messages.1070004": "E-posadres",
     },
   }
 
@@ -128,7 +163,7 @@ const RootComponent = () => {
     <ThemeProvider>
       <IntlProvider<CustomTranslations>
         customTranslations={myCustomTranslations}
-        locale="en"
+        locale="af"
         defaultLocale="en"
       >
         // children
