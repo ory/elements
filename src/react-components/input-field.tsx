@@ -67,8 +67,14 @@ export const InputField = ({
             onClick={(e) => {
               setVisibility(!visibility)
               e.currentTarget.dataset.checked =
+                e.currentTarget.dataset.checked === "true" ? "false" : "true"
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setVisibility(!visibility)
                 e.currentTarget.dataset.checked =
                   e.currentTarget.dataset.checked === "true" ? "false" : "true"
+              }
             }}
             data-checked="false"
             className={inputFieldVisibilityToggleLabelStyle}

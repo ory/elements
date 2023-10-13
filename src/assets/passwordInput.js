@@ -17,10 +17,12 @@ document.getElementsByName("password").forEach((p) => {
       visibilityToggle.dataset.checked =
         visibilityToggle.dataset.checked === "true" ? "false" : "true"
     })
-    visibilityToggle.addEventListener("keydown", function () {
-      togglePassword(p)
-      visibilityToggle.dataset.checked =
-        visibilityToggle.dataset.checked === "true" ? "false" : "true"
+    visibilityToggle.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        togglePassword(p)
+        visibilityToggle.dataset.checked =
+          visibilityToggle.dataset.checked === "true" ? "false" : "true"
+      }
     })
   }
 })
