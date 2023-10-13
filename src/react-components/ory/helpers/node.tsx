@@ -355,6 +355,7 @@ export const Node = ({
             defaultValue={attrs.value as string | number | string[]}
             required={attrs.required}
             disabled={attrs.disabled}
+            pattern={attrs.pattern}
           />
         )
     }
