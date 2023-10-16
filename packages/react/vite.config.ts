@@ -21,6 +21,15 @@ export default defineConfig({
   plugins: [
     vanillaExtractPlugin({
       emitCssInSsr: true,
+      identifiers: ({ hash, filePath, debugId }) => {
+        const name = filePath
+          .split("/")
+          ?.pop()
+          ?.split(".")[0]
+          ?.replace("-", "_")
+        const id = debugId ? "_" + debugId : ""
+        return `ory_elements__${name}${id}__${hash}`
+      },
     }),
     dts({
       insertTypesEntry: true,
