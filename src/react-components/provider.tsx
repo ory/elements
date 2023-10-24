@@ -9,7 +9,6 @@ import {
   themeProviderStyle,
 } from "../theme/theme-provider.css"
 import * as locales from "./../locales"
-import { merge } from "lodash"
 
 export interface ThemeProviderProps {
   theme?: "light" | "dark"
@@ -239,6 +238,7 @@ export const IntlProvider = <
   return (
     <OriginalIntlProvider
       {...intlProps}
+      onWarn={() => ({})}
       defaultRichTextElements={{
         del: (chunks) => <del>{chunks}</del>,
       }}
