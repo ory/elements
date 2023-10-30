@@ -76,7 +76,7 @@
   "identities.messages.4000003": "długość musi być >= {min_length}, otrzymano {actual_length}",
   "identities.messages.4000004": "nie pasuje do wzoru \"{pattern}\"",
   "identities.messages.4000005": "Hasło nie może być użyte ponieważ {reason}.",
-  "identities.messages.4000006": "Podane poświadczenia są nieprawidłowe, sprawdź czy nie ma literówek w twoim haśle nazwie użytkownika, adresie email lub numerze telefonu.",
+  "identities.messages.4000006": "Podane poświadczenia są nieprawidłowe, sprawdź czy nie ma literówek w twoim haśle, nazwie użytkownika, adresie email lub numerze telefonu.",
   "identities.messages.4000007": "Istnieje już konto z takim samym identyfikatorem (email, telefon, nazwa użytkownika, ...).",
   "identities.messages.4000008": "Podany kod autentykacyjny jest nieprawidłowy, spróbuj ponownie.",
   "identities.messages.4000009": "Nie odnaleziono żadnych identyfikatorów logowania. Czy zapomniałeś je ustawić? Może też być to spowodowane nieprawidłową konfiguracją serwera.",
