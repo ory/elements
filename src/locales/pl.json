@@ -130,7 +130,7 @@
   "identities.messages.4070005": "Proces weryfikacyjny wygasł {expired_at_unix_since_minutes} minut temu, spróbuj ponownie.",
   "identities.messages.4070006": "Kod weryfikacyjny jest nieprawidłowy lub został wykorzystany. Spróbuj ponownie.",
   "identities.messages.5000001": "{reason}",
-  "login.forgot-password": "Zapomniałeś\\łaś hasła?",
+  "login.forgot-password": "Zapomniałeś/łaś hasła?",
   "login.logged-in-as-label": "Jesteś zalogowany jako:",
   "login.logout-button": "Wyloguj",
   "login.logout-label": "Coś nie działa?",
