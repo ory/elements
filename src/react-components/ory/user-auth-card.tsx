@@ -33,7 +33,10 @@ import { LinkSection } from "./sections/link-section"
 import { LoggedInInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
-import { PasswordlessSection } from "./sections/passwordless-section"
+import {
+  PasswordlessLoginSection,
+  PasswordlessSection,
+} from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
 
 export interface LoginSectionAdditionalProps {
@@ -310,7 +313,7 @@ export const UserAuthCard = ({
 
   switch (flowType) {
     case "login":
-      $passwordless = PasswordlessSection(flow)
+      $passwordless = PasswordlessLoginSection(flow)
       $oidc = OIDCSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
 

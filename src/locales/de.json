@@ -158,6 +158,7 @@
   "settings.navigation-profile": "Profil",
   "settings.navigation-totp": "Zwei-Faktor App",
   "settings.navigation-webauthn": "Sicherheitsschlüssel",
+  "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Hier können Sie Einstellungen zu Ihrem Konto vornehmen. Für manche Einstellungen müssen Sie Ihre Identität erneut bestätigen.",
   "settings.title": "Kontoeinstellungen",
   "settings.title-lookup-secret": "Manage 2FA Backup Recovery Codes",
@@ -167,6 +168,7 @@
   "settings.title-profile": "Profil Einstellungen",
   "settings.title-totp": "Zwei-Faktor TOTP App",
   "settings.title-webauthn": "Sicherheitsschlüssel verwalten",
+  "settings.title-passkey": "Passkeys verwalten",
   "verification.registration-button": "Registrieren",
   "verification.registration-label": "Sie haben noch kein Konto?",
   "verification.title": "Verifizieren Sie ihr Konto"

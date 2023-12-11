@@ -12,6 +12,8 @@ import {
   hasLookupSecret,
   hasTotp,
   hasWebauthn,
+  hasPasskey,
+  hasGroup,
 } from "./helpers/utils"
 
 /**
@@ -118,6 +120,15 @@ const SettingScreenNavigation = ({
               iconLeft: "key",
               testId: "webauthn",
             },
+            hasPasskey(flow.ui.nodes) && {
+              name: intl.formatMessage({
+                id: "settings.navigation-passkey",
+                defaultMessage: "Passkeys",
+              }),
+              href: "#passkey",
+              iconLeft: "fingerprint",
+              testId: "passkey",
+            },
             hasTotp(flow.ui.nodes) && {
               name: intl.formatMessage({
                 id: "settings.navigation-totp",
@@ -153,6 +164,7 @@ const settingsScreenMethods: UserSettingsFlowType[] = [
   "oidc",
   "lookupSecret",
   "webauthn",
+  "passkey",
   "totp",
 ]
 

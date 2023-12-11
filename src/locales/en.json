@@ -158,6 +158,7 @@
   "settings.navigation-profile": "Profile",
   "settings.navigation-totp": "Authenticator App",
   "settings.navigation-webauthn": "Hardware Tokens",
+  "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Here you can manage settings related to your account. Keep in mind that certain actions require you to re-authenticate.",
   "settings.title": "Account Settings",
   "settings.title-lookup-secret": "Manage 2FA Backup Recovery Codes",
@@ -167,6 +168,7 @@
   "settings.title-profile": "Profile Settings",
   "settings.title-totp": "Manage 2FA TOTP Authenticator App",
   "settings.title-webauthn": "Manage Hardware Tokens",
+  "settings.title-passkey": "Manage Passkeys",
   "verification.registration-button": "Sign up",
   "verification.registration-label": "Don't have an account?",
   "verification.title": "Verify your account"

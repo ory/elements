@@ -1,4 +1,4 @@
-import { UiNode, UiText } from "@ory/client"
+import { UiNode, UiNodeAttributes, UiText } from "@ory/client"
 import {
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
@@ -106,37 +106,37 @@ export const uiTextToFormattedMessage = (
       // context might provide an array of objects instead of a single object
       // for example when looking up a recovery code
       /*
-      *
-      {
-      "text": {
-          "id": 1050015,
-          "text": "3r9noma8, tv14n5tu, ...",
-          "type": "info",
-          "context": {
-              "secrets": [
+                  *
                   {
+                  "text": {
+                      "id": 1050015,
+                      "text": "3r9noma8, tv14n5tu, ...",
+                      "type": "info",
                       "context": {
-                          "secret": "3r9noma8"
-                      },
-                      "id": 1050009,
-                      "text": "3r9noma8",
-                      "type": "info"
+                          "secrets": [
+                              {
+                                  "context": {
+                                      "secret": "3r9noma8"
+                                  },
+                                  "id": 1050009,
+                                  "text": "3r9noma8",
+                                  "type": "info"
+                              },
+                              {
+                                  "context": {
+                                      "secret": "tv14n5tu"
+                                  },
+                                  "id": 1050009,
+                                  "text": "tv14n5tu",
+                                  "type": "info"
+                              },
+                          ]
+                      }
                   },
-                  {
-                      "context": {
-                          "secret": "tv14n5tu"
-                      },
-                      "id": 1050009,
-                      "text": "tv14n5tu",
-                      "type": "info"
-                  },
-              ]
-          }
-      },
-      "id": "lookup_secret_codes",
-      "node_type": "text"
-      }
-      */
+                  "id": "lookup_secret_codes",
+                  "node_type": "text"
+                  }
+                  */
       if (Array.isArray(value)) {
         return {
           ...accumulator,
@@ -182,6 +182,18 @@ export const uiTextToFormattedMessage = (
   )
 }
 
+function dataAttributes(attrs: UiNodeAttributes): Record<string, string> {
+  return Object.entries(attrs).reduce(
+    (accumulator, [key, value]) => {
+      if (key.startsWith("data-")) {
+        accumulator[key] = value
+      }
+      return accumulator
+    },
+    {} as Record<string, string>,
+  )
+}
+
 export const Node = ({
   node,
   className,
@@ -205,6 +217,7 @@ export const Node = ({
         header={formatMessage(node.meta.label)}
         width={node.attributes.width}
         height={node.attributes.height}
+        {...dataAttributes(node.attributes)}
       />
     )
   } else if (isUiNodeTextAttributes(node.attributes)) {
@@ -307,6 +320,7 @@ export const Node = ({
             disabled={attrs.disabled}
             {...(buttonSocialOverrideProps && buttonSocialOverrideProps)}
             {...submit}
+            {...dataAttributes(attrs)}
           />
         ) : (
           <Button
@@ -318,6 +332,7 @@ export const Node = ({
             disabled={attrs.disabled}
             {...(buttonOverrideProps && buttonOverrideProps)}
             {...submit}
+            {...dataAttributes(attrs)}
           />
         )
       case "datetime-local":
@@ -335,6 +350,7 @@ export const Node = ({
             disabled={attrs.disabled}
             defaultChecked={Boolean(attrs.value)}
             dataTestid={`node/input/${attrs.name}`}
+            {...dataAttributes(attrs)}
           />
         )
       default:
@@ -356,6 +372,7 @@ export const Node = ({
             required={attrs.required}
             disabled={attrs.disabled}
             pattern={attrs.pattern}
+            {...dataAttributes(attrs)}
           />
         )
     }
@@ -367,6 +384,7 @@ export const Node = ({
         data-testid={`node/anchor/${node.attributes.id}`}
         className={className}
         position="center"
+        {...dataAttributes(node.attributes)}
       >
         {formatMessage(node.attributes.title)}
       </ButtonLink>

@@ -29,6 +29,7 @@
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@babel/core": "7.18.10",
+    "@formatjs/cli-lib": "6.3.3",
     "@ory/client": "1.2.10",
     "@ory/integrations": "1.1.5",
     "@playwright/experimental-ct-react": "1.38.0",
