@@ -71,6 +71,7 @@ export const UserLogoutCard = ({
               type="submit"
               id="accept"
               value="Yes"
+              data-disable-on-click
               name="submit"
               variant="semibold"
               header={intl.formatMessage({
