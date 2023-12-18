@@ -12,7 +12,7 @@ export const hasPassword = (nodes: UiNode[]) =>
 export const hasWebauthn = (nodes: UiNode[]) =>
   nodes.some(({ group }) => group === "webauthn")
 
-export const hasLookupSecret = (nodes: UiNode[]) =>
+export const haslookup_secret = (nodes: UiNode[]) =>
   nodes.some(({ group }) => group === "lookup_secret")
 
 export const hasTotp = (nodes: UiNode[]) =>

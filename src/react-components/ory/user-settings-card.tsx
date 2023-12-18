@@ -9,13 +9,13 @@ import {
   UserAuthFormAdditionalProps,
 } from "./helpers/user-auth-form"
 import {
-  hasLookupSecret,
+  haslookup_secret,
   hasOidc,
   hasPassword,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
-import { LookupSecretSettingsSection } from "./sections/lookup-secret-settings-section"
+import { lookup_secretSettingsSection } from "./sections/lookup-secret-settings-section"
 import { OIDCSettingsSection } from "./sections/oidc-settings-section"
 import { PasswordSettingsSection } from "./sections/password-settings-section"
 import { ProfileSettingsSection } from "./sections/profile-settings-section"
@@ -29,7 +29,7 @@ export type UserSettingsFlowType =
   | "totp"
   | "webauthn"
   | "oidc"
-  | "lookupSecret"
+  | "lookup_secret"
 
 export type UserSettingsCardProps = {
   flow: SettingsFlow
@@ -92,8 +92,8 @@ export const UserSettingsCard = ({
         $flow = <WebAuthnSettingsSection flow={flow} />
       }
       break
-    case "lookupSecret":
-      if (hasLookupSecret(flow.ui.nodes)) {
+    case "lookup_secret":
+      if (haslookup_secret(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
           title ??
@@ -101,7 +101,7 @@ export const UserSettingsCard = ({
             id: "settings.title-lookup-secret",
             defaultMessage: "Manage 2FA Backup Recovery Codes",
           })
-        $flow = <LookupSecretSettingsSection flow={flow} />
+        $flow = <lookup_secretSettingsSection flow={flow} />
       }
       break
     case "oidc":

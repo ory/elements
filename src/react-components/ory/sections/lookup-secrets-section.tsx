@@ -3,16 +3,16 @@ import { JSX } from "react"
 
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
-import { hasLookupSecret } from "../helpers/utils"
+import { haslookup_secret } from "../helpers/utils"
 
-export interface LookupSecretsSectionProps {
+export interface lookup_secretsSectionProps {
   nodes: UiNode[]
 }
 
-export const LookupSecretsSection = ({
+export const lookup_secretsSection = ({
   nodes,
-}: LookupSecretsSectionProps): JSX.Element | null => {
-  return hasLookupSecret(nodes) ? (
+}: lookup_secretsSectionProps): JSX.Element | null => {
+  return haslookup_secret(nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
         filter={{

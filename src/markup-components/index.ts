@@ -3,7 +3,7 @@
 
 export {
   hasHiddenIdentifier,
-  hasLookupSecret,
+  haslookup_secret,
   hasOidc,
   hasPassword,
   hasTotp,

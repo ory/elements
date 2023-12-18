@@ -3,22 +3,22 @@ import { JSX } from "react"
 
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
-import { hasLookupSecret } from "../helpers/utils"
+import { haslookup_secret } from "../helpers/utils"
 
-export interface LookupSecretSettingsProps {
+export interface lookup_secretSettingsProps {
   flow: SettingsFlow
 }
 
-export const LookupSecretSettingsSection = ({
+export const lookup_secretSettingsSection = ({
   flow,
-}: LookupSecretSettingsProps): JSX.Element | null => {
+}: lookup_secretSettingsProps): JSX.Element | null => {
   const filter = {
     nodes: flow.ui.nodes,
     groups: "lookup_secret",
     withoutDefaultGroup: true,
   }
 
-  return hasLookupSecret(flow.ui.nodes) ? (
+  return haslookup_secret(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
         filter={{ ...filter, excludeAttributes: "submit,button" }}

@@ -9,7 +9,7 @@ import { NavSectionLinks } from "../nav"
 import {
   hasOidc,
   hasPassword,
-  hasLookupSecret,
+  haslookup_secret,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
@@ -75,12 +75,12 @@ const nav = ({
               iconLeft: "comments",
               testId: "oidc",
             },
-            hasLookupSecret(flow.ui.nodes) && {
+            haslookup_secret(flow.ui.nodes) && {
               name: intl.formatMessage({
                 id: "settings.navigation-backup-codes",
                 defaultMessage: "2FA Backup Codes",
               }),
-              href: "#lookupSecret",
+              href: "#lookup_secret",
               iconLeft: "shield",
               testId: "backup-codes",
             },
@@ -139,7 +139,7 @@ const body = ({
       <Typography color="foregroundMuted" size="small">
         <FormattedMessage
           id="settings.subtitle-instructions"
-          defaultMessage="Here you can manage settings related to your account. Keep in mind that certain actions require you to re-authenticate."
+          defaultMessage="Manage settings related to your account. Sensitive actions may require you to re-authenticate."
         />
       </Typography>
       <NodeMessages uiMessages={flow.ui.messages} textPosition="start" />
@@ -151,7 +151,7 @@ const body = ({
         "profile",
         "password",
         "oidc",
-        "lookupSecret",
+        "lookup_secret",
         "webauthn",
         "totp",
       ] as UserSettingsFlowType[]

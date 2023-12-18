@@ -20,8 +20,8 @@ import {
   DividerProps,
   InputField as inputField,
   InputFieldProps,
-  LookupSecretSettingsProps,
-  LookupSecretSettingsSection as lookupSecretSettingsSection,
+  lookup_secretSettingsProps,
+  lookup_secretSettingsSection as lookup_secretSettingsSection,
   MenuLink as menuLink,
   MenuLinkProps,
   Message as message,
@@ -205,11 +205,11 @@ export const TOTPSettingsSection = (
   return ComponentWrapper(totpSettingsSection, props, context)
 }
 
-export const LookupSecretSettingsSection = (
-  props: LookupSecretSettingsProps,
+export const lookup_secretSettingsSection = (
+  props: lookup_secretSettingsProps,
   context: Context = {},
 ) => {
-  return ComponentWrapper(lookupSecretSettingsSection, props, context)
+  return ComponentWrapper(lookup_secretSettingsSection, props, context)
 }
 
 export const UserConsentCard = (
@@ -231,7 +231,7 @@ export type {
   CodeBoxProps,
   DividerProps,
   InputFieldProps,
-  LookupSecretSettingsProps,
+  lookup_secretSettingsProps,
   MenuLinkProps,
   MessageProps,
   NavProps,

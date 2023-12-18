@@ -23,7 +23,7 @@ import {
 } from "./helpers/user-auth-form"
 import {
   hasHiddenIdentifier,
-  hasLookupSecret,
+  haslookup_secret,
   hasPassword,
   hasTotp,
   hasWebauthn,
@@ -219,7 +219,7 @@ export const UserAuthCard = ({
     isLoggedIn(flow) &&
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
-      hasLookupSecret(flow.ui.nodes))
+      haslookup_secret(flow.ui.nodes))
 
   // we check if nodes have hidden identifier, so we can display "you're looged in as" information
   const showLoggedAccount = hasHiddenIdentifier(flow.ui.nodes)
@@ -278,7 +278,7 @@ export const UserAuthCard = ({
           </div>
         </UserAuthForm>
       ),
-      hasLookupSecret(flow.ui.nodes) && (
+      haslookup_secret(flow.ui.nodes) && (
         <UserAuthForm
           flow={flow}
           data-testid="lookup-secret-flow"
