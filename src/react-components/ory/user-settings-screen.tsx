@@ -80,7 +80,7 @@ const nav = ({
                 id: "settings.navigation-backup-codes",
                 defaultMessage: "2FA Backup Codes",
               }),
-              href: "#lookupSecret",
+              href: "#lookup_secret",
               iconLeft: "shield",
               testId: "backup-codes",
             },
@@ -151,7 +151,7 @@ const body = ({
         "profile",
         "password",
         "oidc",
-        "lookupSecret",
+        "lookup_secret",
         "webauthn",
         "totp",
       ] as UserSettingsFlowType[]
