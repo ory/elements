@@ -106,37 +106,37 @@ export const uiTextToFormattedMessage = (
       // context might provide an array of objects instead of a single object
       // for example when looking up a recovery code
       /*
-                  *
+      *
+      {
+      "text": {
+          "id": 1050015,
+          "text": "3r9noma8, tv14n5tu, ...",
+          "type": "info",
+          "context": {
+              "secrets": [
                   {
-                  "text": {
-                      "id": 1050015,
-                      "text": "3r9noma8, tv14n5tu, ...",
-                      "type": "info",
                       "context": {
-                          "secrets": [
-                              {
-                                  "context": {
-                                      "secret": "3r9noma8"
-                                  },
-                                  "id": 1050009,
-                                  "text": "3r9noma8",
-                                  "type": "info"
-                              },
-                              {
-                                  "context": {
-                                      "secret": "tv14n5tu"
-                                  },
-                                  "id": 1050009,
-                                  "text": "tv14n5tu",
-                                  "type": "info"
-                              },
-                          ]
-                      }
+                          "secret": "3r9noma8"
+                      },
+                      "id": 1050009,
+                      "text": "3r9noma8",
+                      "type": "info"
                   },
-                  "id": "lookup_secret_codes",
-                  "node_type": "text"
-                  }
-                  */
+                  {
+                      "context": {
+                          "secret": "tv14n5tu"
+                      },
+                      "id": 1050009,
+                      "text": "tv14n5tu",
+                      "type": "info"
+                  },
+              ]
+          }
+      },
+      "id": "lookup_secret_codes",
+      "node_type": "text"
+      }
+      */
       if (Array.isArray(value)) {
         return {
           ...accumulator,
@@ -183,14 +183,14 @@ export const uiTextToFormattedMessage = (
 }
 
 function dataAttributes(attrs: UiNodeAttributes): Record<string, string> {
-  return Object.entries(attrs).reduce(
+  return Object.entries(attrs).reduce<Record<string, string>>(
     (accumulator, [key, value]) => {
       if (key.startsWith("data-")) {
-        accumulator[key] = value
+        accumulator[key] = value as string
       }
       return accumulator
     },
-    {} as Record<string, string>,
+    {},
   )
 }
 
