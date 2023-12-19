@@ -73,7 +73,24 @@ export const Registration = () => {
         flow: flow.id,
         updateRegistrationFlowBody: body,
       })
-      .then(() => {
+      .then(({ data }) => {
+        if ("continue_with" in data) {
+          for (const cw of data.continue_with ?? []) {
+            if (cw.action === "show_verification_ui") {
+              const search = new URLSearchParams()
+              search.set("flow", cw.flow.id)
+              navigate(
+                {
+                  pathname: "/verification",
+                  search: search.toString(),
+                },
+                { replace: true },
+              )
+              return
+            }
+          }
+        }
+
         // we successfully submitted the login flow, so lets redirect to the dashboard
         navigate("/", { replace: true })
       })
