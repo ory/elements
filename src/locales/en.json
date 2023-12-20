@@ -150,6 +150,7 @@
   "registration.login-label": "Already have an account?",
   "registration.subtitle-oauth2": "To authenticate {clientName}",
   "registration.title": "Register an account",
+  "settings.navigation-back-button": "Back",
   "settings.navigation-backup-codes": "2FA Backup Codes",
   "settings.navigation-logout": "Logout",
   "settings.navigation-oidc": "Social Sign In",

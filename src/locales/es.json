@@ -150,6 +150,7 @@
   "registration.login-label": "¿Ya tiene una cuenta?",
   "registration.subtitle-oauth2": "Para autenticar a {clientName}",
   "registration.title": "Registrar una cuenta",
+  "settings.navigation-back-button": "Regresar",
   "settings.navigation-backup-codes": "Códigos de Respaldo de 2FA",
   "settings.navigation-logout": "Cerrar sesión",
   "settings.navigation-oidc": "Inicio de Sesión Social",

@@ -36,6 +36,7 @@ import {
   PasswordSettingsSection as passwordSettingsSection,
   ProfileSettingsProps,
   ProfileSettingsSection as profileSettingsSection,
+  SettingScreenNavigationProps,
   ThemeProvider as themeProvider,
   ThemeProviderProps,
   TOTPSettingsProps,
@@ -136,10 +137,15 @@ export const UserSettingsCard = (
 
 export const UserSettingsScreen = (
   props: UserSettingsScreenProps,
+  navProps: SettingScreenNavigationProps,
   context: Context = {},
 ) => {
   return {
-    Nav: ComponentWrapper(userSettingsScreen.Nav, props, context),
+    Nav: ComponentWrapper(
+      userSettingsScreen.Nav,
+      { ...props, ...navProps },
+      context,
+    ),
     Body: ComponentWrapper(userSettingsScreen.Body, props, context),
   }
 }

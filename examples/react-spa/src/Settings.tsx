@@ -89,7 +89,7 @@ export const Settings = () => {
           key={index}
           // we always need to pass the component the flow since it contains the form fields, error messages and csrf token
           flow={flow}
-          flowType={flowType}
+          method={flowType}
           // include scripts for webauthn support
           includeScripts={true}
           // submit the form data the user provides to Ory

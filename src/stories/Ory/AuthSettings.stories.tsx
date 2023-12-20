@@ -22,55 +22,55 @@ const Template: Story<UserSettingsCardProps> = (
 export const UserSettingsProfileCard = Template.bind({})
 
 UserSettingsProfileCard.args = {
-  flowType: "profile",
+  method: "profile",
   flow: settingsFlow,
 }
 
 export const UserSettingsPasswordCard = Template.bind({})
 
 UserSettingsPasswordCard.args = {
-  flowType: "password",
+  method: "password",
   flow: settingsFlow,
 }
 
 export const UserSettingsWebauthnCard = Template.bind({})
 
 UserSettingsWebauthnCard.args = {
-  flowType: "webauthn",
+  method: "webauthn",
   flow: settingsFlow,
 }
 
 export const UserSettingsUnlinkWebauthnCard = Template.bind({})
 
 UserSettingsUnlinkWebauthnCard.args = {
-  flowType: "webauthn",
+  method: "webauthn",
   flow: settingsUnlinkFlow,
 }
 
 export const UserSettingsTotpCard = Template.bind({})
 
 UserSettingsTotpCard.args = {
-  flowType: "totp",
+  method: "totp",
   flow: settingsFlow,
 }
 
 export const UserSettingsUnlinkTotpCard = Template.bind({})
 
 UserSettingsUnlinkTotpCard.args = {
-  flowType: "totp",
+  method: "totp",
   flow: settingsUnlinkFlow,
 }
 
 export const UserSettingsOidcCard = Template.bind({})
 
 UserSettingsOidcCard.args = {
-  flowType: "oidc",
+  method: "oidc",
   flow: settingsFlow,
 }
 
 export const UserSettingsUnlinkOidcCard = Template.bind({})
 
 UserSettingsUnlinkOidcCard.args = {
-  flowType: "oidc",
+  method: "oidc",
   flow: settingsUnlinkFlow,
 }

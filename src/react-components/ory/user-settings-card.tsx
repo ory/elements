@@ -22,6 +22,7 @@ import { ProfileSettingsSection } from "./sections/profile-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
 import { useIntl } from "react-intl"
+import { Divider } from "../divider"
 
 export type UserSettingsFlowType =
   | "profile"
@@ -33,19 +34,21 @@ export type UserSettingsFlowType =
 
 export type UserSettingsCardProps = {
   flow: SettingsFlow
-  flowType: UserSettingsFlowType
+  method: UserSettingsFlowType
   title?: string
   includeScripts?: boolean
   className?: string
+  dividerClassName?: string
 } & UserAuthFormAdditionalProps
 
 export const UserSettingsCard = ({
   flow,
-  flowType,
+  method,
   title,
   includeScripts,
   onSubmit,
   className,
+  dividerClassName,
 }: UserSettingsCardProps): JSX.Element | null => {
   const intl = useIntl()
 
@@ -57,7 +60,7 @@ export const UserSettingsCard = ({
   let $flow: JSX.Element | null = null
   let cardTitle = ""
 
-  switch (flowType) {
+  switch (method) {
     case "profile":
       hasFlow = true
       cardTitle =
@@ -133,25 +136,28 @@ export const UserSettingsCard = ({
   }
 
   return hasFlow ? (
-    <div className={gridStyle({ gap: 32 })}>
-      {cardTitle && (
-        <h3
-          className={cn(
-            typographyStyle({ size: "headline26", type: "regular" }),
-            colorSprinkle({ color: "foregroundDefault" }),
-          )}
+    <>
+      <div className={gridStyle({ gap: 32 })}>
+        {cardTitle && (
+          <h3
+            className={cn(
+              typographyStyle({ size: "headline26", type: "regular" }),
+              colorSprinkle({ color: "foregroundDefault" }),
+            )}
+          >
+            {cardTitle}
+          </h3>
+        )}
+        <UserAuthForm
+          flow={flow}
+          onSubmit={onSubmit}
+          className={className}
+          data-testid={`${method}-settings-card`}
         >
-          {cardTitle}
-        </h3>
-      )}
-      <UserAuthForm
-        flow={flow}
-        onSubmit={onSubmit}
-        className={className}
-        data-testid={`${flowType}-settings-card`}
-      >
-        {$flow}
-      </UserAuthForm>
-    </div>
+          {$flow}
+        </UserAuthForm>
+      </div>
+      <Divider fullWidth={false} className={dividerClassName} />
+    </>
   ) : null
 }

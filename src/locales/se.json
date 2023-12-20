@@ -150,6 +150,7 @@
   "registration.login-label": "Har du redan ett konto?",
   "registration.subtitle-oauth2": "Att autentisera {clientName}",
   "registration.title": "Skapa ett konto",
+  "settings.navigation-back-button": "Tillbaka",
   "settings.navigation-backup-codes": "2FA backupkoder",
   "settings.navigation-logout": "Logga ut",
   "settings.navigation-oidc": "Social Inloggning",

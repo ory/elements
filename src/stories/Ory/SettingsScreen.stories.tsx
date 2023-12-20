@@ -11,7 +11,7 @@ import { settingsFlow } from "./settings-data"
 
 const Screen = (props: UserSettingsScreenProps) => (
   <div style={{ display: "flex", flexDirection: "row" }}>
-    <UserSettingsScreen.Nav {...props} />
+    <UserSettingsScreen.Nav {...props} backUrl="#back" />
     <div style={{ margin: "4rem" }}>
       <UserSettingsScreen.Body {...props} />
     </div>
