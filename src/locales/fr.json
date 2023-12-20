@@ -150,6 +150,7 @@
   "registration.login-label": "Vous avez déjà un compte ?",
   "registration.subtitle-oauth2": "Pour vous authentifier sur {clientName}",
   "registration.title": "Créer un compte",
+  "settings.navigation-back-button": "Revenir en arrière",
   "settings.navigation-backup-codes": "Codes de secours 2FA",
   "settings.navigation-logout": "Déconnexion",
   "settings.navigation-oidc": "Connexion sociale",

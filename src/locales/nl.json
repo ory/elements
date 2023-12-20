@@ -150,6 +150,7 @@
   "registration.login-label": "Heb je al een account?",
   "registration.subtitle-oauth2": "Om te authenticeren bij {clientName}",
   "registration.title": "Registreer een account",
+  "settings.navigation-back-button": "Ga terug",
   "settings.navigation-backup-codes": "2FA Backupcodes",
   "settings.navigation-logout": "Uitloggen",
   "settings.navigation-oidc": "Sociaal Inloggen",

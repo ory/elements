@@ -32,11 +32,19 @@ export interface UserSettingsScreenProps {
   logoutUrl: string
 }
 
-const nav = ({
+export interface SettingScreenNavigationProps {
+  navClassName?: string
+  flow: SettingsFlow
+  logoutUrl: string
+  backUrl?: string
+}
+
+const SettingScreenNavigation = ({
   navClassName,
   flow,
   logoutUrl,
-}: Pick<UserSettingsScreenProps, "navClassName" | "flow" | "logoutUrl">) => {
+  backUrl,
+}: SettingScreenNavigationProps) => {
   const intl = useIntl()
   return (
     <Nav
@@ -46,6 +54,23 @@ const nav = ({
         defaultMessage: "Account Settings",
       })}
       navSections={[
+        ...(backUrl
+          ? [
+              {
+                links: [
+                  {
+                    name: intl.formatMessage({
+                      id: "settings.navigation-back-button",
+                      defaultMessage: "Back",
+                    }),
+                    href: backUrl,
+                    iconLeft: "arrow-left",
+                    testId: "profile",
+                  },
+                ],
+              },
+            ]
+          : []),
         {
           links: [
             {
@@ -122,7 +147,16 @@ const nav = ({
   )
 }
 
-const body = ({
+const settingsScreenMethods: UserSettingsFlowType[] = [
+  "profile",
+  "password",
+  "oidc",
+  "lookupSecret",
+  "webauthn",
+  "totp",
+]
+
+const SettingsScreenBody = ({
   headerContainerClassName,
   dividerClassName,
   settingsCardContainerClassName,
@@ -146,28 +180,14 @@ const body = ({
       <Divider fullWidth={false} className={dividerClassName} />
     </div>
 
-    {(
-      [
-        "profile",
-        "password",
-        "oidc",
-        "lookupSecret",
-        "webauthn",
-        "totp",
-      ] as UserSettingsFlowType[]
-    ).map((flowType) => {
-      const $card = <UserSettingsCard flowType={flowType} flow={flow} />
-      if (!$card) {
-        return null
-      }
+    {settingsScreenMethods.map((method) => {
       return (
         <div
           className={settingsCardContainerClassName}
-          id={flowType}
-          key={flowType}
+          id={method}
+          key={method}
         >
-          {$card}
-          <Divider fullWidth={false} className={dividerClassName} />
+          <UserSettingsCard method={method} flow={flow} />
         </div>
       )
     })}
@@ -175,6 +195,6 @@ const body = ({
 )
 
 export const UserSettingsScreen = {
-  Nav: nav,
-  Body: body,
+  Nav: SettingScreenNavigation,
+  Body: SettingsScreenBody,
 }

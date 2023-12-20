@@ -150,6 +150,7 @@
   "registration.login-label": "Posiadasz już konto?",
   "registration.subtitle-oauth2": "Do autentykacji {clientName}",
   "registration.title": "Zarejestruj konto",
+  "settings.navigation-back-button": "Cofnij",
   "settings.navigation-backup-codes": "Kody zapasowe 2FA",
   "settings.navigation-logout": "Wyloguj",
   "settings.navigation-oidc": "Zewnętrzne logowanie",

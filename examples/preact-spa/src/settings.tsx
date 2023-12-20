@@ -83,7 +83,7 @@ export const Settings = () => {
         <UserSettingsCard
           key={index}
           flow={flow}
-          flowType={flowType}
+          method={flowType}
           includeScripts={true}
           onSubmit={({ body }) => onSubmit(body)}
         />
