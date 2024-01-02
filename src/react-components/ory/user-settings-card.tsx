@@ -33,7 +33,7 @@ export type UserSettingsFlowType =
   | "webauthn"
   | "passkey"
   | "oidc"
-  | "lookupSecret"
+  | "lookup_secret"
 
 export type UserSettingsCardProps = {
   flow: SettingsFlow
@@ -110,7 +110,7 @@ export const UserSettingsCard = ({
         $flow = <PasskeySettingsSection flow={flow} />
       }
       break
-    case "lookupSecret":
+    case "lookup_secret":
       if (hasLookupSecret(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =
