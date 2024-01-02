@@ -11,6 +11,7 @@ import {
   loginFlowHydra,
   loginFlowError,
   loginFlowUiError,
+  loginFlowWithPasskey,
 } from "./login-data"
 
 import {
@@ -76,6 +77,18 @@ export const LoginAuthCardPasswordless = Template.bind({})
 
 LoginAuthCardPasswordless.args = {
   flow: loginFlow,
+  flowType: "login",
+  includeScripts: true,
+  additionalProps: {
+    logoutURL: "https://acme.com/logout",
+    forgotPasswordURL: "https://acme.com/forgot-password",
+  },
+}
+
+export const LoginAuthCardPasskey = Template.bind({})
+
+LoginAuthCardPasskey.args = {
+  flow: loginFlowWithPasskey,
   flowType: "login",
   includeScripts: true,
   additionalProps: {
