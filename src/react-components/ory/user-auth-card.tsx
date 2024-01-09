@@ -24,6 +24,7 @@ import {
 import {
   hasHiddenIdentifier,
   hasLookupSecret,
+  hasPasskey,
   hasPassword,
   hasTotp,
   hasWebauthn,
@@ -222,6 +223,7 @@ export const UserAuthCard = ({
     isLoggedIn(flow) &&
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
+      hasPasskey(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
   // we check if nodes have hidden identifier, so we can display "you're looged in as" information
@@ -229,6 +231,8 @@ export const UserAuthCard = ({
 
   // This function will map all the 2fa flows with their own respective forms.
   // It also helps with spacing them and adding visual dividers between each flow *if* there are more than one flow.
+  //
+  // Code smell: This is not really only two factor flows, but more generic refresh / forced / re-authentication flows.
   const twoFactorFlows = () =>
     isTwoFactor() &&
     [
@@ -238,6 +242,17 @@ export const UserAuthCard = ({
             filter={{
               nodes: flow.ui.nodes,
               groups: "webauthn",
+              withoutDefaultGroup: true,
+            }}
+          />
+        </UserAuthForm>
+      ),
+      hasPasskey(flow.ui.nodes) && (
+        <UserAuthForm flow={flow} data-testid="passkey-flow">
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: ["passkey", "webauthn"],
               withoutDefaultGroup: true,
             }}
           />
@@ -464,7 +479,13 @@ export const UserAuthCard = ({
             <NodeMessages
               nodes={filterNodesByGroups({
                 nodes: flow.ui.nodes,
-                groups: ["password", "webauthn", "totp", "lookup_secret"],
+                groups: [
+                  "password",
+                  "webauthn",
+                  "passkey",
+                  "totp",
+                  "lookup_secret",
+                ],
               })}
             />
             {twoFactorFlows()}
