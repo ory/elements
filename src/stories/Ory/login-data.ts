@@ -972,3 +972,117 @@ export const loginFlowTwoFactor: LoginFlow = {
   requested_aal: "aal2",
   state: "",
 }
+
+export const loginFlowWithPasskey: LoginFlow = {
+  id: "4a7c067f-ae1f-4015-b3e3-74e1de254b40",
+  type: "browser",
+  expires_at: "2022-08-23T18:50:56.82053129Z",
+  issued_at: "2022-08-23T18:20:56.82053129Z",
+  request_url: "http://test.com/self-service/login/browser",
+  ui: {
+    action:
+      "http://test.com/self-service/login?flow=4a7c067f-ae1f-4015-b3e3-74e1de254b40",
+    method: "POST",
+    nodes: [
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "csrf_token",
+          type: "hidden",
+          value:
+            "6Ov489/mtfsZ9cnFjqsSzxITOj4F6F1DaLTlrznzZtmFNHE9hssysNvRxD6vmbjhxexBYUcJ4HMC14wSREegkg==",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      },
+      {
+        type: "input",
+        group: "default",
+        attributes: {
+          name: "identifier",
+          type: "text",
+          value: "",
+          required: true,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070004,
+            text: "ID",
+            type: "info",
+          },
+        },
+      },
+      {
+        attributes: {
+          disabled: false,
+          name: "method",
+          node_type: "input",
+          type: "submit",
+          value: "passkey",
+        },
+        group: "passkey",
+        messages: [],
+        meta: {
+          label: {
+            id: 1040007,
+            text: "Sign up with passkey",
+            type: "info",
+          },
+        },
+        type: "input",
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "password",
+          type: "password",
+          required: true,
+          autocomplete: "current-password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: "Password",
+            type: "info",
+          },
+        },
+      },
+      {
+        type: "input",
+        group: "password",
+        attributes: {
+          name: "method",
+          type: "submit",
+          value: "password",
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1010001,
+            text: "Sign in",
+            type: "info",
+            context: {},
+          },
+        },
+      },
+    ],
+  },
+  created_at: "2022-08-23T18:20:56.827165Z",
+  updated_at: "2022-08-23T18:20:56.827165Z",
+  refresh: false,
+  requested_aal: "aal1",
+  state: "",
+}

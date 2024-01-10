@@ -158,6 +158,7 @@
   "settings.navigation-profile": "Profil",
   "settings.navigation-totp": "Application d'authentification TOTP",
   "settings.navigation-webauthn": "Tokens matériels",
+  "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Ici, vous pouvez gérer les paramètres liés à votre compte. Gardez à l'esprit que certaines actions nécessitent une nouvelle authentification.",
   "settings.title": "Paramètres du compte",
   "settings.title-lookup-secret": "Gérer les codes de récupération 2FA",
@@ -167,6 +168,7 @@
   "settings.title-profile": "Paramètres de profil",
   "settings.title-totp": "Gérer l'application d'authentification TOTP 2FA",
   "settings.title-webauthn": "Gérer les tokens matériels",
+  "settings.title-passkey": "Gérer les Passkeys",
   "verification.registration-button": "S'inscrire",
   "verification.registration-label": "Vous n'avez pas de compte ?",
   "verification.title": "Vérifiez votre compte"

@@ -1,4 +1,4 @@
-import { UiNode, UiText } from "@ory/client"
+import { UiNode, UiNodeAttributes, UiText } from "@ory/client"
 import {
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
@@ -182,6 +182,18 @@ export const uiTextToFormattedMessage = (
   )
 }
 
+function dataAttributes(attrs: UiNodeAttributes): Record<string, string> {
+  return Object.entries(attrs).reduce<Record<string, string>>(
+    (accumulator, [key, value]) => {
+      if (key.startsWith("data-")) {
+        accumulator[key] = value as string
+      }
+      return accumulator
+    },
+    {},
+  )
+}
+
 export const Node = ({
   node,
   className,
@@ -205,6 +217,7 @@ export const Node = ({
         header={formatMessage(node.meta.label)}
         width={node.attributes.width}
         height={node.attributes.height}
+        {...dataAttributes(node.attributes)}
       />
     )
   } else if (isUiNodeTextAttributes(node.attributes)) {
@@ -307,6 +320,7 @@ export const Node = ({
             disabled={attrs.disabled}
             {...(buttonSocialOverrideProps && buttonSocialOverrideProps)}
             {...submit}
+            {...dataAttributes(attrs)}
           />
         ) : (
           <Button
@@ -318,6 +332,7 @@ export const Node = ({
             disabled={attrs.disabled}
             {...(buttonOverrideProps && buttonOverrideProps)}
             {...submit}
+            {...dataAttributes(attrs)}
           />
         )
       case "datetime-local":
@@ -335,6 +350,7 @@ export const Node = ({
             disabled={attrs.disabled}
             defaultChecked={Boolean(attrs.value)}
             dataTestid={`node/input/${attrs.name}`}
+            {...dataAttributes(attrs)}
           />
         )
       default:
@@ -356,6 +372,7 @@ export const Node = ({
             required={attrs.required}
             disabled={attrs.disabled}
             pattern={attrs.pattern}
+            {...dataAttributes(attrs)}
           />
         )
     }
@@ -367,6 +384,7 @@ export const Node = ({
         data-testid={`node/anchor/${node.attributes.id}`}
         className={className}
         position="center"
+        {...dataAttributes(node.attributes)}
       >
         {formatMessage(node.attributes.title)}
       </ButtonLink>

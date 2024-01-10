@@ -12,6 +12,8 @@ import {
   hasLookupSecret,
   hasTotp,
   hasWebauthn,
+  hasPasskey,
+  hasGroup,
 } from "./helpers/utils"
 
 /**
@@ -105,7 +107,7 @@ const SettingScreenNavigation = ({
                 id: "settings.navigation-backup-codes",
                 defaultMessage: "2FA Backup Codes",
               }),
-              href: "#lookupSecret",
+              href: "#lookup_secret",
               iconLeft: "shield",
               testId: "backup-codes",
             },
@@ -117,6 +119,15 @@ const SettingScreenNavigation = ({
               href: "#webauthn",
               iconLeft: "key",
               testId: "webauthn",
+            },
+            hasPasskey(flow.ui.nodes) && {
+              name: intl.formatMessage({
+                id: "settings.navigation-passkey",
+                defaultMessage: "Passkeys",
+              }),
+              href: "#passkey",
+              iconLeft: "fingerprint",
+              testId: "passkey",
             },
             hasTotp(flow.ui.nodes) && {
               name: intl.formatMessage({
@@ -151,8 +162,9 @@ const settingsScreenMethods: UserSettingsFlowType[] = [
   "profile",
   "password",
   "oidc",
-  "lookupSecret",
+  "lookup_secret",
   "webauthn",
+  "passkey",
   "totp",
 ]
 

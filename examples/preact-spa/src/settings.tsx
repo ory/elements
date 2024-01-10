@@ -76,7 +76,7 @@ export const Settings = () => {
           "password",
           "totp",
           "webauthn",
-          "lookupSecret",
+          "lookup_secret",
           "oidc",
         ] as UserSettingsFlowType[]
       ).map((flowType: UserSettingsFlowType, index) => (

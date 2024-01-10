@@ -11,6 +11,7 @@ import {
 import {
   hasLookupSecret,
   hasOidc,
+  hasPasskey,
   hasPassword,
   hasTotp,
   hasWebauthn,
@@ -22,6 +23,7 @@ import { ProfileSettingsSection } from "./sections/profile-settings-section"
 import { TOTPSettingsSection } from "./sections/totp-settings-section"
 import { WebAuthnSettingsSection } from "./sections/webauthn-settings-section"
 import { useIntl } from "react-intl"
+import { PasskeySettingsSection } from "./sections/passkey-settings-section"
 import { Divider } from "../divider"
 
 export type UserSettingsFlowType =
@@ -29,8 +31,9 @@ export type UserSettingsFlowType =
   | "password"
   | "totp"
   | "webauthn"
+  | "passkey"
   | "oidc"
-  | "lookupSecret"
+  | "lookup_secret"
 
 export type UserSettingsCardProps = {
   flow: SettingsFlow
@@ -95,7 +98,19 @@ export const UserSettingsCard = ({
         $flow = <WebAuthnSettingsSection flow={flow} />
       }
       break
-    case "lookupSecret":
+    case "passkey":
+      if (hasPasskey(flow.ui.nodes)) {
+        hasFlow = true
+        cardTitle =
+          title ??
+          intl.formatMessage({
+            id: "settings.title-passkey",
+            defaultMessage: "Manage Passkeys",
+          })
+        $flow = <PasskeySettingsSection flow={flow} />
+      }
+      break
+    case "lookup_secret":
       if (hasLookupSecret(flow.ui.nodes)) {
         hasFlow = true
         cardTitle =

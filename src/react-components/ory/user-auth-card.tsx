@@ -24,6 +24,7 @@ import {
 import {
   hasHiddenIdentifier,
   hasLookupSecret,
+  hasPasskey,
   hasPassword,
   hasTotp,
   hasWebauthn,
@@ -33,7 +34,10 @@ import { LinkSection } from "./sections/link-section"
 import { LoggedInInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
-import { PasswordlessSection } from "./sections/passwordless-section"
+import {
+  PasswordlessLoginSection,
+  PasswordlessSection,
+} from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
 
 export interface LoginSectionAdditionalProps {
@@ -219,6 +223,7 @@ export const UserAuthCard = ({
     isLoggedIn(flow) &&
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
+      hasPasskey(flow.ui.nodes) ||
       hasLookupSecret(flow.ui.nodes))
 
   // we check if nodes have hidden identifier, so we can display "you're looged in as" information
@@ -226,6 +231,8 @@ export const UserAuthCard = ({
 
   // This function will map all the 2fa flows with their own respective forms.
   // It also helps with spacing them and adding visual dividers between each flow *if* there are more than one flow.
+  //
+  // Code smell: This is not really only two factor flows, but more generic refresh / forced / re-authentication flows.
   const twoFactorFlows = () =>
     isTwoFactor() &&
     [
@@ -235,6 +242,17 @@ export const UserAuthCard = ({
             filter={{
               nodes: flow.ui.nodes,
               groups: "webauthn",
+              withoutDefaultGroup: true,
+            }}
+          />
+        </UserAuthForm>
+      ),
+      hasPasskey(flow.ui.nodes) && (
+        <UserAuthForm flow={flow} data-testid="passkey-flow">
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: ["passkey", "webauthn"],
               withoutDefaultGroup: true,
             }}
           />
@@ -310,7 +328,7 @@ export const UserAuthCard = ({
 
   switch (flowType) {
     case "login":
-      $passwordless = PasswordlessSection(flow)
+      $passwordless = PasswordlessLoginSection(flow)
       $oidc = OIDCSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
 
@@ -461,7 +479,13 @@ export const UserAuthCard = ({
             <NodeMessages
               nodes={filterNodesByGroups({
                 nodes: flow.ui.nodes,
-                groups: ["password", "webauthn", "totp", "lookup_secret"],
+                groups: [
+                  "password",
+                  "webauthn",
+                  "passkey",
+                  "totp",
+                  "lookup_secret",
+                ],
               })}
             />
             {twoFactorFlows()}

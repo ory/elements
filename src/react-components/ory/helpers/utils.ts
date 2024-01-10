@@ -3,23 +3,16 @@
 
 import { UiNode } from "@ory/client"
 
-export const hasOidc = (nodes: UiNode[]) =>
-  nodes.some(({ group }) => group === "oidc")
+export const hasGroup = (group: string) => (nodes: UiNode[]) =>
+  nodes.some(({ type, group: g }) => type === "input" && g === group)
 
-export const hasPassword = (nodes: UiNode[]) =>
-  nodes.some(({ group }) => group === "password")
-
-export const hasWebauthn = (nodes: UiNode[]) =>
-  nodes.some(({ group }) => group === "webauthn")
-
-export const hasLookupSecret = (nodes: UiNode[]) =>
-  nodes.some(({ group }) => group === "lookup_secret")
-
-export const hasTotp = (nodes: UiNode[]) =>
-  nodes.some(({ group }) => group === "totp")
-
-export const hasCode = (nodes: UiNode[]) =>
-  nodes.some(({ group }) => group === "code")
+export const hasOidc = hasGroup("oidc")
+export const hasPassword = hasGroup("password")
+export const hasWebauthn = hasGroup("webauthn")
+export const hasPasskey = hasGroup("passkey")
+export const hasLookupSecret = hasGroup("lookup_secret")
+export const hasTotp = hasGroup("totp")
+export const hasCode = hasGroup("code")
 
 export const hasHiddenIdentifier = (nodes: UiNode[]) =>
   nodes.some(

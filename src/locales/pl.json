@@ -158,6 +158,7 @@
   "settings.navigation-profile": "Profil",
   "settings.navigation-totp": "Aplikacja Autentykator",
   "settings.navigation-webauthn": "Tokeny Sprzętowe",
+  "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Tutaj możesz zarządzać ustawieniami związanymi z Twoim kontem. Miej na uwadze że niektóre akcje mogą wymagać ponownej uwierzytelnienia.",
   "settings.title": "Ustawienia Konta",
   "settings.title-lookup-secret": "Zarządzaj kodami odzyskiwania 2FA",
@@ -167,6 +168,7 @@
   "settings.title-profile": "Ustawienia Profilu",
   "settings.title-totp": "Zarządzaj aplikacją autentykator 2FA TOTP",
   "settings.title-webauthn": "Zarządzaj tokenami sprzętowymi",
+  "settings.title-passkey": "Zarządzaj Passkeys",
   "verification.registration-button": "Zarejestruj się",
   "verification.registration-label": "Nie posiadasz konta?",
   "verification.title": "Zweryfikuj konto"

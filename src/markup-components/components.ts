@@ -59,6 +59,8 @@ import {
   UserSettingsScreenProps,
   WebAuthnSettingsProps,
   WebAuthnSettingsSection as webAuthnSettingsSection,
+  PasskeySettingsSection as passkeySettingsSection,
+  PasskeySettingsProps,
 } from "../react-components"
 import { ComponentWrapper, Context } from "./component-wrapper"
 
@@ -195,6 +197,13 @@ export const WebAuthnSettingsSection = (
   context: Context = {},
 ) => {
   return ComponentWrapper(webAuthnSettingsSection, props, context)
+}
+
+export const PasskeySettingsSection = (
+  props: PasskeySettingsProps,
+  context: Context = {},
+) => {
+  return ComponentWrapper(passkeySettingsSection, props, context)
 }
 
 export const OIDCSettingsSection = (
