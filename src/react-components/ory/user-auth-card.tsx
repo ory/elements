@@ -26,6 +26,7 @@ import {
   hasLookupSecret,
   hasPasskey,
   hasPassword,
+  hasProfile,
   hasTotp,
   hasWebauthn,
 } from "./helpers/utils"
@@ -39,6 +40,7 @@ import {
   PasswordlessSection,
 } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
+import { ProfileRegistrationSection } from "./sections/profile-section"
 
 export interface LoginSectionAdditionalProps {
   forgotPasswordURL?: CustomHref | string
@@ -199,6 +201,7 @@ export const UserAuthCard = ({
   let $oidc: JSX.Element | null = null
   let $code: JSX.Element | null = null
   let $passwordless: JSX.Element | null = null
+  let $profile: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
   // the user might need to logout on the second factor page.
@@ -216,6 +219,8 @@ export const UserAuthCard = ({
   const canShowPasswordless = () =>
     !!$passwordless &&
     (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
+
+  const canShowProfile = () => !!$profile && flowType === "registration"
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
@@ -264,6 +269,17 @@ export const UserAuthCard = ({
             filter={{
               nodes: flow.ui.nodes,
               groups: "password",
+              withoutDefaultGroup: true,
+            }}
+          />
+        </UserAuthForm>
+      ),
+      hasProfile(flow.ui.nodes) && (
+        <UserAuthForm flow={flow} data-testid="profile-flow">
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
+              groups: "profile",
               withoutDefaultGroup: true,
             }}
           />
@@ -367,6 +383,7 @@ export const UserAuthCard = ({
       break
     case "registration":
       $passwordless = PasswordlessSection(flow)
+      $profile = ProfileRegistrationSection(flow)
       $oidc = OIDCSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
       $flow = RegistrationSection({
@@ -449,6 +466,14 @@ export const UserAuthCard = ({
             <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
               {$oidc}
+            </UserAuthForm>
+          </>
+        )}
+        {$profile && (
+          <>
+            <Divider />
+            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-profile`}>
+              {$profile}
             </UserAuthForm>
           </>
         )}
