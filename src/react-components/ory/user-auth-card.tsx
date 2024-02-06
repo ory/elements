@@ -36,6 +36,8 @@ import { LoggedInInfo } from "./sections/logged-info"
 import { LoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import {
+  PasskeyLoginSection,
+  PasskeySection,
   PasswordlessLoginSection,
   PasswordlessSection,
 } from "./sections/passwordless-section"
@@ -200,7 +202,8 @@ export const UserAuthCard = ({
   let $flow: JSX.Element | null = null
   let $oidc: JSX.Element | null = null
   let $code: JSX.Element | null = null
-  let $passwordless: JSX.Element | null = null
+  let $passwordlessWebauthn: JSX.Element | null = null
+  let $passkey: JSX.Element | null = null
   let $profile: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
@@ -217,7 +220,13 @@ export const UserAuthCard = ({
   // passwordless can be shown if the user is not logged in (e.g. exclude 2FA screen) or if the flow is a registration flow.
   // we want the login section to handle passwordless as well when we have a 2FA screen.
   const canShowPasswordless = () =>
-    !!$passwordless &&
+    !!$passwordlessWebauthn &&
+    (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
+
+  // passkey can be shown if the user is not logged in (e.g. exclude 2FA screen) or if the flow is a registration flow.
+  // we want the login section to handle passwordless as well when we have a 2FA screen.
+  const canShowPasskey = () =>
+    !!$passkey &&
     (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
 
   const canShowProfile = () => !!$profile && flowType === "registration"
@@ -257,7 +266,7 @@ export const UserAuthCard = ({
           <FilterFlowNodes
             filter={{
               nodes: flow.ui.nodes,
-              groups: ["passkey", "webauthn"],
+              groups: ["passkey"],
               withoutDefaultGroup: true,
             }}
           />
@@ -344,7 +353,8 @@ export const UserAuthCard = ({
 
   switch (flowType) {
     case "login":
-      $passwordless = PasswordlessLoginSection(flow)
+      $passwordlessWebauthn = PasswordlessLoginSection(flow)
+      $passkey = PasskeyLoginSection(flow)
       $oidc = OIDCSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
 
@@ -382,7 +392,8 @@ export const UserAuthCard = ({
       }
       break
     case "registration":
-      $passwordless = PasswordlessSection(flow)
+      $passwordlessWebauthn = PasswordlessSection(flow)
+      $passkey = PasskeySection(flow)
       $profile = ProfileRegistrationSection(flow)
       $oidc = OIDCSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
@@ -518,6 +529,25 @@ export const UserAuthCard = ({
           </>
         )}
 
+        {canShowPasskey() && (
+          <>
+            <Divider />
+            <UserAuthForm
+              flow={flow}
+              submitOnEnter={true}
+              onSubmit={onSubmit}
+              data-testid={"passkey-flow"}
+              formFilterOverride={{
+                nodes: flow.ui.nodes,
+                groups: ["default", "passkey"],
+                attributes: "hidden",
+              }}
+            >
+              {$passkey}
+            </UserAuthForm>
+          </>
+        )}
+
         {canShowPasswordless() && (
           <>
             <Divider />
@@ -528,13 +558,15 @@ export const UserAuthCard = ({
               data-testid={"passwordless-flow"}
               formFilterOverride={{
                 nodes: flow.ui.nodes,
+                groups: ["default", "webauthn"],
                 attributes: "hidden",
               }}
             >
-              {$passwordless}
+              {$passwordlessWebauthn}
             </UserAuthForm>
           </>
         )}
+
         {message && MessageSection(message)}
       </div>
     </Card>
