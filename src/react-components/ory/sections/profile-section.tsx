@@ -4,12 +4,7 @@ import { SettingsFlow } from "@ory/client"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
-import {
-  hasPasskey,
-  hasPassword,
-  hasProfile,
-  hasWebauthn,
-} from "../helpers/utils"
+import { hasProfile } from "../helpers/utils"
 
 export interface ProfileSettingsProps {
   flow: SettingsFlow
@@ -37,19 +32,18 @@ export const ProfileRegistrationSection = (
 ): JSX.Element | null => {
   return hasProfile(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
-      <div className={gridStyle({ gap: 16 })}>
-        <FilterFlowNodes
-          filter={{
-            nodes: flow.ui.nodes,
-            groups: ["profile"],
-            excludeAttributes: "submit",
-          }}
-        />
-      </div>
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
           groups: ["profile"],
+          excludeAttributes: "submit,hidden",
+        }}
+      />
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["profile"],
+          excludeAttributes: "hidden",
           attributes: "submit",
         }}
       />

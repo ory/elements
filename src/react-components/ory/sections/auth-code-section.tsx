@@ -32,17 +32,15 @@ export const AuthCodeSection = ({
         }}
       />
       <div className={gridStyle({ gap: 32 })}>
-        <div className={gridStyle({ gap: 16 })}>
-          {/* default group is used here automatically for login */}
-          <FilterFlowNodes
-            filter={{
-              nodes: nodes,
-              groups: "code",
-              withoutDefaultAttributes: true,
-              excludeAttributes: ["hidden", "button", "submit"], // the form will take care of default (csrf) hidden fields
-            }}
-          />
-        </div>
+        {/* default group is used here automatically for login */}
+        <FilterFlowNodes
+          filter={{
+            nodes: nodes,
+            groups: "code",
+            withoutDefaultAttributes: true,
+            excludeAttributes: ["hidden", "button", "submit"], // the form will take care of default (csrf) hidden fields
+          }}
+        />
         {/* include hidden here because we want to have resend support */}
         {/* exclude default group because we dont want to map csrf twice */}
         <FilterFlowNodes

@@ -480,14 +480,6 @@ export const UserAuthCard = ({
             </UserAuthForm>
           </>
         )}
-        {$profile && (
-          <>
-            <Divider />
-            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-profile`}>
-              {$profile}
-            </UserAuthForm>
-          </>
-        )}
         {$code && (
           <>
             <Divider />
@@ -563,6 +555,15 @@ export const UserAuthCard = ({
               }}
             >
               {$passwordlessWebauthn}
+            </UserAuthForm>
+          </>
+        )}
+
+        {$profile && (
+          <>
+            <Divider />
+            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-profile`}>
+              {$profile}
             </UserAuthForm>
           </>
         )}
