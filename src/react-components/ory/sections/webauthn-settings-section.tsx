@@ -21,10 +21,10 @@ export const WebAuthnSettingsSection = ({
   return hasWebauthn(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
-        filter={{ ...filter, excludeAttributes: "submit,button" }}
+        filter={{ ...filter, excludeAttributes: "onclick,button" }}
       />
       <FilterFlowNodes
-        filter={{ ...filter, attributes: "submit,button" }}
+        filter={{ ...filter, attributes: "onclick,button" }}
         buttonOverrideProps={{ fullWidth: false }}
       />
     </div>

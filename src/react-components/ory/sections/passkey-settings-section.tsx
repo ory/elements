@@ -1,9 +1,9 @@
 import { JSX } from "react"
 
 import { SettingsFlow } from "@ory/client"
-import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPasskey } from "../helpers/utils"
+import { gridStyle } from "../../../theme"
 
 export interface PasskeySettingsProps {
   flow: SettingsFlow
@@ -14,18 +14,19 @@ export const PasskeySettingsSection = ({
 }: PasskeySettingsProps): JSX.Element | null => {
   const filter = {
     nodes: flow.ui.nodes,
-    groups: ["passkey", "webauthn"],
+    groups: "passkey",
     withoutDefaultGroup: true,
   }
 
   return hasPasskey(flow.ui.nodes) ? (
-    <div>
+    <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
-        filter={{ ...filter, attributes: "submit,button" }}
-        buttonOverrideProps={{ fullWidth: false }}
+        filter={{ ...filter, excludeAttributes: "onclick,button" }}
       />
+
       <FilterFlowNodes
-        filter={{ ...filter, excludeAttributes: "submit,button" }}
+        filter={{ ...filter, attributes: "onclick,button" }}
+        buttonOverrideProps={{ fullWidth: false }}
       />
     </div>
   ) : null
