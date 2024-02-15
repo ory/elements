@@ -122,7 +122,7 @@ export const sdkError = (
             const currentUrl = new URL(window.location.href)
             const redirect = new URL(
               responseData.redirect_browser_to,
-              // need to add the base url since the `redirect_browser_to` is a relative url with no hostname
+              // need to add the base url since the `redirect_browser_to` may be a relative url with no hostname
               window.location.origin,
             )
 
@@ -132,9 +132,7 @@ export const sdkError = (
               // remove /ui prefix from the path in case it is present (not setup correctly inside the project config)
               // since this is an SPA we don't need to redirect to the Account Experience.
               redirect.pathname = redirect.pathname.replace("/ui", "")
-              navigate(redirect.pathname + redirect.search, {
-                replace: true,
-              })
+              window.location.assign(redirect.toString())
               return Promise.resolve()
             }
 
