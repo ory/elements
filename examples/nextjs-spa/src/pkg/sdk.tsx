@@ -1,4 +1,4 @@
-import { Configuration, FrontendApi } from "@ory/client"
+import { Configuration, FrontendApi, IdentityApi, OAuth2Api } from "@ory/client"
 import axiosFactory, { AxiosError } from "axios"
 
 /**
@@ -43,4 +43,29 @@ const ory = new FrontendApi(
   axios,
 )
 
-export { ory }
+/**
+ * This is the Ory OAuth2 service. On Ory Network this is the same value as the FrontendApi.
+ **/
+const oryOAuth = new OAuth2Api(
+  new Configuration({
+    basePath: process.env.NEXT_PUBLIC_ORY_SDK_URL || "",
+    accessToken: process.env.NEXT_ADMIN_ORY_API_KEY || "",
+  }),
+)
+
+/**
+ * This is the Ory Identity service, used for Admin API calls. On Ory Network this is the same value as the FrontendApi.
+ * The Admin API requires an API key, which you can set using the `NEXT_ADMIN_ORY_API_KEY` environment variable.
+ **/
+const oryIdentity = new IdentityApi(
+  new Configuration({
+    basePath: process.env.NEXT_PUBLIC_ORY_SDK_URL || "",
+    baseOptions: {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_ADMIN_ORY_API_KEY || ""}`,
+      },
+    },
+  }),
+)
+
+export { ory, oryOAuth, oryIdentity }

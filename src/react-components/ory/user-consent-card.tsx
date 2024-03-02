@@ -8,6 +8,15 @@ import { OAuth2Client, OAuth2ConsentRequest } from "@ory/client"
 import { Checkbox } from "../checkbox"
 import { Divider } from "../divider"
 import { FormattedMessage, useIntl } from "react-intl"
+import { CustomOnSubmit, CustomOnSubmitCallback } from "./helpers/common"
+
+export type ConsentFormPayload = {
+  grant_scope: string[]
+  remember: boolean
+  consent_action: string
+  consent_challenge: string
+  _csrf: string
+}
 
 /**
  * UserConsentCardProps
@@ -27,8 +36,9 @@ export interface UserConsentCardProps {
   client_name: string
   requested_scope?: string[]
   client?: OAuth2Client
-  action: string
+  action?: string
   className?: string
+  onSubmit?: CustomOnSubmitCallback<ConsentFormPayload>
 }
 
 export const UserConsentCard = ({
@@ -40,6 +50,7 @@ export const UserConsentCard = ({
   client,
   action,
   className,
+  onSubmit,
 }: UserConsentCardProps) => {
   const intl = useIntl()
 
@@ -53,7 +64,17 @@ export const UserConsentCard = ({
       }
       image={cardImage}
     >
-      <form action={action} method="post">
+      <form
+        method="post"
+        {...(action && {
+          action: action,
+        })}
+        {...(onSubmit && {
+          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+            CustomOnSubmit<ConsentFormPayload>(event, onSubmit)
+          },
+        })}
+      >
         <input type="hidden" name="_csrf" value={csrfToken} />
         <input
           type="hidden"
