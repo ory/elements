@@ -14,8 +14,8 @@ import {
   loginConfirmWithTwoFactor,
 } from "../../test"
 import { UserAuthCard } from "./user-auth-card"
-import { OAuth2LoginRequest, UiNode, UiNodeInputAttributes } from "@ory/client"
-import { isUiNodeInputAttributes } from "@ory/integrations/ui"
+import { OAuth2LoginRequest, UiNodeInputAttributes } from "@ory/client"
+import { isUiNodeInputAttributes } from "../../ui"
 
 test("ory auth card login flow. signup disabled", async ({ mount }) => {
   const component = await mount(

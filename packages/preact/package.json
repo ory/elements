@@ -52,7 +52,7 @@
   "devDependencies": {
     "@preact/preset-vite": "2.5.0",
     "preact": "10.13.1",
-    "vite": "4.0.5"
+    "vite": "4.5.2"
   },
   "files": [
     "dist/*"

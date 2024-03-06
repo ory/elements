@@ -6,7 +6,7 @@ import {
 } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
 import { sdk, sdkError, getSearchParam } from "./sdk"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client"
 
 export const Settings = () => {
@@ -85,7 +85,7 @@ export const Settings = () => {
           flow={flow}
           method={flowType}
           includeScripts={true}
-          onSubmit={({ body }) => onSubmit(body)}
+          onSubmit={({ body }) => onSubmit(body as UpdateSettingsFlowBody)}
         />
       ))}
     </div>

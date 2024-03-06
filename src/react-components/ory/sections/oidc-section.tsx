@@ -1,4 +1,4 @@
-import { filterNodesByGroups } from "@ory/integrations/ui"
+import { filterNodesByGroups } from "../../../ui"
 import { JSX } from "react"
 
 import { gridStyle } from "../../../theme"

@@ -10,6 +10,7 @@ import dts from "vite-plugin-dts"
  */
 export default defineConfig({
   testDir: "./src",
+  testIgnore: "ui/**",
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */

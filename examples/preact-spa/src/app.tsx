@@ -1,7 +1,7 @@
 import { Session } from "@ory/client"
 import { Typography } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 import "./app.css"
 import { sdk, sdkError } from "./sdk"
 

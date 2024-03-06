@@ -11,7 +11,9 @@ export const HandleError = (
   defaultNav: string | undefined = undefined,
   fatalToError = false,
 ) => {
-  return async (error: AxiosError): Promise<AxiosError | void> => {
+  return async (
+    error: AxiosError<any, unknown>,
+  ): Promise<AxiosError | void> => {
     if (!error.response || error.response?.status === 0) {
       window.location.href = `/error?error=${encodeURIComponent(
         JSON.stringify(error.response),

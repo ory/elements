@@ -1,5 +1,5 @@
 import { UiNode, UiNodeScriptAttributes } from "@ory/client"
-import { filterNodesByGroups } from "@ory/integrations/ui"
+import { filterNodesByGroups } from "../../../ui"
 import { HTMLAttributeReferrerPolicy, useEffect } from "react"
 
 export const useScriptNodes = ({ nodes }: { nodes: UiNode[] }) => {
