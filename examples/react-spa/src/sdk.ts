@@ -34,7 +34,7 @@ export const sdkError = (
   const navigate = useNavigate()
 
   return useCallback(
-    (error: AxiosError): Promise<AxiosError | void> => {
+    (error: AxiosError<any, unknown>): Promise<AxiosError | void> => {
       const responseData = error.response?.data || {}
 
       switch (error.response?.status) {

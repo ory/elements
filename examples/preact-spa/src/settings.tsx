@@ -85,7 +85,7 @@ export const Settings = () => {
           flow={flow}
           method={flowType}
           includeScripts={true}
-          onSubmit={({ body }) => onSubmit(body)}
+          onSubmit={({ body }) => onSubmit(body as UpdateSettingsFlowBody)}
         />
       ))}
     </div>

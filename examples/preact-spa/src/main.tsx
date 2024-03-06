@@ -2,7 +2,7 @@
 import "@ory/elements-preact/assets/normalize.css"
 
 import { render } from "preact"
-import { Route, Router } from "wouter/preact"
+import { Route, Router } from "wouter-preact"
 import { Dashboard } from "./app"
 import { Error } from "./error"
 import "./index.css"

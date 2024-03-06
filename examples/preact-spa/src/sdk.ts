@@ -33,7 +33,7 @@ export const sdkError = (
   const [location, setLocation] = useLocation()
 
   return useCallback(
-    (error: AxiosError): Promise<AxiosError | void> => {
+    (error: AxiosError<any, unknown>): Promise<AxiosError | void> => {
       const responseData = error.response?.data || {}
 
       switch (error.response?.status) {

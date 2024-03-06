@@ -121,7 +121,7 @@ const Settings: NextPageWithLayout = () => {
           // include scripts for webauthn support
           includeScripts={true}
           // submit the form data the user provides to Ory
-          onSubmit={({ body }) => onSubmit(body)}
+          onSubmit={({ body }) => onSubmit(body as UpdateSettingsFlowBody)}
         />
       ))}
     </div>

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "preact": "10.13.1",
-    "wouter": "2.10.0"
+    "wouter-preact": "3.0.1"
   },
   "devDependencies": {
     "@ory/elements-preact": "*",

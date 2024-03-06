@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { UiNode } from "@ory/client"
 import { filterNodesByGroups, FilterNodesByGroups, getNodeLabel } from "./index"
 import nodes from "./fixtures/nodes.json"

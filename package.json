@@ -31,7 +31,7 @@
     "@babel/core": "7.18.10",
     "@babel/preset-typescript": "7.23.3",
     "@formatjs/cli-lib": "6.3.3",
-    "@ory/client": "1.2.10",
+    "@ory/client": "1.6.2",
     "@playwright/experimental-ct-react": "1.38.0",
     "@playwright/test": "1.38.0",
     "@preact/preset-vite": "2.5.0",
