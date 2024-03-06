@@ -1,7 +1,7 @@
 import { RecoveryFlow, UpdateRecoveryFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 import { getSearchParam, sdk, sdkError } from "./sdk"
 
 export const Recovery = () => {

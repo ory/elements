@@ -5,7 +5,7 @@ import { FrontendApi, Configuration } from "@ory/client"
 import { AxiosError } from "axios"
 import { useCallback } from "preact/hooks"
 import { StateUpdater } from "preact/compat"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 
 export const sdk = new FrontendApi(
   new Configuration({

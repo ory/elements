@@ -2,7 +2,7 @@ import { UpdateVerificationFlowBody, VerificationFlow } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
 import { getSearchParam, sdk, sdkError } from "./sdk"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 
 export const Verification = () => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)

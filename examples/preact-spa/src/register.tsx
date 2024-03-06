@@ -2,7 +2,7 @@ import { RegistrationFlow, UpdateRegistrationFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
 import { getSearchParam, sdk, sdkError } from "./sdk"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 
 export const Register = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)

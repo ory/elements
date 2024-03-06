@@ -2,7 +2,7 @@ import { LoginFlow, UpdateLoginFlowBody } from "@ory/client"
 import { UserAuthCard } from "@ory/elements-preact"
 import { useCallback, useEffect, useState } from "preact/hooks"
 import { sdk, sdkError, getSearchParam } from "./sdk"
-import { useLocation } from "wouter"
+import { useLocation } from "wouter-preact"
 
 export const Login = () => {
   const [flow, setFlow] = useState<LoginFlow | null>(null)
