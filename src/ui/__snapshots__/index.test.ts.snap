@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generic helpers getNodeLabel 1`] = `
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "Save",
+  "Password",
+  "Save",
+  "",
+  "Remove security key "bar"",
+  "Remove security key "foo"",
+  "Name of the security key",
+  "Add security key",
+  "",
+  "",
+  "Authenticator app QR code",
+  "This is your authenticator app secret. Use it if you can not scan the QR code.",
+  "Verify code",
+  "Save",
+]
+`;

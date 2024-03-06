@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode, UiNodeAttributes, UiNodeMeta } from "@ory/client"
-import { isUiNodeInputAttributes } from "@ory/integrations/ui"
+import { isUiNodeInputAttributes } from "../ui"
 import { Traits } from "./types"
 
 export const isUiNode = (a: unknown): a is UiNode[] => {

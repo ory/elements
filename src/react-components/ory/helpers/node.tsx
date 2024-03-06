@@ -4,7 +4,7 @@ import {
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeTextAttributes,
-} from "@ory/integrations/ui"
+} from "../../../ui"
 import { JSX, MouseEvent } from "react"
 import { IntlShape, useIntl } from "react-intl"
 

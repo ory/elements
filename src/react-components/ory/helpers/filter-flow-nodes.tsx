@@ -8,7 +8,7 @@ import {
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
   isUiNodeTextAttributes,
-} from "@ory/integrations/ui"
+} from "../../../ui"
 import { JSX } from "react"
 
 import { gridStyle } from "../../../theme"

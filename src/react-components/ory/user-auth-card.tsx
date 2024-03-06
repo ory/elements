@@ -5,7 +5,7 @@ import {
   RegistrationFlow,
   VerificationFlow,
 } from "@ory/client"
-import { filterNodesByGroups } from "@ory/integrations/ui"
+import { filterNodesByGroups } from "../../ui"
 import { useIntl } from "react-intl"
 
 import { gridStyle, typographyStyle } from "../../theme"

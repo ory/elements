@@ -5,7 +5,7 @@ import {
   UpdateSettingsFlowBody,
   UpdateVerificationFlowBody,
 } from "@ory/client"
-import { FilterNodesByGroups } from "@ory/integrations/ui"
+import { FilterNodesByGroups } from "../../../ui"
 import cn from "classnames"
 import { JSX } from "react"
 
