@@ -5,10 +5,8 @@ import type {
   UiNode,
   UiNodeAnchorAttributes,
   UiNodeAttributes,
-  UiNodeGroupEnum,
   UiNodeImageAttributes,
   UiNodeInputAttributes,
-  UiNodeInputAttributesTypeEnum,
   UiNodeScriptAttributes,
   UiNodeTextAttributes,
 } from "@ory/client"
@@ -19,7 +17,7 @@ import type {
  * @param node
  * @return label
  */
-export const getNodeLabel = (node: UiNode): string => {
+export const getNodeLabelText = (node: UiNode): string => {
   const attributes = node.attributes
   if (isUiNodeAnchorAttributes(attributes)) {
     return attributes.title.text

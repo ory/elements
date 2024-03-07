@@ -2,7 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode } from "@ory/client"
-import { filterNodesByGroups, FilterNodesByGroups, getNodeLabel } from "./index"
+import {
+  filterNodesByGroups,
+  FilterNodesByGroups,
+  getNodeLabelText,
+} from "./index"
 import nodes from "./fixtures/nodes.json"
 
 describe("generic helpers", () => {
@@ -313,6 +317,8 @@ describe("generic helpers", () => {
   })
 
   test("getNodeLabel", () => {
-    expect((nodes as unknown as UiNode[]).map(getNodeLabel)).toMatchSnapshot()
+    expect(
+      (nodes as unknown as UiNode[]).map(getNodeLabelText),
+    ).toMatchSnapshot()
   })
 })
