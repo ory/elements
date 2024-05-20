@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl"
 import { gridStyle } from "../../../theme"
 import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
-import { hasPassword } from "../helpers/utils"
+import {hasDefault, hasIdentityDiscovery, hasPassword} from "../helpers/utils"
 
 export interface LoginSectionProps {
   nodes: UiNode[]
@@ -16,17 +16,17 @@ export const LoginSection = ({
   nodes,
   forgotPasswordURL,
 }: LoginSectionProps): JSX.Element | null => {
-  return hasPassword(nodes) ? (
+  return hasPassword(nodes) || hasIdentityDiscovery(nodes)|| hasDefault(nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <div className={gridStyle({ gap: 16 })}>
         <FilterFlowNodes
           filter={{
             nodes: nodes,
-            groups: ["default", "password"],
+            groups: ["default", "password", "identity_discovery", "default"],
             excludeAttributes: ["submit", "hidden"],
           }}
         />
-        {forgotPasswordURL && (
+        {hasPassword(nodes) && forgotPasswordURL && (
           <ButtonLink
             data-testid="forgot-password-link"
             href={forgotPasswordURL}
@@ -41,7 +41,7 @@ export const LoginSection = ({
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["password"],
+          groups: ["password", "identity_discovery", "default"],
           attributes: "submit",
         }}
       />

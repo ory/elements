@@ -559,7 +559,7 @@ export const UserAuthCard = ({
           </>
         )}
 
-        {$profile && (
+        {canShowProfile() && (
           <>
             <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-profile`}>

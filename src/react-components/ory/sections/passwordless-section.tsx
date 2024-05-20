@@ -3,7 +3,7 @@ import { JSX } from "react"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
-import { hasPasskey, hasWebauthn } from "../helpers/utils"
+import {hasDefault, hasPasskey, hasWebauthn} from "../helpers/utils"
 
 export const PasswordlessSection = (
   flow: SelfServiceFlow,
@@ -68,6 +68,23 @@ export const PasskeyLoginSection = (
         filter={{
           nodes: flow.ui.nodes,
           groups: ["passkey"],
+          withoutDefaultAttributes: true,
+          attributes: ["button", "submit"],
+        }}
+      />
+    </div>
+  ) : null
+}
+
+export const DefaultLoginSection = (
+  flow: SelfServiceFlow,
+): JSX.Element | null => {
+  return hasDefault(flow.ui.nodes) ? (
+    <div className={gridStyle({ gap: 32 })}>
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["default"],
           withoutDefaultAttributes: true,
           attributes: ["button", "submit"],
         }}
