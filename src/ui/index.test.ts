@@ -251,7 +251,7 @@ describe("generic helpers", () => {
       opts: {
         groups: "webauthn",
         withoutDefaultGroup: true,
-        excludeAttributes: "script",
+        excludeAttributeTypes: "script",
       },
       expected: [
         {

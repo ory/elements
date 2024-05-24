@@ -22,7 +22,7 @@ export const AuthCodeSection = ({
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["code"],
+          groups: ["code", "two_step"],
           // we don't want to map the default group twice
           // the form already maps hidden fields under the default group
           // we are only interested in hidden fields that are under the code group
@@ -36,9 +36,9 @@ export const AuthCodeSection = ({
         <FilterFlowNodes
           filter={{
             nodes: nodes,
-            groups: "code",
+            groups: ["code"],
             withoutDefaultAttributes: true,
-            excludeAttributes: ["hidden", "button", "submit"], // the form will take care of default (csrf) hidden fields
+            excludeAttributeTypes: ["hidden", "button", "submit"], // the form will take care of default (csrf) hidden fields
           }}
         />
         {/* include hidden here because we want to have resend support */}
@@ -49,6 +49,7 @@ export const AuthCodeSection = ({
             groups: "code",
             withoutDefaultAttributes: true,
             attributes: ["button", "submit"],
+            excludeAttributeTypes: ["hidden"],
           }}
         />
       </div>

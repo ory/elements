@@ -33,7 +33,7 @@ import {
 import { AuthCodeSection } from "./sections/auth-code-section"
 import { LinkSection } from "./sections/link-section"
 import { LoggedInInfo } from "./sections/logged-info"
-import { LoginSection } from "./sections/login-section"
+import { LoginSection, TwoStepLoginSection } from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import {
   PasskeyLoginSection,
@@ -42,7 +42,10 @@ import {
   PasswordlessSection,
 } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
-import { ProfileRegistrationSection } from "./sections/profile-section"
+import {
+  ProfileLoginSection,
+  ProfileRegistrationSection,
+} from "./sections/profile-section"
 
 export interface LoginSectionAdditionalProps {
   forgotPasswordURL?: CustomHref | string
@@ -204,6 +207,7 @@ export const UserAuthCard = ({
   let $code: JSX.Element | null = null
   let $passwordlessWebauthn: JSX.Element | null = null
   let $passkey: JSX.Element | null = null
+  let $twoStep: JSX.Element | null = null
   let $profile: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
@@ -229,7 +233,7 @@ export const UserAuthCard = ({
     !!$passkey &&
     (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
 
-  const canShowProfile = () => !!$profile && flowType === "registration"
+  const canShowProfile = () => !!$profile && hasProfile(flow.ui.nodes)
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
@@ -307,7 +311,7 @@ export const UserAuthCard = ({
                 nodes: flow.ui.nodes,
                 groups: "totp",
                 withoutDefaultGroup: true,
-                excludeAttributes: "submit",
+                excludeAttributeTypes: "submit",
               }}
             />
             <FilterFlowNodes
@@ -355,7 +359,9 @@ export const UserAuthCard = ({
     case "login":
       $passwordlessWebauthn = PasswordlessLoginSection(flow)
       $passkey = PasskeyLoginSection(flow)
+      $twoStep = TwoStepLoginSection(flow)
       $oidc = OIDCSection(flow)
+      $profile = ProfileLoginSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
 
       $flow = LoginSection({
@@ -472,25 +478,48 @@ export const UserAuthCard = ({
       <div className={gridStyle({ gap: 32 })}>
         {subtitle && <Message severity="default">{subtitle}</Message>}
         <NodeMessages uiMessages={flow.ui.messages} />
+        <Divider />
+
         {$oidc && (
           <>
-            <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
               {$oidc}
             </UserAuthForm>
+            <Divider />
           </>
         )}
+
+        {$twoStep && (
+          <>
+            <UserAuthForm flow={flow} data-testid={`${flowType}-two-step`}>
+              {$twoStep}
+            </UserAuthForm>
+          </>
+        )}
+
+        {canShowPasskey() && (
+          <>
+            <UserAuthForm
+              flow={flow}
+              submitOnEnter={true}
+              onSubmit={onSubmit}
+              data-testid={"passkey-flow"}
+            >
+              {$passkey}
+            </UserAuthForm>
+          </>
+        )}
+
         {$code && (
           <>
-            <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-code`}>
               {$code}
             </UserAuthForm>
           </>
         )}
+
         {$flow && !isTwoFactor() && (
           <>
-            <Divider />
             <UserAuthForm
               flow={flow}
               submitOnEnter={true}
@@ -498,10 +527,10 @@ export const UserAuthCard = ({
               data-testid={`${flowType}-flow`}
             >
               {$flow}
-              {showLoggedAccount && <LoggedInInfo flow={flow} />}
             </UserAuthForm>
           </>
         )}
+
         {isTwoFactor() && (
           <>
             <NodeMessages
@@ -517,32 +546,11 @@ export const UserAuthCard = ({
               })}
             />
             {twoFactorFlows()}
-            {showLoggedAccount && <LoggedInInfo flow={flow} />}
-          </>
-        )}
-
-        {canShowPasskey() && (
-          <>
-            <Divider />
-            <UserAuthForm
-              flow={flow}
-              submitOnEnter={true}
-              onSubmit={onSubmit}
-              data-testid={"passkey-flow"}
-              formFilterOverride={{
-                nodes: flow.ui.nodes,
-                groups: ["default", "passkey"],
-                attributes: "hidden",
-              }}
-            >
-              {$passkey}
-            </UserAuthForm>
           </>
         )}
 
         {canShowPasswordless() && (
           <>
-            <Divider />
             <UserAuthForm
               flow={flow}
               submitOnEnter={true}
@@ -561,12 +569,13 @@ export const UserAuthCard = ({
 
         {canShowProfile() && (
           <>
-            <Divider />
             <UserAuthForm flow={flow} data-testid={`${flowType}-flow-profile`}>
               {$profile}
             </UserAuthForm>
           </>
         )}
+
+        {showLoggedAccount && <LoggedInInfo flow={flow} />}
 
         {message && MessageSection(message)}
       </div>
