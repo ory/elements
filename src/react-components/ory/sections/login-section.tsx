@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl"
 import { gridStyle } from "../../../theme"
 import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
-import { hasPassword, hasTwoStep } from "../helpers/utils"
+import { hasPassword, hasIdentifierFirst } from "../helpers/utils"
 import { SelfServiceFlow } from "../helpers/types"
 
 export interface LoginSectionProps {
@@ -13,23 +13,23 @@ export interface LoginSectionProps {
   forgotPasswordURL?: CustomHref | string
 }
 
-export const TwoStepLoginSection = (
+export const IdentifierFirstLoginSection = (
   flow: SelfServiceFlow,
 ): JSX.Element | null => {
   const nodes = flow.ui.nodes
-  return hasTwoStep(nodes) ? (
+  return hasIdentifierFirst(nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["default", "two_step"],
+          groups: ["default", "identifier_first"],
           excludeAttributeTypes: ["submit", "hidden"],
         }}
       />
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["two_step"],
+          groups: ["identifier_first"],
           attributes: "submit",
         }}
       />
@@ -46,7 +46,7 @@ export const LoginSection = ({
       <FilterFlowNodes
         filter={{
           nodes: nodes,
-          groups: ["link", "code", "two_step"],
+          groups: ["link", "code", "identifier_first"],
           attributes: ["hidden"],
         }}
       />

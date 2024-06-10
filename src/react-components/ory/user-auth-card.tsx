@@ -33,7 +33,10 @@ import {
 import { AuthCodeSection } from "./sections/auth-code-section"
 import { LinkSection } from "./sections/link-section"
 import { LoggedInInfo } from "./sections/logged-info"
-import { LoginSection, TwoStepLoginSection } from "./sections/login-section"
+import {
+  LoginSection,
+  IdentifierFirstLoginSection,
+} from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import {
   PasskeyLoginSection,
@@ -359,7 +362,7 @@ export const UserAuthCard = ({
     case "login":
       $passwordlessWebauthn = PasswordlessLoginSection(flow)
       $passkey = PasskeyLoginSection(flow)
-      $twoStep = TwoStepLoginSection(flow)
+      $twoStep = IdentifierFirstLoginSection(flow)
       $oidc = OIDCSection(flow)
       $profile = ProfileLoginSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })

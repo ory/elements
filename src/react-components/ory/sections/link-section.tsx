@@ -19,7 +19,7 @@ export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
     <FilterFlowNodes
       filter={{
         nodes: nodes,
-        groups: ["link", "code", "two_step"],
+        groups: ["link", "code", "identifier_first"],
         attributes: ["hidden"],
       }}
     />

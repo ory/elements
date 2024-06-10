@@ -6,7 +6,7 @@ import { SelfServiceFlow } from "../helpers/types"
 import {
   hasDefault,
   hasPasskey,
-  hasTwoStep,
+  hasIdentifierFirst,
   hasWebauthn,
 } from "../helpers/utils"
 
@@ -18,7 +18,7 @@ export const PasswordlessSection = (
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["webauthn", "two_step"],
+          groups: ["webauthn", "identifier_first"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
@@ -55,7 +55,7 @@ export const PasskeySection = (flow: SelfServiceFlow): JSX.Element | null => {
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["webauthn", "two_step"],
+          groups: ["webauthn", "identifier_first"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
@@ -94,7 +94,7 @@ export const PasskeyLoginSection = (
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["passkey", "two_step"],
+          groups: ["passkey", "identifier_first"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
@@ -122,7 +122,7 @@ export const PasswordlessLoginSection = (
         <FilterFlowNodes
           filter={{
             nodes: flow.ui.nodes,
-            groups: ["webauthn", "two_step"],
+            groups: ["webauthn", "identifier_first"],
             withoutDefaultAttributes: true,
             attributes: ["hidden"], // the form will take care of hidden fields
           }}
