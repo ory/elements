@@ -121,7 +121,7 @@ export const UserAuthForm = ({
           filter={
             formFilterOverride ?? {
               nodes: flow.ui.nodes,
-              groups: ["default", "passkey"], // we only want to map hidden default fields here
+              groups: ["default"], // we only want to map hidden default fields here
               attributes: "hidden",
             }
           }
