@@ -148,7 +148,7 @@ export const filterNodesByGroups = ({
   attributes,
   withoutDefaultAttributes,
   excludeAttributeTypes,
-                                    excludeAttributeValues,
+  excludeAttributeValues,
 }: FilterNodesByGroups) => {
   const search = (s: string[] | string | undefined) =>
     typeof s === "string" ? s.split(",") : s
@@ -190,7 +190,12 @@ export const filterNodesByGroups = ({
       ? !eav.includes(getNodeInputValue(attr))
       : true
 
-    return filterGroup && filterAttributes && filterExcludeAttributeTypes && filterExcludeAttributeValue
+    return (
+      filterGroup &&
+      filterAttributes &&
+      filterExcludeAttributeTypes &&
+      filterExcludeAttributeValue
+    )
   })
 }
 
