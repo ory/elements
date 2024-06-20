@@ -55,22 +55,22 @@ export const ProfileLoginSection = (
   flow: SelfServiceFlow,
 ): JSX.Element | null => {
   return hasProfile(flow.ui.nodes) ? (
-        <div className={gridStyle({ gap: 32 })}>
-            <FilterFlowNodes
-                filter={{
-                    nodes: flow.ui.nodes,
-                    groups: ["profile"],
-                    excludeAttributeTypes: "submit,hidden",
-                }}
-            />
-            <FilterFlowNodes
-                filter={{
-                    nodes: flow.ui.nodes,
-                    groups: ["profile"],
-                    excludeAttributeTypes: "hidden",
-                    attributes: "submit",
-                }}
-            />
-        </div>
+    <div className={gridStyle({ gap: 32 })}>
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["profile"],
+          excludeAttributeTypes: "submit,hidden",
+        }}
+      />
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["profile"],
+          excludeAttributeTypes: "hidden",
+          attributes: "submit",
+        }}
+      />
+    </div>
   ) : null
 }

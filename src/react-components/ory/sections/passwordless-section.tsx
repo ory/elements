@@ -3,12 +3,7 @@ import { JSX } from "react"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
-import {
-  hasDefault,
-  hasPasskey,
-  hasIdentifierFirst,
-  hasWebauthn,
-} from "../helpers/utils"
+import { hasPasskey, hasWebauthn } from "../helpers/utils"
 
 export const PasswordlessSection = (
   flow: SelfServiceFlow,
@@ -55,7 +50,7 @@ export const PasskeySection = (flow: SelfServiceFlow): JSX.Element | null => {
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["webauthn", "identifier_first"],
+          groups: ["webauthn", "identifier_first", "passkey"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
