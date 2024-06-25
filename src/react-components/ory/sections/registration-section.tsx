@@ -19,7 +19,7 @@ export const RegistrationSection = ({
           filter={{
             nodes: nodes,
             groups: ["password"],
-            excludeAttributes: "submit,hidden",
+            excludeAttributeTypes: "submit,hidden",
           }}
         />
       </div>
@@ -27,7 +27,7 @@ export const RegistrationSection = ({
         filter={{
           nodes: nodes,
           groups: ["password"],
-          excludeAttributes: "hidden",
+          excludeAttributeTypes: "hidden",
           attributes: "submit",
         }}
       />

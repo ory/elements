@@ -33,7 +33,10 @@ import {
 import { AuthCodeSection } from "./sections/auth-code-section"
 import { LinkSection } from "./sections/link-section"
 import { LoggedInInfo } from "./sections/logged-info"
-import { LoginSection } from "./sections/login-section"
+import {
+  LoginSection,
+  IdentifierFirstLoginSection,
+} from "./sections/login-section"
 import { OIDCSection } from "./sections/oidc-section"
 import {
   PasskeyLoginSection,
@@ -42,7 +45,10 @@ import {
   PasswordlessSection,
 } from "./sections/passwordless-section"
 import { RegistrationSection } from "./sections/registration-section"
-import { ProfileRegistrationSection } from "./sections/profile-section"
+import {
+  ProfileLoginSection,
+  ProfileRegistrationSection,
+} from "./sections/profile-section"
 
 export interface LoginSectionAdditionalProps {
   forgotPasswordURL?: CustomHref | string
@@ -78,28 +84,29 @@ export type UserAuthCardProps = {
   includeScripts?: boolean
   className?: string
 } & UserAuthFormAdditionalProps &
-  (
-    | {
-        flow: LoginFlow
-        flowType: "login"
-        additionalProps?: LoginSectionAdditionalProps
-      }
-    | {
-        flow: RegistrationFlow
-        flowType: "registration"
-        additionalProps?: RegistrationSectionAdditionalProps
-      }
-    | {
-        flow: RecoveryFlow
-        flowType: "recovery"
-        additionalProps?: RecoverySectionAdditionalProps
-      }
-    | {
-        flow: VerificationFlow
-        flowType: "verification"
-        additionalProps?: VerificationSectionAdditionalProps
-      }
-  )
+  FlowProps
+
+type FlowProps =
+  | {
+      flow: LoginFlow
+      flowType: "login"
+      additionalProps?: LoginSectionAdditionalProps
+    }
+  | {
+      flow: RegistrationFlow
+      flowType: "registration"
+      additionalProps?: RegistrationSectionAdditionalProps
+    }
+  | {
+      flow: RecoveryFlow
+      flowType: "recovery"
+      additionalProps?: RecoverySectionAdditionalProps
+    }
+  | {
+      flow: VerificationFlow
+      flowType: "verification"
+      additionalProps?: VerificationSectionAdditionalProps
+    }
 
 /**
  * UserAuthCard renders a login, registration, verification or recovery flow
@@ -108,31 +115,33 @@ export type UserAuthCardProps = {
  * @returns JSX.Element
  */
 export const UserAuthCard = ({
-  flow,
   title,
   subtitle,
-  flowType,
   additionalProps,
   cardImage,
   onSubmit,
   includeScripts,
   className,
+  flow,
+  flowType,
 }: UserAuthCardProps): JSX.Element => {
+  // Safe, because we know that the props are of the correct type
+  const flowProps = { flow, flowType, additionalProps } as FlowProps
   const intl = useIntl()
 
   if (includeScripts) {
-    useScriptNodes({ nodes: flow.ui.nodes })
+    useScriptNodes({ nodes: flowProps.flow.ui.nodes })
   }
 
   if (!title) {
-    switch (flowType) {
+    switch (flowProps.flowType) {
       case "login":
-        if (flow.refresh) {
+        if (flowProps.flow.refresh) {
           title = intl.formatMessage({
             id: "login.title-refresh",
             defaultMessage: "Confirm it's you",
           })
-        } else if (flow.requested_aal === "aal2") {
+        } else if (flowProps.flow.requested_aal === "aal2") {
           title = intl.formatMessage({
             id: "login.title-aal2",
             defaultMessage: "Two-Factor Authentication",
@@ -165,9 +174,9 @@ export const UserAuthCard = ({
     }
   }
   if (!subtitle) {
-    switch (flowType) {
+    switch (flowProps.flowType) {
       case "login":
-        if (flow.oauth2_login_request) {
+        if (flowProps.flow.oauth2_login_request) {
           subtitle = intl.formatMessage(
             {
               id: "login.subtitle-oauth2",
@@ -175,14 +184,14 @@ export const UserAuthCard = ({
             },
             {
               clientName:
-                flow.oauth2_login_request.client?.client_name ??
-                flow.oauth2_login_request.client?.client_uri,
+                flowProps.flow.oauth2_login_request.client?.client_name ??
+                flowProps.flow.oauth2_login_request.client?.client_uri,
             },
           )
         }
         break
       case "registration":
-        if (flow.oauth2_login_request) {
+        if (flowProps.flow.oauth2_login_request) {
           subtitle = intl.formatMessage(
             {
               id: "registration.subtitle-oauth2",
@@ -190,8 +199,8 @@ export const UserAuthCard = ({
             },
             {
               clientName:
-                flow.oauth2_login_request.client?.client_name ??
-                flow.oauth2_login_request.client?.client_uri,
+                flowProps.flow.oauth2_login_request.client?.client_name ??
+                flowProps.flow.oauth2_login_request.client?.client_uri,
             },
           )
         }
@@ -204,6 +213,7 @@ export const UserAuthCard = ({
   let $code: JSX.Element | null = null
   let $passwordlessWebauthn: JSX.Element | null = null
   let $passkey: JSX.Element | null = null
+  let $twoStep: JSX.Element | null = null
   let $profile: JSX.Element | null = null
   let message: MessageSectionProps | null = null
 
@@ -221,20 +231,20 @@ export const UserAuthCard = ({
   // we want the login section to handle passwordless as well when we have a 2FA screen.
   const canShowPasswordless = () =>
     !!$passwordlessWebauthn &&
-    (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
+    (!isLoggedIn(flow as LoginFlow) || flowProps.flowType === "registration")
 
   // passkey can be shown if the user is not logged in (e.g. exclude 2FA screen) or if the flow is a registration flow.
   // we want the login section to handle passwordless as well when we have a 2FA screen.
   const canShowPasskey = () =>
     !!$passkey &&
-    (!isLoggedIn(flow as LoginFlow) || flowType === "registration")
+    (!isLoggedIn(flow as LoginFlow) || flowProps.flowType === "registration")
 
-  const canShowProfile = () => !!$profile && flowType === "registration"
+  const canShowProfile = () => !!$profile && hasProfile(flow.ui.nodes)
 
   // the current flow is a two factor flow if the user is logged in and has any of the second factor methods enabled.
   const isTwoFactor = () =>
-    flowType === "login" &&
-    isLoggedIn(flow) &&
+    flowProps.flowType === "login" &&
+    isLoggedIn(flowProps.flow) &&
     (hasTotp(flow.ui.nodes) ||
       hasWebauthn(flow.ui.nodes) ||
       hasPasskey(flow.ui.nodes) ||
@@ -307,7 +317,7 @@ export const UserAuthCard = ({
                 nodes: flow.ui.nodes,
                 groups: "totp",
                 withoutDefaultGroup: true,
-                excludeAttributes: "submit",
+                excludeAttributeTypes: "submit",
               }}
             />
             <FilterFlowNodes
@@ -351,11 +361,13 @@ export const UserAuthCard = ({
         </div>
       )) // only map the divider if the index is greater than 0 - more than one flow
 
-  switch (flowType) {
+  switch (flowProps.flowType) {
     case "login":
       $passwordlessWebauthn = PasswordlessLoginSection(flow)
       $passkey = PasskeyLoginSection(flow)
+      $twoStep = IdentifierFirstLoginSection(flow)
       $oidc = OIDCSection(flow)
+      $profile = ProfileLoginSection(flow)
       $code = AuthCodeSection({ nodes: flow.ui.nodes })
 
       $flow = LoginSection({
@@ -363,7 +375,7 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      if (isLoggedIn(flow) && additionalProps?.logoutURL) {
+      if (isLoggedIn(flowProps.flow) && flowProps.additionalProps?.logoutURL) {
         message = {
           text: intl.formatMessage({
             id: "login.logout-label",
@@ -374,9 +386,9 @@ export const UserAuthCard = ({
             defaultMessage: "Logout",
           }),
           dataTestId: "logout-link",
-          url: additionalProps.logoutURL,
+          url: flowProps.additionalProps.logoutURL,
         }
-      } else if (additionalProps?.signupURL) {
+      } else if (flowProps.additionalProps?.signupURL) {
         message = {
           text: intl.formatMessage({
             id: "login.registration-label",
@@ -386,7 +398,7 @@ export const UserAuthCard = ({
             id: "login.registration-button",
             defaultMessage: "Sign up",
           }),
-          url: additionalProps.signupURL,
+          url: flowProps.additionalProps.signupURL,
           dataTestId: "signup-link",
         }
       }
@@ -400,13 +412,13 @@ export const UserAuthCard = ({
       $flow = RegistrationSection({
         nodes: flow.ui.nodes,
       })
-      if (additionalProps?.loginURL) {
+      if (flowProps.additionalProps?.loginURL) {
         message = {
           text: intl.formatMessage({
             id: "registration.login-label",
             defaultMessage: "Already have an account?",
           }),
-          url: additionalProps.loginURL,
+          url: flowProps.additionalProps.loginURL,
           buttonText: intl.formatMessage({
             id: "registration.login-button",
             defaultMessage: "Sign in",
@@ -420,7 +432,7 @@ export const UserAuthCard = ({
       $flow = LinkSection({
         nodes: flow.ui.nodes,
       })
-      if (additionalProps?.loginURL) {
+      if (flowProps.additionalProps?.loginURL) {
         message = {
           text: intl.formatMessage({
             id: "recovery.login-label",
@@ -430,7 +442,7 @@ export const UserAuthCard = ({
             id: "recovery.login-button",
             defaultMessage: "Sign in",
           }),
-          url: additionalProps.loginURL,
+          url: flowProps.additionalProps.loginURL,
           dataTestId: "cta-link",
         }
       }
@@ -439,7 +451,7 @@ export const UserAuthCard = ({
       $flow = LinkSection({
         nodes: flow.ui.nodes,
       })
-      if (additionalProps?.signupURL) {
+      if (flowProps.additionalProps?.signupURL) {
         message = {
           text: intl.formatMessage({
             id: "verification.registration-label",
@@ -449,7 +461,7 @@ export const UserAuthCard = ({
             id: "verification.registration-button",
             defaultMessage: "Sign up",
           }),
-          url: additionalProps.signupURL,
+          url: flowProps.additionalProps.signupURL,
           dataTestId: "cta-link",
         }
       }
@@ -467,41 +479,73 @@ export const UserAuthCard = ({
         </h2>
       }
       image={cardImage}
-      data-testid={`${flowType}-auth-card`}
+      data-testid={`${flowProps.flowType}-auth-card`}
     >
       <div className={gridStyle({ gap: 32 })}>
         {subtitle && <Message severity="default">{subtitle}</Message>}
         <NodeMessages uiMessages={flow.ui.messages} />
+        <Divider />
+
         {$oidc && (
           <>
-            <Divider />
-            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-oidc`}>
+            <UserAuthForm
+              flow={flow}
+              data-testid={`${flowProps.flowType}-flow-oidc`}
+            >
               {$oidc}
             </UserAuthForm>
+            <Divider />
           </>
         )}
-        {$code && (
+
+        {$twoStep && (
           <>
-            <Divider />
-            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-code`}>
-              {$code}
+            <UserAuthForm
+              flow={flow}
+              data-testid={`${flowProps.flowType}-two-step`}
+            >
+              {$twoStep}
             </UserAuthForm>
           </>
         )}
-        {$flow && !isTwoFactor() && (
+
+        {canShowPasskey() && (
           <>
-            <Divider />
             <UserAuthForm
               flow={flow}
               submitOnEnter={true}
               onSubmit={onSubmit}
-              data-testid={`${flowType}-flow`}
+              data-testid={"passkey-flow"}
             >
-              {$flow}
-              {showLoggedAccount && <LoggedInInfo flow={flow} />}
+              {$passkey}
             </UserAuthForm>
           </>
         )}
+
+        {$code && (
+          <>
+            <UserAuthForm
+              flow={flow}
+              data-testid={`${flowProps.flowType}-flow-code`}
+            >
+              {$code}
+            </UserAuthForm>
+          </>
+        )}
+
+        {$flow && !isTwoFactor() && (
+          <>
+            <UserAuthForm
+              flow={flow}
+              submitOnEnter={true}
+              onSubmit={onSubmit}
+              data-testid={`${flowProps.flowType}-flow`}
+            >
+              {$flow}
+            </UserAuthForm>
+          </>
+        )}
+
         {isTwoFactor() && (
           <>
             <NodeMessages
@@ -517,32 +561,11 @@ export const UserAuthCard = ({
               })}
             />
             {twoFactorFlows()}
-            {showLoggedAccount && <LoggedInInfo flow={flow} />}
-          </>
-        )}
-
-        {canShowPasskey() && (
-          <>
-            <Divider />
-            <UserAuthForm
-              flow={flow}
-              submitOnEnter={true}
-              onSubmit={onSubmit}
-              data-testid={"passkey-flow"}
-              formFilterOverride={{
-                nodes: flow.ui.nodes,
-                groups: ["default", "passkey"],
-                attributes: "hidden",
-              }}
-            >
-              {$passkey}
-            </UserAuthForm>
           </>
         )}
 
         {canShowPasswordless() && (
           <>
-            <Divider />
             <UserAuthForm
               flow={flow}
               submitOnEnter={true}
@@ -559,14 +582,18 @@ export const UserAuthCard = ({
           </>
         )}
 
-        {$profile && (
+        {canShowProfile() && (
           <>
-            <Divider />
-            <UserAuthForm flow={flow} data-testid={`${flowType}-flow-profile`}>
+            <UserAuthForm
+              flow={flow}
+              data-testid={`${flowProps.flowType}-flow-profile`}
+            >
               {$profile}
             </UserAuthForm>
           </>
         )}
+
+        {showLoggedAccount && <LoggedInInfo flow={flow} />}
 
         {message && MessageSection(message)}
       </div>

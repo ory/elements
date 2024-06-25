@@ -125,7 +125,8 @@ export interface FilterNodesByGroups {
   withoutDefaultGroup?: boolean
   attributes?: string[] | string
   withoutDefaultAttributes?: boolean
-  excludeAttributes?: string[] | string
+  excludeAttributeTypes?: string[] | string
+  excludeAttributeValues?: string[] | string
 }
 
 /**
@@ -146,14 +147,15 @@ export const filterNodesByGroups = ({
   withoutDefaultGroup,
   attributes,
   withoutDefaultAttributes,
-  excludeAttributes,
+  excludeAttributeTypes,
+  excludeAttributeValues,
 }: FilterNodesByGroups) => {
   const search = (s: string[] | string | undefined) =>
     typeof s === "string" ? s.split(",") : s
 
   return nodes.filter(({ group, attributes: attr }) => {
     // if we have not specified any group or attribute filters, return all nodes
-    if (!groups && !attributes && !excludeAttributes) return true
+    if (!groups && !attributes && !excludeAttributeTypes) return true
 
     const g = search(groups) ?? []
     if (!withoutDefaultGroup) {
@@ -174,16 +176,33 @@ export const filterNodesByGroups = ({
     }
 
     // filter the attributes to exclude
-    const ea = search(excludeAttributes) ?? []
+    const eat = search(excludeAttributeTypes) ?? []
+    const eav = search(excludeAttributeValues) ?? []
 
     const filterGroup = groups ? g.includes(group) : true
     const filterAttributes = attributes
       ? a.includes(getNodeInputType(attr))
       : true
-    const filterExcludeAttributes = excludeAttributes
-      ? !ea.includes(getNodeInputType(attr))
+    const filterExcludeAttributeTypes = excludeAttributeTypes
+      ? !eat.includes(getNodeInputType(attr))
+      : true
+    const filterExcludeAttributeValue = excludeAttributeValues
+      ? !eav.includes(getNodeInputValue(attr))
       : true
 
-    return filterGroup && filterAttributes && filterExcludeAttributes
+    return (
+      filterGroup &&
+      filterAttributes &&
+      filterExcludeAttributeTypes &&
+      filterExcludeAttributeValue
+    )
   })
+}
+
+export const getNodeInputValue = (attr?: UiNodeAttributes) => {
+  if (!attr) return ""
+  if (isUiNodeInputAttributes(attr)) {
+    return String(attr.value)
+  }
+  return ""
 }

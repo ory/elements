@@ -15,22 +15,32 @@ export interface LinkSectionProps {
  * - https://www.ory.sh/docs/kratos/self-service/flows/verify-email-account-activation
  */
 export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
-  <div className={gridStyle({ gap: 32 })}>
-    <div className={gridStyle({ gap: 16 })}>
+  <>
+    <FilterFlowNodes
+      filter={{
+        nodes: nodes,
+        groups: ["link", "code", "identifier_first"],
+        attributes: ["hidden"],
+      }}
+    />
+    <div className={gridStyle({ gap: 32 })}>
+      <div className={gridStyle({ gap: 16 })}>
+        <FilterFlowNodes
+          filter={{
+            nodes: nodes,
+            groups: ["link", "code"],
+            excludeAttributeTypes: ["submit", "hidden"],
+          }}
+        />
+      </div>
       <FilterFlowNodes
         filter={{
           nodes: nodes,
           groups: ["link", "code"],
-          excludeAttributes: "submit",
+          attributes: "submit",
+          excludeAttributeTypes: ["hidden"],
         }}
       />
     </div>
-    <FilterFlowNodes
-      filter={{
-        nodes: nodes,
-        groups: ["link", "code"],
-        attributes: "submit",
-      }}
-    />
-  </div>
+  </>
 )

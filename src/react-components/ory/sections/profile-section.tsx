@@ -17,7 +17,7 @@ export const ProfileSettingsSection = ({
   return (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
-        filter={{ ...filter, excludeAttributes: "submit,button" }}
+        filter={{ ...filter, excludeAttributeTypes: "submit,button" }}
       />
       <FilterFlowNodes
         filter={{ ...filter, attributes: "submit,button" }}
@@ -36,14 +36,38 @@ export const ProfileRegistrationSection = (
         filter={{
           nodes: flow.ui.nodes,
           groups: ["profile"],
-          excludeAttributes: "submit,hidden",
+          excludeAttributeTypes: "submit,hidden",
         }}
       />
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
           groups: ["profile"],
-          excludeAttributes: "hidden",
+          excludeAttributeTypes: "hidden",
+          attributes: "submit",
+        }}
+      />
+    </div>
+  ) : null
+}
+
+export const ProfileLoginSection = (
+  flow: SelfServiceFlow,
+): JSX.Element | null => {
+  return hasProfile(flow.ui.nodes) ? (
+    <div className={gridStyle({ gap: 32 })}>
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["profile"],
+          excludeAttributeTypes: "submit,hidden",
+        }}
+      />
+      <FilterFlowNodes
+        filter={{
+          nodes: flow.ui.nodes,
+          groups: ["profile"],
+          excludeAttributeTypes: "hidden",
           attributes: "submit",
         }}
       />

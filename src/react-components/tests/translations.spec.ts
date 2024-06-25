@@ -35,11 +35,9 @@ test("language keys and templates match", async ({ templates }) => {
   }
 
   await test.step("Checking template strings", () => {
-    Object.entries(supportedLanguages).forEach(([language, translation]) => {
-      console.log(`Checking ${language} template strings`)
+    Object.entries(supportedLanguages).forEach(([, translation]) => {
       Object.entries(templates).forEach(([key, templateStrings]) => {
         for (const templateString of templateStrings) {
-          console.log(`Checking ${language} ${key} ${templateString}`)
           expect(
             translation[key as keyof typeof supportedLanguages.en],
           ).toContain(templateString)

@@ -69,19 +69,9 @@ export const UserAuthForm = ({
   formFilterOverride,
   className,
   ...props
-}: UserAuthFormProps): JSX.Element => (
-  <form
-    className={cn(className, formStyle)}
-    action={flow.ui.action}
-    method={flow.ui.method}
-    onKeyDown={(e) => {
-      if (e.key === "Enter" && !submitOnEnter) {
-        e.stopPropagation()
-        e.preventDefault()
-      }
-    }}
-    {...(onSubmit && {
-      onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+}: UserAuthFormProps): JSX.Element => {
+  const submitHandler = onSubmit
+    ? (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
         const form = event.currentTarget
@@ -108,23 +98,37 @@ export const UserAuthForm = ({
         }
 
         onSubmit({ body, event })
-      },
-    })}
-    {...props}
-  >
-    <>
-      {/*always add csrf token and other hidden fields to form*/}
-      <FilterFlowNodes
-        filter={
-          formFilterOverride ?? {
-            nodes: flow.ui.nodes,
-            groups: "default", // we only want to map hidden default fields here
-            attributes: "hidden",
-          }
+      }
+    : undefined
+
+  return (
+    <form
+      className={cn(className, formStyle)}
+      action={flow.ui.action}
+      method={flow.ui.method}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" && !submitOnEnter) {
+          e.stopPropagation()
+          e.preventDefault()
         }
-        includeCSRF={true}
-      />
-      {children}
-    </>
-  </form>
-)
+      }}
+      onSubmit={submitHandler}
+      {...props}
+    >
+      <>
+        {/*always add csrf token and other hidden fields to form*/}
+        <FilterFlowNodes
+          filter={
+            formFilterOverride ?? {
+              nodes: flow.ui.nodes,
+              groups: ["default"], // we only want to map hidden default fields here
+              attributes: "hidden",
+            }
+          }
+          includeCSRF={true}
+        />
+        {children}
+      </>
+    </form>
+  )
+}

@@ -20,7 +20,7 @@ export const PasswordSettingsSection = ({
   return hasPassword(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
-        filter={{ ...filter, excludeAttributes: "submit,button" }}
+        filter={{ ...filter, excludeAttributeTypes: "submit,button" }}
       />
       <FilterFlowNodes
         filter={{ ...filter, attributes: "submit,button" }}

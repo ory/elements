@@ -24,7 +24,7 @@ export const LoggedInInfo = ({ flow }: IdentifierInfoProps) => {
     <div className={identifierStyle}>
       <FormattedMessage
         id="login.logged-in-as-label"
-        defaultMessage="You're logged in as:"
+        defaultMessage="You are using:"
       />
       <div className={identifierNameStyle}>{identifier.value}</div>
     </div>

@@ -12,7 +12,7 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
       nodes: flow.ui.nodes,
       groups: "oidc",
       withoutDefaultGroup: true,
-      excludeAttributes: "submit",
+      excludeAttributeTypes: "submit",
     }).length > 0
 
   return hasOidc(flow.ui.nodes) ? (
@@ -24,7 +24,7 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
               nodes: flow.ui.nodes,
               groups: "oidc",
               withoutDefaultGroup: true,
-              excludeAttributes: "submit",
+              excludeAttributeTypes: ["submit"],
             }}
           />
         </div>
@@ -35,6 +35,7 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
           nodes: flow.ui.nodes,
           groups: "oidc",
           attributes: "submit",
+          withoutDefaultGroup: true,
         }}
       />
     </div>

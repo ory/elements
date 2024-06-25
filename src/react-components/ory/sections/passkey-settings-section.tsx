@@ -21,9 +21,8 @@ export const PasskeySettingsSection = ({
   return hasPasskey(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
       <FilterFlowNodes
-        filter={{ ...filter, excludeAttributes: "onclick,button" }}
+        filter={{ ...filter, excludeAttributeTypes: "onclick,button" }}
       />
-
       <FilterFlowNodes
         filter={{ ...filter, attributes: "onclick,button" }}
         buttonOverrideProps={{ fullWidth: false }}
