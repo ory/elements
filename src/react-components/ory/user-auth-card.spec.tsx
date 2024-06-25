@@ -248,7 +248,7 @@ test("ory auth card login refresh flow", async ({ mount }) => {
     />,
   )
 
-  await expect(component).toContainText("You're logged in as:")
+  await expect(component).toContainText("You are using:")
   await expect(component).toContainText("johndoe@acme.com")
 })
 
@@ -416,7 +416,5 @@ test("ory auth card login two factor confirmation", async ({ mount }) => {
 
   expect(identifier).not.toBeNull()
   expect(String(identifier.value)).toContain("@ory.sh")
-  await expect(component).toContainText(
-    `You're logged in as:${identifier.value}`,
-  )
+  await expect(component).toContainText(`You are using:${identifier.value}`)
 })
