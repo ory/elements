@@ -18,7 +18,7 @@ export const hasTotp = hasGroup("totp")
 export const hasCode = hasGroup("code")
 
 export const hasHiddenIdentifier = (nodes: UiNode[]) =>
-  nodes.some(
+  nodes?.some(
     ({ attributes }) =>
       "name" in attributes &&
       attributes.name === "identifier" &&
