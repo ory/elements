@@ -50,7 +50,7 @@ export const PasskeySection = (flow: SelfServiceFlow): JSX.Element | null => {
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["webauthn", "identifier_first", "passkey"],
+          groups: ["identifier_first", "passkey"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
