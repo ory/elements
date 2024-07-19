@@ -1,0 +1,20 @@
+{
+  "name": "@ory/default-theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@ory/client-helpers": "1",
+    "@ory/react-headless": "1",
+    "clsx": "2.1.1",
+    "input-otp": "1.2.4",
+    "tailwind-merge": "2.4.0",
+    "@ory/client-fetch": "1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

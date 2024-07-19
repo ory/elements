@@ -1,0 +1,19 @@
+{
+  "name": "@ory/react-headless",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@ory/client-helpers": "1",
+    "react-hook-form": "7.52.1"
+  },
+  "peerDependencies": {
+    "@ory/client-fetch": "1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
