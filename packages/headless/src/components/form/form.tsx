@@ -1,24 +1,3 @@
-import { HeadlessGroupContainerProps, OryFormGroups } from "./groups"
-import { HeadlessMessageProps, HeadlessMessagesProps } from "./messages"
-import {
-  HeadlessSocialButtonContainerProps,
-  HeadlessSocialButtonProps,
-  OryFormSocialButtons,
-} from "./social"
-import { HorizontalDividerProps } from "../generic/divider"
-import { useComponents } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
-import {
-  FormValues,
-  HeadlessAuthMethodListItemProps,
-  HeadlessButtonProps,
-  HeadlessFormProps,
-  HeadlessImageProps,
-  HeadlessInputProps,
-  HeadlessLabelProps,
-  HeadlessLinkButtonProps,
-  HeadlessTextProps,
-} from "../../types"
 import {
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
@@ -39,10 +18,30 @@ import {
   onSubmitSettings,
   onSubmitVerification,
 } from "@ory/client-helpers"
-import { RedirectType, redirect } from "next/navigation"
 import { ComponentType, PropsWithChildren } from "react"
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
+import { useComponents } from "../../context/component"
+import { useOryFlow } from "../../context/flow-context"
+import {
+  FormValues,
+  HeadlessAuthMethodListItemProps,
+  HeadlessButtonProps,
+  HeadlessFormProps,
+  HeadlessImageProps,
+  HeadlessInputProps,
+  HeadlessLabelProps,
+  HeadlessLinkButtonProps,
+  HeadlessTextProps,
+} from "../../types"
+import { HorizontalDividerProps } from "../generic/divider"
+import { HeadlessGroupContainerProps, OryFormGroups } from "./groups"
+import { HeadlessMessageProps, HeadlessMessagesProps } from "./messages"
+import {
+  HeadlessSocialButtonContainerProps,
+  HeadlessSocialButtonProps,
+  OryFormSocialButtons,
+} from "./social"
 
 export type OryFormComponents = {
   Button: ComponentType<HeadlessButtonProps>
@@ -98,7 +97,8 @@ export function OryForm({ children }: OryFormProps) {
       return
     }
 
-    redirect(url, RedirectType.push)
+    // TODO: make this better
+    window.location.href = url
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {

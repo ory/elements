@@ -1,13 +1,11 @@
 "use client"
 import { FlowType, OryClientConfiguration } from "@ory/client-helpers"
-import { OryCard } from "@ory/react-headless/src/components/card"
-import { OryProvider } from "@ory/react-headless/src/context"
-import { OryFlowComponents } from "@ory/react-headless/src/types"
 import { RegistrationFlow } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
-import { OryDefaultComponents } from ".."
+import { OryDefaultComponents } from "../components"
+import { OryCard, OryFlowComponents, OryProvider } from "@ory/react-headless"
 
-type FlowContextProps = {
+type RegistrationFlowContextProps = {
   flow: RegistrationFlow
   components?: Partial<OryFlowComponents>
   config: OryClientConfiguration
@@ -18,7 +16,7 @@ export function Registration({
   children,
   components: flowOverrideComponents,
   config,
-}: PropsWithChildren<FlowContextProps>) {
+}: PropsWithChildren<RegistrationFlowContextProps>) {
   const components = {
     ...OryDefaultComponents,
     ...flowOverrideComponents,

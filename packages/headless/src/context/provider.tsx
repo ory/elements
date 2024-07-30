@@ -11,7 +11,7 @@ import {
 import { FlowContainer } from "@ory/client-helpers"
 
 export type ProviderProps<T> = {
-  components?: OryFlowComponents
+  components: OryFlowComponents
 } & IntlProviderProps<T> &
   FlowContainer &
   ComponentPropsWithoutRef<"div"> &

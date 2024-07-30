@@ -1,4 +1,4 @@
-import * as locales from "../../locales"
+import * as locales from "../locales"
 import { ComponentProps, PropsWithChildren, useContext } from "react"
 import { IntlContext, IntlProvider as OriginalIntlProvider } from "react-intl"
 

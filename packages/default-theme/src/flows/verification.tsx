@@ -1,13 +1,11 @@
 "use client"
 import { VerificationFlow } from "@ory/client-fetch"
 import { FlowType, OryClientConfiguration } from "@ory/client-helpers"
-import { OryCard } from "@ory/react-headless/src/components/card"
-import { OryProvider } from "@ory/react-headless/src/context"
-import { OryFlowComponents } from "@ory/react-headless/src/types"
 import { PropsWithChildren } from "react"
-import { OryDefaultComponents } from ".."
+import { OryDefaultComponents } from "../components"
+import { OryCard, OryFlowComponents, OryProvider } from "@ory/react-headless"
 
-export type FlowContextProps = {
+export type VerificationFlowContextProps = {
   flow: VerificationFlow
   components?: Partial<OryFlowComponents>
   config: OryClientConfiguration
@@ -18,7 +16,7 @@ export function Verification({
   config,
   children,
   components: flowOverrideComponents,
-}: PropsWithChildren<FlowContextProps>) {
+}: PropsWithChildren<VerificationFlowContextProps>) {
   const components = {
     ...OryDefaultComponents,
     ...flowOverrideComponents,

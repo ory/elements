@@ -2,12 +2,10 @@
 import { SettingsFlow } from "@ory/client-fetch"
 import { FlowType, OryClientConfiguration } from "@ory/client-helpers"
 import { PropsWithChildren } from "react"
-import { OryCard } from "@ory/react-headless/src/components/card"
-import { OryProvider } from "@ory/react-headless/src/context"
-import { OryFlowComponents } from "@ory/react-headless/src/types"
-import { OryDefaultComponents } from ".."
+import { OryDefaultComponents } from "../components"
+import { OryCard, OryFlowComponents, OryProvider } from "@ory/react-headless"
 
-export type FlowContextProps = {
+export type SettingsFlowContextProps = {
   flow: SettingsFlow
   components?: Partial<OryFlowComponents>
   config: OryClientConfiguration
@@ -18,7 +16,7 @@ export function Settings({
   config,
   children,
   components: flowOverrideComponents,
-}: PropsWithChildren<FlowContextProps>) {
+}: PropsWithChildren<SettingsFlowContextProps>) {
   const components = {
     ...OryDefaultComponents,
     ...flowOverrideComponents,

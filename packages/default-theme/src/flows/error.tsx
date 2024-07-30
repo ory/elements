@@ -1,10 +1,10 @@
 "use client"
-import { OryFlowComponents } from "@ory/react-headless/src/types"
+import { OryFlowComponents } from "@ory/react-headless"
 import { FlowError } from "@ory/client-fetch"
 import { OryClientConfiguration } from "@ory/client-helpers"
 import { PropsWithChildren } from "react"
 
-export type FlowContextProps = {
+export type ErrorFlowContextProps = {
   error: FlowError
   components?: Partial<OryFlowComponents>
   config: OryClientConfiguration
@@ -13,6 +13,6 @@ export type FlowContextProps = {
 export function Error({
   error,
   children,
-}: PropsWithChildren<FlowContextProps>) {
+}: PropsWithChildren<ErrorFlowContextProps>) {
   return <div>{JSON.stringify(error) || children}</div>
 }

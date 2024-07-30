@@ -1,8 +1,10 @@
 import { NodeProps } from "./node"
 import { useComponents } from "../../../context/component"
 import { triggerToWindowCall } from "../../../util/ui"
-import { UiNodeInputAttributes } from "@ory/client-fetch"
-import { UiNodeInputAttributesTypeEnum } from "@ory/client-fetch/src"
+import {
+  UiNodeInputAttributes,
+  UiNodeInputAttributesTypeEnum,
+} from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
 
 export const NodeInput = ({

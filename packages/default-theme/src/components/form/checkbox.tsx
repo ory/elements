@@ -1,5 +1,10 @@
+"use client"
 import { getNodeLabel } from "@ory/client-helpers"
-import { formatMessage, HeadlessInputProps } from "@ory/react-headless"
+import {
+  formatMessage,
+  HeadlessInputProps,
+  messageTestId,
+} from "@ory/react-headless"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
