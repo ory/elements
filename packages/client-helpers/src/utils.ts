@@ -1,13 +1,4 @@
 import {
-  isBrowserLocationChangeRequired,
-  isCsrfError,
-  isNeedsPrivilegedSessionError,
-  isSelfServiceFlowExpiredError,
-} from "./error"
-import { FlowContainerSetter } from "$/elements/headless/context/flow-context"
-import { OnRedirectHandler } from "$/elements/headless/hooks/utils"
-import { isResponseError } from "$/elements/headless/util/sdk"
-import {
   FetchError,
   RequiredError,
   ResponseError,
@@ -17,6 +8,15 @@ import {
   UpdateSettingsFlowBody,
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
+import {
+  isBrowserLocationChangeRequired,
+  isCsrfError,
+  isNeedsPrivilegedSessionError,
+  isResponseError,
+  isSelfServiceFlowExpiredError,
+} from "./error"
+import { FlowContainer } from "./flowTypes"
+import { OnRedirectHandler } from "./continueWith"
 
 export type OnSubmitHandlerProps<
   T extends
@@ -29,7 +29,7 @@ export type OnSubmitHandlerProps<
   /**
    * This method is used to update the flow container when a validation error occurs, for example.
    */
-  setFlowContainer: FlowContainerSetter
+  setFlowContainer: (flowContainer: Partial<FlowContainer>) => void
 
   /**
    * The form values to submit.

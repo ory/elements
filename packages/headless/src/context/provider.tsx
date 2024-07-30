@@ -1,18 +1,17 @@
 "use client"
+import { ComponentPropsWithoutRef, PropsWithChildren } from "react"
+import { OryFlowComponents } from "../types"
+import { OryComponentProvider } from "./component"
+import { OryFlowProvider } from "./flow-context"
 import {
   IntlProvider,
   IntlProviderProps,
   SupportedTranslations,
 } from "./intl-context"
-import { ComponentPropsWithoutRef, PropsWithChildren } from "react"
-import { OryDefaultComponents } from "../../themes/default"
-import { FlowContainer, OryFlowComponents } from "../types"
-import { mergeComponents } from "../util/component-helpers"
-import { OryComponentProvider } from "./component"
-import { OryFlowProvider } from "./flow-context"
+import { FlowContainer } from "@ory/client-helpers"
 
 export type ProviderProps<T> = {
-  components?: Partial<OryFlowComponents>
+  components?: OryFlowComponents
 } & IntlProviderProps<T> &
   FlowContainer &
   ComponentPropsWithoutRef<"div"> &
@@ -20,14 +19,9 @@ export type ProviderProps<T> = {
 
 export function OryProvider<T extends SupportedTranslations>({
   children,
-  components: flowComponentOverrides,
+  components: Components,
   ...props
 }: ProviderProps<T>) {
-  const Components = mergeComponents(
-    OryDefaultComponents,
-    flowComponentOverrides,
-  )
-
   const { locale, defaultLocale, ...oryFlowProps } = props
 
   return (

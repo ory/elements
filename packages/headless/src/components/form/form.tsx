@@ -8,7 +8,6 @@ import {
 import { HorizontalDividerProps } from "../generic/divider"
 import { useComponents } from "../../context/component"
 import { useOryFlow } from "../../context/flow-context"
-import { OnRedirectHandler } from "../../hooks/utils"
 import {
   FormValues,
   HeadlessAuthMethodListItemProps,
@@ -33,6 +32,7 @@ import {
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
+  OnRedirectHandler,
   onSubmitLogin,
   onSubmitRecovery,
   onSubmitRegistration,

@@ -1,5 +1,5 @@
 import { OryCardHeader } from "./header"
-import { OryCardProps } from "../../types"
+import { OryCardProps } from "@ory/react-headless"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"

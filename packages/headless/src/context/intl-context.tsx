@@ -1,5 +1,5 @@
 import * as locales from "../../locales"
-import { PropsWithChildren, useContext } from "react"
+import { ComponentProps, PropsWithChildren, useContext } from "react"
 import { IntlContext, IntlProvider as OriginalIntlProvider } from "react-intl"
 
 export type TranslationFile = {
@@ -170,7 +170,7 @@ export type Locale = keyof typeof locales
 
 export type SupportedTranslations = {
   locale?: Locale
-  defaultLocale?: Locale
+  defaultLocale?: string
 }
 
 export type IntlProviderProps<Type> = Type extends CustomTranslations
