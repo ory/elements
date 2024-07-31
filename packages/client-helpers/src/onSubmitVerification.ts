@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { frontendClient } from "./index"
 import { handleFlowError, OnSubmitHandlerProps } from "./utils"
 import { UpdateVerificationFlowBody, VerificationFlow } from "@ory/client-fetch"
