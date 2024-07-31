@@ -16,8 +16,9 @@
     "resolveJsonModule": true,
     "declarationDir": "dist/types",
     "jsx": "react-jsx",
-    "lib": ["ES6", "DOM", "WebWorker"]
+    "lib": ["ES6", "DOM", "WebWorker"],
+    "rootDir": "src"
   },
   "exclude": ["node_modules"],
-  "include": ["src/*.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/global.d.ts"]
 }

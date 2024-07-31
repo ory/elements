@@ -14,7 +14,7 @@
     "build:preact": "lerna run build --stream --scope=@ory/elements-preact --skip-nx-cache",
     "build:markup": "lerna run build --stream --scope=@ory/elements-markup --skip-nx-cache",
     "build:test": "lerna run build --stream --scope=@ory/elements-test --skip-nx-cache",
-    "build:elementsv1": "lerna run build --stream --scope=@ory/client-helpers --scope=@ory/react-headless --scope=@ory/default-theme --skip-nx-cache",
+    "build:elementsv1": "lerna run build --stream --scope=@ory/client-helpers --scope=@ory/react-headless --skip-nx-cache",
     "test": "jest; playwright test -c playwright-ct.config.ts",
     "docs": "typedoc --entryPointStrategy packages . --out docs",
     "generate-locales": "cd scripts && npm run generate-locales"
