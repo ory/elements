@@ -1,5 +1,4 @@
 import { OryCardHeader } from "./header"
-import { OryCardProps } from "@ory/react-headless"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
@@ -14,7 +13,7 @@ import {
   UiTextTypeEnum,
 } from "@ory/client-fetch"
 import { Dispatch, useEffect, useState } from "react"
-import { OryCard, OryCardContent, OryCardFooter } from "."
+import { OryCard, OryCardContent, OryCardFooter, OryCardProps } from "."
 import { isUiNodeInputAttributes } from "@ory/client-helpers"
 
 type ExtendedUiNode = UiNode & { twoStepContinue?: boolean }

@@ -1,5 +1,5 @@
 {
-  "name": "@ory/react-headless",
+  "name": "@ory/elements-react",
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,12 +21,13 @@
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/ory/elements.git",
-    "directory": "packages/headless"
+    "directory": "packages/elements-react"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
+    "@ory/client-helpers": "1",
     "@ory/client-fetch": "1",
     "react-hook-form": "7.52.1",
     "clsx": "2.1.1",
@@ -34,7 +35,6 @@
     "tailwind-merge": "2.4.0"
   },
   "peerDependencies": {
-    "@ory/client-helpers": "1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
