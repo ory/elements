@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { FlowContainer, FlowType } from "./flowTypes"
 import { frontendClient } from "./index"
 import { loginUrl } from "./urlHelpers"

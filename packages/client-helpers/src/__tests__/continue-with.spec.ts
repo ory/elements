@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { pickBestContinueWith } from "../continueWith"
 import { ContinueWithRecoveryUi } from "@ory/client-fetch"
 import { expect, test } from "@playwright/experimental-ct-react"

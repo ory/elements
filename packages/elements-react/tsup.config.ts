@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import svgr from "esbuild-plugin-svgr"
 import { defineConfig, type Options } from "tsup"
 
