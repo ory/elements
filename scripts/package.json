@@ -1,4 +1,5 @@
 {
+  "name": "generate-locales",
   "scripts": {
     "generate-locales": "tsc --project ./tsconfig.json && node ./generate-locales.js && rm -rf ./generate-locales.js"
   },

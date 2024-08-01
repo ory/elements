@@ -1,6 +1,3 @@
-// Copyright © 2024 Ory Corp
-// SPDX-License-Identifier: Apache-2.0
-
 import { ConfigurationParameters } from "@ory/client-fetch"
 
 export type OryClientConfiguration = {

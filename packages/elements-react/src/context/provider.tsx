@@ -8,7 +8,7 @@ import {
   IntlProviderProps,
   SupportedTranslations,
 } from "./intl-context"
-import { FlowContainer } from "@ory/client-helpers"
+import { FlowContainer } from "../util/flowContainer"
 
 export type ProviderProps<T> = {
   components: OryFlowComponents

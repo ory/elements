@@ -1,20 +1,25 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { frontendClient } from "./index"
-import { handleFlowError, OnSubmitHandlerProps } from "./utils"
-import { UpdateVerificationFlowBody, VerificationFlow } from "@ory/client-fetch"
-import { verificationUrl } from "./urlHelpers"
-import { FlowContainer, FlowType } from "./flowTypes"
+import {
+  FlowType,
+  frontendClient,
+  handleFlowError,
+  UpdateVerificationFlowBody,
+  VerificationFlow,
+  verificationUrl,
+} from "@ory/client-fetch"
+import { FlowContainer } from "./flowContainer"
+import { OnSubmitHandlerProps } from "./submitHandler"
 
 /**
  * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.
  *
- * @param config The configuration object.
- * @param flow The flow object.
- * @param setFlowContainer This method is used to update the flow container when a validation error occurs, for example.
- * @param body The form values to submit.
- * @param onRedirect This method is used to redirect the user to a different page.
+ * @param config - The configuration object.
+ * @param flow - The flow object.
+ * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.
+ * @param body - The form values to submit.
+ * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitVerification(
   { config, flow }: FlowContainer,

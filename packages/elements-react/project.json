@@ -1,0 +1,22 @@
+{
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/elements-react/jest.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["packages/elements-react/src/**/*.ts"]
+      }
+    },
+    "build": {
+      "command": "tsup",
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    }
+  }
+}

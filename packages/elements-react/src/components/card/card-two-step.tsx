@@ -6,6 +6,7 @@ import { OryFormSocialButtons } from "../form/social"
 import { useComponents, useNodeSorter } from "../../context/component"
 import { useOryFlow } from "../../context/flow-context"
 import {
+  isUiNodeInputAttributes,
   UiNode,
   UiNodeInputAttributesNodeTypeEnum,
   UiNodeInputAttributesTypeEnum,
@@ -14,7 +15,6 @@ import {
 } from "@ory/client-fetch"
 import { Dispatch, useEffect, useState } from "react"
 import { OryCard, OryCardContent, OryCardFooter, OryCardProps } from "."
-import { isUiNodeInputAttributes } from "@ory/client-helpers"
 
 type ExtendedUiNode = UiNode & { twoStepContinue?: boolean }
 

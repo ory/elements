@@ -15,5 +15,13 @@
   },
   "affected": {
     "defaultBase": "master"
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
+      }
+    }
+  ]
 }

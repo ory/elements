@@ -1,14 +1,14 @@
 import { NodeInput } from "./input"
-import { UiNode, UiText } from "@ory/client-fetch"
-import { MouseEventHandler, ReactNode } from "react"
-import { useComponents } from "../../../context/component"
 import {
+  UiNode,
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
   isUiNodeTextAttributes,
-} from "@ory/client-helpers"
+} from "@ory/client-fetch"
+import { MouseEventHandler, ReactNode } from "react"
+import { useComponents } from "../../../context/component"
 
 export type NodeProps = {
   node: UiNode

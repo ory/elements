@@ -1,5 +1,6 @@
-import { FlowContainer, FlowType } from "@ory/client-helpers"
+import { FlowType } from "@ory/client-fetch"
 import { useComponents, useOryFlow } from "../../../../context"
+import { FlowContainer } from "../../../../util/flowContainer"
 
 function joinWithCommaOr(list: string[]): string {
   if (list.length === 0) {

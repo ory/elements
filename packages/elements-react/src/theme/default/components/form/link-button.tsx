@@ -1,9 +1,9 @@
-import { getNodeLabel } from "@ory/client-helpers"
 import { forwardRef } from "react"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
 import { HeadlessLinkButtonProps } from "../../../../types"
 import { formatMessage } from "../../../../util"
+import { getNodeLabel } from "@ory/client-fetch"
 
 export const DefaultLinkButton = forwardRef<
   HTMLAnchorElement,
