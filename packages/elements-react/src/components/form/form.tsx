@@ -5,19 +5,6 @@ import {
   UpdateSettingsFlowBody,
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
-import {
-  FlowType,
-  isUiNodeAnchorAttributes,
-  isUiNodeImageAttributes,
-  isUiNodeInputAttributes,
-  isUiNodeScriptAttributes,
-  OnRedirectHandler,
-  onSubmitLogin,
-  onSubmitRecovery,
-  onSubmitRegistration,
-  onSubmitSettings,
-  onSubmitVerification,
-} from "@ory/client-helpers"
 import { ComponentType, PropsWithChildren } from "react"
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
@@ -42,6 +29,21 @@ import {
   HeadlessSocialButtonProps,
   OryFormSocialButtons,
 } from "./social"
+import {
+  FlowType,
+  OnRedirectHandler,
+  isUiNodeAnchorAttributes,
+  isUiNodeImageAttributes,
+  isUiNodeInputAttributes,
+  isUiNodeScriptAttributes,
+} from "@ory/client-fetch"
+import {
+  onSubmitLogin,
+  onSubmitRecovery,
+  onSubmitRegistration,
+  onSubmitSettings,
+  onSubmitVerification,
+} from "../../util"
 
 export type OryFormComponents = {
   Button: ComponentType<HeadlessButtonProps>

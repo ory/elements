@@ -3,22 +3,14 @@
 
 import {
   FlowError,
+  FlowType,
   LoginFlow,
   RecoveryFlow,
   RegistrationFlow,
   SettingsFlow,
   VerificationFlow,
 } from "@ory/client-fetch"
-import { OryClientConfiguration } from "./configuration"
-
-export enum FlowType {
-  Login = "login",
-  Registration = "registration",
-  Recovery = "recovery",
-  Verification = "verification",
-  Settings = "settings",
-  Error = "error",
-}
+import { OryClientConfiguration } from "./clientConfiguration"
 
 type BaseFlow<TFlowType, TFlow> = {
   flowType: TFlowType

@@ -3,3 +3,8 @@
 
 export * from "./test-id"
 export * from "./i18n"
+export * from "./onSubmitLogin"
+export * from "./onSubmitSettings"
+export * from "./onSubmitRecovery"
+export * from "./onSubmitVerification"
+export * from "./onSubmitRegistration"

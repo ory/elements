@@ -1,6 +1,6 @@
-import { getNodeLabel } from "@ory/client-helpers"
 import { useFormContext } from "react-hook-form"
 import { HeadlessInputProps } from "../../../../types"
+import { getNodeLabel } from "@ory/client-fetch"
 
 // Ory Elements v0
 //

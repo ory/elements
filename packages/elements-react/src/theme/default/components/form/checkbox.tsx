@@ -1,11 +1,11 @@
 "use client"
-import { getNodeLabel } from "@ory/client-helpers"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
 import { HeadlessInputProps } from "../../../../types"
 import { formatMessage, messageTestId } from "../../../../util"
+import { getNodeLabel } from "@ory/client-fetch"
 
 function CheckboxSVG() {
   return (

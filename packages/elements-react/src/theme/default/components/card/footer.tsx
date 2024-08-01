@@ -1,9 +1,8 @@
-import { FlowType } from "@ory/client-helpers"
-
 import { useSearchParams } from "next/navigation"
 import { useIntl } from "react-intl"
 import { OryCardFooterProps } from "../../../../components"
 import { useOryFlow } from "../../../../context"
+import { FlowType } from "@ory/client-fetch"
 
 export function DefaultCardFooter({}: OryCardFooterProps) {
   const { flowType } = useOryFlow()

@@ -1,22 +1,26 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { handleContinueWith } from "./continueWith"
-import { FlowContainer, FlowType } from "./flowTypes"
-import { frontendClient } from "./index"
-import { settingsUrl } from "./urlHelpers"
-import { handleFlowError, OnSubmitHandlerProps } from "./utils"
-
-import { SettingsFlow, UpdateSettingsFlowBody } from "@ory/client-fetch"
+import {
+  FlowType,
+  frontendClient,
+  handleContinueWith,
+  handleFlowError,
+  SettingsFlow,
+  settingsUrl,
+  UpdateSettingsFlowBody,
+} from "@ory/client-fetch"
+import { FlowContainer } from "./flowContainer"
+import { OnSubmitHandlerProps } from "./submitHandler"
 
 /**
  * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.
  *
- * @param config The configuration object.
- * @param flow The flow object.
- * @param setFlowContainer This method is used to update the flow container when a validation error occurs, for example.
- * @param body The form values to submit.
- * @param onRedirect This method is used to redirect the user to a different page.
+ * @param config - The configuration object.
+ * @param flow - The flow object.
+ * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.
+ * @param body - The form values to submit.
+ * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitSettings(
   { config, flow }: FlowContainer,
@@ -41,7 +45,7 @@ export async function onSubmitSettings(
     .then(async (res) => {
       const body = await res.value()
 
-      const didContinueWith = await handleContinueWith(body.continue_with, {
+      const didContinueWith = handleContinueWith(body.continue_with, {
         onRedirect,
       })
 

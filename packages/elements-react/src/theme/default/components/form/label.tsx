@@ -1,4 +1,4 @@
-import { FlowType, getNodeLabel } from "@ory/client-helpers"
+import { FlowType, getNodeLabel } from "@ory/client-fetch"
 import Link from "next/link"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"

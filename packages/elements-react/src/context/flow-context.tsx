@@ -1,4 +1,3 @@
-import { FlowContainer } from "@ory/client-helpers"
 import {
   Dispatch,
   PropsWithChildren,
@@ -6,6 +5,7 @@ import {
   useContext,
   useState,
 } from "react"
+import { FlowContainer } from "../util/flowContainer"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
