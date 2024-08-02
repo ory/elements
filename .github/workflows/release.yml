@@ -13,7 +13,7 @@ jobs:
           token: ${{ secrets.ORY_BOT_PAT }}
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "20"
       - run: npm run initialize
       - run: npm run build:clean
       - run: git checkout main
