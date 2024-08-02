@@ -4,8 +4,8 @@
   "private": "true",
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "initialize": "npm run clean && npx lerna@5.6.2 bootstrap --hoist",
-    "clean": "npx lerna@5.6.2 clean --yes",
+    "initialize": "npm run clean && npx lerna bootstrap --hoist",
+    "clean": "npx lerna clean --yes",
     "build-storybook": "storybook build",
     "refresh": "lerna bootstrap --hoist",
     "build:clean": "lerna run build --skip-nx-cache",
@@ -61,6 +61,7 @@
     "@vanilla-extract/sprinkles": "1.6.1",
     "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.0.4",
+    "ajv": "8.17.1",
     "autoprefixer": "10.4.16",
     "chromatic": "6.21.0",
     "classnames": "2.3.2",
