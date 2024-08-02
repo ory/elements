@@ -8,7 +8,7 @@ import {
   UiNodeInputAttributes,
   UiNodeTextAttributes,
 } from "@ory/client-fetch"
-import {
+import React, {
   ComponentPropsWithoutRef,
   Dispatch,
   FormEvent,
@@ -48,12 +48,10 @@ export type HeadlessImageProps = {
   node: UiNode
 }
 
-export interface FormValues {
-  [key: string]: string | boolean | number | undefined
-}
+export type FormValues = Record<string, string | boolean | number | undefined>
 
 export type HeadlessFormProps = ComponentPropsWithoutRef<"form"> & {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void | Promise<void>
 }
 
 export type HeadlessInputProps = {

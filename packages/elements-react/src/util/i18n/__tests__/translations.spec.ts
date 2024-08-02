@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import * as supportedLanguages from "$/elements/locales"
+import * as supportedLanguages from "../../../locales"
 import { test as base, expect } from "@playwright/experimental-ct-react"
 
 type TemplateStrings = {
@@ -11,7 +11,7 @@ type TemplateStrings = {
 const test = base.extend<{
   templates: Partial<TemplateStrings>
 }>({
-  templates: async ({}, use) => {
+  templates: async (_, use) => {
     const en = supportedLanguages.en
     const templates: Partial<TemplateStrings> = {}
     for (const [key, value] of Object.entries(en)) {
@@ -35,7 +35,7 @@ test("language keys and templates match", async ({ templates }) => {
   }
 
   await test.step("Checking template strings", () => {
-    Object.entries(supportedLanguages).forEach(([language, translation]) => {
+    Object.entries(supportedLanguages).forEach(([, translation]) => {
       Object.entries(templates).forEach(([key, templateStrings]) => {
         for (const templateString of templateStrings) {
           expect(

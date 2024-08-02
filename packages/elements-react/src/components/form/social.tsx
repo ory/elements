@@ -42,7 +42,7 @@ export function OryFormSocialButtons({
   return (
     <>
       <SocialButtonContainer nodes={filteredNodes}>
-        {children ||
+        {children ??
           filteredNodes.map((node, k) => {
             return <Node node={node} key={k} />
           })}
