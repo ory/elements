@@ -71,25 +71,28 @@ export type OryFormComponents = {
   CurrentIdentifierButton: ComponentType<HeadlessButtonProps>
 }
 
-export type OryFormProps = PropsWithChildren<{}>
+export type OryFormProps = PropsWithChildren
 
 export function OryForm({ children }: OryFormProps) {
   const { FormContainer } = useComponents()
   const flowContainer = useOryFlow()
-  const { flow, flowType, setFlowContainer } = flowContainer
 
   const methods = useForm({
-    defaultValues: flow.ui.nodes.reduce<FormValues>((acc, node) => {
-      if (isUiNodeInputAttributes(node.attributes)) {
-        if (node.attributes.name === "method") {
-          // Do not set the default values for this.
-          return acc
+    // TODO: Generify this, so we have typesafety in the submit handler.
+    defaultValues: flowContainer.flow.ui.nodes.reduce<FormValues>(
+      (acc, node) => {
+        if (isUiNodeInputAttributes(node.attributes)) {
+          if (node.attributes.name === "method") {
+            // Do not set the default values for this.
+            return acc
+          }
+          acc[node.attributes.name] = node.attributes.value
         }
-        acc[node.attributes.name] = node.attributes.value
-      }
 
-      return acc
-    }, {}),
+        return acc
+      },
+      {},
+    ),
   })
   const intl = useIntl()
 
@@ -99,34 +102,42 @@ export function OryForm({ children }: OryFormProps) {
       return
     }
 
-    // TODO: make this better
+    // TODO(jonas): this should somehow be overridable by the user to allow next js specific redirects, or other frameworks.
     window.location.href = url
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    switch (flowType) {
-      case FlowType.Login:
+    switch (flowContainer.flowType) {
+      case FlowType.Login: {
+        const submitData: UpdateLoginFlowBody = {
+          ...(data as unknown as UpdateLoginFlowBody),
+        }
+        // TODO: We should probably fix this in Kratos, and give the code priority over the email. However, that would be breaking :(
+        if (submitData.method === "code" && submitData.code) {
+          submitData.identifier = ""
+        }
         await onSubmitLogin(flowContainer, {
           onRedirect,
-          setFlowContainer: setFlowContainer,
-          body: data as unknown as UpdateLoginFlowBody,
+          setFlowContainer: flowContainer.setFlowContainer,
+          body: submitData,
         })
         break
+      }
       case FlowType.Registration:
         await onSubmitRegistration(flowContainer, {
           onRedirect,
-          setFlowContainer: setFlowContainer,
+          setFlowContainer: flowContainer.setFlowContainer,
           body: data as unknown as UpdateRegistrationFlowBody,
         })
         break
       case FlowType.Verification:
         await onSubmitVerification(flowContainer, {
           onRedirect,
-          setFlowContainer: setFlowContainer,
+          setFlowContainer: flowContainer.setFlowContainer,
           body: data as unknown as UpdateVerificationFlowBody,
         })
         break
-      case FlowType.Recovery:
+      case FlowType.Recovery: {
         const submitData: UpdateRecoveryFlowBody = {
           ...(data as unknown as UpdateRecoveryFlowBody),
         }
@@ -136,14 +147,15 @@ export function OryForm({ children }: OryFormProps) {
         }
         await onSubmitRecovery(flowContainer, {
           onRedirect,
-          setFlowContainer: setFlowContainer,
+          setFlowContainer: flowContainer.setFlowContainer,
           body: submitData,
         })
         break
+      }
       case FlowType.Settings:
         await onSubmitSettings(flowContainer, {
           onRedirect,
-          setFlowContainer: setFlowContainer,
+          setFlowContainer: flowContainer.setFlowContainer,
           body: data as unknown as UpdateSettingsFlowBody,
         })
         break
@@ -151,7 +163,7 @@ export function OryForm({ children }: OryFormProps) {
   }
 
   const hasMethods =
-    flow.ui.nodes.filter((node) => {
+    flowContainer.flow.ui.nodes.filter((node) => {
       if (isUiNodeInputAttributes(node.attributes)) {
         return node.attributes.name !== "csrf_token"
       } else if (isUiNodeAnchorAttributes(node.attributes)) {
@@ -165,7 +177,7 @@ export function OryForm({ children }: OryFormProps) {
       return false
     }).length > 0
 
-  if (!hasMethods && (flow.ui.messages ?? []).length === 0) {
+  if (!hasMethods && (flowContainer.flow.ui.messages ?? []).length === 0) {
     // This is defined in Ory Kratos as well.
     return intl.formatMessage({
       id: `identities.messages.${5000002}`,
@@ -177,11 +189,11 @@ export function OryForm({ children }: OryFormProps) {
   return (
     <FormProvider {...methods}>
       <FormContainer
-        action={flow.ui.action}
-        method={flow.ui.method}
+        action={flowContainer.flow.ui.action}
+        method={flowContainer.flow.ui.method}
         onSubmit={methods.handleSubmit(onSubmit)}
       >
-        {children || (
+        {children ?? (
           <>
             <OryFormSocialButtons />
             <OryFormGroups

@@ -23,7 +23,7 @@ export function OryFormGroups({ children, groups }: HeadlessGroupProps) {
 
   return (
     <FormGroup>
-      {children ||
+      {children ??
         nodes.map((node, k) => {
           return <Node node={node} key={k} />
         })}

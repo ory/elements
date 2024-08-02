@@ -18,18 +18,14 @@ export function capitalize(s: string) {
 }
 
 export type FilterNodesByGroups = {
-  nodes: Array<UiNode>
-  groups?: Array<UiNodeGroupEnum | string> | UiNodeGroupEnum | string
+  nodes: UiNode[]
+  groups?: UiNodeGroupEnum[] | UiNodeGroupEnum
   withoutDefaultGroup?: boolean
-  attributes?:
-    | Array<UiNodeInputAttributesTypeEnum | string>
-    | UiNodeInputAttributesTypeEnum
-    | string
+  attributes?: UiNodeInputAttributesTypeEnum[] | UiNodeInputAttributesTypeEnum
   withoutDefaultAttributes?: boolean
   excludeAttributes?:
-    | Array<UiNodeInputAttributesTypeEnum | string>
+    | UiNodeInputAttributesTypeEnum[]
     | UiNodeInputAttributesTypeEnum
-    | string
 }
 
 export function triggerToWindowCall(
@@ -74,9 +70,24 @@ function triggerToFunction(
     | UiNodeInputAttributesOnclickTriggerEnum
     | UiNodeInputAttributesOnloadTriggerEnum,
 ) {
-  if (!window[trigger]) {
+  if (!(typeof window !== "undefined")) {
+    console.error("The Ory SDK is missing a required function: window.")
+    return undefined
+  }
+
+  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+  const typedWindow = window as { [key: string]: any } // eslint-disable-line @typescript-eslint/no-explicit-any
+  if (!(trigger in typedWindow) && !typedWindow[trigger]) {
     console.error(`The Ory SDK is missing a required function: ${trigger}.`)
     return undefined
   }
-  return window[trigger]
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const triggerFn = typedWindow[trigger]
+  if (typeof triggerFn !== "function") {
+    console.error(
+      `The Ory SDK is missing a required function: ${trigger}. It is not a function.`,
+    )
+    return undefined
+  }
+  return triggerFn as () => void
 }

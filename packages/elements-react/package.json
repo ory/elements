@@ -14,20 +14,14 @@
     },
     "./theme/styles.css": "./dist/theme/default/index.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/ory/elements.git",
-    "directory": "packages/elements-react"
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@ory/client-helpers": "1",
     "@ory/client-fetch": "1.15.0-next.0",
-    "react-hook-form": "7.52.1",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
+    "react-hook-form": "7.52.1",
     "tailwind-merge": "2.4.0"
   },
   "peerDependencies": {
@@ -36,12 +30,28 @@
   },
   "devDependencies": {
     "esbuild-plugin-svgr": "2.1.0",
+    "eslint-plugin-react": "7.35.0",
     "postcss": "8.4.40",
     "tailwindcss": "3.4.7",
     "tsup": "8.2.3"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ory",
+    "auth",
+    "react",
+    "passwordless",
+    "authentication"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/elements-react"
+  },
+  "bugs": {
+    "url": "https://github.com/ory/elements/issues"
+  },
+  "homepage": "https://github.com/ory/elements#readme",
+  "author": "Ory Corp",
   "license": "Apache License 2.0",
-  "description": ""
+  "description": "Ory Elements React - a collection of React components for authentication UIs."
 }
