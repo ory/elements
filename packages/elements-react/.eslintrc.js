@@ -12,7 +12,7 @@ module.exports = {
     "../../.eslintrc.cjs",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
   ],
   parserOptions: {
     ecmaVersion: 12,
