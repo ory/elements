@@ -14,6 +14,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
   ],
+  ignorePatterns: ["playwright/", "playwright-ct.config.ts", ".eslintrc.js"],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
@@ -30,4 +31,19 @@ module.exports = {
   env: {
     jest: true,
   },
+  overrides: [
+    {
+      files: ["**/*.spec.ts", "**/*.spec.tsx", "playwright/"],
+
+      parserOptions: {
+        ecmaVersion: 12,
+        sourceType: "module",
+        project: __dirname + "/tsconfig.test.json",
+      },
+      rules: {
+        // covered by typescript
+        "react/prop-types": "off",
+      },
+    },
+  ],
 }

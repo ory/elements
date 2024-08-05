@@ -1,9 +1,9 @@
 {
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
+      "command": "playwright test -c playwright-ct.config.ts",
       "options": {
-        "jestConfig": "packages/elements-react/jest.config.js"
+        "cwd": "packages/elements-react"
       }
     },
     "lint": {
@@ -14,7 +14,7 @@
     },
     "build": {
       "command": "tsup",
-      "dependsOn": ["lint"],
+      "dependsOn": ["lint", "test"],
       "options": {
         "cwd": "packages/elements-react"
       }

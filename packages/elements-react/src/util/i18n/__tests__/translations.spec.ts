@@ -11,7 +11,8 @@ type TemplateStrings = {
 const test = base.extend<{
   templates: Partial<TemplateStrings>
 }>({
-  templates: async (_, use) => {
+  // eslint-disable-next-line no-empty-pattern -- playwright needs this to be an empty object
+  templates: async ({}, use) => {
     const en = supportedLanguages.en
     const templates: Partial<TemplateStrings> = {}
     for (const [key, value] of Object.entries(en)) {

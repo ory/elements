@@ -88,6 +88,7 @@
     "react-dom": "18.3.1",
     "react-intl": "6.4.4",
     "storybook": "7.4.0",
+    "ts-jest": "29.2.4",
     "typedoc": "0.23.16",
     "typescript": "5.2.2",
     "vite": "4.5.2",
