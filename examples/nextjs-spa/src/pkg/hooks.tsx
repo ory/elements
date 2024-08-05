@@ -21,6 +21,18 @@ export const HandleError = (
       return Promise.resolve()
     }
 
+    const configData = error.config?.data;
+    if (error.config && configData && (typeof configData === "string" || configData instanceof String)) {
+      // Sanitise any payloads where the top level key is "password" so they don't end up in the URLs
+      try {
+        const parsedData = JSON.parse(configData.toString());
+        if (parsedData.password) {
+          parsedData.password = "REDACTED";
+        }
+        error.config.data = JSON.stringify(parsedData);
+      } catch (e) {}
+    }
+
     const responseData = error.response?.data || {}
 
     switch (error.response?.status) {
