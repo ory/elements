@@ -1,4 +1,4 @@
-import { formatMessage } from ".."
+import { formatMessage } from "../index"
 import { UiText } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 
