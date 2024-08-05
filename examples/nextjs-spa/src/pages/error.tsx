@@ -51,7 +51,16 @@ const Error: NextPageWithLayout = () => {
         .then(({ data }) => {
           setError(JSON.stringify(data, null, 2))
         })
-        .catch(handleError)
+        .catch((error: AxiosError) => {
+          switch (error.response?.status) {
+            case 404: {
+              // The kratos handler for /self-service/errors?id=some_error_id currently only handles id=stub:500, and will 404 for everything else
+              // See https://github.com/ory/kratos/blob/4fb28b363622bb21ce12d9f89d2ceb4649aa0cba/selfservice/errorx/handler.go#L106
+              return;
+            }
+          }
+          handleError(error).then();
+        });
     }
   }, [err, id, router.isReady, handleError])
 
