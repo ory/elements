@@ -26,3 +26,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+      - uses: chromaui/action@v11
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
