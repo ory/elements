@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  test-build:
+  pull_request:
     timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
