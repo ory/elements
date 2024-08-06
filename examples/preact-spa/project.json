@@ -1,0 +1,17 @@
+{
+  "targets": {
+    "e2e": {
+      "command": "playwright test",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "examples/nextjs-spa"
+      }
+    },
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "examples/nextjs-spa"
+      }
+    }
+  }
+}
