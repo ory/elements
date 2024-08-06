@@ -1,4 +1,4 @@
-name: Playwright Component Tests
+name: Pull Request - Lint/Build/Tests
 on:
   push:
     branches: [main]

@@ -1,4 +1,4 @@
-name: "main CI/CD"
+name: "Main - Lint/Build/Tests"
 
 on:
   push:
