@@ -6,9 +6,7 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "playwright test",
-    "debug": "playwright test --ui"
+    "lint": "next lint"
   },
   "dependencies": {
     "@next/font": "13.4.13",
