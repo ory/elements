@@ -17,7 +17,7 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: npm ci
-      - uses: nrwl/nx-set-shas
+      - uses: nrwl/nx-set-shas@v4
       - run: npx nx affected -t lint test build
       - uses: actions/upload-artifact@v2
         if: always()
