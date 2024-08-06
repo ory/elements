@@ -17,6 +17,7 @@ export default defineConfig({
   testDir: path.join(__dirname, "e2e"),
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
+  snapshotPathTemplate: "{testDir}/__screenshots__/{testFilePath}/{arg}{ext}",
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -36,7 +37,9 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: process.env.CI ? [["github"], ["html"], ["list"]] : "html",
+  reporter: process.env.CI
+    ? [["github"], ["html", { open: "never" }], ["list"]]
+    : "html",
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

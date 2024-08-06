@@ -14,7 +14,7 @@
     }
   },
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "plugins": [
     {
