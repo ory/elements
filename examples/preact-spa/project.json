@@ -4,13 +4,13 @@
       "command": "playwright test",
       "dependsOn": ["build"],
       "options": {
-        "cwd": "examples/nextjs-spa"
+        "cwd": "examples/preact-spa"
       }
     },
     "build": {
-      "command": "next build",
+      "command": "tsc && vite build",
       "options": {
-        "cwd": "examples/nextjs-spa"
+        "cwd": "examples/preact-spa"
       }
     }
   }
