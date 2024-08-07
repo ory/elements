@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements-react",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -53,5 +53,8 @@
   "homepage": "https://github.com/ory/elements#readme",
   "author": "Ory Corp",
   "license": "Apache License 2.0",
-  "description": "Ory Elements React - a collection of React components for authentication UIs."
+  "description": "Ory Elements React - a collection of React components for authentication UIs.",
+  "publishConfig": {
+    "access": "public"
+  }
 }
