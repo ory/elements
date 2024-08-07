@@ -12,8 +12,14 @@
         "lintFilePatterns": ["packages/elements-react/src/**/*.ts"]
       }
     },
+    "dev": {
+      "command": "tsup --watch",
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    },
     "build": {
-      "command": "tsup",
+      "command": "tsup --clean --dts",
       "dependsOn": ["lint", "test"],
       "options": {
         "cwd": "packages/elements-react"

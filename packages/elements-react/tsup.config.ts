@@ -5,11 +5,10 @@ import svgr from "esbuild-plugin-svgr"
 import { defineConfig, type Options } from "tsup"
 
 const baseConfig: Options = {
-  dts: true,
+  dts: false,
   minify: false,
   sourcemap: true,
   bundle: true,
-  clean: true,
   format: ["cjs", "esm"],
 }
 
