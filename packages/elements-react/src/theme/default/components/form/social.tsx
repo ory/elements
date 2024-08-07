@@ -18,7 +18,7 @@ export function DefaultButtonSocial({
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
 
-  const logo = logos[attributes.value]
+  const Logo = logos[attributes.value]
 
   const showLabel = oidcNodeCount % 3 !== 0 && oidcNodeCount % 4 !== 0
 
@@ -35,19 +35,20 @@ export function DefaultButtonSocial({
       type="submit"
       name="provider"
     >
-      {logo ? (
-        <Image
-          width={16}
-          height={16}
-          src={logo}
-          className="w-5 h-5"
-          alt={node.meta.label?.text || attributes.value}
-        />
-      ) : (
-        <div className="w-5 h-5 rounded-full border flex items-center justify-center text-xs">
-          {provider.slice(0, 2)}
-        </div>
-      )}
+      <span className="w-5 h-5">
+        {Logo ? (
+          <Logo
+            width={20}
+            height={20}
+            // alt={node.meta.label?.text || attributes.value}
+            className="object-fill w-full h-full"
+          />
+        ) : (
+          <span className="rounded-full border flex items-center justify-center text-xs">
+            {provider.slice(0, 2)}
+          </span>
+        )}
+      </span>
       {showLabel ? (
         <span className="text-sm text-left leading-none font-medium text-forms-fg-default flex-grow">
           {node.meta.label?.text}
