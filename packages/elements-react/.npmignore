@@ -1,0 +1,9 @@
+playwright/.cache/
+playwright-report/*
+src/
+playwright/
+playwright-ct.config.ts
+project.json
+tsup.config.ts
+tsconfig.test.json
+!dist/

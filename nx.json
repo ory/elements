@@ -13,6 +13,22 @@
       "dependsOn": ["^build"]
     }
   },
+  "release": {
+    "projects": ["@ory/elements-react"],
+    "version": {
+      "generatorOptions": {
+        "preid": "next"
+      }
+    },
+    "changelog": {
+      "projectChangelogs": false,
+      "workspaceChangelog": false
+    },
+    "git": {
+      "commit": true,
+      "tag": false
+    }
+  },
   "affected": {
     "defaultBase": "main"
   },
