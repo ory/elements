@@ -9,7 +9,10 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": ["packages/elements-react/src/**/*.ts"]
+        "lintFilePatterns": [
+          "packages/elements-react/src/**/*.ts",
+          "packages/elements-react/src/**/*.tsx"
+        ]
       }
     },
     "dev": {

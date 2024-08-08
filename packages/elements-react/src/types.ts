@@ -11,7 +11,7 @@ import {
 import React, {
   ComponentPropsWithoutRef,
   Dispatch,
-  FormEvent,
+  FormEventHandler,
   MouseEventHandler,
 } from "react"
 import { OryCardComponents } from "./components"
@@ -51,7 +51,7 @@ export type HeadlessImageProps = {
 export type FormValues = Record<string, string | boolean | number | undefined>
 
 export type HeadlessFormProps = ComponentPropsWithoutRef<"form"> & {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void | Promise<void>
+  onSubmit: FormEventHandler<HTMLFormElement>
 }
 
 export type HeadlessInputProps = {
