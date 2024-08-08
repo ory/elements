@@ -13,6 +13,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
   ],
   ignorePatterns: ["playwright/", "playwright-ct.config.ts", ".eslintrc.js"],
   parserOptions: {
@@ -27,6 +28,17 @@ module.exports = {
     "no-undef": "off",
     // TODO(jonas): define if we want to use this rule and if we want types or interfaces
     "@typescript-eslint/consistent-type-definitions": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+      },
+    ],
   },
   env: {
     jest: true,
