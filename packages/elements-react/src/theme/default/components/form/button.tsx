@@ -16,8 +16,8 @@ export const DefaultButton = ({
     name,
     value,
     // Button does not support these attributes, so we skip them
-    autocomplete,
-    label: ignoredLabel,
+    autocomplete: _ignoredAutocomplete,
+    label: _ignoredLabel,
     // End of skipped attributes
     ...rest
   } = attributes

@@ -22,8 +22,8 @@ function CheckboxSVG() {
         fill="#0F172A"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M11.6464 5.14645C11.8417 4.95118 12.1583 4.95118 12.3536 5.14645C12.5338 5.32669 12.5477 5.6103 12.3951 5.80645L12.3536 5.85355L7.35355 10.8536C7.17331 11.0338 6.8897 11.0477 6.69355 10.8951L6.64645 10.8536L4.14645 8.35355C3.95118 8.15829 3.95118 7.84171 4.14645 7.64645C4.32669 7.4662 4.6103 7.45234 4.80645 7.60485L4.85355 7.64645L7 9.7925L11.6464 5.14645Z"
         fill="white"
       />
@@ -39,8 +39,8 @@ export const DefaultCheckbox = ({
     value,
     name,
     // Button does not support these attributes, so we skip them
-    autocomplete,
-    onclick,
+    autocomplete: _autocomplete,
+    onclick: _onclick,
     // End of skipped attributes
     ...attributes
   } = initialAttributes

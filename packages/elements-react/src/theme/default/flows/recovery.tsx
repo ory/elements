@@ -30,7 +30,7 @@ export function Recovery({
       flowType={FlowType.Recovery}
       components={components}
     >
-      {children || <OryCard />}
+      {children ?? <OryCard />}
     </OryProvider>
   )
 }

@@ -1,6 +1,6 @@
-import * as locales from "../locales"
-import { ComponentProps, PropsWithChildren, useContext } from "react"
+import { PropsWithChildren, useContext } from "react"
 import { IntlContext, IntlProvider as OriginalIntlProvider } from "react-intl"
+import * as locales from "../locales"
 
 export type TranslationFile = {
   [K in keyof typeof locales.en]: string
