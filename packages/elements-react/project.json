@@ -1,0 +1,32 @@
+{
+  "targets": {
+    "test": {
+      "command": "playwright test -c playwright-ct.config.ts",
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/elements-react/src/**/*.ts",
+          "packages/elements-react/src/**/*.tsx"
+        ]
+      }
+    },
+    "dev": {
+      "command": "tsup --watch",
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    },
+    "build": {
+      "command": "tsup --clean --dts",
+      "dependsOn": ["lint", "test"],
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    }
+  }
+}
