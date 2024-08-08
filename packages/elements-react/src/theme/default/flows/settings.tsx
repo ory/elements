@@ -30,7 +30,7 @@ export function Settings({
       flowType={FlowType.Settings}
       components={components}
     >
-      {children || <OryCard />}
+      {children ?? <OryCard />}
     </OryProvider>
   )
 }

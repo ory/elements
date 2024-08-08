@@ -31,8 +31,12 @@ export const Node = ({ node, onClick }: NodeProps): ReactNode => {
   } else if (isUiNodeAnchorAttributes(node.attributes)) {
     return <Components.LinkButton attributes={node.attributes} node={node} />
   } else if (isUiNodeScriptAttributes(node.attributes)) {
-    const { crossorigin, referrerpolicy, node_type, ...attributes } =
-      node.attributes
+    const {
+      crossorigin,
+      referrerpolicy,
+      node_type: _nodeType,
+      ...attributes
+    } = node.attributes
 
     return (
       <script

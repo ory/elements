@@ -1,11 +1,22 @@
-import Image from "next/image"
-import logos from "../../provider-logos"
-import { cn } from "../../utils/cn"
 import {
   HeadlessSocialButtonContainerProps,
   HeadlessSocialButtonProps,
 } from "../../../../components"
 import { useOryFlow } from "../../../../context"
+import logos from "../../provider-logos"
+import { cn } from "../../utils/cn"
+
+function extractProvider(context: object | undefined): string | undefined {
+  if (
+    context &&
+    typeof context === "object" &&
+    "provider" in context &&
+    typeof context.provider === "string"
+  ) {
+    return context.provider
+  }
+  return undefined
+}
 
 export function DefaultButtonSocial({
   attributes,
@@ -22,8 +33,7 @@ export function DefaultButtonSocial({
 
   const showLabel = oidcNodeCount % 3 !== 0 && oidcNodeCount % 4 !== 0
 
-  const provider =
-    (node.meta.label?.context as any)?.provider || node.meta.label?.text || ""
+  const provider = extractProvider(node.meta.label?.context) ?? ""
 
   return (
     <button

@@ -1,7 +1,7 @@
 import { useComponents } from "../../context/component"
 import { useOryFlow } from "../../context/flow-context"
 
-export type HorizontalDividerProps = {}
+export type HorizontalDividerProps = Record<string, never>
 
 export function OryFormGroupDivider() {
   const { HorizontalDivider } = useComponents()

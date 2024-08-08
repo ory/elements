@@ -30,7 +30,7 @@ export function Registration({
       flowType={FlowType.Registration}
       components={components}
     >
-      {children || <OryCard />}
+      {children ?? <OryCard />}
     </OryProvider>
   )
 }

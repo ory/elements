@@ -22,7 +22,7 @@ export function DefaultFormContainer({
   )
 }
 
-export function DefaultMessageContainer({ children }: PropsWithChildren<{}>) {
+export function DefaultMessageContainer({ children }: PropsWithChildren) {
   if (!children || (Array.isArray(children) && children.length === 0)) {
     return null
   }

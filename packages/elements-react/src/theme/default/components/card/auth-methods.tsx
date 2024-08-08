@@ -13,8 +13,8 @@ export function DefaultAuthMethodListItem({
   group,
 }: HeadlessAuthMethodListItemProps) {
   let Icon: FunctionComponent<SVGAttributes<SVGElement>> | null = null
-  let title: string = ""
-  let description: string = ""
+  let title = ""
+  let description = ""
 
   switch (group) {
     case "passkey":

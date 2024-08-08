@@ -30,7 +30,7 @@ export function Login({
       flowType={FlowType.Login}
       components={components}
     >
-      {children || <OryCard />}
+      {children ?? <OryCard />}
     </OryProvider>
   )
 }

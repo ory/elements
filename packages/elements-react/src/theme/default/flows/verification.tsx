@@ -30,7 +30,7 @@ export function Verification({
       flowType={FlowType.Verification}
       components={components}
     >
-      {children || <OryCard />}
+      {children ?? <OryCard />}
     </OryProvider>
   )
 }

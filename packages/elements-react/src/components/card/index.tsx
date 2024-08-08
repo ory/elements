@@ -6,7 +6,7 @@ import { useComponents } from "../../context/component"
 import { ComponentType, PropsWithChildren } from "react"
 import { OryCardHeader, OryCardHeaderProps } from "./header"
 
-export type OryCardContentProps = PropsWithChildren<{}>
+export type OryCardContentProps = PropsWithChildren
 
 export function OryCardContent({ children }: OryCardContentProps) {
   const { CardContent } = useComponents()
@@ -37,14 +37,14 @@ export function OryCardContent({ children }: OryCardContentProps) {
   )
 }
 
-export type OryCardFooterProps = {}
+export type OryCardFooterProps = Record<string, never>
 
-export function OryCardFooter({}: OryCardFooterProps) {
+export function OryCardFooter() {
   const { CardFooter } = useComponents()
   return <CardFooter />
 }
 
-export type OryCardProps = PropsWithChildren<{}>
+export type OryCardProps = PropsWithChildren
 
 export function OryCard({ children }: OryCardProps) {
   const { Card } = useComponents()
@@ -88,7 +88,7 @@ export type OryCardComponents = {
   /**
    * The card logo is the logo of the card container.
    */
-  CardLogo: ComponentType<{}>
+  CardLogo: ComponentType
 }
 
 export { OryCardHeader }

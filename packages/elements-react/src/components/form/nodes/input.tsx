@@ -20,8 +20,8 @@ export const NodeInput = ({
     onloadTrigger: onloadTrigger,
     onclickTrigger,
     // These properties do not exist on input fields so we remove them (as we already have handled them).
-    onclick: ignoredOnclick,
-    onload: ignoredOnload,
+    onclick: _ignoredOnclick,
+    onload: _ignoredOnload,
     //
     ...attrs
   } = attributes
@@ -34,11 +34,12 @@ export const NodeInput = ({
         triggerToWindowCall(onloadTrigger)
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // TODO(jonas): make sure onloadTrigger is stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- ignore onloadTrigger for now, until we make sure this is stable
     [],
   )
 
-  const handleClick: MouseEventHandler = (e) => {
+  const handleClick: MouseEventHandler = () => {
     if (onclickTrigger) {
       triggerToWindowCall(onclickTrigger)
     }
