@@ -63,7 +63,7 @@ Clone this repository and set up the React example.
 
 ```shell
 git clone git@github.com:ory/elements
-npm run initialize
+npm install
 npm run build:clean
 cd examples/react-spa
 export VITE_ORY_SDK_URL=http://localhost:4000
@@ -263,7 +263,7 @@ Explore the Ory Elements via [Storybook](https://storybook.js.org/)!
 Clone this repository and run:
 
 ```shell
-npm run initialize
+npm run install
 npm run build
 # or `npm run build:clean` to ensure no packages have cached versions
 npm run storybook
@@ -282,7 +282,7 @@ E2E and component tests are written in [Playwright](https://playwright.dev/).
 **Example Apps**
 
 To contribute an example application, please add it to the `examples/` folder.
-To ensure the example works correctly within the Lerna build system, add the
+To ensure the example works correctly within the workspace build system, add the
 `elements` package to the example `package.json` with an asterisk `*` as the
 version.
 
@@ -310,12 +310,10 @@ Elements loads the default translations.
 
 ### Bundling System
 
-Ory Elements uses [Lerna](https://lerna.js.org/) to bundle each package in the
-Ory Elements mono-repository. This also helps with package management and build
-caching. Lerna also publishes the code to the public
-[npm registry](https://www.npmjs.com/) for us.
+Ory Elements uses [nx](https://nx.dev/) to bundle each package in the Ory
+Elements mono-repository.
 
-Lerna also use [Nx](https://nx.dev/) to build the packages in parallel.
+Nx publishes the code to the public [npm registry](https://www.npmjs.com/).
 
 ### Strongly typed CSS using Vanilla-Extract
 
