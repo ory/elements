@@ -7,6 +7,7 @@ import { ButtonLink, CustomHref } from "../../button-link"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword, hasIdentifierFirst } from "../helpers/utils"
 import { SelfServiceFlow } from "../helpers/types"
+import { CaptchaSection } from "../helpers/captcha"
 
 export interface LoginSectionProps {
   nodes: UiNode[]
@@ -71,6 +72,7 @@ export const LoginSection = ({
             </ButtonLink>
           )}
         </div>
+        <CaptchaSection nodes={nodes} />
         <FilterFlowNodes
           filter={{
             nodes: nodes,
