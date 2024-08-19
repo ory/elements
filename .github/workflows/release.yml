@@ -31,4 +31,7 @@ jobs:
             return isPrerelease ? 'next' : 'latest';
           result-encoding: string
       - run: |
+          npx nx release version ${{ github.event.release.tag_name }} --git-commit=false --stage-changes=false
           npx nx release publish --specifier=${{ github.event.release.tag_name }} --tag="${{ steps.compute-dist-tag.outputs.result }}" --git-commit-message 'chore(release): bump version to ${{ github.event.release.tag_name }}' --git-tag=false
+
+      # TODO(jonas): commit the result to the main branch, if it's not a prerelease
