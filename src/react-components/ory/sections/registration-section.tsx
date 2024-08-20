@@ -4,6 +4,7 @@ import { JSX } from "react"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { hasPassword } from "../helpers/utils"
+import { CaptchaSection } from "../helpers/captcha"
 
 export interface RegistrationSectionProps {
   nodes: UiNode[]
@@ -23,6 +24,8 @@ export const RegistrationSection = ({
           }}
         />
       </div>
+
+      <CaptchaSection nodes={nodes} />
       <FilterFlowNodes
         filter={{
           nodes: nodes,

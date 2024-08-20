@@ -3,6 +3,7 @@ import { JSX } from "react"
 
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
+import { CaptchaSection } from "../helpers/captcha"
 
 export interface LinkSectionProps {
   nodes: UiNode[]
@@ -33,6 +34,7 @@ export const LinkSection = ({ nodes }: LinkSectionProps): JSX.Element => (
           }}
         />
       </div>
+      <CaptchaSection nodes={nodes} />
       <FilterFlowNodes
         filter={{
           nodes: nodes,
