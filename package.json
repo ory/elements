@@ -13,7 +13,8 @@
     "build:test": "nx run @ory/elements-test:build --skip-nx-cache",
     "test": "jest; playwright test -c playwright-ct.config.ts",
     "docs": "typedoc --entryPointStrategy packages . --out docs",
-    "generate-locales": "cd scripts && npm run generate-locales"
+    "generate-locales": "cd scripts && npm run generate-locales",
+    "prerelease-v1": "nx release --skip-publish && nx release publish --tag next"
   },
   "repository": {
     "type": "git",

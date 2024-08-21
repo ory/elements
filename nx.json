@@ -17,7 +17,8 @@
     "projects": ["@ory/elements-react"],
     "version": {
       "generatorOptions": {
-        "preid": "next"
+        "preid": "next",
+        "specifier": "prerelease"
       }
     },
     "changelog": {
