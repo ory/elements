@@ -27,7 +27,7 @@ export function DefaultMessageContainer({ children }: PropsWithChildren) {
     return null
   }
 
-  return <div className="text-left">{children}</div>
+  return <section className="text-left">{children}</section>
 }
 
 export function DefaultMessage({ message }: HeadlessMessageProps) {
