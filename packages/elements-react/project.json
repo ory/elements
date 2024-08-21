@@ -16,7 +16,7 @@
       }
     },
     "dev": {
-      "command": "tsup --watch",
+      "command": "tsup --watch --dts",
       "options": {
         "cwd": "packages/elements-react"
       }
