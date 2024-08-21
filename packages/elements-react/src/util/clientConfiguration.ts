@@ -24,8 +24,13 @@ export type OryClientConfiguration = {
   }
 
   project: {
-    registrationEnabled: boolean
-    verificationEnabled: boolean
-    recoveryEnabled: boolean
+    registration_enabled: boolean
+    verification_enabled: boolean
+    recovery_enabled: boolean
+
+    recovery_ui_url: string
+    registration_ui_url: string
+    verification_ui_url: string
+    login_ui_url: string
   }
 }

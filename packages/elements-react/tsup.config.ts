@@ -34,10 +34,6 @@ export default defineConfig([
       "react-dom",
       "@ory/client-helpers",
       "@ory/client-fetch",
-      // TODO(jonas): remove the next.js dependencies
-      "next/image",
-      "next/navigation",
-      "next/link",
     ],
 
     /* @ts-ignore -- the types of the plugin are wrong? it still works.. */

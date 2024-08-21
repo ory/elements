@@ -1,5 +1,4 @@
 import { FlowType } from "@ory/client-fetch"
-import { useSearchParams } from "next/navigation"
 import { useIntl } from "react-intl"
 import { useOryFlow } from "../../../../context"
 
@@ -19,17 +18,23 @@ export function DefaultCardFooter() {
   }
 }
 
+function getReturnToQueryParam() {
+  if (typeof window !== "undefined") {
+    const searchParams = new URLSearchParams(window.location.search)
+    return searchParams.get("return_to")
+  }
+}
+
 function LoginCardFooter() {
   const { config } = useOryFlow()
-  const searchParams = useSearchParams()
   const intl = useIntl()
 
-  if (!config.project.registrationEnabled) {
+  if (!config.project.registration_enabled) {
     return null
   }
 
   let registrationLink = `/self-service/registration/browser`
-  const returnTo = searchParams?.get("return_to")
+  const returnTo = getReturnToQueryParam()
   if (returnTo) {
     registrationLink += `?return_to=${returnTo}`
   }
@@ -54,10 +59,9 @@ function LoginCardFooter() {
 }
 
 function RegistrationCardFooter() {
-  const searchParams = useSearchParams()
   const intl = useIntl()
   let loginLink = `/self-service/login/browser`
-  const returnTo = searchParams?.get("return_to")
+  const returnTo = getReturnToQueryParam()
   if (returnTo) {
     loginLink += `?return_to=${returnTo}`
   }
