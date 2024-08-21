@@ -5,17 +5,16 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "refresh": "lerna bootstrap --hoist",
-    "build:clean": "lerna run build --skip-nx-cache",
+    "build:clean": "nx run-many --target=build --all --skip-nx-cache",
     "build": "nx run-many --target=build --all",
-    "build:react": "lerna run build --stream --scope=@ory/elements --skip-nx-cache",
-    "build:preact": "lerna run build --stream --scope=@ory/elements-preact --skip-nx-cache",
-    "build:markup": "lerna run build --stream --scope=@ory/elements-markup --skip-nx-cache",
-    "build:test": "lerna run build --stream --scope=@ory/elements-test --skip-nx-cache",
-    "build:elementsv1": "lerna run build --stream --scope=@ory/elements-react --skip-nx-cache",
+    "build:react": "nx run @ory/elements:build --skip-nx-cache",
+    "build:preact": "nx run @ory/elements-preact:build --skip-nx-cache",
+    "build:markup": "nx run @ory/elements-markup:build --skip-nx-cache",
+    "build:test": "nx run @ory/elements-test:build --skip-nx-cache",
     "test": "jest; playwright test -c playwright-ct.config.ts",
     "docs": "typedoc --entryPointStrategy packages . --out docs",
-    "generate-locales": "cd scripts && npm run generate-locales"
+    "generate-locales": "cd scripts && npm run generate-locales",
+    "prerelease-v1": "nx release --skip-publish && nx release publish --tag next"
   },
   "repository": {
     "type": "git",
