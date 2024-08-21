@@ -1,10 +1,9 @@
 import { FlowType, getNodeLabel } from "@ory/client-fetch"
-import Link from "next/link"
 import { useIntl } from "react-intl"
-import { cn } from "../../utils/cn"
-import { HeadlessLabelProps } from "../../../../types"
 import { useOryFlow } from "../../../../context"
+import { HeadlessLabelProps } from "../../../../types"
 import { formatMessage, messageTestId } from "../../../../util"
+import { cn } from "../../utils/cn"
 
 export function DefaultLabel({
   node,
@@ -29,17 +28,18 @@ export function DefaultLabel({
             {formatMessage(label, intl)}
           </span>
           {isPassword &&
-            config.project.recoveryEnabled &&
+            config.project.recovery_enabled &&
             flowType === FlowType.Login && (
-              <Link
-                href="/recovery"
+              // TODO: make it possible to override with a custom component
+              <a
+                href={config.project.recovery_ui_url}
                 className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium"
               >
                 {intl.formatMessage({
                   id: "forms.label.forgot-password",
                   defaultMessage: "Forgot password?",
                 })}
-              </Link>
+              </a>
             )}
         </span>
       )}
