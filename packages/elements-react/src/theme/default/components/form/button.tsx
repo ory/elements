@@ -18,6 +18,7 @@ export const DefaultButton = ({
     // Button does not support these attributes, so we skip them
     autocomplete: _ignoredAutocomplete,
     label: _ignoredLabel,
+    node_type: _ignoredNodeType,
     // End of skipped attributes
     ...rest
   } = attributes
@@ -54,7 +55,7 @@ export const DefaultButton = ({
       className={cn(
         // TODO: Difficult to resolve merge conflict here. Please ensure this is correct:
         // "relative antialiased rounded border gap-3 leading-none transition-colors ease-linear duration-100  px-4 py-4.5 text-sm font-medium",
-        "antialiased rounded-border-radius-buttons border border-transparent gap-3 leading-none bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-4.5 text-sm font-medium",
+        "antialiased rounded-border-radius-buttons border border-transparent gap-3 bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-4.5 text-sm leading-none font-medium",
         {
           "cursor-not-allowed": isSubmitting,
           "bg-button-primary-bg-hover": isSubmitting,
@@ -69,7 +70,7 @@ export const DefaultButton = ({
       {isSubmitting ? <Spinner /> : null}
       <span
         className={cn(
-          "transition-colors ease-linear duration-100  leading-3 text-button-primary-fg-default/20",
+          "transition-colors ease-linear duration-100 leading-none text-button-primary-fg-default/20",
           {
             "text-button-primary-fg-default opacity-20 transition-opacity":
               isSubmitting && isPrimary,
