@@ -1,4 +1,4 @@
-import { FlowType } from "@ory/client-fetch"
+import { FlowType, isUiNodeInputAttributes } from "@ory/client-fetch"
 import { useComponents, useOryFlow } from "../../../../context"
 import { FlowContainer } from "../../../../util/flowContainer"
 
@@ -9,7 +9,7 @@ function joinWithCommaOr(list: string[]): string {
     return list[0] + "."
   } else {
     const last = list.pop()
-    return `${list.join(", ")}, or ${last}.`
+    return `${list.join(", ")} or ${last}.`
   }
 }
 
@@ -41,6 +41,20 @@ function constructCardHeaderText(container: FlowContainer) {
 
   if (ui.nodes.find((node) => node.group === "webauthn")) {
     parts.push(`a security key`)
+  }
+
+  if (ui.nodes.find((node) => node.group === "default")) {
+    const primaryIdentifier = ui.nodes.filter(
+      (node) =>
+        isUiNodeInputAttributes(node.attributes) &&
+        node.attributes.name.startsWith("traits"),
+    )
+    if (primaryIdentifier.length == 1) {
+      const label = primaryIdentifier[0].meta.label
+      if (label) {
+        parts.push(`your ${label.text}`)
+      }
+    }
   }
 
   switch (container.flowType) {
@@ -84,7 +98,7 @@ function constructCardHeaderText(container: FlowContainer) {
 function InnerCardHeader({ title, text }: { title: string; text?: string }) {
   const { CardLogo } = useComponents()
   return (
-    <div className="flex flex-col gap-8 antialiased">
+    <header className="flex flex-col gap-8 antialiased">
       <CardLogo />
       <div>
         <h2 className="font-semibold text-lg text-dialog-fg-default leading-normal">
@@ -92,7 +106,7 @@ function InnerCardHeader({ title, text }: { title: string; text?: string }) {
         </h2>
         <p className="text-sm leading-normal text-dialog-fg-subtle">{text}</p>
       </div>
-    </div>
+    </header>
   )
 }
 
