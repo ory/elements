@@ -7,16 +7,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: "0"
           token: ${{ secrets.ORY_BOT_PAT }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npm run initialize
+      - run: npm ci
       - run: npm run build:clean
-      - run: git checkout main
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_AENEASR }}" > ~/.npmrc
       - run: make format
@@ -32,4 +31,7 @@ jobs:
             return isPrerelease ? 'next' : 'latest';
           result-encoding: string
       - run: |
-          npx lerna publish -y ${{ github.event.release.tag_name }} --dist-tag="${{ steps.compute-dist-tag.outputs.result }}" --message 'chore(release): bump version to %s' --no-git-tag-version
+          npx nx release version ${{ github.event.release.tag_name }} --git-commit=false --stage-changes=false
+          npx nx release publish --specifier=${{ github.event.release.tag_name }} --tag="${{ steps.compute-dist-tag.outputs.result }}" --git-commit-message 'chore(release): bump version to ${{ github.event.release.tag_name }}' --git-tag=false
+
+      # TODO(jonas): commit the result to the main branch, if it's not a prerelease
