@@ -33,7 +33,7 @@ function LoginCardFooter() {
     return null
   }
 
-  let registrationLink = `/self-service/registration/browser`
+  let registrationLink = `${config.sdk.url}/self-service/registration/browser`
   const returnTo = getReturnToQueryParam()
   if (returnTo) {
     registrationLink += `?return_to=${returnTo}`
@@ -60,7 +60,8 @@ function LoginCardFooter() {
 
 function RegistrationCardFooter() {
   const intl = useIntl()
-  let loginLink = `/self-service/login/browser`
+  const { config } = useOryFlow()
+  let loginLink = `${config.sdk.url}/self-service/login/browser`
   const returnTo = getReturnToQueryParam()
   if (returnTo) {
     loginLink += `?return_to=${returnTo}`
