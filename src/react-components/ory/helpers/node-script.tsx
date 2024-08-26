@@ -6,7 +6,7 @@ export const useScriptNodes = ({ nodes }: { nodes: UiNode[] }) => {
   useEffect(() => {
     const scriptNodes = filterNodesByGroups({
       nodes: nodes,
-      groups: ["webauthn", "default"],
+      groups: ["webauthn", "captcha"],
       attributes: "text/javascript",
       withoutDefaultGroup: true,
       withoutDefaultAttributes: true,
