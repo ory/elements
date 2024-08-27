@@ -60,7 +60,6 @@ export const DefaultCheckbox = ({
       <div className="flex h-5 items-center">
         <input
           {...attributes}
-          defaultChecked={checked}
           checked={checked}
           value={1}
           type="checkbox"
