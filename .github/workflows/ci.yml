@@ -47,4 +47,3 @@ jobs:
       - uses: chromaui/action@v11.7.0
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          onlyChanged: true
