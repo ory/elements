@@ -5,14 +5,26 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./theme": {
       "types": "./dist/theme/default/index.d.ts",
       "import": "./dist/theme/default/index.mjs",
-      "require": "./dist/theme/default/index.js"
+      "require": "./dist/theme/default/index.js",
+      "default": "./dist/theme/default/index.js"
     },
     "./theme/styles.css": "./dist/theme/default/index.css"
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ],
+      "theme": [
+        "./dist/theme/default/index.d.ts"
+      ]
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

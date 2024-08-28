@@ -48,6 +48,7 @@ export type OryCardProps = PropsWithChildren
 
 export function OryCard({ children }: OryCardProps) {
   const { Card } = useComponents()
+
   if (children) {
     return <Card>{children}</Card>
   }

@@ -4,8 +4,8 @@ import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
 import { OryFlowComponents } from "../../../types"
 import { OryProvider } from "../../../context"
-import { OryCard } from "../../../components"
 import { OryClientConfiguration } from "../../../util/clientConfiguration"
+import { OryTwoStepCard } from "../../../components/card/card-two-step"
 
 type RegistrationFlowContextProps = {
   flow: RegistrationFlow
@@ -30,7 +30,7 @@ export function Registration({
       flowType={FlowType.Registration}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }
