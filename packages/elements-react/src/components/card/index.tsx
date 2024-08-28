@@ -5,6 +5,7 @@ import { OryFormSocialButtons } from "../form/social"
 import { useComponents } from "../../context"
 import { ComponentType, PropsWithChildren } from "react"
 import { OryCardHeader, OryCardHeaderProps } from "./header"
+import { OryTwoStepCard } from "./card-two-step"
 
 export type OryCardContentProps = PropsWithChildren
 
@@ -48,6 +49,7 @@ export type OryCardProps = PropsWithChildren
 
 export function OryCard({ children }: OryCardProps) {
   const { Card } = useComponents()
+
   if (children) {
     return <Card>{children}</Card>
   }
@@ -91,6 +93,6 @@ export type OryCardComponents = {
   CardLogo: ComponentType
 }
 
-export { OryCardHeader }
+export { OryCardHeader, OryTwoStepCard }
 
 export type { OryCardHeaderProps }

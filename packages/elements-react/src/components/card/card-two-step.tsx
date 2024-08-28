@@ -1,3 +1,5 @@
+"use client"
+
 import { OryCardHeader } from "./header"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
@@ -15,6 +17,7 @@ import {
 } from "@ory/client-fetch"
 import { Dispatch, useEffect, useState } from "react"
 import { OryCard, OryCardContent, OryCardFooter, OryCardProps } from "."
+import { OryFormGroupDivider } from "../generic"
 
 type ExtendedUiNode = UiNode & { twoStepContinue?: boolean }
 
@@ -127,7 +130,7 @@ export function Option({
 }
 
 export function OryTwoStepCard({ children }: OryCardProps) {
-  const [step, setStep] = useState(-1)
+  const [step, setStep] = useState(1)
   const [groups, setGroups] = useState<string[]>([])
   const Components = useComponents()
   const { FormGroup } = useComponents()
@@ -148,7 +151,7 @@ export function OryTwoStepCard({ children }: OryCardProps) {
       .length > 2
 
   useEffect(() => {
-    setStep(0)
+    // setStep(0)
   }, [])
 
   if (children) {
@@ -175,14 +178,6 @@ export function OryTwoStepCard({ children }: OryCardProps) {
       show: nodes.findIndex(({ group }) => group === "passkey") !== -1,
     },
     {
-      title: "Code",
-      group: "code",
-      description: "Enter a code from your authenticator app.",
-      setStep: () => setStep(2),
-      setGroups: () => setGroups(["code"]),
-      show: nodes.findIndex(({ group }) => group === "code") !== -1,
-    },
-    {
       title: "Password",
       group: "password",
       description: "Enter your password.",
@@ -190,6 +185,15 @@ export function OryTwoStepCard({ children }: OryCardProps) {
       setGroups: () => setGroups(["password"]),
       show: nodes.findIndex(({ group }) => group === "password") !== -1,
     },
+    {
+      title: "Code",
+      group: "code",
+      description: "Enter a code from your authenticator app.",
+      setStep: () => setStep(2),
+      setGroups: () => setGroups(["code"]),
+      show: nodes.findIndex(({ group }) => group === "code") !== -1,
+    },
+
     {
       title: "WebAuthn",
       group: "webauthn",
@@ -214,6 +218,7 @@ export function OryTwoStepCard({ children }: OryCardProps) {
       return (
         <OryCard>
           <OryCardHeader />
+          <OryFormGroupDivider />
           <OryCardContent>
             {options.map((props, k) => (
               <Components.AuthMethodListItem {...props} key={k} />

@@ -19,23 +19,24 @@ export function DefaultAuthMethodListItem({
   switch (group) {
     case "passkey":
       Icon = passkey
-      title = "Passkey"
-      description = "Use your fingerprint or face to sign in."
+      title = "Passkey (recommended)"
+      description = "Use your devices for fringerprint or face recognition"
       break
     case "password":
       Icon = password
       title = "Password"
-      description = "Use your password to sign in."
+      description = "Enter the password associated with your account"
       break
     case "webauthn":
       Icon = webauthn
       title = "Security Key"
-      description = "Use a security key to sign in."
+      description =
+        "Use the signature of one of your cryptographic hardware keys to authenticate"
       break
     case "code":
       Icon = code
       title = "Email"
-      description = "Enter a code sent to your email."
+      description = "A verification code will be sent to your email"
       break
   }
 
@@ -53,8 +54,8 @@ export function DefaultAuthMethodListItem({
         {Icon && <Icon className="w-5 h-5" width={16} height={16} />}
       </div>
       <div className={"flex-1 text-sm leading-normal"}>
-        <div className="text-forms-fg-default">{title}</div>
-        <div className="text-forms-fg-subtle">{description}</div>
+        <div className="text-forms-fg-default text-sm">{title}</div>
+        <div className="text-forms-fg-mute text-sm">{description}</div>
       </div>
     </div>
   )
