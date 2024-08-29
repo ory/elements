@@ -4,8 +4,8 @@ import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
 import { OryFlowComponents } from "../../../types"
 import { OryProvider } from "../../../context"
-import { OryCard } from "../../../components"
 import { OryClientConfiguration } from "../../../util/clientConfiguration"
+import { OryTwoStepCard } from "../../../components/card/card-two-step"
 
 export type LoginFlowContextProps = {
   flow: LoginFlow
@@ -30,7 +30,7 @@ export function Login({
       flowType={FlowType.Login}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }

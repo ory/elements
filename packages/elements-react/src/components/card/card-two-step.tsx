@@ -130,7 +130,7 @@ export function Option({
 }
 
 export function OryTwoStepCard({ children }: OryCardProps) {
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(-1)
   const [groups, setGroups] = useState<string[]>([])
   const Components = useComponents()
   const { FormGroup } = useComponents()
@@ -151,7 +151,7 @@ export function OryTwoStepCard({ children }: OryCardProps) {
       .length > 2
 
   useEffect(() => {
-    // setStep(0)
+    setStep(0)
   }, [])
 
   if (children) {
@@ -241,25 +241,32 @@ export function OryTwoStepCard({ children }: OryCardProps) {
       <OryCardContent>
         <OryCardValidationMessages />
         <OryForm>
-          {step === 0 && <OryFormSocialButtons />}
           <FormGroup>
-            {nodes.sort(sortNodes).map((node, k) => {
-              if (node.twoStepContinue) {
-                if (isUiNodeInputAttributes(node.attributes)) {
-                  return (
-                    <Components.Button
-                      key={k}
-                      attributes={node.attributes}
-                      node={node}
-                      onClick={() => {
-                        setStep(step + 1)
-                      }}
-                    />
-                  )
+            <OryFormSocialButtons />
+          </FormGroup>
+        </OryForm>
+        <OryForm>
+          <FormGroup>
+            {nodes
+              .filter((node) => node.group !== "oidc")
+              .sort(sortNodes)
+              .map((node, k) => {
+                if (node.twoStepContinue) {
+                  if (isUiNodeInputAttributes(node.attributes)) {
+                    return (
+                      <Components.Button
+                        key={k}
+                        attributes={node.attributes}
+                        node={node}
+                        onClick={() => {
+                          setStep(step + 1)
+                        }}
+                      />
+                    )
+                  }
                 }
-              }
-              return <Node node={node} key={k} />
-            })}
+                return <Node node={node} key={k} />
+              })}
           </FormGroup>
         </OryForm>
       </OryCardContent>
