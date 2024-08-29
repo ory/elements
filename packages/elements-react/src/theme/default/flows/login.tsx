@@ -1,13 +1,13 @@
 "use client"
 import { FlowType, LoginFlow } from "@ory/client-fetch"
+import {
+  OryClientConfiguration,
+  OryFlowComponents,
+  OryProvider,
+  OryTwoStepCard,
+} from "@ory/elements-react"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
-import {
-  OryFlowComponents,
-  OryCard,
-  OryClientConfiguration,
-  OryProvider,
-} from "@ory/elements-react"
 
 export type LoginFlowContextProps = {
   flow: LoginFlow
@@ -32,7 +32,7 @@ export function Login({
       flowType={FlowType.Login}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }

@@ -3,10 +3,10 @@ import { FlowType, VerificationFlow } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
 import {
-  OryCard,
-  OryProvider,
   OryClientConfiguration,
   OryFlowComponents,
+  OryProvider,
+  OryTwoStepCard,
 } from "@ory/elements-react"
 
 export type VerificationFlowContextProps = {
@@ -32,7 +32,7 @@ export function Verification({
       flowType={FlowType.Verification}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }
