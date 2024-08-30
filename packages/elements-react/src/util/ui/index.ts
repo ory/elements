@@ -100,9 +100,9 @@ export function useNodesGroups(nodes: UiNode[]) {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
 
     for (const node of nodes) {
-      if (!groups[node.group]) {
-        groups[node.group] = [...(groups[node.group] ?? []), node]
-      }
+      const groupNodes = groups[node.group] ?? []
+      groupNodes.push(node)
+      groups[node.group] = groupNodes
     }
     return groups
   }, [nodes])
