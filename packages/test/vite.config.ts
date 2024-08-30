@@ -9,10 +9,12 @@ import dts from "vite-plugin-dts"
 export default defineConfig({
   plugins: [
     dts({
-      root: path.resolve(__dirname, "../../src/test"),
-      insertTypesEntry: true,
+      root: path.resolve(__dirname, "./src"),
+      // insertTypesEntry: true,
       tsconfigPath: path.resolve(__dirname, "tsconfig.json"),
       outDir: path.resolve(__dirname, "dist"),
+      rollupTypes: true,
+
       exclude: [
         "node_modules",
         "dist",
@@ -26,7 +28,7 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       name: "@ory/elements-test",
-      entry: path.resolve(__dirname, "../../src/tests.ts"),
+      entry: path.resolve(__dirname, "./src/index.ts"),
       formats: ["es", "umd"],
       fileName: (format) => (format === "es" ? "index.mjs" : "index.umd.js"),
     },
