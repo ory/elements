@@ -3,6 +3,7 @@ import { useOryFlow } from "../../context/flow-context"
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { Node } from "./nodes/node"
+import { OryForm } from "./form"
 
 export type HeadlessSocialButtonsProps = PropsWithChildren<{
   hideDivider?: boolean
@@ -51,5 +52,24 @@ export function OryFormSocialButtons({
         <HorizontalDivider />
       )}
     </>
+  )
+}
+
+export function OryFormSocialButtonsForm() {
+  const {
+    flow: { ui },
+  } = useOryFlow()
+
+  // Only get the oidc nodes.
+  const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
+
+  if (filteredNodes.length === 0) {
+    return null
+  }
+
+  return (
+    <OryForm>
+      <OryFormSocialButtons />
+    </OryForm>
   )
 }

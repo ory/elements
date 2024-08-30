@@ -8,9 +8,8 @@ import {
   UiNodeInputAttributes,
   UiNodeTextAttributes,
 } from "@ory/client-fetch"
-import React, {
+import {
   ComponentPropsWithoutRef,
-  Dispatch,
   FormEventHandler,
   MouseEventHandler,
 } from "react"
@@ -38,8 +37,7 @@ export type HeadlessTextProps = {
 }
 
 export type HeadlessAuthMethodListItemProps = {
-  setGroups: Dispatch<React.SetStateAction<string[]>>
-  setStep: Dispatch<React.SetStateAction<number>>
+  onClick: () => void
   group: string
 }
 

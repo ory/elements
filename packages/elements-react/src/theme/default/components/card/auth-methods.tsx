@@ -8,8 +8,7 @@ import webauthn from "../../assets/icons/webauthn.svg"
 
 // TODO: create a next specific component with Image for this
 export function DefaultAuthMethodListItem({
-  setGroups,
-  setStep,
+  onClick,
   group,
 }: HeadlessAuthMethodListItemProps) {
   let Icon: FunctionComponent<SVGAttributes<SVGElement>> | null = null
@@ -45,10 +44,7 @@ export function DefaultAuthMethodListItem({
       className={
         "flex py-2 gap-3 cursor-pointer hover:bg-button-secondary-bg-hover"
       }
-      onClick={() => {
-        setGroups([group])
-        setStep(2)
-      }}
+      onClick={onClick}
     >
       <div className={"flex-none w-4 h-4 mt-[2px]"}>
         {Icon && <Icon className="w-5 h-5" width={16} height={16} />}

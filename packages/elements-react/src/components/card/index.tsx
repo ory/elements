@@ -19,9 +19,6 @@ export function OryCardContent({ children }: OryCardContentProps) {
     <CardContent>
       <OryCardValidationMessages />
       <OryForm>
-        <OryFormSocialButtons />
-      </OryForm>
-      <OryForm>
         <OryFormGroups
           groups={[
             "default",
