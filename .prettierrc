@@ -1,6 +1,5 @@
 {
   "proseWrap": "always",
-  "singleQuote": true,
-  "trailingComma": "none",
-  "parser": "typescript"
+  "trailingComma": "all",
+  "semi": false
 }
