@@ -15,9 +15,14 @@ test-containerized:
 	# For unsupported distros, use the `test-containerized` target instead of `test`
 	sh -c ./playwright-docker.sh
 
-format: .bin/ory node_modules
+
+PRETTIER_VERSION=$(shell cat package.json | jq -r '.devDependencies["prettier"] // .dependencies["prettier"]')
+
+format: .bin/ory
 	.bin/ory dev headers copyright --type=open-source
-	npm exec -- prettier --write .
+	@echo "Prettier Version: $(PRETTIER_VERSION)"
+	npx prettier@$$PRETTIER_VERSION --write .
+
 
 licenses: .bin/licenses node_modules  # checks open-source licenses
 	.bin/licenses
@@ -25,8 +30,8 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 .bin/licenses: Makefile
 	curl https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
 
-.bin/ory: Makefile
-	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory v0.2.2
+.bin/ory: .deps/ory.version
+	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory $(cat .deps/ory.version)
 	touch .bin/ory
 
 node_modules: package-lock.json
