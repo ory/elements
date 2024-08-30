@@ -8,6 +8,7 @@ import { useOryFlow } from "../../context/flow-context"
 import {
   UiNode,
   UiNodeGroupEnum,
+  UiNodeInputAttributes,
   UiNodeInputAttributesNodeTypeEnum,
   UiNodeInputAttributesTypeEnum,
   UiNodeTypeEnum,
@@ -100,7 +101,11 @@ export function OryTwoStepCard() {
     .filter(
       (group) =>
         !(
-          [UiNodeGroupEnum.Oidc, UiNodeGroupEnum.Default] as UiNodeGroupEnum[]
+          [
+            UiNodeGroupEnum.Oidc,
+            UiNodeGroupEnum.Default,
+            UiNodeGroupEnum.IdentifierFirst,
+          ] as UiNodeGroupEnum[]
         ).includes(group),
     )
 
@@ -110,6 +115,13 @@ export function OryTwoStepCard() {
     setSelectedGroup(group)
     setStep(2)
   }
+  console.log(ui.nodes, uniqueGroups)
+
+  const zeroStepGroups = ([] as UiNode[])
+    .concat(uniqueGroups?.default ?? [])
+    .concat(uniqueGroups?.identifier_first ?? [])
+    // Filter continue
+    .filter((node) => node.meta.label?.id !== 1070009)
 
   return (
     <OryCard>
@@ -122,10 +134,14 @@ export function OryTwoStepCard() {
           <FormGroup>
             {step === 0 && (
               <>
-                {uniqueGroups.default?.map((node, k) => (
+                {zeroStepGroups.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
-                <Node node={nodeContinue} onClick={() => setStep(1)} />
+                <Components.Button
+                  attributes={nodeContinue.attributes as UiNodeInputAttributes}
+                  node={nodeContinue}
+                  onClick={() => setStep(1)}
+                />
               </>
             )}
             {step === 1 && (
@@ -137,7 +153,11 @@ export function OryTwoStepCard() {
                     onClick={() => handleOptionSelect(option)}
                   />
                 ))}
-                <Node node={nodeGoBack} onClick={() => setStep(0)} />
+                <Components.Button
+                  attributes={nodeGoBack.attributes as UiNodeInputAttributes}
+                  node={nodeGoBack}
+                  onClick={() => setStep(0)}
+                />
               </>
             )}
             {step === 2 && (
@@ -146,7 +166,13 @@ export function OryTwoStepCard() {
                   uniqueGroups[selectedGroup]
                     ?.sort(sortNodes)
                     .map((node, k) => <Node node={node} key={k} />)}
-                <Node node={nodePickMethod} onClick={() => setStep(1)} />
+                <Components.Button
+                  attributes={
+                    nodePickMethod.attributes as UiNodeInputAttributes
+                  }
+                  node={nodePickMethod}
+                  onClick={() => setStep(1)}
+                />
               </>
             )}
           </FormGroup>
