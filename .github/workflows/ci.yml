@@ -44,6 +44,6 @@ jobs:
             examples/nextjs-spa/playwright-report/
             examples/nextjs-spa/test-results/
           retention-days: 7
-      - uses: chromaui/action@v11
+      - uses: chromaui/action@v11.7.0
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
