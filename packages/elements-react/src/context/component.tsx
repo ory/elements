@@ -30,8 +30,8 @@ export function useNodeSorter() {
 
 const defaultGroupOrder = [
   "oidc",
-  "default",
   "identifier_first",
+  "default",
   "profile",
   "password",
   "passkey",
