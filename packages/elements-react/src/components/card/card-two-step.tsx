@@ -131,7 +131,6 @@ export function OryTwoStepCard() {
 
   return (
     <OryCard>
-      {step} {isChoosingMethod ? "t" : "f"}
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
