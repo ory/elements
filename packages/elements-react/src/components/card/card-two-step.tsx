@@ -20,26 +20,6 @@ import { useNodesGroups } from "../../util/ui"
 
 type ExtendedUiNode = UiNode & { twoStepContinue?: boolean }
 
-const nodeContinue: ExtendedUiNode = {
-  attributes: {
-    label: {
-      id: 1040003,
-      text: "Continue",
-      type: UiTextTypeEnum.Info,
-    },
-    name: "two_step_continue",
-    disabled: false,
-    node_type: UiNodeInputAttributesNodeTypeEnum.Input,
-    type: UiNodeInputAttributesTypeEnum.Submit,
-    value: "Continue",
-  },
-  group: "default",
-  messages: [],
-  meta: {},
-  type: UiNodeTypeEnum.Input,
-  twoStepContinue: true,
-}
-
 const nodePickMethod: ExtendedUiNode = {
   attributes: {
     label: {
@@ -59,6 +39,7 @@ const nodePickMethod: ExtendedUiNode = {
   type: UiNodeTypeEnum.Input,
   twoStepContinue: true,
 }
+
 const nodeGoBack: ExtendedUiNode = {
   attributes: {
     label: {
@@ -80,16 +61,30 @@ const nodeGoBack: ExtendedUiNode = {
 }
 
 export function OryTwoStepCard() {
-  const [step, setStep] = useState(0)
+  const {
+    flow: { ui },
+  } = useOryFlow()
+
+  const isChoosingMethod =
+    ui.nodes.some(
+      (node) =>
+        "value" in node.attributes && node.attributes.value === "profile:back",
+    ) ||
+    ui.nodes.some(
+      (node) =>
+        node.group === UiNodeGroupEnum.IdentifierFirst &&
+        "name" in node.attributes &&
+        node.attributes.name === "identifier" &&
+        node.attributes.type === "hidden",
+    )
+
+  const [step, setStep] = useState(isChoosingMethod ? 1 : 0)
   const [selectedGroup, setSelectedGroup] = useState<
     UiNodeGroupEnum | undefined
   >()
   const Components = useComponents()
   const { FormGroup } = useComponents()
   const { flowType } = useOryFlow()
-  const {
-    flow: { ui },
-  } = useOryFlow()
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
@@ -105,6 +100,7 @@ export function OryTwoStepCard() {
             UiNodeGroupEnum.Oidc,
             UiNodeGroupEnum.Default,
             UiNodeGroupEnum.IdentifierFirst,
+            UiNodeGroupEnum.Profile,
           ] as UiNodeGroupEnum[]
         ).includes(group),
     )
@@ -115,35 +111,38 @@ export function OryTwoStepCard() {
     setSelectedGroup(group)
     setStep(2)
   }
-  console.log(ui.nodes, uniqueGroups)
 
-  const zeroStepGroups = ([] as UiNode[])
-    .concat(uniqueGroups?.default ?? [])
-    .concat(uniqueGroups?.identifier_first ?? [])
-    // Filter continue
-    .filter((node) => node.meta.label?.id !== 1070009)
+  const zeroStepGroups = ui.nodes.filter(
+    (node) => node.group !== UiNodeGroupEnum.Oidc,
+  )
+
+  const selectedNodes: UiNode[] = selectedGroup
+    ? uniqueGroups[selectedGroup] ?? []
+    : []
+
+  const finalNodes = [
+    ...(uniqueGroups?.identifier_first ?? []),
+    ...(uniqueGroups?.default ?? []),
+  ]
+    .flat()
+    .filter((node) => {
+      return "type" in node.attributes && node.attributes.type === "hidden"
+    })
+    .concat(selectedNodes)
 
   return (
     <OryCard>
-      {step}
+      {step} {isChoosingMethod ? "t" : "f"}
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
         {step === 0 && hasOIDC && <OryFormSocialButtonsForm />}
         <OryForm>
           <FormGroup>
-            {step === 0 && (
-              <>
-                {zeroStepGroups.sort(sortNodes).map((node, k) => (
-                  <Node node={node} key={k} />
-                ))}
-                <Components.Button
-                  attributes={nodeContinue.attributes as UiNodeInputAttributes}
-                  node={nodeContinue}
-                  onClick={() => setStep(1)}
-                />
-              </>
-            )}
+            {step === 0 &&
+              zeroStepGroups
+                .sort(sortNodes)
+                .map((node, k) => <Node node={node} key={k} />)}
             {step === 1 && (
               <>
                 {options.map((option) => (
@@ -162,10 +161,9 @@ export function OryTwoStepCard() {
             )}
             {step === 2 && (
               <>
-                {selectedGroup &&
-                  uniqueGroups[selectedGroup]
-                    ?.sort(sortNodes)
-                    .map((node, k) => <Node node={node} key={k} />)}
+                {finalNodes.sort(sortNodes).map((node, k) => (
+                  <Node node={node} key={k} />
+                ))}
                 <Components.Button
                   attributes={
                     nodePickMethod.attributes as UiNodeInputAttributes
