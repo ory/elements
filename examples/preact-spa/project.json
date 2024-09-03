@@ -1,6 +1,6 @@
 {
   "targets": {
-    "e2e": {
+    "test": {
       "command": "playwright test",
       "dependsOn": ["build"],
       "options": {

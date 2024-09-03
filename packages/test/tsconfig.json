@@ -19,7 +19,7 @@
     "declarationMap": true,
     "outDir": "dist"
   },
-  "include": ["../../src/test", "vite.config.ts", "package.json"],
+  "include": ["./src/test", "tsup.config.ts", "package.json"],
   "exclude": [
     "**/*.spec.*",
     "**/*.test.*",

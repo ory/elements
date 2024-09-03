@@ -55,16 +55,16 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: "nextjs-spa-chromium",
       use: { ...devices["Desktop Chrome"] },
     },
 
     {
-      name: "firefox",
+      name: "nextjs-spa-firefox",
       use: { ...devices["Desktop Firefox"] },
     },
     {
-      name: "webkit",
+      name: "nextjs-spa-webkit",
       use: { ...devices["Desktop Safari"] },
     },
   ],

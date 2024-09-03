@@ -54,6 +54,7 @@ export interface LoginSectionAdditionalProps {
   forgotPasswordURL?: CustomHref | string
   signupURL?: CustomHref | string
   logoutURL?: CustomHref | string
+  loginURL?: CustomHref | string
 }
 
 export interface RegistrationSectionAdditionalProps {
@@ -375,7 +376,24 @@ export const UserAuthCard = ({
         ...additionalProps,
       })
 
-      if (isLoggedIn(flowProps.flow) && flowProps.additionalProps?.logoutURL) {
+      if (flowProps.flow.ui.messages?.some((m) => m.id === 1010016)) {
+        // This is a special case for the account linking UI, to show a cancel button.
+        message = {
+          text: intl.formatMessage({
+            id: "login.cancel-label",
+            defaultMessage: "Not the right account?",
+          }),
+          buttonText: intl.formatMessage({
+            id: "login.cancel-button",
+            defaultMessage: "Cancel",
+          }),
+          url: flowProps.additionalProps?.loginURL,
+          dataTestId: "cancel-link",
+        }
+      } else if (
+        isLoggedIn(flowProps.flow) &&
+        flowProps.additionalProps?.logoutURL
+      ) {
         message = {
           text: intl.formatMessage({
             id: "login.logout-label",

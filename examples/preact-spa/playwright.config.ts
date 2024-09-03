@@ -54,15 +54,15 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: "preact-spa-chromium",
       use: { ...devices["Desktop Chrome"] },
     },
     {
-      name: "firefox",
+      name: "preact-spa-firefox",
       use: { ...devices["Desktop Firefox"] },
     },
     {
-      name: "webkit",
+      name: "preact-spa-webkit",
       use: { ...devices["Desktop Safari"] },
     },
   ],
