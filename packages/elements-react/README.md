@@ -41,10 +41,6 @@ Visit https://ory.sh/docs to see the full Ory documentation.
 npm install @ory/elements-react
 ```
 
-> [!IMPORTANT]<br/>Please take a look at the
-> [local develepmont documentation](https://www.ory.sh/docs/getting-started/local-development)
-> \
-
 ## Usage
 
 Ory Elements provides components that can aggregate flow objects and display
