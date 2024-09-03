@@ -81,18 +81,20 @@ export const NodeInput = ({
         />
       )
     case UiNodeInputAttributesTypeEnum.Hidden:
-      if (isCurrentIdentifier) {
-        return (
-          <Components.CurrentIdentifierButton attributes={attrs} node={node} />
-        )
-      }
-
       return (
-        <Components.Input
-          attributes={attrs}
-          node={node}
-          onClick={handleClick}
-        />
+        <>
+          {isCurrentIdentifier && (
+            <Components.CurrentIdentifierButton
+              attributes={attrs}
+              node={node}
+            />
+          )}
+          <Components.Input
+            attributes={attrs}
+            node={node}
+            onClick={handleClick}
+          />
+        </>
       )
     default:
       if (isPinCodeInput) {

@@ -1,7 +1,9 @@
 import { HeadlessButtonProps } from "../../../../types"
+import { DefaultInput } from "../form/input"
 
 export function DefaultCurrentIdentifierButton({
   attributes,
+  node,
 }: HeadlessButtonProps) {
   return (
     <div>
@@ -10,6 +12,7 @@ export function DefaultCurrentIdentifierButton({
           {attributes.value}
         </span>
       </span>
+      <DefaultInput attributes={attributes} node={node} onClick={() => {}} />
     </div>
   )
 }
