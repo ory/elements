@@ -49,11 +49,6 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "devDependencies": {
-    "@preact/preset-vite": "2.5.0",
-    "preact": "10.13.1",
-    "vite": "4.5.2"
-  },
   "files": [
     "dist/*"
   ],
