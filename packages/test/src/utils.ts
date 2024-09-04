@@ -1,9 +1,24 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeAttributes, UiNodeMeta } from "@ory/client"
-import { isUiNodeInputAttributes } from "../ui"
+import {
+  UiNode,
+  UiNodeAttributes,
+  UiNodeInputAttributes,
+  UiNodeMeta,
+} from "@ory/client"
 import { Traits } from "./types"
+
+/**
+ * A TypeScript type guard for nodes of the type <input>
+ *
+ * @param attrs
+ */
+export function isUiNodeInputAttributes(
+  attrs: UiNodeAttributes,
+): attrs is UiNodeInputAttributes & { node_type: "input" } {
+  return attrs.node_type === "input"
+}
 
 export const isUiNode = (a: unknown): a is UiNode[] => {
   return (

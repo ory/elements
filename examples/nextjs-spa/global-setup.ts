@@ -3,7 +3,7 @@
 
 const globlSetup = async () => {
   process.env.APPLICATION_URL =
-    process.env.APPLICATION_URL || "http://localhost:3100"
+    process.env.APPLICATION_URL || "http://localhost:3300"
 
   process.env.ORY_PROJECT_URL =
     process.env.ORY_PROJECT_URL || "http://localhost:4000"
