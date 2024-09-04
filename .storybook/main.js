@@ -18,8 +18,10 @@ export default {
   },
 
   async viteFinal(config) {
-    const { mergeConfig } = await import('vite');
-    const { vanillaExtractPlugin } = await import('@vanilla-extract/vite-plugin');
+    const { mergeConfig } = await import("vite")
+    const { vanillaExtractPlugin } = await import(
+      "@vanilla-extract/vite-plugin"
+    )
 
     return mergeConfig(config, {
       plugins: [vanillaExtractPlugin()],
