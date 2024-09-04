@@ -2,9 +2,7 @@ import { dirname, join } from "path"
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-const { vanillaExtractPlugin } = require("@vanilla-extract/vite-plugin")
-const { mergeConfig } = require("vite")
-module.exports = {
+export default {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
@@ -20,6 +18,9 @@ module.exports = {
   },
 
   async viteFinal(config) {
+    const { mergeConfig } = await import('vite');
+    const { vanillaExtractPlugin } = await import('@vanilla-extract/vite-plugin');
+
     return mergeConfig(config, {
       plugins: [vanillaExtractPlugin()],
     })
