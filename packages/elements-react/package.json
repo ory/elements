@@ -8,9 +8,9 @@
       "require": "./dist/index.js"
     },
     "./theme": {
-      "require": "./dist/theme/default/index.js",
       "types": "./dist/theme/default/index.d.ts",
-      "import": "./dist/theme/default/index.mjs"
+      "import": "./dist/theme/default/index.mjs",
+      "require": "./dist/theme/default/index.js"
     },
     "./theme/styles.css": "./dist/theme/default/index.css"
   },
