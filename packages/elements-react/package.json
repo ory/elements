@@ -14,6 +14,16 @@
     },
     "./theme/styles.css": "./dist/theme/default/index.css"
   },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ],
+      "theme": [
+        "./dist/theme/default/index.d.ts"
+      ]
+    }
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
