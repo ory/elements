@@ -104,6 +104,5 @@
   "dependencies": {
     "lodash": "4.17.21",
     "next": "14.2.5"
-  },
-  "main": "src/react.ts"
+  }
 }

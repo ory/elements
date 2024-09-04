@@ -44,17 +44,6 @@ jobs:
             examples/nextjs-spa/playwright-report/
             examples/nextjs-spa/test-results/
           retention-days: 7
-      - name: Execute Shell Script
-        run: |
-          sed -i.bak 's/packageEntryFailure(id);/packageEntryFailure(id, JSON.stringify({dir, data, options}));/' node_modules/vite/dist/node/chunks/dep-52909643.js
       - uses: chromaui/action@v11.7.0
-        env:
-          DEBUG: vite:resolve-details
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      - if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          # upload build log
-          name: chromatic
-          path: build-storybook.log
