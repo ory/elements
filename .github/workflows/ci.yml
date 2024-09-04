@@ -47,3 +47,9 @@ jobs:
       - uses: chromaui/action@v11.7.0
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          # upload build log
+          name: chromatic
+          path: build-storybook.log
