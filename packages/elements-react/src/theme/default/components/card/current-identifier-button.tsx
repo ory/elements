@@ -12,7 +12,7 @@ export function DefaultCurrentIdentifierButton({
           {attributes.value}
         </span>
       </span>
-      <DefaultInput attributes={attributes} node={node} onClick={() => {}} />
+      <DefaultInput attributes={attributes} node={node} />
     </div>
   )
 }
