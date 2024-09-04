@@ -11,7 +11,6 @@ import { viteStaticCopy } from "vite-plugin-static-copy"
 export default defineConfig({
   plugins: [
     vanillaExtractPlugin({
-      emitCssInSsr: true,
       identifiers: ({ hash, filePath, debugId }) => {
         const name = filePath
           .split("/")
