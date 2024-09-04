@@ -57,7 +57,7 @@ export type HeadlessFormProps = ComponentPropsWithoutRef<"form"> & {
 export type HeadlessInputProps = {
   attributes: UiNodeInputAttributes
   node: UiNode
-  onClick: MouseEventHandler
+  onClick?: MouseEventHandler
 }
 
 export type OryFlowComponents = OryFormComponents & OryCardComponents
