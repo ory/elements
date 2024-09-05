@@ -1,9 +1,9 @@
 import { IntlProvider } from "../../../../context/intl-context"
-import { expect, test } from "@playwright/experimental-ct-react"
+import { render, screen } from "../../../../tests/jest/test-utils"
 import { Node } from "../node"
 
-test("Text nodes are translated to german", async ({ mount }) => {
-  const component = await mount(
+test("Text nodes are translated to german", () => {
+  render(
     <IntlProvider locale={"de"}>
       <Node
         node={{
@@ -131,9 +131,11 @@ test("Text nodes are translated to german", async ({ mount }) => {
     </IntlProvider>,
   )
 
-  await expect(component).toContainText(
-    "Dies sind Ihre Backup-Wiederherstellungscode. Bewahren Sie sie an einem sicheren Ort auf!",
-  )
-  await expect(component).toContainText("te45pbc0")
-  await expect(component).toContainText("q3vvtd4i")
+  expect(
+    screen.getByText(
+      "Dies sind Ihre Backup-Wiederherstellungscode. Bewahren Sie sie an einem sicheren Ort auf!",
+    ),
+  ).toBeTruthy()
+  expect(screen.getByText("te45pbc0")).toBeTruthy()
+  expect(screen.getByText("q3vvtd4i")).toBeTruthy()
 })

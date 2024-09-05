@@ -20,5 +20,11 @@
     "rootDir": "src"
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/global.d.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/global.d.ts",
+    "src/tests/**/*.ts",
+    "src/tests/**/*.tsx"
+  ]
 }

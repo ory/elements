@@ -2,11 +2,13 @@ name: "Main - Lint/Build/Tests"
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, master]
+  pull_request:
+    # TODO: Remove jonas-jonas/elementsv1 when we merge the branch
+    branches: [main, master, jonas-jonas/elementsv1]
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,7 +20,3 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps
       - run: npx nx run-many --target=build --all
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
