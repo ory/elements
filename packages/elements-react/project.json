@@ -17,10 +17,7 @@
     },
     "build": {
       "command": "tsup --clean --dts",
-      "dependsOn": [
-        "lint",
-        "test"
-      ],
+      "dependsOn": ["lint", "test"],
       "options": {
         "cwd": "packages/elements-react"
       }
