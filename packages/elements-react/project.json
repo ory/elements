@@ -1,11 +1,5 @@
 {
   "targets": {
-    "test": {
-      "command": "playwright test -c playwright-ct.config.ts",
-      "options": {
-        "cwd": "packages/elements-react"
-      }
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
@@ -23,7 +17,10 @@
     },
     "build": {
       "command": "tsup --clean --dts",
-      "dependsOn": ["lint", "test"],
+      "dependsOn": [
+        "lint",
+        "test"
+      ],
       "options": {
         "cwd": "packages/elements-react"
       }
