@@ -25,5 +25,5 @@
     "node_modules",
     "dist"
   ],
-  "include": ["../../src", "vite.config.ts", "package.json"]
+  "include": ["../../src", "vite.config.mts", "package.json"]
 }
