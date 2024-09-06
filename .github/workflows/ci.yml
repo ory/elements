@@ -19,7 +19,9 @@ jobs:
         run: npm ci
       - uses: nrwl/nx-set-shas@v4
       - run: npx playwright install --with-deps
-      - run: npx nx affected -t lint test build
+      # Re-enable, once we don't have weird depdenency issues, because of the shared src/ folder
+      # - run: npx nx affected -t lint test build
+      - run: npx nx run-many --all -t lint test build
       - uses: actions/upload-artifact@v2
         if: always()
         with:

@@ -49,9 +49,6 @@
     "url": "https://github.com/ory/elements/issues"
   },
   "homepage": "https://github.com/ory/elements#readme",
-  "devDependencies": {
-    "@vitejs/plugin-react": "4.0.4"
-  },
   "files": [
     "dist/*"
   ],
