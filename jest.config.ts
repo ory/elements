@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { getJestProjects } from "@nx/jest"
+import { getJestProjects, getJestProjectsAsync } from "@nx/jest"
 
 export default {
-  projects: getJestProjects(),
+  projects: await getJestProjects(),
 }

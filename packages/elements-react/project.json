@@ -21,6 +21,14 @@
       "options": {
         "cwd": "packages/elements-react"
       }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/elements-react/jest.config.ts",
+        "coverage": true,
+        "coverageReporters": ["text", "cobertura"]
+      }
     }
   }
 }
