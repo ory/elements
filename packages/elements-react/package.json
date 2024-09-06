@@ -41,8 +41,6 @@
   "devDependencies": {
     "esbuild-plugin-svgr": "2.1.0",
     "eslint-plugin-react": "7.35.0",
-    "postcss": "8.4.40",
-    "tailwindcss": "3.4.7",
     "tsup": "8.2.3"
   },
   "keywords": [

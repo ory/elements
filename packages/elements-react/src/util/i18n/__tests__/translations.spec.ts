@@ -1,20 +1,19 @@
-// Copyright © 2023 Ory Corp
+// Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
 import * as supportedLanguages from "../../../locales"
-import { test as base, expect } from "@playwright/experimental-ct-react"
+import { expect } from "@playwright/test"
 
 type TemplateStrings = {
   [k in keyof typeof supportedLanguages.en]: string[]
 }
 
-const test = base.extend<{
-  templates: Partial<TemplateStrings>
-}>({
-  // eslint-disable-next-line no-empty-pattern -- playwright needs this to be an empty object
-  templates: async ({}, use) => {
+describe("Translations", () => {
+  let templates: Partial<TemplateStrings>
+
+  beforeAll(() => {
     const en = supportedLanguages.en
-    const templates: Partial<TemplateStrings> = {}
+    templates = {}
     for (const [key, value] of Object.entries(en)) {
       const matches = value.match(/\{.+?}/g)
       if (!matches) {
@@ -22,20 +21,17 @@ const test = base.extend<{
       }
       templates[key as keyof typeof en] = matches
     }
-    await use(templates)
-  },
-})
+  })
 
-test("language keys and templates match", async ({ templates }) => {
-  for (const [language, translation] of Object.entries(supportedLanguages)) {
-    await test.step("Checking language keys for language " + language, () => {
+  test("language keys and templates match", () => {
+    for (const [_language, translation] of Object.entries(supportedLanguages)) {
       expect(Object.keys(translation).sort()).toEqual(
         Object.keys(supportedLanguages.en).sort(),
       )
-    })
-  }
+    }
+  })
 
-  await test.step("Checking template strings", () => {
+  test("template strings are present in translations", () => {
     Object.entries(supportedLanguages).forEach(([, translation]) => {
       Object.entries(templates).forEach(([key, templateStrings]) => {
         for (const templateString of templateStrings) {
@@ -45,5 +41,14 @@ test("language keys and templates match", async ({ templates }) => {
         }
       })
     })
+  })
+
+  test("translations have no missing keys", () => {
+    const enKeys = Object.keys(supportedLanguages.en)
+    for (const [_language, translation] of Object.entries(supportedLanguages)) {
+      const translationKeys = Object.keys(translation)
+      const missingKeys = enKeys.filter((key) => !translationKeys.includes(key))
+      expect(missingKeys).toEqual([])
+    }
   })
 })
