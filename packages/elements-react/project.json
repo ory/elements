@@ -1,11 +1,5 @@
 {
   "targets": {
-    "test": {
-      "command": "playwright test -c playwright-ct.config.ts",
-      "options": {
-        "cwd": "packages/elements-react"
-      }
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
@@ -26,6 +20,14 @@
       "dependsOn": ["lint", "test"],
       "options": {
         "cwd": "packages/elements-react"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/elements-react/jest.config.ts",
+        "coverage": true,
+        "coverageReporters": ["text", "cobertura"]
       }
     }
   }

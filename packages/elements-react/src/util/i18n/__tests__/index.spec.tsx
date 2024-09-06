@@ -1,9 +1,7 @@
 import { IntlProvider } from "../../../context/intl-context"
 import { UiText } from "@ory/client-fetch"
-import { expect, test } from "@playwright/experimental-ct-react"
 import { Inner } from "./test-components"
-
-test.use({ viewport: { width: 500, height: 500 } })
+import { render, screen } from "../../../tests/jest/test-utils"
 
 const uiText: UiText = {
   id: 1050010,
@@ -11,28 +9,32 @@ const uiText: UiText = {
   type: "info",
 }
 
-test.describe("IntlProvider", () => {
-  test("should return the german locale", async ({ mount }) => {
-    const component = await mount(
+describe("IntlProvider", () => {
+  test("should return the german locale", () => {
+    render(
       <IntlProvider locale={"de"}>
         <Inner uiText={uiText} />
       </IntlProvider>,
     )
 
-    await expect(component).toContainText(
-      "Dies sind Ihre Backup-Wiederherstellungscode. Bewahren Sie sie an einem sicheren Ort auf!",
-    )
+    expect(
+      screen.getByText(
+        "Dies sind Ihre Backup-Wiederherstellungscode. Bewahren Sie sie an einem sicheren Ort auf!",
+      ),
+    ).toBeTruthy()
   })
 
-  test("should return the polish locale", async ({ mount }) => {
-    const component = await mount(
+  test("should return the polish locale", () => {
+    render(
       <IntlProvider locale={"pl"}>
         <Inner uiText={uiText} />
       </IntlProvider>,
     )
 
-    await expect(component).toContainText(
-      "To są Twoje zapasowe kody odzyskiwania. Trzymaj je w bezpiecznym miejscu!",
-    )
+    expect(
+      screen.getByText(
+        "To są Twoje zapasowe kody odzyskiwania. Trzymaj je w bezpiecznym miejscu!",
+      ),
+    ).toBeTruthy()
   })
 })

@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main, jonas-jonas/elementsv1]
 jobs:
   pull_request:
     timeout-minutes: 20
@@ -21,7 +21,7 @@ jobs:
       - run: npx playwright install --with-deps
       # Re-enable, once we don't have weird depdenency issues, because of the shared src/ folder
       # - run: npx nx affected -t lint test build
-      - run: npx nx run-many --all -t lint test build
+      - run: npx nx run-many --all -t lint test build --verbose
       - uses: actions/upload-artifact@v2
         if: always()
         with:
@@ -49,3 +49,9 @@ jobs:
       - uses: chromaui/action@v11.7.0
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitOnceUploaded: true
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
