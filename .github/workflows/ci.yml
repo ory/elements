@@ -49,6 +49,8 @@ jobs:
       - uses: chromaui/action@v11.7.0
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitOnceUploaded: true
+          onlyChanged: true
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4

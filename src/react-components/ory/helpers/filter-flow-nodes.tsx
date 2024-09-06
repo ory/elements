@@ -38,12 +38,12 @@ export const FilterFlowNodes = ({
             isUiNodeInputAttributes(node.attributes)
               ? node.attributes.name
               : isUiNodeImageAttributes(node.attributes)
-              ? node.attributes.src
-              : isUiNodeAnchorAttributes(node.attributes) ||
-                isUiNodeTextAttributes(node.attributes) ||
-                isUiNodeScriptAttributes(node.attributes)
-              ? node.attributes.id
-              : k
+                ? node.attributes.src
+                : isUiNodeAnchorAttributes(node.attributes) ||
+                    isUiNodeTextAttributes(node.attributes) ||
+                    isUiNodeScriptAttributes(node.attributes)
+                  ? node.attributes.id
+                  : k
           }
           {...overrides}
         />
