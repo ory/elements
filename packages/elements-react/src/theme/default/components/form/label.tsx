@@ -17,16 +17,20 @@ export function DefaultLabel({
 
   const isPassword = attributes.type === "password"
 
+  const isCode = attributes.name === "code"
+
   return (
-    <label className="flex flex-col antialiased gap-1" {...rest}>
+    <span className="flex flex-col antialiased gap-1">
       {label && (
         <span className="inline-flex justify-between">
-          <span
+          <label
             {...messageTestId(label)}
             className="text-sm font-medium leading-normal capitalize"
+            htmlFor={attributes.name}
+            {...rest}
           >
             {formatMessage(label, intl)}
-          </span>
+          </label>
           {isPassword &&
             config.project.recovery_enabled &&
             flowType === FlowType.Login && (
@@ -41,6 +45,13 @@ export function DefaultLabel({
                 })}
               </a>
             )}
+          {isCode && (
+            <input
+              type="submit"
+              value="Resend Code"
+              className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium cursor-pointer"
+            />
+          )}
         </span>
       )}
       {children}
@@ -57,6 +68,6 @@ export function DefaultLabel({
           {formatMessage(message, intl)}
         </span>
       ))}
-    </label>
+    </span>
   )
 }

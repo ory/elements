@@ -4,13 +4,15 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
 import { HeadlessInputProps } from "../../../../types"
 
 export const DefaultPinCodeInput = ({ attributes }: HeadlessInputProps) => {
-  const { setValue } = useFormContext()
+  const { setValue, watch } = useFormContext()
   const { maxlength, name } = attributes
   const elements = maxlength ?? 6
 
   const handleInputChange = (v: string) => {
     setValue(name, v)
   }
+
+  const value = watch(name)
 
   return (
     <div
@@ -20,8 +22,9 @@ export const DefaultPinCodeInput = ({ attributes }: HeadlessInputProps) => {
         maxLength={maxlength ?? 6}
         onChange={handleInputChange}
         name={name}
+        value={value}
       >
-        <InputOTPGroup className="w-full space-x-2">
+        <InputOTPGroup className="w-full space-x-2 justify-between">
           {[...Array(elements)].map((_, index) => (
             <InputOTPSlot
               index={index}

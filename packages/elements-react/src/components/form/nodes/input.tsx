@@ -55,12 +55,16 @@ export const NodeInput = ({
     attrs.name == "identifier" &&
     node.group === "identifier_first" &&
     attrs.type === "hidden"
+  const isResend = attrs.name === "resend" && node.group === "code"
 
   switch (nodeType) {
     case UiNodeInputAttributesTypeEnum.Submit:
     case UiNodeInputAttributesTypeEnum.Button:
       if (isSocial) {
         return <Components.SocialButton attributes={attrs} node={node} />
+      }
+      if (isResend) {
+        return null
       }
 
       return (

@@ -2,28 +2,6 @@ import { useFormContext } from "react-hook-form"
 import { HeadlessInputProps } from "../../../../types"
 import { getNodeLabel } from "@ory/client-fetch"
 
-// Ory Elements v0
-//
-// return (
-//   <InputField
-//     helperMessage={
-//       <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
-//     }
-//     dataTestid={`node/input/${attrs.name}`}
-//     className={className}
-//     name={attrs.name}
-//     header={formatMessage(getNodeLabel(node))}
-//     type={attrs.type}
-//     autoComplete={
-//       attrs.autocomplete ??
-//       (attrs.name === "identifier" ? "username" : "")
-//     }
-//     defaultValue={attrs.value as string | number | string[]}
-//     required={attrs.required}
-//     disabled={attrs.disabled}
-//   />
-// )
-
 export const DefaultInput = ({
   node,
   attributes,
