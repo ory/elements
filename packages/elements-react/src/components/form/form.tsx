@@ -86,7 +86,7 @@ export function OryForm({ children }: OryFormProps) {
             // Do not set the default values for this.
             return acc
           }
-          acc[node.attributes.name] = node.attributes.value
+          acc[node.attributes.name] = node.attributes.value ?? ""
         }
 
         return acc
@@ -94,6 +94,7 @@ export function OryForm({ children }: OryFormProps) {
       {},
     ),
   })
+
   const intl = useIntl()
 
   const onRedirect: OnRedirectHandler = (url, external) => {
