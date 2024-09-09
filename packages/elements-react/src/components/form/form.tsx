@@ -191,7 +191,7 @@ export function OryForm({ children }: OryFormProps) {
       <FormContainer
         action={flowContainer.flow.ui.action}
         method={flowContainer.flow.ui.method}
-        onSubmit={() => void methods.handleSubmit(onSubmit)}
+        onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
       >
         {children ?? (
           <>
