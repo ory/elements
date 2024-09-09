@@ -55,6 +55,7 @@ export async function onSubmitRecovery(
       setFlowContainer({
         flow,
         flowType: FlowType.Recovery,
+        config,
       })
     })
     .catch(
@@ -66,6 +67,7 @@ export async function onSubmitRecovery(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Recovery,
+            config,
           })
         },
         onRedirect,

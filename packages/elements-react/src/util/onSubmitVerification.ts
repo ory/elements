@@ -44,6 +44,7 @@ export async function onSubmitVerification(
       setFlowContainer({
         flow: await res.value(),
         flowType: FlowType.Verification,
+        config,
       }),
     )
     .catch(
@@ -55,6 +56,7 @@ export async function onSubmitVerification(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Verification,
+            config,
           })
         },
         onRedirect,
