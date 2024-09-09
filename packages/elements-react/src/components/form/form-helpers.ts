@@ -1,0 +1,18 @@
+import { isUiNodeInputAttributes } from "@ory/client-fetch"
+import { FormValues } from "../../types"
+import { FlowContainer } from "../../util"
+
+export function computeDefaultValues(flowContainer: FlowContainer): FormValues {
+  return flowContainer.flow.ui.nodes.reduce<FormValues>((acc, node) => {
+    if (isUiNodeInputAttributes(node.attributes)) {
+      if (node.attributes.name === "method") {
+        // Do not set the default values for this.
+        return acc
+      }
+
+      acc[node.attributes.name] = node.attributes.value ?? ""
+    }
+
+    return acc
+  }, {})
+}

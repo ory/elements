@@ -38,12 +38,14 @@ import {
   isUiNodeScriptAttributes,
 } from "@ory/client-fetch"
 import {
+  FlowContainer,
   onSubmitLogin,
   onSubmitRecovery,
   onSubmitRegistration,
   onSubmitSettings,
   onSubmitVerification,
 } from "../../util"
+import { computeDefaultValues } from "./form-helpers"
 
 export type OryFormComponents = {
   Button: ComponentType<HeadlessButtonProps>
@@ -79,20 +81,7 @@ export function OryForm({ children }: OryFormProps) {
 
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
-    defaultValues: flowContainer.flow.ui.nodes.reduce<FormValues>(
-      (acc, node) => {
-        if (isUiNodeInputAttributes(node.attributes)) {
-          if (node.attributes.name === "method") {
-            // Do not set the default values for this.
-            return acc
-          }
-          acc[node.attributes.name] = node.attributes.value ?? ""
-        }
-
-        return acc
-      },
-      {},
-    ),
+    defaultValues: computeDefaultValues(flowContainer),
   })
 
   const intl = useIntl()
@@ -107,34 +96,46 @@ export function OryForm({ children }: OryFormProps) {
     window.location.href = url
   }
 
+  const handleSuccess = (flow: FlowContainer) => {
+    flowContainer.setFlowContainer(flow)
+    methods.reset(computeDefaultValues(flow))
+  }
+
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     switch (flowContainer.flowType) {
       case FlowType.Login: {
         const submitData: UpdateLoginFlowBody = {
           ...(data as unknown as UpdateLoginFlowBody),
         }
-        // TODO: We should probably fix this in Kratos, and give the code priority over the email. However, that would be breaking :(
-        if (submitData.method === "code" && submitData.code) {
-          submitData.identifier = ""
+        if (submitData.method === "code" && data.code) {
+          submitData.resend = ""
         }
         await onSubmitLogin(flowContainer, {
           onRedirect,
-          setFlowContainer: flowContainer.setFlowContainer,
+          setFlowContainer: handleSuccess,
           body: submitData,
         })
         break
       }
-      case FlowType.Registration:
+      case FlowType.Registration: {
+        const submitData: UpdateRegistrationFlowBody = {
+          ...(data as unknown as UpdateRegistrationFlowBody),
+        }
+        if (submitData.method === "code" && submitData.code) {
+          submitData.resend = ""
+        }
+        console
         await onSubmitRegistration(flowContainer, {
           onRedirect,
-          setFlowContainer: flowContainer.setFlowContainer,
-          body: data as unknown as UpdateRegistrationFlowBody,
+          setFlowContainer: handleSuccess,
+          body: submitData,
         })
         break
+      }
       case FlowType.Verification:
         await onSubmitVerification(flowContainer, {
           onRedirect,
-          setFlowContainer: flowContainer.setFlowContainer,
+          setFlowContainer: handleSuccess,
           body: data as unknown as UpdateVerificationFlowBody,
         })
         break
@@ -148,7 +149,7 @@ export function OryForm({ children }: OryFormProps) {
         }
         await onSubmitRecovery(flowContainer, {
           onRedirect,
-          setFlowContainer: flowContainer.setFlowContainer,
+          setFlowContainer: handleSuccess,
           body: submitData,
         })
         break
@@ -156,7 +157,7 @@ export function OryForm({ children }: OryFormProps) {
       case FlowType.Settings:
         await onSubmitSettings(flowContainer, {
           onRedirect,
-          setFlowContainer: flowContainer.setFlowContainer,
+          setFlowContainer: handleSuccess,
           body: data as unknown as UpdateSettingsFlowBody,
         })
         break

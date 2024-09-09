@@ -22,7 +22,7 @@ export type OnSubmitHandlerProps<
   /**
    * This method is used to update the flow container when a validation error occurs, for example.
    */
-  setFlowContainer: (flowContainer: Partial<FlowContainer>) => void
+  setFlowContainer: (flowContainer: FlowContainer) => void
 
   /**
    * The form values to submit.
