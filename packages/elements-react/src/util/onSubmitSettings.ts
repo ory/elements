@@ -66,6 +66,7 @@ export async function onSubmitSettings(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Settings,
+            config,
           })
         },
         onRedirect,

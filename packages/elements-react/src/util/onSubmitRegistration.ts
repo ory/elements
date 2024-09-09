@@ -66,6 +66,7 @@ export async function onSubmitRegistration(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Registration,
+            config,
           })
         },
         onRedirect,
