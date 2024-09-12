@@ -27,12 +27,7 @@ export default {
       plugins: [vanillaExtractPlugin()],
     })
   },
-  features: {
-    storyStoreV7: true,
-  },
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 }
 /**
  * This function is used to resolve the absolute path of a package.
