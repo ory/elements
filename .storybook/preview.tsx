@@ -62,4 +62,4 @@ export const withIntl = (StoryFn: StoryFn, context: Context) => (
 )
 
 export const decorators = [withTheme, withIntl]
-export const tags = ["autodocs"];
+export const tags = ["autodocs"]
