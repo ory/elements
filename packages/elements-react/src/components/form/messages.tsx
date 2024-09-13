@@ -1,5 +1,4 @@
-import { useComponents } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
+import { useOryFlow, useComponents } from "../../context"
 import { UiText } from "@ory/client-fetch"
 import { DetailedHTMLProps, HTMLAttributes } from "react"
 

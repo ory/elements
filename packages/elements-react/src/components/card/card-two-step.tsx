@@ -3,8 +3,8 @@ import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtons } from "../form/social"
-import { useComponents, useNodeSorter } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
+import { useComponents, useNodeSorter } from "../../context"
+import { useOryFlow } from "../../context"
 import {
   isUiNodeInputAttributes,
   UiNode,

@@ -1,4 +1,4 @@
-import { HeadlessAuthMethodListItemProps } from "../../../../types"
+import { HeadlessAuthMethodListItemProps } from "@ory/elements-react"
 
 import { FunctionComponent, SVGAttributes } from "react"
 import code from "../../assets/icons/code.svg"

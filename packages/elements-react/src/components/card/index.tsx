@@ -2,7 +2,7 @@ import { OryForm } from "../form/form"
 import { OryFormGroups } from "../form/groups"
 import { OryCardValidationMessages } from "../form/messages"
 import { OryFormSocialButtons } from "../form/social"
-import { useComponents } from "../../context/component"
+import { useComponents } from "../../context"
 import { ComponentType, PropsWithChildren } from "react"
 import { OryCardHeader, OryCardHeaderProps } from "./header"
 

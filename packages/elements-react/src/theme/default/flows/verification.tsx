@@ -2,10 +2,12 @@
 import { FlowType, VerificationFlow } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
-import { OryFlowComponents } from "../../../types"
-import { OryProvider } from "../../../context"
-import { OryCard } from "../../../components"
-import { OryClientConfiguration } from "../../../util/clientConfiguration"
+import {
+  OryCard,
+  OryProvider,
+  OryClientConfiguration,
+  OryFlowComponents,
+} from "@ory/elements-react"
 
 export type VerificationFlowContextProps = {
   flow: VerificationFlow

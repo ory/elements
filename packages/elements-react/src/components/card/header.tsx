@@ -1,4 +1,4 @@
-import { useComponents } from "../../context/component"
+import { useComponents } from "../../context"
 
 export type OryCardHeaderProps = Record<string, never>
 

@@ -1,7 +1,7 @@
 "use client"
 import { useFormContext } from "react-hook-form"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
-import { HeadlessInputProps } from "../../../../types"
+import { HeadlessInputProps } from "@ory/elements-react"
 
 export const DefaultPinCodeInput = ({ attributes }: HeadlessInputProps) => {
   const { setValue, watch } = useFormContext()

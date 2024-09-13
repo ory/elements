@@ -3,8 +3,8 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
-import { HeadlessInputProps } from "../../../../types"
-import { formatMessage, messageTestId } from "../../../../util"
+import { HeadlessInputProps } from "@ory/elements-react"
+import { formatMessage, messageTestId } from "@ory/elements-react"
 import { getNodeLabel } from "@ory/client-fetch"
 
 function CheckboxSVG() {

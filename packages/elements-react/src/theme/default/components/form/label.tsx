@@ -1,8 +1,8 @@
 import { FlowType, getNodeLabel } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
-import { useOryFlow } from "../../../../context"
-import { HeadlessLabelProps } from "../../../../types"
-import { formatMessage, messageTestId } from "../../../../util"
+import { useOryFlow } from "@ory/elements-react"
+import { HeadlessLabelProps } from "@ory/elements-react"
+import { formatMessage, messageTestId } from "@ory/elements-react"
 import { cn } from "../../utils/cn"
 
 export function DefaultLabel({
