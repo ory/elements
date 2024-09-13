@@ -1,0 +1,341 @@
+{
+  "id": "e77d5b46-4a0a-44a6-8617-358b938c738c",
+  "type": "browser",
+  "expires_at": "2024-04-25T13:57:44.061863Z",
+  "issued_at": "2024-04-25T12:57:44.061863Z",
+  "request_url": "https://busy-northcutt-9c8y6mgw44.projects.oryapis:8080/self-service/registration/browser",
+  "ui": {
+    "action": "https://busy-northcutt-9c8y6mgw44.projects.oryapis:8080/self-service/registration?flow=e77d5b46-4a0a-44a6-8617-358b938c738c",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Google",
+            "type": "info",
+            "context": {
+              "provider": "Google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property email is missing.",
+            "type": "error",
+            "context": {
+              "property": "email"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "/IaYRz4TZ9dV9gfiBiCcXTgIQskd87HkCURE+bBTCUtmds6w7VBK88GthhSnXw/FoIoB25LsJ+TKLYxVFMZxLw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_displayname",
+          "type": "text",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050013,
+            "text": "Name of the security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"busy-northcutt-9c8y6mgw44.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"wTu-l2zfSxawqGhq-OIweg\"},\"challenge\":\"wa7lu1Tl9o89azAmc-1GSceEtIHRjrWP5tXwbie2ZKA\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"busy-northcutt-9c8y6mgw44.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"wTu-l2zfSxawqGhq-OIweg\"},\"challenge\":\"wa7lu1Tl9o89azAmc-1GSceEtIHRjrWP5tXwbie2ZKA\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}})",
+          "onclickTrigger": "oryWebAuthnRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040004,
+            "text": "Sign up with security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://busy-northcutt-9c8y6mgw44.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "2c12bcb3-c232-4253-a491-f597ed5ae6c4",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register_trigger",
+          "type": "button",
+          "disabled": false,
+          "onclick": "window.oryPasskeyRegistration()",
+          "onclickTrigger": "oryPasskeyRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040007,
+            "text": "Sign up with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_create_data",
+          "type": "hidden",
+          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"busy-northcutt-9c8y6mgw44.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-nhs7otCZ3RoXwkDD-6-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"TEVTc1lOQ0VGeXFkVk95eFdsQkVNVXFZcEtYYWNTS2hVdWFPemt3QmVOVDJ5QVd0eXBkTjE5ZmxkRml4VFVLYw\"},\"challenge\":\"Oma849QLA4bki66gGpd0S50T6ChsmmeU9zqE9e5XLF4\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040006,
+            "text": "Sign up with code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "organization_id": null,
+  "state": "choose_method"
+}
