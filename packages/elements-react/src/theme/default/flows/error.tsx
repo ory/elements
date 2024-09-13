@@ -1,8 +1,7 @@
 "use client"
 import { FlowError } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
-import { OryFlowComponents } from "../../../types"
-import { OryClientConfiguration } from "../../../util/clientConfiguration"
+import { OryClientConfiguration, OryFlowComponents } from "@ory/elements-react"
 
 export type ErrorFlowContextProps = {
   error: FlowError

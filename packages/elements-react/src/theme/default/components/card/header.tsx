@@ -1,6 +1,5 @@
 import { FlowType, isUiNodeInputAttributes } from "@ory/client-fetch"
-import { useComponents, useOryFlow } from "../../../../context"
-import { FlowContainer } from "../../../../util/flowContainer"
+import { FlowContainer, useComponents, useOryFlow } from "@ory/elements-react"
 
 function joinWithCommaOr(list: string[]): string {
   if (list.length === 0) {

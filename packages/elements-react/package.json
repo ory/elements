@@ -39,6 +39,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@svgr/plugin-jsx": "^8.1.0",
     "esbuild-plugin-svgr": "2.1.0",
     "eslint-plugin-react": "7.35.0",
     "tsup": "8.2.3"

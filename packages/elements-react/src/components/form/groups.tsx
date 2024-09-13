@@ -1,5 +1,5 @@
-import { useComponents, useNodeSorter } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
+import { useComponents, useNodeSorter } from "../../context"
+import { useOryFlow } from "../../context"
 import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { Node } from "./nodes/node"

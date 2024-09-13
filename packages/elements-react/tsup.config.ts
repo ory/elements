@@ -5,7 +5,7 @@ import svgr from "esbuild-plugin-svgr"
 import { defineConfig, type Options } from "tsup"
 
 const baseConfig: Options = {
-  dts: false,
+  dts: true,
   minify: false,
   sourcemap: true,
   bundle: true,
@@ -17,6 +17,7 @@ export default defineConfig([
     ...baseConfig,
     entry: ["src/index.ts"],
     outDir: "dist/",
+    dts: true,
     treeshake: true,
     external: [
       "react",
@@ -34,6 +35,7 @@ export default defineConfig([
       "react-dom",
       "@ory/client-helpers",
       "@ory/client-fetch",
+      "@ory/elements-react",
     ],
 
     /* @ts-ignore -- the types of the plugin are wrong? it still works.. */

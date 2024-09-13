@@ -1,6 +1,6 @@
 import { FlowType } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
-import { useOryFlow } from "../../../../context"
+import { useOryFlow } from "@ory/elements-react"
 
 export function DefaultCardFooter() {
   const { flowType } = useOryFlow()

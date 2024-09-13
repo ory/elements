@@ -1,4 +1,4 @@
-import { useOryFlow } from "../../../../context"
+import { useOryFlow } from "@ory/elements-react"
 
 export function DefaultCardLogo() {
   const flow = useOryFlow()

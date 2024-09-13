@@ -1,4 +1,4 @@
-import { HeadlessImageProps } from "../../../../types"
+import { HeadlessImageProps } from "@ory/elements-react"
 
 export function DefaultImage({ attributes }: HeadlessImageProps) {
   // const intl = useIntl()

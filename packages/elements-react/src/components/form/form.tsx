@@ -8,8 +8,7 @@ import {
 import { ComponentType, PropsWithChildren } from "react"
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { useComponents } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
+import { useOryFlow, useComponents } from "../../context"
 import {
   FormValues,
   HeadlessAuthMethodListItemProps,

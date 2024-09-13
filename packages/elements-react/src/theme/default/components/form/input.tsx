@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form"
-import { HeadlessInputProps } from "../../../../types"
+import { HeadlessInputProps } from "@ory/elements-react"
 import { getNodeLabel } from "@ory/client-fetch"
 
 export const DefaultInput = ({
