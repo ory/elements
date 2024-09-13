@@ -1,4 +1,4 @@
-import { HeadlessButtonProps } from "../../../../types"
+import { HeadlessButtonProps } from "@ory/elements-react"
 import { DefaultInput } from "../form/input"
 
 export function DefaultCurrentIdentifierButton({

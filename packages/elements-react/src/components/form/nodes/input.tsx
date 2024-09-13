@@ -1,5 +1,5 @@
 import { NodeProps } from "./node"
-import { useComponents } from "../../../context/component"
+import { useComponents } from "../../../context"
 import { triggerToWindowCall } from "../../../util/ui"
 import {
   UiNodeInputAttributes,

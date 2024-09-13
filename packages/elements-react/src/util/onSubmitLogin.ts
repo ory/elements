@@ -54,7 +54,6 @@ export async function onSubmitLogin(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Login,
-            config,
           })
         },
         onRedirect,

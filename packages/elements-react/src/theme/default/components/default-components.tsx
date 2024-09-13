@@ -26,7 +26,7 @@ import {
 } from "./form/social"
 import { DefaultText } from "./form/text"
 import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button"
-import { OryFlowComponents } from "../../../types"
+import { OryFlowComponents } from "@ory/elements-react"
 
 export const OryDefaultComponents: OryFlowComponents = {
   Card: DefaultCard,

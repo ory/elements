@@ -1,5 +1,5 @@
-import { useComponents } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
+import { useComponents } from "../../context"
+import { useOryFlow } from "../../context"
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { Node } from "./nodes/node"

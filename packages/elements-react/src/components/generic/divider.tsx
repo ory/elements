@@ -1,5 +1,5 @@
-import { useComponents } from "../../context/component"
-import { useOryFlow } from "../../context/flow-context"
+import { useComponents } from "../../context"
+import { useOryFlow } from "../../context"
 
 export type HorizontalDividerProps = Record<string, never>
 

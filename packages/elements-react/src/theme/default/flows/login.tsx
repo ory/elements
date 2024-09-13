@@ -2,10 +2,12 @@
 import { FlowType, LoginFlow } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
-import { OryFlowComponents } from "../../../types"
-import { OryProvider } from "../../../context"
-import { OryCard } from "../../../components"
-import { OryClientConfiguration } from "../../../util/clientConfiguration"
+import {
+  OryFlowComponents,
+  OryCard,
+  OryClientConfiguration,
+  OryProvider,
+} from "@ory/elements-react"
 
 export type LoginFlowContextProps = {
   flow: LoginFlow

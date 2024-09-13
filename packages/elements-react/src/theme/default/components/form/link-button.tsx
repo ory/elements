@@ -1,8 +1,8 @@
 import { forwardRef } from "react"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
-import { HeadlessLinkButtonProps } from "../../../../types"
-import { formatMessage } from "../../../../util"
+import { HeadlessLinkButtonProps } from "@ory/elements-react"
+import { formatMessage } from "@ory/elements-react"
 import { getNodeLabel } from "@ory/client-fetch"
 
 export const DefaultLinkButton = forwardRef<

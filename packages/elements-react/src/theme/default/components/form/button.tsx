@@ -2,8 +2,7 @@ import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { Spinner } from "./spinner"
 import { cn } from "../../utils/cn"
-import { HeadlessButtonProps } from "../../../../types"
-import { formatMessage } from "../../../../util"
+import { formatMessage, HeadlessButtonProps } from "@ory/elements-react"
 import { getNodeLabel } from "@ory/client-fetch"
 
 export const DefaultButton = ({

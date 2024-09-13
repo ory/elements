@@ -1,4 +1,4 @@
-import { HeadlessGroupContainerProps } from "../../../../components"
+import { HeadlessGroupContainerProps } from "@ory/elements-react"
 
 export function DefaultGroupContainer({
   children,

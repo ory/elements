@@ -8,7 +8,7 @@ import {
   isUiNodeTextAttributes,
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode } from "react"
-import { useComponents } from "../../../context/component"
+import { useComponents } from "../../../context"
 
 export type NodeProps = {
   node: UiNode

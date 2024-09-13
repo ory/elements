@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react"
 import { cn } from "../../utils/cn"
-import { HeadlessFormProps } from "../../../../types"
-import { HeadlessMessageProps } from "../../../../components"
+import { HeadlessFormProps } from "@ory/elements-react"
+import { HeadlessMessageProps } from "@ory/elements-react"
 
 export function DefaultFormContainer({
   children,
