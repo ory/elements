@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Login } from "../../../pages/login"
 import { config } from "../../../utils"
 import { LoginFlowFromJSON } from "@ory/client-fetch"

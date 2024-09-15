@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import type { StorybookConfig } from "@storybook/react-vite"
 
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin"
