@@ -192,7 +192,6 @@ export const IntlProvider = <
   let translation = locales.en
 
   if (props.locale && props.locale in locales) {
-    // @ts-expect-error asdasd
     translation = locales[props.locale as Locale]
   }
 

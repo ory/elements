@@ -1,0 +1,16 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "storybook-host": ["libs/storybook-host/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "./dist"]
+}

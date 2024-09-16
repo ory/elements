@@ -1,0 +1,122 @@
+{
+  "id": "91d28c6e-01dd-4045-866a-2a77948c67ee",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2024-04-25T10:32:58.618376Z",
+  "issued_at": "2024-04-25T09:32:58.618376Z",
+  "request_url": "https://amazing-almeida-nj3chu1j6y.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "ui": {
+    "action": "https://amazing-almeida-nj3chu1j6y.projects.oryapis:8080/self-service/login?flow=91d28c6e-01dd-4045-866a-2a77948c67ee",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "WVmOkwzOoyIsyt94xuTwCo9CEFdCt4hIHYUqLBGxk6YARZqUKooZ9l/fbcuVwCj+5J4oEhjfe4RNBH3AiTfWxg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://amazing-almeida-nj3chu1j6y.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "1c6d11e1-b656-45da-b837-f4c7ef0fd494",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"yBr9djjNUOI8_fSZMLHUUPXPP3g0aCzLLFgW772ZFJY\",\"timeout\":300000,\"rpId\":\"amazing-almeida-nj3chu1j6y.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2024-04-25T09:32:58.621447Z",
+  "updated_at": "2024-04-25T09:32:58.621447Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
