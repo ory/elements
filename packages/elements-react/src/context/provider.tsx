@@ -25,7 +25,7 @@ export function OryProvider<T extends SupportedTranslations>({
   const { locale, defaultLocale, ...oryFlowProps } = props
 
   return (
-    <IntlProvider locale={locale ?? "en"} defaultLocale={defaultLocale ?? "en"}>
+    <IntlProvider locale={locale ?? "sv"} defaultLocale={defaultLocale ?? "en"}>
       <OryFlowProvider {...oryFlowProps}>
         <OryComponentProvider components={Components}>
           {children}
