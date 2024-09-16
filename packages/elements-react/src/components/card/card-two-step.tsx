@@ -116,7 +116,7 @@ export function OryTwoStepCard() {
   )
 
   const selectedNodes: UiNode[] = selectedGroup
-    ? uniqueGroups[selectedGroup] ?? []
+    ? (uniqueGroups[selectedGroup] ?? [])
     : []
 
   const finalNodes = [
