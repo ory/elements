@@ -1,11 +1,10 @@
+import { ComponentType, PropsWithChildren } from "react"
+import { useComponents } from "../../context"
 import { OryForm } from "../form/form"
 import { OryFormGroups } from "../form/groups"
 import { OryCardValidationMessages } from "../form/messages"
-import { OryFormSocialButtons } from "../form/social"
-import { useComponents } from "../../context"
-import { ComponentType, PropsWithChildren } from "react"
-import { OryCardHeader, OryCardHeaderProps } from "./header"
 import { OryTwoStepCard } from "./card-two-step"
+import { OryCardHeader, OryCardHeaderProps } from "./header"
 
 export type OryCardContentProps = PropsWithChildren
 
