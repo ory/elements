@@ -24,6 +24,7 @@ export default defineConfig([
       "react-dom",
       "@ory/client-helpers",
       "@ory/client-fetch",
+      "react-intl",
     ],
   },
   {
@@ -36,6 +37,7 @@ export default defineConfig([
       "@ory/client-helpers",
       "@ory/client-fetch",
       "@ory/elements-react",
+      "react-intl",
     ],
 
     /* @ts-ignore -- the types of the plugin are wrong? it still works.. */
