@@ -1,8 +1,8 @@
 import {
   HeadlessSocialButtonContainerProps,
   HeadlessSocialButtonProps,
-} from "@ory/elements-react"
-import { useOryFlow } from "@ory/elements-react"
+} from "../../../../components"
+import { useOryFlow } from "../../../../context"
 import logos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 
@@ -38,8 +38,8 @@ export function DefaultButtonSocial({
   return (
     <button
       className={cn(
-        "gap-3 border border-forms-border-default bg-button-secondary-bg-default hover:bg-button-secondary-bg-hover transition-colors rounded flex items-center justify-center py-2.5 px-4 md:py-4",
-        showLabel && "py-3.5 gap-3",
+        "gap-3 ring-1 ring-forms-border-default bg-button-secondary-bg-default hover:bg-button-secondary-bg-hover transition-colors rounded flex items-center justify-center py-2.5 px-4 md:py-4",
+        { "py-2.5": showLabel },
       )}
       value={attributes.value}
       type="submit"
@@ -54,7 +54,7 @@ export function DefaultButtonSocial({
             className="object-fill w-full h-full"
           />
         ) : (
-          <span className="rounded-full border flex items-center justify-center text-xs">
+          <span className="rounded-full aspect-square border flex items-center justify-center text-xs">
             {provider.slice(0, 2)}
           </span>
         )}

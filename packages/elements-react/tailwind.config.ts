@@ -41,6 +41,9 @@ const config: Config = {
     borderColor: {
       ...variables.colors.light,
     },
+    ringColor: {
+      ...variables.colors.light,
+    },
     fill: {
       ...variables.colors.light,
     },
