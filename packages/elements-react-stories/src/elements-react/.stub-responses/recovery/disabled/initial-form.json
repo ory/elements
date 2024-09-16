@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": 400,
+    "status": "Bad Request",
+    "request": "8ebcc658-21e1-992d-ac51-354b11b371a0",
+    "reason": "Recovery is not allowed because it was disabled.",
+    "message": "The request was malformed or contained invalid parameters"
+  }
+}

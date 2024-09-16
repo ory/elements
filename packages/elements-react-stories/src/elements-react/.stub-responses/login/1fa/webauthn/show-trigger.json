@@ -1,0 +1,105 @@
+{
+  "id": "c716b2bc-62dd-4393-9fce-bcad08576dca",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2024-04-25T13:57:49.507108Z",
+  "issued_at": "2024-04-25T12:57:49.507108Z",
+  "request_url": "https://tender-goodall-7lgc6uyls4.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "ui": {
+    "action": "https://tender-goodall-7lgc6uyls4.projects.oryapis:8080/self-service/login?flow=c716b2bc-62dd-4393-9fce-bcad08576dca",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.7qgpxvzmt6p0.3q4d455aixk@ory.dev",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "nkdSHLqoNEFd+wxC7c4jReQLarLfKAuXJmlPefg0r3bWAChpY6AmZadvqrRTX1mMlYfm2kFuT3ey8a3D8KjUMA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://tender-goodall-7lgc6uyls4.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "ba71287b-4d52-4331-81b5-aed55db9940c",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"6OCIMMjwQVslvUHMD5pbAYKajcPxD3ZAa7qpEZwSDUc\",\"timeout\":120000,\"rpId\":\"tender-goodall-7lgc6uyls4.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"p9qf476rnA5H4808ZQsAAsgzZ_b_AWJXrTTf9UhtZ3s\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"6OCIMMjwQVslvUHMD5pbAYKajcPxD3ZAa7qpEZwSDUc\",\"timeout\":120000,\"rpId\":\"tender-goodall-7lgc6uyls4.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"p9qf476rnA5H4808ZQsAAsgzZ_b_AWJXrTTf9UhtZ3s\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010013,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010012,
+        "text": "Prepare your WebAuthn device (e.g. security key, biometrics scanner, ...) and press continue.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2024-04-25T12:57:49.509163Z",
+  "updated_at": "2024-04-25T12:57:49.509163Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

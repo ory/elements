@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": 400,
+    "status": "Bad Request",
+    "request": "6c24c164-d09e-94f6-a264-d12b3a0bb7db",
+    "reason": "Verification is not allowed because it was disabled.",
+    "message": "The request was malformed or contained invalid parameters"
+  }
+}
