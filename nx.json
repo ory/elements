@@ -27,10 +27,6 @@
       "automaticFromRef": true,
       "projectChangelogs": true,
       "workspaceChangelog": false
-    },
-    "git": {
-      "commit": true,
-      "tag": false
     }
   },
   "affected": {
