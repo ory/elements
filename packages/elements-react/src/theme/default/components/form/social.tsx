@@ -1,8 +1,8 @@
 import {
   HeadlessSocialButtonContainerProps,
   HeadlessSocialButtonProps,
-} from "../../../../components"
-import { useOryFlow } from "../../../../context"
+  useOryFlow,
+} from "@ory/elements-react"
 import logos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 

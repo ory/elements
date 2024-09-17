@@ -1,4 +1,4 @@
-import { OryCardProps } from "../../../../components"
+import { OryCardProps } from "@ory/elements-react"
 import { Badge } from "./badge"
 import { DefaultCardContent } from "./content"
 import { DefaultCardFooter } from "./footer"
