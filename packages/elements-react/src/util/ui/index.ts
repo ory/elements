@@ -44,15 +44,15 @@ export function triggerToWindowCall(
     return
   }
 
-  // Retry ever 50ms for 5 seconds
+  // Retry every 250ms for 5 seconds
   let i = 0
-  const ms = 100
+  const ms = 250
   const interval = setInterval(() => {
     i++
-    if (i > (5 * 60 * 1000) / ms) {
+    if (i > 20) {
       clearInterval(interval)
       throw new Error(
-        "Unable to load Ory's WebAuthn script. Is it being blocked or is otherwise failing to load? If you are running an old version of Ory Elements, please upgrade. For more information, please check your browser's developer console.",
+        "Unable to load Ory's WebAuthn script. Is it being blocked or otherwise failing to load? If you are running an old version of Ory Elements, please upgrade. For more information, please check your browser's developer console.",
       )
     }
 
@@ -70,14 +70,16 @@ function triggerToFunction(
     | UiNodeInputAttributesOnclickTriggerEnum
     | UiNodeInputAttributesOnloadTriggerEnum,
 ) {
-  if (!(typeof window !== "undefined")) {
-    console.error("The Ory SDK is missing a required function: window.")
+  if (typeof window === "undefined") {
+    console.error(
+      "The Ory SDK is missing a required function: window is undefined.",
+    )
     return undefined
   }
 
   // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
   const typedWindow = window as { [key: string]: any } // eslint-disable-line @typescript-eslint/no-explicit-any
-  if (!(trigger in typedWindow) && !typedWindow[trigger]) {
+  if (!(trigger in typedWindow) || !typedWindow[trigger]) {
     console.error(`The Ory SDK is missing a required function: ${trigger}.`)
     return undefined
   }
