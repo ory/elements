@@ -77,13 +77,16 @@ export type OryFormProps = PropsWithChildren
 export function OryForm({ children }: OryFormProps) {
   const { FormContainer } = useComponents()
   const flowContainer = useOryFlow()
-
+  console.log(flowContainer)
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
     defaultValues: computeDefaultValues(flowContainer),
   })
 
   const intl = useIntl()
+
+  const fields = methods.watch()
+  console.log(fields)
 
   const onRedirect: OnRedirectHandler = (url, external) => {
     if (external) {
@@ -123,7 +126,6 @@ export function OryForm({ children }: OryFormProps) {
         if (submitData.method === "code" && submitData.code) {
           submitData.resend = ""
         }
-        console
         await onSubmitRegistration(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,

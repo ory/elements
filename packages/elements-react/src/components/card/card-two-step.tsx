@@ -2,10 +2,6 @@ import {
   UiNode,
   UiNodeGroupEnum,
   UiNodeInputAttributes,
-  UiNodeInputAttributesNodeTypeEnum,
-  UiNodeInputAttributesTypeEnum,
-  UiNodeTypeEnum,
-  UiTextTypeEnum,
 } from "@ory/client-fetch"
 import { useState } from "react"
 import { OryCard, OryCardContent, OryCardFooter } from "."
@@ -16,48 +12,7 @@ import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
 import { OryCardHeader } from "./header"
-
-type ExtendedUiNode = UiNode & { twoStepContinue?: boolean }
-
-const nodePickMethod: ExtendedUiNode = {
-  attributes: {
-    label: {
-      id: 1040003111,
-      text: "Try another method",
-      type: UiTextTypeEnum.Info,
-    },
-    name: "two_step_select",
-    disabled: false,
-    node_type: UiNodeInputAttributesNodeTypeEnum.Input,
-    type: UiNodeInputAttributesTypeEnum.Submit,
-    value: "Try another method",
-  },
-  group: "default",
-  messages: [],
-  meta: {},
-  type: UiNodeTypeEnum.Input,
-  twoStepContinue: true,
-}
-
-const nodeGoBack: ExtendedUiNode = {
-  attributes: {
-    label: {
-      id: 1040008,
-      text: "Back",
-      type: UiTextTypeEnum.Info,
-    },
-    name: "two_step_back",
-    disabled: false,
-    node_type: UiNodeInputAttributesNodeTypeEnum.Input,
-    type: UiNodeInputAttributesTypeEnum.Submit,
-    value: "Back",
-  },
-  group: "default",
-  messages: [],
-  meta: {},
-  type: UiNodeTypeEnum.Input,
-  twoStepContinue: true,
-}
+import { useFormContext } from "react-hook-form"
 
 export function OryTwoStepCard() {
   const {
@@ -77,7 +32,6 @@ export function OryTwoStepCard() {
         node.attributes.type === "hidden",
     )
 
-  const [step, setStep] = useState(isChoosingMethod ? 1 : 0)
   const [selectedGroup, setSelectedGroup] = useState<
     UiNodeGroupEnum | undefined
   >()
@@ -108,7 +62,6 @@ export function OryTwoStepCard() {
 
   const handleOptionSelect = (group: UiNodeGroupEnum) => {
     setSelectedGroup(group)
-    setStep(2)
   }
 
   const zeroStepGroups = ui.nodes.filter(
@@ -119,15 +72,26 @@ export function OryTwoStepCard() {
     ? (uniqueGroups[selectedGroup] ?? [])
     : []
 
+  const nodeBackButton = ui.nodes.find(
+    (node) =>
+      ("value" in node.attributes &&
+        node.attributes.value === "profile:back") ||
+      ("name" in node.attributes &&
+        node.attributes.name === "identifier" &&
+        node.group === "identifier_first"),
+  )
+
   const finalNodes = [
     ...(uniqueGroups?.identifier_first ?? []),
     ...(uniqueGroups?.default ?? []),
   ]
     .flat()
-    .filter((node) => {
-      return "type" in node.attributes && node.attributes.type === "hidden"
-    })
+    .filter(
+      (node) => "type" in node.attributes && node.attributes.type === "hidden",
+    )
     .concat(selectedNodes)
+
+  const step = selectedGroup ? 2 : isChoosingMethod ? 1 : 0
 
   return (
     <OryCard>
@@ -143,6 +107,7 @@ export function OryTwoStepCard() {
                 .map((node, k) => <Node node={node} key={k} />)}
             {step === 1 && (
               <>
+                {nodeBackButton && <BackButton />}
                 {options.map((option) => (
                   <Components.AuthMethodListItem
                     key={option}
@@ -150,25 +115,22 @@ export function OryTwoStepCard() {
                     onClick={() => handleOptionSelect(option)}
                   />
                 ))}
-                <Components.Button
-                  attributes={nodeGoBack.attributes as UiNodeInputAttributes}
-                  node={nodeGoBack}
-                  onClick={() => setStep(0)}
-                />
               </>
             )}
             {step === 2 && (
               <>
+                {nodeBackButton && (
+                  <Components.CurrentIdentifierButton
+                    node={nodeBackButton}
+                    attributes={
+                      nodeBackButton.attributes as UiNodeInputAttributes
+                    }
+                    onClick={() => setSelectedGroup(undefined)}
+                  />
+                )}
                 {finalNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
-                <Components.Button
-                  attributes={
-                    nodePickMethod.attributes as UiNodeInputAttributes
-                  }
-                  node={nodePickMethod}
-                  onClick={() => setStep(1)}
-                />
               </>
             )}
           </FormGroup>
@@ -176,5 +138,39 @@ export function OryTwoStepCard() {
       </OryCardContent>
       <OryCardFooter />
     </OryCard>
+  )
+}
+
+const BackButton = () => {
+  const {
+    flow: { ui },
+  } = useOryFlow()
+  const { setValue } = useFormContext()
+  const Components = useComponents()
+
+  const nodeBackButton = ui.nodes.find(
+    (node) =>
+      ("value" in node.attributes &&
+        node.attributes.value === "profile:back") ||
+      ("name" in node.attributes &&
+        node.attributes.name === "identifier" &&
+        node.group === "identifier_first"),
+  )
+
+  if (!nodeBackButton) {
+    return null
+  }
+
+  return (
+    <Components.CurrentIdentifierButton
+      node={nodeBackButton}
+      attributes={nodeBackButton.attributes as UiNodeInputAttributes}
+      onClick={() => {
+        setValue(
+          nodeBackButton.attributes.name,
+          nodeBackButton.attributes.value,
+        )
+      }}
+    />
   )
 }

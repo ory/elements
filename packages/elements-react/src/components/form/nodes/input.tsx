@@ -10,6 +10,7 @@ import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
 export const NodeInput = ({
   node,
   attributes,
+  onClick,
 }: NodeProps & {
   attributes: UiNodeInputAttributes
   onClick?: MouseEventHandler
@@ -39,7 +40,13 @@ export const NodeInput = ({
     [],
   )
 
-  const handleClick: MouseEventHandler = () => {
+  const handleClick: MouseEventHandler = (e) => {
+    if (onClick) {
+      console.log("asd")
+      e.preventDefault()
+      onClick(e)
+    }
+
     if (onclickTrigger) {
       triggerToWindowCall(onclickTrigger)
     }
@@ -52,9 +59,10 @@ export const NodeInput = ({
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
   const isCurrentIdentifier =
-    attrs.name == "identifier" &&
-    node.group === "identifier_first" &&
-    attrs.type === "hidden"
+    (attrs.name == "identifier" &&
+      node.group === "identifier_first" &&
+      attrs.type === "hidden") ||
+    attrs.value === "profile:back"
   const isResend = attrs.name === "resend" && node.group === "code"
 
   switch (nodeType) {
@@ -86,19 +94,11 @@ export const NodeInput = ({
       )
     case UiNodeInputAttributesTypeEnum.Hidden:
       return (
-        <>
-          {isCurrentIdentifier && (
-            <Components.CurrentIdentifierButton
-              attributes={attrs}
-              node={node}
-            />
-          )}
-          <Components.Input
-            attributes={attrs}
-            node={node}
-            onClick={handleClick}
-          />
-        </>
+        <Components.Input
+          attributes={attrs}
+          node={node}
+          onClick={handleClick}
+        />
       )
     default:
       if (isPinCodeInput) {
