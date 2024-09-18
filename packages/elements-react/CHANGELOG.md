@@ -1,3 +1,13 @@
+## 1.0.0-next.6 (2024-09-18)
+
+### 🩹 Fixes
+
+- **intl:** export locales object from package root
+
+### ❤️ Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.5 (2024-09-17)
 
 ### 🚀 Features
