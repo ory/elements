@@ -29,9 +29,11 @@ const withI18next: Decorator = (Story, context) => {
   const { locale } = context.globals
 
   return (
-    <IntlProvider locale={locale} defaultLocale="en">
-      <Story />
-    </IntlProvider>
+    <div className="ory-default-theme">
+      <IntlProvider locale={locale} defaultLocale="en">
+        <Story />
+      </IntlProvider>
+    </div>
   )
 }
 
