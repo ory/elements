@@ -3,7 +3,6 @@
 
 import {
   FlowType,
-  frontendClient,
   handleContinueWith,
   handleFlowError,
   RecoveryFlow,
@@ -12,6 +11,7 @@ import {
 } from "@ory/client-fetch"
 import { FlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { frontendClient } from "./client"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
