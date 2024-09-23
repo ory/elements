@@ -3,7 +3,6 @@
 
 import {
   FlowType,
-  frontendClient,
   handleContinueWith,
   handleFlowError,
   RegistrationFlow,
@@ -12,6 +11,7 @@ import {
 } from "@ory/client-fetch"
 import { FlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { frontendClient } from "./client"
 
 /**
  * Use this method to submit a registration flow. This method is used in the `onSubmit` handler of the registration form.

@@ -49,15 +49,16 @@ user authentication flows based on the data.
 To feed Ory Elements with flow data you need to use Ory client.
 
 ```ts
-import { frontendClient } from "@ory/client-fetch"
-
 export function serverClientFrontend() {
   // For testing purposes we're using Ory tunnel
-  return frontendClient("http://localhost:4000", {
+
+  const config = new Configuration({
     headers: {
       Accept: "application/json",
     },
+    basePath: "http://localhost:4000",
   })
+  return new FrontendApi(config)
 }
 ```
 

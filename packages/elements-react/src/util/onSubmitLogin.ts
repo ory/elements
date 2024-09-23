@@ -3,7 +3,6 @@
 
 import {
   FlowType,
-  frontendClient,
   handleFlowError,
   LoginFlow,
   loginUrl,
@@ -11,6 +10,7 @@ import {
 } from "@ory/client-fetch"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { FlowContainer } from "./flowContainer"
+import { frontendClient } from "./client"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.

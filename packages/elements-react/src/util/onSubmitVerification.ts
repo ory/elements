@@ -3,7 +3,6 @@
 
 import {
   FlowType,
-  frontendClient,
   handleFlowError,
   UpdateVerificationFlowBody,
   VerificationFlow,
@@ -11,6 +10,7 @@ import {
 } from "@ory/client-fetch"
 import { FlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { frontendClient } from "./client"
 
 /**
  * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.

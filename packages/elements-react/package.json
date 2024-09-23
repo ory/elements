@@ -28,7 +28,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@ory/client-fetch": "1.15.0-next.0",
+    "@ory/client-fetch": "1.15.3",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
     "react-hook-form": "7.52.1",
