@@ -58,11 +58,6 @@ export const NodeInput = ({
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
-  const isCurrentIdentifier =
-    (attrs.name == "identifier" &&
-      node.group === "identifier_first" &&
-      attrs.type === "hidden") ||
-    attrs.value === "profile:back"
   const isResend = attrs.name === "resend" && node.group === "code"
 
   switch (nodeType) {

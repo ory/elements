@@ -167,8 +167,8 @@ const BackButton = () => {
       attributes={nodeBackButton.attributes as UiNodeInputAttributes}
       onClick={() => {
         setValue(
-          nodeBackButton.attributes.name,
-          nodeBackButton.attributes.value,
+          (nodeBackButton.attributes as UiNodeInputAttributes).name,
+          (nodeBackButton.attributes as UiNodeInputAttributes).value,
         )
       }}
     />
