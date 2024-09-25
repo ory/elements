@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { FlowType, isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
 
 function joinWithCommaOr(list: string[]): string {
