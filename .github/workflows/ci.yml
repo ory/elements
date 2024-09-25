@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, jonas-jonas/elementsv1]
+    branches: [main]
 jobs:
   pull_request:
     timeout-minutes: 20
