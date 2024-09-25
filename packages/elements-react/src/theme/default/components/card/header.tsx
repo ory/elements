@@ -56,6 +56,19 @@ function constructCardHeaderText(container: FlowContainer) {
     }
   }
 
+  if (ui.nodes.find((node) => node.group === "identifier_first")) {
+    const identifier = ui.nodes.find(
+      (node) =>
+        isUiNodeInputAttributes(node.attributes) &&
+        node.attributes.name.startsWith("identifier") &&
+        node.attributes.type !== "hidden",
+    )
+
+    if (identifier) {
+      parts.push(`your ${identifier.meta.label?.text}`)
+    }
+  }
+
   switch (container.flowType) {
     case FlowType.Login:
       if (container.flow.refresh) {
