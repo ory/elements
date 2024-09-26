@@ -109,7 +109,6 @@ export function OryForm({ children }: OryFormProps) {
           submitData.resend = ""
         }
 
-        console.log(submitData)
         await onSubmitLogin(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,
@@ -156,7 +155,6 @@ export function OryForm({ children }: OryFormProps) {
         break
       }
       case FlowType.Settings:
-        console.log(data)
         await onSubmitSettings(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,

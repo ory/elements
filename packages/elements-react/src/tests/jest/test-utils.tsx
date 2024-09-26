@@ -43,7 +43,6 @@ export function renderWithOryProvider(
     ...renderOptions
   }: RenderOptions & { providerProps: ProviderProps<SupportedTranslations> },
 ) {
-  console.log(providerProps)
   return render(ui, {
     wrapper: ({ children }) => (
       <OryProvider {...providerProps}>{children}</OryProvider>

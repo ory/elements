@@ -13,6 +13,11 @@ import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
 import { OryCardHeader } from "./header"
 import { useFormContext } from "react-hook-form"
+import {
+  filterZeroStepGroups,
+  getFinalNodes,
+  isChoosingMethod,
+} from "./card-two-step.utils"
 
 enum ProcessStep {
   ProvideIdentifier,
@@ -25,18 +30,7 @@ export function OryTwoStepCard() {
     flow: { ui },
   } = useOryFlow()
 
-  const isChoosingMethod =
-    ui.nodes.some(
-      (node) =>
-        "value" in node.attributes && node.attributes.value === "profile:back",
-    ) ||
-    ui.nodes.some(
-      (node) =>
-        node.group === UiNodeGroupEnum.IdentifierFirst &&
-        "name" in node.attributes &&
-        node.attributes.name === "identifier" &&
-        node.attributes.type === "hidden",
-    )
+  const choosingMethod = isChoosingMethod(ui.nodes)
 
   const [selectedGroup, setSelectedGroup] = useState<
     UiNodeGroupEnum | undefined
@@ -66,27 +60,12 @@ export function OryTwoStepCard() {
 
   const hasOIDC = Boolean(uniqueGroups.oidc?.length)
 
-  const zeroStepGroups = ui.nodes.filter(
-    (node) => node.group !== UiNodeGroupEnum.Oidc,
-  )
-
-  const selectedNodes: UiNode[] = selectedGroup
-    ? (uniqueGroups[selectedGroup] ?? [])
-    : []
-
-  const finalNodes = [
-    ...(uniqueGroups?.identifier_first ?? []),
-    ...(uniqueGroups?.default ?? []),
-  ]
-    .flat()
-    .filter(
-      (node) => "type" in node.attributes && node.attributes.type === "hidden",
-    )
-    .concat(selectedNodes)
+  const zeroStepGroups = filterZeroStepGroups(ui.nodes)
+  const finalNodes = getFinalNodes(uniqueGroups, selectedGroup)
 
   const step = selectedGroup
     ? ProcessStep.ExecuteAuthMethod
-    : isChoosingMethod
+    : choosingMethod
       ? ProcessStep.ChooseAuthMethod
       : ProcessStep.ProvideIdentifier
 
