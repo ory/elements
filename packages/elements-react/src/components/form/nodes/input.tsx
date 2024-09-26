@@ -10,7 +10,6 @@ import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
 export const NodeInput = ({
   node,
   attributes,
-  onClick,
 }: NodeProps & {
   attributes: UiNodeInputAttributes
   onClick?: MouseEventHandler
@@ -40,13 +39,7 @@ export const NodeInput = ({
     [],
   )
 
-  const handleClick: MouseEventHandler = (e) => {
-    if (onClick) {
-      console.log("asd")
-      e.preventDefault()
-      onClick(e)
-    }
-
+  const handleClick: MouseEventHandler = () => {
     if (onclickTrigger) {
       triggerToWindowCall(onclickTrigger)
     }

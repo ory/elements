@@ -108,6 +108,8 @@ export function OryForm({ children }: OryFormProps) {
         if (submitData.method === "code" && data.code) {
           submitData.resend = ""
         }
+
+        console.log(submitData)
         await onSubmitLogin(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,
@@ -119,9 +121,11 @@ export function OryForm({ children }: OryFormProps) {
         const submitData: UpdateRegistrationFlowBody = {
           ...(data as unknown as UpdateRegistrationFlowBody),
         }
+
         if (submitData.method === "code" && submitData.code) {
           submitData.resend = ""
         }
+
         await onSubmitRegistration(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,
@@ -152,6 +156,7 @@ export function OryForm({ children }: OryFormProps) {
         break
       }
       case FlowType.Settings:
+        console.log(data)
         await onSubmitSettings(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,

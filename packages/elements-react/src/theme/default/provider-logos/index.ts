@@ -1,7 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FC, SVGProps } from "react"
 import apple from "./apple.svg"
 import auth0 from "./auth0.svg"
 import discord from "./discord.svg"
@@ -16,7 +15,7 @@ import slack from "./slack.svg"
 import spotify from "./spotify.svg"
 import yandex from "./yandex.svg"
 
-const logos: Record<string, FC<SVGProps<SVGSVGElement>>> = {
+const logos: Record<string, typeof apple> = {
   apple,
   auth0,
   discord,

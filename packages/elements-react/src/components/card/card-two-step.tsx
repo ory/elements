@@ -3,7 +3,7 @@ import {
   UiNodeGroupEnum,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { OryCard, OryCardContent, OryCardFooter } from "."
 import { useComponents, useNodeSorter, useOryFlow } from "../../context"
 import { useNodesGroups } from "../../util/ui"
@@ -13,6 +13,12 @@ import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
 import { OryCardHeader } from "./header"
 import { useFormContext } from "react-hook-form"
+
+enum ProcessStep {
+  ProvideIdentifier,
+  ChooseAuthMethod,
+  ExecuteAuthMethod,
+}
 
 export function OryTwoStepCard() {
   const {
@@ -60,10 +66,6 @@ export function OryTwoStepCard() {
 
   const hasOIDC = Boolean(uniqueGroups.oidc?.length)
 
-  const handleOptionSelect = (group: UiNodeGroupEnum) => {
-    setSelectedGroup(group)
-  }
-
   const zeroStepGroups = ui.nodes.filter(
     (node) => node.group !== UiNodeGroupEnum.Oidc,
   )
@@ -71,15 +73,6 @@ export function OryTwoStepCard() {
   const selectedNodes: UiNode[] = selectedGroup
     ? (uniqueGroups[selectedGroup] ?? [])
     : []
-
-  const nodeBackButton = ui.nodes.find(
-    (node) =>
-      ("value" in node.attributes &&
-        node.attributes.value === "profile:back") ||
-      ("name" in node.attributes &&
-        node.attributes.name === "identifier" &&
-        node.group === "identifier_first"),
-  )
 
   const finalNodes = [
     ...(uniqueGroups?.identifier_first ?? []),
@@ -91,43 +84,41 @@ export function OryTwoStepCard() {
     )
     .concat(selectedNodes)
 
-  const step = selectedGroup ? 2 : isChoosingMethod ? 1 : 0
+  const step = selectedGroup
+    ? ProcessStep.ExecuteAuthMethod
+    : isChoosingMethod
+      ? ProcessStep.ChooseAuthMethod
+      : ProcessStep.ProvideIdentifier
 
   return (
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {step === 0 && hasOIDC && <OryFormSocialButtonsForm />}
+        {step === ProcessStep.ProvideIdentifier && hasOIDC && (
+          <OryFormSocialButtonsForm />
+        )}
         <OryForm>
           <FormGroup>
-            {step === 0 &&
+            {step === ProcessStep.ProvideIdentifier &&
               zeroStepGroups
                 .sort(sortNodes)
                 .map((node, k) => <Node node={node} key={k} />)}
-            {step === 1 && (
+            {step === ProcessStep.ChooseAuthMethod && (
               <>
-                {nodeBackButton && <BackButton />}
+                <BackButton />
                 {options.map((option) => (
                   <Components.AuthMethodListItem
                     key={option}
                     group={option}
-                    onClick={() => handleOptionSelect(option)}
+                    onClick={() => setSelectedGroup(option)}
                   />
                 ))}
               </>
             )}
-            {step === 2 && (
+            {step === ProcessStep.ExecuteAuthMethod && (
               <>
-                {nodeBackButton && (
-                  <Components.CurrentIdentifierButton
-                    node={nodeBackButton}
-                    attributes={
-                      nodeBackButton.attributes as UiNodeInputAttributes
-                    }
-                    onClick={() => setSelectedGroup(undefined)}
-                  />
-                )}
+                <BackButton onClick={() => setSelectedGroup(undefined)} />
                 {finalNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
@@ -141,7 +132,11 @@ export function OryTwoStepCard() {
   )
 }
 
-const BackButton = () => {
+type BackButtonProps = {
+  onClick?: () => void
+}
+
+const BackButton = ({ onClick }: BackButtonProps) => {
   const {
     flow: { ui },
   } = useOryFlow()
@@ -150,27 +145,35 @@ const BackButton = () => {
 
   const nodeBackButton = ui.nodes.find(
     (node) =>
-      ("value" in node.attributes &&
-        node.attributes.value === "profile:back") ||
-      ("name" in node.attributes &&
-        node.attributes.name === "identifier" &&
-        node.group === "identifier_first"),
+      // ("value" in node.attributes &&
+      //   node.attributes.value === "profile:back") ||
+      "name" in node.attributes &&
+      node.attributes.name === "identifier" &&
+      node.group === "identifier_first",
   )
+
+  useEffect(() => {
+    if (!nodeBackButton) return
+
+    setValue(
+      (nodeBackButton.attributes as UiNodeInputAttributes).name,
+      (nodeBackButton.attributes as UiNodeInputAttributes).value,
+    )
+  }, [nodeBackButton, setValue])
 
   if (!nodeBackButton) {
     return null
+  }
+
+  const handleClick = () => {
+    onClick?.()
   }
 
   return (
     <Components.CurrentIdentifierButton
       node={nodeBackButton}
       attributes={nodeBackButton.attributes as UiNodeInputAttributes}
-      onClick={() => {
-        setValue(
-          (nodeBackButton.attributes as UiNodeInputAttributes).name,
-          (nodeBackButton.attributes as UiNodeInputAttributes).value,
-        )
-      }}
+      onClick={onClick ? handleClick : undefined}
     />
   )
 }
