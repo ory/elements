@@ -4,7 +4,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "dev", "preview"]
+        "cacheableOperations": ["build", "dev", "preview", "build-storybook"]
       }
     }
   },
@@ -15,5 +15,16 @@
   },
   "affected": {
     "defaultBase": "main"
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/storybook/plugin",
+      "options": {
+        "serveStorybookTargetName": "storybook",
+        "buildStorybookTargetName": "build",
+        "testStorybookTargetName": "test-storybook",
+        "staticStorybookTargetName": "static-storybook"
+      }
+    }
+  ]
 }
