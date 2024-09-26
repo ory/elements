@@ -172,5 +172,13 @@
   "verification.registration-button": "Registreren",
   "verification.registration-label": "Heb je nog geen account?",
   "verification.title": "Verifieer je account",
-  "verification.back-button": "Ga terug"
+  "verification.back-button": "Ga terug",
+  "two-step.code.description": "Een verificatiecode wordt naar uw e-mail gestuurd",
+  "two-step.code.title": "E-mailcode",
+  "two-step.passkey.description": "Gebruik de vingerafdruk- of gezichtsherkenning van uw apparaat",
+  "two-step.passkey.title": "Toegangscode (aanbevolen)",
+  "two-step.password.description": "Voer uw wachtwoord in dat is gekoppeld aan uw account",
+  "two-step.password.title": "Wachtwoord",
+  "two-step.webauthn.description": "Gebruik uw beveiligingssleutel om te verifiëren",
+  "two-step.webauthn.title": "Beveiligingssleutel"
 }

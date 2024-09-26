@@ -177,8 +177,8 @@
   "two-step.password.description": "Enter your password associated with your account",
   "two-step.code.title": "Email code",
   "two-step.code.description": "A verification code will be sent to your email",
-  "twos-step.webauthn.title": "Security Key",
-  "twos-step.webauthn.description": "Use your security key to authenticate",
+  "two-step.webauthn.title": "Security Key",
+  "two-step.webauthn.description": "Use your security key to authenticate",
   "two-step.passkey.title": "Passkey (recommended)",
   "two-step.passkey.description": "Use your device's for fingerprint or face recognition"
 }
