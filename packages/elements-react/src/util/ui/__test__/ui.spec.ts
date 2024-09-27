@@ -9,6 +9,7 @@ import { UiNode } from "@ory/client-fetch"
 
 describe("utils/ui", () => {
   test("useNodesGroups", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const { result } = renderHook(() =>
       useNodesGroups(allMethodsInitialForm.ui.nodes as UiNode[]),
     )
