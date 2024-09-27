@@ -1,3 +1,22 @@
+## 1.0.0-next.7 (2024-09-27)
+
+
+### 🚀 Features
+
+- add two-step login card
+
+
+### 🩹 Fixes
+
+- registration text in swedish translation
+
+- show identifier_first node in card header
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.6 (2024-09-18)
 
 ### 🩹 Fixes
