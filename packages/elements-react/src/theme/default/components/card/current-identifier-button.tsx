@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { HeadlessCurrentIdentifierProps } from "@ory/elements-react"
+import { OryCurrentIdentifierProps } from "@ory/elements-react"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 
 export function DefaultCurrentIdentifierButton({
@@ -9,7 +9,7 @@ export function DefaultCurrentIdentifierButton({
   onClick,
   type,
   href,
-}: HeadlessCurrentIdentifierProps) {
+}: OryCurrentIdentifierProps) {
   const Element = onClick ? "button" : "a"
 
   return (

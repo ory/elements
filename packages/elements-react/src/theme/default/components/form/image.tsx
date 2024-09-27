@@ -1,10 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { HeadlessImageProps } from "@ory/elements-react"
+import { OryNodeImageProps } from "@ory/elements-react"
 
-export function DefaultImage({ attributes }: HeadlessImageProps) {
-  // const intl = useIntl()
+export function DefaultImage({ attributes }: OryNodeImageProps) {
   return (
     <figure>
       <img {...attributes} />

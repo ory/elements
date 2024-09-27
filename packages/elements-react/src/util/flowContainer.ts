@@ -12,26 +12,76 @@ import {
 } from "@ory/client-fetch"
 import { OryClientConfiguration } from "./clientConfiguration"
 
-type BaseFlow<TFlowType, TFlow> = {
+/**
+ * A generic flow container, containing a flowType, the flow itself and the config object
+ *
+ * @see OryClientConfiguration
+ */
+type OryFlow<TFlowType, TFlow> = {
   flowType: TFlowType
   flow: TFlow
   config: OryClientConfiguration
 }
 
-export type LoginFlowContainer = BaseFlow<FlowType.Login, LoginFlow>
-export type RegistrationFlowContainer = BaseFlow<
+/**
+ * A flow container for the login flow
+ *
+ * @see OryFlow
+ * @see LoginFlow
+ */
+export type LoginFlowContainer = OryFlow<FlowType.Login, LoginFlow>
+
+/**
+ * A flow container for the registration flow
+ *
+ * @see OryFlow
+ * @see RegistrationFlow
+ */
+export type RegistrationFlowContainer = OryFlow<
   FlowType.Registration,
   RegistrationFlow
 >
-export type RecoveryFlowContainer = BaseFlow<FlowType.Recovery, RecoveryFlow>
-export type VerificationFlowContainer = BaseFlow<
+
+/**
+ * A flow container for the recovery flow
+ *
+ * @see OryFlow
+ * @see RecoveryFlow
+ */
+export type RecoveryFlowContainer = OryFlow<FlowType.Recovery, RecoveryFlow>
+
+/**
+ * A flow container for the verification flow
+ *
+ * @see OryFlow
+ * @see VerificationFlow
+ *
+ */
+export type VerificationFlowContainer = OryFlow<
   FlowType.Verification,
   VerificationFlow
 >
-export type SettingsFlowContainer = BaseFlow<FlowType.Settings, SettingsFlow>
-export type ErrorFlowContainer = BaseFlow<FlowType.Error, FlowError>
+/**
+ * A flow container for the settings flow
+ *
+ * @see OryFlow
+ * @see SettingsFlow
+ */
+export type SettingsFlowContainer = OryFlow<FlowType.Settings, SettingsFlow>
 
-export type FlowContainer =
+/**
+ * A flow container for the error flow
+ *
+ * @see OryFlow
+ * @see FlowError (Error flow)
+ *
+ */
+export type ErrorFlowContainer = OryFlow<FlowType.Error, FlowError>
+
+/**
+ * A union type of all flow containers
+ */
+export type OryFlowContainer =
   | LoginFlowContainer
   | RegistrationFlowContainer
   | RecoveryFlowContainer

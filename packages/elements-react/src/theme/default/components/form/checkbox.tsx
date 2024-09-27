@@ -2,13 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
+import { getNodeLabel } from "@ory/client-fetch"
+import {
+  OryNodeInputProps,
+  messageTestId,
+  uiTextToFormattedMessage,
+} from "@ory/elements-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
-import { HeadlessInputProps } from "@ory/elements-react"
-import { formatMessage, messageTestId } from "@ory/elements-react"
-import { getNodeLabel } from "@ory/client-fetch"
 
 function CheckboxSVG() {
   return (
@@ -37,7 +40,7 @@ function CheckboxSVG() {
 export const DefaultCheckbox = ({
   attributes: initialAttributes,
   node,
-}: HeadlessInputProps) => {
+}: OryNodeInputProps) => {
   const {
     value,
     name,
@@ -79,7 +82,7 @@ export const DefaultCheckbox = ({
       </div>
       <div className="text-sm items-center">
         <label className="text-sm font-normal leading-normal text-forms-fg-default">
-          {label && formatMessage(label, intl)}
+          {label && uiTextToFormattedMessage(label, intl)}
         </label>
         {node.messages.map((message) => (
           <span
@@ -87,7 +90,7 @@ export const DefaultCheckbox = ({
             className="text-sm text-red-900 mt-1"
             {...messageTestId(message)}
           >
-            {formatMessage(message, intl)}
+            {uiTextToFormattedMessage(message, intl)}
           </span>
         ))}
       </div>

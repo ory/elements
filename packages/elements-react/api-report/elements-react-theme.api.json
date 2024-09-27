@@ -184,7 +184,7 @@
             {
               "kind": "Reference",
               "text": "OryCardProps",
-              "canonicalReference": "@ory/elements-react!~OryCardProps:type"
+              "canonicalReference": "@ory/elements-react!~OryCardRootProps:type"
             },
             {
               "kind": "Content",
@@ -377,8 +377,8 @@
             },
             {
               "kind": "Reference",
-              "text": "HeadlessFormProps",
-              "canonicalReference": "@ory/elements-react!~HeadlessFormProps:type"
+              "text": "OryFormRootProps",
+              "canonicalReference": "@ory/elements-react!~OryFormRootProps:type"
             },
             {
               "kind": "Content",
@@ -428,8 +428,8 @@
             },
             {
               "kind": "Reference",
-              "text": "HeadlessMessageProps",
-              "canonicalReference": "@ory/elements-react!~HeadlessMessageProps:type"
+              "text": "OryMessageContentProps",
+              "canonicalReference": "@ory/elements-react!~OryMessageContentProps:type"
             },
             {
               "kind": "Content",
@@ -599,21 +599,12 @@
             },
             {
               "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFlowComponents",
-              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    config: "
+              "text": ";\n    config: "
             },
             {
               "kind": "Reference",
@@ -634,7 +625,7 @@
           "name": "ErrorFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 8
           }
         },
         {
@@ -730,21 +721,12 @@
             },
             {
               "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFlowComponents",
-              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    config: "
+              "text": ";\n    config: "
             },
             {
               "kind": "Reference",
@@ -765,7 +747,7 @@
           "name": "LoginFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 8
           }
         },
         {
@@ -885,21 +867,12 @@
             },
             {
               "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFlowComponents",
-              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    config: "
+              "text": ";\n    config: "
             },
             {
               "kind": "Reference",
@@ -920,7 +893,7 @@
           "name": "RecoveryFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 8
           }
         },
         {
@@ -1085,21 +1058,12 @@
             },
             {
               "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFlowComponents",
-              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    config: "
+              "text": ";\n    config: "
             },
             {
               "kind": "Reference",
@@ -1120,7 +1084,7 @@
           "name": "SettingsFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 8
           }
         },
         {
@@ -1216,21 +1180,12 @@
             },
             {
               "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFlowComponents",
-              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    config: "
+              "text": ";\n    config: "
             },
             {
               "kind": "Reference",
@@ -1251,7 +1206,7 @@
           "name": "VerificationFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 8
           }
         }
       ]

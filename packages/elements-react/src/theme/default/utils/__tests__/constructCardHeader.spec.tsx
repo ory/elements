@@ -5,7 +5,7 @@ import { FlowType, UiNode, UiTextTypeEnum } from "@ory/client-fetch"
 import { useCardHeaderText } from "../constructCardHeader"
 import { renderHook } from "@testing-library/react"
 import { PropsWithChildren } from "react"
-import { IntlProvider } from "../../../../context"
+import { IntlProvider } from "../../../../context/intl-context"
 
 const password: UiNode = {
   group: "password",

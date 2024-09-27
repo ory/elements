@@ -5,16 +5,17 @@
 import { FlowType, RecoveryFlow } from "@ory/client-fetch"
 import {
   OryClientConfiguration,
-  OryFlowComponents,
+  OryFlowComponentOverrides,
   OryProvider,
   OryTwoStepCard,
 } from "@ory/elements-react"
+import merge from "lodash.merge"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
 
 export type RecoveryFlowContextProps = {
   flow: RecoveryFlow
-  components?: Partial<OryFlowComponents>
+  components?: OryFlowComponentOverrides
   config: OryClientConfiguration
 }
 
@@ -24,10 +25,9 @@ export function Recovery({
   children,
   components: flowOverrideComponents,
 }: PropsWithChildren<RecoveryFlowContextProps>) {
-  const components = {
-    ...OryDefaultComponents,
-    ...flowOverrideComponents,
-  }
+  const components = flowOverrideComponents
+    ? merge({}, OryDefaultComponents, flowOverrideComponents)
+    : OryDefaultComponents
   return (
     <OryProvider
       config={config}

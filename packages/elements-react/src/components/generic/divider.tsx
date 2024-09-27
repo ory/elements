@@ -4,10 +4,22 @@
 import { useComponents } from "../../context"
 import { useOryFlow } from "../../context"
 
-export type HorizontalDividerProps = Record<string, never>
+/**
+ * Props type for the Form Group Divider component.
+ */
+export type OryCardDividerProps = Record<string, never>
 
+/**
+ * Renders the @see Card.Divider between the groups of nodes in the Ory Form.
+ *
+ * You can use this component to build fully custom implementations of the Ory Flows.
+ *
+ * However, you most likely want to override the individual components instead.
+ *
+ * @returns
+ */
 export function OryFormGroupDivider() {
-  const { HorizontalDivider } = useComponents()
+  const { Card } = useComponents()
   const {
     flow: { ui },
   } = useOryFlow()
@@ -21,7 +33,7 @@ export function OryFormGroupDivider() {
   )
 
   if (filteredNodes.length > 0 && otherNodes.length > 0) {
-    return <HorizontalDivider />
+    return <Card.Divider />
   }
   return null
 }

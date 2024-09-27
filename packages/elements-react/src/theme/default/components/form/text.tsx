@@ -2,16 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiText } from "@ory/client-fetch"
+import { OryNodeTextProps, uiTextToFormattedMessage } from "@ory/elements-react"
 import { useIntl } from "react-intl"
-import { HeadlessTextProps } from "@ory/elements-react"
-import { formatMessage } from "@ory/elements-react"
 
-export function DefaultText({ node, attributes }: HeadlessTextProps) {
+export function DefaultText({ node, attributes }: OryNodeTextProps) {
   const intl = useIntl()
   return (
     <>
       <p data-testid={`node/text/${attributes.id}/label`}>
-        {formatMessage(node.meta.label, intl)}
+        {node.meta.label ? uiTextToFormattedMessage(node.meta.label, intl) : ""}
       </p>
       {(
         attributes.text.context as {
@@ -19,7 +18,7 @@ export function DefaultText({ node, attributes }: HeadlessTextProps) {
         }
       ).secrets?.map((text: UiText, index) => (
         <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
-          <code>{formatMessage(text, intl)}</code>
+          <code>{text ? uiTextToFormattedMessage(text, intl) : ""}</code>
         </pre>
       ))}
     </>

@@ -5,10 +5,10 @@ import { useComponents, useOryFlow } from "@ory/elements-react"
 import { useCardHeaderText } from "../../utils/constructCardHeader"
 
 function InnerCardHeader({ title, text }: { title: string; text?: string }) {
-  const { CardLogo } = useComponents()
+  const { Card } = useComponents()
   return (
     <header className="flex flex-col gap-8 antialiased">
-      <CardLogo />
+      <Card.Logo />
       <div>
         <h2 className="font-semibold text-lg text-dialog-fg-default leading-normal">
           {title}

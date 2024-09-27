@@ -8,24 +8,24 @@ import { PropsWithChildren } from "react"
 import { OryForm } from "./form"
 import { useFormContext } from "react-hook-form"
 
-export type HeadlessSocialButtonsProps = PropsWithChildren<{
+export type OryFormOidcButtonsProps = PropsWithChildren<{
   hideDivider?: boolean
 }>
 
-export type HeadlessSocialButtonContainerProps = PropsWithChildren<{
+export type OryFormOidcRootProps = PropsWithChildren<{
   nodes: UiNode[]
 }>
 
-export type HeadlessSocialButtonProps = PropsWithChildren<{
+export type OryNodeOidcButtonProps = {
   node: UiNode
   attributes: UiNodeInputAttributes
   onClick?: () => void
-}>
+}
 
-export function OryFormSocialButtons({
+export function OryFormOidcButtons({
   children,
   hideDivider,
-}: HeadlessSocialButtonsProps) {
+}: OryFormOidcButtonsProps) {
   const {
     flow: { ui },
   } = useOryFlow()
@@ -34,8 +34,7 @@ export function OryFormSocialButtons({
   // Only get the oidc nodes.
   const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
 
-  const { SocialButtonContainer, HorizontalDivider, SocialButton } =
-    useComponents()
+  const { Form, Card, Node } = useComponents()
 
   if (filteredNodes.length === 0) {
     return null
@@ -48,11 +47,11 @@ export function OryFormSocialButtons({
 
   return (
     <>
-      <SocialButtonContainer nodes={filteredNodes}>
+      <Form.OidcRoot nodes={filteredNodes}>
         {children ??
           filteredNodes.map((node, k) => {
             return (
-              <SocialButton
+              <Node.OidcButton
                 node={node}
                 key={k}
                 attributes={node.attributes as UiNodeInputAttributes}
@@ -66,9 +65,9 @@ export function OryFormSocialButtons({
               />
             )
           })}
-      </SocialButtonContainer>
+      </Form.OidcRoot>
       {!hideDivider && filteredNodes.length > 0 && otherNodes.length > 0 && (
-        <HorizontalDivider />
+        <Card.Divider />
       )}
     </>
   )
@@ -88,7 +87,7 @@ export function OryFormSocialButtonsForm() {
 
   return (
     <OryForm>
-      <OryFormSocialButtons />
+      <OryFormOidcButtons />
     </OryForm>
   )
 }

@@ -20,19 +20,19 @@ export type NodeProps = {
 }
 
 export const Node = ({ node, onClick }: NodeProps): ReactNode => {
-  const Components = useComponents()
+  const { Node } = useComponents()
 
   if (isUiNodeImageAttributes(node.attributes)) {
-    return <Components.Image node={node} attributes={node.attributes} />
+    return <Node.Image node={node} attributes={node.attributes} />
   } else if (isUiNodeTextAttributes(node.attributes)) {
     const attrs = node.attributes
-    return <Components.Text attributes={attrs} node={node} />
+    return <Node.Text attributes={attrs} node={node} />
   } else if (isUiNodeInputAttributes(node.attributes)) {
     return (
       <NodeInput node={node} attributes={node.attributes} onClick={onClick} />
     )
   } else if (isUiNodeAnchorAttributes(node.attributes)) {
-    return <Components.LinkButton attributes={node.attributes} node={node} />
+    return <Node.Anchor attributes={node.attributes} node={node} />
   } else if (isUiNodeScriptAttributes(node.attributes)) {
     const {
       crossorigin,

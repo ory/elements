@@ -3,9 +3,9 @@
 
 import { useComponents } from "../../context"
 
-export type OryCardHeaderProps = Record<string, never>
+export type OryCardFooterProps = Record<string, never>
 
-export function OryCardHeader() {
+export function OryCardFooter() {
   const { Card } = useComponents()
-  return <Card.Header />
+  return <Card.Footer />
 }

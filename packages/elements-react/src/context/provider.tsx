@@ -2,29 +2,29 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { ComponentPropsWithoutRef, PropsWithChildren } from "react"
-import { OryFlowComponents } from "../types"
+import { PropsWithChildren } from "react"
+
+import { OryFlowComponents } from "../components"
+import { OryFlowContainer } from "../util/flowContainer"
 import { OryComponentProvider } from "./component"
 import { OryFlowProvider } from "./flow-context"
 import {
   IntlProvider,
-  IntlProviderProps,
+  OryIntlProviderProps,
   SupportedTranslations,
 } from "./intl-context"
-import { FlowContainer } from "../util/flowContainer"
 
-export type ProviderProps<T> = {
+export type OryProviderProps<T> = {
   components: OryFlowComponents
-} & IntlProviderProps<T> &
-  FlowContainer &
-  ComponentPropsWithoutRef<"div"> &
+} & OryIntlProviderProps<T> &
+  OryFlowContainer &
   PropsWithChildren
 
-export function OryProvider<T extends SupportedTranslations>({
+export function OryProvider<Translation extends SupportedTranslations>({
   children,
   components: Components,
   ...props
-}: ProviderProps<T>) {
+}: OryProviderProps<Translation>) {
   const { locale, defaultLocale, ...oryFlowProps } = props
 
   return (

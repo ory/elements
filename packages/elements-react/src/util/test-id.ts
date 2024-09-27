@@ -3,20 +3,14 @@
 
 import { UiText } from "@ory/client-fetch"
 
+/**
+ * Helper function to generate a test id for a UiText message.
+ *
+ * @param message - the UiText message to generate a test id for
+ * @returns a unique, stable test id for the message
+ */
 export function messageTestId(message: UiText) {
   return {
     "data-testid": `ory-message-${message.id}`,
-  }
-}
-
-export function formElementId(attributes: { name: string }) {
-  return {
-    id: `ory-elements-form-${attributes.name}`,
-  }
-}
-
-export function formLabelId(attributes: { name: string }) {
-  return {
-    htmlFor: `ory-elements-form-${attributes.name}`,
   }
 }

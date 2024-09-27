@@ -3,18 +3,19 @@
 
 "use client"
 import { FlowType, VerificationFlow } from "@ory/client-fetch"
-import { PropsWithChildren } from "react"
-import { OryDefaultComponents } from "../components"
 import {
   OryClientConfiguration,
-  OryFlowComponents,
+  OryFlowComponentOverrides,
   OryProvider,
   OryTwoStepCard,
 } from "@ory/elements-react"
+import merge from "lodash.merge"
+import { PropsWithChildren } from "react"
+import { OryDefaultComponents } from "../components"
 
 export type VerificationFlowContextProps = {
   flow: VerificationFlow
-  components?: Partial<OryFlowComponents>
+  components?: OryFlowComponentOverrides
   config: OryClientConfiguration
 }
 
@@ -24,10 +25,9 @@ export function Verification({
   children,
   components: flowOverrideComponents,
 }: PropsWithChildren<VerificationFlowContextProps>) {
-  const components = {
-    ...OryDefaultComponents,
-    ...flowOverrideComponents,
-  }
+  const components = flowOverrideComponents
+    ? merge({}, OryDefaultComponents, flowOverrideComponents)
+    : OryDefaultComponents
   return (
     <OryProvider
       config={config}

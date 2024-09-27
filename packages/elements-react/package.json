@@ -31,6 +31,7 @@
     "@ory/client-fetch": "^1.15.4",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
+    "lodash.merge": "4.6.2",
     "react-hook-form": "7.53.0",
     "react-intl": "6.7.0",
     "tailwind-merge": "2.5.2"
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
     "@svgr/plugin-svgo": "^8.1.0",
+    "@types/lodash.merge": "4.6.9",
     "esbuild-plugin-svgr": "^2.1.0",
     "eslint-plugin-react": "7.37.0",
     "postcss": "8.4.47",

@@ -7,29 +7,29 @@ import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { Node } from "./nodes/node"
 
-export type HeadlessGroupProps = PropsWithChildren<{
+export type OryFormGroupsProps = PropsWithChildren<{
   groups: UiNodeGroupEnum[]
 }>
 
-export type HeadlessGroupContainerProps = PropsWithChildren
+export type OryFormGroupProps = PropsWithChildren
 
-export function OryFormGroups({ children, groups }: HeadlessGroupProps) {
+export function OryFormGroups({ children, groups }: OryFormGroupsProps) {
   const {
     flow: { ui },
   } = useOryFlow()
   const nodeSorter = useNodeSorter()
   const { flowType } = useOryFlow()
-  const { FormGroup } = useComponents()
+  const { Form } = useComponents()
   const nodes = ui.nodes
     .filter((node) => groups.indexOf(node.group) > -1)
     .sort((a, b) => nodeSorter(a, b, { flowType }))
 
   return (
-    <FormGroup>
+    <Form.Group>
       {children ??
         nodes.map((node, k) => {
           return <Node node={node} key={k} />
         })}
-    </FormGroup>
+    </Form.Group>
   )
 }

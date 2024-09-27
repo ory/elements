@@ -1,18 +1,21 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { getNodeLabel } from "@ory/client-fetch"
+import {
+  OryNodeButtonProps,
+  uiTextToFormattedMessage,
+} from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { Spinner } from "./spinner"
 import { cn } from "../../utils/cn"
-import { formatMessage, HeadlessButtonProps } from "@ory/elements-react"
-import { getNodeLabel } from "@ory/client-fetch"
+import { Spinner } from "./spinner"
 
 export const DefaultButton = ({
   attributes,
   node,
   onClick,
-}: HeadlessButtonProps) => {
+}: OryNodeButtonProps) => {
   const {
     type,
     name,
@@ -78,7 +81,7 @@ export const DefaultButton = ({
           },
         )}
       >
-        {formatMessage(label, intl)}
+        {label ? uiTextToFormattedMessage(label, intl) : ""}
       </span>
     </button>
   )
