@@ -1,13 +1,13 @@
 "use client"
 import { FlowType, RecoveryFlow } from "@ory/client-fetch"
-import { PropsWithChildren } from "react"
-import { OryDefaultComponents } from "../components"
 import {
-  OryCard,
+  OryClientConfiguration,
   OryFlowComponents,
   OryProvider,
-  OryClientConfiguration,
+  OryTwoStepCard,
 } from "@ory/elements-react"
+import { PropsWithChildren } from "react"
+import { OryDefaultComponents } from "../components"
 
 export type RecoveryFlowContextProps = {
   flow: RecoveryFlow
@@ -32,7 +32,7 @@ export function Recovery({
       flowType={FlowType.Recovery}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }

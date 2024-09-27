@@ -172,5 +172,13 @@
   "verification.registration-button": "Skapa konto",
   "verification.registration-label": "Har du inget konto?",
   "verification.title": "Verifiera ditt konto",
-  "verification.back-button": "Tillbaka"
+  "verification.back-button": "Tillbaka",
+  "two-step.code.description": "En verifieringskod kommer att skickas till din e-post",
+  "two-step.code.title": "E-postkod",
+  "two-step.passkey.description": "Använd din enhets fingeravtryck eller ansiktsigenkänning",
+  "two-step.passkey.title": "Passerkod (rekommenderad)",
+  "two-step.password.description": "Ange ditt lösenord kopplat till ditt konto",
+  "two-step.password.title": "Lösenord",
+  "two-step.webauthn.description": "Använd din säkerhetsnyckel för att autentisera",
+  "two-step.webauthn.title": "Säkerhetsnyckel"
 }

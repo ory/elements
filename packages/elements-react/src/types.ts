@@ -8,9 +8,8 @@ import {
   UiNodeInputAttributes,
   UiNodeTextAttributes,
 } from "@ory/client-fetch"
-import React, {
+import {
   ComponentPropsWithoutRef,
-  Dispatch,
   FormEventHandler,
   MouseEventHandler,
 } from "react"
@@ -21,6 +20,13 @@ export type HeadlessButtonProps = {
   attributes: UiNodeInputAttributes
   node: UiNode
 } & Omit<ComponentPropsWithoutRef<"button">, "children">
+
+export type HeadlessCurrentIdentifierProps = {
+  attributes: UiNodeInputAttributes
+  node: UiNode
+  onClick?: () => void
+  href?: string
+} & Omit<ComponentPropsWithoutRef<"button">, "children" | "onClick">
 
 export type HeadlessLinkButtonProps = {
   attributes: UiNodeAnchorAttributes
@@ -38,8 +44,7 @@ export type HeadlessTextProps = {
 }
 
 export type HeadlessAuthMethodListItemProps = {
-  setGroups: Dispatch<React.SetStateAction<string[]>>
-  setStep: Dispatch<React.SetStateAction<number>>
+  onClick: () => void
   group: string
 }
 

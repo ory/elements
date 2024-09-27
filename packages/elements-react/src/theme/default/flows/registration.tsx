@@ -1,13 +1,13 @@
 "use client"
 import { FlowType, RegistrationFlow } from "@ory/client-fetch"
-import { PropsWithChildren } from "react"
-import { OryDefaultComponents } from "../components"
 import {
   OryClientConfiguration,
   OryFlowComponents,
-  OryCard,
   OryProvider,
+  OryTwoStepCard,
 } from "@ory/elements-react"
+import { PropsWithChildren } from "react"
+import { OryDefaultComponents } from "../components"
 
 type RegistrationFlowContextProps = {
   flow: RegistrationFlow
@@ -32,7 +32,7 @@ export function Registration({
       flowType={FlowType.Registration}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }

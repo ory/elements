@@ -51,10 +51,6 @@ export const NodeInput = ({
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
-  const isCurrentIdentifier =
-    attrs.name == "identifier" &&
-    node.group === "identifier_first" &&
-    attrs.type === "hidden"
   const isResend = attrs.name === "resend" && node.group === "code"
 
   switch (nodeType) {
@@ -86,19 +82,11 @@ export const NodeInput = ({
       )
     case UiNodeInputAttributesTypeEnum.Hidden:
       return (
-        <>
-          {isCurrentIdentifier && (
-            <Components.CurrentIdentifierButton
-              attributes={attrs}
-              node={node}
-            />
-          )}
-          <Components.Input
-            attributes={attrs}
-            node={node}
-            onClick={handleClick}
-          />
-        </>
+        <Components.Input
+          attributes={attrs}
+          node={node}
+          onClick={handleClick}
+        />
       )
     default:
       if (isPinCodeInput) {

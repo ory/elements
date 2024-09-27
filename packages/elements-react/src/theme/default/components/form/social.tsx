@@ -21,7 +21,14 @@ function extractProvider(context: object | undefined): string | undefined {
 export function DefaultButtonSocial({
   attributes,
   node,
+  onClick,
 }: HeadlessSocialButtonProps) {
+  const {
+    node_type: _ignoredNodeType,
+    type: _ignoredType,
+    name: _ignoredName,
+    ...props
+  } = attributes
   const {
     flow: { ui },
   } = useOryFlow()
@@ -44,12 +51,13 @@ export function DefaultButtonSocial({
       value={attributes.value}
       type="submit"
       name="provider"
+      {...props}
+      onClick={onClick}
     >
       <span className="w-5 h-5">
         {Logo ? (
           <Logo
-            width={20}
-            height={20}
+            size={20}
             // alt={node.meta.label?.text || attributes.value}
             className="object-fill w-full h-full"
           />

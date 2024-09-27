@@ -1,13 +1,13 @@
 "use client"
 import { FlowType, SettingsFlow } from "@ory/client-fetch"
+import {
+  OryClientConfiguration,
+  OryFlowComponents,
+  OryProvider,
+  OryTwoStepCard,
+} from "@ory/elements-react"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
-import {
-  OryFlowComponents,
-  OryClientConfiguration,
-  OryProvider,
-  OryCard,
-} from "@ory/elements-react"
 
 export type SettingsFlowContextProps = {
   flow: SettingsFlow
@@ -32,7 +32,7 @@ export function Settings({
       flowType={FlowType.Settings}
       components={components}
     >
-      {children ?? <OryCard />}
+      {children ?? <OryTwoStepCard />}
     </OryProvider>
   )
 }
