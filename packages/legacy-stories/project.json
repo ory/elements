@@ -1,9 +1,9 @@
 {
-  "name": "storybook-host",
+  "name": "legacy-stories",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/storybook-host/src",
+  "sourceRoot": "packages/legacy-stories/src",
   "projectType": "library",
   "tags": [],
-  "// targets": "to see all targets run: nx show project storybook-host --web",
+  "// targets": "to see all targets run: nx show project legacy-stories --web",
   "targets": {}
 }
