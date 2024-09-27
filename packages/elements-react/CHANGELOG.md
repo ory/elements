@@ -1,10 +1,8 @@
 ## 1.0.0-next.7 (2024-09-27)
 
-
 ### 🚀 Features
 
 - add two-step login card
-
 
 ### 🩹 Fixes
 
@@ -12,8 +10,7 @@
 
 - show identifier_first node in card header
 
-
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Jonas Hungershausen
 
