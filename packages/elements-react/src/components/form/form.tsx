@@ -13,6 +13,7 @@ import {
   FormValues,
   HeadlessAuthMethodListItemProps,
   HeadlessButtonProps,
+  HeadlessCurrentIdentifierProps,
   HeadlessFormProps,
   HeadlessImageProps,
   HeadlessInputProps,
