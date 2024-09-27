@@ -19,7 +19,9 @@ import { OryFormComponents } from "./components/form/form"
 export type HeadlessButtonProps = {
   attributes: UiNodeInputAttributes
   node: UiNode
-} & Omit<ComponentPropsWithoutRef<"button">, "children">
+  onClick?: () => void
+  href?: string
+} & Omit<ComponentPropsWithoutRef<"button">, "children" | "onClick">
 
 export type HeadlessLinkButtonProps = {
   attributes: UiNodeAnchorAttributes

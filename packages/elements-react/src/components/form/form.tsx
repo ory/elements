@@ -108,7 +108,7 @@ export function OryForm({ children }: OryFormProps) {
         if (submitData.method === "code" && data.code) {
           submitData.resend = ""
         }
-
+        console.log(submitData)
         await onSubmitLogin(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,

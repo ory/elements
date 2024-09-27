@@ -1,9 +1,10 @@
 import {
+  FlowType,
   UiNode,
   UiNodeGroupEnum,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { OryCard, OryCardContent, OryCardFooter } from "."
 import { useComponents, useNodeSorter, useOryFlow } from "../../context"
 import { useNodesGroups } from "../../util/ui"
@@ -12,7 +13,6 @@ import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
 import { OryCardHeader } from "./header"
-import { useFormContext } from "react-hook-form"
 import {
   filterZeroStepGroups,
   getFinalNodes,
@@ -28,6 +28,7 @@ enum ProcessStep {
 export function OryTwoStepCard() {
   const {
     flow: { ui },
+    config,
   } = useOryFlow()
 
   const choosingMethod = isChoosingMethod(ui.nodes)
@@ -85,7 +86,13 @@ export function OryTwoStepCard() {
                 .map((node, k) => <Node node={node} key={k} />)}
             {step === ProcessStep.ChooseAuthMethod && (
               <>
-                <BackButton />
+                <BackButton
+                  href={
+                    flowType === FlowType.Login
+                      ? config.project.login_ui_url
+                      : undefined
+                  }
+                />
                 {options.map((option) => (
                   <Components.AuthMethodListItem
                     key={option}
@@ -113,13 +120,13 @@ export function OryTwoStepCard() {
 
 type BackButtonProps = {
   onClick?: () => void
+  href?: string
 }
 
-const BackButton = ({ onClick }: BackButtonProps) => {
+const BackButton = ({ onClick, href }: BackButtonProps) => {
   const {
     flow: { ui },
   } = useOryFlow()
-  const { setValue } = useFormContext()
   const Components = useComponents()
 
   const nodeBackButton = ui.nodes.find(
@@ -131,28 +138,17 @@ const BackButton = ({ onClick }: BackButtonProps) => {
       node.group === "identifier_first",
   )
 
-  useEffect(() => {
-    if (!nodeBackButton) return
-
-    setValue(
-      (nodeBackButton.attributes as UiNodeInputAttributes).name,
-      (nodeBackButton.attributes as UiNodeInputAttributes).value,
-    )
-  }, [nodeBackButton, setValue])
-
   if (!nodeBackButton) {
     return null
-  }
-
-  const handleClick = () => {
-    onClick?.()
   }
 
   return (
     <Components.CurrentIdentifierButton
       node={nodeBackButton}
       attributes={nodeBackButton.attributes as UiNodeInputAttributes}
-      onClick={onClick ? handleClick : undefined}
+      onClick={onClick}
+      type={onClick ? "button" : undefined}
+      href={href}
     />
   )
 }
