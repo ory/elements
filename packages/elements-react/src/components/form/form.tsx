@@ -13,6 +13,7 @@ import {
   FormValues,
   HeadlessAuthMethodListItemProps,
   HeadlessButtonProps,
+  HeadlessCurrentIdentifierProps,
   HeadlessFormProps,
   HeadlessImageProps,
   HeadlessInputProps,
@@ -69,7 +70,7 @@ export type OryFormComponents = {
 
   MessageContainer: ComponentType<HeadlessMessagesProps>
   Message: ComponentType<HeadlessMessageProps>
-  CurrentIdentifierButton: ComponentType<HeadlessButtonProps>
+  CurrentIdentifierButton: ComponentType<HeadlessCurrentIdentifierProps>
 }
 
 export type OryFormProps = PropsWithChildren
@@ -77,7 +78,6 @@ export type OryFormProps = PropsWithChildren
 export function OryForm({ children }: OryFormProps) {
   const { FormContainer } = useComponents()
   const flowContainer = useOryFlow()
-
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
     defaultValues: computeDefaultValues(flowContainer),
@@ -109,6 +109,7 @@ export function OryForm({ children }: OryFormProps) {
         if (submitData.method === "code" && data.code) {
           submitData.resend = ""
         }
+        console.log(submitData)
         await onSubmitLogin(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,
@@ -120,10 +121,11 @@ export function OryForm({ children }: OryFormProps) {
         const submitData: UpdateRegistrationFlowBody = {
           ...(data as unknown as UpdateRegistrationFlowBody),
         }
+
         if (submitData.method === "code" && submitData.code) {
           submitData.resend = ""
         }
-        console
+
         await onSubmitRegistration(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,

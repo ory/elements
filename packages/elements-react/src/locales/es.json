@@ -172,5 +172,13 @@
   "verification.registration-button": "Registrarse",
   "verification.registration-label": "¿No tiene una cuenta?",
   "verification.title": "Verificar su cuenta",
-  "verification.back-button": "Regresar"
+  "verification.back-button": "Regresar",
+  "two-step.code.description": "Se enviará un código de verificación a tu correo electrónico.",
+  "two-step.code.title": "Código de correo electrónico",
+  "two-step.passkey.description": "Utiliza el reconocimiento de huellas dactilares o facial de tu dispositivo.",
+  "two-step.passkey.title": "Clave de acceso (recomendada)",
+  "two-step.password.description": "Ingrese la contraseña asociada con su cuenta",
+  "two-step.password.title": "Contraseña",
+  "two-step.webauthn.description": "Utiliza tu llave de seguridad para autenticarte",
+  "two-step.webauthn.title": "Clave de Seguridad"
 }

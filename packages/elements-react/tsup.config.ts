@@ -40,8 +40,16 @@ export default defineConfig([
       "react-intl",
     ],
 
-    /* @ts-ignore -- the types of the plugin are wrong? it still works.. */
-    esbuildPlugins: [svgr()],
+    esbuildPlugins: [
+      // @ts-expect-error - types seems to be wrong but it works
+      svgr({
+        plugins: ["@svgr/plugin-svgo"],
+        svgProps: {
+          width: "{props?.width ? props.width : props?.size ?? 20}",
+          height: "{props?.height ? props.height : props?.size ?? 20}",
+        },
+      }),
+    ],
     esbuildOptions(options) {
       options.banner = {
         js: '"use client"',

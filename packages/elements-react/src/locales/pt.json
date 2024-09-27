@@ -172,5 +172,13 @@
   "verification.registration-button": "Registar",
   "verification.registration-label": "Não tem uma conta?",
   "verification.title": "Verifique a sua conta",
-  "verification.back-button": "Voltar"
+  "verification.back-button": "Voltar",
+  "two-step.code.description": "Um código de verificação será enviado para o seu email",
+  "two-step.code.title": "Código de email",
+  "two-step.passkey.description": "Use o seu dispositivo para reconhecimento de impressão digital ou facial.",
+  "two-step.passkey.title": "Chave de acesso (recomendado)",
+  "two-step.password.description": "Insira a sua senha associada à sua conta",
+  "two-step.password.title": "Senha",
+  "two-step.webauthn.description": "Use sua chave de segurança para autenticar",
+  "two-step.webauthn.title": "Chave de Segurança"
 }

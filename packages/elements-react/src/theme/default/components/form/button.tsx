@@ -52,9 +52,7 @@ export const DefaultButton = ({
         }
       }}
       className={cn(
-        // TODO: Difficult to resolve merge conflict here. Please ensure this is correct:
-        // "relative antialiased rounded border gap-3 leading-none transition-colors ease-linear duration-100  px-4 py-4.5 text-sm font-medium",
-        "antialiased rounded-border-radius-buttons border border-transparent gap-3 bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-4.5 text-sm leading-none font-medium",
+        "antialiased rounded-border-radius-buttons border border-transparent gap-3 bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-3 md:py-4.5 text-sm leading-none font-medium",
         {
           "cursor-not-allowed": isSubmitting,
           "bg-button-primary-bg-hover": isSubmitting,

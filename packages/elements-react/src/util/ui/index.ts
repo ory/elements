@@ -9,6 +9,7 @@ import type {
   UiNodeInputAttributesOnloadTriggerEnum,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
+import { useMemo } from "react"
 
 export function capitalize(s: string) {
   if (!s) {
@@ -92,4 +93,19 @@ function triggerToFunction(
     return undefined
   }
   return triggerFn as () => void
+}
+
+export function useNodesGroups(nodes: UiNode[]) {
+  const groups = useMemo(() => {
+    const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+
+    for (const node of nodes) {
+      const groupNodes = groups[node.group] ?? []
+      groupNodes.push(node)
+      groups[node.group] = groupNodes
+    }
+    return groups
+  }, [nodes])
+
+  return groups
 }

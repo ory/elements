@@ -1,9 +1,9 @@
+import { ComponentType, PropsWithChildren } from "react"
+import { useComponents } from "../../context"
 import { OryForm } from "../form/form"
 import { OryFormGroups } from "../form/groups"
 import { OryCardValidationMessages } from "../form/messages"
-import { OryFormSocialButtons } from "../form/social"
-import { useComponents } from "../../context"
-import { ComponentType, PropsWithChildren } from "react"
+import { OryTwoStepCard } from "./card-two-step"
 import { OryCardHeader, OryCardHeaderProps } from "./header"
 
 export type OryCardContentProps = PropsWithChildren
@@ -19,7 +19,6 @@ export function OryCardContent({ children }: OryCardContentProps) {
     <CardContent>
       <OryCardValidationMessages />
       <OryForm>
-        <OryFormSocialButtons />
         <OryFormGroups
           groups={[
             "default",
@@ -48,6 +47,7 @@ export type OryCardProps = PropsWithChildren
 
 export function OryCard({ children }: OryCardProps) {
   const { Card } = useComponents()
+
   if (children) {
     return <Card>{children}</Card>
   }
@@ -91,6 +91,6 @@ export type OryCardComponents = {
   CardLogo: ComponentType
 }
 
-export { OryCardHeader }
+export { OryCardHeader, OryTwoStepCard }
 
 export type { OryCardHeaderProps }

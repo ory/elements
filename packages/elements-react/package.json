@@ -28,24 +28,25 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@ory/client-fetch": "1.15.3",
+    "@ory/client-fetch": "^1.15.4",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
-    "react-hook-form": "7.52.1",
-    "tailwind-merge": "2.4.0",
-    "react-intl": "6.4.4"
+    "react-hook-form": "7.53.0",
+    "react-intl": "6.7.0",
+    "tailwind-merge": "2.5.2"
   },
   "peerDependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@svgr/plugin-jsx": "^8.1.0",
-    "esbuild-plugin-svgr": "2.1.0",
-    "eslint-plugin-react": "7.35.0",
+    "@hookform/devtools": "^4.3.1",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "esbuild-plugin-svgr": "^2.1.0",
+    "eslint-plugin-react": "7.37.0",
     "postcss": "8.4.47",
     "postcss-prefix-selector": "1.16.1",
-    "tsup": "8.2.3"
+    "tsup": "8.3.0"
   },
   "keywords": [
     "ory",

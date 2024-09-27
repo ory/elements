@@ -29,6 +29,7 @@
     "src/**/*.tsx",
     "src/global.d.ts",
     "src/tests/**/*.ts",
-    "src/tests/**/*.tsx"
+    "src/tests/**/*.tsx",
+    "tsup.config.ts"
   ]
 }

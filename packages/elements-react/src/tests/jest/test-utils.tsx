@@ -1,5 +1,10 @@
-import { PropsWithChildren, ReactElement } from "react"
-import { OryComponentProvider } from "../../context"
+import { PropsWithChildren, ReactElement, ReactNode } from "react"
+import {
+  OryComponentProvider,
+  OryProvider,
+  ProviderProps,
+  SupportedTranslations,
+} from "../../context"
 import { OryDefaultComponents } from "../../theme/default"
 import { render, RenderOptions } from "@testing-library/react"
 import { OryClientConfiguration } from "../../util"
@@ -29,6 +34,21 @@ export const defaultConfiguration: OryClientConfiguration = {
   sdk: {
     url: "http://localhost:4455",
   },
+}
+
+export function renderWithOryProvider(
+  ui: ReactNode,
+  {
+    providerProps,
+    ...renderOptions
+  }: RenderOptions & { providerProps: ProviderProps<SupportedTranslations> },
+) {
+  return render(ui, {
+    wrapper: ({ children }) => (
+      <OryProvider {...providerProps}>{children}</OryProvider>
+    ),
+    ...renderOptions,
+  })
 }
 
 export * from "@testing-library/react"
