@@ -69,7 +69,7 @@ export type OryFormComponents = {
 
   MessageContainer: ComponentType<HeadlessMessagesProps>
   Message: ComponentType<HeadlessMessageProps>
-  CurrentIdentifierButton: ComponentType<HeadlessButtonProps>
+  CurrentIdentifierButton: ComponentType<HeadlessCurrentIdentifierProps>
 }
 
 export type OryFormProps = PropsWithChildren

@@ -1,4 +1,4 @@
-import { HeadlessButtonProps } from "@ory/elements-react"
+import { HeadlessCurrentIdentifierProps } from "@ory/elements-react"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 
 export function DefaultCurrentIdentifierButton({
@@ -6,7 +6,7 @@ export function DefaultCurrentIdentifierButton({
   onClick,
   type,
   href,
-}: HeadlessButtonProps) {
+}: HeadlessCurrentIdentifierProps) {
   const Element = onClick ? "button" : "a"
 
   return (
