@@ -25,7 +25,7 @@ export function DefaultLabel({
         <span className="inline-flex justify-between">
           <label
             {...messageTestId(label)}
-            className="text-sm font-medium leading-normal capitalize"
+            className="text-sm font-medium leading-normal"
             htmlFor={attributes.name}
             {...rest}
           >
@@ -58,7 +58,7 @@ export function DefaultLabel({
       {node.messages.map((message) => (
         <span
           key={message.id}
-          className={cn("text-sm leading-normal capitalize", {
+          className={cn("text-sm leading-normal", {
             "text-forms-fg-error": message.type === "error",
             "text-forms-fg-default": message.type === "info",
             "text-forms-fg-success": message.type === "success",
