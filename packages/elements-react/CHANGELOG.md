@@ -1,3 +1,21 @@
+## 1.0.0-next.8 (2024-10-07)
+
+
+### 🩹 Fixes
+
+- ⚠️  remove ory-default-theme class
+
+- remove capitalize class from messages
+
+
+#### ⚠️  Breaking Changes
+
+- ⚠️  remove ory-default-theme class
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.7 (2024-09-27)
 
 ### 🚀 Features
