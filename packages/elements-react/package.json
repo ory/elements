@@ -45,8 +45,7 @@
     "esbuild-plugin-svgr": "^2.1.0",
     "eslint-plugin-react": "7.37.0",
     "postcss": "8.4.47",
-    "postcss-prefix-selector": "1.16.1",
-    "tsup": "8.3.0"
+    "tsup": "8.2.3"
   },
   "keywords": [
     "ory",
