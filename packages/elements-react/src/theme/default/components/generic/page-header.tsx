@@ -1,16 +1,17 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryPageHeaderProps, useComponents } from "@ory/elements-react"
+import {
+  OryPageHeaderProps,
+  useComponents,
+  useSession,
+} from "@ory/elements-react"
 import { ReturnButton } from "../ui/return-button"
 import { UserMenu } from "../ui/user-menu"
 
-export const DefaultPageHeader = ({
-  logoutFlow,
-  session,
-}: OryPageHeaderProps) => {
+export const DefaultPageHeader = ({ logoutFlow }: OryPageHeaderProps) => {
   const { Card } = useComponents()
-  // const logoutFlow = await serverClientFrontend().createBrowserLogoutFlow()
+  const session = useSession()
 
   return (
     <div className="flex max-w-[896px] flex-col w-full gap-3 mt-16">

@@ -12,7 +12,7 @@ import { UserAvatar } from "./user-avater"
 import { getUserInitials } from "../../utils/user"
 
 type UserMenuProps = {
-  session: Session
+  session?: Session
   logoutFlow: LogoutFlow
 }
 
