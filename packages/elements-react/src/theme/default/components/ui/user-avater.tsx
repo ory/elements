@@ -1,7 +1,6 @@
-import Image from "next/image"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { UserInitials } from "../../utils/user"
-import IconUser from "../../icons/user.svg"
+import IconUser from "../../assets/icons/user.svg"
 
 type UserAvatarProps = {
   initials: UserInitials
@@ -17,10 +16,9 @@ export const UserAvatar = forwardRef<HTMLButtonElement, UserAvatarProps>(
       >
         <div className="relative size-full flex items-center justify-center">
           {initials.avatar ? (
-            <Image
+            <img
               src={initials.avatar}
               alt={initials.primary}
-              fill
               className="w-full object-contain"
             />
           ) : (

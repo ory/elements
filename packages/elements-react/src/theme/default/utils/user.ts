@@ -6,10 +6,18 @@ export type UserInitials = {
   avatar?: string
 }
 
-export const getUserInitials = (session: Session): UserInitials => {
+export const getUserInitials = (session?: Session): UserInitials => {
   let avatar = ""
   let primary = ""
   let secondary = ""
+
+  if (!session) {
+    return {
+      primary,
+      secondary,
+      avatar,
+    }
+  }
 
   const traits = session.identity?.traits
 
