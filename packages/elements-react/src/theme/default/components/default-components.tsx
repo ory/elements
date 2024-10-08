@@ -30,6 +30,7 @@ import {
 import { DefaultText } from "./form/text"
 import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button"
 import { OryFlowComponents } from "@ory/elements-react"
+import { DefaultPageHeader } from "./generic/page-header"
 
 export const OryDefaultComponents: OryFlowComponents = {
   Card: {
@@ -61,5 +62,8 @@ export const OryDefaultComponents: OryFlowComponents = {
   Message: {
     Root: DefaultMessageContainer,
     Content: DefaultMessage,
+  },
+  Page: {
+    Header: DefaultPageHeader,
   },
 }

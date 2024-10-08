@@ -2,3 +2,5 @@
 // SPDX-License-Identifier: Apache-2.0
 
 export * from "./divider"
+export * from "./page-header"
+export * from "./page-header.types"
