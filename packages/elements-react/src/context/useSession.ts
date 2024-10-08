@@ -1,23 +1,23 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Session } from "@ory/client-fetch"
 import { create, useStore } from "zustand"
-import { frontendClient } from "../util/client"
-import { useOryFlow } from "./flow-context"
 import { useEffect } from "react"
+import { Session } from "@ory/client-fetch"
+import { useOryFlow } from "./flow-context"
+import { frontendClient } from "../util/client"
 
 type SessionStore = {
-  isLoading?: boolean
-  setLoading: (loading: boolean) => void
-  session?: Session
+  setIsLoading: (loading: boolean) => void
   setSession: (session: Session) => void
   clearSession: () => void
+  isLoading?: boolean
+  session?: Session
 }
 
 export const useSessionStore = create<SessionStore>((set) => ({
   isLoading: false,
-  setLoading: (isLoading: boolean) => set({ isLoading }),
+  setIsLoading: (isLoading: boolean) => set({ isLoading }),
   session: undefined,
   setSession: (session: Session) => set({ session }),
   clearSession: () => set({ session: undefined }),
@@ -28,22 +28,22 @@ export const useSession = () => {
   const store = useStore(useSessionStore)
 
   useEffect(() => {
-    if (
-      useSessionStore.getState().session ??
-      useSessionStore.getState().isLoading
-    ) {
+    const { session, isLoading, setSession, setIsLoading } =
+      useSessionStore.getState()
+
+    if (session ?? isLoading) {
       return
     }
 
-    store.setLoading(true)
+    setIsLoading(true)
 
     void frontendClient(config.sdk.url)
       .toSession()
       .then((session) => {
-        useSessionStore.getState().setSession(session)
+        setSession(session)
       })
       .finally(() => {
-        useSessionStore.getState().setLoading(false)
+        setIsLoading(false)
       })
   }, [store.session, store.isLoading, config.sdk.url])
 
