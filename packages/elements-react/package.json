@@ -29,6 +29,7 @@
   "types": "./dist/index.d.ts",
   "dependencies": {
     "@ory/client-fetch": "^1.15.4",
+    "@radix-ui/react-dropdown-menu": "2.1.2",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
     "lodash.merge": "4.6.2",
