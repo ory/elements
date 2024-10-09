@@ -10,7 +10,7 @@
       }
     },
     "dev": {
-      "command": "tsup --watch --dts",
+      "command": "tsup --watch  --onSuccess 'tsup --dts-only'",
       "options": {
         "cwd": "packages/elements-react"
       }
@@ -29,6 +29,28 @@
         "coverage": true,
         "coverageReporters": ["text", "cobertura"]
       }
+    },
+    "api-extractor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react",
+        "commands": [
+          "api-extractor run --verbose -c config/api-extractor-core.json",
+          "api-extractor run --verbose -c config/api-extractor-theme.json"
+        ]
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor-refresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react",
+        "commands": [
+          "api-extractor run --local --verbose -c config/api-extractor-core.json",
+          "api-extractor run --local --verbose -c config/api-extractor-theme.json"
+        ]
+      },
+      "dependsOn": ["build"]
     }
   }
 }
