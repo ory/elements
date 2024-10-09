@@ -21,7 +21,7 @@ jobs:
       - run: npx playwright install --with-deps
       # Re-enable, once we don't have weird depdenency issues, because of the shared src/ folder
       # - run: npx nx affected -t lint test build
-      - run: npx nx run-many --all -t lint test build
+      - run: npx nx run-many --all -t lint test build api-extractor
       - uses: actions/upload-artifact@v4
         if: always()
         with:

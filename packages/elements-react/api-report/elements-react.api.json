@@ -1,0 +1,4262 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.47.9",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/elements-react!",
+  "docComment": "",
+  "name": "@ory/elements-react",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/elements-react!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!CustomLanguageFormats:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type CustomLanguageFormats = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [k in (typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "LanguageCodes",
+              "canonicalReference": "@ory/elements-react!LanguageCodes:var"
+            },
+            {
+              "kind": "Content",
+              "text": ")[number]]?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "TranslationFile",
+              "canonicalReference": "@ory/elements-react!TranslationFile:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "CustomLanguageFormats",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!CustomTranslations:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type CustomTranslations = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    customTranslations: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "CustomLanguageFormats",
+              "canonicalReference": "@ory/elements-react!CustomLanguageFormats:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    locale: (typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "LanguageCodes",
+              "canonicalReference": "@ory/elements-react!LanguageCodes:var"
+            },
+            {
+              "kind": "Content",
+              "text": ")[number];\n    defaultLocale: (typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "LanguageCodes",
+              "canonicalReference": "@ory/elements-react!LanguageCodes:var"
+            },
+            {
+              "kind": "Content",
+              "text": ")[number];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "CustomTranslations",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!ErrorFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ErrorFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseFlow",
+              "canonicalReference": "@ory/elements-react!~BaseFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Error",
+              "canonicalReference": "@ory/client-fetch!FlowType.Error:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ErrorFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlowContainer",
+              "canonicalReference": "@ory/elements-react!LoginFlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlowContainer",
+              "canonicalReference": "@ory/elements-react!RegistrationFlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlowContainer",
+              "canonicalReference": "@ory/elements-react!RecoveryFlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlowContainer",
+              "canonicalReference": "@ory/elements-react!VerificationFlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlowContainer",
+              "canonicalReference": "@ory/elements-react!SettingsFlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FlowContainerSetter:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FlowContainerSetter = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Dispatch",
+              "canonicalReference": "@types/react!React.Dispatch:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FlowContainerSetter",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FlowContextValue:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FlowContextValue = "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n    setFlowContainer: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainerSetter",
+              "canonicalReference": "@ory/elements-react!FlowContainerSetter:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FlowContextValue",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!formatMessage:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function formatMessage(uiText: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ", intl: "
+            },
+            {
+              "kind": "Reference",
+              "text": "IntlShape",
+              "canonicalReference": "react-intl!IntlShape:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "uiText",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "intl",
+              "parameterTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "formatMessage"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!formElementId:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function formElementId(attributes: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    name: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    id: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "attributes",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "formElementId"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!formLabelId:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function formLabelId(attributes: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    name: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    htmlFor: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "attributes",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "formLabelId"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FormValues:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FormValues = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, string | boolean | number | undefined>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FormValues",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessAuthMethodListItemProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessAuthMethodListItemProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    onClick: () => void;\n    group: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessAuthMethodListItemProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessButtonProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessButtonProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"button\">, \"children\">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessButtonProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessCurrentIdentifierProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessCurrentIdentifierProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onClick?: () => void;\n    href?: string;\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"button\">, \"children\" | \"onClick\">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessCurrentIdentifierProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessFormProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessFormProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"form\"> & {\n    onSubmit: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FormEventHandler",
+              "canonicalReference": "@types/react!React.FormEventHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLFormElement",
+              "canonicalReference": "!HTMLFormElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessFormProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessGroupContainerProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessGroupContainerProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessGroupContainerProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessGroupProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessGroupProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    groups: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeGroupEnum",
+              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessGroupProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessImageProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessImageProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeImageAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeImageAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessImageProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessInputProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessInputProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onClick?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MouseEventHandler",
+              "canonicalReference": "@types/react!React.MouseEventHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessInputProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessLabelProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessLabelProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"label\">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessLabelProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessLinkButtonProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessLinkButtonProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeAnchorAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeAnchorAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"a\">, \"children\">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessLinkButtonProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!HeadlessMessage:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function HeadlessMessage({ message }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessMessageProps",
+              "canonicalReference": "@ory/elements-react!HeadlessMessageProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ message }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "HeadlessMessage"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessMessageProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessMessageProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    message: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessMessageProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessMessagesProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessMessagesProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "DetailedHTMLProps",
+              "canonicalReference": "@types/react!React.DetailedHTMLProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAttributes",
+              "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLDivElement",
+              "canonicalReference": "!HTMLDivElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">, "
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLDivElement",
+              "canonicalReference": "!HTMLDivElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessMessagesProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 9
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessSocialButtonContainerProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessSocialButtonContainerProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    nodes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessSocialButtonContainerProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessSocialButtonProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessSocialButtonProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onClick?: () => void;\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessSocialButtonProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessSocialButtonsProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessSocialButtonsProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    hideDivider?: boolean;\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessSocialButtonsProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HeadlessTextProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HeadlessTextProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeTextAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeTextAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HeadlessTextProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!HorizontalDividerProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type HorizontalDividerProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, never>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "HorizontalDividerProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!IntlProvider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "IntlProvider: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "CustomTranslations",
+              "canonicalReference": "@ory/elements-react!CustomTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "SupportedTranslations",
+              "canonicalReference": "@ory/elements-react!SupportedTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "SupportedTranslations",
+              "canonicalReference": "@ory/elements-react!SupportedTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">({ children, ...props }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IntlProviderProps",
+              "canonicalReference": "@ory/elements-react!IntlProviderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string | number | boolean | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Iterable",
+              "canonicalReference": "!Iterable:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "react.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | undefined"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 19
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, ...props }",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 11
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              }
+            }
+          ],
+          "name": "IntlProvider"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!IntlProviderProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type IntlProviderProps<Type> = "
+            },
+            {
+              "kind": "Content",
+              "text": "Type extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "CustomTranslations",
+              "canonicalReference": "@ory/elements-react!CustomTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": " ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "CustomTranslations",
+              "canonicalReference": "@ory/elements-react!CustomTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": " : "
+            },
+            {
+              "kind": "Reference",
+              "text": "SupportedTranslations",
+              "canonicalReference": "@ory/elements-react!SupportedTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "IntlProviderProps",
+          "typeParameters": [
+            {
+              "typeParameterName": "Type",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!isCustomTranslations:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "isCustomTranslations: (o: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "o",
+              "canonicalReference": "@ory/elements-react!~o"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "CustomTranslations",
+              "canonicalReference": "@ory/elements-react!CustomTranslations:type"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "o",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isCustomTranslations"
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-react!LanguageCodes:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "LanguageCodes: "
+            },
+            {
+              "kind": "Content",
+              "text": "readonly [\"ab\", \"aa\", \"af\", \"sq\", \"am\", \"ar\", \"hy\", \"as\", \"ay\", \"az\", \"ba\", \"eu\", \"bn\", \"dz\", \"bh\", \"bi\", \"br\", \"bg\", \"my\", \"be\", \"km\", \"ca\", \"zh\", \"co\", \"hr\", \"cs\", \"da\", \"nl\", \"en\", \"eo\", \"et\", \"fo\", \"fj\", \"fi\", \"fr\", \"fy\", \"gd\", \"gl\", \"ka\", \"de\", \"el\", \"kl\", \"gn\", \"gu\", \"ha\", \"iw\", \"hi\", \"hu\", \"is\", \"in\", \"ia\", \"ie\", \"ik\", \"ga\", \"it\", \"ja\", \"jw\", \"kn\", \"ks\", \"kk\", \"rw\", \"ky\", \"rn\", \"ko\", \"ku\", \"lo\", \"la\", \"lv\", \"ln\", \"lt\", \"mk\", \"mg\", \"ms\", \"ml\", \"mt\", \"mi\", \"mr\", \"mo\", \"mn\", \"na\", \"ne\", \"no\", \"oc\", \"or\", \"om\", \"ps\", \"fa\", \"pl\", \"pt\", \"pa\", \"qu\", \"rm\", \"ro\", \"ru\", \"sm\", \"sg\", \"sa\", \"sr\", \"sh\", \"st\", \"tn\", \"sn\", \"sd\", \"si\", \"ss\", \"sk\", \"sl\", \"so\", \"es\", \"su\", \"sw\", \"sv\", \"tl\", \"tg\", \"ta\", \"tt\", \"te\", \"th\", \"bo\", \"ti\", \"to\", \"ts\", \"tr\", \"tk\", \"tw\", \"uk\", \"ur\", \"uz\", \"vi\", \"vo\", \"cy\", \"wo\", \"xh\", \"ji\", \"yo\", \"zu\"]"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "LanguageCodes",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!Locale:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type Locale = "
+            },
+            {
+              "kind": "Content",
+              "text": "keyof typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "locales",
+              "canonicalReference": "@ory/elements-react!OryLocales:namespace"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "Locale",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!LoginFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type LoginFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseFlow",
+              "canonicalReference": "@ory/elements-react!~BaseFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Login",
+              "canonicalReference": "@ory/client-fetch!FlowType.Login:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "LoginFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!messageTestId:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function messageTestId(message: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    \"data-testid\": string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "message",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "messageTestId"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OnSubmitHandlerProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OnSubmitHandlerProps<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateLoginFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateLoginFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateRegistrationFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateRegistrationFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateVerificationFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateVerificationFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateRecoveryFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateRecoveryFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateSettingsFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateSettingsFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    setFlowContainer: (flowContainer: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => void;\n    body: T;\n    onRedirect: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnRedirectHandler",
+              "canonicalReference": "@ory/client-fetch!OnRedirectHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OnSubmitHandlerProps",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 10
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 11,
+            "endIndex": 16
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!onSubmitLogin:function(1)",
+          "docComment": "/**\n * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.\n *\n * @param config - The configuration object.\n *\n * @param flow - The flow object.\n *\n * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.\n *\n * @param body - The form values to submit.\n *\n * @param onRedirect - This method is used to redirect the user to a different page.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function onSubmitLogin({ config, flow }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", { setFlowContainer, body, onRedirect, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnSubmitHandlerProps",
+              "canonicalReference": "@ory/elements-react!OnSubmitHandlerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateLoginFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateLoginFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ config, flow }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "{ setFlowContainer, body, onRedirect, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "onSubmitLogin"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!onSubmitRecovery:function(1)",
+          "docComment": "/**\n * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.\n *\n * @param config - The configuration object.\n *\n * @param flow - The flow object.\n *\n * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.\n *\n * @param body - The form values to submit.\n *\n * @param onRedirect - This method is used to redirect the user to a different page.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function onSubmitRecovery({ config, flow }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", { setFlowContainer, body, onRedirect, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnSubmitHandlerProps",
+              "canonicalReference": "@ory/elements-react!OnSubmitHandlerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateRecoveryFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateRecoveryFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ config, flow }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "{ setFlowContainer, body, onRedirect, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "onSubmitRecovery"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!onSubmitRegistration:function(1)",
+          "docComment": "/**\n * Use this method to submit a registration flow. This method is used in the `onSubmit` handler of the registration form.\n *\n * @param config - The configuration object.\n *\n * @param flow - The flow object.\n *\n * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.\n *\n * @param body - The form values to submit.\n *\n * @param onRedirect - This method is used to redirect the user to a different page.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function onSubmitRegistration({ config, flow }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", { setFlowContainer, body, onRedirect, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnSubmitHandlerProps",
+              "canonicalReference": "@ory/elements-react!OnSubmitHandlerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateRegistrationFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateRegistrationFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ config, flow }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "{ setFlowContainer, body, onRedirect, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "onSubmitRegistration"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!onSubmitSettings:function(1)",
+          "docComment": "/**\n * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.\n *\n * @param config - The configuration object.\n *\n * @param flow - The flow object.\n *\n * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.\n *\n * @param body - The form values to submit.\n *\n * @param onRedirect - This method is used to redirect the user to a different page.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function onSubmitSettings({ config, flow }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", { setFlowContainer, body, onRedirect, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnSubmitHandlerProps",
+              "canonicalReference": "@ory/elements-react!OnSubmitHandlerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateSettingsFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateSettingsFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ config, flow }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "{ setFlowContainer, body, onRedirect, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "onSubmitSettings"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!onSubmitVerification:function(1)",
+          "docComment": "/**\n * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.\n *\n * @param config - The configuration object.\n *\n * @param flow - The flow object.\n *\n * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.\n *\n * @param body - The form values to submit.\n *\n * @param onRedirect - This method is used to redirect the user to a different page.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function onSubmitVerification({ config, flow }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", { setFlowContainer, body, onRedirect, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnSubmitHandlerProps",
+              "canonicalReference": "@ory/elements-react!OnSubmitHandlerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UpdateVerificationFlowBody",
+              "canonicalReference": "@ory/client-fetch!UpdateVerificationFlowBody:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ config, flow }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "{ setFlowContainer, body, onRedirect, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "onSubmitVerification"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryCard:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryCard({ children }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardProps",
+              "canonicalReference": "@ory/elements-react!OryCardProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryCard"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryCardComponents:type",
+          "docComment": "/**\n * Card components are used to show login, registration, recovery, and verification flows.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryCardComponents = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    Card: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardProps",
+              "canonicalReference": "@ory/elements-react!OryCardProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    CardFooter: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardFooterProps",
+              "canonicalReference": "@ory/elements-react!OryCardFooterProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    CardHeader: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardProps",
+              "canonicalReference": "@ory/elements-react!OryCardProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    CardContent: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardContentProps",
+              "canonicalReference": "@ory/elements-react!OryCardContentProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    CardLogo: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryCardComponents",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryCardContent:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryCardContent({ children }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardContentProps",
+              "canonicalReference": "@ory/elements-react!OryCardContentProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryCardContent"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryCardContentProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryCardContentProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryCardContentProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryCardFooter:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryCardFooter(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OryCardFooter"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryCardFooterProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryCardFooterProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, never>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryCardFooterProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryCardHeader:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryCardHeader(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OryCardHeader"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryCardHeaderProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryCardHeaderProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, never>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryCardHeaderProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryCardProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryCardProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryCardProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryCardValidationMessages:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryCardValidationMessages({ ...props }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessMessagesProps",
+              "canonicalReference": "@ory/elements-react!HeadlessMessagesProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ ...props }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryCardValidationMessages"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryClientConfiguration:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryClientConfiguration = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    name: string;\n    logoUrl?: string;\n    stylesheet?: string;\n    favicon?: string;\n    sdk: {\n        url: string;\n        options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ConfigurationParameters",
+              "canonicalReference": "@ory/client-fetch!ConfigurationParameters:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    };\n    project: {\n        registration_enabled: boolean;\n        verification_enabled: boolean;\n        recovery_enabled: boolean;\n        recovery_ui_url: string;\n        registration_ui_url: string;\n        verification_ui_url: string;\n        login_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryClientConfiguration",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryComponentProvider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryComponentProvider({ children, components, nodeSorter, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProviderProps",
+              "canonicalReference": "@ory/elements-react!~ComponentProviderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, components, nodeSorter, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryComponentProvider"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFlowComponents:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFlowComponents = "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormComponents",
+              "canonicalReference": "@ory/elements-react!OryFormComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardComponents",
+              "canonicalReference": "@ory/elements-react!OryCardComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFlowComponents",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryFlowProvider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryFlowProvider({ children, ...container }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowProviderProps",
+              "canonicalReference": "@ory/elements-react!OryFlowProviderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, ...container }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryFlowProvider"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFlowProviderProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFlowProviderProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFlowProviderProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryForm:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryForm({ children }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormProps",
+              "canonicalReference": "@ory/elements-react!OryFormProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string | "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryForm"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFormComponents:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFormComponents = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    Button: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessButtonProps",
+              "canonicalReference": "@ory/elements-react!HeadlessButtonProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    LinkButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessLinkButtonProps",
+              "canonicalReference": "@ory/elements-react!HeadlessLinkButtonProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    Input: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessInputProps",
+              "canonicalReference": "@ory/elements-react!HeadlessInputProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    PinCodeInput: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessInputProps",
+              "canonicalReference": "@ory/elements-react!HeadlessInputProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    Image: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessImageProps",
+              "canonicalReference": "@ory/elements-react!HeadlessImageProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    Label: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessLabelProps",
+              "canonicalReference": "@ory/elements-react!HeadlessLabelProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    Checkbox: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessInputProps",
+              "canonicalReference": "@ory/elements-react!HeadlessInputProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    Text: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessTextProps",
+              "canonicalReference": "@ory/elements-react!HeadlessTextProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    FormContainer: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessFormProps",
+              "canonicalReference": "@ory/elements-react!HeadlessFormProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    SocialButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessSocialButtonProps",
+              "canonicalReference": "@ory/elements-react!HeadlessSocialButtonProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    SocialButtonContainer: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessSocialButtonContainerProps",
+              "canonicalReference": "@ory/elements-react!HeadlessSocialButtonContainerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    AuthMethodListItem: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessAuthMethodListItemProps",
+              "canonicalReference": "@ory/elements-react!HeadlessAuthMethodListItemProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    HorizontalDivider: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HorizontalDividerProps",
+              "canonicalReference": "@ory/elements-react!HorizontalDividerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    FormGroup: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessGroupContainerProps",
+              "canonicalReference": "@ory/elements-react!HeadlessGroupContainerProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    MessageContainer: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessMessagesProps",
+              "canonicalReference": "@ory/elements-react!HeadlessMessagesProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    Message: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessMessageProps",
+              "canonicalReference": "@ory/elements-react!HeadlessMessageProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    CurrentIdentifierButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessCurrentIdentifierProps",
+              "canonicalReference": "@ory/elements-react!HeadlessCurrentIdentifierProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFormComponents",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 70
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryFormGroupDivider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryFormGroupDivider(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OryFormGroupDivider"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryFormGroups:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryFormGroups({ children, groups }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessGroupProps",
+              "canonicalReference": "@ory/elements-react!HeadlessGroupProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, groups }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryFormGroups"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFormProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFormProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFormProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryFormSocialButtons:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryFormSocialButtons({ children, hideDivider, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "HeadlessSocialButtonsProps",
+              "canonicalReference": "@ory/elements-react!HeadlessSocialButtonsProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, hideDivider, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryFormSocialButtons"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryFormSocialButtonsForm:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryFormSocialButtonsForm(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OryFormSocialButtonsForm"
+        },
+        {
+          "kind": "Namespace",
+          "canonicalReference": "@ory/elements-react!OryLocales:namespace",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare namespace locales "
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryLocales",
+          "preserveMemberOrder": false,
+          "members": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryProvider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryProvider<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SupportedTranslations",
+              "canonicalReference": "@ory/elements-react!SupportedTranslations:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">({ children, "
+            },
+            {
+              "kind": "Reference",
+              "text": "components",
+              "canonicalReference": "@ory/elements-react!~__type#components"
+            },
+            {
+              "kind": "Content",
+              "text": ": Components, ...props }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ProviderProps",
+              "canonicalReference": "@ory/elements-react!ProviderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, components: Components, ...props }",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "OryProvider"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryTwoStepCard:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryTwoStepCard(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OryTwoStepCard"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!ProviderProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ProviderProps<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    components: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowComponents",
+              "canonicalReference": "@ory/elements-react!OryFlowComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "IntlProviderProps",
+              "canonicalReference": "@ory/elements-react!IntlProviderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContainer",
+              "canonicalReference": "@ory/elements-react!FlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"div\"> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ProviderProps",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 11
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!RecoveryFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type RecoveryFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseFlow",
+              "canonicalReference": "@ory/elements-react!~BaseFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Recovery",
+              "canonicalReference": "@ory/client-fetch!FlowType.Recovery:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "RecoveryFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!RegistrationFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type RegistrationFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseFlow",
+              "canonicalReference": "@ory/elements-react!~BaseFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Registration",
+              "canonicalReference": "@ory/client-fetch!FlowType.Registration:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "RegistrationFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!SettingsFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type SettingsFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseFlow",
+              "canonicalReference": "@ory/elements-react!~BaseFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Settings",
+              "canonicalReference": "@ory/client-fetch!FlowType.Settings:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "SettingsFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!SupportedTranslations:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type SupportedTranslations = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    locale?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Locale",
+              "canonicalReference": "@ory/elements-react!Locale:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    defaultLocale?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "SupportedTranslations",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!TranslationFile:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type TranslationFile = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [K in keyof typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "en",
+              "canonicalReference": "@ory/elements-react!~en:var"
+            },
+            {
+              "kind": "Content",
+              "text": "]: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "TranslationFile",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!uiTextToFormattedMessage:function(1)",
+          "docComment": "/**\n * Converts a UiText to a FormattedMessage. The UiText contains the id of the message and the context. The context is used to inject values into the message from Ory, e.g. a timestamp. For example a UI Node from Ory might look like this:\n *\n * \\{ \"type\":\"input\", \"group\":\"default\", \"attributes\": \\{ \"name\":\"traits.email\", \"type\":\"email\", \"required\":true, \"autocomplete\":\"email\", \"disabled\":false, \"node_type\":\"input\" \\}, \"messages\":[], \"meta\": \\{ \"label\": \\{ \"id\":1070002, \"text\":\"E-Mail\", \"type\":\"info\", \"context\":\\{ \"title\":\"E-Mail\" \\}, \\} \\} \\}\n *\n * The context has the key \"title\" which matches the formatter template name \"\\{title\\}\" An example translation file would look like this: \\{ \"identities.messages.1070002\": \"\\{title\\}\" \\}\n *\n * The formatter would then take the meta.label.id and look for the translation with the key matching the id. It would then replace the template \"\\{title\\}\" with the value from the context with the key \"title\".\n *\n * @param uiText - The UiText is part of the UiNode object sent by Kratos when performing a flow.\n *\n * @param intl - The intl object from react-intl\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "uiTextToFormattedMessage: ({ id, context, text }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"type\">"
+            },
+            {
+              "kind": "Content",
+              "text": ", intl: "
+            },
+            {
+              "kind": "Reference",
+              "text": "IntlShape",
+              "canonicalReference": "react-intl!IntlShape:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ id, context, text }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "intl",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "uiTextToFormattedMessage"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!useComponents:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useComponents(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowComponents",
+              "canonicalReference": "@ory/elements-react!OryFlowComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useComponents"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!useNodeSorter:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useNodeSorter(): "
+            },
+            {
+              "kind": "Content",
+              "text": "(a: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", b: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", ctx: {\n    flowType: string;\n}) => number"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useNodeSorter"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!useOryFlow:function(1)",
+          "docComment": "/**\n * Returns an object that contains the current flow and the flow type, as well as the configuration.\n *\n * @returns The current flow container\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useOryFlow(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowContextValue",
+              "canonicalReference": "@ory/elements-react!FlowContextValue:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useOryFlow"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!VerificationFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type VerificationFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseFlow",
+              "canonicalReference": "@ory/elements-react!~BaseFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Verification",
+              "canonicalReference": "@ory/client-fetch!FlowType.Verification:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "VerificationFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        }
+      ]
+    }
+  ]
+}
