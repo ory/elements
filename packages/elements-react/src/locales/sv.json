@@ -198,5 +198,8 @@
   "two-step.password.description": "Ange ditt lösenord kopplat till ditt konto",
   "two-step.password.title": "Lösenord",
   "two-step.webauthn.description": "Använd din säkerhetsnyckel för att autentisera",
-  "two-step.webauthn.title": "Säkerhetsnyckel"
+  "two-step.webauthn.title": "Säkerhetsnyckel",
+  "identities.messages.4000037": "Detta konto finns inte eller har ingen inloggningsmetod konfigurerad.",
+  "identities.messages.4000038": "Captcha-verifiering misslyckades, försök igen.",
+  "identities.messages.1010020": ""
 }
