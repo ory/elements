@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiNode, UiTextTypeEnum } from "@ory/client-fetch"
-import { constructCardHeaderText } from "../constructCardHeader"
+import { useCardHeaderText } from "../constructCardHeader"
 
 const password: UiNode = {
   group: "password",
@@ -172,7 +172,7 @@ for (const flowType of [
         for (const [key, value] of Object.entries(combinations)) {
           describe("combination=" + key, () => {
             test("constructCardHeaderText", () => {
-              const res = constructCardHeaderText(
+              const res = useCardHeaderText(
                 Array.isArray(value) ? value : [value],
                 opts,
               )

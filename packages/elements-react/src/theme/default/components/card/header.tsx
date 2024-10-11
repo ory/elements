@@ -1,5 +1,5 @@
 import { useComponents, useOryFlow } from "@ory/elements-react"
-import { constructCardHeaderText } from "../../utils/constructCardHeader"
+import { useCardHeaderText } from "../../utils/constructCardHeader"
 
 function InnerCardHeader({ title, text }: { title: string; text?: string }) {
   const { CardLogo } = useComponents()
@@ -18,7 +18,7 @@ function InnerCardHeader({ title, text }: { title: string; text?: string }) {
 
 export function DefaultCardHeader() {
   const context = useOryFlow()
-  const { title, description } = constructCardHeaderText(
+  const { title, description } = useCardHeaderText(
     context.flow.ui.nodes,
     context,
   )
