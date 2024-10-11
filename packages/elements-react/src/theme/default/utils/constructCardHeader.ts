@@ -148,8 +148,6 @@ export function useCardHeaderText(
     }
   }
 
-  // Melden Sie sich mit Ihrer E-Mail und Passwort, einem social provider oder einem Code per E-Mail an
-
   switch (opts.flowType) {
     case FlowType.Login:
       if (opts.flow.refresh) {

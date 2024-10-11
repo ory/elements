@@ -3,6 +3,9 @@
 
 import { FlowType, UiNode, UiTextTypeEnum } from "@ory/client-fetch"
 import { useCardHeaderText } from "../constructCardHeader"
+import { renderHook } from "@testing-library/react"
+import { PropsWithChildren } from "react"
+import { IntlProvider } from "../../../../context"
 
 const password: UiNode = {
   group: "password",
@@ -108,14 +111,15 @@ const identifierFirst: UiNode = {
     type: "text",
     value: "",
     disabled: false,
+  },
+  messages: [],
+  meta: {
     label: {
       text: "Email",
       type: UiTextTypeEnum.Info,
       id: 9999,
     },
   },
-  messages: [],
-  meta: {},
 }
 
 const identifierFirstPhone: UiNode = {
@@ -127,14 +131,15 @@ const identifierFirstPhone: UiNode = {
     type: "text",
     value: "",
     disabled: false,
+  },
+  messages: [],
+  meta: {
     label: {
       text: "Phone number",
       type: UiTextTypeEnum.Info,
       id: 9999,
     },
   },
-  messages: [],
-  meta: {},
 }
 
 const combinations = {
@@ -154,6 +159,10 @@ const combinations = {
   idenfier_first_and_oidc: [identifierFirst, oidc],
 }
 
+const wrapper = ({ children }: PropsWithChildren) => (
+  <IntlProvider locale="en">{children}</IntlProvider>
+)
+
 for (const flowType of [
   FlowType.Login,
   FlowType.Registration,
@@ -172,11 +181,15 @@ for (const flowType of [
         for (const [key, value] of Object.entries(combinations)) {
           describe("combination=" + key, () => {
             test("constructCardHeaderText", () => {
-              const res = useCardHeaderText(
-                Array.isArray(value) ? value : [value],
-                opts,
+              const res = renderHook(
+                () =>
+                  useCardHeaderText(
+                    Array.isArray(value) ? value : [value],
+                    opts,
+                  ),
+                { wrapper },
               )
-              expect(res).toMatchSnapshot()
+              expect(res.result.current).toMatchSnapshot()
             })
           })
         }
