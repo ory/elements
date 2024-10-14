@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OryCardProps } from "@ory/elements-react"
 import { Badge } from "./badge"
 import { DefaultCardContent } from "./content"

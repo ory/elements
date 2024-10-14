@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 "use client"
 import { ComponentPropsWithoutRef, PropsWithChildren } from "react"
 import { OryFlowComponents } from "../types"

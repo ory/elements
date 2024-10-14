@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { formatMessage } from "../index"
 import { UiText } from "@ory/client-fetch"
 import { useIntl } from "react-intl"

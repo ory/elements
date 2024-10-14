@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { IntlProvider } from "../../../context/intl-context"
 import { UiText } from "@ory/client-fetch"
 import { Inner } from "./test-components"

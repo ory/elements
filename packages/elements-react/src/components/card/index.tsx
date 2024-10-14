@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { ComponentType, PropsWithChildren } from "react"
 import { useComponents } from "../../context"
 import { OryForm } from "../form/form"

@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { forwardRef } from "react"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"

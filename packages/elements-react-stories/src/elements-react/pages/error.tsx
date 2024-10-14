@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 "use client"
 import { Configuration, LoginFlow, FlowType } from "@ory/client-fetch"
 import { Locale, OryFlowComponents } from "@ory/elements-react"

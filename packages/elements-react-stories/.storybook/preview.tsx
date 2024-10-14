@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { IntlProvider } from "@ory/elements-react"
 import type { Decorator, Preview } from "@storybook/react"
 import { chromaticModes } from "./modes"

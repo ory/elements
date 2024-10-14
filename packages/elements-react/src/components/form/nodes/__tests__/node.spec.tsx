@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { IntlProvider } from "../../../../context/intl-context"
 import { render, screen } from "../../../../tests/jest/test-utils"
 import { Node } from "../node"

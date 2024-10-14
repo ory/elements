@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import OryLogoHorizontal from "../../assets/ory-badge-horizontal.svg"
 import OryLogoVertical from "../../assets/ory-badge-vertical.svg"
 

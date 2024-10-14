@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { Spinner } from "./spinner"

@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Login } from "@ory/elements-react/theme"
 import oidcNodes from "$/.stub-responses/login/1fa/oidc/initial-form.json"
 import { config } from "../../../utils"

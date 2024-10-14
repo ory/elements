@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { PropsWithChildren, useContext } from "react"
 import { IntlContext, IntlProvider as OriginalIntlProvider } from "react-intl"
 import * as locales from "../locales"
