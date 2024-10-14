@@ -1,7 +1,8 @@
 import { PropsWithChildren } from "react"
 import { cn } from "../../utils/cn"
-import { HeadlessFormProps } from "@ory/elements-react"
+import { formatMessage, HeadlessFormProps } from "@ory/elements-react"
 import { HeadlessMessageProps } from "@ory/elements-react"
+import { useIntl } from "react-intl"
 
 export function DefaultFormContainer({
   children,
@@ -31,6 +32,7 @@ export function DefaultMessageContainer({ children }: PropsWithChildren) {
 }
 
 export function DefaultMessage({ message }: HeadlessMessageProps) {
+  const intl = useIntl()
   return (
     <span
       className={cn("text-sm mt-1 leading-normal", {
@@ -39,7 +41,7 @@ export function DefaultMessage({ message }: HeadlessMessageProps) {
         "text-forms-fg-success": message.type === "success",
       })}
     >
-      {message.text}
+      {formatMessage(message, intl)}
     </span>
   )
 }
