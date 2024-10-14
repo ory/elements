@@ -2,15 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
+import { useIntl } from "react-intl"
 
-function joinWithCommaOr(list: string[]): string {
+function joinWithCommaOr(list: string[], orText = "or"): string {
   if (list.length === 0) {
     return "."
   } else if (list.length === 1) {
-    return list[0] + "."
+    return list[0]
   } else {
     const last = list.pop()
-    return `${list.join(", ")} or ${last}.`
+    return `${list.join(", ")} ${orText} ${last}`
   }
 }
 
@@ -46,27 +47,38 @@ type opts =
  * @param opts - can be a flow object, only needed for the refresh login flow
  * @returns a title and a description for the card header
  */
-export function constructCardHeaderText(
+export function useCardHeaderText(
   nodes: UiNode[],
   opts: opts,
 ): { title: string; description: string } {
+  const intl = useIntl()
   switch (opts.flowType) {
     case FlowType.Recovery:
       return {
-        title: "Recover your account",
-        description:
-          "Enter the email address associated with your account to receive a one-time access code",
+        title: intl.formatMessage({
+          id: "recovery.title",
+        }),
+        description: intl.formatMessage({
+          id: "recovery.subtitle",
+        }),
       }
     case FlowType.Settings:
       return {
-        title: "Update your account",
-        description: "Update your account settings",
+        title: intl.formatMessage({
+          id: "settings.title",
+        }),
+        description: intl.formatMessage({
+          id: "settings.subtitle",
+        }),
       }
     case FlowType.Verification:
       return {
-        title: "Verify your account",
-        description:
-          "Enter the email address associated with your account to verify it",
+        title: intl.formatMessage({
+          id: "verification.title",
+        }),
+        description: intl.formatMessage({
+          id: "verification.subtitle",
+        }),
       }
   }
 
@@ -75,26 +87,43 @@ export function constructCardHeaderText(
   if (nodes.find((node) => node.group === "password")) {
     switch (opts.flowType) {
       case FlowType.Registration:
-        parts.push(`your email and a password`)
+        parts.push(
+          intl.formatMessage(
+            { id: "card.header.parts.password.registration" },
+            // TODO: make this generic for other labels
+            { identifierLabel: "email" },
+          ),
+        )
         break
       default:
-        parts.push(`your email and password`)
+        parts.push(
+          intl.formatMessage(
+            { id: "card.header.parts.password.login" },
+            // TODO: make this generic for other labels
+            { identifierLabel: "email" },
+          ),
+        )
     }
   }
+
   if (nodes.find((node) => node.group === "oidc")) {
-    parts.push(`a social provider`)
+    parts.push(
+      intl.formatMessage({
+        id: "card.header.parts.oidc",
+      }),
+    )
   }
 
   if (nodes.find((node) => node.group === "code")) {
-    parts.push(`a code sent to your email`)
+    parts.push(intl.formatMessage({ id: "card.header.parts.code" }))
   }
 
   if (nodes.find((node) => node.group === "passkey")) {
-    parts.push(`a Passkey`)
+    parts.push(intl.formatMessage({ id: "card.header.parts.passkey" }))
   }
 
   if (nodes.find((node) => node.group === "webauthn")) {
-    parts.push(`a security key`)
+    parts.push(intl.formatMessage({ id: "card.header.parts.webauthn" }))
   }
 
   if (nodes.find((node) => node.group === "identifier_first")) {
@@ -106,7 +135,16 @@ export function constructCardHeaderText(
     )
 
     if (identifier) {
-      parts.push(`your ${identifier.meta.label?.text}`)
+      parts.push(
+        intl.formatMessage(
+          {
+            id: "card.header.parts.identifier-first",
+          },
+          {
+            identifierLabel: identifier.meta.label?.text,
+          },
+        ),
+      )
     }
   }
 
@@ -114,20 +152,57 @@ export function constructCardHeaderText(
     case FlowType.Login:
       if (opts.flow.refresh) {
         return {
-          title: "Reauthenticate",
-          description: "Confirm your identity with " + joinWithCommaOr(parts),
+          title: intl.formatMessage({
+            id: "login.title-refresh",
+          }),
+          description: intl.formatMessage(
+            {
+              id: "login.subtitle-refresh",
+            },
+            {
+              parts: joinWithCommaOr(parts),
+            },
+          ),
         }
       }
       return {
-        title: "Sign in",
+        title: intl.formatMessage({
+          id: "login.title",
+        }),
         description:
-          parts.length > 0 ? "Sign in with " + joinWithCommaOr(parts) : "",
+          parts.length > 0
+            ? intl.formatMessage(
+                {
+                  id: "login.subtitle",
+                },
+                {
+                  parts: joinWithCommaOr(
+                    parts,
+                    intl.formatMessage({ id: "misc.or" }),
+                  ),
+                },
+              )
+            : "",
       }
     case FlowType.Registration:
       return {
-        title: "Sign up",
+        title: intl.formatMessage({
+          id: "registration.title",
+        }),
         description:
-          parts.length > 0 ? "Sign up with " + joinWithCommaOr(parts) : "",
+          parts.length > 0
+            ? intl.formatMessage(
+                {
+                  id: "registration.subtitle",
+                },
+                {
+                  parts: joinWithCommaOr(
+                    parts,
+                    intl.formatMessage({ id: "misc.or" }),
+                  ),
+                },
+              )
+            : "",
       }
   }
 

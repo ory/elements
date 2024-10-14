@@ -1,10 +1,12 @@
 import {
+  formatMessage,
   HeadlessSocialButtonContainerProps,
   HeadlessSocialButtonProps,
   useOryFlow,
 } from "@ory/elements-react"
 import logos from "../../provider-logos"
 import { cn } from "../../utils/cn"
+import { useIntl } from "react-intl"
 
 function extractProvider(context: object | undefined): string | undefined {
   if (
@@ -32,6 +34,7 @@ export function DefaultButtonSocial({
   const {
     flow: { ui },
   } = useOryFlow()
+  const intl = useIntl()
 
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
@@ -69,7 +72,7 @@ export function DefaultButtonSocial({
       </span>
       {showLabel ? (
         <span className="text-sm text-left leading-none font-medium text-forms-fg-default flex-grow">
-          {node.meta.label?.text}
+          {formatMessage(node.meta.label, intl)}
         </span>
       ) : null}
     </button>
