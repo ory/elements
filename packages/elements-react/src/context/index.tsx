@@ -7,9 +7,4 @@ export {
   type FlowContextValue,
   type FlowContainerSetter,
 } from "./flow-context"
-export type {
-  SupportedTranslations,
-  OryIntlProviderProps,
-  Locale,
-} from "./intl-context"
 export * from "./provider"

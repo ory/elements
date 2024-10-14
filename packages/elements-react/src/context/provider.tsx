@@ -8,27 +8,23 @@ import { OryFlowComponents } from "../components"
 import { OryFlowContainer } from "../util/flowContainer"
 import { OryComponentProvider } from "./component"
 import { OryFlowProvider } from "./flow-context"
-import {
-  IntlProvider,
-  OryIntlProviderProps,
-  SupportedTranslations,
-} from "./intl-context"
+import { IntlProvider } from "./intl-context"
 
-export type OryProviderProps<T> = {
+export type OryProviderProps = {
   components: OryFlowComponents
-} & OryIntlProviderProps<T> &
-  OryFlowContainer &
+} & OryFlowContainer &
   PropsWithChildren
 
-export function OryProvider<Translation extends SupportedTranslations>({
+export function OryProvider({
   children,
   components: Components,
-  ...props
-}: OryProviderProps<Translation>) {
-  const { locale, defaultLocale, ...oryFlowProps } = props
-
+  ...oryFlowProps
+}: OryProviderProps) {
   return (
-    <IntlProvider locale={locale ?? "en"} defaultLocale={defaultLocale ?? "en"}>
+    <IntlProvider
+      locale={oryFlowProps.config.intl?.locale ?? "en"}
+      customTranslations={oryFlowProps.config.intl?.customTranslations}
+    >
       <OryFlowProvider {...oryFlowProps}>
         <OryComponentProvider components={Components}>
           {children}

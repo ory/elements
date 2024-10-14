@@ -52,8 +52,10 @@ export type FlowContextValue = OryFlowContainer & {
 // @public
 export type FormValues = Record<string, string | boolean | number | undefined>;
 
+// Warning: (ae-forgotten-export) The symbol "IntlContextProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export type Locale = keyof typeof OryLocales;
+export type IntlConfig = IntlContextProps;
 
 // @public
 export type LoginFlowContainer = OryFlow<FlowType.Login, LoginFlow>;
@@ -128,6 +130,7 @@ export type OryClientConfiguration = {
         verification_ui_url: string;
         login_ui_url: string;
     };
+    intl?: IntlConfig;
 };
 
 // @public (undocumented)
@@ -221,15 +224,10 @@ export type OryFormRootProps = ComponentPropsWithoutRef<"form"> & {
 // @public (undocumented)
 export function OryFormSocialButtonsForm(): react_jsx_runtime.JSX.Element | null;
 
-// Warning: (ae-forgotten-export) The symbol "CustomTranslations" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type OryIntlProviderProps<Translation> = Translation extends CustomTranslations ? CustomTranslations : SupportedTranslations;
-
-// @public (undocumented)
-export namespace OryLocales {
-        { locales_de as de, locales_en as en, locales_es as es, locales_fr as fr, locales_nl as nl, locales_pl as pl, locales_pt as pt, locales_sv as sv };
-}
+export const OryLocales: LocaleMap;
 
 // @public (undocumented)
 export type OryMessageContentProps = {
@@ -284,12 +282,12 @@ export type OryNodeTextProps = {
 };
 
 // @public (undocumented)
-export function OryProvider<Translation extends SupportedTranslations>({ children, components: Components, ...props }: OryProviderProps<Translation>): react_jsx_runtime.JSX.Element;
+export function OryProvider({ children, components: Components, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
-export type OryProviderProps<T> = {
+export type OryProviderProps = {
     components: OryFlowComponents;
-} & OryIntlProviderProps<T> & OryFlowContainer & PropsWithChildren;
+} & OryFlowContainer & PropsWithChildren;
 
 // @public (undocumented)
 export function OryTwoStepCard(): react_jsx_runtime.JSX.Element;
@@ -302,12 +300,6 @@ export type RegistrationFlowContainer = OryFlow<FlowType.Registration, Registrat
 
 // @public
 export type SettingsFlowContainer = OryFlow<FlowType.Settings, SettingsFlow>;
-
-// @public (undocumented)
-export type SupportedTranslations = {
-    locale?: Locale;
-    defaultLocale?: string;
-};
 
 // @public
 export const uiTextToFormattedMessage: ({ id, context, text }: Omit<UiText, "type">, intl: IntlShape) => string;

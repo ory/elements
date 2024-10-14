@@ -343,21 +343,17 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!Locale:type",
+          "canonicalReference": "@ory/elements-react!IntlConfig:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type Locale = "
-            },
-            {
-              "kind": "Content",
-              "text": "keyof typeof "
+              "text": "type IntlConfig = "
             },
             {
               "kind": "Reference",
-              "text": "locales",
-              "canonicalReference": "@ory/elements-react!OryLocales:namespace"
+              "text": "IntlContextProps",
+              "canonicalReference": "@ory/elements-react!~IntlContextProps:type"
             },
             {
               "kind": "Content",
@@ -366,10 +362,10 @@
           ],
           "fileUrlPath": "dist/index.d.ts",
           "releaseTag": "Public",
-          "name": "Locale",
+          "name": "IntlConfig",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 3
+            "endIndex": 2
           }
         },
         {
@@ -1005,7 +1001,16 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    project: {\n        registration_enabled: boolean;\n        verification_enabled: boolean;\n        recovery_enabled: boolean;\n        recovery_ui_url: string;\n        registration_ui_url: string;\n        verification_ui_url: string;\n        login_ui_url: string;\n    };\n}"
+              "text": ">;\n    };\n    project: {\n        registration_enabled: boolean;\n        verification_enabled: boolean;\n        recovery_enabled: boolean;\n        recovery_ui_url: string;\n        registration_ui_url: string;\n        verification_ui_url: string;\n        login_ui_url: string;\n    };\n    intl?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "IntlConfig",
+              "canonicalReference": "@ory/elements-react!IntlConfig:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
             },
             {
               "kind": "Content",
@@ -1017,7 +1022,7 @@
           "name": "OryClientConfiguration",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 6
+            "endIndex": 8
           }
         },
         {
@@ -2037,82 +2042,28 @@
           "name": "OryFormSocialButtonsForm"
         },
         {
-          "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!OryIntlProviderProps:type",
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-react!OryLocales:var",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryIntlProviderProps<Translation> = "
-            },
-            {
-              "kind": "Content",
-              "text": "Translation extends "
+              "text": "locales: "
             },
             {
               "kind": "Reference",
-              "text": "CustomTranslations",
-              "canonicalReference": "@ory/elements-react!~CustomTranslations:type"
-            },
-            {
-              "kind": "Content",
-              "text": " ? "
-            },
-            {
-              "kind": "Reference",
-              "text": "CustomTranslations",
-              "canonicalReference": "@ory/elements-react!~CustomTranslations:type"
-            },
-            {
-              "kind": "Content",
-              "text": " : "
-            },
-            {
-              "kind": "Reference",
-              "text": "SupportedTranslations",
-              "canonicalReference": "@ory/elements-react!SupportedTranslations:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
+              "text": "LocaleMap",
+              "canonicalReference": "@ory/elements-react!~LocaleMap:type"
             }
           ],
           "fileUrlPath": "dist/index.d.ts",
-          "releaseTag": "Public",
-          "name": "OryIntlProviderProps",
-          "typeParameters": [
-            {
-              "typeParameterName": "Translation",
-              "constraintTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              },
-              "defaultTypeTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              }
-            }
-          ],
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 7
-          }
-        },
-        {
-          "kind": "Namespace",
-          "canonicalReference": "@ory/elements-react!OryLocales:namespace",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "declare namespace locales "
-            }
-          ],
-          "fileUrlPath": "dist/index.d.ts",
+          "isReadonly": true,
           "releaseTag": "Public",
           "name": "OryLocales",
-          "preserveMemberOrder": false,
-          "members": []
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "TypeAlias",
@@ -2576,16 +2527,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryProvider<Translation extends "
-            },
-            {
-              "kind": "Reference",
-              "text": "SupportedTranslations",
-              "canonicalReference": "@ory/elements-react!SupportedTranslations:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">({ children, "
+              "text": "declare function OryProvider({ children, "
             },
             {
               "kind": "Reference",
@@ -2594,16 +2536,12 @@
             },
             {
               "kind": "Content",
-              "text": ": Components, ...props }: "
+              "text": ": Components, ...oryFlowProps }: "
             },
             {
               "kind": "Reference",
               "text": "OryProviderProps",
               "canonicalReference": "@ory/elements-react!OryProviderProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<Translation>"
             },
             {
               "kind": "Content",
@@ -2621,32 +2559,19 @@
           ],
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, components: Components, ...props }",
+              "parameterName": "{ children, components: Components, ...oryFlowProps }",
               "parameterTypeTokenRange": {
-                "startIndex": 5,
-                "endIndex": 7
+                "startIndex": 3,
+                "endIndex": 4
               },
               "isOptional": false
-            }
-          ],
-          "typeParameters": [
-            {
-              "typeParameterName": "Translation",
-              "constraintTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "defaultTypeTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              }
             }
           ],
           "name": "OryProvider"
@@ -2658,7 +2583,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryProviderProps<T> = "
+              "text": "type OryProviderProps = "
             },
             {
               "kind": "Content",
@@ -2672,15 +2597,6 @@
             {
               "kind": "Content",
               "text": ";\n} & "
-            },
-            {
-              "kind": "Reference",
-              "text": "OryIntlProviderProps",
-              "canonicalReference": "@ory/elements-react!OryIntlProviderProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<T> & "
             },
             {
               "kind": "Reference",
@@ -2704,22 +2620,9 @@
           "fileUrlPath": "dist/index.d.ts",
           "releaseTag": "Public",
           "name": "OryProviderProps",
-          "typeParameters": [
-            {
-              "typeParameterName": "T",
-              "constraintTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              },
-              "defaultTypeTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              }
-            }
-          ],
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 9
+            "endIndex": 7
           }
         },
         {
@@ -2896,41 +2799,6 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
-          }
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!SupportedTranslations:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "type SupportedTranslations = "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    locale?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Locale",
-              "canonicalReference": "@ory/elements-react!Locale:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    defaultLocale?: string;\n}"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "dist/index.d.ts",
-          "releaseTag": "Public",
-          "name": "SupportedTranslations",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 4
           }
         },
         {
