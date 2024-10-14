@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Session } from "@ory/client"
 import { Typography } from "@ory/elements-preact"
 import { useEffect, useState } from "preact/hooks"

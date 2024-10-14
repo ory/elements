@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Nav } from "../nav"
 import { Typography } from "../typography"
 import { FormattedMessage, useIntl } from "react-intl"

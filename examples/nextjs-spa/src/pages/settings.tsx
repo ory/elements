@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 // React
 import Router, { useRouter } from "next/router"
 import { useCallback, useEffect, useState } from "react"

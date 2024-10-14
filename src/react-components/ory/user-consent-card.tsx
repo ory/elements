@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { gridStyle } from "../../theme"
 import { Button } from "../button"
 import { Card } from "../card"

@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { ComponentMeta, Story } from "@storybook/react"
 import { Message, MessageProps } from "../react-components"
 import { colorSprinkle } from "../theme"

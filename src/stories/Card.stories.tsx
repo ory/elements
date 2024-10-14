@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { ComponentMeta, Story } from "@storybook/react"
 import { Card, CardProps, Message } from "../react-components"
 import logo from "./assets/logo.svg"

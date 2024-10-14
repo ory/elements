@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { UiNode, UiNodeScriptAttributes } from "@ory/client"
 import { filterNodesByGroups } from "../../../ui"
 import { HTMLAttributeReferrerPolicy, useEffect } from "react"

@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OAuth2ConsentRequest } from "@ory/client"
 import { expect, test } from "@playwright/experimental-ct-react"
 import { ConsentPage } from "../../test/models/ConsentPage"

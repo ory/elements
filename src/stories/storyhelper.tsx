@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { ReactNode } from "react"
 
 export const Spacer = ({ children }: { children: ReactNode }) => (
