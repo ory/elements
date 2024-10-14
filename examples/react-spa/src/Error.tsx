@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { useEffect, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { CodeBox } from "@ory/elements"

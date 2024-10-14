@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import cn from "classnames"
 import { ReactNode, JSX, HTMLAttributes } from "react"
 

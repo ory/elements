@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { ComponentMeta, Story } from "@storybook/react"
 import { CodeBox, CodeBoxProps } from "../react-components/codebox"
 import { Container } from "./storyhelper"
