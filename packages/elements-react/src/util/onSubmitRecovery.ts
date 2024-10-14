@@ -9,7 +9,7 @@ import {
   recoveryUrl,
   UpdateRecoveryFlowBody,
 } from "@ory/client-fetch"
-import { FlowContainer } from "./flowContainer"
+import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { frontendClient } from "./client"
 
@@ -23,7 +23,7 @@ import { frontendClient } from "./client"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitRecovery(
-  { config, flow }: FlowContainer,
+  { config, flow }: OryFlowContainer,
   {
     setFlowContainer,
     body,

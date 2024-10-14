@@ -39,8 +39,7 @@ export function OryTwoStepCard() {
   const [selectedGroup, setSelectedGroup] = useState<
     UiNodeGroupEnum | undefined
   >()
-  const Components = useComponents()
-  const { FormGroup } = useComponents()
+  const { Form, Card } = useComponents()
   const { flowType } = useOryFlow()
 
   const nodeSorter = useNodeSorter()
@@ -62,7 +61,7 @@ export function OryTwoStepCard() {
         ).includes(group),
     )
 
-  const hasOIDC = Boolean(uniqueGroups.oidc?.length)
+  const hasOidc = Boolean(uniqueGroups.oidc?.length)
 
   const zeroStepGroups = filterZeroStepGroups(ui.nodes)
   const finalNodes = getFinalNodes(uniqueGroups, selectedGroup)
@@ -78,11 +77,11 @@ export function OryTwoStepCard() {
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {step === ProcessStep.ProvideIdentifier && hasOIDC && (
+        {step === ProcessStep.ProvideIdentifier && hasOidc && (
           <OryFormSocialButtonsForm />
         )}
         <OryForm>
-          <FormGroup>
+          <Form.Group>
             {step === ProcessStep.ProvideIdentifier &&
               zeroStepGroups
                 .sort(sortNodes)
@@ -93,7 +92,7 @@ export function OryTwoStepCard() {
                   <BackButton href={config.project.login_ui_url} />
                 )}
                 {options.map((option) => (
-                  <Components.AuthMethodListItem
+                  <Card.AuthMethodListItem
                     key={option}
                     group={option}
                     onClick={() => setSelectedGroup(option)}
@@ -109,7 +108,7 @@ export function OryTwoStepCard() {
                 ))}
               </>
             )}
-          </FormGroup>
+          </Form.Group>
         </OryForm>
       </OryCardContent>
       <OryCardFooter />
@@ -126,7 +125,7 @@ const BackButton = ({ onClick, href }: BackButtonProps) => {
   const {
     flow: { ui },
   } = useOryFlow()
-  const Components = useComponents()
+  const { Node } = useComponents()
 
   const nodeBackButton = ui.nodes.find(
     (node) =>
@@ -142,7 +141,7 @@ const BackButton = ({ onClick, href }: BackButtonProps) => {
   }
 
   return (
-    <Components.CurrentIdentifierButton
+    <Node.CurrentIdentifierButton
       node={nodeBackButton}
       attributes={nodeBackButton.attributes as UiNodeInputAttributes}
       onClick={onClick}

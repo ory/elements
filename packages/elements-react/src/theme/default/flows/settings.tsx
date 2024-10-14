@@ -5,16 +5,17 @@
 import { FlowType, SettingsFlow } from "@ory/client-fetch"
 import {
   OryClientConfiguration,
-  OryFlowComponents,
+  OryFlowComponentOverrides,
   OryProvider,
   OryTwoStepCard,
 } from "@ory/elements-react"
+import merge from "lodash.merge"
 import { PropsWithChildren } from "react"
 import { OryDefaultComponents } from "../components"
 
 export type SettingsFlowContextProps = {
   flow: SettingsFlow
-  components?: Partial<OryFlowComponents>
+  components?: OryFlowComponentOverrides
   config: OryClientConfiguration
 }
 
@@ -24,10 +25,9 @@ export function Settings({
   children,
   components: flowOverrideComponents,
 }: PropsWithChildren<SettingsFlowContextProps>) {
-  const components = {
-    ...OryDefaultComponents,
-    ...flowOverrideComponents,
-  }
+  const components = flowOverrideComponents
+    ? merge({}, OryDefaultComponents, flowOverrideComponents)
+    : OryDefaultComponents
   return (
     <OryProvider
       config={config}

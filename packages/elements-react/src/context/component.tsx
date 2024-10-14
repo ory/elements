@@ -3,7 +3,7 @@
 
 import { UiNode } from "@ory/client-fetch"
 import { PropsWithChildren, createContext, useContext } from "react"
-import { OryFlowComponents } from "../types"
+import { OryFlowComponents } from "../components"
 
 type ComponentContextValue = {
   components: OryFlowComponents

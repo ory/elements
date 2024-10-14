@@ -9,7 +9,7 @@ import {
   UpdateLoginFlowBody,
 } from "@ory/client-fetch"
 import { OnSubmitHandlerProps } from "./submitHandler"
-import { FlowContainer } from "./flowContainer"
+import { OryFlowContainer } from "./flowContainer"
 import { frontendClient } from "./client"
 
 /**
@@ -22,7 +22,7 @@ import { frontendClient } from "./client"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitLogin(
-  { config, flow }: FlowContainer,
+  { config, flow }: OryFlowContainer,
   {
     setFlowContainer,
     body,

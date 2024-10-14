@@ -8,7 +8,7 @@ import {
   useContext,
   useState,
 } from "react"
-import { FlowContainer } from "../util/flowContainer"
+import { OryFlowContainer } from "../util/flowContainer"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
@@ -24,16 +24,25 @@ export function useOryFlow() {
   return ctx
 }
 
-export type FlowContainerSetter = Dispatch<Partial<FlowContainer>>
+/**
+ * Function to set the flow container.
+ */
+export type FlowContainerSetter = Dispatch<Partial<OryFlowContainer>>
 
-export type FlowContextValue = FlowContainer & {
+/**
+ * The return value of the OryFlowContext.
+ */
+export type FlowContextValue = OryFlowContainer & {
+  /**
+   * Function to set the flow container.
+   */
   setFlowContainer: FlowContainerSetter
 }
 
 // This is fine, because we don't export the context itself and guard from it being null in useOryFlow
 const OryFlowContext = createContext<FlowContextValue>(null!)
 
-export type OryFlowProviderProps = PropsWithChildren<FlowContainer>
+export type OryFlowProviderProps = PropsWithChildren<OryFlowContainer>
 
 export function OryFlowProvider({
   children,
@@ -52,7 +61,7 @@ export function OryFlowProvider({
                 ({
                   ...container,
                   ...updatedContainer,
-                }) as FlowContainer,
+                }) as OryFlowContainer,
             )
           },
         } as FlowContextValue

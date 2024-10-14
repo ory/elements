@@ -17,7 +17,7 @@ export const NodeInput = ({
   attributes: UiNodeInputAttributes
   onClick?: MouseEventHandler
 }): ReactNode => {
-  const Components = useComponents()
+  const { Node } = useComponents()
   const nodeType = attributes.type
   const {
     onloadTrigger: onloadTrigger,
@@ -60,58 +60,40 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.Submit:
     case UiNodeInputAttributesTypeEnum.Button:
       if (isSocial) {
-        return <Components.SocialButton attributes={attrs} node={node} />
+        return <Node.OidcButton attributes={attrs} node={node} />
       }
       if (isResend) {
         return null
       }
 
       return (
-        <Components.Button
-          attributes={attrs}
-          node={node}
-          onClick={handleClick}
-        />
+        <Node.Button attributes={attrs} node={node} onClick={handleClick} />
       )
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
       return (
-        <Components.Checkbox
-          attributes={attrs}
-          node={node}
-          onClick={handleClick}
-        />
+        <Node.Checkbox attributes={attrs} node={node} onClick={handleClick} />
       )
     case UiNodeInputAttributesTypeEnum.Hidden:
-      return (
-        <Components.Input
-          attributes={attrs}
-          node={node}
-          onClick={handleClick}
-        />
-      )
+      return <Node.Input attributes={attrs} node={node} onClick={handleClick} />
     default:
       if (isPinCodeInput) {
         return (
-          <Components.Label attributes={attrs} node={node}>
-            <Components.PinCodeInput
+          <Node.Label attributes={attrs} node={node}>
+            <Node.CodeInput
               attributes={attrs}
               node={node}
               onClick={handleClick}
             />
-          </Components.Label>
+          </Node.Label>
         )
       }
 
       return (
-        <Components.Label attributes={attrs} node={node}>
-          <Components.Input
-            attributes={attrs}
-            node={node}
-            onClick={handleClick}
-          />
-        </Components.Label>
+        <Node.Label attributes={attrs} node={node}>
+          <Node.Input attributes={attrs} node={node} onClick={handleClick} />
+        </Node.Label>
       )
   }
 }

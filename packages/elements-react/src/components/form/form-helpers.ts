@@ -3,9 +3,11 @@
 
 import { isUiNodeInputAttributes } from "@ory/client-fetch"
 import { FormValues } from "../../types"
-import { FlowContainer } from "../../util"
+import { OryFlowContainer } from "../../util"
 
-export function computeDefaultValues(flowContainer: FlowContainer): FormValues {
+export function computeDefaultValues(
+  flowContainer: OryFlowContainer,
+): FormValues {
   return flowContainer.flow.ui.nodes.reduce<FormValues>((acc, node) => {
     if (isUiNodeInputAttributes(node.attributes)) {
       if (node.attributes.name === "method") {
