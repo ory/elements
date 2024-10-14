@@ -29,32 +29,34 @@ import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button
 import { OryFlowComponents } from "@ory/elements-react"
 
 export const OryDefaultComponents: OryFlowComponents = {
-  Card: DefaultCard,
-  CardHeader: DefaultCardHeader,
-  CardContent: DefaultCardContent,
-  CardFooter: DefaultCardFooter,
-  CardLogo: DefaultCardLogo,
-
-  // Generic
-  HorizontalDivider: DefaultHorizontalDivider,
-
-  // Form
-  FormGroup: DefaultGroupContainer,
-
-  SocialButtonContainer: DefaultSocialButtonContainer,
-  MessageContainer: DefaultMessageContainer,
-  Message: DefaultMessage,
-  Input: DefaultInput,
-  Image: DefaultImage,
-  Label: DefaultLabel,
-  Checkbox: DefaultCheckbox,
-  Text: DefaultText,
-  PinCodeInput: DefaultPinCodeInput,
-  Button: DefaultButton,
-  LinkButton: DefaultLinkButton,
-  SocialButton: DefaultButtonSocial,
-  FormContainer: DefaultFormContainer,
-
-  AuthMethodListItem: DefaultAuthMethodListItem,
-  CurrentIdentifierButton: DefaultCurrentIdentifierButton,
+  Card: {
+    Root: DefaultCard,
+    Footer: DefaultCardFooter,
+    Header: DefaultCardHeader,
+    Content: DefaultCardContent,
+    Logo: DefaultCardLogo,
+    Divider: DefaultHorizontalDivider,
+    AuthMethodListItem: DefaultAuthMethodListItem,
+  },
+  Node: {
+    Button: DefaultButton,
+    OidcButton: DefaultButtonSocial,
+    CurrentIdentifierButton: DefaultCurrentIdentifierButton,
+    Input: DefaultInput,
+    CodeInput: DefaultPinCodeInput,
+    Image: DefaultImage,
+    Label: DefaultLabel,
+    Checkbox: DefaultCheckbox,
+    Text: DefaultText,
+    Anchor: DefaultLinkButton,
+  },
+  Form: {
+    Root: DefaultFormContainer,
+    Group: DefaultGroupContainer,
+    OidcRoot: DefaultSocialButtonContainer,
+  },
+  Message: {
+    Root: DefaultMessageContainer,
+    Content: DefaultMessage,
+  },
 }

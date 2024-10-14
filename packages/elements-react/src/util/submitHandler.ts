@@ -9,8 +9,11 @@ import {
   UpdateSettingsFlowBody,
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
-import { FlowContainer } from "./flowContainer"
+import { OryFlowContainer } from "./flowContainer"
 
+/**
+ * Props for the submit handler
+ */
 export type OnSubmitHandlerProps<
   T extends
     | UpdateLoginFlowBody
@@ -22,7 +25,7 @@ export type OnSubmitHandlerProps<
   /**
    * This method is used to update the flow container when a validation error occurs, for example.
    */
-  setFlowContainer: (flowContainer: FlowContainer) => void
+  setFlowContainer: (flowContainer: OryFlowContainer) => void
 
   /**
    * The form values to submit.

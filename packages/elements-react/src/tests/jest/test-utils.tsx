@@ -1,13 +1,13 @@
 import { PropsWithChildren, ReactElement, ReactNode } from "react"
-import {
-  OryComponentProvider,
-  OryProvider,
-  ProviderProps,
-  SupportedTranslations,
-} from "../../context"
+import { OryComponentProvider } from "../../context/component"
 import { OryDefaultComponents } from "../../theme/default"
 import { render, RenderOptions } from "@testing-library/react"
 import { OryClientConfiguration } from "../../util"
+import {
+  OryProvider,
+  OryProviderProps,
+  SupportedTranslations,
+} from "../../context"
 
 const AllProviders = ({ children }: PropsWithChildren) => (
   <OryComponentProvider components={OryDefaultComponents}>
@@ -41,7 +41,7 @@ export function renderWithOryProvider(
   {
     providerProps,
     ...renderOptions
-  }: RenderOptions & { providerProps: ProviderProps<SupportedTranslations> },
+  }: RenderOptions & { providerProps: OryProviderProps<SupportedTranslations> },
 ) {
   return render(ui, {
     wrapper: ({ children }) => (

@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Registration } from "../../../pages/registration"
+import { Registration } from "@ory/elements-react/theme"
 import { config } from "../../../utils"
 import { RegistrationFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"

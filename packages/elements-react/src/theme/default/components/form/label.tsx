@@ -1,8 +1,11 @@
 import { FlowType, getNodeLabel } from "@ory/client-fetch"
+import {
+  OryNodeLabelProps,
+  messageTestId,
+  uiTextToFormattedMessage,
+  useOryFlow,
+} from "@ory/elements-react"
 import { useIntl } from "react-intl"
-import { useOryFlow } from "@ory/elements-react"
-import { HeadlessLabelProps } from "@ory/elements-react"
-import { formatMessage, messageTestId } from "@ory/elements-react"
 import { cn } from "../../utils/cn"
 
 export function DefaultLabel({
@@ -10,7 +13,7 @@ export function DefaultLabel({
   children,
   attributes,
   ...rest
-}: HeadlessLabelProps) {
+}: OryNodeLabelProps) {
   const intl = useIntl()
   const label = getNodeLabel(node)
   const { config, flowType } = useOryFlow()
@@ -29,7 +32,7 @@ export function DefaultLabel({
             htmlFor={attributes.name}
             {...rest}
           >
-            {formatMessage(label, intl)}
+            {uiTextToFormattedMessage(label, intl)}
           </label>
           {isPassword &&
             config.project.recovery_enabled &&
@@ -65,7 +68,7 @@ export function DefaultLabel({
           })}
           {...messageTestId(message)}
         >
-          {formatMessage(message, intl)}
+          {uiTextToFormattedMessage(message, intl)}
         </span>
       ))}
     </span>

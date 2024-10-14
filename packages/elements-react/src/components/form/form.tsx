@@ -11,23 +11,24 @@ import { useIntl } from "react-intl"
 import { useOryFlow, useComponents } from "../../context"
 import {
   FormValues,
-  HeadlessAuthMethodListItemProps,
-  HeadlessButtonProps,
-  HeadlessCurrentIdentifierProps,
-  HeadlessFormProps,
-  HeadlessImageProps,
-  HeadlessInputProps,
-  HeadlessLabelProps,
-  HeadlessLinkButtonProps,
-  HeadlessTextProps,
+  OryCardAuthMethodListItemProps,
+  OryNodeButtonProps,
+  OryFormRootProps,
+  OryNodeImageProps,
+  OryNodeInputProps,
+  OryNodeLabelProps,
+  OryNodeAnchorProps,
+  OryNodeTextProps,
+  OryCurrentIdentifierProps,
+  OryCardLogoProps,
 } from "../../types"
-import { HorizontalDividerProps } from "../generic/divider"
-import { HeadlessGroupContainerProps, OryFormGroups } from "./groups"
-import { HeadlessMessageProps, HeadlessMessagesProps } from "./messages"
+import { OryCardDividerProps } from "../generic/divider"
+import { OryFormGroupProps, OryFormGroups } from "./groups"
+import { OryMessageContentProps, OryMessageRootProps } from "./messages"
 import {
-  HeadlessSocialButtonContainerProps,
-  HeadlessSocialButtonProps,
-  OryFormSocialButtons,
+  OryFormOidcRootProps,
+  OryNodeOidcButtonProps,
+  OryFormOidcButtons,
 } from "./social"
 import {
   FlowType,
@@ -37,46 +38,147 @@ import {
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
 } from "@ory/client-fetch"
-import {
-  FlowContainer,
-  onSubmitLogin,
-  onSubmitRecovery,
-  onSubmitRegistration,
-  onSubmitSettings,
-  onSubmitVerification,
-} from "../../util"
+import { OryFlowContainer } from "../../util"
 import { computeDefaultValues } from "./form-helpers"
+import { OryCardRootProps } from "../card/card"
+import { OryCardFooterProps } from "../card"
+import { OryCardContentProps } from "../card/content"
+import { onSubmitLogin } from "../../util/onSubmitLogin"
+import { onSubmitRegistration } from "../../util/onSubmitRegistration"
+import { onSubmitVerification } from "../../util/onSubmitVerification"
+import { onSubmitRecovery } from "../../util/onSubmitRecovery"
+import { onSubmitSettings } from "../../util/onSubmitSettings"
 
-export type OryFormComponents = {
-  Button: ComponentType<HeadlessButtonProps>
-  LinkButton: ComponentType<HeadlessLinkButtonProps>
-  Input: ComponentType<HeadlessInputProps>
-  PinCodeInput: ComponentType<HeadlessInputProps>
-  Image: ComponentType<HeadlessImageProps>
-  Label: ComponentType<HeadlessLabelProps>
-  Checkbox: ComponentType<HeadlessInputProps>
-  Text: ComponentType<HeadlessTextProps>
+/**
+ * A record of all the components that are used in the OryForm component.
+ */
+export type OryFlowComponents = {
+  Node: {
+    /**
+     * Button component, rendered whenever a button is encountered in the Ory UI Nodes.
+     */
+    Button: ComponentType<OryNodeButtonProps>
+    /**
+     * The SocialButton component is rendered whenever a button of group "oidc" node is encountered.
+     *
+     * It renders the "Login with Google", "Login with Facebook" etc. buttons.
+     */
+    OidcButton: ComponentType<OryNodeOidcButtonProps>
+    /**
+     * The CurrentIdentifierButton component is rendered whenever a button of group "identifier_first" node is encountered.
+     *
+     * It is used to show the current identifier and can allow the user to start a new flow, if they want to.
+     */
+    CurrentIdentifierButton: ComponentType<OryCurrentIdentifierProps>
+    /**
+     * Anchor component, rendered whenever an "anchor" node is encountered
+     */
+    Anchor: ComponentType<OryNodeAnchorProps>
+    /**
+     * The Input component is rendered whenever a "input" node is encountered.
+     */
+    Input: ComponentType<OryNodeInputProps>
+    /**
+     * Special version of the Input component for OTP codes.
+     */
+    CodeInput: ComponentType<OryNodeInputProps>
+    /**
+     * The Image component is rendered whenever an "image" node is encountered.
+     *
+     * For example used in the "Logo" node.
+     */
+    Image: ComponentType<OryNodeImageProps>
+    /**
+     * The Label component is rendered around Input components and is used to render form labels.
+     */
+    Label: ComponentType<OryNodeLabelProps>
+    /**
+     * The Checkbox component is rendered whenever an input node with of boolean type is encountered.
+     */
+    Checkbox: ComponentType<OryNodeInputProps>
+    /**
+     * The Text component is rendered whenever a "text" node is encountered.
+     */
+    Text: ComponentType<OryNodeTextProps>
+  }
+  Card: {
+    /**
+     * The card container is the main container of the card.
+     */
+    Root: ComponentType<OryCardRootProps>
+    /**
+     * The card footer is the footer of the card container.
+     */
+    Footer: ComponentType<OryCardFooterProps>
+    /**
+     * The card header is the header of the card container.
+     */
+    Header: ComponentType<OryCardRootProps>
+    /**
+     * The card content is the main content of the card container.
+     */
+    Content: ComponentType<OryCardContentProps>
+    /**
+     * The card logo is the logo of the card container.
+     */
+    Logo: ComponentType<OryCardLogoProps>
+    /**
+     * The HorizontalDivider component is rendered between groups.
+     */
+    Divider: ComponentType<OryCardDividerProps>
+    /**
+     * The AuthMethodListItem component is rendered on the "method" chooser step in the identifier_first login flow.
+     *
+     * This is only used, if login is configured to use identifier_first authentication.
+     */
+    AuthMethodListItem: ComponentType<OryCardAuthMethodListItemProps>
+  }
+  Form: {
+    /**
+     * The FormContainer component is the main container of the form.
+     *
+     * It should render its children.
+     *
+     * You most likely don't want to override this component directly.
+     */
+    Root: ComponentType<OryFormRootProps>
+    /**
+     * A special form group container for the social buttons.
+     *
+     * This is required, because the social buttons need to be in its form, to not influence the other form groups.
+     *
+     * You most likely don't want to override this component directly.
+     */
+    OidcRoot: ComponentType<OryFormOidcRootProps>
 
-  FormContainer: ComponentType<HeadlessFormProps>
+    /**
+     * The FormGroup is rendered around each group of nodes in the UI nodes.
+     */
+    Group: ComponentType<OryFormGroupProps>
+  }
+  Message: {
+    /**
+     * The MessageContainer is rendered around the messages.
+     */
+    Root: ComponentType<OryMessageRootProps>
 
-  SocialButton: ComponentType<HeadlessSocialButtonProps>
-  SocialButtonContainer: ComponentType<HeadlessSocialButtonContainerProps>
-
-  AuthMethodListItem: ComponentType<HeadlessAuthMethodListItemProps>
-
-  HorizontalDivider: ComponentType<HorizontalDividerProps>
-
-  FormGroup: ComponentType<HeadlessGroupContainerProps>
-
-  MessageContainer: ComponentType<HeadlessMessagesProps>
-  Message: ComponentType<HeadlessMessageProps>
-  CurrentIdentifierButton: ComponentType<HeadlessCurrentIdentifierProps>
+    /**
+     * The Message component is rendered whenever a message is encountered.
+     */
+    Content: ComponentType<OryMessageContentProps>
+  }
 }
+
+type DeepPartialTwoLevels<T> = {
+  [P in keyof T]?: T[P] extends object ? { [K in keyof T[P]]?: T[P][K] } : T[P]
+}
+
+export type OryFlowComponentOverrides = DeepPartialTwoLevels<OryFlowComponents>
 
 export type OryFormProps = PropsWithChildren
 
 export function OryForm({ children }: OryFormProps) {
-  const { FormContainer } = useComponents()
+  const { Form } = useComponents()
   const flowContainer = useOryFlow()
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
@@ -95,7 +197,7 @@ export function OryForm({ children }: OryFormProps) {
     window.location.href = url
   }
 
-  const handleSuccess = (flow: FlowContainer) => {
+  const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)
     methods.reset(computeDefaultValues(flow))
   }
@@ -191,14 +293,14 @@ export function OryForm({ children }: OryFormProps) {
 
   return (
     <FormProvider {...methods}>
-      <FormContainer
+      <Form.Root
         action={flowContainer.flow.ui.action}
         method={flowContainer.flow.ui.method}
         onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
       >
         {children ?? (
           <>
-            <OryFormSocialButtons />
+            <OryFormOidcButtons />
             <OryFormGroups
               groups={[
                 "default",
@@ -211,7 +313,7 @@ export function OryForm({ children }: OryFormProps) {
             />
           </>
         )}
-      </FormContainer>
+      </Form.Root>
     </FormProvider>
   )
 }

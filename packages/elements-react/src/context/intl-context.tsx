@@ -147,6 +147,9 @@ export const LanguageCodes = [
   "zu",
 ] as const
 
+/**
+ * A record of custom translations for a specific locale.
+ */
 export type CustomLanguageFormats = {
   [k in (typeof LanguageCodes)[number]]?: Partial<TranslationFile>
 }
@@ -173,16 +176,19 @@ export type SupportedTranslations = {
   defaultLocale?: string
 }
 
-export type IntlProviderProps<Type> = Type extends CustomTranslations
-  ? CustomTranslations
-  : SupportedTranslations
+export type OryIntlProviderProps<Translation> =
+  Translation extends CustomTranslations
+    ? CustomTranslations
+    : SupportedTranslations
 
 export const IntlProvider = <
-  T extends SupportedTranslations | CustomTranslations = SupportedTranslations,
+  Translation extends
+    | SupportedTranslations
+    | CustomTranslations = SupportedTranslations,
 >({
   children,
   ...props
-}: PropsWithChildren<IntlProviderProps<T>>) => {
+}: PropsWithChildren<OryIntlProviderProps<Translation>>) => {
   const intlCtx = useContext(IntlContext)
 
   if (intlCtx) {

@@ -1,4 +1,6 @@
-import { IntlProvider } from "@ory/elements-react"
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import type { Decorator, Preview } from "@storybook/react"
 import { chromaticModes } from "./modes"
 import "@ory/elements-react/theme/styles.css"
@@ -28,11 +30,8 @@ const preview: Preview = {
 const withI18next: Decorator = (Story, context) => {
   const { locale } = context.globals
 
-  return (
-    <IntlProvider locale={locale} defaultLocale="en">
-      <Story />
-    </IntlProvider>
-  )
+  // TODO: this needs a refactor, because it doesn't pass the locale to the Ory Provider at the moment.
+  return <Story args={{ locale }} />
 }
 
 // export decorators for storybook to wrap your stories in

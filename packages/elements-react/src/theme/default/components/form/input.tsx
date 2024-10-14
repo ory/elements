@@ -1,5 +1,8 @@
 import { getNodeLabel } from "@ory/client-fetch"
-import { formatMessage, HeadlessInputProps } from "@ory/elements-react"
+import {
+  OryNodeInputProps,
+  uiTextToFormattedMessage,
+} from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 
@@ -7,7 +10,7 @@ export const DefaultInput = ({
   node,
   attributes,
   onClick,
-}: HeadlessInputProps) => {
+}: OryNodeInputProps) => {
   const label = getNodeLabel(node)
   const { register } = useFormContext()
   const { value, autocomplete, name, maxlength, ...rest } = attributes
@@ -20,7 +23,7 @@ export const DefaultInput = ({
           defaultMessage: "Enter your {placeholder}",
         },
         {
-          placeholder: formatMessage(label, intl),
+          placeholder: uiTextToFormattedMessage(label, intl),
         },
       )
     : ""

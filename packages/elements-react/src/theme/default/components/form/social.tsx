@@ -1,7 +1,7 @@
 import {
-  formatMessage,
-  HeadlessSocialButtonContainerProps,
-  HeadlessSocialButtonProps,
+  OryFormOidcRootProps,
+  OryNodeOidcButtonProps,
+  uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
 import logos from "../../provider-logos"
@@ -24,7 +24,7 @@ export function DefaultButtonSocial({
   attributes,
   node,
   onClick,
-}: HeadlessSocialButtonProps) {
+}: OryNodeOidcButtonProps) {
   const {
     node_type: _ignoredNodeType,
     type: _ignoredType,
@@ -70,9 +70,9 @@ export function DefaultButtonSocial({
           </span>
         )}
       </span>
-      {showLabel ? (
+      {showLabel && node.meta.label ? (
         <span className="text-sm text-left leading-none font-medium text-forms-fg-default flex-grow">
-          {formatMessage(node.meta.label, intl)}
+          {uiTextToFormattedMessage(node.meta.label, intl)}
         </span>
       ) : null}
     </button>
@@ -82,7 +82,7 @@ export function DefaultButtonSocial({
 export function DefaultSocialButtonContainer({
   children,
   nodes,
-}: HeadlessSocialButtonContainerProps) {
+}: OryFormOidcRootProps) {
   return (
     <div
       className={cn("grid gap-3", {

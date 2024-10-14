@@ -4,13 +4,6 @@
 import { UiText } from "@ory/client-fetch"
 import { IntlShape } from "react-intl"
 
-export function formatMessage(uiText: UiText | undefined, intl: IntlShape) {
-  if (!uiText) {
-    return ""
-  }
-  return uiTextToFormattedMessage(uiText, intl)
-}
-
 /**
  * Converts a UiText to a FormattedMessage.
  * The UiText contains the id of the message and the context.

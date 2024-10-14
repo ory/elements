@@ -3,7 +3,7 @@
 
 import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Login } from "../../../pages/login"
+import { Login } from "@ory/elements-react/theme"
 import { config } from "../../../utils"
 
 const meta = {

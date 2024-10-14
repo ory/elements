@@ -1,15 +1,15 @@
 import { PropsWithChildren } from "react"
 import { cn } from "../../utils/cn"
-import { formatMessage, HeadlessFormProps } from "@ory/elements-react"
-import { HeadlessMessageProps } from "@ory/elements-react"
 import { useIntl } from "react-intl"
+import { OryFormRootProps, uiTextToFormattedMessage } from "@ory/elements-react"
+import { OryMessageContentProps } from "@ory/elements-react"
 
 export function DefaultFormContainer({
   children,
   onSubmit,
   action,
   method,
-}: PropsWithChildren<HeadlessFormProps>) {
+}: PropsWithChildren<OryFormRootProps>) {
   return (
     <form
       onSubmit={onSubmit}
@@ -31,7 +31,7 @@ export function DefaultMessageContainer({ children }: PropsWithChildren) {
   return <section className="text-left">{children}</section>
 }
 
-export function DefaultMessage({ message }: HeadlessMessageProps) {
+export function DefaultMessage({ message }: OryMessageContentProps) {
   const intl = useIntl()
   return (
     <span
@@ -41,7 +41,7 @@ export function DefaultMessage({ message }: HeadlessMessageProps) {
         "text-forms-fg-success": message.type === "success",
       })}
     >
-      {formatMessage(message, intl)}
+      {uiTextToFormattedMessage(message, intl)}
     </span>
   )
 }

@@ -1,96 +1,17 @@
-import { ComponentType, PropsWithChildren } from "react"
-import { useComponents } from "../../context"
-import { OryForm } from "../form/form"
-import { OryFormGroups } from "../form/groups"
-import { OryCardValidationMessages } from "../form/messages"
-import { OryTwoStepCard } from "./card-two-step"
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OryCardHeader, OryCardHeaderProps } from "./header"
+import { OryCard, OryCardRootProps } from "./card"
+import { OryCardFooter, OryCardFooterProps } from "./footer"
+import { OryCardContent, OryCardContentProps } from "./content"
+import { OryTwoStepCard } from "./card-two-step"
 
-export type OryCardContentProps = PropsWithChildren
+export { OryCardHeader, OryCard, OryCardFooter, OryCardContent, OryTwoStepCard }
 
-export function OryCardContent({ children }: OryCardContentProps) {
-  const { CardContent } = useComponents()
-
-  if (children) {
-    return <CardContent>{children}</CardContent>
-  }
-
-  return (
-    <CardContent>
-      <OryCardValidationMessages />
-      <OryForm>
-        <OryFormGroups
-          groups={[
-            "default",
-            "password",
-            "passkey",
-            "code",
-            "webauthn",
-            "profile",
-            "totp",
-            "identifier_first",
-          ]}
-        />
-      </OryForm>
-    </CardContent>
-  )
+export type {
+  OryCardHeaderProps,
+  OryCardRootProps as OryCardProps,
+  OryCardFooterProps,
+  OryCardContentProps,
 }
-
-export type OryCardFooterProps = Record<string, never>
-
-export function OryCardFooter() {
-  const { CardFooter } = useComponents()
-  return <CardFooter />
-}
-
-export type OryCardProps = PropsWithChildren
-
-export function OryCard({ children }: OryCardProps) {
-  const { Card } = useComponents()
-
-  if (children) {
-    return <Card>{children}</Card>
-  }
-
-  return (
-    <Card>
-      <OryCardHeader />
-      <OryCardContent />
-      <OryCardFooter />
-    </Card>
-  )
-}
-
-/**
- * Card components are used to show login, registration, recovery, and verification flows.
- */
-export type OryCardComponents = {
-  /**
-   * The card container is the main container of the card.
-   */
-  Card: ComponentType<OryCardProps>
-
-  /**
-   * The card footer is the footer of the card container.
-   */
-  CardFooter: ComponentType<OryCardFooterProps>
-
-  /**
-   * The card header is the header of the card container.
-   */
-  CardHeader: ComponentType<OryCardProps>
-
-  /**
-   * The card content is the main content of the card container.
-   */
-  CardContent: ComponentType<OryCardContentProps>
-
-  /**
-   * The card logo is the logo of the card container.
-   */
-  CardLogo: ComponentType
-}
-
-export { OryCardHeader, OryTwoStepCard }
-
-export type { OryCardHeaderProps }

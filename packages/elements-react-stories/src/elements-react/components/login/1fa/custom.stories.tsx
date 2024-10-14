@@ -1,18 +1,21 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
+import { LoginFlowFromJSON } from "@ory/client-fetch"
 import {
-  HeadlessSocialButtonProps,
   OryCard,
   OryCardContent,
   OryForm,
   OryFormGroups,
-  OryFormSocialButtons,
+  OryFormOidcButtons,
+  OryNodeOidcButtonProps,
 } from "@ory/elements-react"
-import { FlowContextProps, Login } from "../../../pages/login"
+import { Login, LoginFlowContextProps } from "@ory/elements-react/theme"
 import { config } from "../../../utils"
-import { LoginFlowFromJSON } from "@ory/client-fetch"
 
 import type { Meta, StoryObj } from "@storybook/react"
 
-const CustomSocialButton = ({ node }: HeadlessSocialButtonProps) => (
+const CustomSocialButton = ({ node }: OryNodeOidcButtonProps) => (
   <div
     className={
       "antialiased rounded-border-radius-buttons border border-transparent gap-3 leading-none bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-4.5 text-sm font-medium"
@@ -22,19 +25,21 @@ const CustomSocialButton = ({ node }: HeadlessSocialButtonProps) => (
   </div>
 )
 
-const CustomComponents = ({ flow, config }: FlowContextProps) => {
+const CustomComponents = ({ flow, config }: LoginFlowContextProps) => {
   return (
     <Login
       flow={flow}
       components={{
-        SocialButton: CustomSocialButton,
+        Node: {
+          OidcButton: CustomSocialButton,
+        },
       }}
       config={config}
     >
       <OryCard>
         <OryCardContent>
           <OryForm>
-            <OryFormSocialButtons />
+            <OryFormOidcButtons />
             <div>
               Even though the code method is available, we do not show it here
               with our customization:

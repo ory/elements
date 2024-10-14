@@ -1,10 +1,13 @@
-import { HeadlessAuthMethodListItemProps } from "@ory/elements-react"
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
+import { useIntl } from "react-intl"
+import { OryCardAuthMethodListItemProps } from "@ory/elements-react"
 
 import code from "../../assets/icons/code.svg"
 import passkey from "../../assets/icons/passkey.svg"
 import password from "../../assets/icons/password.svg"
 import webauthn from "../../assets/icons/webauthn.svg"
-import { useIntl } from "react-intl"
 
 const iconsMap: Record<string, typeof code> = {
   code,
@@ -17,7 +20,7 @@ const iconsMap: Record<string, typeof code> = {
 export function DefaultAuthMethodListItem({
   onClick,
   group,
-}: HeadlessAuthMethodListItemProps) {
+}: OryCardAuthMethodListItemProps) {
   const intl = useIntl()
   const Icon = iconsMap[group] || null
 

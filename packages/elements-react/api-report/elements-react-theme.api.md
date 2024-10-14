@@ -27,10 +27,10 @@ import { UiNodeTextAttributes } from '@ory/client-fetch';
 import { UiText } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
-// Warning: (ae-forgotten-export) The symbol "OryCardProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function DefaultCard({ children }: OryCardProps): react_jsx_runtime.JSX.Element;
+export function DefaultCard({ children }: OryCardRootProps): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryCardContentProps" needs to be exported by the entry point index.d.ts
 //
@@ -46,15 +46,15 @@ export function DefaultCardHeader(): react_jsx_runtime.JSX.Element;
 // @public (undocumented)
 export function DefaultCardLogo(): react_jsx_runtime.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "HeadlessFormProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "OryFormRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function DefaultFormContainer({ children, onSubmit, action, method, }: PropsWithChildren<HeadlessFormProps>): react_jsx_runtime.JSX.Element;
+export function DefaultFormContainer({ children, onSubmit, action, method, }: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "HeadlessMessageProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "OryMessageContentProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function DefaultMessage({ message }: HeadlessMessageProps): react_jsx_runtime.JSX.Element;
+export function DefaultMessage({ message }: OryMessageContentProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export function DefaultMessageContainer({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element | null;
@@ -66,7 +66,7 @@ export { Error_2 as Error }
 // @public (undocumented)
 export type ErrorFlowContextProps = {
     error: FlowError;
-    components?: Partial<OryFlowComponents>;
+    components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
 };
 
@@ -76,10 +76,12 @@ export function Login({ flow, config, children, components: flowOverrideComponen
 // @public (undocumented)
 export type LoginFlowContextProps = {
     flow: LoginFlow;
-    components?: Partial<OryFlowComponents>;
+    components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
 };
 
+// Warning: (ae-forgotten-export) The symbol "OryFlowComponents" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
 export const OryDefaultComponents: OryFlowComponents;
 
@@ -89,7 +91,7 @@ export function Recovery({ flow, config, children, components: flowOverrideCompo
 // @public (undocumented)
 export type RecoveryFlowContextProps = {
     flow: RecoveryFlow;
-    components?: Partial<OryFlowComponents>;
+    components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
 };
 
@@ -104,7 +106,7 @@ export function Settings({ flow, config, children, components: flowOverrideCompo
 // @public (undocumented)
 export type SettingsFlowContextProps = {
     flow: SettingsFlow;
-    components?: Partial<OryFlowComponents>;
+    components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
 };
 
@@ -114,13 +116,13 @@ export function Verification({ flow, config, children, components: flowOverrideC
 // @public (undocumented)
 export type VerificationFlowContextProps = {
     flow: VerificationFlow;
-    components?: Partial<OryFlowComponents>;
+    components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
 };
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:25:5 - (ae-forgotten-export) The symbol "OryFlowComponents" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:25:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
 // dist/theme/default/index.d.ts:26:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)

@@ -1,7 +1,9 @@
-import { HeadlessImageProps } from "@ory/elements-react"
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
 
-export function DefaultImage({ attributes }: HeadlessImageProps) {
-  // const intl = useIntl()
+import { OryNodeImageProps } from "@ory/elements-react"
+
+export function DefaultImage({ attributes }: OryNodeImageProps) {
   return (
     <figure>
       <img {...attributes} />

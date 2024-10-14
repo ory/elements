@@ -1,9 +1,9 @@
 "use client"
 import { useFormContext } from "react-hook-form"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
-import { HeadlessInputProps } from "@ory/elements-react"
+import { OryNodeInputProps } from "@ory/elements-react"
 
-export const DefaultPinCodeInput = ({ attributes }: HeadlessInputProps) => {
+export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
   const { setValue, watch } = useFormContext()
   const { maxlength, name } = attributes
   const elements = maxlength ?? 6
