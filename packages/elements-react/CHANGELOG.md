@@ -1,3 +1,15 @@
+## 1.0.0-next.10 (2024-10-14)
+
+
+### 🩹 Fixes
+
+- add missing translations in all places
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.9 (2024-10-10)
 
 
