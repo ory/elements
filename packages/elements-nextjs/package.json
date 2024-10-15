@@ -1,0 +1,54 @@
+{
+  "name": "@ory/elements-nextjs",
+  "version": "1.0.0-next.10",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@ory/client-fetch": "^1.15.4"
+  },
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "nextjs",
+    "react",
+    "passwordless",
+    "authentication",
+    "passkeys"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/elements-nextjs"
+  },
+  "bugs": {
+    "url": "https://github.com/ory/elements/issues"
+  },
+  "homepage": "https://github.com/ory/elements#readme",
+  "author": "Ory Corp",
+  "license": "Apache License 2.0",
+  "description": "Ory Elements React - a collection of React components for authentication UIs.",
+  "publishConfig": {
+    "access": "public"
+  }
+}
