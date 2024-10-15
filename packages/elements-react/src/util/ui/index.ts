@@ -10,7 +10,7 @@ import type {
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { useMemo } from "react"
-import { useGroupSorter } from "../../context"
+import { useGroupSorter } from "../../context/component"
 
 export function capitalize(s: string) {
   if (!s) {

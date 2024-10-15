@@ -20,7 +20,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   const intl = useIntl()
   const { flow } = useOryFlow()
   const uniqueGroups = useNodesGroups(flow.ui.nodes)
-
+  console.log("asd")
   if (group === UiNodeGroupEnum.Totp) {
     return (
       <OryFormSection nodes={uniqueGroups.groups.totp}>

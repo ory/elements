@@ -73,9 +73,9 @@ export const OryDefaultComponents: OryFlowComponents = {
     Content: DefaultMessage,
   },
   Settings: {
-    FormSection: DefaultFormSection,
-    FormSectionContent: DefaultFormSectionContent,
-    FormSectionFooter: DefaultFormSectionFooter,
+    Section: DefaultFormSection,
+    SectionContent: DefaultFormSectionContent,
+    SectionFooter: DefaultFormSectionFooter,
     RecoveryCodes: DefaultSettingsRecoveryCodes,
     Totp: DefaultSettingsTotp,
     Oidc: DefaultSettingsOidc,
