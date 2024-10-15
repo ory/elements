@@ -38,11 +38,11 @@ export function DefaultLabel({
             {uiTextToFormattedMessage(label, intl)}
           </label>
           {isPassword &&
-            config.project.recovery_enabled &&
+              (config.recovery_enabled ?? true) &&
             flowType === FlowType.Login && (
               // TODO: make it possible to override with a custom component
               <a
-                href={config.project.recovery_ui_url}
+                href={config.recovery_ui_url ?? '/recovery'}
                 className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium"
               >
                 {intl.formatMessage({

@@ -32,7 +32,7 @@ function LoginCardFooter() {
   const { config } = useOryFlow()
   const intl = useIntl()
 
-  if (!config.project.registration_enabled) {
+  if (!config.registration_enabled ?? true) {
     return null
   }
 

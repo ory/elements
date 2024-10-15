@@ -25,7 +25,6 @@ const customRender = (
 
 export const defaultConfiguration: OryClientConfiguration = {
   name: "test",
-  project: {
     login_ui_url: "http://localhost:4455/login",
     recovery_ui_url: "http://localhost:4455/recovery",
     registration_ui_url: "http://localhost:4455/registration",
@@ -33,7 +32,6 @@ export const defaultConfiguration: OryClientConfiguration = {
     recovery_enabled: true,
     registration_enabled: true,
     verification_enabled: true,
-  },
   sdk: {
     url: "http://localhost:4455",
   },

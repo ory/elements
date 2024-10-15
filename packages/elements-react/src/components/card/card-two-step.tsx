@@ -89,7 +89,7 @@ export function OryTwoStepCard() {
             {step === ProcessStep.ChooseAuthMethod && (
               <>
                 {flowType === FlowType.Login && (
-                  <BackButton href={config.project.login_ui_url} />
+                  <BackButton href={config.login_ui_url ?? '/login'} />
                 )}
                 {options.map((option) => (
                   <Card.AuthMethodListItem
