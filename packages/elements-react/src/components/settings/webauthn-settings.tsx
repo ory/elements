@@ -40,11 +40,11 @@ const getRegisterNode = (nodes: UiNode[]): UiNode | undefined =>
       "name" in node.attributes && node.attributes.name === "webauthn_register",
   )
 
-interface OrySettingsWebauthnProps {
+interface HeadlessSettingsWebauthnProps {
   nodes: UiNode[]
 }
 
-export function OrySettingsWebauthn({ nodes }: OrySettingsWebauthnProps) {
+export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
   const { Settings } = useComponents()
   const intl = useIntl()
   const { flow } = useOryFlow()

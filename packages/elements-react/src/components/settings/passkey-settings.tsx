@@ -29,11 +29,11 @@ const getRemoveNodes = (nodes: UiNode[]): UiNode[] =>
       "name" in node.attributes && node.attributes.name === "passkey_remove",
   )
 
-interface OrySettingsPasskeyProps {
+interface HeadlessSettingsPasskeyProps {
   nodes: UiNode[]
 }
 
-export function OrySettingsPasskey({ nodes }: OrySettingsPasskeyProps) {
+export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
   const { Settings } = useComponents()
   const intl = useIntl()
   const { flow } = useOryFlow()

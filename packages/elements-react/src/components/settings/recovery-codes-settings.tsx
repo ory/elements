@@ -23,13 +23,13 @@ const getRecoveryCodes = (nodes: UiNode[]): UiNode | undefined =>
       "id" in node.attributes && node.attributes.id === "lookup_secret_codes",
   )
 
-interface OrySettingsRecoveryCodesProps {
+interface HeadlessSettingsRecoveryCodesProps {
   nodes: UiNode[]
 }
 
 export function OrySettingsRecoveryCodes({
   nodes,
-}: OrySettingsRecoveryCodesProps) {
+}: HeadlessSettingsRecoveryCodesProps) {
   const { Settings } = useComponents()
   const intl = useIntl()
 
