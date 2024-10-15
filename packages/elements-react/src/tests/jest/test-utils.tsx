@@ -1,13 +1,12 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
+import { render, RenderOptions } from "@testing-library/react"
 import { PropsWithChildren, ReactElement, ReactNode } from "react"
+import { OryProvider, OryProviderProps } from "../../context"
 import { OryComponentProvider } from "../../context/component"
 import { OryDefaultComponents } from "../../theme/default"
-import { render, RenderOptions } from "@testing-library/react"
 import { OryClientConfiguration } from "../../util"
-import {
-  OryProvider,
-  OryProviderProps,
-  SupportedTranslations,
-} from "../../context"
 
 const AllProviders = ({ children }: PropsWithChildren) => (
   <OryComponentProvider components={OryDefaultComponents}>
@@ -41,7 +40,7 @@ export function renderWithOryProvider(
   {
     providerProps,
     ...renderOptions
-  }: RenderOptions & { providerProps: OryProviderProps<SupportedTranslations> },
+  }: RenderOptions & { providerProps: OryProviderProps },
 ) {
   return render(ui, {
     wrapper: ({ children }) => (

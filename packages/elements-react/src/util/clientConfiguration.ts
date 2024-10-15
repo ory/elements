@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { ConfigurationParameters } from "@ory/client-fetch"
+import { IntlContextProps } from "../context/intl-context"
+
+export type IntlConfig = IntlContextProps
 
 export type OryClientConfiguration = {
   /**
@@ -33,4 +36,5 @@ export type OryClientConfiguration = {
     verification_ui_url: string
     login_ui_url: string
   }
+  intl?: IntlConfig
 }

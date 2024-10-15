@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import * as supportedLanguages from "../../../locales"
+import { locales as supportedLanguages } from "../../../locales"
 import { expect } from "@playwright/test"
 
 type TemplateStrings = {
@@ -19,7 +19,7 @@ describe("Translations", () => {
       if (!matches) {
         continue
       }
-      templates[key as keyof typeof en] = matches
+      templates[key] = matches
     }
   })
 

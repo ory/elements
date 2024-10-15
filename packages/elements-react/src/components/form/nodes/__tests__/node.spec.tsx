@@ -4,7 +4,7 @@ import { Node } from "../node"
 
 test("Text nodes are translated to german", () => {
   render(
-    <IntlProvider locale={"de"}>
+    <IntlProvider locale="de">
       <Node
         node={{
           type: "text",
