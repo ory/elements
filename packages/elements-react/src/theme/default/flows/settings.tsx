@@ -7,7 +7,7 @@ import {
   OryClientConfiguration,
   OryFlowComponentOverrides,
   OryProvider,
-  OryTwoStepCard,
+  OrySettingsCard,
 } from "@ory/elements-react"
 import merge from "lodash.merge"
 import { PropsWithChildren } from "react"
@@ -35,7 +35,7 @@ export function Settings({
       flowType={FlowType.Settings}
       components={components}
     >
-      {children ?? <OryTwoStepCard />}
+      {children ?? <OrySettingsCard />}
     </OryProvider>
   )
 }

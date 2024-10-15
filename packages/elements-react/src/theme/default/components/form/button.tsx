@@ -1,15 +1,54 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { getNodeLabel } from "@ory/client-fetch"
+import { FlowType, getNodeLabel } from "@ory/client-fetch"
 import {
   OryNodeButtonProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { cn } from "../../utils/cn"
 import { Spinner } from "./spinner"
+import { useOryFlow } from "@ory/elements-react"
+import { cva, VariantProps } from "class-variance-authority"
+
+const buttonStyles = cva(
+  [
+    "ring-1 relative overflow-hidden ring-inset rounded text-sm leading-none flex gap-3 justify-center",
+    "disabled:cursor-not-allowed loading:before:pointer-events-none loading:cursor-wait",
+    "transition-colors ease-linear duration-100",
+  ],
+  {
+    variants: {
+      intent: {
+        primary: [
+          "bg-button-primary-bg-default text-button-primary-fg-default ring-button-primary-border-default",
+          "hover:bg-button-primary-bg-hover hover:text-button-primary-fg-hover hover:ring-button-primary-border-hover",
+          "disabled:bg-button-primary-bg-disabled disabled:text-button-primary-fg-disabled disabled:ring-button-primary-border-disabled",
+          "loading:bg-button-primary-bg-default loading:text-button-primary-fg-default loading:ring-button-primary-border-default",
+          "loading:before:absolute loading:before:content-[''] loading:before:inset-0 loading:before:bg-button-primary-bg-default loading:before:opacity-80",
+        ],
+        secondary: [
+          "bg-button-secondary-bg-default text-button-secondary-fg-default ring-button-secondary-border-default",
+          "hover:bg-button-secondary-bg-hover hover:text-button-secondary-fg-hover hover:ring-button-secondary-border-hover",
+          "disabled:bg-button-secondary-bg-disabled disabled:text-button-secondary-fg-disabled disabled:ring-button-secondary-border-disabled",
+          "loading:bg-button-secondary-bg-default loading:text-button-secondary-fg-default loading:ring-button-secondary-border-default",
+          "loading:before:absolute loading:before:content-[''] loading:before:inset-0 loading:before:bg-button-secondary-bg-default loading:before:opacity-80",
+        ],
+      },
+      size: {
+        default: ["px-4 py-3"],
+        large: ["px-4 py-4.5 max-md:py-3"],
+      },
+      defaultVariants: {
+        intent: "primary",
+        size: "default",
+      },
+    },
+  },
+)
+
+export type ButtonVariants = VariantProps<typeof buttonStyles>
 
 export const DefaultButton = ({
   attributes,
@@ -29,6 +68,7 @@ export const DefaultButton = ({
   } = attributes
   const intl = useIntl()
   const label = getNodeLabel(node)
+  const { flowType } = useOryFlow()
   const {
     formState: { isSubmitting },
     setValue,
@@ -37,7 +77,12 @@ export const DefaultButton = ({
   const isPrimary =
     attributes.name === "method" ||
     attributes.name.includes("passkey") ||
-    attributes.name.includes("webauthn")
+    attributes.name.includes("webauthn") ||
+    attributes.name.includes("lookup_secret")
+
+  const isSmall =
+    flowType === FlowType.Settings &&
+    attributes.name !== "webauthn_register_trigger"
 
   return (
     <button
@@ -49,40 +94,21 @@ export const DefaultButton = ({
         setValue(name, value)
       }}
       onClick={(e) => {
-        if (onClick) {
-          onClick(e)
-        }
+        onClick?.(e)
 
         if (type !== "button") {
           setValue(name, value)
         }
       }}
-      className={cn(
-        "antialiased rounded-border-radius-buttons border border-transparent gap-3 bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-3 md:py-4.5 text-sm leading-none font-medium",
-        {
-          "cursor-not-allowed": isSubmitting,
-          "bg-button-primary-bg-hover": isSubmitting,
-          "bg-button-primary-bg-default hover:bg-button-primary-bg-hover text-button-primary-fg-default hover:text-button-primary-fg-hover":
-            isPrimary,
-          "bg-button-secondary-bg-default hover:bg-button-secondary-bg-hover text-button-secondary-fg-default hover:text-button-secondary-fg-hover border-button-secondary-border-default":
-            !isPrimary,
-        },
-        {},
-      )}
+      className={buttonStyles({
+        intent: isPrimary ? "primary" : "secondary",
+        size: isSmall ? "default" : "large",
+      })}
+      disabled={rest.disabled ?? true}
+      data-loading={isSubmitting}
     >
       {isSubmitting ? <Spinner /> : null}
-      <span
-        className={cn(
-          "transition-colors ease-linear duration-100 leading-none text-button-primary-fg-default/20",
-          {
-            "text-button-primary-fg-default opacity-20 transition-opacity":
-              isSubmitting && isPrimary,
-            "text-button-secondary-fg-default/20": isSubmitting && !isPrimary,
-          },
-        )}
-      >
-        {label ? uiTextToFormattedMessage(label, intl) : ""}
-      </span>
+      {label ? uiTextToFormattedMessage(label, intl) : ""}
     </button>
   )
 }

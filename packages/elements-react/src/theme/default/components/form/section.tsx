@@ -1,0 +1,45 @@
+import {
+  HeadlessFormSectionContentProps,
+  HeadlessFormSectionFooterProps,
+  HeadlessFormSectionProps,
+} from "@ory/elements-react"
+
+const DefaultFormSection = ({ children }: HeadlessFormSectionProps) => {
+  return (
+    <div className="ory-default-theme">
+      <div className="flex flex-col">{children}</div>
+    </div>
+  )
+}
+
+const DefaultFormSectionContent = ({
+  title,
+  description,
+  children,
+}: HeadlessFormSectionContentProps) => {
+  return (
+    <div className="border rounded-t-xl border-b-0 border-dialog-border-default bg-forms-bg-default px-6 py-8 flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        <h3 className="font-medium text-dialog-fg-default">{title}</h3>
+        <span className="text-sm text-dialog-fg-subtle">{description}</span>
+      </div>
+      {children}
+    </div>
+  )
+}
+
+const DefaultFormSectionFooter = ({
+  children,
+}: HeadlessFormSectionFooterProps) => {
+  return (
+    <div className="rounded-b-xl gap-2 flex justify-end px-6 py-4 bg-dialog-bg-subtle border border-dialog-border-default text-sm text-dialog-fg-mute items-center [&>span]:mr-auto min-h-[72px]">
+      {children}
+    </div>
+  )
+}
+
+export {
+  DefaultFormSection,
+  DefaultFormSectionContent,
+  DefaultFormSectionFooter,
+}

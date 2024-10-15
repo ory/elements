@@ -30,6 +30,16 @@ import {
 import { DefaultText } from "./form/text"
 import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button"
 import { OryFlowComponents } from "@ory/elements-react"
+import {
+  DefaultFormSection,
+  DefaultFormSectionContent,
+  DefaultFormSectionFooter,
+} from "./form/section"
+import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes"
+import { DefaultSettingsTotp } from "./settings/settings-top"
+import { DefaultSettingsOidc } from "./settings/settings-oidc"
+import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
+import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 
 export const OryDefaultComponents: OryFlowComponents = {
   Card: {
@@ -61,5 +71,15 @@ export const OryDefaultComponents: OryFlowComponents = {
   Message: {
     Root: DefaultMessageContainer,
     Content: DefaultMessage,
+  },
+  Settings: {
+    FormSection: DefaultFormSection,
+    FormSectionContent: DefaultFormSectionContent,
+    FormSectionFooter: DefaultFormSectionFooter,
+    RecoveryCodes: DefaultSettingsRecoveryCodes,
+    Totp: DefaultSettingsTotp,
+    Oidc: DefaultSettingsOidc,
+    Webauthn: DefaultSettingsWebauthn,
+    Passkey: DefaultSettingsPasskey,
   },
 }

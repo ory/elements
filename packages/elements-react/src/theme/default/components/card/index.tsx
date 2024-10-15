@@ -10,7 +10,7 @@ import { DefaultCardLogo } from "./logo"
 
 export function DefaultCard({ children }: OryCardProps) {
   return (
-    <div className="font-sans">
+    <div className="flex-1 flex-col flex justify-center items-center font-sans">
       <div className="grid grid-cols-1 max-w-sm md:max-w-[480px] md:w-[480px] gap-8 bg-dialog-bg-default px-8 md:px-12 py-12 md:py-14 relative rounded-border-radius-cards border border-dialog-border-default">
         {children}
         <Badge />
