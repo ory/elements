@@ -4,6 +4,7 @@
 "use client"
 import { FlowType, SettingsFlow } from "@ory/client-fetch"
 import {
+  HeadlessPageHeader,
   OryClientConfiguration,
   OryFlowComponentOverrides,
   OryProvider,
@@ -28,6 +29,7 @@ export function Settings({
   const components = flowOverrideComponents
     ? merge({}, OryDefaultComponents, flowOverrideComponents)
     : OryDefaultComponents
+
   return (
     <OryProvider
       config={config}
@@ -35,7 +37,12 @@ export function Settings({
       flowType={FlowType.Settings}
       components={components}
     >
-      {children ?? <OryTwoStepCard />}
+      {children ?? (
+        <>
+          <HeadlessPageHeader />
+          <OryTwoStepCard />
+        </>
+      )}
     </OryProvider>
   )
 }
