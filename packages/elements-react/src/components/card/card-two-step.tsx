@@ -48,7 +48,7 @@ export function OryTwoStepCard() {
   const uniqueGroups = useNodesGroups(ui.nodes)
 
   const options: UiNodeGroupEnum[] = Object.values(UiNodeGroupEnum)
-    .filter((group) => uniqueGroups[group]?.length)
+    .filter((group) => uniqueGroups.groups[group]?.length)
     .filter(
       (group) =>
         !(
@@ -61,10 +61,10 @@ export function OryTwoStepCard() {
         ).includes(group),
     )
 
-  const hasOidc = Boolean(uniqueGroups.oidc?.length)
+  const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
 
   const zeroStepGroups = filterZeroStepGroups(ui.nodes)
-  const finalNodes = getFinalNodes(uniqueGroups, selectedGroup)
+  const finalNodes = getFinalNodes(uniqueGroups.groups, selectedGroup)
 
   const step = selectedGroup
     ? ProcessStep.ExecuteAuthMethod
