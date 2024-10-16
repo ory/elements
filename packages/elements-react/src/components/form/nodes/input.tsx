@@ -9,6 +9,7 @@ import {
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
+import { useFormContext } from "react-hook-form"
 
 export const NodeInput = ({
   node,
@@ -18,6 +19,8 @@ export const NodeInput = ({
   onClick?: MouseEventHandler
 }): ReactNode => {
   const { Node } = useComponents()
+  const { setValue } = useFormContext()
+
   const nodeType = attributes.type
   const {
     onloadTrigger: onloadTrigger,
@@ -29,9 +32,16 @@ export const NodeInput = ({
     ...attrs
   } = attributes
 
+  const setFormValue = () => {
+    if (attrs.value) {
+      setValue(attrs.name, attrs.value)
+    }
+  }
+
   const hasRun = useRef(false)
   useEffect(
     () => {
+      setFormValue()
       if (!hasRun.current && onloadTrigger) {
         hasRun.current = true
         triggerToWindowCall(onloadTrigger)
@@ -43,6 +53,7 @@ export const NodeInput = ({
   )
 
   const handleClick: MouseEventHandler = () => {
+    setFormValue()
     if (onclickTrigger) {
       triggerToWindowCall(onclickTrigger)
     }
