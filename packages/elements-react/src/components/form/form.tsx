@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  UiNode,
+  UiNodeGroupEnum,
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
   UpdateRegistrationFlowBody,
@@ -24,6 +26,7 @@ import {
   OryNodeTextProps,
   OryCurrentIdentifierProps,
   OryCardLogoProps,
+  OryFormSectionContentProps,
 } from "../../types"
 import { OryCardDividerProps } from "../generic/divider"
 import { OryFormGroupProps, OryFormGroups } from "./groups"
@@ -52,6 +55,14 @@ import { onSubmitVerification } from "../../util/onSubmitVerification"
 import { onSubmitRecovery } from "../../util/onSubmitRecovery"
 import { onSubmitSettings } from "../../util/onSubmitSettings"
 import { OryPageHeaderProps } from "../generic"
+import { OryFormSectionProps } from "./section"
+import {
+  OrySettingsOidcProps,
+  OrySettingsPasskeyProps,
+  OrySettingsRecoveryCodesProps,
+  OrySettingsTotpProps,
+  OrySettingsWebauthnProps,
+} from "../settings"
 
 /**
  * A record of all the components that are used in the OryForm component.
@@ -174,6 +185,26 @@ export type OryFlowComponents = {
   Page: {
     Header: ComponentType<OryPageHeaderProps>
   }
+  Settings: {
+    /**
+     * The SettingsSection component is rendered around each section of the settings.
+     */
+    Section: ComponentType<OryFormSectionProps>
+    /**
+     * The SettingsSectionContent component is rendered around the content of each section of the settings.
+     */
+    SectionContent: ComponentType<OryFormSectionContentProps>
+    /**
+     * The SettingsSectionFooter component is rendered around the footer of each section of the settings.
+     */
+    SectionFooter: ComponentType<OryFormSectionContentProps>
+
+    Oidc: ComponentType<OrySettingsOidcProps>
+    Webauthn: ComponentType<OrySettingsWebauthnProps>
+    Passkey: ComponentType<OrySettingsPasskeyProps>
+    Totp: ComponentType<OrySettingsTotpProps>
+    RecoveryCodes: ComponentType<OrySettingsRecoveryCodesProps>
+  }
 }
 
 type DeepPartialTwoLevels<T> = {
@@ -184,14 +215,22 @@ export type OryFlowComponentOverrides = DeepPartialTwoLevels<OryFlowComponents>
 
 export type OryFormProps = PropsWithChildren<{
   onAfterSubmit?: (method: string | number | boolean | undefined) => void
+  nodes?: UiNode[]
 }>
 
-export function OryForm({ children, onAfterSubmit }: OryFormProps) {
+export function OryForm({ children, onAfterSubmit, nodes }: OryFormProps) {
   const { Form } = useComponents()
   const flowContainer = useOryFlow()
+
+  const defaultNodes = nodes
+    ? flowContainer.flow.ui.nodes
+        .filter((node) => node.group === UiNodeGroupEnum.Default)
+        .concat(nodes)
+    : flowContainer.flow.ui.nodes
+
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
-    defaultValues: computeDefaultValues(flowContainer),
+    defaultValues: computeDefaultValues(defaultNodes),
   })
 
   const intl = useIntl()
@@ -208,7 +247,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)
-    methods.reset(computeDefaultValues(flow))
+    methods.reset(computeDefaultValues(flow.flow.ui.nodes))
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
@@ -266,13 +305,42 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
         })
         break
       }
-      case FlowType.Settings:
+      case FlowType.Settings: {
+        const submitData: UpdateSettingsFlowBody = {
+          ...(data as unknown as UpdateSettingsFlowBody),
+        }
+
+        if ("totp_unlink" in submitData) {
+          submitData.method = "totp"
+        }
+
+        if (
+          "lookup_secret_confirm" in submitData ||
+          "lookup_secret_reveal" in submitData ||
+          "lookup_secret_regenerate" in submitData
+        ) {
+          submitData.method = "lookup_secret"
+        }
+
+        if ("link" in submitData || "unlink" in submitData) {
+          submitData.method = "oidc"
+        }
+
+        if ("webauthn_remove" in submitData) {
+          submitData.method = "webauthn"
+        }
+
+        if ("passkey_remove" in submitData) {
+          submitData.method = "passkey"
+        }
+
         await onSubmitSettings(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,
-          body: data as unknown as UpdateSettingsFlowBody,
+          body: submitData,
         })
         break
+      }
     }
     onAfterSubmit?.(data.method)
   }
