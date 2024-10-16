@@ -161,14 +161,6 @@
   "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Tutaj możesz zarządzać ustawieniami związanymi z Twoim kontem. Miej na uwadze że niektóre akcje mogą wymagać ponownej uwierzytelnienia.",
   "settings.title": "Ustawienia Konta",
-  "settings.title-lookup-secret": "Zarządzaj kodami odzyskiwania 2FA",
-  "settings.title-navigation": "Ustawienia Konta",
-  "settings.title-oidc": "Zewnętrzne logowanie",
-  "settings.title-password": "Zmień Hasło",
-  "settings.title-profile": "Ustawienia Profilu",
-  "settings.title-totp": "Zarządzaj aplikacją autentykator 2FA TOTP",
-  "settings.title-webauthn": "Zarządzaj tokenami sprzętowymi",
-  "settings.title-passkey": "Zarządzaj Passkeys",
   "verification.registration-button": "Zarejestruj się",
   "verification.registration-label": "Nie posiadasz konta?",
   "verification.title": "Zweryfikuj konto",
@@ -219,5 +211,9 @@
   "recovery.subtitle": "",
   "registration.subtitle": "",
   "settings.subtitle": "",
-  "verification.subtitle": ""
+  "verification.subtitle": "",
+  "settings.totp.info.linked": "Aktualnie masz podłączoną aplikację uwierzytelniającą.",
+  "settings.totp.info.not-linked": "Aby włączyć, zeskanuj kod QR za pomocą swojego uwierzytelniającego i wprowadź kod.",
+  "settings.totp.title": "",
+  "settings.totp.description": "Dodaj aplikację do uwierzytelniania TOTP do swojego konta, aby poprawić bezpieczeństwo swojego konta. Popularne aplikacje uwierzytelniające to LastPass i Google Authenticator."
 }

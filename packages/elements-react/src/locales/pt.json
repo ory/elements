@@ -161,14 +161,6 @@
   "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Aqui pode gerar configurações relacionadas com a sua conta. Lembre-se de que certas ações exigem que efetue novamente login.",
   "settings.title": "Configurações da Conta",
-  "settings.title-lookup-secret": "Gerar Códigos de Recuperação de Backup de 2FA",
-  "settings.title-navigation": "Configurações da Conta",
-  "settings.title-oidc": "login social",
-  "settings.title-password": "Alterar password",
-  "settings.title-profile": "Configurações de Perfil",
-  "settings.title-totp": "Gerar Aplicação Autenticador 2FA",
-  "settings.title-webauthn": "Gerar Tokens de Hardware",
-  "settings.title-passkey": "Gerar Passkeys",
   "verification.registration-button": "Registar",
   "verification.registration-label": "Não tem uma conta?",
   "verification.title": "Verifique a sua conta",
@@ -219,5 +211,9 @@
   "recovery.subtitle": "",
   "registration.subtitle": "",
   "settings.subtitle": "",
-  "verification.subtitle": ""
+  "verification.subtitle": "",
+  "settings.totp.info.linked": "Você atualmente tem um aplicativo autenticador conectado.",
+  "settings.totp.info.not-linked": "Para ativar, escaneie o código QR com seu autenticador e insira o código.",
+  "settings.totp.title": "",
+  "settings.totp.description": "Adicione um aplicativo autenticador TOTP à sua conta para melhorar a segurança da sua conta. Aplicativos autenticadores populares são LastPass e Google Authenticator."
 }
