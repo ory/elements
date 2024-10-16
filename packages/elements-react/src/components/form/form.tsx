@@ -51,6 +51,7 @@ import { onSubmitRegistration } from "../../util/onSubmitRegistration"
 import { onSubmitVerification } from "../../util/onSubmitVerification"
 import { onSubmitRecovery } from "../../util/onSubmitRecovery"
 import { onSubmitSettings } from "../../util/onSubmitSettings"
+import { OryPageHeaderProps } from "../generic"
 
 /**
  * A record of all the components that are used in the OryForm component.
@@ -170,6 +171,9 @@ export type OryFlowComponents = {
      */
     Content: ComponentType<OryMessageContentProps>
   }
+  Page: {
+    Header: ComponentType<OryPageHeaderProps>
+  }
 }
 
 type DeepPartialTwoLevels<T> = {
@@ -214,7 +218,7 @@ export function OryForm({ children }: OryFormProps) {
         if (submitData.method === "code" && data.code) {
           submitData.resend = ""
         }
-        console.log(submitData)
+
         await onSubmitLogin(flowContainer, {
           onRedirect,
           setFlowContainer: handleSuccess,
