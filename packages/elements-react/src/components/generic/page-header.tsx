@@ -1,9 +1,9 @@
-import { LogoutFlow } from "@ory/client-fetch"
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { useComponents } from "../../context"
 
-export type OryPageHeaderProps = {
-  logoutFlow: LogoutFlow
-}
+export type OryPageHeaderProps = Record<never, never>
 
 export const HeadlessPageHeader = () => {
   const { Page } = useComponents()
