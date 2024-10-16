@@ -9,7 +9,7 @@ export function Spinner({ className }: { className?: string }) {
       aria-hidden="true"
       role="status"
       className={cn(
-        "absolute inset-0 mx-auto my-auto w-8 h-8 text-branding-fg-default animate-spin text-button-primary-fg-default",
+        "absolute pointer-events-none inset-0 mx-auto my-auto w-8 h-8 animate-spin",
         className,
       )}
       viewBox="0 0 34 34"

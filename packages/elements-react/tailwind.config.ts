@@ -4,6 +4,7 @@
 import type { Config } from "tailwindcss"
 
 import variables from "./variables-processed.json"
+import plugin from "tailwindcss/plugin"
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -48,7 +49,11 @@ const config: Config = {
       ...variables.colors.light,
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant("loading", "&[data-loading=true]")
+    }),
+  ],
 }
 
 export default config

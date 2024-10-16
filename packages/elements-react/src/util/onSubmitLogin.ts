@@ -52,9 +52,9 @@ export async function onSubmitLogin(
         },
         onValidationError: (body: LoginFlow) => {
           setFlowContainer({
+            config,
             flow: body,
             flowType: FlowType.Login,
-            config,
           })
         },
         onRedirect,
