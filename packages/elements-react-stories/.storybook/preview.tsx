@@ -4,6 +4,7 @@
 import type { Decorator, Preview } from "@storybook/react"
 import { chromaticModes } from "./modes"
 import "@ory/elements-react/theme/styles.css"
+import { merge } from "lodash"
 
 const preview: Preview = {
   parameters: {
@@ -31,7 +32,9 @@ const withI18next: Decorator = (Story, context) => {
   const { locale } = context.globals
 
   // TODO: this needs a refactor, because it doesn't pass the locale to the Ory Provider at the moment.
-  return <Story args={{ locale }} />
+  return (
+    <Story args={merge({}, { config: { intl: { locale } } }, context.args)} />
+  )
 }
 
 // export decorators for storybook to wrap your stories in
