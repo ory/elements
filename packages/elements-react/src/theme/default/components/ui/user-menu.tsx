@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { LogoutFlow, Session } from "@ory/client-fetch"
 import {
   DropdownMenu,
@@ -13,7 +16,7 @@ import { getUserInitials } from "../../utils/user"
 
 type UserMenuProps = {
   session?: Session
-  logoutFlow: LogoutFlow
+  logoutFlow?: LogoutFlow
 }
 
 export const UserMenu = ({ session, logoutFlow }: UserMenuProps) => {
@@ -37,7 +40,7 @@ export const UserMenu = ({ session, logoutFlow }: UserMenuProps) => {
             <IconSettings size={16} /> User settings
           </a>
         </DropdownMenuItem>
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem asChild disabled={!logoutFlow?.logout_url}>
           <a href={logoutFlow?.logout_url}>
             <IconLogout size={16} /> Logout
           </a>

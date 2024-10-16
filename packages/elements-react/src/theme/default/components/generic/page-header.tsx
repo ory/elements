@@ -9,9 +9,9 @@ import {
 import { ReturnButton } from "../ui/return-button"
 import { UserMenu } from "../ui/user-menu"
 
-export const DefaultPageHeader = ({ logoutFlow }: OryPageHeaderProps) => {
+export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
   const { Card } = useComponents()
-  const session = useSession()
+  const { session, logoutFlow } = useSession()
 
   return (
     <div className="flex max-w-[896px] flex-col w-full gap-3 mt-16">
