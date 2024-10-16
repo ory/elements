@@ -1,8 +1,7 @@
-import { LogoutFlow, Session } from "@ory/client-fetch"
+import { LogoutFlow } from "@ory/client-fetch"
 import { useComponents } from "../../context"
 
 export type OryPageHeaderProps = {
-  session: Session
   logoutFlow: LogoutFlow
 }
 
