@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OrySettingsRecoveryCodesProps } from "@ory/elements-react"
 import Download from "../../assets/icons/download.svg"
 import Eye from "../../assets/icons/eye.svg"
