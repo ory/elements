@@ -4,3 +4,4 @@
 export * from "./card"
 export * from "./form"
 export * from "./generic"
+export * from "./settings"

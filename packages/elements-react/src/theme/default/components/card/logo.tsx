@@ -11,9 +11,7 @@ export function DefaultCardLogo() {
   }
 
   return (
-    <h1
-      className={"text-xl font-semibold leading-normal text-dialog-fg-default"}
-    >
+    <h1 className="text-xl font-semibold leading-normal text-dialog-fg-default">
       {flow.config.name}
     </h1>
   )

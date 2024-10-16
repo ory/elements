@@ -12,12 +12,15 @@ import {
   ComponentPropsWithoutRef,
   FormEventHandler,
   MouseEventHandler,
+  PropsWithChildren,
 } from "react"
+import { ButtonVariants } from "./theme/default/components/form/button"
 
 export type OryNodeButtonProps = {
   attributes: UiNodeInputAttributes
   node: UiNode
-} & Omit<ComponentPropsWithoutRef<"button">, "children">
+} & Omit<ComponentPropsWithoutRef<"button">, "children"> &
+  ButtonVariants
 
 export type OryCurrentIdentifierProps = {
   attributes: UiNodeInputAttributes
@@ -71,3 +74,10 @@ export type OryNodeInputProps = {
   node: UiNode
   onClick?: MouseEventHandler
 }
+
+export type OryFormSectionContentProps = PropsWithChildren<{
+  title?: string
+  description?: string
+}>
+
+export type OryFormSectionFooterProps = PropsWithChildren

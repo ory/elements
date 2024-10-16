@@ -161,14 +161,6 @@
   "settings.navigation-passkey": "Passkeys",
   "settings.subtitle-instructions": "Ici, vous pouvez gérer les paramètres liés à votre compte. Gardez à l'esprit que certaines actions nécessitent une nouvelle authentification.",
   "settings.title": "Paramètres du compte",
-  "settings.title-lookup-secret": "Gérer les codes de récupération 2FA",
-  "settings.title-navigation": "Paramètres du compte",
-  "settings.title-oidc": "Connexion sociale",
-  "settings.title-password": "Changer le mot de passe",
-  "settings.title-profile": "Paramètres de profil",
-  "settings.title-totp": "Gérer l'application d'authentification TOTP 2FA",
-  "settings.title-webauthn": "Gérer les tokens matériels",
-  "settings.title-passkey": "Gérer les Passkeys",
   "verification.registration-button": "S'inscrire",
   "verification.registration-label": "Vous n'avez pas de compte ?",
   "verification.title": "Vérifiez votre compte",
@@ -219,5 +211,9 @@
   "recovery.subtitle": "",
   "registration.subtitle": "",
   "settings.subtitle": "",
-  "verification.subtitle": ""
+  "verification.subtitle": "",
+  "settings.totp.info.linked": "Vous avez actuellement une application d'authentification connectée.",
+  "settings.totp.info.not-linked": "Pour activer, scannez le QR code avec votre authentificateur et entrez le code.",
+  "settings.totp.title": "Application d'authentification",
+  "settings.totp.description": "Ajoutez une application d'authentification TOTP à votre compte pour améliorer la sécurité de votre compte. Les applications d'authentification populaires sont LastPass et Google Authenticator."
 }
