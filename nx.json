@@ -13,10 +13,38 @@
       "dependsOn": ["^build"]
     }
   },
+  "release": {
+    "projectsRelationship": "independent",
+    "releaseTagPattern": "release/{projectName}/{version}",
+    "projects": ["@ory/elements-react"],
+    "version": {
+      "generatorOptions": {
+        "preid": "next",
+        "specifier": "prerelease"
+      }
+    },
+    "changelog": {
+      "automaticFromRef": true,
+      "projectChangelogs": true,
+      "workspaceChangelog": false
+    }
+  },
   "affected": {
     "defaultBase": "main"
   },
   "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    },
     {
       "plugin": "@nx/storybook/plugin",
       "options": {
@@ -26,5 +54,12 @@
         "staticStorybookTargetName": "static-storybook"
       }
     }
-  ]
+  ],
+  "generators": {
+    "@nx/react": {
+      "library": {
+        "unitTestRunner": "none"
+      }
+    }
+  }
 }

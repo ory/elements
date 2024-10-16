@@ -1,0 +1,74 @@
+{
+  "name": "@ory/elements-react",
+  "version": "1.0.0-next.10",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./theme": {
+      "types": "./dist/theme/default/index.d.ts",
+      "import": "./dist/theme/default/index.mjs",
+      "require": "./dist/theme/default/index.js"
+    },
+    "./theme/styles.css": "./dist/theme/default/index.css"
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ],
+      "theme": [
+        "./dist/theme/default/index.d.ts"
+      ]
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@ory/client-fetch": "^1.15.4",
+    "clsx": "2.1.1",
+    "input-otp": "1.2.4",
+    "lodash.merge": "4.6.2",
+    "react-hook-form": "7.53.0",
+    "react-intl": "6.7.0",
+    "tailwind-merge": "2.5.2"
+  },
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/lodash.merge": "4.6.9",
+    "esbuild-plugin-svgr": "^2.1.0",
+    "eslint-plugin-react": "7.37.0",
+    "postcss": "8.4.47",
+    "tsup": "8.2.3"
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "react",
+    "passwordless",
+    "authentication"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/elements-react"
+  },
+  "bugs": {
+    "url": "https://github.com/ory/elements/issues"
+  },
+  "homepage": "https://github.com/ory/elements#readme",
+  "author": "Ory Corp",
+  "license": "Apache License 2.0",
+  "description": "Ory Elements React - a collection of React components for authentication UIs.",
+  "publishConfig": {
+    "access": "public"
+  }
+}

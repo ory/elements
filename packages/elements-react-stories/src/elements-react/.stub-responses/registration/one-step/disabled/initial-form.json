@@ -1,0 +1,10 @@
+{
+  "error": {
+    "id": "self_service_flow_disabled",
+    "code": 400,
+    "status": "Bad Request",
+    "request": "e3b4d2de-1118-9977-ade1-f0f822b9d617",
+    "reason": "Registration is not allowed because it was disabled.",
+    "message": "registration flow disabled"
+  }
+}

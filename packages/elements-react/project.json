@@ -1,0 +1,56 @@
+{
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/elements-react/src/**/*.ts",
+          "packages/elements-react/src/**/*.tsx"
+        ]
+      }
+    },
+    "dev": {
+      "command": "tsup --watch  --onSuccess 'tsup --dts-only'",
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    },
+    "build": {
+      "command": "tsup --clean --dts",
+      "dependsOn": ["lint", "test"],
+      "options": {
+        "cwd": "packages/elements-react"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/elements-react/jest.config.ts",
+        "coverage": true,
+        "coverageReporters": ["text", "cobertura"]
+      }
+    },
+    "api-extractor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react",
+        "commands": [
+          "api-extractor run --verbose -c config/api-extractor-core.json",
+          "api-extractor run --verbose -c config/api-extractor-theme.json"
+        ]
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor-refresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react",
+        "commands": [
+          "api-extractor run --local --verbose -c config/api-extractor-core.json",
+          "api-extractor run --local --verbose -c config/api-extractor-theme.json"
+        ]
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}

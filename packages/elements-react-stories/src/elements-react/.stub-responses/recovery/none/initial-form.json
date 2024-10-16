@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": 400,
+    "status": "Bad Request",
+    "request": "3e38385d-71ad-9060-af56-ecd6a0604033",
+    "reason": "You attempted recovery using code, which is not enabled or does not exist. An administrator needs to enable this recovery method.",
+    "message": "The request was malformed or contained invalid parameters"
+  }
+}

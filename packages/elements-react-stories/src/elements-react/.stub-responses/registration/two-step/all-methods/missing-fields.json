@@ -1,0 +1,187 @@
+{
+  "id": "acd037fe-1b54-4f6a-838b-2e8d1090ba18",
+  "type": "browser",
+  "expires_at": "2024-04-25T13:57:44.954617Z",
+  "issued_at": "2024-04-25T12:57:44.954617Z",
+  "request_url": "https://elegant-heyrovsky-l4oclz98k5.projects.oryapis:8080/self-service/registration/browser",
+  "ui": {
+    "action": "https://elegant-heyrovsky-l4oclz98k5.projects.oryapis:8080/self-service/registration?flow=acd037fe-1b54-4f6a-838b-2e8d1090ba18",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Google",
+            "type": "info",
+            "context": {
+              "provider": "Google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property email is missing.",
+            "type": "error",
+            "context": {
+              "property": "email"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "e4U1OwIME/FCwLYA4M0zM1yJY77BWWarVOrOw7YswetUiIQ/laeXN23Y/OvV7qGeuNEu12LH0BH7QeKQ9s15nQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "organization_id": null,
+  "state": "choose_method"
+}

@@ -21,7 +21,7 @@ jobs:
       - run: npx playwright install --with-deps
       # Re-enable, once we don't have weird depdenency issues, because of the shared src/ folder
       # - run: npx nx affected -t lint test build
-      - run: npx nx run-many --all -t lint test build
+      - run: npx nx run-many --all -t lint test build api-extractor
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -52,3 +52,14 @@ jobs:
           exitOnceUploaded: true
           workingDir: packages/legacy-stories
           storybookBuildDir: storybook-static
+      - uses: chromaui/action@v11.7.0
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_ELEMENTS_REACT }}
+          exitOnceUploaded: true
+          workingDir: packages/elements-react-stories
+          storybookBuildDir: storybook-static
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

@@ -1,0 +1,981 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a code sent to your email",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a code sent to your email",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a social provider",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a Passkey",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with your email and password",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a security key",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a social provider or your Email",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with your Email",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with your Phone number",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a social provider",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a Passkey",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with your email and password",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with a security key",
+  "title": "Sign in",
+}
+`;
+
+exports[`flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a code sent to your email",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a code sent to your email",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a social provider",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a Passkey",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with your email and password",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a security key",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with .",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a social provider or your Email",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with your Email",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with your Phone number",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a social provider",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a Passkey",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with your email and password",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=login refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with a security key",
+  "title": "Reauthenticate",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a code sent to your email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a code sent to your email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a social provider",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a Passkey",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your email and a password",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a security key",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a social provider or your Email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your Email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your Phone number",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a social provider",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a Passkey",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your email and a password",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a security key",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a code sent to your email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a code sent to your email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a social provider",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a Passkey",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your email and a password",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a security key",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a social provider or your Email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your Email",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your Phone number",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a social provider",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a Passkey",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your email and a password",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with a security key",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Update your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;

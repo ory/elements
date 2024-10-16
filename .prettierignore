@@ -10,3 +10,7 @@ CONTRIBUTING.md
 docs
 .next
 .cache
+
+# Generated files
+CHANGELOG.md
+**/api-report/*
