@@ -1,13 +1,17 @@
 import {
   redirectToBrowserEndpoint,
-  initOverrides,
   onRedirect,
   onValidationError,
-  QueryParams,
   toFlowParams,
-  toValue,
 } from "./utils"
-import {LoginFlow, FlowType, handleFlowError, FrontendApi} from "@ory/client-fetch"
+import {
+  LoginFlow,
+  FlowType,
+  handleFlowError,
+  FrontendApi,
+} from "@ory/client-fetch"
+import { initOverrides, QueryParams } from "@/next/types"
+import { toValue } from "@/next/utils"
 
 /**
  * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.
@@ -36,11 +40,12 @@ import {LoginFlow, FlowType, handleFlowError, FrontendApi} from "@ory/client-fet
  */
 export async function getOrCreateLoginFlow(
   params: QueryParams,
-  client: FrontendApi
-): Promise<LoginFlow | null> {
+  client: FrontendApi,
+): Promise<LoginFlow | null | void> {
   const onRestartFlow = () => redirectToBrowserEndpoint(params, FlowType.Login)
   if (!params.flow) {
-    return onRestartFlow()
+    onRestartFlow()
+    return
   }
 
   try {

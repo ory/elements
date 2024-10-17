@@ -1,7 +1,8 @@
 import { Login } from "@ory/elements-react/theme"
-import config from "@/app/(ory)/config"
-import { getOrCreateLoginFlow } from "@/routers/app/login"
+import { getOrCreateLoginFlow } from "@/next/router/app/login"
+
 import { newFrontendClient } from "@/fetch/sdk"
+import config from "@/app/(auth)/config"
 
 const client = newFrontendClient()
 

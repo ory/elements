@@ -1,13 +1,9 @@
 import tldjs from "tldjs"
-import { CreateApiHandlerOptions } from "./get-base-url"
-import { isVercelAppDeployment } from "@/platforms/vercel"
+import { Config } from "./types"
 
-export function guessCookieDomain(
-  url: string | undefined,
-  options: CreateApiHandlerOptions,
-) {
-  if (!url || options.forceCookieDomain) {
-    return options.forceCookieDomain
+export function guessCookieDomain(url: string | undefined, config: Config) {
+  if (!url || config.forceCookieDomain) {
+    return config.forceCookieDomain
   }
 
   const parsed = tldjs.parse(url || "")

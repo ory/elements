@@ -1,4 +1,4 @@
-import { guessCookieDomain } from "./get-cookie-domain"
+import { guessCookieDomain } from "./cookie"
 
 describe("cookie guesser", () => {
   test("uses force domain", () => {
