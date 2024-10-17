@@ -1,7 +1,7 @@
 import tldjs from "tldjs"
-import { Config } from "./types"
+import { OryConfig } from "./types"
 
-export function guessCookieDomain(url: string | undefined, config: Config) {
+export function guessCookieDomain(url: string | undefined, config: OryConfig) {
   if (!url || config.forceCookieDomain) {
     return config.forceCookieDomain
   }

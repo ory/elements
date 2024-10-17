@@ -11,3 +11,8 @@ export const defaultForwardedHeaders = [
   "user-agent",
   "referer",
 ]
+export const defaultOmitHeaders = [
+  "transfer-encoding",
+  "content-encoding",
+  "content-length",
+]
