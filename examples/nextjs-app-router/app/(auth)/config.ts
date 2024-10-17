@@ -1,14 +1,5 @@
 import { OryClientConfiguration } from "@ory/elements-react"
-
-let sdkUrl = process.env.ORY_SDK_URL || ""
-
-export function setSdkUrl(url: string) {
-  sdkUrl = url
-}
-
-export function getSdkUrl() {
-  return sdkUrl
-}
+import { getSdkUrl } from "@/fetch/sdk"
 
 const config: OryClientConfiguration = {
   name: "Ory Elements example app",
