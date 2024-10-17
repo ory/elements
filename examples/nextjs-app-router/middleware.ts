@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
-import { createMiddleware, middlewareMatchers } from "@/next/middleware"
+import { createOryMiddleware } from "@/next/middleware"
 
 // This function can be marked `async` if using `await` inside
-export const middleware = createMiddleware({})
+export const middleware = createOryMiddleware({
+  override: {
+    login_ui_path: "/auth/login",
+  },
+})
 
 // See "Matching Paths" below to learn more
-export const config = {
-  matcher: [...middlewareMatchers],
-}
+export const config = {}
