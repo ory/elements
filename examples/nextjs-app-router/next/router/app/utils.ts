@@ -4,7 +4,7 @@ import { redirect, RedirectType } from "next/navigation"
 import { getSdkUrl } from "@/next/sdk"
 import parse, { splitCookiesString } from "set-cookie-parser"
 import { serialize, SerializeOptions as CookieSerializeOptions } from "cookie"
-import { Config, FlowParams, QueryParams } from "@/next/types"
+import { OryConfig, FlowParams, QueryParams } from "@/next/types"
 import { defaultForwardedHeaders } from "@/next/headers"
 import { guessCookieDomain } from "@/next/cookie"
 
@@ -76,7 +76,7 @@ export function filterRequestHeaders(
 export function processSetCookieHeader(
   protocol: string,
   fetchResponse: Response,
-  options: Config,
+  options: OryConfig,
 ) {
   const requestHeaders = headers()
   const isTls =
