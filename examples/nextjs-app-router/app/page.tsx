@@ -1,5 +1,5 @@
 "use client"
-import { useSession } from "@ory/nextjs/dist/src/hooks"
+import { useSession } from "@ory/nextjs"
 import Link from "next/link"
 
 export default function RootLayout() {

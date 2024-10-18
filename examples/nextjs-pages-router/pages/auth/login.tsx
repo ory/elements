@@ -2,7 +2,7 @@ import { Registration } from "@ory/elements-react/theme"
 import {
   useRegistrationFlow,
   getRegistrationServerSideProps,
-} from "@ory/nextjs/dist/src/pages"
+} from "@ory/nextjs/pages"
 
 import { useOryConfig } from "@ory/nextjs"
 import config from "nextjs-app-router/ory.config"
