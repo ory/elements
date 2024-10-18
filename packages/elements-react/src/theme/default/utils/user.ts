@@ -10,7 +10,7 @@ export type UserInitials = {
 }
 
 export const getUserInitials = (session?: Session): UserInitials => {
-  let avatar = ""
+  const avatar = ""
   let primary = ""
   let secondary = ""
 

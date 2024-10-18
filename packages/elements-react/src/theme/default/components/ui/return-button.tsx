@@ -1,10 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { useOryFlow } from "@ory/elements-react"
+// import { useOryFlow } from "@ory/elements-react"
 
 export const ReturnButton = () => {
-  const { config } = useOryFlow()
+  // const { config } = useOryFlow()
 
   return (
     <a
