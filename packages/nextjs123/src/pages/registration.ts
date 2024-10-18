@@ -1,19 +1,11 @@
 import { FlowType, handleFlowError, RegistrationFlow } from "@ory/client-fetch"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { newFrontendClient } from "@/nextjs"
-import {
-  onValidationError,
-  toBrowserEndpointRedirect,
-  toValue,
-} from "@/nextjs/utils"
+import { newFrontendClient } from "../sdk"
+import { onValidationError, toBrowserEndpointRedirect, toValue } from "../utils"
 import { GetServerSidePropsContext } from "next"
 import { useSearchParams } from "next/navigation"
-import {
-  handleRestartFlow,
-  toSearchParams,
-  useOnRedirect,
-} from "@/nextjs/pages/utils"
+import { handleRestartFlow, toSearchParams, useOnRedirect } from "./utils"
 
 const client = newFrontendClient()
 

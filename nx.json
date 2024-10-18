@@ -1,4 +1,9 @@
 {
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "extends": "nx/presets/npm.json",
   "tasksRunnerOptions": {
     "default": {
@@ -65,11 +70,6 @@
       "library": {
         "unitTestRunner": "none"
       }
-    }
-  },
-  "pluginsConfig": {
-    "@nx/js": {
-      "analyzeSourceFiles": true
     }
   }
 }

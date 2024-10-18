@@ -1,6 +1,6 @@
 import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { useRouter } from "next/router"
-import { toBrowserEndpointRedirect } from "@/nextjs/utils"
+import { toBrowserEndpointRedirect } from "../utils"
 import type { ParsedUrlQuery } from "querystring"
 
 export const handleRestartFlow =

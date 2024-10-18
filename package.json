@@ -7,7 +7,6 @@
     "build:clean": "nx run-many --target=build --all --skip-nx-cache",
     "build": "nx run-many --target=build --all",
     "build:react": "nx run @ory/elements:build --skip-nx-cache",
-    "build:nextjs": "nx build @ory/nextjs:build --skip-nx-cache",
     "build:elements-react": "nx build @ory/elements-react",
     "dev:elements-react": "nx build @ory/elements-react",
     "build:nextjs": "nx build @ory/nextjs",

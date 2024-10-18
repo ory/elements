@@ -1,11 +1,6 @@
-import {
-  FlowType,
-  handleFlowError,
-  FrontendApi,
-  ApiResponse,
-} from "@ory/client-fetch"
-import { FlowParams, initOverrides, QueryParams } from "@/nextjs/types"
-import { onValidationError, toValue } from "@/nextjs/utils"
+import { FlowType, handleFlowError, ApiResponse } from "@ory/client-fetch"
+import { FlowParams, initOverrides, QueryParams } from "../types"
+import { onValidationError, toValue } from "../utils"
 
 export function getFlowFactory<T>(factory: {
   redirectToBrowserEndpoint: (params: QueryParams, flowType: FlowType) => void
@@ -21,7 +16,7 @@ export function getFlowFactory<T>(factory: {
     const onRestartFlow = () =>
       factory.redirectToBrowserEndpoint(params, factory.flowType)
 
-    if (!params.flow) {
+    if (!params["flow"]) {
       onRestartFlow()
       return
     }

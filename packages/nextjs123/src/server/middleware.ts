@@ -1,18 +1,14 @@
 import { NextResponse, type NextRequest } from "next/server"
-import { rewriteUrls } from "@/nextjs/rewrite"
-import { filterRequestHeaders, processSetCookieHeaders } from "@/nextjs/utils"
-import { OryConfig } from "@/nextjs/types"
-import { defaultOmitHeaders } from "@/nextjs/headers"
+import { rewriteUrls } from "../rewrite"
+import { filterRequestHeaders, processSetCookieHeaders } from "../utils"
+import { OryConfig } from "../types"
+import { defaultOmitHeaders } from "../headers"
 
 function getProjectSdkUrl(options: OryConfig) {
   let baseUrl = ""
 
-  if (process.env.ORY_SDK_URL) {
-    baseUrl = process.env.ORY_SDK_URL
-  }
-
-  if (options.orySdkUrl) {
-    baseUrl = options.orySdkUrl
+  if (process.env["ORY_SDK_URL"]) {
+    baseUrl = process.env["ORY_SDK_URL"]
   }
 
   return baseUrl.replace(/\/$/, "")
