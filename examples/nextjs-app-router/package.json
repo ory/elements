@@ -9,16 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/set-cookie-parser": "^2.4.10",
-    "cookie": "^1.0.1",
     "next": "14.2.15",
     "react": "^18",
-    "react-dom": "^18",
-    "set-cookie-parser": "^2.7.0",
-    "tldjs": "^2.3.1"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@ory/client-fetch": "^1.15.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
