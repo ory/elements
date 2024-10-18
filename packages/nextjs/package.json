@@ -1,0 +1,30 @@
+{
+  "name": "@ory/nextjs",
+  "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^2.3.0",
+    "@ory/client-fetch": "^1.15.6",
+    "@types/set-cookie-parser": "^2.4.10",
+    "cookie": "^1.0.1",
+    "set-cookie-parser": "^2.7.0",
+    "tldjs": "^2.3.1"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "private": true,
+  "keywords": [
+    "ory",
+    "auth",
+    "react",
+    "passwordless",
+    "login",
+    "user management",
+    "permissions",
+    "authentication",
+    "nextjs",
+    "vercel",
+    "app router",
+    "pages router"
+  ]
+}

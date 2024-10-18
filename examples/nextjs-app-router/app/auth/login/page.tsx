@@ -1,6 +1,6 @@
 import { Login } from "@ory/elements-react/theme"
-import { useOryConfig } from "@/nextjs"
-import { getLoginFlow, OryPageParams } from "@/nextjs/app"
+import { useOryConfig } from "@ory/nextjs"
+import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
 
 import config from "@/ory.config"
 import CardHeader from "@/app/auth/login/card-header"
