@@ -1,11 +1,11 @@
 import { ApiResponse } from "@ory/client-fetch"
-import { FlowParams, OryConfig, QueryParams } from "@/nextjs/types"
+import { FlowParams, OryConfig, QueryParams } from "./types"
 import { FlowType, handleFlowError, OnRedirectHandler } from "@ory/client-fetch"
-import { getSdkUrl } from "@/nextjs/sdk"
-import { guessCookieDomain } from "@/nextjs/cookie"
-import parse, { splitCookiesString } from "set-cookie-parser"
+import { getSdkUrl } from "./sdk"
+import { guessCookieDomain } from "./cookie"
+import { parse, splitCookiesString } from "set-cookie-parser"
 import { serialize, SerializeOptions as CookieSerializeOptions } from "cookie"
-import { defaultForwardedHeaders } from "@/nextjs/headers"
+import { defaultForwardedHeaders } from "./headers"
 
 export function onValidationError<T>(value: T): T {
   return value
@@ -16,9 +16,9 @@ export function toFlowParams(
   getCookieHeader: () => string | undefined,
 ): FlowParams {
   return {
-    id: params.flow,
+    id: params["flow"],
     cookie: getCookieHeader(),
-    return_to: params.return_to,
+    return_to: params["return_to"],
   }
 }
 

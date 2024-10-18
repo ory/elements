@@ -8,6 +8,7 @@ import { DefaultCardFooter } from "./footer"
 import { DefaultCardHeader } from "./header"
 import { DefaultCardLogo } from "./logo"
 import { DefaultCurrentIdentifierButton } from "./current-identifier-button"
+import { DefaultCardLayout } from "./layout"
 
 export function DefaultCard({ children }: OryCardProps) {
   return (
@@ -25,5 +26,6 @@ export {
   DefaultCardFooter,
   DefaultCardHeader,
   DefaultCardLogo,
+  DefaultCardLayout,
   DefaultCurrentIdentifierButton,
 }
