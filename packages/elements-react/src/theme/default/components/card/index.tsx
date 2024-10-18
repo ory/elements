@@ -7,6 +7,7 @@ import { DefaultCardContent } from "./content"
 import { DefaultCardFooter } from "./footer"
 import { DefaultCardHeader } from "./header"
 import { DefaultCardLogo } from "./logo"
+import { DefaultCardLayout } from "./layout"
 
 export function DefaultCard({ children }: OryCardProps) {
   return (
@@ -24,4 +25,5 @@ export {
   DefaultCardFooter,
   DefaultCardHeader,
   DefaultCardLogo,
+  DefaultCardLayout,
 }
