@@ -50,7 +50,9 @@ export async function useRegistrationFlow(): Promise<RegistrationFlow | null | v
 }
 
 // This gets called on every request
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getRegistrationServerSideProps(
+  context: GetServerSidePropsContext,
+) {
   // Otherwise we initialize it
   const query = toSearchParams(context.query)
   return await client

@@ -1,30 +1,17 @@
 import { Registration } from "@ory/elements-react/theme"
-import { useRegistrationFlow } from "nextjs-app-router/nextjs/pages"
+import {
+  useRegistrationFlow,
+  getRegistrationServerSideProps,
+} from "@ory/nextjs/dist/src/pages"
 
-import { useOryConfig, newFrontendClient } from "nextjs-app-router/nextjs"
+import { useOryConfig } from "@ory/nextjs"
 import config from "nextjs-app-router/ory.config"
-import { handleFlowError } from "@ory/client-fetch"
-import { GetServerSidePropsContext } from "next"
-import { toValue } from "nextjs-app-router/nextjs/utils"
-
-const client = newFrontendClient()
 
 // This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://.../data`)
-  const data = await res.json()
+export const getServerSideProps = getRegistrationServerSideProps
 
-  // Pass data to the page via props
-  return { props: { data } }
-}
-
-export default async function RegistrationPage({
-  searchParams,
-}: {
-  searchParams: URLSearchParams
-}) {
-  const flow = await useRegistrationFlow(searchParams, client)
+export default async function RegistrationPage() {
+  const flow = await useRegistrationFlow()
 
   if (!flow) {
     return null

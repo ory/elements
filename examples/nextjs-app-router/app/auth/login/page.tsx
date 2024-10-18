@@ -1,6 +1,6 @@
 import { Login } from "@ory/elements-react"
 import { useOryConfig } from "@ory/nextjs"
-import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
+import { getLoginFlow, OryPageParams } from "@ory/nextjs/dist/src/app"
 import "@ory/elements-react/theme/styles.css"
 
 import config from "@/ory.config"
