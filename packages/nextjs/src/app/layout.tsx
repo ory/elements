@@ -1,4 +1,4 @@
-import "../../../elements-react/dist/theme/default/index.css"
+import "@ory/elements-react/theme/styles.css"
 import { PropsWithChildren } from "react"
 
 export default async function AuthLayout({ children }: PropsWithChildren) {
