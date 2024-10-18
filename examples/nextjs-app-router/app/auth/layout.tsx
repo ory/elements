@@ -1,3 +1,3 @@
-import { AuthLayout } from "@/next/router/app"
+import { AuthLayout } from "../../nextjs/app"
 
 export default AuthLayout

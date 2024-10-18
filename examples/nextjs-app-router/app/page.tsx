@@ -1,5 +1,5 @@
 "use client"
-import { useSession } from "@/next/hooks"
+import { useSession } from "@/nextjs/hooks"
 import Link from "next/link"
 
 export default function RootLayout() {

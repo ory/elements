@@ -1,4 +1,4 @@
-import { createOryMiddleware } from "@/next/middleware"
+import { createOryMiddleware } from "@/nextjs/server/middleware"
 
 // This function can be marked `async` if using `await` inside
 export const middleware = createOryMiddleware({
