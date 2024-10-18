@@ -1,6 +1,6 @@
-import { OryConfig } from "@/nextjs/types"
+import { OryConfig } from "./types"
 import { OryClientConfiguration } from "@ory/elements-react"
-import { getSdkUrl } from "@/nextjs/sdk"
+import { getSdkUrl } from "./sdk"
 
 export function useOryConfig(
   config: Partial<OryConfig>,
@@ -10,7 +10,7 @@ export function useOryConfig(
   return {
     name: config.override?.applicationName ?? "Default name",
     sdk: {
-      url: config.orySdkUrl || getSdkUrl(),
+      url: getSdkUrl(),
     },
     project: {
       registration_enabled: true,

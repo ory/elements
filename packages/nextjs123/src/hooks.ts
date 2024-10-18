@@ -1,4 +1,4 @@
-import { newFrontendClient } from "@/nextjs/sdk"
+import { newFrontendClient } from "./sdk"
 import { Session } from "@ory/client-fetch"
 import { useEffect, useState } from "react"
 

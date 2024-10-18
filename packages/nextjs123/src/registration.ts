@@ -4,8 +4,8 @@ import {
   handleFlowError,
   FrontendApi,
 } from "@ory/client-fetch"
-import { FlowParams, initOverrides, QueryParams } from "@/nextjs/types"
-import { onValidationError, toValue } from "@/nextjs/utils"
+import { FlowParams, initOverrides, QueryParams } from "./types"
+import { onValidationError, toValue } from "./utils"
 
 export function useRegistrationFlowFactory(factory: {
   redirectToBrowserEndpoint: (params: QueryParams, flowType: FlowType) => void
@@ -19,7 +19,7 @@ export function useRegistrationFlowFactory(factory: {
     const onRestartFlow = () =>
       factory.redirectToBrowserEndpoint(params, FlowType.Registration)
 
-    if (!params.flow) {
+    if (!params["flow"]) {
       onRestartFlow()
       return
     }

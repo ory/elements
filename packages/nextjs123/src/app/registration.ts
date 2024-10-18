@@ -1,10 +1,9 @@
 import { redirectToBrowserEndpoint, onRedirect } from "./utils"
-import { RegistrationFlow, FrontendApi, FlowType } from "@ory/client-fetch"
-import { QueryParams } from "@/nextjs/types"
-import { toFlowParams } from "@/nextjs/app/utils"
-import { useRegistrationFlowFactory } from "@/nextjs/registration"
-import { getFlowFactory } from "@/nextjs/app/flow"
-import { newFrontendClient } from "@/nextjs"
+import { RegistrationFlow, FlowType } from "@ory/client-fetch"
+import { QueryParams } from "../types"
+import { toFlowParams } from "./utils"
+import { getFlowFactory } from "./flow"
+import { newFrontendClient } from "../sdk"
 
 const factory = getFlowFactory({
   redirectToBrowserEndpoint,

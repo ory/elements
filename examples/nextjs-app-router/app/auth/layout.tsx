@@ -1,3 +1,3 @@
-import { AuthLayout } from "../../nextjs/app"
+import { OryCardContent } from "@ory/elements-react"
 
-export default AuthLayout
+export default OryCardContent

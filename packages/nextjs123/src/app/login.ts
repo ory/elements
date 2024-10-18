@@ -1,9 +1,9 @@
 import { onRedirect, redirectToBrowserEndpoint } from "./utils"
 import { FlowType, LoginFlow } from "@ory/client-fetch"
-import { QueryParams } from "@/nextjs/types"
-import { toFlowParams } from "@/nextjs/app/utils"
-import { getFlowFactory } from "@/nextjs/app/flow"
-import { newFrontendClient } from "@/nextjs"
+import { QueryParams } from "../types"
+import { toFlowParams } from "./utils"
+import { getFlowFactory } from "./flow"
+import { newFrontendClient } from "../sdk"
 
 const factory = getFlowFactory({
   redirectToBrowserEndpoint,

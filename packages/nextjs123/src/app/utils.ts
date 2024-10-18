@@ -1,11 +1,11 @@
 import { headers } from "next/headers"
 import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { redirect, RedirectType } from "next/navigation"
-import { QueryParams } from "@/nextjs/types"
+import { QueryParams } from "../types"
 import {
   toBrowserEndpointRedirect,
   toFlowParams as baseToFlowParams,
-} from "@/nextjs/utils"
+} from "../utils"
 
 export function getCookieHeader() {
   return headers().get("cookie") ?? undefined

@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "@ory/nextjs",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/nextjs/src",
   "projectType": "library",
@@ -9,7 +9,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/nextjs",
+        "outputPath": "packages/nextjs/dist",
         "main": "packages/nextjs/src/index.ts",
         "tsConfig": "packages/nextjs/tsconfig.lib.json",
         "assets": ["packages/nextjs/*.md"]
