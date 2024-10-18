@@ -1,0 +1,17 @@
+{
+  "name": "@ory/nextjs",
+  "version": "0.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/nextjs"
+  },
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/ory/elements/issues"
+  },
+  "homepage": "https://github.com/ory/elements#readme"
+}

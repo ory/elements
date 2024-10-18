@@ -1,4 +1,4 @@
-import { OryConfig } from "@/next"
+import { OryConfig } from "@/nextjs"
 
 const config: OryConfig = {
   override: {

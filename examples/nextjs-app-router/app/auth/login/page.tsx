@@ -1,18 +1,12 @@
 import { Login } from "@ory/elements-react/theme"
-import { getOrCreateLoginFlow } from "@/next/router/app"
+import { useOryConfig } from "@/nextjs"
+import { getLoginFlow, OryPageParams } from "@/nextjs/app"
 
-import { useOryConfig, newFrontendClient } from "@/next"
 import config from "@/ory.config"
 import CardHeader from "@/app/auth/login/card-header"
 
-const client = newFrontendClient()
-
-export default async function LoginPage({
-  searchParams,
-}: {
-  searchParams: URLSearchParams
-}) {
-  const flow = await getOrCreateLoginFlow(searchParams, client)
+export default async function LoginPage({ searchParams }: OryPageParams) {
+  const flow = await getLoginFlow(searchParams)
 
   if (!flow) {
     return null
