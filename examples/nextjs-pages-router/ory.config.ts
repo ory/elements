@@ -2,7 +2,7 @@ import type { OryConfig } from "@ory/nextjs"
 
 const config: OryConfig = {
   override: {
-    applicationName: "NextJS (App) example",
+    applicationName: "NextJS (Router) example",
   },
 }
 

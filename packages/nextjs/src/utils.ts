@@ -4,7 +4,7 @@ import { FlowType, handleFlowError, OnRedirectHandler } from "@ory/client-fetch"
 import { getSdkUrl } from "./sdk"
 import { guessCookieDomain } from "./cookie"
 import { parse, splitCookiesString } from "set-cookie-parser"
-import { serialize, SerializeOptions as CookieSerializeOptions } from "cookie"
+import { serialize, CookieSerializeOptions } from "cookie"
 import { defaultForwardedHeaders } from "./headers"
 
 export function onValidationError<T>(value: T): T {
