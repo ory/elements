@@ -3,14 +3,14 @@ import { RegistrationFlow, FlowType } from "@ory/client-fetch"
 import { QueryParams } from "../types"
 import { toFlowParams } from "./utils"
 import { getFlowFactory } from "./flow"
-import { newFrontendClient } from "../sdk"
+import { newOryFrontendClient } from "../sdk"
 
 const factory = getFlowFactory({
   redirectToBrowserEndpoint,
   onRedirect,
   toFlowParams,
   flowType: FlowType.Registration,
-  fetchFlow: newFrontendClient().getRegistrationFlowRaw,
+  fetchFlow: newOryFrontendClient().getRegistrationFlowRaw,
 })
 
 /**

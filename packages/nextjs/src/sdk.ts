@@ -1,4 +1,4 @@
-import { Configuration, FrontendApi } from "@ory/client-fetch"
+import { Configuration, FrontendApi, ProjectApi } from "@ory/client-fetch"
 
 const sdkUrl = process.env["ORY_SDK_URL"] || ""
 
@@ -22,7 +22,17 @@ export function getSdkUrl() {
   return sdkUrl.replace(/\/$/, "")
 }
 
-export function newFrontendClient() {
+export function newOryClient(): {
+  frontend: FrontendApi
+  project: ProjectApi
+} {
+  return {
+    frontend: newOryFrontendClient(),
+    project: newOryProjectClient(),
+  }
+}
+
+export function newOryFrontendClient() {
   const config = new Configuration({
     headers: {
       Accept: "application/json",
@@ -30,4 +40,15 @@ export function newFrontendClient() {
     basePath: getSdkUrl(),
   })
   return new FrontendApi(config)
+}
+
+export function newOryProjectClient() {
+  const config = new Configuration({
+    headers: {
+      Accept: "application/json",
+    },
+    basePath: getSdkUrl(),
+    accessToken: process.env["ORY_PROJECT_API_TOKEN"],
+  })
+  return new ProjectApi(config)
 }
