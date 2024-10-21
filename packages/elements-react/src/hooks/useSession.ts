@@ -11,10 +11,10 @@ import { frontendClient } from "../util/client"
 type SessionStore = {
   setIsLoading: (loading: boolean) => void
   setSession: (session: Session) => void
-  isLoading?: boolean
-  session?: Session
-  error: unknown
-  setError: (error: unknown) => void
+  isLoading: boolean
+  session: Session | undefined
+  error: string | undefined
+  setError: (error: string | undefined) => void
 }
 
 const sessionStore = create<SessionStore>()(
@@ -24,7 +24,7 @@ const sessionStore = create<SessionStore>()(
     session: undefined,
     setSession: (session: Session) => set({ session }),
     error: undefined,
-    setError: (error: unknown) => set({ error }),
+    setError: (error: string | undefined) => set({ error }),
   })),
 )
 
