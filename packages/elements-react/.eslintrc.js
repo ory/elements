@@ -40,7 +40,7 @@ module.exports = {
       },
     ],
     // TODO(jonas): prettier and eslint sometimes disagree about this
-    "no-extra-semi": "off"
+    "no-extra-semi": "off",
   },
   env: {
     jest: true,
