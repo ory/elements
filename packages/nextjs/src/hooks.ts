@@ -1,9 +1,9 @@
-import { newFrontendClient } from "./sdk"
+import { newOryFrontendClient } from "./sdk"
 import { Session } from "@ory/client-fetch"
 import { useEffect, useState } from "react"
 
 export function useSession() {
-  const client = newFrontendClient()
+  const client = newOryFrontendClient()
   const [session, setSession] = useState<Session | undefined>()
 
   useEffect(() => {
