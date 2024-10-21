@@ -17,7 +17,7 @@ type SessionStore = {
   setError: (error: string | undefined) => void
 }
 
-const sessionStore = create<SessionStore>()(
+export const sessionStore = create<SessionStore>()(
   subscribeWithSelector((set) => ({
     isLoading: false,
     setIsLoading: (isLoading: boolean) => set({ isLoading }),

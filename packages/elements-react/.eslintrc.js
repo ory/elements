@@ -39,6 +39,8 @@ module.exports = {
         caughtErrorsIgnorePattern: "^_",
       },
     ],
+    // TODO(jonas): prettier and eslint sometimes disagree about this
+    "no-extra-semi": "off"
   },
   env: {
     jest: true,
