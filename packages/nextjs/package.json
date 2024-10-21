@@ -2,21 +2,21 @@
   "name": "@ory/nextjs",
   "version": "0.0.1",
   "type": "commonjs",
-  "main": "./dist/src/index.js",
-  "typings": "./dist/src/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "private": false,
   "dependencies": {
     "@ory/client-fetch": "^1.15.6",
-    "@types/set-cookie-parser": "^2.4.10",
     "cookie": "^1.0.1",
     "set-cookie-parser": "^2.7.0",
-    "tldjs": "^2.3.1",
-    "tslib": "^2.3.0"
+    "tldjs": "^2.3.1"
   },
   "devDependencies": {
     "@types/cookie": "^0.6.0",
+    "@types/set-cookie-parser": "^2.4.10",
     "@types/tldjs": "^2.3.4",
-    "next": "^14.2.15"
+    "tsup": "8.3.0"
   },
   "keywords": [
     "ory",
@@ -34,5 +34,37 @@
   ],
   "peerDependencies": {
     "next": ">=13.1.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./middleware": {
+      "types": "./dist/middleware/index.d.ts",
+      "import": "./dist/middleware/index.mjs",
+      "require": "./dist/middleware/index.js"
+    },
+    "./app": {
+      "types": "./dist/app/index.d.ts",
+      "import": "./dist/app/index.mjs",
+      "require": "./dist/app/index.js"
+    },
+    "./pages": {
+      "types": "./dist/pages/index.d.ts",
+      "import": "./dist/pages/index.mjs",
+      "require": "./dist/pages/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ],
+      "middleware": [
+        "./dist/middleware/index.d.ts"
+      ]
+    }
   }
 }
