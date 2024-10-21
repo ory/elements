@@ -4,11 +4,21 @@ import { filterRequestHeaders, processSetCookieHeaders } from "../utils"
 import { OryConfig } from "../types"
 import { defaultOmitHeaders } from "../headers"
 
-function getProjectSdkUrl(options: OryConfig) {
+function getProjectSdkUrl() {
   let baseUrl = ""
 
   if (process.env["ORY_SDK_URL"]) {
     baseUrl = process.env["ORY_SDK_URL"]
+  }
+
+  return baseUrl.replace(/\/$/, "")
+}
+
+function getProjectApiKey() {
+  let baseUrl = ""
+
+  if (process.env["ORY_PROJECT_API_TOKEN"]) {
+    baseUrl = process.env["ORY_PROJECT_API_TOKEN"]
   }
 
   return baseUrl.replace(/\/$/, "")
@@ -20,7 +30,7 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
     return NextResponse.next()
   }
 
-  const matchBaseUrl = new URL(getProjectSdkUrl(options))
+  const matchBaseUrl = new URL(getProjectSdkUrl())
   const selfUrl = request.nextUrl.protocol + "//" + request.nextUrl.host
 
   const upstreamUrl = request.nextUrl.clone()
@@ -35,9 +45,11 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
   )
   requestHeaders.set("Host", upstreamUrl.hostname)
 
-  // Special headers for Ory Network URL rewrites (disabled for now):
-  requestHeaders.set("X-Ory-Base-URL-Rewrite", "false")
-  requestHeaders.set("Ory-Base-URL-Rewrite", "false")
+  // Ensures we use the correct URL in redirects like OIDC redirects.
+  requestHeaders.set("Ory-Base-URL-Rewrite", selfUrl.toString())
+  requestHeaders.set("Ory-Base-URL-Rewrite-Token", getProjectApiKey())
+
+  // We disable custom domain redirects.
   requestHeaders.set("Ory-No-Custom-Domain-Redirect", "true")
 
   // Fetch the upstream response
