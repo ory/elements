@@ -3,7 +3,7 @@
 
 import type { Decorator, Preview } from "@storybook/react"
 import { chromaticModes } from "./modes"
-import "@ory/elements-react/theme/styles.css"
+import "@ory/elements-react/theme/default/styles.css"
 import { merge } from "lodash"
 
 const preview: Preview = {

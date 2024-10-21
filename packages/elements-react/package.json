@@ -12,7 +12,7 @@
       "import": "./dist/theme/default/index.mjs",
       "require": "./dist/theme/default/index.js"
     },
-    "./theme/styles.css": "./dist/theme/default/index.css"
+    "./theme/default/styles.css": "./dist/theme/default/index.css"
   },
   "typesVersions": {
     "*": {
