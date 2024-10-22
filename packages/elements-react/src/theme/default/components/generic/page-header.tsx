@@ -6,12 +6,11 @@ import {
   useComponents,
   useSession,
 } from "@ory/elements-react"
-import { ReturnButton } from "../ui/return-button"
 import { UserMenu } from "../ui/user-menu"
 
 export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
   const { Card } = useComponents()
-  const { session, logoutFlow } = useSession()
+  const { session } = useSession()
 
   return (
     <div className="flex max-w-[896px] flex-col w-full gap-3 mt-16">
@@ -22,7 +21,6 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
           </div>
           <UserMenu session={session} />
         </div>
-        <ReturnButton />
       </div>
     </div>
   )
