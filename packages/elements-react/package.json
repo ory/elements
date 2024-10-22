@@ -34,7 +34,8 @@
     "lodash.merge": "4.6.2",
     "react-hook-form": "7.53.0",
     "react-intl": "6.7.0",
-    "tailwind-merge": "2.5.2"
+    "tailwind-merge": "2.5.2",
+    "zustand": "5.0.0"
   },
   "peerDependencies": {
     "react": "18.3.1",

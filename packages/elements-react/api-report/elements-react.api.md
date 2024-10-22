@@ -21,6 +21,7 @@ import { PropsWithChildren } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
+import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import { UiNode } from '@ory/client-fetch';
 import { UiNodeAnchorAttributes } from '@ory/client-fetch';
@@ -314,6 +315,13 @@ export function useNodeSorter(): (a: UiNode, b: UiNode, ctx: {
 
 // @public
 export function useOryFlow(): FlowContextValue;
+
+// @public
+export const useSession: () => {
+    session: Session | undefined;
+    error: string | undefined;
+    isLoading: boolean;
+};
 
 // @public
 export type VerificationFlowContainer = OryFlow<FlowType.Verification, VerificationFlow>;
