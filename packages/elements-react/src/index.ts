@@ -3,7 +3,6 @@
 
 export type * from "./types"
 export * from "./components"
-export * from "./theme/default"
 export * from "./context"
 export * from "./util"
 export { locales as OryLocales } from "./locales"

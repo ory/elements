@@ -1,7 +1,4 @@
-import { OryConfig } from "./types"
-import { useOryConfig } from "./config"
-import { useSession } from "./hooks"
-import { newOryFrontendClient } from "./sdk"
-
-export type { OryConfig }
-export { useOryConfig, newOryFrontendClient, useSession }
+export type { OryConfig } from "./types"
+export { useOryConfig } from "./config"
+export { useSession } from "./hooks"
+export { newOryFrontendClient } from "./sdk"
