@@ -342,6 +342,31 @@
           }
         },
         {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!HeadlessPageHeader:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "HeadlessPageHeader: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "HeadlessPageHeader"
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!IntlConfig:type",
           "docComment": "",
@@ -1534,6 +1559,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n    };\n    Page: {\n        Header: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryPageHeaderProps",
+              "canonicalReference": "@ory/elements-react!OryPageHeaderProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n    };\n}"
             },
             {
@@ -1546,7 +1589,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 90
+            "endIndex": 94
           }
         },
         {
@@ -2518,6 +2561,37 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryPageHeaderProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryPageHeaderProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<never, never>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryPageHeaderProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
           }
         },
         {

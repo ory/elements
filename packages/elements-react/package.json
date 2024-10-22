@@ -28,7 +28,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@ory/client-fetch": "^1.15.4",
+    "@ory/client-fetch": "1.15.6",
+    "@radix-ui/react-dropdown-menu": "2.1.2",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
     "lodash.merge": "4.6.2",
@@ -42,13 +43,13 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@hookform/devtools": "^4.3.1",
-    "@svgr/plugin-svgo": "^8.1.0",
+    "@hookform/devtools": "4.3.1",
+    "@svgr/plugin-svgo": "8.1.0",
     "@types/lodash.merge": "4.6.9",
-    "esbuild-plugin-svgr": "^2.1.0",
-    "eslint-plugin-react": "7.37.0",
+    "esbuild-plugin-svgr": "3.0.0",
+    "eslint-plugin-react": "7.37.1",
     "postcss": "8.4.47",
-    "tsup": "8.2.3"
+    "tsup": "8.3.0"
   },
   "keywords": [
     "ory",

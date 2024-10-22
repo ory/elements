@@ -53,6 +53,9 @@ export type FlowContextValue = OryFlowContainer & {
 // @public
 export type FormValues = Record<string, string | boolean | number | undefined>;
 
+// @public (undocumented)
+export const HeadlessPageHeader: () => react_jsx_runtime.JSX.Element;
+
 // Warning: (ae-forgotten-export) The symbol "IntlContextProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
@@ -179,6 +182,9 @@ export type OryFlowComponents = {
         Root: ComponentType<OryMessageRootProps>;
         Content: ComponentType<OryMessageContentProps>;
     };
+    Page: {
+        Header: ComponentType<OryPageHeaderProps>;
+    };
 };
 
 // @public
@@ -281,6 +287,9 @@ export type OryNodeTextProps = {
     attributes: UiNodeTextAttributes;
     node: UiNode;
 };
+
+// @public (undocumented)
+export type OryPageHeaderProps = Record<never, never>;
 
 // @public (undocumented)
 export function OryProvider({ children, components: Components, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
