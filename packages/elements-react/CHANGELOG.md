@@ -1,3 +1,17 @@
+## 1.0.0-next.11 (2024-10-22)
+
+
+### 🚀 Features
+
+- add elements v1 packages
+
+- add useSession hook
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.10 (2024-10-14)
 
 
