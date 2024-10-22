@@ -20,7 +20,7 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
           <div className="h-10 flex-1 relative">
             <Card.Logo />
           </div>
-          <UserMenu session={session} logoutFlow={logoutFlow} />
+          <UserMenu session={session} />
         </div>
         <ReturnButton />
       </div>
