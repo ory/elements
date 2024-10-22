@@ -7,7 +7,6 @@
   "targets": {
     "build": {
       "command": "tsup --clean --dts",
-      // "dependsOn": ["lint", "test"],
       "options": {
         "cwd": "packages/nextjs"
       }
