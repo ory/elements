@@ -14,7 +14,7 @@ export const getUserInitials = (session?: Session): UserInitials => {
   let primary = ""
   let secondary = ""
 
-  if (!session) {
+  if (!session?.identity?.traits) {
     return {
       primary,
       secondary,
