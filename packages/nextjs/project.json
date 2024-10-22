@@ -1,18 +1,14 @@
 {
-  "name": "nextjs",
+  "name": "@ory/nextjs",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/nextjs/src",
   "projectType": "library",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "command": "tsup --clean --dts",
       "options": {
-        "outputPath": "packages/nextjs/dist",
-        "main": "packages/nextjs/src/index.ts",
-        "tsConfig": "packages/nextjs/tsconfig.lib.json",
-        "assets": ["packages/nextjs/*.md"]
+        "cwd": "packages/nextjs"
       }
     }
   }
