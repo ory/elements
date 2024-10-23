@@ -2,9 +2,5 @@
 // SPDX-License-Identifier: Apache-2.0
 
 module.exports = {
-  plugins: [
-    require("tailwindcss")(),
-    require("autoprefixer")(),
-    // require("postcss-prefix-selector")({ prefix: ".ory-default-theme" }),
-  ],
+  plugins: [require("tailwindcss")(), require("autoprefixer")()],
 }
