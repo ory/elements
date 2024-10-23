@@ -191,7 +191,7 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer;
 
 // @public (undocumented)
-export function OryForm({ children }: OryFormProps): string | react_jsx_runtime.JSX.Element;
+export function OryForm({ children, onAfterSubmit }: OryFormProps): string | react_jsx_runtime.JSX.Element;
 
 // @public
 export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;
@@ -221,7 +221,9 @@ export type OryFormOidcRootProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export type OryFormProps = PropsWithChildren;
+export type OryFormProps = PropsWithChildren<{
+    onAfterSubmit?: (method: string | number | boolean | undefined) => void;
+}>;
 
 // @public (undocumented)
 export type OryFormRootProps = ComponentPropsWithoutRef<"form"> & {
