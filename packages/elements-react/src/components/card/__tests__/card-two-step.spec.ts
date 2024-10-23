@@ -22,10 +22,10 @@ describe("CardTwoStep/utils", () => {
   })
 
   describe("isChoosingMethod", () => {
-    test("should return true if a node has value 'profile:back'", () => {
+    test("should return true if a node has value 'screen=previous'", () => {
       const uiNodes: UiNode[] = [
         {
-          attributes: { value: "profile:back" } as UiNodeAttributes,
+          attributes: { value: "previous", name: "screen" } as UiNodeAttributes,
           group: UiNodeGroupEnum.Default,
         } as UiNode,
       ]

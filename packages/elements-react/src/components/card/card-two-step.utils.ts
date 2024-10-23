@@ -4,10 +4,14 @@
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 
 export function isChoosingMethod(uiNodes: UiNode[]): boolean {
+  console.log(uiNodes)
   return (
     uiNodes.some(
       (node) =>
-        "value" in node.attributes && node.attributes.value === "profile:back",
+        "name" in node.attributes &&
+        node.attributes.name === "screen" &&
+        "value" in node.attributes &&
+        node.attributes.value === "previous",
     ) ||
     uiNodes.some(
       (node) =>
