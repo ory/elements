@@ -30,6 +30,16 @@ import {
 import { DefaultText } from "./form/text"
 import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button"
 import { OryFlowComponents } from "@ory/elements-react"
+import {
+  DefaultFormSection,
+  DefaultFormSectionContent,
+  DefaultFormSectionFooter,
+} from "./form/section"
+import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes"
+import { DefaultSettingsTotp } from "./settings/settings-top"
+import { DefaultSettingsOidc } from "./settings/settings-oidc"
+import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
+import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 import { DefaultPageHeader } from "./generic/page-header"
 
 export const OryDefaultComponents: OryFlowComponents = {
@@ -41,6 +51,10 @@ export const OryDefaultComponents: OryFlowComponents = {
     Logo: DefaultCardLogo,
     Divider: DefaultHorizontalDivider,
     AuthMethodListItem: DefaultAuthMethodListItem,
+
+    SettingsSection: DefaultFormSection,
+    SettingsSectionContent: DefaultFormSectionContent,
+    SettingsSectionFooter: DefaultFormSectionFooter,
   },
   Node: {
     Button: DefaultButton,
@@ -58,6 +72,11 @@ export const OryDefaultComponents: OryFlowComponents = {
     Root: DefaultFormContainer,
     Group: DefaultGroupContainer,
     OidcRoot: DefaultSocialButtonContainer,
+    RecoveryCodesSettings: DefaultSettingsRecoveryCodes,
+    TotpSettings: DefaultSettingsTotp,
+    OidcSettings: DefaultSettingsOidc,
+    WebauthnSettings: DefaultSettingsWebauthn,
+    PasskeySettings: DefaultSettingsPasskey,
   },
   Message: {
     Root: DefaultMessageContainer,

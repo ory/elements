@@ -11,7 +11,9 @@ import logos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
 
-function extractProvider(context: object | undefined): string | undefined {
+export function extractProvider(
+  context: object | undefined,
+): string | undefined {
   if (
     context &&
     typeof context === "object" &&
@@ -23,11 +25,16 @@ function extractProvider(context: object | undefined): string | undefined {
   return undefined
 }
 
+type DefaultSocialButtonProps = OryNodeOidcButtonProps & {
+  showLabel?: boolean
+}
+
 export function DefaultButtonSocial({
   attributes,
   node,
   onClick,
-}: OryNodeOidcButtonProps) {
+  showLabel: _showLabel,
+}: DefaultSocialButtonProps) {
   const {
     node_type: _ignoredNodeType,
     type: _ignoredType,
@@ -44,7 +51,8 @@ export function DefaultButtonSocial({
 
   const Logo = logos[attributes.value]
 
-  const showLabel = oidcNodeCount % 3 !== 0 && oidcNodeCount % 4 !== 0
+  const showLabel =
+    _showLabel ?? (oidcNodeCount % 3 !== 0 && oidcNodeCount % 4 !== 0)
 
   const provider = extractProvider(node.meta.label?.context) ?? ""
 

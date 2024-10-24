@@ -23,13 +23,14 @@ describe("Translations", () => {
     }
   })
 
-  test("language keys and templates match", () => {
-    for (const [_language, translation] of Object.entries(supportedLanguages)) {
-      expect(Object.keys(translation).sort()).toEqual(
-        Object.keys(supportedLanguages.en).sort(),
-      )
-    }
-  })
+  for (const [language, translation] of Object.entries(supportedLanguages)) {
+    test(`language keys and templates match [${language}]`, () => {
+      expect(
+        Object.keys(translation).sort(),
+        `expected locales/${language}.json to contain all supported keys`,
+      ).toEqual(Object.keys(supportedLanguages.en).sort())
+    })
+  }
 
   // TODO: Re-enable, once we have a proper routine for translations
   // test("template strings are present in translations", () => {

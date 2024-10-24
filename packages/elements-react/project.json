@@ -30,6 +30,15 @@
         "coverageReporters": ["text", "cobertura"]
       }
     },
+    "test-refresh": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/elements-react/jest.config.ts",
+        "coverage": true,
+        "coverageReporters": ["text", "cobertura"],
+        "updateSnapshot": true
+      }
+    },
     "api-extractor": {
       "executor": "nx:run-commands",
       "options": {
