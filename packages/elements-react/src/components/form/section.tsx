@@ -11,11 +11,11 @@ export type OryFormSectionProps = PropsWithChildren<{
 }>
 
 export function OryFormSection({ children, nodes }: OryFormSectionProps) {
-  const { Settings } = useComponents()
+  const { Card } = useComponents()
 
   return (
     <OryForm nodes={nodes}>
-      <Settings.Section>{children}</Settings.Section>
+      <Card.SettingsSection>{children}</Card.SettingsSection>
     </OryForm>
   )
 }

@@ -19,7 +19,7 @@ interface SettingsSectionProps {
 }
 
 function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
-  const { Settings } = useComponents()
+  const { Card } = useComponents()
   const intl = useIntl()
   const { flow } = useOryFlow()
   const uniqueGroups = useNodesGroups(flow.ui.nodes)
@@ -68,7 +68,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
 
   return (
     <OryFormSection nodes={nodes}>
-      <Settings.SectionContent
+      <Card.SettingsSectionContent
         title={intl.formatMessage({
           id: `settings.${group}.title`,
         })}
@@ -87,8 +87,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
           .map((node, k) => (
             <Node key={k} node={node} />
           ))}
-      </Settings.SectionContent>
-      <Settings.SectionFooter>
+      </Card.SettingsSectionContent>
+      <Card.SettingsSectionFooter>
         {nodes
           .filter(
             (node) =>
@@ -97,7 +97,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
           .map((node, k) => (
             <Node key={k} node={node} />
           ))}
-      </Settings.SectionFooter>
+      </Card.SettingsSectionFooter>
     </OryFormSection>
   )
 }

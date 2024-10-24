@@ -37,7 +37,7 @@ interface HeadlessSettingsPasskeyProps {
 }
 
 export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
-  const { Settings } = useComponents()
+  const { Card, Form } = useComponents()
   const intl = useIntl()
   const { flow } = useOryFlow()
   const { groups } = useNodesGroups(flow.ui.nodes)
@@ -62,7 +62,7 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
 
   return (
     <>
-      <Settings.SectionContent
+      <Card.SettingsSectionContent
         title={intl.formatMessage({ id: "settings.passkey.title" })}
         description={intl.formatMessage({
           id: "settings.passkey.description",
@@ -74,7 +74,7 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
         {settingsNodes.map((node, i) => (
           <Node key={`passkey-settings-nodes-${i}`} node={node} />
         ))}
-        <Settings.Passkey
+        <Form.PasskeySettings
           triggerButton={{
             ...triggerButton,
             attributes: triggerAttributes as UiNodeAttributes,
@@ -82,10 +82,10 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
           }}
           removeButtons={removeNodes}
         />
-      </Settings.SectionContent>
-      <Settings.SectionFooter>
+      </Card.SettingsSectionContent>
+      <Card.SettingsSectionFooter>
         <span>{intl.formatMessage({ id: "settings.passkey.info" })}</span>
-      </Settings.SectionFooter>
+      </Card.SettingsSectionFooter>
     </>
   )
 }

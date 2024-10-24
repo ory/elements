@@ -33,7 +33,7 @@ interface HeadlessSettingsRecoveryCodesProps {
 export function OrySettingsRecoveryCodes({
   nodes,
 }: HeadlessSettingsRecoveryCodesProps) {
-  const { Settings } = useComponents()
+  const { Card, Form } = useComponents()
   const intl = useIntl()
 
   const codesNode = getRecoveryCodes(nodes)
@@ -50,19 +50,19 @@ export function OrySettingsRecoveryCodes({
 
   return (
     <>
-      <Settings.SectionContent
+      <Card.SettingsSectionContent
         title={intl.formatMessage({ id: "settings.lookup_secret.title" })}
         description={intl.formatMessage({
           id: "settings.lookup_secret.description",
         })}
       >
-        <Settings.RecoveryCodes
+        <Form.RecoveryCodesSettings
           codes={secrets}
           revealButton={revealNode}
           regnerateButton={regenerateNode}
         />
-      </Settings.SectionContent>
-      <Settings.SectionFooter>
+      </Card.SettingsSectionContent>
+      <Card.SettingsSectionFooter>
         {nodes
           .filter(
             (node) =>
@@ -75,7 +75,7 @@ export function OrySettingsRecoveryCodes({
           .map((node, k) => (
             <Node key={k} node={node} />
           ))}
-      </Settings.SectionFooter>
+      </Card.SettingsSectionFooter>
     </>
   )
 }

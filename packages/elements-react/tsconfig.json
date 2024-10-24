@@ -17,7 +17,7 @@
     "declarationDir": "dist/types",
     "jsx": "react-jsx",
     "lib": ["ES6", "DOM", "WebWorker"],
-    "rootDir": "src",
+    "rootDir": ".",
     "paths": {
       "@ory/elements-react": ["./src/index.ts"],
       "@tests/*": ["./src/tests/*"]
