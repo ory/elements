@@ -232,7 +232,7 @@
   "settings.totp.info.not-linked": "To enable scan the QR code with your authenticator and enter the code.",
   "settings.totp.info.linked": "You currently have an authenticator app connected.",
   "settings.lookup_secret.title": "Backup Recovery Codes (second factor)",
-  "settings.lookup_secret.description": "Recovery codes can be used in panic situations where you have lost access to your 2FA device or as a standalone method to authenticate.",
+  "settings.lookup_secret.description": "Recovery codes are a secure backup for 2FA, allowing you to regain access to your account if you lose your 2FA device.",
   "settings.oidc.title": "Connected accounts",
   "settings.oidc.description": "Connect a social login provider with your account.",
   "settings.oidc.info": "Connected accounts from these providers can be used to login to your account",

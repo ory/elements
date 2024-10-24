@@ -184,14 +184,29 @@ export type OryFlowComponents = {
      */
     Group: ComponentType<OryFormGroupProps>
 
+    /**
+     * The section on the settings page, rendering the OIDC settings
+     */
     OidcSettings: ComponentType<OrySettingsOidcProps>
 
+    /**
+     * The section on the settings page, rendering the Webauthn settings
+     */
     WebauthnSettings: ComponentType<OrySettingsWebauthnProps>
 
+    /**
+     * The section on the settings page, rendering the Passkey settings
+     */
     PasskeySettings: ComponentType<OrySettingsPasskeyProps>
 
+    /**
+     * The section on the settings page, rendering the TOTP settings
+     */
     TotpSettings: ComponentType<OrySettingsTotpProps>
 
+    /**
+     * The section on the settings page, rendering the recovery code settings
+     */
     RecoveryCodesSettings: ComponentType<OrySettingsRecoveryCodesProps>
   }
   Message: {

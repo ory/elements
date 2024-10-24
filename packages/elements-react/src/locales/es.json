@@ -228,5 +228,16 @@
   "settings.profile.description": "Actualiza la información de tu perfil",
   "settings.profile.title": "Configuración de Perfil",
   "settings.webauthn.description": "Administra la configuración de tu token de hardware",
-  "settings.webauthn.title": "Gestionar Tokens de Hardware"
+  "settings.webauthn.title": "Gestionar Tokens de Hardware",
+  "settings.oidc.info": "",
+  "settings.passkey.info": "",
+  "settings.title-lookup-secret": "",
+  "settings.title-navigation": "",
+  "settings.title-oidc": "",
+  "settings.title-passkey": "",
+  "settings.title-password": "",
+  "settings.title-profile": "",
+  "settings.title-totp": "",
+  "settings.title-webauthn": "",
+  "settings.webauthn.info": ""
 }

@@ -23,13 +23,14 @@
       "@tests/*": ["./src/tests/*"]
     }
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/global.d.ts",
     "src/tests/**/*.ts",
     "src/tests/**/*.tsx",
-    "tsup.config.ts"
+    "tsup.config.ts",
+    "jest.config.ts"
   ]
 }

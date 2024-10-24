@@ -178,7 +178,7 @@
   "identities.messages.1040007": "",
   "identities.messages.1040008": "",
   "identities.messages.1040009": "",
-  "identities.messages.1050019": "",
+  "identities.messages.1050019": "Passkey hinzufügen",
   "identities.messages.1050020": "",
   "identities.messages.4000037": "",
   "identities.messages.4010009": "",
@@ -228,5 +228,16 @@
   "settings.profile.description": "Aktualisieren Sie Ihre Profilinformationen",
   "settings.profile.title": "Profileinstellungen",
   "settings.webauthn.description": "Verwalten Sie Ihre Hardware-Token-Einstellungen",
-  "settings.webauthn.title": "Hardware-Token verwalten"
+  "settings.webauthn.title": "Hardware-Token verwalten",
+  "settings.oidc.info": "Verbundene Konten dieser Anbieter können für die Anmeldung bei Ihrem Konto verwendet werden",
+  "settings.passkey.info": "Verwalten Sie Ihre Passkey-Einstellungen",
+  "settings.title-lookup-secret": "Verwalten Sie 2FA-Backup-Wiederherstellungscodes",
+  "settings.title-navigation": "Kontoeinstellungen",
+  "settings.title-oidc": "Social Sign In",
+  "settings.title-passkey": "Passkeys verwalten",
+  "settings.title-password": "Kennwort ändern",
+  "settings.title-profile": "Profileinstellungen",
+  "settings.title-totp": "Verwalten Sie die 2FA TOTP Authenticator-App",
+  "settings.title-webauthn": "Hardware-Token verwalten",
+  "settings.webauthn.info": "Hardware-Tokens werden für die Zweitfaktor-Authentifizierung oder als Erstfaktor-Authentifizierung mit Passkeys verwendet"
 }
