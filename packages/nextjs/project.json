@@ -1,0 +1,15 @@
+{
+  "name": "@ory/nextjs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nextjs/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "command": "tsup --clean --dts",
+      "options": {
+        "cwd": "packages/nextjs"
+      }
+    }
+  }
+}
