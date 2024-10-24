@@ -52,11 +52,14 @@ export function DefaultLabel({
               </a>
             )}
           {isCode && (
-            <input
+            <button
               type="submit"
-              value="Resend Code"
+              name="method"
+              value="code"
               className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium cursor-pointer"
-            />
+            >
+              {intl.formatMessage({ id: "identities.messages.1070008" })}
+            </button>
           )}
         </span>
       )}
