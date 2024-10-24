@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`computeLabelElements handles a label with no text but a link 1`] = `
+<div>
+  <a
+    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Click here
+  </a>
+</div>
+`;
+
+exports[`computeLabelElements renders a text with a single markdown link correctly 1`] = `
+<div>
+  This is a 
+  <a
+    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    link
+  </a>
+</div>
+`;
+
+exports[`computeLabelElements renders a text with link and extra text around it correctly 1`] = `
+<div>
+  Click 
+  <a
+    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    here
+  </a>
+   to visit, or go elsewhere.
+</div>
+`;
+
+exports[`computeLabelElements renders a text with multiple markdown links correctly 1`] = `
+<div>
+  This 
+  <a
+    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    href="https://first.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    first link
+  </a>
+   and this 
+  <a
+    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    href="https://second.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    second link
+  </a>
+</div>
+`;
+
+exports[`computeLabelElements renders null if label is undefined 1`] = `<div />`;
+
+exports[`computeLabelElements renders plain text without links correctly 1`] = `
+<div>
+  This is just plain text
+</div>
+`;

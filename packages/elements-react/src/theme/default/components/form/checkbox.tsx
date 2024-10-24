@@ -4,14 +4,15 @@
 "use client"
 import { getNodeLabel } from "@ory/client-fetch"
 import {
-  OryNodeInputProps,
   messageTestId,
+  OryNodeInputProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
+import { CheckboxLabel } from "../ui/checkbox-label"
 
 function CheckboxSVG() {
   return (
@@ -82,7 +83,7 @@ export const DefaultCheckbox = ({
       </div>
       <div className="text-sm items-center">
         <label className="text-sm font-normal leading-normal text-forms-fg-default">
-          {label && uiTextToFormattedMessage(label, intl)}
+          <CheckboxLabel label={label} />
         </label>
         {node.messages.map((message) => (
           <span

@@ -7,11 +7,14 @@ import { OryProvider, OryProviderProps } from "../../context"
 import { OryComponentProvider } from "../../context/component"
 import { OryDefaultComponents } from "../../theme/default"
 import { OryClientConfiguration } from "../../util"
+import { IntlProvider } from "../../context/intl-context"
 
 const AllProviders = ({ children }: PropsWithChildren) => (
-  <OryComponentProvider components={OryDefaultComponents}>
-    {children}
-  </OryComponentProvider>
+  <IntlProvider locale="en">
+    <OryComponentProvider components={OryDefaultComponents}>
+      {children}
+    </OryComponentProvider>
+  </IntlProvider>
 )
 
 const customRender = (
