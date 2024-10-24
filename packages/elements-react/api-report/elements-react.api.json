@@ -1662,7 +1662,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryForm({ children }: "
+              "text": "declare function OryForm({ children, onAfterSubmit }: "
             },
             {
               "kind": "Reference",
@@ -1696,7 +1696,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children }",
+              "parameterName": "{ children, onAfterSubmit }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -1991,6 +1991,10 @@
             },
             {
               "kind": "Content",
+              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n}>"
+            },
+            {
+              "kind": "Content",
               "text": ";"
             }
           ],
@@ -1999,7 +2003,7 @@
           "name": "OryFormProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           }
         },
         {

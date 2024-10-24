@@ -182,9 +182,11 @@ type DeepPartialTwoLevels<T> = {
 
 export type OryFlowComponentOverrides = DeepPartialTwoLevels<OryFlowComponents>
 
-export type OryFormProps = PropsWithChildren
+export type OryFormProps = PropsWithChildren<{
+  onAfterSubmit?: (method: string | number | boolean | undefined) => void
+}>
 
-export function OryForm({ children }: OryFormProps) {
+export function OryForm({ children, onAfterSubmit }: OryFormProps) {
   const { Form } = useComponents()
   const flowContainer = useOryFlow()
   const methods = useForm({
@@ -272,6 +274,7 @@ export function OryForm({ children }: OryFormProps) {
         })
         break
     }
+    onAfterSubmit?.(data.method)
   }
 
   const hasMethods =

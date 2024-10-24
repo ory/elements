@@ -8,6 +8,7 @@ import {
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
 import { useState } from "react"
+import { useFormContext } from "react-hook-form"
 import { OryCard, OryCardContent, OryCardFooter } from "."
 import { useComponents, useNodeSorter, useOryFlow } from "../../context"
 import { useNodesGroups } from "../../util/ui"
@@ -15,12 +16,13 @@ import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
-import { OryCardHeader } from "./header"
 import {
   filterZeroStepGroups,
   getFinalNodes,
   isChoosingMethod,
 } from "./card-two-step.utils"
+import { OryCardHeader } from "./header"
+import { isGroupImmediateSubmit } from "../../theme/default/utils/form"
 
 enum ProcessStep {
   ProvideIdentifier,
@@ -39,7 +41,7 @@ export function OryTwoStepCard() {
   const [selectedGroup, setSelectedGroup] = useState<
     UiNodeGroupEnum | undefined
   >()
-  const { Form, Card } = useComponents()
+  const { Form } = useComponents()
   const { flowType } = useOryFlow()
 
   const nodeSorter = useNodeSorter()
@@ -80,7 +82,13 @@ export function OryTwoStepCard() {
         {step === ProcessStep.ProvideIdentifier && hasOidc && (
           <OryFormSocialButtonsForm />
         )}
-        <OryForm>
+        <OryForm
+          onAfterSubmit={(method) =>
+            isGroupImmediateSubmit(method + "")
+              ? setSelectedGroup(method as UiNodeGroupEnum)
+              : undefined
+          }
+        >
           <Form.Group>
             {step === ProcessStep.ProvideIdentifier &&
               zeroStepGroups
@@ -91,13 +99,10 @@ export function OryTwoStepCard() {
                 {flowType === FlowType.Login && (
                   <BackButton href={config.project.login_ui_url} />
                 )}
-                {options.map((option) => (
-                  <Card.AuthMethodListItem
-                    key={option}
-                    group={option}
-                    onClick={() => setSelectedGroup(option)}
-                  />
-                ))}
+                <AuthMethodList
+                  options={options}
+                  setSelectedGroup={setSelectedGroup}
+                />
               </>
             )}
             {step === ProcessStep.ExecuteAuthMethod && (
@@ -114,6 +119,33 @@ export function OryTwoStepCard() {
       <OryCardFooter />
     </OryCard>
   )
+}
+
+type AuthMethodListProps = {
+  options: UiNodeGroupEnum[]
+  setSelectedGroup: (group: UiNodeGroupEnum) => void
+}
+
+function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
+  const { Card } = useComponents()
+  const { setValue } = useFormContext()
+
+  const handleClick = (group: UiNodeGroupEnum) => {
+    if (isGroupImmediateSubmit(group)) {
+      // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
+      // then the methid needs to be added to the form data.
+      setValue("method", group)
+    } else {
+      setSelectedGroup(group)
+    }
+  }
+  return options.map((option) => (
+    <Card.AuthMethodListItem
+      key={option}
+      group={option}
+      onClick={() => handleClick(option)}
+    />
+  ))
 }
 
 type BackButtonProps = {

@@ -3,11 +3,11 @@
 
 import { useIntl } from "react-intl"
 import { OryCardAuthMethodListItemProps } from "@ory/elements-react"
-
 import code from "../../assets/icons/code.svg"
 import passkey from "../../assets/icons/passkey.svg"
 import password from "../../assets/icons/password.svg"
 import webauthn from "../../assets/icons/webauthn.svg"
+import { isGroupImmediateSubmit } from "../../utils/form"
 
 const iconsMap: Record<string, typeof code> = {
   code,
@@ -27,8 +27,9 @@ export function DefaultAuthMethodListItem({
   return (
     <div className="w-full hover:bg-forms-bg-hover px-2 py-1 rounded">
       <button
-        className="flex text-left py-2 gap-3 cursor-pointer "
+        className="flex text-left py-2 gap-3 cursor-pointer"
         onClick={onClick}
+        type={isGroupImmediateSubmit(group) ? "submit" : "button"}
       >
         <div className={"flex-none w-4 h-4 mt-[2px]"}>
           {Icon && <Icon size={20} className="text-forms-fg-default" />}

@@ -4,7 +4,6 @@
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 
 export function isChoosingMethod(uiNodes: UiNode[]): boolean {
-  console.log(uiNodes)
   return (
     uiNodes.some(
       (node) =>
