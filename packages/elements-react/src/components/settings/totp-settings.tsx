@@ -38,7 +38,7 @@ interface HeadlessSettingsTotpProps {
 }
 
 export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
-  const { Settings, Node } = useComponents()
+  const { Card, Form, Node } = useComponents()
   const intl = useIntl()
 
   const totpUnlink = getTotpUnlinkInput(nodes)
@@ -54,17 +54,17 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
     totpUnlink: totpUnlink,
   } as OrySettingsTotpProps
 
-  const content = <Settings.Totp {...props} />
+  const content = <Form.TotpSettings {...props} />
 
   return (
     <>
-      <Settings.SectionContent
+      <Card.SettingsSectionContent
         title={intl.formatMessage({ id: "settings.totp.title" })}
         description={intl.formatMessage({ id: "settings.totp.description" })}
       >
         {content}
-      </Settings.SectionContent>
-      <Settings.SectionFooter>
+      </Card.SettingsSectionContent>
+      <Card.SettingsSectionFooter>
         <span>
           {totpUnlink
             ? intl.formatMessage({ id: "settings.totp.info.linked" })
@@ -76,7 +76,7 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
             attributes={totpLinkButton.attributes as UiNodeInputAttributes}
           />
         )}
-      </Settings.SectionFooter>
+      </Card.SettingsSectionFooter>
     </>
   )
 }
