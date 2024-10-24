@@ -53,7 +53,7 @@
     "@storybook/node-logger": "8.3.0",
     "@storybook/react": "8.3.0",
     "@storybook/react-vite": "8.3.0",
-    "@storybook/test-runner": "^0.13.0",
+    "@storybook/test-runner": "^0.19.1",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/types": "8.3.0",
     "@swc-node/register": "~1.9.1",
