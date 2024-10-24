@@ -20,7 +20,7 @@ export interface HeadlessSettingsOidcProps {
 }
 
 export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
-  const { Settings } = useComponents()
+  const { Card, Form } = useComponents()
   const intl = useIntl()
 
   const linkButtons = getLinkButtons(nodes)
@@ -28,18 +28,18 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
 
   return (
     <>
-      <Settings.SectionContent
+      <Card.SettingsSectionContent
         title={intl.formatMessage({ id: "settings.oidc.title" })}
         description={intl.formatMessage({ id: "settings.oidc.description" })}
       >
-        <Settings.Oidc
+        <Form.OidcSettings
           linkButtons={linkButtons}
           unlinkButtons={unlinkButtons}
         />
-      </Settings.SectionContent>
-      <Settings.SectionFooter>
+      </Card.SettingsSectionContent>
+      <Card.SettingsSectionFooter>
         <span>{intl.formatMessage({ id: "settings.oidc.info" })}</span>
-      </Settings.SectionFooter>
+      </Card.SettingsSectionFooter>
     </>
   )
 }

@@ -51,6 +51,10 @@ export const OryDefaultComponents: OryFlowComponents = {
     Logo: DefaultCardLogo,
     Divider: DefaultHorizontalDivider,
     AuthMethodListItem: DefaultAuthMethodListItem,
+
+    SettingsSection: DefaultFormSection,
+    SettingsSectionContent: DefaultFormSectionContent,
+    SettingsSectionFooter: DefaultFormSectionFooter,
   },
   Node: {
     Button: DefaultButton,
@@ -68,6 +72,11 @@ export const OryDefaultComponents: OryFlowComponents = {
     Root: DefaultFormContainer,
     Group: DefaultGroupContainer,
     OidcRoot: DefaultSocialButtonContainer,
+    RecoveryCodesSettings: DefaultSettingsRecoveryCodes,
+    TotpSettings: DefaultSettingsTotp,
+    OidcSettings: DefaultSettingsOidc,
+    WebauthnSettings: DefaultSettingsWebauthn,
+    PasskeySettings: DefaultSettingsPasskey,
   },
   Message: {
     Root: DefaultMessageContainer,
@@ -75,15 +84,5 @@ export const OryDefaultComponents: OryFlowComponents = {
   },
   Page: {
     Header: DefaultPageHeader,
-  },
-  Settings: {
-    Section: DefaultFormSection,
-    SectionContent: DefaultFormSectionContent,
-    SectionFooter: DefaultFormSectionFooter,
-    RecoveryCodes: DefaultSettingsRecoveryCodes,
-    Totp: DefaultSettingsTotp,
-    Oidc: DefaultSettingsOidc,
-    Webauthn: DefaultSettingsWebauthn,
-    Passkey: DefaultSettingsPasskey,
   },
 }

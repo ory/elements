@@ -14,11 +14,11 @@ describe("utils/ui", () => {
       useNodesGroups(allMethodsInitialForm.ui.nodes as UiNode[]),
     )
 
-    expect(result.current.oidc).toHaveLength(2)
-    expect(result.current.default).toHaveLength(2)
-    expect(result.current.webauthn).toHaveLength(2)
-    expect(result.current.passkey).toHaveLength(3)
-    expect(result.current.password).toHaveLength(2)
-    expect(result.current.code).toHaveLength(1)
+    expect(result.current.groups.oidc).toHaveLength(2)
+    expect(result.current.groups.default).toHaveLength(2)
+    expect(result.current.groups.webauthn).toHaveLength(2)
+    expect(result.current.groups.passkey).toHaveLength(3)
+    expect(result.current.groups.password).toHaveLength(2)
+    expect(result.current.groups.code).toHaveLength(1)
   })
 })

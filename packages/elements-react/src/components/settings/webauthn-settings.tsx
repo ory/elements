@@ -48,7 +48,7 @@ interface HeadlessSettingsWebauthnProps {
 }
 
 export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
-  const { Settings } = useComponents()
+  const { Card, Form } = useComponents()
   const intl = useIntl()
   const { flow } = useOryFlow()
   const { groups } = useNodesGroups(flow.ui.nodes)
@@ -75,7 +75,7 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
 
   return (
     <>
-      <Settings.SectionContent
+      <Card.SettingsSectionContent
         title={intl.formatMessage({ id: "settings.webauthn.title" })}
         description={intl.formatMessage({
           id: "settings.webauthn.description",
@@ -86,7 +86,7 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
         ))}
         {scriptNode && <Node node={scriptNode} />}
         {registerNode && <Node node={registerNode} />}
-        <Settings.Webauthn
+        <Form.WebauthnSettings
           nameInput={inputNode}
           triggerButton={{
             ...triggerButton,
@@ -95,10 +95,10 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
           }}
           removeButtons={removeButtons}
         />
-      </Settings.SectionContent>
-      <Settings.SectionFooter>
+      </Card.SettingsSectionContent>
+      <Card.SettingsSectionFooter>
         <span>{intl.formatMessage({ id: "settings.webauthn.info" })}</span>
-      </Settings.SectionFooter>
+      </Card.SettingsSectionFooter>
     </>
   )
 }

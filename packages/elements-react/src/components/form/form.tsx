@@ -147,6 +147,19 @@ export type OryFlowComponents = {
      * This is only used, if login is configured to use identifier_first authentication.
      */
     AuthMethodListItem: ComponentType<OryCardAuthMethodListItemProps>
+
+    /**
+     * The SettingsSection component is rendered around each section of the settings.
+     */
+    SettingsSection: ComponentType<OryFormSectionProps>
+    /**
+     * The SettingsSectionContent component is rendered around the content of each section of the settings.
+     */
+    SettingsSectionContent: ComponentType<OryFormSectionContentProps>
+    /**
+     * The SettingsSectionFooter component is rendered around the footer of each section of the settings.
+     */
+    SettingsSectionFooter: ComponentType<OryFormSectionContentProps>
   }
   Form: {
     /**
@@ -170,6 +183,16 @@ export type OryFlowComponents = {
      * The FormGroup is rendered around each group of nodes in the UI nodes.
      */
     Group: ComponentType<OryFormGroupProps>
+
+    OidcSettings: ComponentType<OrySettingsOidcProps>
+
+    WebauthnSettings: ComponentType<OrySettingsWebauthnProps>
+
+    PasskeySettings: ComponentType<OrySettingsPasskeyProps>
+
+    TotpSettings: ComponentType<OrySettingsTotpProps>
+
+    RecoveryCodesSettings: ComponentType<OrySettingsRecoveryCodesProps>
   }
   Message: {
     /**
@@ -184,26 +207,6 @@ export type OryFlowComponents = {
   }
   Page: {
     Header: ComponentType<OryPageHeaderProps>
-  }
-  Settings: {
-    /**
-     * The SettingsSection component is rendered around each section of the settings.
-     */
-    Section: ComponentType<OryFormSectionProps>
-    /**
-     * The SettingsSectionContent component is rendered around the content of each section of the settings.
-     */
-    SectionContent: ComponentType<OryFormSectionContentProps>
-    /**
-     * The SettingsSectionFooter component is rendered around the footer of each section of the settings.
-     */
-    SectionFooter: ComponentType<OryFormSectionContentProps>
-
-    Oidc: ComponentType<OrySettingsOidcProps>
-    Webauthn: ComponentType<OrySettingsWebauthnProps>
-    Passkey: ComponentType<OrySettingsPasskeyProps>
-    Totp: ComponentType<OrySettingsTotpProps>
-    RecoveryCodes: ComponentType<OrySettingsRecoveryCodesProps>
   }
 }
 
