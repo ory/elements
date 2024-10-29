@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { SettingsFlowFromJSON } from "@ory/client-fetch"
 import { Settings } from "@ory/elements-react/theme"
 import { Meta, StoryObj } from "@storybook/react"

@@ -3016,17 +3016,9 @@
               "text": "declare function OrySettingsCard(): "
             },
             {
-              "kind": "Content",
-              "text": "("
-            },
-            {
               "kind": "Reference",
               "text": "react_jsx_runtime.JSX.Element",
               "canonicalReference": "@types/react!JSX.Element:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | null)[]"
             },
             {
               "kind": "Content",
@@ -3036,7 +3028,7 @@
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 4
+            "endIndex": 2
           },
           "releaseTag": "Public",
           "overloadIndex": 1,

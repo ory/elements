@@ -332,7 +332,7 @@ export type OryProviderProps = {
 } & OryFlowContainer & PropsWithChildren;
 
 // @public (undocumented)
-export function OrySettingsCard(): (react_jsx_runtime.JSX.Element | null)[];
+export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type OrySettingsOidcProps = {
