@@ -65,7 +65,7 @@ export const NodeInput = ({
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
-  const isResend = attrs.name === "resend" && node.group === "code"
+  const isResend = node.meta.label?.id === 1070008
 
   switch (nodeType) {
     case UiNodeInputAttributesTypeEnum.Submit:
