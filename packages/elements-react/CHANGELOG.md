@@ -1,3 +1,35 @@
+## 1.0.0-next.12 (2024-10-29)
+
+
+### 🚀 Features
+
+- add elements v1 packages
+
+- add useSession hook
+
+- add page header component with user menu
+
+- support links in checkbox/boolean nodes
+
+- add settings flow components
+
+
+### 🩹 Fixes
+
+- use correct node to detect two step registration
+
+- use translations in more missing places
+
+- short-circuit code login on two step card
+
+- duplicate resend button on recovery & verification
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+- Miłosz
+
 ## 1.0.0-next.11 (2024-10-22)
 
 Breaking Changes: This update includes breaking changes to the naming of some variables and functions. Please refer to [Advisory: ory elements‐react upgrade guide to v1.0.0‐next.11](https://github.com/ory/elements/wiki/Advisory:-ory-elements%E2%80%90react-upgrade-guide-to-v1.0.0%E2%80%90next.11) for more information.
