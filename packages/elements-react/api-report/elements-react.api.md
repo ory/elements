@@ -4,6 +4,7 @@
 
 ```ts
 
+import * as class_variance_authority_types from 'class-variance-authority/types';
 import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';
@@ -35,6 +36,7 @@ import { UpdateRecoveryFlowBody } from '@ory/client-fetch';
 import { UpdateRegistrationFlowBody } from '@ory/client-fetch';
 import { UpdateSettingsFlowBody } from '@ory/client-fetch';
 import { UpdateVerificationFlowBody } from '@ory/client-fetch';
+import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // Warning: (ae-forgotten-export) The symbol "OryFlow" needs to be exported by the entry point index.d.ts
@@ -172,11 +174,19 @@ export type OryFlowComponents = {
         Logo: ComponentType<OryCardLogoProps>;
         Divider: ComponentType<OryCardDividerProps>;
         AuthMethodListItem: ComponentType<OryCardAuthMethodListItemProps>;
+        SettingsSection: ComponentType<OryFormSectionProps>;
+        SettingsSectionContent: ComponentType<OryFormSectionContentProps>;
+        SettingsSectionFooter: ComponentType<OryFormSectionContentProps>;
     };
     Form: {
         Root: ComponentType<OryFormRootProps>;
         OidcRoot: ComponentType<OryFormOidcRootProps>;
         Group: ComponentType<OryFormGroupProps>;
+        OidcSettings: ComponentType<OrySettingsOidcProps>;
+        WebauthnSettings: ComponentType<OrySettingsWebauthnProps>;
+        PasskeySettings: ComponentType<OrySettingsPasskeyProps>;
+        TotpSettings: ComponentType<OrySettingsTotpProps>;
+        RecoveryCodesSettings: ComponentType<OrySettingsRecoveryCodesProps>;
     };
     Message: {
         Root: ComponentType<OryMessageRootProps>;
@@ -191,7 +201,7 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer;
 
 // @public (undocumented)
-export function OryForm({ children, onAfterSubmit }: OryFormProps): string | react_jsx_runtime.JSX.Element;
+export function OryForm({ children, onAfterSubmit, nodes }: OryFormProps): string | react_jsx_runtime.JSX.Element;
 
 // @public
 export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;
@@ -223,12 +233,30 @@ export type OryFormOidcRootProps = PropsWithChildren<{
 // @public (undocumented)
 export type OryFormProps = PropsWithChildren<{
     onAfterSubmit?: (method: string | number | boolean | undefined) => void;
+    nodes?: UiNode[];
 }>;
 
 // @public (undocumented)
 export type OryFormRootProps = ComponentPropsWithoutRef<"form"> & {
     onSubmit: FormEventHandler<HTMLFormElement>;
 };
+
+// @public (undocumented)
+export function OryFormSection({ children, nodes }: OryFormSectionProps): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
+export type OryFormSectionContentProps = PropsWithChildren<{
+    title?: string;
+    description?: string;
+}>;
+
+// @public (undocumented)
+export type OryFormSectionFooterProps = PropsWithChildren;
+
+// @public (undocumented)
+export type OryFormSectionProps = PropsWithChildren<{
+    nodes?: UiNode[];
+}>;
 
 // @public (undocumented)
 export function OryFormSocialButtonsForm(): react_jsx_runtime.JSX.Element | null;
@@ -252,11 +280,13 @@ export type OryNodeAnchorProps = {
     node: UiNode;
 } & Omit<ComponentPropsWithoutRef<"a">, "children">;
 
+// Warning: (ae-forgotten-export) The symbol "ButtonVariants" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
 export type OryNodeButtonProps = {
     attributes: UiNodeInputAttributes;
     node: UiNode;
-} & Omit<ComponentPropsWithoutRef<"button">, "children">;
+} & Omit<ComponentPropsWithoutRef<"button">, "children"> & ButtonVariants;
 
 // @public (undocumented)
 export type OryNodeImageProps = {
@@ -300,6 +330,48 @@ export function OryProvider({ children, components: Components, ...oryFlowProps 
 export type OryProviderProps = {
     components: OryFlowComponents;
 } & OryFlowContainer & PropsWithChildren;
+
+// @public (undocumented)
+export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
+export type OrySettingsOidcProps = {
+    linkButtons: UiNode[];
+    unlinkButtons: UiNode[];
+};
+
+// @public (undocumented)
+export type OrySettingsPasskeyProps = {
+    triggerButton: UiNode & {
+        onClick: () => void;
+    };
+    removeButtons: UiNode[];
+};
+
+// @public (undocumented)
+export type OrySettingsRecoveryCodesProps = {
+    codes: string[];
+    regnerateButton?: UiNode;
+    revealButton?: UiNode;
+};
+
+// @public (undocumented)
+export type OrySettingsTotpProps = {
+    totpImage: UiNode;
+    totpSecret: UiNode;
+    totpInput: UiNode;
+} | {
+    totpUnlink: UiNode;
+};
+
+// @public (undocumented)
+export type OrySettingsWebauthnProps = {
+    nameInput: UiNode;
+    triggerButton: UiNode & {
+        onClick: () => void;
+    };
+    removeButtons: UiNode[];
+};
 
 // @public (undocumented)
 export function OryTwoStepCard(): react_jsx_runtime.JSX.Element;

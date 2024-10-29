@@ -591,196 +591,196 @@ exports[`flowType=registration refresh=true combination=webauthn constructCardHe
 exports[`flowType=settings refresh=false combination=code constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=password constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=code constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=password constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 
 exports[`flowType=settings refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
-  "title": "Update your account",
+  "title": "Account Settings",
 }
 `;
 

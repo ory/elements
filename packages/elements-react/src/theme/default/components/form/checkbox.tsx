@@ -48,6 +48,7 @@ export const DefaultCheckbox = ({
     // Button does not support these attributes, so we skip them
     autocomplete: _autocomplete,
     onclick: _onclick,
+    maxlength: _max,
     // End of skipped attributes
     ...attributes
   } = initialAttributes

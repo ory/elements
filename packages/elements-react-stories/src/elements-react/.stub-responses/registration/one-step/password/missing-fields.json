@@ -1,11 +1,11 @@
 {
-  "id": "58c3d7b3-3624-4460-b6ef-468ac3796524",
+  "id": "c713a293-47c4-4605-8605-40127751083b",
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:45.694947Z",
-  "issued_at": "2024-04-25T12:57:45.694947Z",
-  "request_url": "https://crazy-diffie-sdubdvpai8.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2024-10-29T10:45:42.152426Z",
+  "issued_at": "2024-10-29T09:45:42.152426Z",
+  "request_url": "https://serene-archimedes-edlkt7nkyd.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://crazy-diffie-sdubdvpai8.projects.oryapis:8080/self-service/registration?flow=58c3d7b3-3624-4460-b6ef-468ac3796524",
+    "action": "https://serene-archimedes-edlkt7nkyd.projects.oryapis:8080/self-service/registration?flow=c713a293-47c4-4605-8605-40127751083b",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "P+oafood9ivq8q1O56VWAP3jeW2wJMforaifNNe7/4bkXjE8v3fM3gsL2db6i2NR19NjMGirsA9QxZdNveyn1Q==",
+          "value": "b4t2jzkWsZ67gMxwZ1WDdbblCPkF8Lkryka4hNK8Dpz8RDvpmn1Hy0ZYC/n6NoKUc0InKUu/aZ9pjtQ78QAPbQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

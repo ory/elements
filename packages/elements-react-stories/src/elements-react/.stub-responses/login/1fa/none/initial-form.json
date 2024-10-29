@@ -1,12 +1,12 @@
 {
-  "id": "b54c4772-5d84-4d13-a23d-5f194b17037f",
+  "id": "35f2df88-8442-428c-887a-16b894afbcc8",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:42.231302375Z",
-  "issued_at": "2024-04-25T12:57:42.231302375Z",
-  "request_url": "https://xenodochial-haslett-czoqm7lclx.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2024-10-29T10:45:37.2137798Z",
+  "issued_at": "2024-10-29T09:45:37.2137798Z",
+  "request_url": "https://lucid-mayer-fnz4cfjy9n.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://xenodochial-haslett-czoqm7lclx.projects.oryapis:8080/self-service/login?flow=b54c4772-5d84-4d13-a23d-5f194b17037f",
+    "action": "https://lucid-mayer-fnz4cfjy9n.projects.oryapis:8080/self-service/login?flow=35f2df88-8442-428c-887a-16b894afbcc8",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "v4czjv6RgQq1hMh3rYpZSuIqT5u3rIIk6gwoTZbb2zpkbeujbezdvSvRUNoqik5Aakj1kzWVkhbMUjFH71H6Lg==",
+          "value": "q8qopE25+AzZleVcq18dhrm8HOnpITEP5FwosXaf61DvvT2/Qe1DJrFybDjSQB3QQZP4+YI/ZYDunHsxj4j5nQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2024-04-25T12:57:42.232968Z",
-  "updated_at": "2024-04-25T12:57:42.232968Z",
+  "created_at": "2024-10-29T09:45:37.21759Z",
+  "updated_at": "2024-10-29T09:45:37.21759Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

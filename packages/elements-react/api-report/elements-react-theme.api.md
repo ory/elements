@@ -25,6 +25,7 @@ import { UiNodeImageAttributes } from '@ory/client-fetch';
 import { UiNodeInputAttributes } from '@ory/client-fetch';
 import { UiNodeTextAttributes } from '@ory/client-fetch';
 import { UiText } from '@ory/client-fetch';
+import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts

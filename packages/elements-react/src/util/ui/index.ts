@@ -10,6 +10,7 @@ import type {
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { useMemo } from "react"
+import { useGroupSorter } from "../../context/component"
 
 export function capitalize(s: string) {
   if (!s) {
@@ -95,7 +96,13 @@ function triggerToFunction(
   return triggerFn as () => void
 }
 
+type Entries<T> = {
+  [K in keyof T]: [K, T[K]]
+}[keyof T][]
+
 export function useNodesGroups(nodes: UiNode[]) {
+  const groupSorter = useGroupSorter()
+
   const groups = useMemo(() => {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
 
@@ -104,8 +111,20 @@ export function useNodesGroups(nodes: UiNode[]) {
       groupNodes.push(node)
       groups[node.group] = groupNodes
     }
+
     return groups
   }, [nodes])
 
-  return groups
+  const entries = useMemo(
+    () =>
+      (
+        Object.entries(groups) as Entries<Record<UiNodeGroupEnum, UiNode[]>>
+      ).sort(([a], [b]) => groupSorter(a, b)),
+    [groups, groupSorter],
+  )
+
+  return {
+    groups,
+    entries,
+  }
 }

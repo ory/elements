@@ -1,12 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { screen } from "@testing-library/dom"
 import { IntlProvider } from "../../../../context/intl-context"
-import { render, screen } from "../../../../tests/jest/test-utils"
+import { renderWithComponents } from "../../../../tests/jest/test-utils"
 import { Node } from "../node"
 
 test("Text nodes are translated to german", () => {
-  render(
+  renderWithComponents(
     <IntlProvider locale="de">
       <Node
         node={{

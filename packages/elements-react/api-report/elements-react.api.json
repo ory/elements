@@ -1469,6 +1469,60 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        SettingsSection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormSectionProps",
+              "canonicalReference": "@ory/elements-react!OryFormSectionProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        SettingsSectionContent: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormSectionContentProps",
+              "canonicalReference": "@ory/elements-react!OryFormSectionContentProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        SettingsSectionFooter: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormSectionContentProps",
+              "canonicalReference": "@ory/elements-react!OryFormSectionContentProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n    };\n    Form: {\n        Root: "
             },
             {
@@ -1520,6 +1574,96 @@
               "kind": "Reference",
               "text": "OryFormGroupProps",
               "canonicalReference": "@ory/elements-react!OryFormGroupProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        OidcSettings: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsOidcProps",
+              "canonicalReference": "@ory/elements-react!OrySettingsOidcProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        WebauthnSettings: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsWebauthnProps",
+              "canonicalReference": "@ory/elements-react!OrySettingsWebauthnProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        PasskeySettings: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsPasskeyProps",
+              "canonicalReference": "@ory/elements-react!OrySettingsPasskeyProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        TotpSettings: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsTotpProps",
+              "canonicalReference": "@ory/elements-react!OrySettingsTotpProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        RecoveryCodesSettings: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsRecoveryCodesProps",
+              "canonicalReference": "@ory/elements-react!OrySettingsRecoveryCodesProps:type"
             },
             {
               "kind": "Content",
@@ -1589,7 +1733,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 94
+            "endIndex": 126
           }
         },
         {
@@ -1662,7 +1806,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryForm({ children, onAfterSubmit }: "
+              "text": "declare function OryForm({ children, onAfterSubmit, nodes }: "
             },
             {
               "kind": "Reference",
@@ -1696,7 +1840,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, onAfterSubmit }",
+              "parameterName": "{ children, onAfterSubmit, nodes }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -1991,7 +2135,16 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n}>"
+              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n    nodes?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}>"
             },
             {
               "kind": "Content",
@@ -2003,7 +2156,7 @@
           "name": "OryFormProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 3
+            "endIndex": 5
           }
         },
         {
@@ -2053,6 +2206,151 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryFormSection:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryFormSection({ children, nodes }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormSectionProps",
+              "canonicalReference": "@ory/elements-react!OryFormSectionProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, nodes }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryFormSection"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFormSectionContentProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFormSectionContentProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    title?: string;\n    description?: string;\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFormSectionContentProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFormSectionFooterProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFormSectionFooterProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFormSectionFooterProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFormSectionProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFormSectionProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    nodes?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFormSectionProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
           }
         },
         {
@@ -2314,7 +2612,12 @@
             },
             {
               "kind": "Content",
-              "text": "<\"button\">, \"children\">"
+              "text": "<\"button\">, \"children\"> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "ButtonVariants",
+              "canonicalReference": "@ory/elements-react!~ButtonVariants:type"
             },
             {
               "kind": "Content",
@@ -2326,7 +2629,7 @@
           "name": "OryNodeButtonProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 11
           }
         },
         {
@@ -2701,6 +3004,282 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OrySettingsCard:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OrySettingsCard(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OrySettingsCard"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsOidcProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsOidcProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    linkButtons: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n    unlinkButtons: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsOidcProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsPasskeyProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsPasskeyProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    triggerButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n        onClick: () => void;\n    };\n    removeButtons: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsPasskeyProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsRecoveryCodesProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsRecoveryCodesProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    codes: string[];\n    regnerateButton?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    revealButton?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsRecoveryCodesProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsTotpProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsTotpProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    totpImage: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    totpSecret: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    totpInput: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    totpUnlink: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsTotpProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsWebauthnProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsWebauthnProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    nameInput: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    triggerButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n        onClick: () => void;\n    };\n    removeButtons: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsWebauthnProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
           }
         },
         {

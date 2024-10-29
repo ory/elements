@@ -17,19 +17,19 @@
     "declarationDir": "dist/types",
     "jsx": "react-jsx",
     "lib": ["ES6", "DOM", "WebWorker"],
-    "rootDir": "src",
+    "rootDir": ".",
     "paths": {
-      "@ory/elements-react": ["./src/index.ts"],
-      "@tests/*": ["./src/tests/*"]
+      "@ory/elements-react": ["./src/index.ts"]
     }
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/global.d.ts",
     "src/tests/**/*.ts",
     "src/tests/**/*.tsx",
-    "tsup.config.ts"
+    "tsup.config.ts",
+    "jest.config.ts"
   ]
 }

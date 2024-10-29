@@ -1,11 +1,11 @@
 {
-  "id": "acd037fe-1b54-4f6a-838b-2e8d1090ba18",
+  "id": "2ee62ed3-9530-431c-b174-3570ed90af3c",
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:44.954617918Z",
-  "issued_at": "2024-04-25T12:57:44.954617918Z",
-  "request_url": "https://elegant-heyrovsky-l4oclz98k5.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2024-10-29T10:45:39.474943093Z",
+  "issued_at": "2024-10-29T09:45:39.474943093Z",
+  "request_url": "https://inspiring-buck-m6ru2ompf4.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://elegant-heyrovsky-l4oclz98k5.projects.oryapis:8080/self-service/registration?flow=acd037fe-1b54-4f6a-838b-2e8d1090ba18",
+    "action": "https://inspiring-buck-m6ru2ompf4.projects.oryapis:8080/self-service/registration?flow=2ee62ed3-9530-431c-b174-3570ed90af3c",
     "method": "POST",
     "nodes": [
       {
@@ -25,7 +25,8 @@
             "text": "Sign up with GitHub",
             "type": "info",
             "context": {
-              "provider": "GitHub"
+              "provider": "GitHub",
+              "provider_id": "github"
             }
           }
         }
@@ -47,7 +48,8 @@
             "text": "Sign up with Google",
             "type": "info",
             "context": {
-              "provider": "Google"
+              "provider": "Google",
+              "provider_id": "google"
             }
           }
         }
@@ -144,7 +146,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "zx9D9JR/SCndA9NjqNUzXUrru1BjDg5t1trh3lSA6B7gEvLwA9TM7/IbmYid9qHwrrP2OcCQuNd5cc2NFGFQaA==",
+          "value": "QXWBIklgcs/KOac7iEC2erEXNRyqtQIzVXjElaJS3ah5DyiI1JVr7mjaYrnVFSxLooZ9Ahzn+QYgspjtasBM1w==",
           "required": true,
           "disabled": false,
           "node_type": "input"

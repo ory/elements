@@ -1,12 +1,12 @@
 {
-  "id": "5ca844df-133e-42b4-bc7f-9b477161a247",
+  "id": "1f745189-9900-4837-8dfd-8ffed03b205d",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:53.109598338Z",
-  "issued_at": "2024-04-25T12:57:53.109598338Z",
-  "request_url": "https://wonderful-sinoussi-ugrt93yg5l.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2024-10-29T10:45:52.166247501Z",
+  "issued_at": "2024-10-29T09:45:52.166247501Z",
+  "request_url": "https://sad-brown-097vtt9h1o.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://wonderful-sinoussi-ugrt93yg5l.projects.oryapis:8080/self-service/login?flow=5ca844df-133e-42b4-bc7f-9b477161a247",
+    "action": "https://sad-brown-097vtt9h1o.projects.oryapis:8080/self-service/login?flow=1f745189-9900-4837-8dfd-8ffed03b205d",
     "method": "POST",
     "nodes": [
       {
@@ -26,7 +26,8 @@
             "text": "Sign in with x",
             "type": "info",
             "context": {
-              "provider": "x"
+              "provider": "x",
+              "provider_id": "X"
             }
           }
         }
@@ -48,7 +49,8 @@
             "text": "Sign in with Apple",
             "type": "info",
             "context": {
-              "provider": "Apple"
+              "provider": "Apple",
+              "provider_id": "apple"
             }
           }
         }
@@ -70,7 +72,8 @@
             "text": "Sign in with auth0",
             "type": "info",
             "context": {
-              "provider": "auth0"
+              "provider": "auth0",
+              "provider_id": "auth0"
             }
           }
         }
@@ -92,7 +95,8 @@
             "text": "Sign in with FooBarLogo",
             "type": "info",
             "context": {
-              "provider": "FooBarLogo"
+              "provider": "FooBarLogo",
+              "provider_id": "generic"
             }
           }
         }
@@ -114,7 +118,8 @@
             "text": "Sign in with GitHub",
             "type": "info",
             "context": {
-              "provider": "GitHub"
+              "provider": "GitHub",
+              "provider_id": "github"
             }
           }
         }
@@ -136,7 +141,8 @@
             "text": "Sign in with Google",
             "type": "info",
             "context": {
-              "provider": "Google"
+              "provider": "Google",
+              "provider_id": "google"
             }
           }
         }
@@ -158,7 +164,8 @@
             "text": "Sign in with LinkedIn",
             "type": "info",
             "context": {
-              "provider": "LinkedIn"
+              "provider": "LinkedIn",
+              "provider_id": "linkedin"
             }
           }
         }
@@ -180,7 +187,8 @@
             "text": "Sign in with Microsoft",
             "type": "info",
             "context": {
-              "provider": "Microsoft"
+              "provider": "Microsoft",
+              "provider_id": "microsoft"
             }
           }
         }
@@ -191,18 +199,80 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "P0T3qSYbAiRNjwCZpYPXJrIGSF/lBTyPl3aZte4rVGNcvbMn2fBIPeRjWOnlYGhYpvh63GQqKFsFISguyCuyZg==",
+          "value": "K0E5HJdhmB41FQ2aVnp7UigvzIgePyw1otXksbN5mvjxJwyxd4GUbB8/m0susKPW3qRb97lfofm2r34hV5jKHg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
+            "type": "info"
+          }
+        }
       }
     ]
   },
-  "created_at": "2024-04-25T12:57:53.111622Z",
-  "updated_at": "2024-04-25T12:57:53.111622Z",
+  "created_at": "2024-10-29T09:45:52.176289Z",
+  "updated_at": "2024-10-29T09:45:52.176289Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

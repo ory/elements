@@ -4,8 +4,13 @@
 import { PropsWithChildren } from "react"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
-import { OryFormRootProps, uiTextToFormattedMessage } from "@ory/elements-react"
+import {
+  OryFormRootProps,
+  uiTextToFormattedMessage,
+  useOryFlow,
+} from "@ory/elements-react"
 import { OryMessageContentProps } from "@ory/elements-react"
+import { FlowType } from "@ory/client-fetch"
 
 export function DefaultFormContainer({
   children,
@@ -27,11 +32,20 @@ export function DefaultFormContainer({
 }
 
 export function DefaultMessageContainer({ children }: PropsWithChildren) {
+  const { flowType } = useOryFlow()
   if (!children || (Array.isArray(children) && children.length === 0)) {
     return null
   }
 
-  return <section className="text-left">{children}</section>
+  return (
+    <section
+      className={cn(
+        flowType === FlowType.Settings ? "text-center" : "text-left",
+      )}
+    >
+      {children}
+    </section>
+  )
 }
 
 export function DefaultMessage({ message }: OryMessageContentProps) {

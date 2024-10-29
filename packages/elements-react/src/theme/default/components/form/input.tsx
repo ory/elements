@@ -38,7 +38,7 @@ export const DefaultInput = ({
       maxLength={maxlength}
       autoComplete={autocomplete}
       placeholder={formattedLabel}
-      className="antialiased bg-forms-bg-default rounded-border-radius-forms border px-3 py-2.5 md:px-4 md:py-4 border-forms-border-default leading-tight hover:border-forms-border-hover transition-colors text-sm"
+      className="antialiased disabled:text-forms-fg-disabled disabled:bg-forms-bg-disabled bg-forms-bg-default rounded-border-radius-forms border px-3 py-2.5 md:px-4 md:py-4 border-forms-border-default leading-tight hover:border-forms-border-hover transition-colors text-sm"
       {...register(name, { value })}
     />
   )

@@ -2,26 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { render, RenderOptions } from "@testing-library/react"
-import { PropsWithChildren, ReactElement, ReactNode } from "react"
-import { OryProvider, OryProviderProps } from "../../context"
+import { merge } from "lodash"
+import { ComponentProps, PropsWithChildren, ReactElement } from "react"
+import { OryFlowComponentOverrides } from "../../components"
 import { OryComponentProvider } from "../../context/component"
 import { OryDefaultComponents } from "../../theme/default"
 import { OryClientConfiguration } from "../../util"
-import { IntlProvider } from "../../context/intl-context"
-
-const AllProviders = ({ children }: PropsWithChildren) => (
-  <IntlProvider locale="en">
-    <OryComponentProvider components={OryDefaultComponents}>
-      {children}
-    </OryComponentProvider>
-  </IntlProvider>
-)
-
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper">,
-) => render(ui, { wrapper: AllProviders, ...options })
-
 export const defaultConfiguration: OryClientConfiguration = {
   name: "test",
   project: {
@@ -38,20 +24,21 @@ export const defaultConfiguration: OryClientConfiguration = {
   },
 }
 
-export function renderWithOryProvider(
-  ui: ReactNode,
-  {
-    providerProps,
-    ...renderOptions
-  }: RenderOptions & { providerProps: OryProviderProps },
-) {
-  return render(ui, {
-    wrapper: ({ children }) => (
-      <OryProvider {...providerProps}>{children}</OryProvider>
-    ),
-    ...renderOptions,
-  })
-}
+type ComponetOverrider = { components?: OryFlowComponentOverrides }
 
-export * from "@testing-library/react"
-export { customRender as render }
+const ComponentProvider = ({
+  children,
+  components,
+}: PropsWithChildren<ComponetOverrider>) => (
+  <OryComponentProvider
+    components={merge({}, OryDefaultComponents, components)}
+  >
+    {children}
+  </OryComponentProvider>
+)
+
+export const renderWithComponents = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, "wrapper"> &
+    ComponentProps<typeof ComponentProvider>,
+) => render(ui, { wrapper: ComponentProvider, ...options })
