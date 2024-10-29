@@ -28,7 +28,7 @@ export function useComponents() {
 export function useNodeSorter() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {
-    throw new Error("useComponents must be used within a ComponentProvider")
+    throw new Error("useNodeSorter must be used within a ComponentProvider")
   }
   return ctx.nodeSorter
 }
@@ -36,7 +36,7 @@ export function useNodeSorter() {
 export function useGroupSorter() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {
-    throw new Error("useComponents must be used within a ComponentProvider")
+    throw new Error("useGroupSorter must be used within a ComponentProvider")
   }
   return ctx.groupSorter
 }
