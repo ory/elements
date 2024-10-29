@@ -2,16 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import { useIntl } from "react-intl"
 import { useComponents, useOryFlow } from "../../context"
 import { useNodesGroups } from "../../util/ui"
+import { OryCardValidationMessages } from "../form"
 import { Node } from "../form/nodes/node"
 import { OryFormSection } from "../form/section"
-import { useIntl } from "react-intl"
-import { OrySettingsTotp } from "./totp-settings"
-import { OrySettingsRecoveryCodes } from "./recovery-codes-settings"
 import { OrySettingsOidc } from "./oidc-settings"
-import { OrySettingsWebauthn } from "./webauthn-settings"
 import { OrySettingsPasskey } from "./passkey-settings"
+import { OrySettingsRecoveryCodes } from "./recovery-codes-settings"
+import { OrySettingsTotp } from "./totp-settings"
+import { OrySettingsWebauthn } from "./webauthn-settings"
 
 interface SettingsSectionProps {
   group: UiNodeGroupEnum
@@ -23,7 +24,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   const intl = useIntl()
   const { flow } = useOryFlow()
   const uniqueGroups = useNodesGroups(flow.ui.nodes)
-  console.log("asd")
+
   if (group === UiNodeGroupEnum.Totp) {
     return (
       <OryFormSection nodes={uniqueGroups.groups.totp}>
@@ -106,11 +107,18 @@ export function OrySettingsCard() {
   const { flow } = useOryFlow()
   const uniqueGroups = useNodesGroups(flow.ui.nodes)
 
-  return uniqueGroups.entries.map(([group, nodes]) => {
-    if (group === UiNodeGroupEnum.Default) {
-      return null
-    }
+  return (
+    <>
+      <OryCardValidationMessages />
+      {uniqueGroups.entries.map(([group, nodes]) => {
+        if (group === UiNodeGroupEnum.Default) {
+          return null
+        }
 
-    return <SettingsSectionContent key={group} group={group} nodes={nodes} />
-  })
+        return (
+          <SettingsSectionContent key={group} group={group} nodes={nodes} />
+        )
+      })}
+    </>
+  )
 }

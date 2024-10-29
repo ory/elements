@@ -1,11 +1,11 @@
 {
-  "id": "4ea204bf-e9df-459c-b0c7-1045b9fd13b7",
+  "id": "783105b8-5b0a-4732-8f92-5989d917e376",
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:41.091806347Z",
-  "issued_at": "2024-04-25T12:57:41.091806347Z",
-  "request_url": "https://epic-shaw-qkjg2xuv0p.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2024-10-29T10:45:32.482860006Z",
+  "issued_at": "2024-10-29T09:45:32.482860006Z",
+  "request_url": "https://romantic-lamarr-es6gnhvtw7.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://epic-shaw-qkjg2xuv0p.projects.oryapis:8080/self-service/registration?flow=4ea204bf-e9df-459c-b0c7-1045b9fd13b7",
+    "action": "https://romantic-lamarr-es6gnhvtw7.projects.oryapis:8080/self-service/registration?flow=783105b8-5b0a-4732-8f92-5989d917e376",
     "method": "POST",
     "nodes": [
       {
@@ -100,7 +100,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "3eRMUWBruxCwAtoGq1MJ6TnRo9LaKTOoC2DRaptT5aFVnH+RALhgewlHQJ5e1ebT8K1tAcwUlTmdnBsV0vUySA==",
+          "value": "fomYlWXtSkWySNLcV7oM2Jy0VOJsqb7PABomnyf9fh9b6AWaFkPyzbmyxlfQ5NImcV3yDJ9i791vgD0qyrEXjw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -122,7 +122,46 @@
         "meta": {
           "label": {
             "id": 1040006,
-            "text": "Sign up with code",
+            "text": "Send sign up code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
             "type": "info"
           }
         }

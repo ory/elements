@@ -4,7 +4,8 @@
 import { IntlProvider } from "../../../context/intl-context"
 import { UiText } from "@ory/client-fetch"
 import { Inner } from "./test-components"
-import { render, screen } from "../../../tests/jest/test-utils"
+import { renderWithComponents } from "../../../tests/jest/test-utils"
+import { screen } from "@testing-library/dom"
 
 const uiText: UiText = {
   id: 1050010,
@@ -14,7 +15,7 @@ const uiText: UiText = {
 
 describe("IntlProvider", () => {
   test("should return the german locale", () => {
-    render(
+    renderWithComponents(
       <IntlProvider locale={"de"}>
         <Inner uiText={uiText} />
       </IntlProvider>,
@@ -28,7 +29,7 @@ describe("IntlProvider", () => {
   })
 
   test("should return the polish locale", () => {
-    render(
+    renderWithComponents(
       <IntlProvider locale={"pl"}>
         <Inner uiText={uiText} />
       </IntlProvider>,

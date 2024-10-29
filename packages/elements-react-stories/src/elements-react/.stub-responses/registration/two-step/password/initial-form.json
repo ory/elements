@@ -1,11 +1,11 @@
 {
-  "id": "f0d8f4bd-c3f2-4f24-a92b-baf72aa6099d",
+  "id": "2223b632-5224-45f0-a268-26d8782092eb",
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:46.810702502Z",
-  "issued_at": "2024-04-25T12:57:46.810702502Z",
-  "request_url": "https://infallible-booth-og2ss3njuz.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2024-10-29T10:45:45.283503179Z",
+  "issued_at": "2024-10-29T09:45:45.283503179Z",
+  "request_url": "https://pedantic-spence-hvwjb2by59.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://infallible-booth-og2ss3njuz.projects.oryapis:8080/self-service/registration?flow=f0d8f4bd-c3f2-4f24-a92b-baf72aa6099d",
+    "action": "https://pedantic-spence-hvwjb2by59.projects.oryapis:8080/self-service/registration?flow=2223b632-5224-45f0-a268-26d8782092eb",
     "method": "POST",
     "nodes": [
       {
@@ -100,7 +100,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "JNSZ4VH3GMAyfwMHgdKTDf0R101Sl6CXpxg38M2wUSalAwXHruNde8DQjqZmAr0DoOn7y88FcRIrOpMrjIhdxA==",
+          "value": "Ixz8JqIffgDP8R2rwTPLSt6yx0bZ/DDgeYS3UpNa5IaQ5LweBlcyVG6cRftfn3v3PI6CaM8+IPO8Qpy8mHwIDA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

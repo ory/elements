@@ -31,7 +31,6 @@ const preview: Preview = {
 const withI18next: Decorator = (Story, context) => {
   const { locale } = context.globals
 
-  // TODO: this needs a refactor, because it doesn't pass the locale to the Ory Provider at the moment.
   return (
     <Story args={merge({}, { config: { intl: { locale } } }, context.args)} />
   )

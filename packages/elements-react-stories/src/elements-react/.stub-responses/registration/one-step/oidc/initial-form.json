@@ -1,12 +1,11 @@
 {
-  "id": "1f745189-9900-4837-8dfd-8ffed03b205d",
-  "organization_id": null,
+  "id": "a954b8ad-a5b1-4425-90f9-ec83712b5d69",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:52.166247501Z",
-  "issued_at": "2024-10-29T09:45:52.166247501Z",
-  "request_url": "https://sad-brown-097vtt9h1o.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2024-10-29T10:45:52.416224377Z",
+  "issued_at": "2024-10-29T09:45:52.416224377Z",
+  "request_url": "https://goofy-ganguly-qodgfqj41p.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://sad-brown-097vtt9h1o.projects.oryapis:8080/self-service/login?flow=1f745189-9900-4837-8dfd-8ffed03b205d",
+    "action": "https://goofy-ganguly-qodgfqj41p.projects.oryapis:8080/self-service/registration?flow=a954b8ad-a5b1-4425-90f9-ec83712b5d69",
     "method": "POST",
     "nodes": [
       {
@@ -22,8 +21,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with x",
+            "id": 1040002,
+            "text": "Sign up with x",
             "type": "info",
             "context": {
               "provider": "x",
@@ -45,8 +44,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with Apple",
+            "id": 1040002,
+            "text": "Sign up with Apple",
             "type": "info",
             "context": {
               "provider": "Apple",
@@ -68,8 +67,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with auth0",
+            "id": 1040002,
+            "text": "Sign up with auth0",
             "type": "info",
             "context": {
               "provider": "auth0",
@@ -91,8 +90,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with FooBarLogo",
+            "id": 1040002,
+            "text": "Sign up with FooBarLogo",
             "type": "info",
             "context": {
               "provider": "FooBarLogo",
@@ -114,8 +113,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with GitHub",
+            "id": 1040002,
+            "text": "Sign up with GitHub",
             "type": "info",
             "context": {
               "provider": "GitHub",
@@ -137,8 +136,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with Google",
+            "id": 1040002,
+            "text": "Sign up with Google",
             "type": "info",
             "context": {
               "provider": "Google",
@@ -160,8 +159,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with LinkedIn",
+            "id": 1040002,
+            "text": "Sign up with LinkedIn",
             "type": "info",
             "context": {
               "provider": "LinkedIn",
@@ -183,8 +182,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with Microsoft",
+            "id": 1040002,
+            "text": "Sign up with Microsoft",
             "type": "info",
             "context": {
               "provider": "Microsoft",
@@ -199,7 +198,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "K0E5HJdhmB41FQ2aVnp7UigvzIgePyw1otXksbN5mvjxJwyxd4GUbB8/m0susKPW3qRb97lfofm2r34hV5jKHg==",
+          "value": "il1NWIw7iTHPBVBsbzdfoetbAIx45nlsdJK/OirWaLi0h16E37xNXL2NBZSukVfDFhVfBJmbdyAE+BGPU1IHPA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -209,12 +208,12 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "password",
         "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "value": "",
+          "name": "traits.email",
+          "type": "email",
           "required": true,
+          "autocomplete": "email",
           "disabled": false,
           "node_type": "input"
         },
@@ -237,7 +236,7 @@
           "name": "password",
           "type": "password",
           "required": true,
-          "autocomplete": "current-password",
+          "autocomplete": "new-password",
           "disabled": false,
           "node_type": "input"
         },
@@ -254,6 +253,69 @@
         "type": "input",
         "group": "password",
         "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
           "name": "method",
           "type": "submit",
           "value": "password",
@@ -263,17 +325,14 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010022,
-            "text": "Sign in with password",
+            "id": 1040001,
+            "text": "Sign up",
             "type": "info"
           }
         }
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:52.176289Z",
-  "updated_at": "2024-10-29T09:45:52.176289Z",
-  "refresh": false,
-  "requested_aal": "aal1",
+  "organization_id": null,
   "state": "choose_method"
 }

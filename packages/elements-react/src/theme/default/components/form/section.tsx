@@ -8,11 +8,7 @@ import {
 } from "@ory/elements-react"
 
 const DefaultFormSection = ({ children }: OryFormSectionProps) => {
-  return (
-    <div className="ory-default-theme">
-      <div className="flex flex-col">{children}</div>
-    </div>
-  )
+  return <div className="flex flex-col">{children}</div>
 }
 
 const DefaultFormSectionContent = ({

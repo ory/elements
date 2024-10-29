@@ -3,9 +3,9 @@
 
 import allMethodsInitialForm from "../../../../../elements-react-stories/src/elements-react/.stub-responses/login/1fa/all-methods/initial-form.json"
 
-import { renderHook } from "@tests/jest/test-utils"
 import { useNodesGroups } from ".."
 import { UiNode } from "@ory/client-fetch"
+import { renderHook } from "@testing-library/react"
 
 describe("utils/ui", () => {
   test("useNodesGroups", () => {

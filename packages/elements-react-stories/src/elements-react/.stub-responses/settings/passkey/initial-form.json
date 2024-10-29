@@ -1,0 +1,256 @@
+{
+  "id": "3746249b-1abf-4b37-80a4-86468a0f570e",
+  "type": "browser",
+  "expires_at": "2024-10-29T10:45:45.450619Z",
+  "issued_at": "2024-10-29T09:45:45.450619Z",
+  "request_url": "https://jovial-ellis-fr202u7urp.projects.oryapis:8080/self-service/settings/browser?return_to=",
+  "ui": {
+    "action": "https://jovial-ellis-fr202u7urp.projects.oryapis:8080/self-service/settings?flow=3746249b-1abf-4b37-80a4-86468a0f570e",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeySettingsRegistration()",
+          "onclickTrigger": "oryPasskeySettingsRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050019,
+            "text": "Add passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_remove",
+          "type": "submit",
+          "value": "7b37009edaa82701392d9c978a5f090b40f06bb1c6db3da5bdeba001d02edee5",
+          "disabled": true,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050020,
+            "text": "Remove passkey \"unnamed\"",
+            "type": "info",
+            "context": {
+              "added_at": "2024-10-29T09:45:43Z",
+              "added_at_unix": 1730195143,
+              "display_name": "unnamed"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_settings_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_create_data",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-iUgYEBNPNUCsXKUO-5-tests/elements/passkey.spec.ts\\u003eGenerate passkey API responses for Ory Elements Storybook\\u003epasskey states\",\"id\":\"jovial-ellis-fr202u7urp.projects.oryapis\"},\"user\":{\"name\":\"dev+orycye2eda2f162daf6142dd0.oz5977f4h40.72i7wc3wobt@ory.dev\",\"displayName\":\"dev+orycye2eda2f162daf6142dd0.oz5977f4h40.72i7wc3wobt@ory.dev\",\"id\":\"QWh3cjc2RTRwanhzejZrRUhPeTdOZ1JaZGswYVExc09ycTBNTm14VjhQRXFoOU9CRTZ0QlpFa214VUx5TUFJMQ\"},\"challenge\":\"4KcPlK1h6EhxqYI6Hu_vGbKzMRUlHva9UB8vSLfGx-A\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"userVerification\":\"preferred\"}}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "lSS2gw7RYoSyDbOidb0F68kbJglKfFFJJdVX1jK1wprNdegMUoJ4y1+iMuK3LjqQLlgnvuOXeAwn43Us1R0JTA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "value": "dev+orycye2eda2f162daf6142dd0.oz5977f4h40.72i7wc3wobt@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://jovial-ellis-fr202u7urp.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "cbb55ce9-b93c-4ef8-bbe7-55a07001fd08",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "identity": {
+    "id": "e92db581-33a0-426e-9310-7948eda0d8ca",
+    "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
+    "schema_url": "https://jovial-ellis-fr202u7urp.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "state": "active",
+    "state_changed_at": "2024-10-29T09:45:43.316519Z",
+    "traits": {
+      "email": "dev+orycye2eda2f162daf6142dd0.oz5977f4h40.72i7wc3wobt@ory.dev",
+      "nested": {}
+    },
+    "verifiable_addresses": [
+      {
+        "id": "6b25e2e6-df9e-419f-8f2e-9e405b46a4f7",
+        "value": "dev+orycye2eda2f162daf6142dd0.oz5977f4h40.72i7wc3wobt@ory.dev",
+        "verified": false,
+        "via": "email",
+        "status": "sent",
+        "created_at": "2024-10-29T09:45:43.321992Z",
+        "updated_at": "2024-10-29T09:45:43.321992Z"
+      }
+    ],
+    "recovery_addresses": [
+      {
+        "id": "424648af-419a-444d-8b05-1b525349e9d0",
+        "value": "dev+orycye2eda2f162daf6142dd0.oz5977f4h40.72i7wc3wobt@ory.dev",
+        "via": "email",
+        "created_at": "2024-10-29T09:45:43.439928Z",
+        "updated_at": "2024-10-29T09:45:43.439928Z"
+      }
+    ],
+    "metadata_public": null,
+    "created_at": "2024-10-29T09:45:43.318887Z",
+    "updated_at": "2024-10-29T09:45:43.318887Z",
+    "organization_id": null
+  },
+  "state": "show_form"
+}

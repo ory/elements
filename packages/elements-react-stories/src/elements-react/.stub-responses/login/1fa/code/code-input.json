@@ -1,36 +1,22 @@
 {
-  "id": "08afa882-d36a-473a-9faf-77dc25763b01",
+  "id": "1c2b44ff-d5eb-4508-8671-9942fcf9c2fd",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:42.792898Z",
-  "issued_at": "2024-04-25T12:57:42.792898Z",
-  "request_url": "https://naughty-torvalds-10x7h3fzj6.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2024-10-29T10:45:35.875715Z",
+  "issued_at": "2024-10-29T09:45:35.875715Z",
+  "request_url": "https://ecstatic-ganguly-vkw4on0o7a.projects.oryapis:8080/self-service/login/browser",
   "active": "code",
   "ui": {
-    "action": "https://naughty-torvalds-10x7h3fzj6.projects.oryapis:8080/self-service/login?flow=08afa882-d36a-473a-9faf-77dc25763b01",
+    "action": "https://ecstatic-ganguly-vkw4on0o7a.projects.oryapis:8080/self-service/login?flow=1c2b44ff-d5eb-4508-8671-9942fcf9c2fd",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
         "group": "default",
         "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "h41boJQiZLBAvjdVt1cCJAfFOFvJpWaFhInQHEy4wITCIL4a0DXVRWHIv+PMJH20wRxlf+6iZ5USog7I/3/6LA==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.1tnn3qyzbqf0.dnspguo1be@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.yrtjdvzksr0.y9ns4uih47d@ory.dev",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -92,8 +78,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070005,
-            "text": "Submit",
+            "id": 1070009,
+            "text": "Continue",
             "type": "info"
           }
         }
@@ -116,18 +102,32 @@
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "HDU1ID5ZR7f5ITbHX/14LOkQF0+J+SwKp1kQ8b4uT9gq/tIGK1CfG4obszCxazcvXLgg62UNdSUdd8dqpXZjIQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
       }
     ],
     "messages": [
       {
         "id": 1010014,
-        "text": "An email containing a code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and retry the login.",
+        "text": "A code has been sent to the address you provided. If you have not received an message, check the spelling of the address and retry the login.",
         "type": "info"
       }
     ]
   },
-  "created_at": "2024-04-25T12:57:42.795925Z",
-  "updated_at": "2024-04-25T12:57:42.795925Z",
+  "created_at": "2024-10-29T09:45:35.88133Z",
+  "updated_at": "2024-10-29T09:45:35.88133Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "sent_email",

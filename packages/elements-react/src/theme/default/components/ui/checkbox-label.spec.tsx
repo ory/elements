@@ -1,8 +1,14 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { render } from "../../../../tests/jest/test-utils"
+import { render } from "@testing-library/react"
 import { CheckboxLabel } from "./checkbox-label"
+import { IntlProvider } from "react-intl"
+import { PropsWithChildren } from "react"
+
+const wrapper = ({ children }: PropsWithChildren) => (
+  <IntlProvider locale="en">{children}</IntlProvider>
+)
 
 describe("computeLabelElements", () => {
   test("renders plain text without links correctly", () => {
@@ -10,6 +16,7 @@ describe("computeLabelElements", () => {
 
     const { container } = render(
       <CheckboxLabel label={{ text: labelText, id: 0, type: "info" }} />,
+      { wrapper },
     )
     expect(container).toMatchSnapshot()
   })
@@ -19,6 +26,7 @@ describe("computeLabelElements", () => {
 
     const { container } = render(
       <CheckboxLabel label={{ text: labelText, id: 0, type: "info" }} />,
+      { wrapper },
     )
     expect(container).toMatchSnapshot()
   })
@@ -29,6 +37,7 @@ describe("computeLabelElements", () => {
 
     const { container } = render(
       <CheckboxLabel label={{ text: labelText, id: 0, type: "info" }} />,
+      { wrapper },
     )
     expect(container).toMatchSnapshot()
   })
@@ -39,6 +48,7 @@ describe("computeLabelElements", () => {
 
     const { container } = render(
       <CheckboxLabel label={{ text: labelText, id: 0, type: "info" }} />,
+      { wrapper },
     )
     expect(container).toMatchSnapshot()
   })
@@ -48,12 +58,15 @@ describe("computeLabelElements", () => {
 
     const { container } = render(
       <CheckboxLabel label={{ text: labelText, id: 0, type: "info" }} />,
+      { wrapper },
     )
     expect(container).toMatchSnapshot()
   })
 
   test("renders null if label is undefined", () => {
-    const { container } = render(<CheckboxLabel label={undefined} />)
+    const { container } = render(<CheckboxLabel label={undefined} />, {
+      wrapper,
+    })
     expect(container).toMatchSnapshot()
   })
 })

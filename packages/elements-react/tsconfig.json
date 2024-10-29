@@ -19,8 +19,7 @@
     "lib": ["ES6", "DOM", "WebWorker"],
     "rootDir": ".",
     "paths": {
-      "@ory/elements-react": ["./src/index.ts"],
-      "@tests/*": ["./src/tests/*"]
+      "@ory/elements-react": ["./src/index.ts"]
     }
   },
   "exclude": ["node_modules", "dist"],

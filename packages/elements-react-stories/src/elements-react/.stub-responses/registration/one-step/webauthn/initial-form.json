@@ -1,11 +1,11 @@
 {
-  "id": "9f23226c-5b45-46ee-8c50-41da3643e3a3",
+  "id": "f1cae1c5-b77d-444a-99da-65af40296baf",
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:47.242292Z",
-  "issued_at": "2024-04-25T12:57:47.242292Z",
-  "request_url": "https://tender-goodall-7lgc6uyls4.projects.oryapis:8080/self-service/registration/browser?",
+  "expires_at": "2024-10-29T10:45:46.355386Z",
+  "issued_at": "2024-10-29T09:45:46.355386Z",
+  "request_url": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/registration/browser?",
   "ui": {
-    "action": "https://tender-goodall-7lgc6uyls4.projects.oryapis:8080/self-service/registration?flow=9f23226c-5b45-46ee-8c50-41da3643e3a3",
+    "action": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/registration?flow=f1cae1c5-b77d-444a-99da-65af40296baf",
     "method": "POST",
     "nodes": [
       {
@@ -100,7 +100,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "tv+uQQ8K9bAXY6OAObIsHy0d8hcGkv789I1fhIQv2EOe1Y21Q5Ey8A0uc3pWNaE0gRurzLMdJBlyiFXd/ExmMA==",
+          "value": "Y/Xu30T+fl0y9WgPtVFBgJl20FgPKOGL0PdRtYwrzXgDH90tMgGjBtkD+ucOu3NQere6LwwEcPqGZTlNt8hQ9w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -146,9 +146,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Asz6zwgGNpFo6ZSv-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"tender-goodall-7lgc6uyls4.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Asz6zwgGNpFo6ZSv-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Asz6zwgGNpFo6ZSv-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"PHrCWV6BSKSFwVp7-wrNtw\"},\"challenge\":\"XzuR6zAa6s9W5fnx2X6D37W-rY6Z_-YwlQEggSeJ0uo\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Inm4ptsTsi1lsamq-2-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"romantic-tu-rf98ru5rql.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Inm4ptsTsi1lsamq-2-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Inm4ptsTsi1lsamq-2-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"pVtWPBf0QI68eZHkr6znbg\"},\"challenge\":\"eJAB1_JKWJoO9hi2NnpGS4MJ_hwwaV8tuIM6TeZCAEY\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Asz6zwgGNpFo6ZSv-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"tender-goodall-7lgc6uyls4.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Asz6zwgGNpFo6ZSv-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Asz6zwgGNpFo6ZSv-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"PHrCWV6BSKSFwVp7-wrNtw\"},\"challenge\":\"XzuR6zAa6s9W5fnx2X6D37W-rY6Z_-YwlQEggSeJ0uo\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Inm4ptsTsi1lsamq-2-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"romantic-tu-rf98ru5rql.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Inm4ptsTsi1lsamq-2-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Inm4ptsTsi1lsamq-2-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"pVtWPBf0QI68eZHkr6znbg\"},\"challenge\":\"eJAB1_JKWJoO9hi2NnpGS4MJ_hwwaV8tuIM6TeZCAEY\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -165,14 +165,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://tender-goodall-7lgc6uyls4.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "8fa2b5c8-b0a2-4949-88f4-fa4e904b3639",
+          "nonce": "cb97ee7e-8c82-43a1-897d-32ee254dbfb5",
           "node_type": "script"
         },
         "messages": [],

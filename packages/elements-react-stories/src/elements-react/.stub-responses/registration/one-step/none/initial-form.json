@@ -1,11 +1,11 @@
 {
-  "id": "6669f65a-0b39-45df-b282-92b112625451",
+  "id": "5da50e2e-2cac-4c95-80ec-523418a31751",
   "type": "browser",
-  "expires_at": "2024-04-25T13:57:42.246461583Z",
-  "issued_at": "2024-04-25T12:57:42.246461583Z",
-  "request_url": "https://laughing-chatterjee-9po9989jau.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2024-10-29T10:45:38.008022134Z",
+  "issued_at": "2024-10-29T09:45:38.008022134Z",
+  "request_url": "https://dazzling-ardinghelli-pkbijj47zr.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://laughing-chatterjee-9po9989jau.projects.oryapis:8080/self-service/registration?flow=6669f65a-0b39-45df-b282-92b112625451",
+    "action": "https://dazzling-ardinghelli-pkbijj47zr.projects.oryapis:8080/self-service/registration?flow=5da50e2e-2cac-4c95-80ec-523418a31751",
     "method": "POST",
     "nodes": null
   },
