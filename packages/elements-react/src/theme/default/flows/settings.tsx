@@ -38,10 +38,10 @@ export function Settings({
       components={components}
     >
       {children ?? (
-        <div className="flex flex-col gap-4">
+        <>
           <HeadlessPageHeader />
           <OrySettingsCard />
-        </div>
+        </>
       )}
     </OryProvider>
   )
