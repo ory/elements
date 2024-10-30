@@ -7,16 +7,10 @@ import { Session } from "@ory/client-fetch"
 import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/jest-globals"
 import { act, render, screen, waitFor } from "@testing-library/react"
-import { useOryFlow } from "../context/flow-context"
-import { frontendClient } from "../util/client"
 import { sessionStore, useSession } from "./useSession"
+import { frontendClient } from "./frontendClient"
 
-// Mock the necessary imports
-jest.mock("../context/flow-context", () => ({
-  useOryFlow: jest.fn(),
-}))
-
-jest.mock("../util/client", () => ({
+jest.mock("./frontendClient", () => ({
   frontendClient: jest.fn(() => ({
     toSession: jest.fn(),
   })),
@@ -44,14 +38,9 @@ describe("useSession", () => {
     },
     expires_at: new Date(),
   }
-  const mockConfig = {
-    sdk: { url: "https://mock-sdk-url" },
-  }
 
   beforeEach(() => {
     jest.clearAllMocks()
-    // Mock the flow context
-    ;(useOryFlow as jest.Mock).mockReturnValue({ config: mockConfig })
     sessionStore.setState({
       isLoading: false,
       session: undefined,
@@ -102,9 +91,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient(mockConfig.sdk.url).toSession).toHaveBeenCalledTimes(
-      1,
-    )
+    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
 
     act(() => {
       render(<TestComponent />)
@@ -112,9 +99,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient(mockConfig.sdk.url).toSession).toHaveBeenCalledTimes(
-      1,
-    )
+    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
   })
 
   it("handles errors during session fetching", async () => {
@@ -155,8 +140,6 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient(mockConfig.sdk.url).toSession).toHaveBeenCalledTimes(
-      1,
-    )
+    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
   })
 })

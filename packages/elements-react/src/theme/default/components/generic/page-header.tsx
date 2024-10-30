@@ -1,12 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  OryPageHeaderProps,
-  useComponents,
-  useSession,
-} from "@ory/elements-react"
+import { OryPageHeaderProps, useComponents } from "@ory/elements-react"
 import { UserMenu } from "../ui/user-menu"
+import { useSession } from "@ory/elements-react/client"
 
 export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
   const { Card } = useComponents()
