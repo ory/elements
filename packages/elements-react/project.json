@@ -2,6 +2,7 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
+      "dependsOn": ["build"],
       "options": {
         "lintFilePatterns": [
           "packages/elements-react/src/**/*.ts",
@@ -17,13 +18,13 @@
     },
     "build": {
       "command": "tsup --clean --dts",
-      "dependsOn": ["lint", "test"],
       "options": {
         "cwd": "packages/elements-react"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
+      "dependsOn": ["build"],
       "options": {
         "jestConfig": "packages/elements-react/jest.config.ts",
         "coverage": true,
@@ -45,7 +46,8 @@
         "cwd": "packages/elements-react",
         "commands": [
           "api-extractor run --verbose -c config/api-extractor-core.json",
-          "api-extractor run --verbose -c config/api-extractor-theme.json"
+          "api-extractor run --verbose -c config/api-extractor-theme.json",
+          "api-extractor run --verbose -c config/api-extractor-client.json"
         ]
       },
       "dependsOn": ["build"]
@@ -56,7 +58,8 @@
         "cwd": "packages/elements-react",
         "commands": [
           "api-extractor run --local --verbose -c config/api-extractor-core.json",
-          "api-extractor run --local --verbose -c config/api-extractor-theme.json"
+          "api-extractor run --local --verbose -c config/api-extractor-theme.json",
+          "api-extractor run --local --verbose -c config/api-extractor-client.json"
         ]
       },
       "dependsOn": ["build"]

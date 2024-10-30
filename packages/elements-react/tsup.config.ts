@@ -28,6 +28,15 @@ export default defineConfig([
     ],
   },
   {
+    dts: true,
+    minify: false,
+    sourcemap: true,
+    bundle: false,
+    format: ["cjs", "esm"],
+    entry: ["src/client/**/*.ts"],
+    outDir: "dist/client",
+  },
+  {
     ...baseConfig,
     entry: ["src/theme/default/index.ts"],
     outDir: "dist/theme/default",

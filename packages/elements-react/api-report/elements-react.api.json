@@ -3635,39 +3635,6 @@
           "name": "useOryFlow"
         },
         {
-          "kind": "Function",
-          "canonicalReference": "@ory/elements-react!useSession:function(1)",
-          "docComment": "/**\n * A hook to get the current session from the Ory Network.\n *\n * Usage:\n * ```ts\n * const { session, error, isLoading } = useSession()\n * ```\n *\n * @returns The current session, error and loading state.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "useSession: () => "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    session: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Session",
-              "canonicalReference": "@ory/client-fetch!Session:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | undefined;\n    error: string | undefined;\n    isLoading: boolean;\n}"
-            }
-          ],
-          "fileUrlPath": "dist/index.d.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 4
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [],
-          "name": "useSession"
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!VerificationFlowContainer:type",
           "docComment": "/**\n * A flow container for the verification flow\n *\n * @see\n *\n * OryFlow\n *\n * @see\n *\n * VerificationFlow\n */\n",
