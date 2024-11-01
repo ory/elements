@@ -7,3 +7,6 @@ project.json
 tsup.config.ts
 tsconfig.test.json
 !dist/
+api-report/
+DEVELOPEMENT.md
+jest.config.ts
