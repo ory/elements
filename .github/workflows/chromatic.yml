@@ -1,0 +1,39 @@
+name: Chromatic PR
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - run: npx nx run-many -t build -p @ory/elements-react -p @ory/elements
+
+      - run: npx nx run-many --all -t build-storybook -- --stats-json
+
+      - uses: chromaui/action@v11.7.0
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitOnceUploaded: true
+          workingDir: packages/legacy-stories
+          storybookBuildDir: storybook-static
+          onlyChanged: true
+      - uses: chromaui/action@v11.7.0
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_ELEMENTS_REACT }}
+          exitOnceUploaded: true
+          workingDir: packages/elements-react-stories
+          storybookBuildDir: storybook-static
+          onlyChanged: true
