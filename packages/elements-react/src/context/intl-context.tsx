@@ -1,7 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { merge } from "lodash"
 import { PropsWithChildren } from "react"
 import { IntlProvider as OriginalIntlProvider } from "react-intl"
 import { LocaleMap, locales } from "../locales"
@@ -154,12 +153,19 @@ export type IntlContextProps = {
   customTranslations?: Partial<LocaleMap>
 }
 
+function mergeTranslations(customTranslations: Partial<LocaleMap>) {
+  return Object.keys(customTranslations).reduce((acc, key) => {
+    acc[key] = { ...locales[key], ...customTranslations[key] }
+    return acc
+  }, locales)
+}
+
 export const IntlProvider = ({
   children,
   locale,
   customTranslations,
 }: PropsWithChildren<IntlContextProps>) => {
-  const messages = merge({}, locales, customTranslations)
+  const messages = mergeTranslations(customTranslations ?? {})
 
   return (
     <OriginalIntlProvider
