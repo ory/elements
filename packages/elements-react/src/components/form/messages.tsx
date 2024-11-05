@@ -14,9 +14,15 @@ export type OryMessageRootProps = DetailedHTMLProps<
   HTMLDivElement
 >
 
+// This is a list of message IDs that should not be shown to the user.
+// They're returned by the API, but they don't work well in the two step flows.
+const messageIdsToHide = [1040009]
+
 export function OryCardValidationMessages({ ...props }: OryMessageRootProps) {
   const { flow } = useOryFlow()
-  const messages = flow.ui.messages
+  const messages = flow.ui.messages?.filter(
+    (m) => !messageIdsToHide.includes(m.id),
+  )
   const { Message } = useComponents()
 
   if (!messages) {
