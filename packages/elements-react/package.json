@@ -41,7 +41,6 @@
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
-    "lodash.merge": "4.6.2",
     "react-hook-form": "7.53.0",
     "react-intl": "6.7.0",
     "tailwind-merge": "2.5.2",

@@ -29,7 +29,10 @@ import {
 } from "./form/social"
 import { DefaultText } from "./form/text"
 import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button"
-import { OryFlowComponents } from "@ory/elements-react"
+import {
+  OryFlowComponentOverrides,
+  OryFlowComponents,
+} from "@ory/elements-react"
 import {
   DefaultFormSection,
   DefaultFormSectionContent,
@@ -42,47 +45,60 @@ import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
 import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 import { DefaultPageHeader } from "./generic/page-header"
 
-export const OryDefaultComponents: OryFlowComponents = {
-  Card: {
-    Root: DefaultCard,
-    Footer: DefaultCardFooter,
-    Header: DefaultCardHeader,
-    Content: DefaultCardContent,
-    Logo: DefaultCardLogo,
-    Divider: DefaultHorizontalDivider,
-    AuthMethodListItem: DefaultAuthMethodListItem,
-
-    SettingsSection: DefaultFormSection,
-    SettingsSectionContent: DefaultFormSectionContent,
-    SettingsSectionFooter: DefaultFormSectionFooter,
-  },
-  Node: {
-    Button: DefaultButton,
-    OidcButton: DefaultButtonSocial,
-    CurrentIdentifierButton: DefaultCurrentIdentifierButton,
-    Input: DefaultInput,
-    CodeInput: DefaultPinCodeInput,
-    Image: DefaultImage,
-    Label: DefaultLabel,
-    Checkbox: DefaultCheckbox,
-    Text: DefaultText,
-    Anchor: DefaultLinkButton,
-  },
-  Form: {
-    Root: DefaultFormContainer,
-    Group: DefaultGroupContainer,
-    OidcRoot: DefaultSocialButtonContainer,
-    RecoveryCodesSettings: DefaultSettingsRecoveryCodes,
-    TotpSettings: DefaultSettingsTotp,
-    OidcSettings: DefaultSettingsOidc,
-    WebauthnSettings: DefaultSettingsWebauthn,
-    PasskeySettings: DefaultSettingsPasskey,
-  },
-  Message: {
-    Root: DefaultMessageContainer,
-    Content: DefaultMessage,
-  },
-  Page: {
-    Header: DefaultPageHeader,
-  },
+export function getOryComponents(
+  overrides?: OryFlowComponentOverrides,
+): OryFlowComponents {
+  // Yes, this could probably be easier by using lodash or a custom merge function.
+  // But, this makes it very explicit what can be overridden, and does not introduce issues with merging nested fields.
+  return {
+    Card: {
+      Root: overrides?.Card?.Root ?? DefaultCard,
+      Footer: overrides?.Card?.Footer ?? DefaultCardFooter,
+      Header: overrides?.Card?.Header ?? DefaultCardHeader,
+      Content: overrides?.Card?.Content ?? DefaultCardContent,
+      Logo: overrides?.Card?.Logo ?? DefaultCardLogo,
+      Divider: overrides?.Card?.Divider ?? DefaultHorizontalDivider,
+      AuthMethodListItem:
+        overrides?.Card?.AuthMethodListItem ?? DefaultAuthMethodListItem,
+      SettingsSection: overrides?.Card?.SettingsSection ?? DefaultFormSection,
+      SettingsSectionContent:
+        overrides?.Card?.SettingsSectionContent ?? DefaultFormSectionContent,
+      SettingsSectionFooter:
+        overrides?.Card?.SettingsSectionFooter ?? DefaultFormSectionFooter,
+    },
+    Node: {
+      Button: overrides?.Node?.Button ?? DefaultButton,
+      OidcButton: overrides?.Node?.OidcButton ?? DefaultButtonSocial,
+      CurrentIdentifierButton:
+        overrides?.Node?.CurrentIdentifierButton ??
+        DefaultCurrentIdentifierButton,
+      Input: overrides?.Node?.Input ?? DefaultInput,
+      CodeInput: overrides?.Node?.CodeInput ?? DefaultPinCodeInput,
+      Image: overrides?.Node?.Image ?? DefaultImage,
+      Label: overrides?.Node?.Label ?? DefaultLabel,
+      Checkbox: overrides?.Node?.Checkbox ?? DefaultCheckbox,
+      Text: overrides?.Node?.Text ?? DefaultText,
+      Anchor: overrides?.Node?.Anchor ?? DefaultLinkButton,
+    },
+    Form: {
+      Root: overrides?.Form?.Root ?? DefaultFormContainer,
+      Group: overrides?.Form?.Group ?? DefaultGroupContainer,
+      OidcRoot: overrides?.Form?.OidcRoot ?? DefaultSocialButtonContainer,
+      RecoveryCodesSettings:
+        overrides?.Form?.RecoveryCodesSettings ?? DefaultSettingsRecoveryCodes,
+      TotpSettings: overrides?.Form?.TotpSettings ?? DefaultSettingsTotp,
+      OidcSettings: overrides?.Form?.OidcSettings ?? DefaultSettingsOidc,
+      WebauthnSettings:
+        overrides?.Form?.WebauthnSettings ?? DefaultSettingsWebauthn,
+      PasskeySettings:
+        overrides?.Form?.PasskeySettings ?? DefaultSettingsPasskey,
+    },
+    Message: {
+      Root: overrides?.Message?.Root ?? DefaultMessageContainer,
+      Content: overrides?.Message?.Content ?? DefaultMessage,
+    },
+    Page: {
+      Header: overrides?.Page?.Header ?? DefaultPageHeader,
+    },
+  }
 }

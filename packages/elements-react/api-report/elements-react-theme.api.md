@@ -71,6 +71,11 @@ export type ErrorFlowContextProps = {
     config: OryClientConfiguration;
 };
 
+// Warning: (ae-forgotten-export) The symbol "OryFlowComponents" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export function getOryComponents(overrides?: OryFlowComponentOverrides): OryFlowComponents;
+
 // @public (undocumented)
 export function Login({ flow, config, children, components: flowOverrideComponents, }: PropsWithChildren<LoginFlowContextProps>): react_jsx_runtime.JSX.Element;
 
@@ -80,11 +85,6 @@ export type LoginFlowContextProps = {
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
 };
-
-// Warning: (ae-forgotten-export) The symbol "OryFlowComponents" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const OryDefaultComponents: OryFlowComponents;
 
 // @public (undocumented)
 export function Recovery({ flow, config, children, components: flowOverrideComponents, }: PropsWithChildren<RecoveryFlowContextProps>): react_jsx_runtime.JSX.Element;
