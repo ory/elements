@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { render, RenderOptions } from "@testing-library/react"
-import { merge } from "lodash"
 import { ComponentProps, PropsWithChildren, ReactElement } from "react"
 import { OryFlowComponentOverrides } from "../../components"
 import { OryComponentProvider } from "../../context/component"
-import { OryDefaultComponents } from "../../theme/default"
+import { getOryComponents } from "../../theme/default"
 import { OryClientConfiguration } from "../../util"
 export const defaultConfiguration: OryClientConfiguration = {
   name: "test",
@@ -30,9 +29,7 @@ const ComponentProvider = ({
   children,
   components,
 }: PropsWithChildren<ComponetOverrider>) => (
-  <OryComponentProvider
-    components={merge({}, OryDefaultComponents, components)}
-  >
+  <OryComponentProvider components={getOryComponents(components)}>
     {children}
   </OryComponentProvider>
 )

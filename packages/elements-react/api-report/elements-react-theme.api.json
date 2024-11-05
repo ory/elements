@@ -630,6 +630,53 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!getOryComponents:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getOryComponents(overrides?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowComponents",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "overrides",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getOryComponents"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!Login:function(1)",
           "docComment": "",
           "excerptTokens": [
@@ -748,30 +795,6 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 8
-          }
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "@ory/elements-react!OryDefaultComponents:var",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "OryDefaultComponents: "
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFlowComponents",
-              "canonicalReference": "@ory/elements-react!~OryFlowComponents:type"
-            }
-          ],
-          "fileUrlPath": "dist/theme/default/index.d.ts",
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "OryDefaultComponents",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 2
           }
         },
         {

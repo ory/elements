@@ -9,9 +9,8 @@ import {
   OryProvider,
   OryTwoStepCard,
 } from "@ory/elements-react"
-import merge from "lodash.merge"
 import { PropsWithChildren } from "react"
-import { OryDefaultComponents } from "../components"
+import { getOryComponents } from "../components"
 
 export type VerificationFlowContextProps = {
   flow: VerificationFlow
@@ -25,9 +24,7 @@ export function Verification({
   children,
   components: flowOverrideComponents,
 }: PropsWithChildren<VerificationFlowContextProps>) {
-  const components = flowOverrideComponents
-    ? merge({}, OryDefaultComponents, flowOverrideComponents)
-    : OryDefaultComponents
+  const components = getOryComponents(flowOverrideComponents)
   return (
     <OryProvider
       config={config}
