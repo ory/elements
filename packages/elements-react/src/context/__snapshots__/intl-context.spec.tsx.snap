@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`intl-context can override individual strings 1`] = `
+<div>
+  custom navigation title
+</div>
+`;
+
+exports[`intl-context uses default messages 1`] = `
+<div>
+  Account Settings
+</div>
+`;
+
+exports[`intl-context uses default messages in different language 1`] = `
+<div>
+  Kontoeinstellungen
+</div>
+`;
