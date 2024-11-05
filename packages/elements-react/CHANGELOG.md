@@ -1,3 +1,27 @@
+## 1.0.0-next.13 (2024-11-05)
+
+
+### 🩹 Fixes
+
+- ⚠️  move useSession hook to /client entry point
+
+- oidc linking & unlinking form properties
+
+- hide two step registration message
+
+- implement component merging instead of usign lodash
+
+- replace translation merge with custom function
+
+
+#### ⚠️  Breaking Changes
+
+- ⚠️  move useSession hook to /client entry point
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.12 (2024-10-29)
 
 
