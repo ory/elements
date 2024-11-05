@@ -11,6 +11,10 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
         // Do not set the default values for this.
         return acc
       }
+      if (node.attributes.type === "submit") {
+        // Submit buttons are not supposed to be part of the form until the user submits it.
+        return acc
+      }
 
       acc[node.attributes.name] = node.attributes.value ?? ""
     }

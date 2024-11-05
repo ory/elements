@@ -7,6 +7,7 @@ import { UiNodeInputAttributes } from "@ory/client-fetch"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import logos from "../../provider-logos"
 import Trash from "../../assets/icons/trash.svg"
+import { useFormContext } from "react-hook-form"
 
 export function DefaultSettingsOidc({
   linkButtons,
@@ -14,6 +15,7 @@ export function DefaultSettingsOidc({
 }: OrySettingsOidcProps) {
   const hasLinkButtons = linkButtons.length > 0
   const hasUnlinkButtons = unlinkButtons.length > 0
+  const { setValue } = useFormContext()
 
   return (
     <div className="flex flex-col gap-8">
@@ -28,6 +30,10 @@ export function DefaultSettingsOidc({
                 key={attrs.value}
                 node={button}
                 attributes={attrs}
+                onClick={() => {
+                  setValue("link", attrs.value)
+                  setValue("method", "oidc")
+                }}
               />
             )
           })}
@@ -37,7 +43,7 @@ export function DefaultSettingsOidc({
       {unlinkButtons.map((button) => {
         const attrs = button.attributes as UiNodeInputAttributes
         const provider = extractProvider(button.meta.label?.context) ?? ""
-        const Logo = logos[attrs.value]
+        const Logo = attrs.value in logos ? logos[attrs.value] : logos.generic
 
         return (
           <div key={attrs.value} className="flex justify-between">
@@ -47,7 +53,14 @@ export function DefaultSettingsOidc({
                 {provider}
               </p>
             </div>
-            <button {...attrs} type="submit">
+            <button
+              {...attrs}
+              type="submit"
+              onClick={() => {
+                setValue("unlink", attrs.value)
+                setValue("method", "oidc")
+              }}
+            >
               <Trash className="cursor-pointer text-links-link-mute-default hover:text-links-link-mute-hover" />
             </button>
           </div>
