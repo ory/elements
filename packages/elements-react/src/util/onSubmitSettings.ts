@@ -5,6 +5,8 @@ import {
   FlowType,
   handleContinueWith,
   handleFlowError,
+  isResponseError,
+  loginUrl,
   SettingsFlow,
   settingsUrl,
   UpdateSettingsFlowBody,
@@ -72,4 +74,15 @@ export async function onSubmitSettings(
         onRedirect,
       }),
     )
+    .catch((err) => {
+      if (isResponseError(err)) {
+        if (err.response.status === 401) {
+          return onRedirect(
+            loginUrl(config) + "?return_to=" + settingsUrl(config),
+            true,
+          )
+        }
+        throw err
+      }
+    })
 }
