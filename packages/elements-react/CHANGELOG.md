@@ -1,3 +1,20 @@
+## 1.0.0-next.14 (2024-11-08)
+
+
+### 🚀 Features
+
+- force OIDC account selection on settings
+
+
+### 🩹 Fixes
+
+- redirect to login if session expired during settings
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.13 (2024-11-05)
 
 
