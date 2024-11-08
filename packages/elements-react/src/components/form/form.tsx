@@ -340,8 +340,13 @@ export function OryForm({ children, onAfterSubmit, nodes }: OryFormProps) {
           submitData.method = "lookup_secret"
         }
 
-        if ("link" in submitData || "unlink" in submitData) {
-          submitData.method = "oidc"
+        // Force the account selection screen on link to provide a better use experience.
+        // https://github.com/ory/elements/issues/268
+        // TODO: Maybe this needs to be configurable in the configuration
+        if (submitData.method === "oidc") {
+          submitData.upstream_parameters = {
+            prompt: "select_account",
+          }
         }
 
         if ("webauthn_remove" in submitData) {
