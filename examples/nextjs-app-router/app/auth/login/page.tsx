@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Login } from "@ory/elements-react/theme"
 import { useOryConfig } from "@ory/nextjs"
 import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"

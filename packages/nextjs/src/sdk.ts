@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { Configuration, FrontendApi, ProjectApi } from "@ory/client-fetch"
 
 const sdkUrl = process.env["ORY_SDK_URL"] || ""

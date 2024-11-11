@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { FlowType, handleFlowError, ApiResponse } from "@ory/client-fetch"
 import { FlowParams, initOverrides, QueryParams } from "../types"
 import { onValidationError, toValue } from "../utils"

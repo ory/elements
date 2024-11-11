@@ -1,4 +1,7 @@
-import type { Config } from "tailwindcss";
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   content: [
@@ -15,5 +18,5 @@ const config: Config = {
     },
   },
   plugins: [],
-};
-export default config;
+}
+export default config
