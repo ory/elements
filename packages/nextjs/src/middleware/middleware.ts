@@ -6,16 +6,7 @@ import { rewriteUrls } from "../rewrite"
 import { filterRequestHeaders, processSetCookieHeaders } from "../utils"
 import { OryConfig } from "../types"
 import { defaultOmitHeaders } from "../headers"
-
-function getProjectSdkUrl() {
-  let baseUrl = ""
-
-  if (process.env["ORY_SDK_URL"]) {
-    baseUrl = process.env["ORY_SDK_URL"]
-  }
-
-  return baseUrl.replace(/\/$/, "")
-}
+import {getProjectSdkUrl} from "../sdk";
 
 function getProjectApiKey() {
   let baseUrl = ""
@@ -104,7 +95,6 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
       selfUrl,
       options,
     )
-    console.log({originalLocation,      location})
 
     if (!location.startsWith("http")) {
       // console.debug('rewriting location', selfUrl, location, new URL(location, selfUrl).toString())

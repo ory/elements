@@ -3,7 +3,25 @@
 
 import { Configuration, FrontendApi, ProjectApi } from "@ory/client-fetch"
 
-const sdkUrl = process.env["ORY_SDK_URL"] || ""
+export function getProjectSdkUrl() {
+  let baseUrl = ""
+
+  if (process.env["NEXT_PUBLIC_ORY_SDK_URL"]) {
+    baseUrl = process.env["NEXT_PUBLIC_ORY_SDK_URL"]
+  }
+
+  if (process.env["ORY_SDK_URL"]) {
+    baseUrl = process.env["ORY_SDK_URL"]
+  }
+
+  if (!baseUrl) {
+    throw new Error(
+        "You need to set environment variable ORY_SDK_URL to your Ory Network SDK URL.",
+    )
+  }
+
+  return baseUrl.replace(/\/$/, "")
+}
 
 function isProduction() {
   return (
@@ -22,7 +40,7 @@ export function getSdkUrl() {
     return `https://${process.env["VERCEL_URL"]}`.replace(/\/$/, "")
   }
 
-  return sdkUrl.replace(/\/$/, "")
+  return getProjectSdkUrl().replace(/\/$/, "")
 }
 
 export function newOryClient(): {

@@ -3,5 +3,6 @@
 
 export {
   useRegistrationFlow,
-  getRegistrationServerSideProps,
 } from "./registration"
+
+export type {RegistrationPageProps} from "./registration"
