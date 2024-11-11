@@ -88,17 +88,29 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
   // Modify location header
   const originalLocation = upstreamResponse.headers.get("location")
   if (originalLocation) {
-    let location = rewriteUrls(
-      originalLocation,
+    let location = originalLocation
+
+    // The legacy hostedui does a redirect to `../self-service` which breaks the NextJS middleware.
+    // To fix this, we hard-rewrite `../self-service`.
+    //
+    // This is not needed with the "new" account experience based on this SDK.
+    if (location.startsWith("../self-service")) {
+        location = location.replace("../self-service", "/self-service")
+    }
+
+    location = rewriteUrls(
+        location,
       matchBaseUrl.toString(),
       selfUrl,
       options,
     )
+    console.log({originalLocation,      location})
 
     if (!location.startsWith("http")) {
       // console.debug('rewriting location', selfUrl, location, new URL(location, selfUrl).toString())
       location = new URL(location, selfUrl).toString()
     }
+
 
     // Next.js throws an error that is completely unhelpful if the location header is not an absolute URL.
     // Therefore, we throw a more helpful error message here.

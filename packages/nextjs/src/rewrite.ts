@@ -10,12 +10,6 @@ export function rewriteUrls(
   selfUrl: string,
   config: OryConfig,
 ) {
-  // The legacy hostedui does a redirect to `../self-service` which breaks the NextJS middleware.
-  // To fix this, we hard-rewrite `../self-service`.
-  //
-  // This is not needed with the "new" account experience based on this SDK.
-  source = source.replaceAll("../self-service", "/self-service")
-
   for (const [_, [matchPath, replaceWith]] of [
     // TODO load these dynamically from the project config
     ["/ui/recovery", config.override?.recoveryUiPath],
@@ -24,6 +18,7 @@ export function rewriteUrls(
     ["/ui/verification", config.override?.verificationUiPath],
     ["/ui/settings", config.override?.settingsUiPath],
   ].entries()) {
+    console.log(matchPath, replaceWith)
     const match = joinUrlPaths(matchBaseUrl, matchPath || "")
     if (replaceWith && source.startsWith(match)) {
       source = source.replaceAll(

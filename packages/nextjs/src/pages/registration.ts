@@ -1,6 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+"use client"
 import { FlowType, handleFlowError, RegistrationFlow } from "@ory/client-fetch"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"

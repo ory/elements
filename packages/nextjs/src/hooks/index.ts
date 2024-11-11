@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { newOryFrontendClient } from "./sdk"
+"use client"
+import { newOryFrontendClient } from "../sdk"
 import { Session } from "@ory/client-fetch"
 import { useEffect, useState } from "react"
 
