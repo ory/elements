@@ -18,7 +18,7 @@ export function rewriteUrls(
     ["/ui/verification", config.override?.verificationUiPath],
     ["/ui/settings", config.override?.settingsUiPath],
   ].entries()) {
-    console.log(matchPath, replaceWith)
+
     const match = joinUrlPaths(matchBaseUrl, matchPath || "")
     if (replaceWith && source.startsWith(match)) {
       source = source.replaceAll(

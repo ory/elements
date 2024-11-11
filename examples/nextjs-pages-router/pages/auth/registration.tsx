@@ -1,20 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { Registration } from "@ory/elements-react/theme"
 import {
   useRegistrationFlow,
-  getRegistrationServerSideProps,
 } from "@ory/nextjs/pages"
-
 import { useOryConfig } from "@ory/nextjs"
-import config from "nextjs-app-router/ory.config"
 
-// This gets called on every request
-export const getServerSideProps = getRegistrationServerSideProps
+import config from "@/ory.config"
 
-export default async function RegistrationPage() {
-  const flow = await useRegistrationFlow()
+export default function LoginPage() {
+  const flow = useRegistrationFlow()
 
   if (!flow) {
     return null
