@@ -19,12 +19,12 @@ export function useOryConfig(
       registration_enabled: true,
       verification_enabled: true,
       recovery_enabled: true,
-      recovery_ui_url: config.override?.recovery_ui_path ?? "/ui/recovery",
+      recovery_ui_url: config.override?.recoveryUiPath ?? "/ui/recovery",
       registration_ui_url:
-        config.override?.registration_ui_path ?? "/ui/registration",
+        config.override?.registrationUiPath ?? "/ui/registration",
       verification_ui_url:
-        config.override?.verification_ui_path ?? "/ui/verification",
-      login_ui_url: config.override?.login_ui_path ?? "/ui/login",
+        config.override?.verificationUiPath ?? "/ui/verification",
+      login_ui_url: config.override?.loginUiPath ?? "/ui/login",
     },
   }
 }
