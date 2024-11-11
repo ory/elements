@@ -1,4 +1,7 @@
-import { Html, Head, Main, NextScript } from "next/document";
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
+import { Html, Head, Main, NextScript } from "next/document"
 
 export default function Document() {
   return (
@@ -9,5 +12,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  );
+  )
 }

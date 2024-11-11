@@ -330,6 +330,53 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!DefaultCardLayout:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function DefaultCardLayout({ children }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "DefaultCardLayout"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCardLogo:function(1)",
           "docComment": "",
           "excerptTokens": [

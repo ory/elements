@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 export interface OryConfig {
   /**
    * Sets the base path for proxying requests to Ory during development and previews. Is unset per default for best

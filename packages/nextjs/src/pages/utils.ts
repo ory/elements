@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { useRouter } from "next/router"
 import { toBrowserEndpointRedirect } from "../utils"

@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OryConfig } from "./types"
 import { joinUrlPaths } from "./urls"
 
