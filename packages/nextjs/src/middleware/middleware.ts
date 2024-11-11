@@ -86,13 +86,30 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
   }
 
   // Modify location header
-  if (upstreamResponse.headers.get("location")) {
-    const location = rewriteUrls(
-      upstreamResponse.headers.get("location") || "",
+  const originalLocation = upstreamResponse.headers.get("location")
+  if (originalLocation) {
+    let location = rewriteUrls(
+      originalLocation,
       matchBaseUrl.toString(),
       selfUrl,
       options,
     )
+
+    if (!location.startsWith("http")) {
+      // console.debug('rewriting location', selfUrl, location, new URL(location, selfUrl).toString())
+      location = new URL(location, selfUrl).toString()
+    }
+
+    // Next.js throws an error that is completely unhelpful if the location header is not an absolute URL.
+    // Therefore, we throw a more helpful error message here.
+    if (!location.startsWith("http")) {
+      throw new Error(
+        "The HTTP location header must be an absolute URL in NextJS middlewares. However, it is not. The resulting HTTP location is `" +
+          location +
+          "`. This is either a configuration or code bug. Please open an issue on https://github.com/ory/elements.",
+      )
+    }
+
     upstreamResponse.headers.set("location", location)
   }
 

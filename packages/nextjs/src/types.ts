@@ -43,35 +43,35 @@ export interface OryConfig {
      * project root. Assuming you have a file at `./app/my-login/page.tsx`, you would set this to
      * `/my-login`.
      */
-    login_ui_path?: string
+    loginUiPath?: string
 
     /**
      * Set this to use a custom registration UI for the registration flow. This path should be relative to the
      * project root. Assuming you have a file at `./app/my-registration/page.tsx`, you would set this to
      * `/my-registration`.
      */
-    registration_ui_path?: string
+    registrationUiPath?: string
 
     /**
      * Set this to use a custom recovery UI for the recovery flow. This path should be relative to the
      * project root. Assuming you have a file at `./app/my-recovery/page.tsx`, you would set this to
      * `/my-recovery`.
      */
-    recovery_ui_path?: string
+    recoveryUiPath?: string
 
     /**
      * Set this to use a custom verification UI for the verification flow. This path should be relative to the
      * project root. Assuming you have a file at `./app/my-verification/page.tsx`, you would set this to
      * `/my-verification`.
      */
-    verification_ui_path?: string
+    verificationUiPath?: string
 
     /**
      * Set this to use a custom settings UI for the settings flow. This path should be relative to the
      * project root. Assuming you have a file at `./app/my-settings/page.tsx`, you would set this to
      * `/my-settings`.
      */
-    settings_ui_path?: string
+    settingsUiPath?: string
   }
 }
 
