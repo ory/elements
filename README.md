@@ -3,28 +3,29 @@
 # Ory Elements
 
 Ory Elements is a component library that makes building login, registration and
-account pages for Ory a breeze.
+account pages for Ory a breeze:
 
 - Reduces time to add complex auth flows to your customer experience, including
-  multi-factor authentication and account recovery
-- Themeable and modular - use only what you need from it
-- Works with the React ecosystem (NextJS, React SPA, Preact SPA)
-- Works with the Express based ecosystem
+  multi-factor authentication and account recovery.
+- Customizable, themeable, and replaceable components.
+- Works with the React ecosystem (NextJS, React SPA).
 - Dynamically adapts the user interface to your Ory identity schema, sign-in and
-  flow configuration
+  flow configuration.
 
-Ory Elements supports integrating with:
+Ory Elements' comes with several packages:
 
-- React
-- Preact
-- Express.js (experimental)
+- [`@ory/elements-react`](./packages/elements-react/README.md)
+- [`@ory/nextjs`](./packages/nextjs/README.md)
 
-Ory Elements stands apart from the SDK and your application data layer. This is
-intentional so that you still have control over how you would like to interact
-with Ory in your application. How you manage your application state is all up to
-you. Below is a simple diagram of how Ory Elements fits into your application.
+Additionally, the v0 version of Ory Elements is in maintenance mode for
+packages:
 
-![Ory Elements](./.assets/ory-stack.png)
+- [`@ory/elements-markup`](./packages/markup/README.md)
+- [`@ory/elements-preact`](./packages/preact/README.md)
+- [`@ory/elements-markup`](./packages/markup/README.md)
+
+If you use one of the above packages, we recommend migrating to the new packages
+ASAP.
 
 ## Getting Started
 
