@@ -5,7 +5,8 @@ import type { OryConfig } from "@ory/nextjs"
 
 const config: OryConfig = {
   override: {
-    applicationName: "NextJS (Router) example",
+    applicationName: "NextJS pages router example",
+    loginUiPath: "/auth/login",
   },
 }
 

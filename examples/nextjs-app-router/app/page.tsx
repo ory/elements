@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { useSession } from "@ory/nextjs"
+import { useSession } from "@ory/nextjs/hooks"
 import Link from "next/link"
 
 export default function RootLayout() {

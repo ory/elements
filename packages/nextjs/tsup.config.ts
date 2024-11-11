@@ -54,4 +54,11 @@ export default defineConfig([
     treeshake: true,
     external: baseExternal,
   },
+  {
+    ...baseConfig,
+    entry: ["src/hooks/index.ts"],
+    outDir: "dist/hooks",
+    treeshake: true,
+    external: baseExternal,
+  },
 ])

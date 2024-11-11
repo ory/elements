@@ -1,6 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+"use server"
 import { headers } from "next/headers"
 import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { redirect, RedirectType } from "next/navigation"

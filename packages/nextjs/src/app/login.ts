@@ -1,12 +1,18 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+"use server"
 import { onRedirect, redirectToBrowserEndpoint } from "./utils"
-import { FlowType, LoginFlow } from "@ory/client-fetch"
-import { QueryParams } from "../types"
+import {
+  ApiResponse,
+  FlowType,
+  handleFlowError,
+  LoginFlow,
+} from "@ory/client-fetch"
+import { FlowParams, initOverrides, QueryParams } from "../types"
 import { toFlowParams } from "./utils"
 import { getFlowFactory } from "./flow"
 import { newOryFrontendClient } from "../sdk"
+import { onValidationError, toValue } from "../utils"
 
 const factory = getFlowFactory({
   redirectToBrowserEndpoint,
@@ -45,5 +51,28 @@ const factory = getFlowFactory({
 export async function getLoginFlow(
   params: QueryParams,
 ): Promise<LoginFlow | null | void> {
-  return factory(params)
+  const onRestartFlow = () =>
+    redirectToBrowserEndpoint(params,FlowType.Login)
+
+  if (!params["flow"]) {
+    onRestartFlow()
+    return
+  }
+
+  try {
+    const resp = await newOryFrontendClient().getLoginFlowRaw(
+      toFlowParams(params),
+      initOverrides,
+    )
+
+    return toValue<LoginFlow>(resp)
+  } catch (error) {
+    const errorHandler = handleFlowError({
+      onValidationError,
+      onRestartFlow,
+      onRedirect: onRedirect,
+    })
+    await errorHandler(error)
+    return null
+  }
 }

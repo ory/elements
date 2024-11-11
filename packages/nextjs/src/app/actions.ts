@@ -38,12 +38,12 @@ export async function getProjectConfig(): Promise<OryConfig> {
   return Promise.resolve({
     override: {
       applicationName: project.name,
-      recovery_ui_path: config.selfservice.flows.recovery.ui_url,
-      registration_ui_path: config.selfservice.flows.registration.ui_url,
-      login_ui_path: config.selfservice.flows.login.ui_url,
-      settings_ui_path: config.selfservice.flows.settings.ui_url,
-      error_ui_path: config.selfservice.flows.error.ui_url,
-      verification_ui_path: config.selfservice.flows.verification.ui_url,
+      recoveryUiPath: config.selfservice.flows.recovery.ui_url,
+      registrationUiPath: config.selfservice.flows.registration.ui_url,
+      loginUiPath: config.selfservice.flows.login.ui_url,
+      settingsUiPath: config.selfservice.flows.settings.ui_url,
+      errorUiPath: config.selfservice.flows.error.ui_url,
+      verificationUiPath: config.selfservice.flows.verification.ui_url,
     },
   })
 }
