@@ -33,7 +33,8 @@
     "pages router"
   ],
   "peerDependencies": {
-    "next": ">=13.1.0"
+    "next": ">=13.1.0",
+    "react": ">=16.0.0"
   },
   "exports": {
     ".": {

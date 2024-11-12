@@ -1,19 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { OryConfig } from "./types"
+import { OryConfig } from "../types"
 import { OryClientConfiguration } from "@ory/elements-react"
-import { getSdkUrl } from "./sdk"
 
 export function useOryConfig(
+  sdkUrl: string,
   config: Partial<OryConfig>,
 ): OryClientConfiguration {
-  // TODO load this info from the server
-
   return {
     name: config.override?.applicationName ?? "Default name",
     sdk: {
-      url: getSdkUrl(),
+      url: sdkUrl,
     },
     project: {
       registration_enabled: true,

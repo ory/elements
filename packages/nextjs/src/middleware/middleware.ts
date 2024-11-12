@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { NextResponse, type NextRequest } from "next/server"
-import { rewriteUrls } from "../rewrite"
-import { filterRequestHeaders, processSetCookieHeaders } from "../utils"
+import { rewriteUrls } from "../utils/rewrite"
+import { filterRequestHeaders, processSetCookieHeaders } from "../utils/utils"
 import { OryConfig } from "../types"
-import { defaultOmitHeaders } from "../headers"
-import {getProjectSdkUrl} from "../sdk";
+import { defaultOmitHeaders } from "../utils/headers"
+import { orySdkUrl } from "../utils/sdk"
 
 function getProjectApiKey() {
   let baseUrl = ""
@@ -19,12 +19,18 @@ function getProjectApiKey() {
 }
 
 async function proxyRequest(request: NextRequest, options: OryConfig) {
-  const match = ["/self-service", "/sessions/whoami", "/ui"]
+  const match = [
+    "/self-service",
+    "/sessions/whoami",
+    "/ui",
+    "/.well-known/ory",
+    "/.ory",
+  ]
   if (!match.some((m) => request.nextUrl.pathname.startsWith(m))) {
     return NextResponse.next()
   }
 
-  const matchBaseUrl = new URL(getProjectSdkUrl())
+  const matchBaseUrl = new URL(orySdkUrl())
   const selfUrl = request.nextUrl.protocol + "//" + request.nextUrl.host
 
   const upstreamUrl = request.nextUrl.clone()
@@ -86,21 +92,15 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
     //
     // This is not needed with the "new" account experience based on this SDK.
     if (location.startsWith("../self-service")) {
-        location = location.replace("../self-service", "/self-service")
+      location = location.replace("../self-service", "/self-service")
     }
 
-    location = rewriteUrls(
-        location,
-      matchBaseUrl.toString(),
-      selfUrl,
-      options,
-    )
+    location = rewriteUrls(location, matchBaseUrl.toString(), selfUrl, options)
 
     if (!location.startsWith("http")) {
       // console.debug('rewriting location', selfUrl, location, new URL(location, selfUrl).toString())
       location = new URL(location, selfUrl).toString()
     }
-
 
     // Next.js throws an error that is completely unhelpful if the location header is not an absolute URL.
     // Therefore, we throw a more helpful error message here.

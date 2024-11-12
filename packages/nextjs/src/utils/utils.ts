@@ -1,39 +1,28 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ApiResponse } from "@ory/client-fetch"
-import { FlowParams, OryConfig, QueryParams } from "./types"
-import { FlowType, handleFlowError, OnRedirectHandler } from "@ory/client-fetch"
-import { getSdkUrl } from "./sdk"
-import { guessCookieDomain } from "./cookie"
+import { handleFlowError, OnRedirectHandler } from "@ory/client-fetch"
 import { parse, splitCookiesString } from "set-cookie-parser"
 import { serialize, SerializeOptions } from "cookie"
+
+import { FlowParams, OryConfig, QueryParams } from "../types"
+import { guessCookieDomain } from "./cookie"
 import { defaultForwardedHeaders } from "./headers"
 
 export function onValidationError<T>(value: T): T {
   return value
 }
 
-export function toFlowParams(
+export async function toFlowParams(
   params: QueryParams,
-  getCookieHeader: () => string | undefined,
-): FlowParams {
+  getCookieHeader: () => Promise<string | undefined>,
+): Promise<FlowParams> {
   return {
     id: params["flow"],
-    cookie: getCookieHeader(),
+    cookie: await getCookieHeader(),
     return_to: params["return_to"],
   }
 }
-
-export const toBrowserEndpointRedirect = (
-  params: QueryParams,
-  flowType: FlowType,
-) =>
-  getSdkUrl() +
-  "/self-service/" +
-  flowType.toString() +
-  "/browser?" +
-  params.toString()
 
 export const onError =
   (onRestartFlow: () => void, onRedirect: OnRedirectHandler) => (err: any) =>
@@ -91,6 +80,6 @@ export function filterRequestHeaders(
   return filteredHeaders
 }
 
-export function toValue<T>(res: ApiResponse<T>) {
-  return res.value()
+export function joinUrlPaths(baseUrl: string, relativeUrl: string): string {
+  return new URL(relativeUrl, baseUrl).href
 }

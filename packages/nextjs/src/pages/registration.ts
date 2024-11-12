@@ -2,14 +2,53 @@
 // SPDX-License-Identifier: Apache-2.0
 "use client"
 import { useEffect, useState } from "react"
-import { FlowType, handleFlowError, RegistrationFlow } from "@ory/client-fetch"
+import {
+  FlowType,
+  handleFlowError,
+  OnRedirectHandler,
+  RegistrationFlow,
+  ApiResponse,
+} from "@ory/client-fetch"
 import { useRouter } from "next/router"
-import { newOryFrontendClient } from "../sdk"
-import { onValidationError, toValue } from "../utils"
 import { useSearchParams } from "next/navigation"
-import { handleRestartFlow, useOnRedirect } from "./utils"
+import { clientSideFrontendClient } from "./client"
+import { rewriteJsonResponse } from "../utils/rewrite"
 
-const client = newOryFrontendClient()
+export function toValue<T extends object>(res: ApiResponse<T>): Promise<T> {
+  // Remove all undefined values from the response (array and object) using lodash:
+  // Remove all (nested) undefined values from the response using lodash
+  return res.value().then((v) => rewriteJsonResponse(v))
+}
+
+export function onValidationError<T>(value: T): T {
+  return value
+}
+
+const toBrowserEndpointRedirect = (
+  params: URLSearchParams,
+  flowType: FlowType,
+) =>
+  "http://localhost:3000" +
+  "/self-service/" +
+  flowType.toString() +
+  "/browser?" +
+  new URLSearchParams(params).toString()
+
+const handleRestartFlow =
+  (searchParams: URLSearchParams, flowType: FlowType) => () => {
+    window.location.assign(toBrowserEndpointRedirect(searchParams, flowType))
+  }
+
+function useOnRedirect(): OnRedirectHandler {
+  const router = useRouter()
+  return (url: string, external: boolean) => {
+    if (external) {
+      window.location.assign(url)
+    } else {
+      router.push(url)
+    }
+  }
+}
 
 export function useRegistrationFlow(): RegistrationFlow | null | void {
   const [flow, setFlow] = useState<RegistrationFlow>()
@@ -37,12 +76,12 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
     const id = searchParams.get("flow")
 
     // If the router is not ready yet, or we already have a flow, do nothing.
-    if (!router.isReady) {
+    if (!router.isReady || flow !== undefined) {
       return
     }
 
     if (!id) {
-      client
+      clientSideFrontendClient
         .createBrowserRegistrationFlowRaw({
           returnTo: searchParams.get("return_to") ?? undefined,
           loginChallenge: searchParams.get("login_challenge") ?? undefined,
@@ -51,77 +90,17 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
           organization: searchParams.get("organization") ?? undefined,
         })
         .then(toValue)
-        .then((v) => {
-          setFlow(v)
-          return handleSetFlow(v)
-        })
+        .then(handleSetFlow)
         .catch(errorHandler)
       return
     }
 
-    client
+    clientSideFrontendClient
       .getRegistrationFlowRaw({ id })
-      .then((r) => r.value())
-      .then(setFlow)
+      .then(toValue)
+      .then(handleSetFlow)
       .catch(errorHandler)
   }, [searchParams, router, router.isReady, flow])
 
   return flow
 }
-
-// This gets called on every request
-// export async function getRegistrationServerSideProps(
-//   context: GetServerSidePropsContext,
-// ) {
-//   // Otherwise we initialize it
-//   const query = toSearchParams(context.query)
-//   return await client
-//     .createBrowserRegistrationFlowRaw({
-//       returnTo: query.get("return_to") ?? undefined,
-//       loginChallenge: query.get("login_challenge") ?? undefined,
-//       afterVerificationReturnTo:
-//         query.get("after_verification_return_to") ?? undefined,
-//       organization: query.get("organization") ?? undefined,
-//     })
-//     .then(toValue)
-//     .then((v) => ({
-//       props: { flow: replaceUndefinedWithNull(RegistrationFlowToJSON(v)) },
-//     }))
-//     .catch(
-//       handleFlowError({
-//         onValidationError,
-//         onRestartFlow: () => ({
-//           redirect: {
-//             destination: toBrowserEndpointRedirect(
-//               query,
-//               FlowType.Registration,
-//             ),
-//             permanent: false,
-//           },
-//         }),
-//         onRedirect: (url) => ({
-//           redirect: {
-//             destination: url,
-//             permanent: false,
-//           },
-//         }),
-//       }),
-//     )
-// }
-
-// function replaceUndefinedWithNull(obj: unknown): unknown {
-//   if (Array.isArray(obj)) {
-//     return obj.map(replaceUndefinedWithNull)
-//   } else if (obj !== null && typeof obj === "object") {
-//     Object.keys(obj).forEach((key) => {
-//       const value = (obj as Record<string, unknown>)[key]
-//       if (value === undefined) {
-//         delete (obj as Record<string, unknown>)[key]
-//       } else {
-//         ;(obj as Record<string, unknown>)[key] = replaceUndefinedWithNull(value)
-//       }
-//     })
-//     return obj
-//   }
-//   return obj
-// }

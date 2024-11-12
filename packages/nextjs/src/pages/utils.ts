@@ -1,14 +1,22 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+"use client"
 import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { useRouter } from "next/router"
-import { toBrowserEndpointRedirect } from "../utils"
 import type { ParsedUrlQuery } from "querystring"
+import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
 
 export const handleRestartFlow =
   (searchParams: URLSearchParams, flowType: FlowType) => () => {
-    window.location.assign(toBrowserEndpointRedirect(searchParams, flowType))
+    window.location.assign(
+      new URL(
+        "/self-service/" +
+          flowType.toString() +
+          "/browser?" +
+          searchParams.toString(),
+        guessPotentiallyProxiedOrySdkUrl(),
+      ).toString(),
+    )
   }
 
 export function useOnRedirect(): OnRedirectHandler {

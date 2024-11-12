@@ -1,6 +1,5 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-"use server"
 import "@ory/elements-react/theme/styles.css"
 import { PropsWithChildren } from "react"
 

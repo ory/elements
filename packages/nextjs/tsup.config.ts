@@ -11,6 +11,8 @@ const baseExternal = [
   "tldjs",
 ]
 
+const reactExternal = [...baseExternal, "react", "react-dom"]
+
 const baseConfig: Options = {
   dts: true,
   minify: false,
@@ -25,8 +27,7 @@ export default defineConfig([
     entry: ["src/index.ts"],
     outDir: "dist/",
     treeshake: true,
-    // The base package uses react
-    external: [...baseExternal, "react"],
+    external: [...baseExternal],
     esbuildOptions(options) {
       options.banner = {
         js: '"use client"',
@@ -45,20 +46,20 @@ export default defineConfig([
     entry: ["src/app/index.ts"],
     outDir: "dist/app",
     treeshake: true,
-    external: baseExternal,
+    external: reactExternal,
   },
   {
     ...baseConfig,
     entry: ["src/pages/index.ts"],
     outDir: "dist/pages",
     treeshake: true,
-    external: baseExternal,
+    external: reactExternal,
   },
   {
     ...baseConfig,
     entry: ["src/hooks/index.ts"],
     outDir: "dist/hooks",
     treeshake: true,
-    external: baseExternal,
+    external: reactExternal,
   },
 ])
