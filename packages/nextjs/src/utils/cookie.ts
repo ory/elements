@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { parse } from "tldjs"
-import { OryConfig } from "./types"
+import { OryConfig } from "../types"
 
 export function guessCookieDomain(url: string | undefined, config: OryConfig) {
   if (!url || config.forceCookieDomain) {

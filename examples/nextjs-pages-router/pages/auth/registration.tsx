@@ -1,14 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
+"use client"
 import { Registration } from "@ory/elements-react/theme"
+import { oryPageRouterConfig, useRegistrationFlow } from "@ory/nextjs/pages"
 import "@ory/elements-react/theme/styles.css"
-// import {
-//   useRegistrationFlow,
-// } from "@ory/nextjs/pages"
-import { useOryConfig } from "@ory/nextjs"
 
 import config from "@/ory.config"
-import { useRegistrationFlow } from "@/pages/auth/hook"
 
 export default function RegistrationPage() {
   const flow = useRegistrationFlow()
@@ -18,12 +15,14 @@ export default function RegistrationPage() {
   }
 
   return (
-    <Registration
-      flow={flow}
-      config={useOryConfig(config)}
-      components={{
-        Card: {},
-      }}
-    />
+    <div className="pt-4">
+      <Registration
+        flow={flow}
+        config={oryPageRouterConfig(config)}
+        components={{
+          Card: {},
+        }}
+      />
+    </div>
   )
 }
