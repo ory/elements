@@ -9,7 +9,8 @@ import "@ory/elements-react/theme/styles.css"
 import config from "@/ory.config"
 import CardHeader from "@/app/auth/login/card-header"
 
-export default async function LoginPage({ searchParams }: OryPageParams) {
+export default async function LoginPage(props: OryPageParams) {
+  const searchParams = await props.searchParams;
   const flow = await getLoginFlow(searchParams)
 
   if (!flow) {
