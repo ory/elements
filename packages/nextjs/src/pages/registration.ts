@@ -1,15 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
+"use client"
 import { useEffect, useState } from "react"
-import {
-  FlowType,
-  handleFlowError,
-  RegistrationFlow,
-} from "@ory/client-fetch"
+import { FlowType, handleFlowError, RegistrationFlow } from "@ory/client-fetch"
 import { useRouter } from "next/router"
 import { newOryFrontendClient } from "../sdk"
-import { onValidationError } from "../utils"
+import { onValidationError, toValue } from "../utils"
 import { useSearchParams } from "next/navigation"
 import { handleRestartFlow, useOnRedirect } from "./utils"
 
@@ -28,6 +24,15 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
     onRedirect,
   })
 
+  const handleSetFlow = (flow: RegistrationFlow) => {
+    setFlow(flow)
+
+    // Use the router to update the `flow` search parameter only
+    return router.replace({
+      query: { flow: flow.id },
+    })
+  }
+
   useEffect(() => {
     const id = searchParams.get("flow")
 
@@ -37,7 +42,20 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
     }
 
     if (!id) {
-      onRestartFlow()
+      client
+        .createBrowserRegistrationFlowRaw({
+          returnTo: searchParams.get("return_to") ?? undefined,
+          loginChallenge: searchParams.get("login_challenge") ?? undefined,
+          afterVerificationReturnTo:
+            searchParams.get("after_verification_return_to") ?? undefined,
+          organization: searchParams.get("organization") ?? undefined,
+        })
+        .then(toValue)
+        .then((v) => {
+          setFlow(v)
+          return handleSetFlow(v)
+        })
+        .catch(errorHandler)
       return
     }
 
@@ -51,7 +69,7 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
   return flow
 }
 
-// // This gets called on every request
+// This gets called on every request
 // export async function getRegistrationServerSideProps(
 //   context: GetServerSidePropsContext,
 // ) {
@@ -90,7 +108,7 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
 //       }),
 //     )
 // }
-//
+
 // function replaceUndefinedWithNull(obj: unknown): unknown {
 //   if (Array.isArray(obj)) {
 //     return obj.map(replaceUndefinedWithNull)
@@ -100,7 +118,7 @@ export function useRegistrationFlow(): RegistrationFlow | null | void {
 //       if (value === undefined) {
 //         delete (obj as Record<string, unknown>)[key]
 //       } else {
-//         (obj as Record<string, unknown>)[key] = replaceUndefinedWithNull(value)
+//         ;(obj as Record<string, unknown>)[key] = replaceUndefinedWithNull(value)
 //       }
 //     })
 //     return obj
