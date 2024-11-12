@@ -33,7 +33,7 @@ export const toBrowserEndpointRedirect = (
   "/self-service/" +
   flowType.toString() +
   "/browser?" +
-  new URLSearchParams(params).toString()
+  params.toString()
 
 export const onError =
   (onRestartFlow: () => void, onRedirect: OnRedirectHandler) => (err: any) =>
