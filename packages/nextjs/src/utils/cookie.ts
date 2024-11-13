@@ -4,12 +4,6 @@
 import { OryConfig } from "../types"
 import { parse } from "psl"
 
-function isIPv6(address: string): boolean {
-  const ipv6Pattern =
-    /^(?:[a-zA-Z][a-zA-Z\d+.-]*:\/\/)?(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}$|^(?:[a-zA-Z][a-zA-Z\d+.-]*:\/\/)?::(?:[a-fA-F0-9]{1,4}:){0,6}[a-fA-F0-9]{1,4}$|^(?:[a-zA-Z][a-zA-Z\d+.-]*:\/\/)?(?:[a-fA-F0-9]{1,4}:){1,7}:$|^(?:[a-zA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}$|^(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}$|^(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}$|^(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}$|^(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}$|^[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6}$|^:(?::[a-fA-F0-9]{1,4}){1,7}$|^::$/
-  return ipv6Pattern.test(address)
-}
-
 export function guessCookieDomain(url: string | undefined, config: OryConfig) {
   if (!url || config.forceCookieDomain) {
     return config.forceCookieDomain

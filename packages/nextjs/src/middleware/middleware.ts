@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { NextResponse, type NextRequest } from "next/server"
+
 import { rewriteUrls } from "../utils/rewrite"
 import { filterRequestHeaders, processSetCookieHeaders } from "../utils/utils"
 import { OryConfig } from "../types"
