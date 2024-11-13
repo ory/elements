@@ -2,4 +2,3 @@
 // SPDX-License-Identifier: Apache-2.0
 "use client"
 export { useRegistrationFlow } from "./registration"
-export { oryPageRouterConfig } from "./config"

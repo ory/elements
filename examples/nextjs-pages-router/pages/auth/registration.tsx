@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 "use client"
 import { Registration } from "@ory/elements-react/theme"
-import { oryPageRouterConfig, useRegistrationFlow } from "@ory/nextjs/pages"
+import { useRegistrationFlow } from "@ory/nextjs/pages"
+import { enhanceConfig } from "@ory/nextjs"
 import "@ory/elements-react/theme/styles.css"
 
 import config from "@/ory.config"
@@ -18,7 +19,7 @@ export default function RegistrationPage() {
     <div className="pt-4">
       <Registration
         flow={flow}
-        config={oryPageRouterConfig(config)}
+        config={enhanceConfig(config)}
         components={{
           Card: {},
         }}
