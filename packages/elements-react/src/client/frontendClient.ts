@@ -25,7 +25,7 @@ export function frontendClient(
   const config = new Configuration({
     ...opts,
     basePath: basePath?.replace(/\/$/, ""),
-    credentials: opts.credentials || "include",
+    credentials: opts.credentials ?? "include",
     headers: {
       Accept: "application/json",
       ...opts.headers,
