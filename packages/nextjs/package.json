@@ -8,7 +8,6 @@
   "private": false,
   "dependencies": {
     "@ory/client-fetch": "^1.15.6",
-    "@ory/elements-react": "*",
     "cookie": "^1.0.1",
     "parse-domain": "^8.2.2",
     "psl": "^1.10.0",
