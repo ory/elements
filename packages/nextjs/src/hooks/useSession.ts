@@ -6,7 +6,7 @@ import { Session } from "@ory/client-fetch"
 import { useCallback, useEffect } from "react"
 import { create, useStore } from "zustand"
 import { subscribeWithSelector } from "zustand/middleware"
-import { frontendClient } from "./frontendClient"
+import {guessPotentiallyProxiedOrySdkUrl, newOryFrontendClient} from "../utils/sdk";
 
 type SessionStore = {
   setIsLoading: (loading: boolean) => void
@@ -52,10 +52,9 @@ export const useSession = (config?: { sdk: { url: string } }) => {
     setIsLoading(true)
 
     try {
-      const sessionData = await frontendClient(
-        config?.sdk.url ??
-          window.location.protocol + "//" + window.location.host,
-      ).toSession()
+      const sessionData = await newOryFrontendClient(guessPotentiallyProxiedOrySdkUrl({
+        knownProxiedUrl: window.location.origin
+      })).toSession()
       setSession(sessionData)
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unknown error occurred")
