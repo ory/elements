@@ -1,28 +1,49 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { parse } from "tldjs"
 import { OryConfig } from "../types"
+import { parse } from "psl"
+
+function isIPv6(address: string): boolean {
+  const ipv6Pattern =
+    /^(?:[a-zA-Z][a-zA-Z\d+.-]*:\/\/)?(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}$|^(?:[a-zA-Z][a-zA-Z\d+.-]*:\/\/)?::(?:[a-fA-F0-9]{1,4}:){0,6}[a-fA-F0-9]{1,4}$|^(?:[a-zA-Z][a-zA-Z\d+.-]*:\/\/)?(?:[a-fA-F0-9]{1,4}:){1,7}:$|^(?:[a-zA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}$|^(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}$|^(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}$|^(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}$|^(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}$|^[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6}$|^:(?::[a-fA-F0-9]{1,4}){1,7}$|^::$/
+  return ipv6Pattern.test(address)
+}
 
 export function guessCookieDomain(url: string | undefined, config: OryConfig) {
   if (!url || config.forceCookieDomain) {
     return config.forceCookieDomain
   }
 
-  const parsed = parse(url || "")
+  let parsedUrl
+  try {
+    parsedUrl = new URL(url).hostname
+  } catch (e) {
+    parsedUrl = url
+  }
 
-  if (!parsed.isValid || parsed.isIp) {
+  const parsed = parse(parsedUrl)
+
+  if (parsed.error) {
     return undefined
   }
 
-  if (parsed.publicSuffix) {
-    // We can't set the cookie for public domain suffixes.
-    return undefined
+  if (isIPAddress(parsedUrl)) {
+    return parsedUrl
   }
 
-  if (!parsed.domain) {
-    return parsed.hostname
-  }
+  return parsed.domain || parsed.input
+}
 
-  return parsed.domain
+// Helper function to check if the hostname is an IP address
+export function isIPAddress(hostname: string) {
+  // IPv4 pattern: four groups of 1-3 digits, separated by dots, each between 0-255
+  const ipv4Pattern =
+    /^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})){3}$/
+
+  // IPv6 pattern: eight groups of 1-4 hexadecimal digits, separated by colons, optional shorthand (::)
+  const ipv6Pattern =
+    /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]+|::(ffff(:0{1,4})?:)?((25[0-5]|(2[0-4]|1?[0-9])?[0-9])\.){3}(25[0-5]|(2[0-4]|1?[0-9])?[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9])?[0-9])\.){3}(25[0-5]|(2[0-4]|1?[0-9])?[0-9]))$/
+
+  return ipv4Pattern.test(hostname) || ipv6Pattern.test(hostname)
 }
