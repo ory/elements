@@ -6,7 +6,7 @@ import { Session } from "@ory/client-fetch"
 import { useCallback, useEffect } from "react"
 import { create, useStore } from "zustand"
 import { subscribeWithSelector } from "zustand/middleware"
-import {guessPotentiallyProxiedOrySdkUrl, newOryFrontendClient} from "../utils/sdk";
+import { frontendClient } from "./frontendClient"
 
 type SessionStore = {
   setIsLoading: (loading: boolean) => void
@@ -38,10 +38,13 @@ export const sessionStore = create<SessionStore>()(
  *
  * @returns The current session, error and loading state.
  */
-export const useSession = (config?: { sdk: { url: string } }) => {
+export const useSession = (config: { orySdkUrl?: string } = {}) => {
   const store = useStore(sessionStore)
 
   const fetchSession = useCallback(async () => {
+    const client = frontendClient({
+      forceBaseUrl: config.orySdkUrl,
+    })
     const { session, isLoading, setSession, setIsLoading, setError } =
       sessionStore.getState()
 
@@ -52,21 +55,19 @@ export const useSession = (config?: { sdk: { url: string } }) => {
     setIsLoading(true)
 
     try {
-      const sessionData = await newOryFrontendClient(guessPotentiallyProxiedOrySdkUrl({
-        knownProxiedUrl: window.location.origin
-      })).toSession()
+      const sessionData = await client.toSession()
       setSession(sessionData)
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unknown error occurred")
-      if (!config?.sdk.url) {
+      if (!config?.orySdkUrl) {
         console.error(
-          "Could not fetch session. Make sure you have set the SDK URL in the config.",
+          "Could not fetch session. Make sure you have set your environment variables correctly.",
         )
       }
     } finally {
       setIsLoading(false)
     }
-  }, [config?.sdk.url])
+  }, [config?.orySdkUrl])
 
   useEffect(() => {
     void fetchSession()

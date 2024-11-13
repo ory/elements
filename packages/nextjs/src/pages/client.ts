@@ -9,6 +9,7 @@ export const clientSideFrontendClient = new FrontendApi(
     headers: {
       Accept: "application/json",
     },
+    credentials: "include",
     basePath: guessPotentiallyProxiedOrySdkUrl(),
   }),
 )
