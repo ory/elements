@@ -57,6 +57,9 @@ export function DefaultCardFooter(): react_jsx_runtime.JSX.Element | null;
 export function DefaultCardHeader(): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
+export function DefaultCardLayout({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
 export function DefaultCardLogo(): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
