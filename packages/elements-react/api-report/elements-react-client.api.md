@@ -8,9 +8,7 @@ import { Session } from '@ory/client-fetch';
 
 // @public
 export const useSession: (config?: {
-    sdk: {
-        url: string;
-    };
+    orySdkUrl?: string;
 }) => {
     session: Session | undefined;
     error: string | undefined;
