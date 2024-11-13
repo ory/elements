@@ -1,5 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
+import { redirect, RedirectType } from "next/navigation"
 import { FlowType, handleFlowError, LoginFlow } from "@ory/client-fetch"
 
 import { getPublicUrl, onRedirect } from "./utils"
@@ -9,7 +10,6 @@ import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
 import { onValidationError } from "../utils/utils"
 import { rewriteJsonResponse } from "../utils/rewrite"
 import { serverSideFrontendClient } from "./client"
-import { redirect, RedirectType } from "next/navigation"
 
 // const factory = getFlowFactory({
 //   redirectToBrowserEndpoint,

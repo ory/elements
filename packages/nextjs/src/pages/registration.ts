@@ -1,7 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-"use client"
+
 import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import { useSearchParams } from "next/navigation"
 import {
   FlowType,
   handleFlowError,
@@ -9,10 +11,10 @@ import {
   RegistrationFlow,
   ApiResponse,
 } from "@ory/client-fetch"
-import { useRouter } from "next/router"
-import { useSearchParams } from "next/navigation"
+
 import { clientSideFrontendClient } from "./client"
 import { rewriteJsonResponse } from "../utils/rewrite"
+import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
 
 export function toValue<T extends object>(res: ApiResponse<T>): Promise<T> {
   // Remove all undefined values from the response (array and object) using lodash:
@@ -28,7 +30,9 @@ const toBrowserEndpointRedirect = (
   params: URLSearchParams,
   flowType: FlowType,
 ) =>
-  "http://localhost:3000" +
+  guessPotentiallyProxiedOrySdkUrl({
+    knownProxiedUrl: window.location.origin,
+  }) +
   "/self-service/" +
   flowType.toString() +
   "/browser?" +

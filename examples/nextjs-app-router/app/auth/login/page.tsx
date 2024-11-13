@@ -3,7 +3,6 @@
 
 import { Login } from "@ory/elements-react/theme"
 import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
-import "@ory/elements-react/theme/styles.css"
 import { enhanceConfig } from "@ory/nextjs"
 
 import config from "@/ory.config"

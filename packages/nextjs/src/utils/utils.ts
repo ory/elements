@@ -1,7 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { handleFlowError, OnRedirectHandler } from "@ory/client-fetch"
 import { parse, splitCookiesString } from "set-cookie-parser"
 import { serialize, SerializeOptions } from "cookie"
 
@@ -23,17 +22,6 @@ export async function toFlowParams(
     return_to: params["return_to"],
   }
 }
-
-export const onError =
-  (onRestartFlow: () => void, onRedirect: OnRedirectHandler) => (err: any) =>
-    new Promise((resolve) => {
-      handleFlowError({
-        onValidationError: resolve,
-        // RestartFlow and Redirect both use redirects hence we don't need to resolve here.
-        onRestartFlow,
-        onRedirect,
-      })(err)
-    })
 
 export function processSetCookieHeaders(
   protocol: string,

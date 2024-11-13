@@ -1,8 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Configuration, FrontendApi } from "@ory/client-fetch"
-
 export function orySdkUrl() {
   let baseUrl
 
@@ -68,14 +66,4 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
   )
 
   return final
-}
-
-export function newOryFrontendClient(sdkUrl: string) {
-  const config = new Configuration({
-    headers: {
-      Accept: "application/json",
-    },
-    basePath: sdkUrl,
-  })
-  return new FrontendApi(config)
 }

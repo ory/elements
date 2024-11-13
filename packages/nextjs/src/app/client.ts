@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Configuration, FrontendApi } from "@ory/client-fetch"
+
 import { orySdkUrl } from "../utils/sdk"
 
 export const serverSideFrontendClient = new FrontendApi(

@@ -57,11 +57,6 @@
       "types": "./dist/pages/index.d.ts",
       "import": "./dist/pages/index.mjs",
       "require": "./dist/pages/index.js"
-    },
-    "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks/index.mjs",
-      "require": "./dist/hooks/index.js"
     }
   },
   "typesVersions": {
