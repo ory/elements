@@ -8,10 +8,10 @@ import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/jest-globals"
 import { act, render, screen, waitFor } from "@testing-library/react"
 import { sessionStore, useSession } from "./useSession"
-import { frontendClient } from "./frontendClient"
+import {newOryFrontendClient} from "../utils/sdk";
 
-jest.mock("./frontendClient", () => ({
-  frontendClient: jest.fn(() => ({
+jest.mock("./newOryFrontendClient", () => ({
+  newOrynewOryFrontendClient: jest.fn(() => ({
     toSession: jest.fn(),
   })),
 }))
@@ -49,7 +49,7 @@ describe("useSession", () => {
   })
 
   it("fetches and sets session successfully", async () => {
-    ;(frontendClient as jest.Mock).mockReturnValue({
+    ;(newOryFrontendClient as jest.Mock).mockReturnValue({
       toSession: jest.fn().mockResolvedValue(mockSession),
     })
 
@@ -70,7 +70,7 @@ describe("useSession", () => {
   })
 
   it("doesn't refetch session if a session is set", async () => {
-    ;(frontendClient as jest.Mock).mockReturnValue({
+    ;(newOryFrontendClient as jest.Mock).mockReturnValue({
       toSession: jest.fn().mockResolvedValue(mockSession),
     })
 
@@ -91,7 +91,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(newOryFrontendClient("").toSession).toHaveBeenCalledTimes(1)
 
     act(() => {
       render(<TestComponent />)
@@ -99,12 +99,12 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(newOryFrontendClient("").toSession).toHaveBeenCalledTimes(1)
   })
 
   it("handles errors during session fetching", async () => {
     const errorMessage = "Failed to fetch session"
-    ;(frontendClient as jest.Mock).mockReturnValue({
+    ;(newOryFrontendClient as jest.Mock).mockReturnValue({
       toSession: jest.fn().mockRejectedValue(new Error(errorMessage)),
     })
 
@@ -123,7 +123,7 @@ describe("useSession", () => {
   })
 
   it("does not fetch session if already loading or session is set", async () => {
-    ;(frontendClient as jest.Mock).mockReturnValue({
+    ;(newOryFrontendClient as jest.Mock).mockReturnValue({
       toSession: jest.fn(),
     })
 
@@ -140,6 +140,6 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(newOryFrontendClient("").toSession).toHaveBeenCalledTimes(1)
   })
 })
