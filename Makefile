@@ -10,11 +10,16 @@ install:
 test:
 	npm run test
 
+build:
+	npm run build
+
+dev:
+	npm run build
+
 test-containerized: 
 	# https://github.com/microsoft/playwright/issues/26482
 	# For unsupported distros, use the `test-containerized` target instead of `test`
 	sh -c ./playwright-docker.sh
-
 
 PRETTIER_VERSION=$(shell cat package.json | jq -r '.devDependencies["prettier"] // .dependencies["prettier"]')
 
@@ -22,7 +27,6 @@ format: .bin/ory
 	.bin/ory dev headers copyright --type=open-source
 	@echo "Prettier Version: $(PRETTIER_VERSION)"
 	npx prettier@$$PRETTIER_VERSION --write .
-
 
 licenses: .bin/licenses node_modules  # checks open-source licenses
 	.bin/licenses
