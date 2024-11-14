@@ -12,4 +12,3 @@ export { default as pl } from "./pl.json"
 export { default as fi } from "./fi.json"
 export { default as ru } from "./ru.json"
 export { default as zh } from "./zh.json"
-
