@@ -1,6 +1,5 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
 import { parse, splitCookiesString } from "set-cookie-parser"
 import { serialize, SerializeOptions } from "cookie"
 
@@ -22,7 +21,6 @@ export async function toFlowParams(
     return_to: params["return_to"],
   }
 }
-
 export function processSetCookieHeaders(
   protocol: string,
   fetchResponse: Response,
@@ -31,8 +29,6 @@ export function processSetCookieHeaders(
 ) {
   const isTls =
     protocol === "https:" || requestHeaders.get("x-forwarded-proto") === "https"
-
-  const secure = false
 
   const forwarded = requestHeaders.get("x-forwarded-host")
   const host = forwarded ? forwarded : requestHeaders.get("host")
@@ -44,7 +40,7 @@ export function processSetCookieHeaders(
     .map((cookie) => ({
       ...cookie,
       domain,
-      secure,
+      secure: isTls,
       encode: (v: string) => v,
     }))
     .map(({ value, name, ...options }) =>
@@ -69,5 +65,13 @@ export function filterRequestHeaders(
 }
 
 export function joinUrlPaths(baseUrl: string, relativeUrl: string): string {
-  return new URL(relativeUrl, baseUrl).href
+  const base = new URL(baseUrl)
+  const relative = new URL(relativeUrl, baseUrl)
+
+  relative.pathname =
+    base.pathname.replace(/\/$/, "") +
+    "/" +
+    relative.pathname.replace(/^\//, "")
+
+  return new URL(relative.toString(), baseUrl).href
 }
