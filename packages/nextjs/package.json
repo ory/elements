@@ -9,14 +9,15 @@
   "dependencies": {
     "@ory/client-fetch": "^1.15.6",
     "cookie": "^1.0.1",
-    "parse-domain": "^8.2.2",
     "psl": "^1.10.0",
-    "set-cookie-parser": "^2.7.0"
+    "set-cookie-parser": "^2.7.1"
   },
   "devDependencies": {
     "@types/cookie": "^0.6.0",
     "@types/psl": "^1.1.3",
     "@types/set-cookie-parser": "^2.4.10",
+    "babel-jest": "^29.7.0",
+    "jest-esm-transformer": "^1.0.0",
     "tsup": "8.3.0"
   },
   "keywords": [

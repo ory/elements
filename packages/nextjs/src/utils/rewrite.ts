@@ -32,7 +32,6 @@ export function rewriteUrls(
     new URL(selfUrl).toString().replace(/\/$/, ""),
   )
 }
-
 export function rewriteJsonResponse<T extends object>(
   obj: T,
   proxyUrl?: string,
@@ -42,22 +41,25 @@ export function rewriteJsonResponse<T extends object>(
       .filter(([_, value]) => value !== undefined)
       .map(([key, value]) => {
         if (Array.isArray(value)) {
-          // Recursively remove undefined in nested arrays
+          // Recursively process each item in the array
           return [
             key,
             value
-              .map((item) =>
-                typeof item === "object"
-                  ? rewriteJsonResponse(item, proxyUrl)
-                  : item,
-              )
+              .map((item) => {
+                if (typeof item === "object" && item !== null) {
+                  return rewriteJsonResponse(item, proxyUrl)
+                } else if (typeof item === "string" && proxyUrl) {
+                  return item.replaceAll(orySdkUrl(), proxyUrl)
+                }
+                return item
+              })
               .filter((item) => item !== undefined),
           ]
         } else if (typeof value === "object" && value !== null) {
           // Recursively remove undefined in nested objects
           return [key, rewriteJsonResponse(value, proxyUrl)]
         } else if (typeof value === "string" && proxyUrl) {
-          // Replace SDK url with our own URL from the headers() object
+          // Replace SDK URL with the provided proxy URL
           return [key, value.replaceAll(orySdkUrl(), proxyUrl)]
         }
         return [key, value]
