@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { useSession } from "@ory/nextjs/hooks"
 import Link from "next/link"
+import { useSession } from "@ory/elements-react/client"
 
 export default function RootLayout() {
-  const session = useSession()
+  const { session } = useSession()
   if (session) {
     return "Hello: " + session.identity?.traits.email
   }
