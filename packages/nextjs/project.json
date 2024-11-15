@@ -16,6 +16,15 @@
       "options": {
         "cwd": "packages/nextjs"
       }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "dependsOn": ["build"],
+      "options": {
+        "jestConfig": "packages/nextjs/jest.config.ts",
+        "coverage": true,
+        "coverageReporters": ["text", "cobertura"]
+      }
     }
   }
 }

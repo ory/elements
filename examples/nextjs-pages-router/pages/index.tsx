@@ -8,6 +8,7 @@ import { useSession } from "@ory/elements-react/client"
 export default function Home() {
   const { session } = useSession()
   if (session) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     return "Hello: " + session.identity?.traits.email
   }
   return (
