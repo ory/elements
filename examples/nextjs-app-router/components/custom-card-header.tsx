@@ -3,6 +3,6 @@
 
 "use client"
 
-export default function CardHeader() {
+export default function CustomCardHeader() {
   return <div>My custom card header</div>
 }

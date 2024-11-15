@@ -7,6 +7,9 @@ const config: OryConfig = {
   override: {
     applicationName: "NextJS app router example",
     loginUiPath: "/auth/login",
+    registrationUiPath: "/auth/registration",
+    recoveryUiPath: "/auth/recovery",
+    verificationUiPath: "/auth/verification",
   },
 }
 

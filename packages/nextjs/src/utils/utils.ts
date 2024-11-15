@@ -6,6 +6,8 @@ import { serialize, SerializeOptions } from "cookie"
 import { FlowParams, OryConfig, QueryParams } from "../types"
 import { guessCookieDomain } from "./cookie"
 import { defaultForwardedHeaders } from "./headers"
+import { ApiResponse } from "@ory/client-fetch"
+import { rewriteJsonResponse } from "./rewrite"
 
 export function onValidationError<T>(value: T): T {
   return value
@@ -74,4 +76,10 @@ export function joinUrlPaths(baseUrl: string, relativeUrl: string): string {
     relative.pathname.replace(/^\//, "")
 
   return new URL(relative.toString(), baseUrl).href
+}
+
+export function toValue<T extends object>(res: ApiResponse<T>): Promise<T> {
+  // Remove all undefined values from the response (array and object) using lodash:
+  // Remove all (nested) undefined values from the response using lodash
+  return res.value().then((v) => rewriteJsonResponse(v))
 }
