@@ -8,3 +8,5 @@ export {
   type FlowContainerSetter,
 } from "./flow-context"
 export * from "./provider"
+
+export type { FormState, FormStateAction } from "./form-state"

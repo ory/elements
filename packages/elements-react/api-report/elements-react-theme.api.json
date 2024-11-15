@@ -359,6 +359,39 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!DefaultCurrentIdentifierButton:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function DefaultCurrentIdentifierButton(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "DefaultCurrentIdentifierButton"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultFormContainer:function(1)",
           "docComment": "",
           "excerptTokens": [

@@ -2,6 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  OryFlowComponentOverrides,
+  OryFlowComponents,
+} from "@ory/elements-react"
+import {
   DefaultCard,
   DefaultCardContent,
   DefaultCardFooter,
@@ -24,26 +28,21 @@ import { DefaultLabel } from "./form/label"
 import { DefaultLinkButton } from "./form/link-button"
 import { DefaultPinCodeInput } from "./form/pin-code-input"
 import {
-  DefaultButtonSocial,
-  DefaultSocialButtonContainer,
-} from "./form/social"
-import { DefaultText } from "./form/text"
-import { DefaultCurrentIdentifierButton } from "./card/current-identifier-button"
-import {
-  OryFlowComponentOverrides,
-  OryFlowComponents,
-} from "@ory/elements-react"
-import {
   DefaultFormSection,
   DefaultFormSectionContent,
   DefaultFormSectionFooter,
 } from "./form/section"
+import {
+  DefaultButtonSocial,
+  DefaultSocialButtonContainer,
+} from "./form/social"
+import { DefaultText } from "./form/text"
+import { DefaultPageHeader } from "./generic/page-header"
+import { DefaultSettingsOidc } from "./settings/settings-oidc"
+import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes"
 import { DefaultSettingsTotp } from "./settings/settings-top"
-import { DefaultSettingsOidc } from "./settings/settings-oidc"
 import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
-import { DefaultSettingsPasskey } from "./settings/settings-passkey"
-import { DefaultPageHeader } from "./generic/page-header"
 
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
@@ -69,9 +68,6 @@ export function getOryComponents(
     Node: {
       Button: overrides?.Node?.Button ?? DefaultButton,
       OidcButton: overrides?.Node?.OidcButton ?? DefaultButtonSocial,
-      CurrentIdentifierButton:
-        overrides?.Node?.CurrentIdentifierButton ??
-        DefaultCurrentIdentifierButton,
       Input: overrides?.Node?.Input ?? DefaultInput,
       CodeInput: overrides?.Node?.CodeInput ?? DefaultPinCodeInput,
       Image: overrides?.Node?.Image ?? DefaultImage,

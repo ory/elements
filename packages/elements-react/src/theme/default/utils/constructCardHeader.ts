@@ -54,6 +54,21 @@ export function useCardHeaderText(
   const intl = useIntl()
   switch (opts.flowType) {
     case FlowType.Recovery:
+      if (
+        nodes.find(
+          (node) =>
+            "name" in node.attributes && node.attributes.name === "code",
+        )
+      ) {
+        return {
+          title: intl.formatMessage({
+            id: "recovery.title",
+          }),
+          description: intl.formatMessage({
+            id: "identities.messages.1060003",
+          }),
+        }
+      }
       return {
         title: intl.formatMessage({
           id: "recovery.title",
@@ -72,6 +87,21 @@ export function useCardHeaderText(
         }),
       }
     case FlowType.Verification:
+      if (
+        nodes.find(
+          (node) =>
+            "name" in node.attributes && node.attributes.name === "code",
+        )
+      ) {
+        return {
+          title: intl.formatMessage({
+            id: "verification.title",
+          }),
+          description: intl.formatMessage({
+            id: "identities.messages.1080003",
+          }),
+        }
+      }
       return {
         title: intl.formatMessage({
           id: "verification.title",

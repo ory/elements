@@ -19,11 +19,16 @@ export function DefaultLabel({
 }: OryNodeLabelProps) {
   const intl = useIntl()
   const label = getNodeLabel(node)
-  const { config, flowType } = useOryFlow()
+  const { config, flowType, flow } = useOryFlow()
 
   const isPassword = attributes.type === "password"
 
-  const isCode = attributes.name === "code"
+  const hasResend = flow.ui.nodes.some(
+    (n) =>
+      "name" in n.attributes &&
+      n.attributes.name === "email" &&
+      n.attributes.type === "submit",
+  )
 
   return (
     <span className="flex flex-col antialiased gap-1">
@@ -51,7 +56,7 @@ export function DefaultLabel({
                 })}
               </a>
             )}
-          {isCode && (
+          {hasResend && (
             <button
               type="submit"
               name="method"

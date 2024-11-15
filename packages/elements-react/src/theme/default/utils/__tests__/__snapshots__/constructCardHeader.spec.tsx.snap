@@ -198,14 +198,14 @@ exports[`flowType=login refresh=true combination=webauthn constructCardHeaderTex
 
 exports[`flowType=recovery refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Recover your account",
 }
 `;
 
 exports[`flowType=recovery refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Recover your account",
 }
 `;
@@ -296,14 +296,14 @@ exports[`flowType=recovery refresh=false combination=webauthn constructCardHeade
 
 exports[`flowType=recovery refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Recover your account",
 }
 `;
 
 exports[`flowType=recovery refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Recover your account",
 }
 `;
@@ -786,14 +786,14 @@ exports[`flowType=settings refresh=true combination=webauthn constructCardHeader
 
 exports[`flowType=verification refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to verify it",
+  "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Verify your account",
 }
 `;
 
 exports[`flowType=verification refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to verify it",
+  "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Verify your account",
 }
 `;
@@ -884,14 +884,14 @@ exports[`flowType=verification refresh=false combination=webauthn constructCardH
 
 exports[`flowType=verification refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to verify it",
+  "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Verify your account",
 }
 `;
 
 exports[`flowType=verification refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to verify it",
+  "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "title": "Verify your account",
 }
 `;

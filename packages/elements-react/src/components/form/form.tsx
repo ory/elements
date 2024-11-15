@@ -2,60 +2,46 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  UiNode,
-  UiNodeGroupEnum,
+  FlowType,
+  OnRedirectHandler,
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
   UpdateRegistrationFlowBody,
   UpdateSettingsFlowBody,
   UpdateVerificationFlowBody,
-} from "@ory/client-fetch"
-import { ComponentType, PropsWithChildren } from "react"
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
-import { useIntl } from "react-intl"
-import { useOryFlow, useComponents } from "../../context"
-import {
-  FormValues,
-  OryCardAuthMethodListItemProps,
-  OryNodeButtonProps,
-  OryFormRootProps,
-  OryNodeImageProps,
-  OryNodeInputProps,
-  OryNodeLabelProps,
-  OryNodeAnchorProps,
-  OryNodeTextProps,
-  OryCurrentIdentifierProps,
-  OryCardLogoProps,
-  OryFormSectionContentProps,
-} from "../../types"
-import { OryCardDividerProps } from "../generic/divider"
-import { OryFormGroupProps, OryFormGroups } from "./groups"
-import { OryMessageContentProps, OryMessageRootProps } from "./messages"
-import {
-  OryFormOidcRootProps,
-  OryNodeOidcButtonProps,
-  OryFormOidcButtons,
-} from "./social"
-import {
-  FlowType,
-  OnRedirectHandler,
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
 } from "@ory/client-fetch"
+import { ComponentType, PropsWithChildren } from "react"
+import { SubmitHandler, useFormContext } from "react-hook-form"
+import { useIntl } from "react-intl"
+import { useComponents, useOryFlow } from "../../context"
+import {
+  FormValues,
+  OryCardAuthMethodListItemProps,
+  OryCardLogoProps,
+  OryFormRootProps,
+  OryFormSectionContentProps,
+  OryNodeAnchorProps,
+  OryNodeButtonProps,
+  OryNodeImageProps,
+  OryNodeInputProps,
+  OryNodeLabelProps,
+  OryNodeTextProps,
+} from "../../types"
 import { OryFlowContainer } from "../../util"
-import { computeDefaultValues } from "./form-helpers"
-import { OryCardRootProps } from "../card/card"
-import { OryCardFooterProps } from "../card"
-import { OryCardContentProps } from "../card/content"
 import { onSubmitLogin } from "../../util/onSubmitLogin"
-import { onSubmitRegistration } from "../../util/onSubmitRegistration"
-import { onSubmitVerification } from "../../util/onSubmitVerification"
 import { onSubmitRecovery } from "../../util/onSubmitRecovery"
+import { onSubmitRegistration } from "../../util/onSubmitRegistration"
 import { onSubmitSettings } from "../../util/onSubmitSettings"
+import { onSubmitVerification } from "../../util/onSubmitVerification"
+import { OryCardFooterProps } from "../card"
+import { OryCardRootProps } from "../card/card"
+import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
-import { OryFormSectionProps } from "./section"
+import { OryCardDividerProps } from "../generic/divider"
 import {
   OrySettingsOidcProps,
   OrySettingsPasskeyProps,
@@ -63,6 +49,15 @@ import {
   OrySettingsTotpProps,
   OrySettingsWebauthnProps,
 } from "../settings"
+import { computeDefaultValues } from "./form-helpers"
+import { OryFormGroupProps, OryFormGroups } from "./groups"
+import { OryMessageContentProps, OryMessageRootProps } from "./messages"
+import { OryFormSectionProps } from "./section"
+import {
+  OryFormOidcButtons,
+  OryFormOidcRootProps,
+  OryNodeOidcButtonProps,
+} from "./social"
 
 /**
  * A record of all the components that are used in the OryForm component.
@@ -79,12 +74,6 @@ export type OryFlowComponents = {
      * It renders the "Login with Google", "Login with Facebook" etc. buttons.
      */
     OidcButton: ComponentType<OryNodeOidcButtonProps>
-    /**
-     * The CurrentIdentifierButton component is rendered whenever a button of group "identifier_first" node is encountered.
-     *
-     * It is used to show the current identifier and can allow the user to start a new flow, if they want to.
-     */
-    CurrentIdentifierButton: ComponentType<OryCurrentIdentifierProps>
     /**
      * Anchor component, rendered whenever an "anchor" node is encountered
      */
@@ -233,23 +222,12 @@ export type OryFlowComponentOverrides = DeepPartialTwoLevels<OryFlowComponents>
 
 export type OryFormProps = PropsWithChildren<{
   onAfterSubmit?: (method: string | number | boolean | undefined) => void
-  nodes?: UiNode[]
 }>
 
-export function OryForm({ children, onAfterSubmit, nodes }: OryFormProps) {
+export function OryForm({ children, onAfterSubmit }: OryFormProps) {
   const { Form } = useComponents()
   const flowContainer = useOryFlow()
-
-  const defaultNodes = nodes
-    ? flowContainer.flow.ui.nodes
-        .filter((node) => node.group === UiNodeGroupEnum.Default)
-        .concat(nodes)
-    : flowContainer.flow.ui.nodes
-
-  const methods = useForm({
-    // TODO: Generify this, so we have typesafety in the submit handler.
-    defaultValues: computeDefaultValues(defaultNodes),
-  })
+  const methods = useFormContext()
 
   const intl = useIntl()
 
@@ -393,28 +371,26 @@ export function OryForm({ children, onAfterSubmit, nodes }: OryFormProps) {
   }
 
   return (
-    <FormProvider {...methods}>
-      <Form.Root
-        action={flowContainer.flow.ui.action}
-        method={flowContainer.flow.ui.method}
-        onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
-      >
-        {children ?? (
-          <>
-            <OryFormOidcButtons />
-            <OryFormGroups
-              groups={[
-                "default",
-                "password",
-                "code",
-                "webauthn",
-                "passkey",
-                "identifier_first",
-              ]}
-            />
-          </>
-        )}
-      </Form.Root>
-    </FormProvider>
+    <Form.Root
+      action={flowContainer.flow.ui.action}
+      method={flowContainer.flow.ui.method}
+      onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
+    >
+      {children ?? (
+        <>
+          <OryFormOidcButtons />
+          <OryFormGroups
+            groups={[
+              "default",
+              "password",
+              "code",
+              "webauthn",
+              "passkey",
+              "identifier_first",
+            ]}
+          />
+        </>
+      )}
+    </Form.Root>
   )
 }
