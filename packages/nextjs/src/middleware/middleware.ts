@@ -9,7 +9,7 @@ import { OryConfig } from "../types"
 import { defaultOmitHeaders } from "../utils/headers"
 import { orySdkUrl } from "../utils/sdk"
 
-function getProjectApiKey() {
+export function getProjectApiKey() {
   let baseUrl = ""
 
   if (process.env["ORY_PROJECT_API_TOKEN"]) {
@@ -19,7 +19,7 @@ function getProjectApiKey() {
   return baseUrl.replace(/\/$/, "")
 }
 
-async function proxyRequest(request: NextRequest, options: OryConfig) {
+export async function proxyRequest(request: NextRequest, options: OryConfig) {
   const match = [
     "/self-service",
     "/sessions/whoami",
@@ -40,23 +40,23 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
   upstreamUrl.protocol = matchBaseUrl.protocol
   upstreamUrl.port = matchBaseUrl.port
 
-  const requestHeaders = filterRequestHeaders(
+  const upstreamRequestHeaders = filterRequestHeaders(
     request.headers,
     options.forwardAdditionalHeaders,
   )
-  requestHeaders.set("Host", upstreamUrl.hostname)
+  upstreamRequestHeaders.set("Host", upstreamUrl.hostname)
 
   // Ensures we use the correct URL in redirects like OIDC redirects.
-  requestHeaders.set("Ory-Base-URL-Rewrite", selfUrl.toString())
-  requestHeaders.set("Ory-Base-URL-Rewrite-Token", getProjectApiKey())
+  upstreamRequestHeaders.set("Ory-Base-URL-Rewrite", selfUrl.toString())
+  upstreamRequestHeaders.set("Ory-Base-URL-Rewrite-Token", getProjectApiKey())
 
   // We disable custom domain redirects.
-  requestHeaders.set("Ory-No-Custom-Domain-Redirect", "true")
+  upstreamRequestHeaders.set("Ory-No-Custom-Domain-Redirect", "true")
 
   // Fetch the upstream response
   const upstreamResponse = await fetch(upstreamUrl.toString(), {
     method: request.method,
-    headers: requestHeaders,
+    headers: upstreamRequestHeaders,
     body:
       request.method !== "GET" && request.method !== "HEAD"
         ? await request.arrayBuffer()
@@ -75,7 +75,7 @@ async function proxyRequest(request: NextRequest, options: OryConfig) {
       request.nextUrl.protocol,
       upstreamResponse,
       options,
-      requestHeaders,
+      request.headers,
     )
     upstreamResponse.headers.delete("set-cookie")
     cookies.forEach((cookie) => {
