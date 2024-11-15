@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { proxyRequest } from "./middleware"
 import { NextRequest, NextResponse } from "next/server"
 import { OryConfig } from "../types"
@@ -82,11 +85,30 @@ describe("proxyRequest", () => {
     delete process.env["NODE_ENV"]
   })
 
-  it("proxies a request and modifies the Set-Cookie header and JSON response", async () => {
+  it("proxies a request and modifies the set-cookie header", async () => {
     const request = createMockLoginRequest()
     const upstreamResponseHeaders = new Headers({
       "set-cookie":
         "session=a; Domain=playground.projects.oryapis.com; Path=/; HttpOnly",
+      "content-type": "application/json",
+    })
+
+    mockFetch({
+      headers: upstreamResponseHeaders,
+    })
+
+    const response = await proxyRequest(request, createOptions())
+
+    expect(response).toBeInstanceOf(NextResponse)
+    expect(response?.headers.get("set-cookie")).toEqual(
+      "session=a; Domain=localhost; Path=/; HttpOnly",
+    )
+    expect(response?.headers.get("content-type")).toBe("application/json")
+  })
+
+  it("proxies a request and modifies the JSON response", async () => {
+    const request = createMockLoginRequest()
+    const upstreamResponseHeaders = new Headers({
       "content-type": "application/json",
     })
 
@@ -102,12 +124,7 @@ describe("proxyRequest", () => {
     const response = await proxyRequest(request, createOptions())
 
     expect(response).toBeInstanceOf(NextResponse)
-    expect(response?.headers.get("set-cookie")).toEqual(
-      "session=a; Domain=localhost; Path=/; HttpOnly",
-    )
     expect(response?.headers.get("content-type")).toBe("application/json")
-    expect(response?.headers.get("content-type")).toBe("application/json")
-
     const body = await response?.text()
     expect(body).toEqual(
       JSON.stringify({
@@ -139,10 +156,10 @@ describe("proxyRequest", () => {
     )
   })
 
-  it("modifies location header for redirects with custom ui", async () => {
+  it("modifies location header for redirects", async () => {
     const request = createMockLoginRequest()
     const upstreamResponseHeaders = new Headers({
-      location: "https://playground.projects.oryapis.com/ui/login",
+      location: "https://playground.projects.oryapis.com/self-service/login",
     })
 
     mockFetch({
@@ -153,10 +170,50 @@ describe("proxyRequest", () => {
     const response = await proxyRequest(request, createOptions())
 
     expect(response?.headers.get("location")).toBe(
-      "http://localhost/custom-login",
+      "http://localhost/self-service/login",
     )
     expect(response?.status).toBe(302)
   })
+
+  const createTestCase = (
+    part: "login" | "registration" | "recovery" | "verification" | "settings",
+  ) => ({
+    path: `/ui/${part}`,
+    override: {
+      [`${part}UiPath`]: `/custom/${part}`,
+    },
+    expect: `/custom/${part}`,
+  })
+
+  it.each([
+    createTestCase("login"),
+    createTestCase("registration"),
+    createTestCase("recovery"),
+    createTestCase("verification"),
+    createTestCase("settings"),
+  ])(
+    "modifies location header for redirects with custom ory elements page overrides $path",
+    async ({ override, path, expect: expectUrl }) => {
+      const request = createMockLoginRequest()
+      const upstreamResponseHeaders = new Headers({
+        location: "https://playground.projects.oryapis.com" + path,
+      })
+
+      mockFetch({
+        headers: upstreamResponseHeaders,
+        status: 302,
+      })
+
+      const response = await proxyRequest(request, {
+        override,
+      })
+
+      expect(response?.headers.get("location")).toBe(
+        "http://localhost" + expectUrl,
+      )
+      expect(response?.status).toBe(302)
+    },
+  )
 
   it("bypasses requests that do not match proxy paths", async () => {
     const request = createMockRequest("http://localhost/non-proxy-path")
