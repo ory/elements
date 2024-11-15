@@ -31,10 +31,10 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         return { current: "method_active", method: "link" }
       } else if (flow.flow.active == "code_recovery") {
         return { current: "method_active", method: "code" }
-      } else if (flow.flow.active) {
-        return { current: "method_active", method: flow.flow.active }
       } else if (isChoosingMethod(flow.flow.ui.nodes)) {
         return { current: "select_method" }
+      } else if (flow.flow.active) {
+        return { current: "method_active", method: flow.flow.active }
       }
       return { current: "provide_identifier" }
     case FlowType.Recovery:

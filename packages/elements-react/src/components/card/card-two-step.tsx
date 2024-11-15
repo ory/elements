@@ -49,7 +49,6 @@ export function OryTwoStepCard() {
       ? getFinalNodes(uniqueGroups.groups, formState.method)
       : []
 
-  console.log(formState)
   return (
     <OryCard>
       <OryCardHeader />
@@ -88,6 +87,11 @@ export function OryTwoStepCard() {
             )}
             {formState.current === "method_active" && (
               <>
+                {ui.nodes
+                  .filter((n) => n.type === "script")
+                  .map((node, k) => (
+                    <Node node={node} key={k} />
+                  ))}
                 {finalNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}

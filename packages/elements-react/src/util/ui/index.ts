@@ -48,10 +48,10 @@ export function triggerToWindowCall(
 
   // Retry every 250ms for 5 seconds
   let i = 0
-  const ms = 250
+  const ms = 100
   const interval = setInterval(() => {
     i++
-    if (i > 20) {
+    if (i > 100) {
       clearInterval(interval)
       throw new Error(
         "Unable to load Ory's WebAuthn script. Is it being blocked or otherwise failing to load? If you are running an old version of Ory Elements, please upgrade. For more information, please check your browser's developer console.",
@@ -107,6 +107,10 @@ export function useNodesGroups(nodes: UiNode[]) {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
 
     for (const node of nodes) {
+      if (node.type === "script") {
+        // WebAuthn scripts are part of the nodes, for passkey flows
+        continue
+      }
       const groupNodes = groups[node.group] ?? []
       groupNodes.push(node)
       groups[node.group] = groupNodes
