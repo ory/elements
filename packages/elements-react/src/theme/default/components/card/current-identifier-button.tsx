@@ -17,27 +17,7 @@ export function DefaultCurrentIdentifierButton() {
     return null
   }
 
-  let nodeBackButton: UiNode | undefined
-  switch (flowType) {
-    case FlowType.Login:
-      nodeBackButton = ui.nodes.find(
-        (node) =>
-          "name" in node.attributes &&
-          node.attributes.name === "identifier" &&
-          node.group === "identifier_first",
-      )
-      break
-    case FlowType.Registration:
-      nodeBackButton = guessRegistrationBackButton(ui.nodes)
-      break
-    case FlowType.Recovery:
-    case FlowType.Verification:
-      // Re-use the email node for displaying the email
-      nodeBackButton = ui.nodes.find(
-        (n) => "name" in n.attributes && n.attributes.name === "email",
-      )
-      break
-  }
+  const nodeBackButton = getBackButtonNode(flowType, ui.nodes)
 
   if (
     nodeBackButton?.attributes.node_type !== "input" ||
@@ -64,12 +44,39 @@ export function DefaultCurrentIdentifierButton() {
   )
 }
 
+export function getBackButtonNode(
+  flowType: FlowType,
+  nodes: UiNode[],
+): UiNode | undefined {
+  let nodeBackButton: UiNode | undefined
+  switch (flowType) {
+    case FlowType.Login:
+      nodeBackButton = nodes.find(
+        (node) =>
+          "name" in node.attributes &&
+          node.attributes.name === "identifier" &&
+          node.group === "identifier_first",
+      )
+      break
+    case FlowType.Registration:
+      nodeBackButton = guessRegistrationBackButton(nodes)
+      break
+    case FlowType.Recovery:
+    case FlowType.Verification:
+      // Re-use the email node for displaying the email
+      nodeBackButton = nodes.find(
+        (n) => "name" in n.attributes && n.attributes.name === "email",
+      )
+      break
+  }
+  return nodeBackButton
+}
+
 const backButtonCandiates = [
   "traits.email",
   "traits.username",
   "traits.phone_number",
 ]
-
 /**
  * Guesses the back button for registration flows
  *
