@@ -31,7 +31,7 @@ const config: Config = {
       borderRadius: variables.borderRadius,
     },
     fontFamily: {
-      sans: ['"Inter var", sans-serif'],
+      sans: ["var(--font-sans)"],
     },
     colors: {
       ...variables.colors.light,
