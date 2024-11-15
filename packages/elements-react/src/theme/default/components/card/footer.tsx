@@ -104,16 +104,20 @@ function RegistrationCardFooter() {
   return (
     <span className="text-sm font-normal antialiased leading-normal">
       {formState.current === "method_active" ? (
-        <button
-          className="font-medium text-links-link-default"
-          type="submit"
-          onClick={handleScreenSelection}
-        >
-          {intl.formatMessage({
-            id: "card.footer.select-another-method",
-            defaultMessage: "Select another method",
-          })}
-        </button>
+        <>
+          {screenSelectionNode && (
+            <button
+              className="font-medium text-links-link-default"
+              type="submit"
+              onClick={handleScreenSelection}
+            >
+              {intl.formatMessage({
+                id: "card.footer.select-another-method",
+                defaultMessage: "Select another method",
+              })}
+            </button>
+          )}
+        </>
       ) : (
         <>
           {intl.formatMessage({
