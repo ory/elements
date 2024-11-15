@@ -3,10 +3,10 @@
 
 import React from "react"
 import Link from "next/link"
-import { useSession } from "@ory/nextjs/hooks"
+import { useSession } from "@ory/elements-react/client"
 
 export default function Home() {
-  const session = useSession()
+  const { session } = useSession()
   if (session) {
     return "Hello: " + session.identity?.traits.email
   }
