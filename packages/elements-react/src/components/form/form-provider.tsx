@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { useOryFlow } from "../../context"

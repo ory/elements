@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { FlowType, UiNodeGroupEnum } from "@ory/client-fetch"
 import { useReducer } from "react"
 import { isChoosingMethod } from "../components/card/card-two-step.utils"
