@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Login } from "@ory/elements-react/theme"
-import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
 import { enhanceConfig } from "@ory/nextjs"
+import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
 
 import config from "@/ory.config"
-import CustomCardHeader from "@/components/custom-card-header"
 
 export default async function LoginPage(props: OryPageParams) {
   const flow = await getLoginFlow(props.searchParams)
