@@ -1,3 +1,17 @@
+## 1.0.0-next.15 (2024-11-18)
+
+
+### 🩹 Fixes
+
+- use --font-sans CSS variable for font
+
+- registration & login flow form states
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.14 (2024-11-08)
 
 
