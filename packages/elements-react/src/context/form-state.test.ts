@@ -17,6 +17,17 @@ test('should initialize with "provide_identifier" state', () => {
   expect(state).toEqual({ current: "provide_identifier" })
 })
 
+test('should initialize with "settings" state for settings flows', () => {
+  const { result } = renderHook(() =>
+    useFormStateReducer({
+      flowType: FlowType.Settings,
+    } as unknown as OryFlowContainer),
+  )
+
+  const [state] = result.current
+  expect(state).toEqual({ current: "settings" })
+})
+
 test('should transition to "method_active" state when "action_select_method" is dispatched', () => {
   const { result } = renderHook(() => useFormStateReducer(init))
   const [, dispatch] = result.current
