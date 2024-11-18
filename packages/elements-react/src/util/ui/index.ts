@@ -108,7 +108,8 @@ export function useNodesGroups(nodes: UiNode[]) {
 
     for (const node of nodes) {
       if (node.type === "script") {
-        // WebAuthn scripts are part of the nodes, for passkey flows
+        // We always render all scripts, because the scripts for passkeys are part of the webauthn group,
+        // which leads to this hook returning a webauthn group on passkey flows (which it should not - webauthn is the "legacy" passkey implementation).
         continue
       }
       const groupNodes = groups[node.group] ?? []

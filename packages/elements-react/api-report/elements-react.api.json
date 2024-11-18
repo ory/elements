@@ -348,7 +348,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    current: \"success_screen\";\n} | {\n    current: \"impossible_unknown\";\n}"
+              "text": ";\n} | {\n    current: \"success_screen\";\n} | {\n    current: \"settings\";\n}"
             },
             {
               "kind": "Content",

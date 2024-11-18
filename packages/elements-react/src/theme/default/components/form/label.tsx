@@ -23,7 +23,7 @@ export function DefaultLabel({
 
   const isPassword = attributes.type === "password"
 
-  const hasResend = flow.ui.nodes.some(
+  const hasResendNode = flow.ui.nodes.some(
     (n) =>
       "name" in n.attributes &&
       n.attributes.name === "email" &&
@@ -31,7 +31,7 @@ export function DefaultLabel({
   )
 
   return (
-    <span className="flex flex-col antialiased gap-1">
+    <div className="flex flex-col antialiased gap-1">
       {label && (
         <span className="inline-flex justify-between">
           <label
@@ -56,7 +56,7 @@ export function DefaultLabel({
                 })}
               </a>
             )}
-          {hasResend && (
+          {hasResendNode && (
             <button
               type="submit"
               name="method"
@@ -82,6 +82,6 @@ export function DefaultLabel({
           {uiTextToFormattedMessage(message, intl)}
         </span>
       ))}
-    </span>
+    </div>
   )
 }

@@ -64,8 +64,8 @@ export const NodeInput = ({
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
-  const isResend = node.meta.label?.id === 1070008
-  const isScreenSelection =
+  const isResendNode = node.meta.label?.id === 1070008
+  const isScreenSelectionNode =
     "name" in node.attributes && node.attributes.name === "screen"
 
   switch (attributes.type) {
@@ -74,7 +74,7 @@ export const NodeInput = ({
       if (isSocial) {
         return <Node.OidcButton attributes={attrs} node={node} />
       }
-      if (isResend || isScreenSelection) {
+      if (isResendNode || isScreenSelectionNode) {
         return null
       }
 

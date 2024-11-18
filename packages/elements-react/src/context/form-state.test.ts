@@ -208,15 +208,14 @@ test('should fallback to "impossible_unknown" for unknown recovery state', () =>
     flow: { id: "unknown", active: null, ui: { nodes: [] } },
   } as unknown as OryFlowContainer
 
-  act(() => {
-    dispatch({
-      type: "action_flow_update",
-      flow: mockFlow,
-    })
-  })
-
-  const [state] = result.current
-  expect(state).toEqual({ current: "impossible_unknown" })
+  expect(() =>
+    act(() => {
+      dispatch({
+        type: "action_flow_update",
+        flow: mockFlow,
+      })
+    }),
+  ).toThrow("Unknown form state")
 })
 
 test('should fallback to "impossible_unknown" for unrecognized flow', () => {
@@ -228,13 +227,12 @@ test('should fallback to "impossible_unknown" for unrecognized flow', () => {
     flow: { id: "unknown", active: null, ui: { nodes: [] } },
   } as unknown as OryFlowContainer
 
-  act(() => {
-    dispatch({
-      type: "action_flow_update",
-      flow: mockFlow,
-    })
-  })
-
-  const [state] = result.current
-  expect(state).toEqual({ current: "impossible_unknown" })
+  expect(() =>
+    act(() => {
+      dispatch({
+        type: "action_flow_update",
+        flow: mockFlow,
+      })
+    }),
+  ).toThrow("Unknown form state")
 })

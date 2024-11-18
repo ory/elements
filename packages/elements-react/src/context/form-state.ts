@@ -11,7 +11,7 @@ export type FormState =
   | { current: "select_method" }
   | { current: "method_active"; method: UiNodeGroupEnum }
   | { current: "success_screen" }
-  | { current: "impossible_unknown" }
+  | { current: "settings" }
 
 export type FormStateAction =
   | {
@@ -48,11 +48,13 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         return { current: "method_active", method: flow.flow.active }
       }
       break
+    case FlowType.Settings:
+      return { current: "settings" }
   }
   console.warn(
     `[Ory/Elements React] Encountered an unknown form state on ${flow.flowType} flow with ID ${flow.flow.id}`,
   )
-  return { current: "impossible_unknown" }
+  throw new Error("Unknown form state")
 }
 
 export function formStateReducer(

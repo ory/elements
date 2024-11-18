@@ -16,7 +16,7 @@ describe("utils/ui", () => {
 
     expect(result.current.groups.oidc).toHaveLength(2)
     expect(result.current.groups.default).toHaveLength(2)
-    expect(result.current.groups.webauthn).toHaveLength(2)
+    expect(result.current.groups.webauthn).toHaveLength(1)
     expect(result.current.groups.passkey).toHaveLength(3)
     expect(result.current.groups.password).toHaveLength(2)
     expect(result.current.groups.code).toHaveLength(1)

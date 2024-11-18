@@ -10,14 +10,19 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
 
     if (isUiNodeInputAttributes(attrs)) {
       // Skip the "method" field and "submit" button
-      if (attrs.name === "method" || attrs.type === "submit") return acc
+      if (
+        attrs.name === "method" ||
+        attrs.type === "submit" ||
+        typeof attrs.value === "undefined"
+      )
+        return acc
 
       // Unroll nested traits or assign default values
       const unrolled = unrollTrait({
         name: attrs.name,
-        value: attrs.value ?? "",
+        value: attrs.value,
       })
-      Object.assign(acc, unrolled ?? { [attrs.name]: attrs.value ?? "" })
+      Object.assign(acc, unrolled ?? { [attrs.name]: attrs.value })
     }
 
     return acc

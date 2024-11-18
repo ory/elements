@@ -64,7 +64,7 @@ export type FormState = {
 } | {
     current: "success_screen";
 } | {
-    current: "impossible_unknown";
+    current: "settings";
 };
 
 // @public (undocumented)
