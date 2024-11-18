@@ -44,11 +44,36 @@ import { VerificationFlow } from '@ory/client-fetch';
 export type ErrorFlowContainer = OryFlow<FlowType.Error, FlowError>;
 
 // @public
-export type FlowContainerSetter = Dispatch<Partial<OryFlowContainer>>;
+export type FlowContainerSetter = Dispatch<OryFlowContainer>;
 
 // @public
 export type FlowContextValue = OryFlowContainer & {
     setFlowContainer: FlowContainerSetter;
+    formState: FormState;
+    dispatchFormState: Dispatch<FormStateAction>;
+};
+
+// @public (undocumented)
+export type FormState = {
+    current: "provide_identifier";
+} | {
+    current: "select_method";
+} | {
+    current: "method_active";
+    method: UiNodeGroupEnum;
+} | {
+    current: "success_screen";
+} | {
+    current: "settings";
+};
+
+// @public (undocumented)
+export type FormStateAction = {
+    type: "action_flow_update";
+    flow: OryFlowContainer;
+} | {
+    type: "action_select_method";
+    method: UiNodeGroupEnum;
 };
 
 // @public
@@ -138,14 +163,6 @@ export type OryClientConfiguration = {
     intl?: IntlConfig;
 };
 
-// @public (undocumented)
-export type OryCurrentIdentifierProps = {
-    attributes: UiNodeInputAttributes;
-    node: UiNode;
-    onClick?: () => void;
-    href?: string;
-} & Omit<ComponentPropsWithoutRef<"button">, "children" | "onClick">;
-
 // Warning: (ae-forgotten-export) The symbol "DeepPartialTwoLevels" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
@@ -156,7 +173,6 @@ export type OryFlowComponents = {
     Node: {
         Button: ComponentType<OryNodeButtonProps>;
         OidcButton: ComponentType<OryNodeOidcButtonProps>;
-        CurrentIdentifierButton: ComponentType<OryCurrentIdentifierProps>;
         Anchor: ComponentType<OryNodeAnchorProps>;
         Input: ComponentType<OryNodeInputProps>;
         CodeInput: ComponentType<OryNodeInputProps>;
@@ -200,7 +216,7 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer;
 
 // @public (undocumented)
-export function OryForm({ children, onAfterSubmit, nodes }: OryFormProps): string | react_jsx_runtime.JSX.Element;
+export function OryForm({ children, onAfterSubmit }: OryFormProps): string | react_jsx_runtime.JSX.Element;
 
 // @public
 export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;
@@ -232,7 +248,6 @@ export type OryFormOidcRootProps = PropsWithChildren<{
 // @public (undocumented)
 export type OryFormProps = PropsWithChildren<{
     onAfterSubmit?: (method: string | number | boolean | undefined) => void;
-    nodes?: UiNode[];
 }>;
 
 // @public (undocumented)

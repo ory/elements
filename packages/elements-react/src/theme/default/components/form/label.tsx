@@ -19,14 +19,19 @@ export function DefaultLabel({
 }: OryNodeLabelProps) {
   const intl = useIntl()
   const label = getNodeLabel(node)
-  const { config, flowType } = useOryFlow()
+  const { config, flowType, flow } = useOryFlow()
 
   const isPassword = attributes.type === "password"
 
-  const isCode = attributes.name === "code"
+  const hasResendNode = flow.ui.nodes.some(
+    (n) =>
+      "name" in n.attributes &&
+      n.attributes.name === "email" &&
+      n.attributes.type === "submit",
+  )
 
   return (
-    <span className="flex flex-col antialiased gap-1">
+    <div className="flex flex-col antialiased gap-1">
       {label && (
         <span className="inline-flex justify-between">
           <label
@@ -51,7 +56,7 @@ export function DefaultLabel({
                 })}
               </a>
             )}
-          {isCode && (
+          {hasResendNode && (
             <button
               type="submit"
               name="method"
@@ -77,6 +82,6 @@ export function DefaultLabel({
           {uiTextToFormattedMessage(message, intl)}
         </span>
       ))}
-    </span>
+    </div>
   )
 }

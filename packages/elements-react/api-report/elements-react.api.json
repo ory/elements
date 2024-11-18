@@ -241,21 +241,12 @@
             },
             {
               "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "OryFlowContainer",
               "canonicalReference": "@ory/elements-react!OryFlowContainer:type"
             },
             {
               "kind": "Content",
-              "text": ">>"
+              "text": ">"
             },
             {
               "kind": "Content",
@@ -267,7 +258,7 @@
           "name": "FlowContainerSetter",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 7
+            "endIndex": 5
           }
         },
         {
@@ -295,7 +286,34 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": ";\n    formState: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FormState",
+              "canonicalReference": "@ory/elements-react!FormState:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    dispatchFormState: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Dispatch",
+              "canonicalReference": "@types/react!React.Dispatch:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FormStateAction",
+              "canonicalReference": "@ory/elements-react!FormStateAction:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
             },
             {
               "kind": "Content",
@@ -307,7 +325,86 @@
           "name": "FlowContextValue",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 5
+            "endIndex": 11
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FormState:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FormState = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    current: \"provide_identifier\";\n} | {\n    current: \"select_method\";\n} | {\n    current: \"method_active\";\n    method: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeGroupEnum",
+              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    current: \"success_screen\";\n} | {\n    current: \"settings\";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FormState",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FormStateAction:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FormStateAction = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    type: \"action_flow_update\";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowContainer",
+              "canonicalReference": "@ory/elements-react!OryFlowContainer:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    type: \"action_select_method\";\n    method: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeGroupEnum",
+              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FormStateAction",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
           }
         },
         {
@@ -1052,68 +1149,6 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!OryCurrentIdentifierProps:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "type OryCurrentIdentifierProps = "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    attributes: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNodeInputAttributes",
-              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    node: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    onClick?: () => void;\n    href?: string;\n} & "
-            },
-            {
-              "kind": "Reference",
-              "text": "Omit",
-              "canonicalReference": "!Omit:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "ComponentPropsWithoutRef",
-              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<\"button\">, \"children\" | \"onClick\">"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "dist/index.d.ts",
-          "releaseTag": "Public",
-          "name": "OryCurrentIdentifierProps",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 10
-          }
-        },
-        {
-          "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryFlowComponentOverrides:type",
           "docComment": "",
           "excerptTokens": [
@@ -1196,24 +1231,6 @@
               "kind": "Reference",
               "text": "OryNodeOidcButtonProps",
               "canonicalReference": "@ory/elements-react!OryNodeOidcButtonProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n        CurrentIdentifierButton: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ComponentType",
-              "canonicalReference": "@types/react!React.ComponentType:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryCurrentIdentifierProps",
-              "canonicalReference": "@ory/elements-react!OryCurrentIdentifierProps:type"
             },
             {
               "kind": "Content",
@@ -1733,7 +1750,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 126
+            "endIndex": 122
           }
         },
         {
@@ -1806,7 +1823,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryForm({ children, onAfterSubmit, nodes }: "
+              "text": "declare function OryForm({ children, onAfterSubmit }: "
             },
             {
               "kind": "Reference",
@@ -1840,7 +1857,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, onAfterSubmit, nodes }",
+              "parameterName": "{ children, onAfterSubmit }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2135,16 +2152,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n    nodes?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[];\n}>"
+              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n}>"
             },
             {
               "kind": "Content",
@@ -2156,7 +2164,7 @@
           "name": "OryFormProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 5
+            "endIndex": 3
           }
         },
         {

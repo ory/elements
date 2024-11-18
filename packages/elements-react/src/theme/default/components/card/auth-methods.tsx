@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { useIntl } from "react-intl"
 import { OryCardAuthMethodListItemProps } from "@ory/elements-react"
+import { useIntl } from "react-intl"
 import code from "../../assets/icons/code.svg"
 import passkey from "../../assets/icons/passkey.svg"
 import password from "../../assets/icons/password.svg"

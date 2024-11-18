@@ -239,5 +239,6 @@
   "settings.title-profile": "",
   "settings.title-totp": "",
   "settings.title-webauthn": "",
-  "settings.webauthn.info": ""
+  "settings.webauthn.info": "",
+  "card.footer.select-another-method": ""
 }

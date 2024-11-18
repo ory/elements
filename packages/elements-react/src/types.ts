@@ -22,13 +22,6 @@ export type OryNodeButtonProps = {
 } & Omit<ComponentPropsWithoutRef<"button">, "children"> &
   ButtonVariants
 
-export type OryCurrentIdentifierProps = {
-  attributes: UiNodeInputAttributes
-  node: UiNode
-  onClick?: () => void
-  href?: string
-} & Omit<ComponentPropsWithoutRef<"button">, "children" | "onClick">
-
 export type OryNodeAnchorProps = {
   attributes: UiNodeAnchorAttributes
   node: UiNode

@@ -47,6 +47,9 @@ export function DefaultCardHeader(): react_jsx_runtime.JSX.Element;
 // @public (undocumented)
 export function DefaultCardLogo(): react_jsx_runtime.JSX.Element;
 
+// @public (undocumented)
+export function DefaultCurrentIdentifierButton(): react_jsx_runtime.JSX.Element | null;
+
 // Warning: (ae-forgotten-export) The symbol "OryFormRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
@@ -123,8 +126,8 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:25:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:26:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:27:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:28:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

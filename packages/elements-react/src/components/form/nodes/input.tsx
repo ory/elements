@@ -21,7 +21,6 @@ export const NodeInput = ({
   const { Node } = useComponents()
   const { setValue } = useFormContext()
 
-  const nodeType = attributes.type
   const {
     onloadTrigger: onloadTrigger,
     onclickTrigger,
@@ -65,15 +64,17 @@ export const NodeInput = ({
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
-  const isResend = node.meta.label?.id === 1070008
+  const isResendNode = node.meta.label?.id === 1070008
+  const isScreenSelectionNode =
+    "name" in node.attributes && node.attributes.name === "screen"
 
-  switch (nodeType) {
+  switch (attributes.type) {
     case UiNodeInputAttributesTypeEnum.Submit:
     case UiNodeInputAttributesTypeEnum.Button:
       if (isSocial) {
         return <Node.OidcButton attributes={attrs} node={node} />
       }
-      if (isResend) {
+      if (isResendNode || isScreenSelectionNode) {
         return null
       }
 

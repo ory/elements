@@ -3,17 +3,19 @@
 
 import { useComponents, useOryFlow } from "@ory/elements-react"
 import { useCardHeaderText } from "../../utils/constructCardHeader"
+import { DefaultCurrentIdentifierButton } from "./current-identifier-button"
 
 function InnerCardHeader({ title, text }: { title: string; text?: string }) {
   const { Card } = useComponents()
   return (
     <header className="flex flex-col gap-8 antialiased">
       <Card.Logo />
-      <div>
+      <div className="flex flex-col gap-2">
         <h2 className="font-semibold text-lg text-dialog-fg-default leading-normal">
           {title}
         </h2>
         <p className="text-sm leading-normal text-dialog-fg-subtle">{text}</p>
+        <DefaultCurrentIdentifierButton />
       </div>
     </header>
   )

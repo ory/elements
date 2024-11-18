@@ -239,5 +239,6 @@
   "settings.title-webauthn": "",
   "settings.webauthn.description": "",
   "settings.webauthn.info": "",
-  "settings.webauthn.title": ""
+  "settings.webauthn.title": "",
+  "card.footer.select-another-method": ""
 }

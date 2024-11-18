@@ -18,7 +18,14 @@ export const DefaultInput = ({
 }: OryNodeInputProps) => {
   const label = getNodeLabel(node)
   const { register } = useFormContext()
-  const { value, autocomplete, name, maxlength, ...rest } = attributes
+  const {
+    value,
+    autocomplete,
+    name,
+    maxlength,
+    node_type: _,
+    ...rest
+  } = attributes
   const intl = useIntl()
   const { flowType } = useOryFlow()
 

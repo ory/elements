@@ -239,5 +239,6 @@
   "settings.webauthn.info": "Hardware Tokens are used for second-factor authentication or as first-factor with Passkeys",
   "settings.passkey.title": "Manage Passkeys",
   "settings.passkey.description": "Manage your passkey settings",
-  "settings.passkey.info": "Manage your passkey settings"
+  "settings.passkey.info": "Manage your passkey settings",
+  "card.footer.select-another-method": "Select another method"
 }

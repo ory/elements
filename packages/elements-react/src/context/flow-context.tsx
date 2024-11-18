@@ -9,6 +9,7 @@ import {
   useState,
 } from "react"
 import { OryFlowContainer } from "../util/flowContainer"
+import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
@@ -27,7 +28,7 @@ export function useOryFlow() {
 /**
  * Function to set the flow container.
  */
-export type FlowContainerSetter = Dispatch<Partial<OryFlowContainer>>
+export type FlowContainerSetter = Dispatch<OryFlowContainer>
 
 /**
  * The return value of the OryFlowContext.
@@ -37,6 +38,17 @@ export type FlowContextValue = OryFlowContainer & {
    * Function to set the flow container.
    */
   setFlowContainer: FlowContainerSetter
+
+  /**
+   * The current form state.
+   * @see FormState
+   */
+  formState: FormState
+
+  /**
+   * Dispatch function to update the form state.
+   */
+  dispatchFormState: Dispatch<FormStateAction>
 }
 
 // This is fine, because we don't export the context itself and guard from it being null in useOryFlow
@@ -49,21 +61,22 @@ export function OryFlowProvider({
   ...container
 }: OryFlowProviderProps) {
   const [flowContainer, setFlowContainer] = useState(container)
+  const [formState, dispatchFormState] = useFormStateReducer(container)
 
   return (
     <OryFlowContext.Provider
       value={
         {
           ...flowContainer,
-          setFlowContainer: (updatedContainer) => {
-            setFlowContainer(
-              (container) =>
-                ({
-                  ...container,
-                  ...updatedContainer,
-                }) as OryFlowContainer,
-            )
+          setFlowContainer: (flowContainer) => {
+            setFlowContainer(flowContainer)
+            dispatchFormState({
+              type: "action_flow_update",
+              flow: flowContainer,
+            })
           },
+          formState,
+          dispatchFormState,
         } as FlowContextValue
       }
     >
