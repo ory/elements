@@ -3,7 +3,22 @@
 import { OryConfig } from "../types"
 import { isProduction } from "./sdk"
 
-export function enhanceConfig(
+/**
+ * Enhances the Ory config with defaults and SDK URL. The SDK URL is determined as follows:
+ *
+ * 1. If `forceSdkUrl` is provided, it is used.
+ * 2. If `forceSdkUrl` is not provided, the following environment variables are checked:
+ *   - `NEXT_PUBLIC_ORY_SDK_URL`
+ *   - `ORY_SDK_URL`
+ *   - `__NEXT_PRIVATE_ORIGIN` (if not in production)
+ *   - `VERCEL_URL` (if not in production)
+ *   - `window.location.origin` (if not in production)
+ *   - If none of the above are set, an error is thrown.
+ *
+ * @param config
+ * @param forceSdkUrl
+ */
+export function enhanceOryConfig(
   config: Partial<OryConfig>,
   forceSdkUrl?: string,
 ) {

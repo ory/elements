@@ -6,15 +6,20 @@ export PATH               := .bin:${PATH}
 .PHONY: install
 install:
 	npm install
+	npx playwright install --with-deps
 
+.PHONY: test
 test:
 	npm run test
 
+.PHONY: build
 build:
-	npm run build
+	npx nx run-many --target=build --all
+    npx nx run-many --all --target=build-storybook -- --stats-json
 
+.PHONY: dev
 dev:
-	npm run build
+	npx nx run-many --target=dev --all
 
 test-containerized: 
 	# https://github.com/microsoft/playwright/issues/26482

@@ -9,7 +9,6 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ory/nextjs": ["packages/nextjs/src/index.ts"],
       "storybook-host": ["libs/storybook-host/src/index.ts"]
     }
   },

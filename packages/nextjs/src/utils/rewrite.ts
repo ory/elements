@@ -32,6 +32,15 @@ export function rewriteUrls(
     new URL(selfUrl).toString().replace(/\/$/, ""),
   )
 }
+
+/**
+ * Rewrites Ory SDK URLs in JSON responses (objects, arrays, strings) with the provided proxy URL.
+ *
+ * If `proxyUrl` is provided, the SDK URL is replaced with the proxy URL.
+ *
+ * @param obj
+ * @param proxyUrl
+ */
 export function rewriteJsonResponse<T extends object>(
   obj: T,
   proxyUrl?: string,

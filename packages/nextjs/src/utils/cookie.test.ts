@@ -54,7 +54,7 @@ describe("cookie guesser", () => {
   test("understands public suffix list", () => {
     expect(
       guessCookieDomain(
-        "https://spark-public.s3.amazonaws.com/dataanalysis/loansData.csv",
+        "https://spark-public.s3.amazonaws.com/self-service/login",
         {},
       ),
     ).toEqual("spark-public.s3.amazonaws.com")

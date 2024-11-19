@@ -3,7 +3,7 @@
 
 import { OryPageHeaderProps, useComponents } from "@ory/elements-react"
 import { UserMenu } from "../ui/user-menu"
-import { useSession } from "../../../../client"
+import { useSession } from "@ory/elements-react/client"
 
 export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
   const { Card } = useComponents()

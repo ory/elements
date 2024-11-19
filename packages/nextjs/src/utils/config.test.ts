@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { enhanceConfig } from "./config"
+import { enhanceOryConfig } from "./config"
 import { isProduction } from "./sdk"
 import { OryConfig } from "../types"
 
@@ -23,21 +23,21 @@ describe("enhanceConfig", () => {
 
   it("should use forceSdkUrl if provided", () => {
     const config: Partial<OryConfig> = {}
-    const result = enhanceConfig(config, "https://forced-url.com")
+    const result = enhanceOryConfig(config, "https://forced-url.com")
     expect(result.sdk.url).toBe("https://forced-url.com")
   })
 
   it("should use NEXT_PUBLIC_ORY_SDK_URL if forceSdkUrl is not provided", () => {
     process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://public-sdk-url.com"
     const config: Partial<OryConfig> = {}
-    const result = enhanceConfig(config)
+    const result = enhanceOryConfig(config)
     expect(result.sdk.url).toBe("https://public-sdk-url.com")
   })
 
   it("should use ORY_SDK_URL if NEXT_PUBLIC_ORY_SDK_URL is not provided", () => {
     process.env["ORY_SDK_URL"] = "https://sdk-url.com"
     const config: Partial<OryConfig> = {}
-    const result = enhanceConfig(config)
+    const result = enhanceOryConfig(config)
     expect(result.sdk.url).toBe("https://sdk-url.com")
   })
 
@@ -45,7 +45,7 @@ describe("enhanceConfig", () => {
     ;(isProduction as jest.Mock).mockReturnValue(false)
     process.env["__NEXT_PRIVATE_ORIGIN"] = "https://private-origin.com/"
     const config: Partial<OryConfig> = {}
-    const result = enhanceConfig(config)
+    const result = enhanceOryConfig(config)
     expect(result.sdk.url).toBe("https://private-origin.com")
   })
 
@@ -53,7 +53,7 @@ describe("enhanceConfig", () => {
     ;(isProduction as jest.Mock).mockReturnValue(false)
     process.env["VERCEL_URL"] = "vercel-url.com"
     const config: Partial<OryConfig> = {}
-    const result = enhanceConfig(config)
+    const result = enhanceOryConfig(config)
     expect(result.sdk.url).toBe("https://vercel-url.com")
   })
 
@@ -71,7 +71,7 @@ describe("enhanceConfig", () => {
           },
         }) as unknown as Window & typeof globalThis,
     )
-    const result = enhanceConfig(config)
+    const result = enhanceOryConfig(config)
     expect(result.sdk.url).toBe("https://window-origin.com")
     windowSpy.mockRestore()
   })
@@ -83,7 +83,7 @@ describe("enhanceConfig", () => {
     delete process.env["__NEXT_PRIVATE_ORIGIN"]
     delete process.env["VERCEL_URL"]
     const config: Partial<OryConfig> = {}
-    expect(() => enhanceConfig(config)).toThrow(
+    expect(() => enhanceOryConfig(config)).toThrow(
       "Unable to determine SDK URL. Please set NEXT_PUBLIC_ORY_SDK_URL and/or ORY_SDK_URL or force the SDK URL using `useOryConfig(config, 'https://my-ory-sdk-url.com')`.",
     )
   })

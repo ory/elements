@@ -12,7 +12,7 @@ export async function getCookieHeader() {
   return h.get("cookie") ?? undefined
 }
 
-export const onRedirect: OnRedirectHandler = (url, external) => {
+export const onRedirect: OnRedirectHandler = (url) => {
   redirect(url)
 }
 
@@ -28,5 +28,5 @@ export async function getPublicUrl() {
 }
 
 export interface OryPageParams {
-  searchParams: URLSearchParams
+  searchParams: Promise<URLSearchParams>
 }
