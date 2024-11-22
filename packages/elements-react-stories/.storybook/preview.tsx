@@ -5,6 +5,7 @@ import type { Decorator, Preview } from "@storybook/react"
 import { chromaticModes } from "./modes"
 import "@ory/elements-react/theme/styles.css"
 import { merge } from "lodash"
+import "./global.css"
 
 const preview: Preview = {
   parameters: {
