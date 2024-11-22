@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNodeGroupEnum } from "@ory/client-fetch"
+import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { useReducer } from "react"
 import { isChoosingMethod } from "../components/card/card-two-step.utils"
 import { OryFlowContainer } from "../util"
@@ -23,20 +23,28 @@ export type FormStateAction =
       method: UiNodeGroupEnum
     }
 
+function findMethodWithMessage(nodes?: UiNode[]) {
+  return nodes?.find((node) => node.messages?.length > 0)
+}
+
 function parseStateFromFlow(flow: OryFlowContainer): FormState {
   switch (flow.flowType) {
     case FlowType.Registration:
-    case FlowType.Login:
+    case FlowType.Login: {
+      const methodWithMessage = findMethodWithMessage(flow.flow.ui.nodes)
       if (flow.flow.active == "link_recovery") {
         return { current: "method_active", method: "link" }
       } else if (flow.flow.active == "code_recovery") {
         return { current: "method_active", method: "code" }
+      } else if (methodWithMessage) {
+        return { current: "method_active", method: methodWithMessage.group }
       } else if (isChoosingMethod(flow.flow.ui.nodes)) {
         return { current: "select_method" }
       } else if (flow.flow.active) {
         return { current: "method_active", method: flow.flow.active }
       }
       return { current: "provide_identifier" }
+    }
     case FlowType.Recovery:
     case FlowType.Verification:
       // The API does not provide types for the active field of the recovery flow

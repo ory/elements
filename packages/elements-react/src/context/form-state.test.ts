@@ -96,6 +96,62 @@ test(`should parse state from flow on "action_flow_update" provide_identifier`, 
   expect(state).toEqual({ current: "provide_identifier" })
 })
 
+test(`should parse state from flow on "action_flow_update" provide_identifier`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "",
+      ui: {
+        nodes: [
+          {
+            attributes: {
+              autocomplete: "new-password",
+              disabled: false,
+              name: "password",
+              node_type: "input",
+              required: true,
+              type: "password",
+            },
+            group: "password",
+            messages: [
+              {
+                context: {
+                  actual_length: 2,
+                  min_length: 8,
+                },
+                id: 4000032,
+                text: "The password must be at least 8 characters long, but got 2.",
+                type: "error",
+              },
+            ],
+            meta: {
+              label: {
+                id: 1070001,
+                text: "Password",
+                type: "info",
+              },
+            },
+            type: "input",
+          },
+        ],
+      }, // Assuming nodes structure
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({ current: "method_active", method: "password" })
+})
+
 test(`should parse state from flow on "action_flow_update" when choosing method on registration`, () => {
   const { result } = renderHook(() => useFormStateReducer(init))
   const [, dispatch] = result.current
