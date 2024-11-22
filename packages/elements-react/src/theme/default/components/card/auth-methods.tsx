@@ -30,6 +30,9 @@ export function DefaultAuthMethodListItem({
         className="flex text-left py-2 gap-3 cursor-pointer"
         onClick={onClick}
         type={isGroupImmediateSubmit(group) ? "submit" : "button"}
+        id={`auth-method-list-item-${group}`}
+        data-testid="auth-method-list-item"
+        aria-label={`Authenticate with ${group}`}
       >
         <div className={"flex-none w-4 h-4 mt-[2px]"}>
           {Icon && <Icon size={20} className="text-forms-fg-default" />}
