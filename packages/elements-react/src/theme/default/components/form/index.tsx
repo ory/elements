@@ -5,6 +5,7 @@ import { PropsWithChildren } from "react"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
 import {
+  messageTestId,
   OryFormRootProps,
   uiTextToFormattedMessage,
   useOryFlow,
@@ -52,11 +53,12 @@ export function DefaultMessage({ message }: OryMessageContentProps) {
   const intl = useIntl()
   return (
     <span
-      className={cn("text-sm mt-1 leading-normal", {
+      className={cn("text-sm leading-normal", {
         "text-forms-fg-error": message.type === "error",
         "text-forms-fg-default": message.type === "info",
         "text-forms-fg-success": message.type === "success",
       })}
+      {...messageTestId(message)}
     >
       {uiTextToFormattedMessage(message, intl)}
     </span>
