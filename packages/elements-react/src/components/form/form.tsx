@@ -343,6 +343,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
         break
       }
     }
+    methods.setValue("password", "")
     onAfterSubmit?.(data.method)
   }
 

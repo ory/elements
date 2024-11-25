@@ -96,7 +96,7 @@ test(`should parse state from flow on "action_flow_update" provide_identifier`, 
   expect(state).toEqual({ current: "provide_identifier" })
 })
 
-test(`should parse state from flow on "action_flow_update" provide_identifier`, () => {
+test(`should parse state from flow on "action_flow_update" if password has validation error`, () => {
   const { result } = renderHook(() => useFormStateReducer(init))
   const [, dispatch] = result.current
 
@@ -150,6 +150,65 @@ test(`should parse state from flow on "action_flow_update" provide_identifier`, 
 
   const [state] = result.current
   expect(state).toEqual({ current: "method_active", method: "password" })
+})
+
+test(`should ignore validation message on default group nodes`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "",
+      ui: {
+        nodes: [
+          {
+            attributes: {
+              autocomplete: "email",
+              disabled: false,
+              name: "traits.email",
+              node_type: "input",
+              required: true,
+              type: "email",
+              value: "fdghj",
+            },
+            group: "default",
+            messages: [
+              {
+                context: {
+                  reason: '"fdghj" is not valid "email"',
+                },
+                id: 4000001,
+                text: '"fdghj" is not valid "email"',
+                type: "error",
+              },
+            ],
+            meta: {
+              label: {
+                context: {
+                  title: "E-Mail",
+                },
+                id: 1070002,
+                text: "E-Mail",
+                type: "info",
+              },
+            },
+            type: "input",
+          },
+        ],
+      }, // Assuming nodes structure
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({ current: "provide_identifier" })
 })
 
 test(`should parse state from flow on "action_flow_update" when choosing method on registration`, () => {

@@ -24,7 +24,9 @@ export type FormStateAction =
     }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
-  return nodes?.find((node) => node.messages?.length > 0)
+  return nodes
+    ?.filter((n) => !["default", "identifier_first"].includes(n.group))
+    ?.find((node) => node.messages?.length > 0)
 }
 
 function parseStateFromFlow(flow: OryFlowContainer): FormState {
