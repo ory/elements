@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNodeGroupEnum } from "@ory/client-fetch"
+import { FlowType, UiNodeGroupEnum, UiText } from "@ory/client-fetch"
 import { act, renderHook } from "@testing-library/react"
 import { OryFlowContainer } from "../util"
 import { useFormStateReducer } from "./form-state" // Adjust path as needed
@@ -384,3 +384,35 @@ for (const activeMethod of ["identifier_first", "default"]) {
     expect(state).toEqual({ current: "provide_identifier" })
   })
 }
+
+test(`should parse select_method from account linking flow`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "",
+      ui: {
+        nodes: [],
+        messages: [
+          {
+            id: 1010016,
+            text: "",
+            type: "error",
+          } satisfies UiText,
+        ],
+      }, // Assuming nodes structure
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({ current: "select_method" })
+})

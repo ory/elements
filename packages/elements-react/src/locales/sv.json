@@ -240,5 +240,6 @@
   "settings.webauthn.description": "Hantera inställningarna för din maskinvarutoken",
   "settings.webauthn.info": "Hårdvarutokens används för andrafaktorsautentisering eller som förstafaktor med lösenordsnycklar",
   "settings.webauthn.title": "Hantera maskinvarutokens",
-  "card.footer.select-another-method": "Välj en annan metod"
+  "card.footer.select-another-method": "Välj en annan metod",
+  "account-linking.title": "Länka ditt konto"
 }

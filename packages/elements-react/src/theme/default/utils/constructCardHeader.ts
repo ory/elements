@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
+import {
+  FlowType,
+  isUiNodeInputAttributes,
+  UiContainer,
+} from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
@@ -48,9 +52,10 @@ type opts =
  * @returns a title and a description for the card header
  */
 export function useCardHeaderText(
-  nodes: UiNode[],
+  container: UiContainer,
   opts: opts,
 ): { title: string; description: string } {
+  const nodes = container.nodes
   const intl = useIntl()
   switch (opts.flowType) {
     case FlowType.Recovery:
@@ -110,6 +115,25 @@ export function useCardHeaderText(
           id: "verification.subtitle",
         }),
       }
+    case FlowType.Login: {
+      // account linking
+      const accountLinkingMessage = container.messages?.find(
+        (m) => m.id === 1010016,
+      )
+      if (accountLinkingMessage) {
+        return {
+          title: intl.formatMessage({
+            id: "account-linking.title",
+          }),
+          description: intl.formatMessage(
+            {
+              id: "identities.messages.1010016",
+            },
+            accountLinkingMessage.context as Record<string, string>,
+          ),
+        }
+      }
+    }
   }
 
   const parts = []

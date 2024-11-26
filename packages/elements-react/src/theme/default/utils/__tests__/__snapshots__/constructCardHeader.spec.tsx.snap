@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`constructCardHeaderText on account linking 1`] = `
+{
+  "description": "You tried to sign in with "{duplicateIdentifier}", but that email is already used by another account. Sign in to your account with one of the options below to add your account "{duplicateIdentifier}" at "{provider}" as another way to sign in.",
+  "title": "Link account",
+}
+`;
+
 exports[`flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
   "description": "Sign in with a code sent to your email",

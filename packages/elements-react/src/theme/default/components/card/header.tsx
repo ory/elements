@@ -23,10 +23,7 @@ function InnerCardHeader({ title, text }: { title: string; text?: string }) {
 
 export function DefaultCardHeader() {
   const context = useOryFlow()
-  const { title, description } = useCardHeaderText(
-    context.flow.ui.nodes,
-    context,
-  )
+  const { title, description } = useCardHeaderText(context.flow.ui, context)
 
   return <InnerCardHeader title={title} text={description} />
 }
