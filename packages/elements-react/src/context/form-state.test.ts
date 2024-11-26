@@ -325,12 +325,12 @@ test(`should parse state from flow on "action_flow_update" when choosing method 
   })
 })
 
-test('should fallback to "impossible_unknown" for unknown recovery state', () => {
+test("should throw error for unknown recovery state", () => {
   const { result } = renderHook(() => useFormStateReducer(init))
   const [, dispatch] = result.current
 
   const mockFlow = {
-    flowType: FlowType.Recovery, // Intentional to simulate an unexpected flow
+    flowType: FlowType.Recovery,
     flow: { id: "unknown", active: null, ui: { nodes: [] } },
   } as unknown as OryFlowContainer
 
@@ -344,7 +344,7 @@ test('should fallback to "impossible_unknown" for unknown recovery state', () =>
   ).toThrow("Unknown form state")
 })
 
-test('should fallback to "impossible_unknown" for unrecognized flow', () => {
+test("should throw error for unrecognized flow", () => {
   const { result } = renderHook(() => useFormStateReducer(init))
   const [, dispatch] = result.current
 
@@ -362,3 +362,25 @@ test('should fallback to "impossible_unknown" for unrecognized flow', () => {
     }),
   ).toThrow("Unknown form state")
 })
+
+for (const activeMethod of ["identifier_first", "default"]) {
+  test(`should ignore ${activeMethod} group in active field`, () => {
+    const { result } = renderHook(() => useFormStateReducer(init))
+    const [, dispatch] = result.current
+
+    const mockFlow = {
+      flowType: FlowType.Login,
+      flow: { id: "unknown", active: activeMethod, ui: { nodes: [] } },
+    } as unknown as OryFlowContainer
+
+    act(() => {
+      dispatch({
+        type: "action_flow_update",
+        flow: mockFlow,
+      })
+    })
+
+    const [state] = result.current
+    expect(state).toEqual({ current: "provide_identifier" })
+  })
+}
