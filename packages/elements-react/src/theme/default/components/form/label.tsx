@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, getNodeLabel } from "@ory/client-fetch"
+import { FlowType, getNodeLabel, UiNode } from "@ory/client-fetch"
 import {
   OryNodeLabelProps,
   messageTestId,
@@ -9,7 +9,17 @@ import {
   useComponents,
   useOryFlow,
 } from "@ory/elements-react"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
+
+function findResendNode(nodes: UiNode[]) {
+  return nodes.find(
+    (n) =>
+      "name" in n.attributes &&
+      ((n.attributes.name === "email" && n.attributes.type === "submit") ||
+        n.attributes.name === "resend"),
+  )
+}
 
 export function DefaultLabel({
   node,
@@ -21,15 +31,17 @@ export function DefaultLabel({
   const label = getNodeLabel(node)
   const { Message } = useComponents()
   const { config, flowType, flow } = useOryFlow()
+  const { setValue } = useFormContext()
 
   const isPassword = attributes.type === "password"
 
-  const hasResendNode = flow.ui.nodes.some(
-    (n) =>
-      "name" in n.attributes &&
-      n.attributes.name === "email" &&
-      n.attributes.type === "submit",
-  )
+  const resendNode = findResendNode(flow.ui.nodes)
+
+  const handleResend = () => {
+    if (resendNode?.attributes && "name" in resendNode.attributes) {
+      setValue(resendNode.attributes.name, resendNode.attributes.value)
+    }
+  }
 
   return (
     <div className="flex flex-col antialiased gap-1">
@@ -57,11 +69,12 @@ export function DefaultLabel({
                 })}
               </a>
             )}
-          {hasResendNode && (
+          {resendNode?.attributes.node_type === "input" && (
             <button
               type="submit"
-              name="method"
-              value="code"
+              name={resendNode.attributes.name}
+              value={resendNode.attributes.value}
+              onClick={handleResend}
               className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium cursor-pointer"
             >
               {intl.formatMessage({ id: "identities.messages.1070008" })}
