@@ -33,19 +33,20 @@ export function DefaultCurrentIdentifierButton() {
   ])
 
   return (
-    <div>
-      <a
-        className="cursor-pointer py-[5px] px-3 rounded-full border border-button-identifier-border-default bg-button-identifier-bg-default hover:border-button-identifier-border-hover hover:bg-button-identifier-bg-hover transition-colors inline-flex gap-1 items-center"
-        {...attributes}
-        href={initFlowUrl}
-        title={`Adjust ${nodeBackButton?.attributes.value}`}
-      >
-        <IconArrowLeft size={16} className="text-button-identifier-fg-subtle" />
-        <span className="text-sm font-medium text-button-identifier-fg-default text-ellipsis overflow-hidden text-nowrap">
-          {nodeBackButton?.attributes.value}
-        </span>
-      </a>
-    </div>
+    <a
+      className="cursor-pointer py-[5px] px-3 rounded-full border border-button-identifier-border-default bg-button-identifier-bg-default hover:border-button-identifier-border-hover hover:bg-button-identifier-bg-hover transition-colors inline-flex gap-1 items-center self-start max-w-full"
+      {...attributes}
+      href={initFlowUrl}
+      title={`Adjust ${nodeBackButton?.attributes.value}`}
+    >
+      <IconArrowLeft
+        size={16}
+        className="text-button-identifier-fg-subtle shrink-0"
+      />
+      <span className="text-sm font-medium text-button-identifier-fg-default text-ellipsis overflow-hidden text-nowrap">
+        {nodeBackButton?.attributes.value}
+      </span>
+    </a>
   )
 }
 
@@ -60,7 +61,7 @@ export function getBackButtonNode(
         (node) =>
           "name" in node.attributes &&
           node.attributes.name === "identifier" &&
-          node.group === "identifier_first",
+          ["default", "identifier_first"].includes(node.group),
       )
       break
     case FlowType.Registration:
