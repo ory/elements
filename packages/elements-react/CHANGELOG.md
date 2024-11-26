@@ -1,3 +1,30 @@
+## 1.0.0-next.16 (2024-11-26)
+
+
+### 🚀 Features
+
+- allow overriding of field messages
+
+- add test ids to components
+
+
+### 🩹 Fixes
+
+- use --font-sans CSS variable for font
+
+- registration & login flow form states
+
+- missing resend button on login & registration
+
+- password validation error form state
+
+- current identifier button overflowing on long values
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.15 (2024-11-18)
 
 
