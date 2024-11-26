@@ -6,10 +6,10 @@ import {
   OryNodeLabelProps,
   messageTestId,
   uiTextToFormattedMessage,
+  useComponents,
   useOryFlow,
 } from "@ory/elements-react"
 import { useIntl } from "react-intl"
-import { cn } from "../../utils/cn"
 
 export function DefaultLabel({
   node,
@@ -19,6 +19,7 @@ export function DefaultLabel({
 }: OryNodeLabelProps) {
   const intl = useIntl()
   const label = getNodeLabel(node)
+  const { Message } = useComponents()
   const { config, flowType, flow } = useOryFlow()
 
   const isPassword = attributes.type === "password"
@@ -70,17 +71,7 @@ export function DefaultLabel({
       )}
       {children}
       {node.messages.map((message) => (
-        <span
-          key={message.id}
-          className={cn("text-sm leading-normal", {
-            "text-forms-fg-error": message.type === "error",
-            "text-forms-fg-default": message.type === "info",
-            "text-forms-fg-success": message.type === "success",
-          })}
-          {...messageTestId(message)}
-        >
-          {uiTextToFormattedMessage(message, intl)}
-        </span>
+        <Message.Content key={message.id} message={message} />
       ))}
     </div>
   )
