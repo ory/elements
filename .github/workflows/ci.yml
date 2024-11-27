@@ -51,3 +51,8 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - uses: codecov/test-results-action@v1
+        with:
+          files: ./packages/elements-react/test-results/junit.xml
+          token: ${{ secrets.CODECOV_TOKEN }}

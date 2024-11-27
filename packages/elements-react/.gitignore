@@ -2,3 +2,4 @@ playwright/.cache/
 playwright-report/*
 .last-run.json
 api-report/temp
+test-results/
