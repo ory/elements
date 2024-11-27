@@ -3,9 +3,10 @@
 
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
-import { useOryFlow } from "../../context"
 import { FormProvider, useForm } from "react-hook-form"
+import { useOryFlow } from "../../context"
 import { computeDefaultValues } from "./form-helpers"
+import { useOryFormResolver } from "./form-resolver"
 
 export function OryFormProvider({
   children,
@@ -21,6 +22,8 @@ export function OryFormProvider({
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
     defaultValues: computeDefaultValues(defaultNodes),
+    resolver: useOryFormResolver(),
   })
+
   return <FormProvider {...methods}>{children}</FormProvider>
 }
