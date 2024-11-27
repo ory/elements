@@ -8,6 +8,7 @@ import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';
 import { DetailedHTMLProps } from 'react';
+import { ElementType } from 'react';
 import { FlowError } from '@ory/client-fetch';
 import { FormEventHandler } from 'react';
 import { HTMLAttributes } from 'react';
@@ -27,6 +28,17 @@ import { UiNodeTextAttributes } from '@ory/client-fetch';
 import { UiText } from '@ory/client-fetch';
 import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
+
+// Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export function DefaultButtonSocial({ attributes, node, onClick, showLabel: _showLabel, logos: providedLogos, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
+export namespace DefaultButtonSocial {
+    var // (undocumented)
+    WithLogos: (logos: Record<string, ElementType>) => (props: DefaultSocialButtonProps) => react_jsx_runtime.JSX.Element;
+}
 
 // Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts
 //
@@ -126,8 +138,8 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:27:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:28:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:36:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:37:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
