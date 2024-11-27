@@ -1,7 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, getNodeLabel, UiNode } from "@ory/client-fetch"
+import {
+  FlowType,
+  getNodeLabel,
+  instanceOfUiText,
+  UiNode,
+} from "@ory/client-fetch"
 import {
   OryNodeLabelProps,
   messageTestId,
@@ -31,7 +36,7 @@ export function DefaultLabel({
   const label = getNodeLabel(node)
   const { Message } = useComponents()
   const { config, flowType, flow } = useOryFlow()
-  const { setValue } = useFormContext()
+  const { setValue, formState } = useFormContext()
 
   const isPassword = attributes.type === "password"
 
@@ -42,6 +47,8 @@ export function DefaultLabel({
       setValue(resendNode.attributes.name, resendNode.attributes.value)
     }
   }
+
+  const fieldError = formState.errors[attributes.name]
 
   return (
     <div className="flex flex-col antialiased gap-1">
@@ -86,6 +93,9 @@ export function DefaultLabel({
       {node.messages.map((message) => (
         <Message.Content key={message.id} message={message} />
       ))}
+      {fieldError && instanceOfUiText(fieldError) && (
+        <Message.Content message={fieldError} />
+      )}
     </div>
   )
 }

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`case={"method":"code","code":"","email":""} 1`] = `
+{
+  "errors": {
+    "code": {
+      "context": {
+        "property": "code",
+      },
+      "id": 4000002,
+      "text": "Property code is missing",
+      "type": "error",
+    },
+  },
+  "values": {
+    "code": "",
+    "email": "",
+    "method": "code",
+  },
+}
+`;
+
+exports[`case={"method":"code","code":"123456","email":""} 1`] = `
+{
+  "errors": {},
+  "values": {
+    "code": "123456",
+    "email": "",
+    "method": "code",
+  },
+}
+`;
+
+exports[`case={"method":"code","code":"123456","email":"some@example.com"} 1`] = `
+{
+  "errors": {},
+  "values": {
+    "code": "123456",
+    "email": "some@example.com",
+    "method": "code",
+  },
+}
+`;
+
+exports[`case={"method":"code"} 1`] = `
+{
+  "errors": {
+    "code": {
+      "context": {
+        "property": "code",
+      },
+      "id": 4000002,
+      "text": "Property code is missing",
+      "type": "error",
+    },
+  },
+  "values": {
+    "method": "code",
+  },
+}
+`;
+
+exports[`case={"method":"password"} 1`] = `
+{
+  "errors": {},
+  "values": {
+    "method": "password",
+  },
+}
+`;
