@@ -2,16 +2,21 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  ContinueWith,
   FlowType,
+  GenericError,
   handleContinueWith,
   handleFlowError,
+  instanceOfContinueWithRecoveryUi,
+  OnRedirectHandler,
   RecoveryFlow,
   recoveryUrl,
   UpdateRecoveryFlowBody,
 } from "@ory/client-fetch"
+import { frontendClient } from "./client"
+import { OryClientConfiguration } from "./clientConfiguration"
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
-import { frontendClient } from "./client"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
@@ -63,14 +68,44 @@ export async function onSubmitRecovery(
         onRestartFlow: () => {
           onRedirect(recoveryUrl(config), true)
         },
-        onValidationError: (body: RecoveryFlow) => {
-          setFlowContainer({
-            flow: body,
-            flowType: FlowType.Recovery,
-            config,
-          })
+        onValidationError: (body: RecoveryFlow | { error: GenericError }) => {
+          if ("error" in body) {
+            handleContinueWithRecoveryUIError(body.error, config, onRedirect)
+            return
+          } else {
+            setFlowContainer({
+              flow: body,
+              flowType: FlowType.Recovery,
+              config,
+            })
+          }
         },
         onRedirect,
       }),
     )
+}
+
+function handleContinueWithRecoveryUIError(
+  error: GenericError,
+  config: OryClientConfiguration,
+  onRedirect: OnRedirectHandler,
+) {
+  if (
+    "continue_with" in error.details &&
+    Array.isArray(error.details.continue_with)
+  ) {
+    const continueWithRecovery = (
+      error.details.continue_with as ContinueWith[]
+    ).find(instanceOfContinueWithRecoveryUi)
+    if (continueWithRecovery?.action === "show_recovery_ui") {
+      onRedirect(
+        config.project.recovery_ui_url +
+          "?flow=" +
+          continueWithRecovery?.flow.id,
+        false,
+      )
+      return
+    }
+  }
+  onRedirect(recoveryUrl(config), true)
 }
