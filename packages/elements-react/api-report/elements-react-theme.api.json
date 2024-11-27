@@ -174,6 +174,156 @@
       "members": [
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!DefaultButtonSocial:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function DefaultButtonSocial({ attributes, node, onClick, "
+            },
+            {
+              "kind": "Reference",
+              "text": "showLabel",
+              "canonicalReference": "@ory/elements-react!~__type#showLabel"
+            },
+            {
+              "kind": "Content",
+              "text": ": _showLabel, "
+            },
+            {
+              "kind": "Reference",
+              "text": "logos",
+              "canonicalReference": "@ory/elements-react!~__type#logos"
+            },
+            {
+              "kind": "Content",
+              "text": ": providedLogos, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "DefaultSocialButtonProps",
+              "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ attributes, node, onClick, showLabel: _showLabel, logos: providedLogos, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "DefaultButtonSocial"
+        },
+        {
+          "kind": "Namespace",
+          "canonicalReference": "@ory/elements-react!DefaultButtonSocial:namespace",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare namespace DefaultButtonSocial "
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "releaseTag": "Public",
+          "name": "DefaultButtonSocial",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Function",
+              "canonicalReference": "@ory/elements-react!DefaultButtonSocial.WithLogos:function(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "WithLogos: (logos: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Record",
+                  "canonicalReference": "!Record:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<string, "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ElementType",
+                  "canonicalReference": "@types/react!React.ElementType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(props: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "DefaultSocialButtonProps",
+                  "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "react_jsx_runtime.JSX.Element",
+                  "canonicalReference": "@types/react!JSX.Element:interface"
+                }
+              ],
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 10
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "logos",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 5
+                  },
+                  "isOptional": false
+                }
+              ],
+              "name": "WithLogos"
+            }
+          ]
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCard:function(1)",
           "docComment": "",
           "excerptTokens": [

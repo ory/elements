@@ -7,9 +7,10 @@ import {
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
-import logos from "../../provider-logos"
+import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
+import { ElementType } from "react"
 
 export function extractProvider(
   context: object | undefined,
@@ -27,6 +28,7 @@ export function extractProvider(
 
 type DefaultSocialButtonProps = OryNodeOidcButtonProps & {
   showLabel?: boolean
+  logos?: Record<string, ElementType>
 }
 
 export function DefaultButtonSocial({
@@ -34,7 +36,9 @@ export function DefaultButtonSocial({
   node,
   onClick,
   showLabel: _showLabel,
+  logos: providedLogos,
 }: DefaultSocialButtonProps) {
+  const logos = { ...defaultLogos, ...providedLogos }
   const {
     node_type: _ignoredNodeType,
     type: _ignoredType,
@@ -73,7 +77,7 @@ export function DefaultButtonSocial({
           <Logo
             size={20}
             // alt={node.meta.label?.text || attributes.value}
-            className="object-fill w-full h-full"
+            // className="object-fill w-full h-full"
           />
         ) : (
           <span className="rounded-full aspect-square border flex items-center justify-center text-xs">
@@ -89,6 +93,17 @@ export function DefaultButtonSocial({
     </button>
   )
 }
+
+/**
+ * Returns a variant of DefaultButtonSocial that can use your own logos
+ *
+ * @param logos - a record of provider names and their respective logos
+ * @returns a variant of DefaultButtonSocial that uses the provided logos
+ */
+DefaultButtonSocial.WithLogos =
+  (logos: Record<string, ElementType>) => (props: DefaultSocialButtonProps) => (
+    <DefaultButtonSocial {...props} logos={logos} />
+  )
 
 export function DefaultSocialButtonContainer({
   children,

@@ -64,3 +64,5 @@ export function DefaultMessage({ message }: OryMessageContentProps) {
     </span>
   )
 }
+
+export { DefaultButtonSocial } from "./social"
