@@ -1,3 +1,24 @@
+## 1.0.0-next.17 (2024-11-27)
+
+
+### 🚀 Features
+
+- allow overriding OIDC logos
+
+- enable proper account linking flows
+
+- **core:** add react-hook form resolver
+
+
+### 🩹 Fixes
+
+- handle recovery brute force protection
+
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.16 (2024-11-26)
 
 
