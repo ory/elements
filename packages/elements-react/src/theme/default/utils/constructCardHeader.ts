@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
-import { useIntl } from "react-intl"
+import { IntlShape, useIntl } from "react-intl"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
   if (list.length === 0) {
@@ -171,11 +171,25 @@ export function useCardHeaderText(
             id: "card.header.parts.identifier-first",
           },
           {
-            identifierLabel: identifier.meta.label?.text,
+            identifierLabel: identifier.meta.label?.text.toLocaleLowerCase(),
           },
         ),
       )
     }
+  } else if (isFirstStepRegistration(nodes)) {
+    parts.push(
+      intl.formatMessage(
+        {
+          id: "card.header.parts.identifier-first",
+        },
+        {
+          identifierLabel: joinWithCommaOr(
+            collectRegistrationTraits(nodes, intl),
+            intl.formatMessage({ id: "misc.and" }),
+          ),
+        },
+      ),
+    )
   }
 
   switch (opts.flowType) {
@@ -240,5 +254,53 @@ export function useCardHeaderText(
   return {
     title: "Error",
     description: "An error occurred",
+  }
+}
+
+function collectRegistrationTraits(nodes: UiNode[], intl: IntlShape) {
+  return nodes.reduce((acc, node) => {
+    if (!isUiNodeInputAttributes(node.attributes)) {
+      return acc
+    }
+    if (!node.attributes.name.startsWith("traits.")) {
+      return acc
+    }
+
+    if (node.attributes.type === "hidden") {
+      return acc
+    }
+
+    if (!node.attributes.required) {
+      return acc
+    }
+    if (
+      !["text", "email", "tel"].includes(node.attributes.type.toLowerCase())
+    ) {
+      return acc
+    }
+
+    acc.push(
+      translateTrait(node.attributes.name, intl) ??
+        node.meta.label?.text ??
+        node.attributes.name,
+    )
+
+    return acc
+  }, [] as string[])
+}
+function isFirstStepRegistration(nodes: UiNode[]) {
+  return nodes.find(
+    (node) =>
+      node.group === "profile" &&
+      "name" in node.attributes &&
+      node.attributes.type === "submit",
+  )
+}
+
+function translateTrait(trait: string, intl: IntlShape): string | undefined {
+  if (intl.messages[`identity-schema.${trait}`]) {
+    return intl.formatMessage({
+      id: `identity-schema.${trait}`,
+    })
   }
 }
