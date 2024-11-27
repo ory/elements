@@ -16,7 +16,7 @@ export type OryMessageRootProps = DetailedHTMLProps<
 
 // This is a list of message IDs that should not be shown to the user.
 // They're returned by the API, but they don't work well in the two step flows.
-const messageIdsToHide = [1040009, 1060003, 1080003, 1010014, 1040005]
+const messageIdsToHide = [1040009, 1060003, 1080003, 1010014, 1040005, 1010016]
 
 export function OryCardValidationMessages({ ...props }: OryMessageRootProps) {
   const { flow } = useOryFlow()

@@ -184,7 +184,11 @@ for (const flowType of [
               const res = renderHook(
                 () =>
                   useCardHeaderText(
-                    Array.isArray(value) ? value : [value],
+                    {
+                      nodes: Array.isArray(value) ? value : [value],
+                      action: "",
+                      method: "",
+                    },
                     opts,
                   ),
                 { wrapper },
@@ -197,3 +201,20 @@ for (const flowType of [
     }
   })
 }
+
+test("constructCardHeaderText on account linking", () => {
+  const res = renderHook(
+    () =>
+      useCardHeaderText(
+        {
+          nodes: [defaultGroup],
+          action: "",
+          method: "",
+          messages: [{ id: 1010016, text: "", type: "error" }],
+        },
+        { flowType: FlowType.Login, flow: { refresh: false } },
+      ),
+    { wrapper },
+  )
+  expect(res.result.current).toMatchSnapshot()
+})

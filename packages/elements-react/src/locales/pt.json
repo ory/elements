@@ -240,5 +240,6 @@
   "settings.webauthn.description": "",
   "settings.webauthn.info": "",
   "settings.webauthn.title": "",
-  "card.footer.select-another-method": ""
+  "card.footer.select-another-method": "",
+  "account-linking.title": ""
 }

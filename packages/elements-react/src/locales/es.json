@@ -240,5 +240,6 @@
   "settings.title-totp": "",
   "settings.title-webauthn": "",
   "settings.webauthn.info": "",
-  "card.footer.select-another-method": ""
+  "card.footer.select-another-method": "",
+  "account-linking.title": ""
 }

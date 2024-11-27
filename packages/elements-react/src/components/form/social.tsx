@@ -7,6 +7,7 @@ import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryForm } from "./form"
 import { useFormContext } from "react-hook-form"
+import { OryFormProvider } from "./form-provider"
 
 export type OryFormOidcButtonsProps = PropsWithChildren<{
   hideDivider?: boolean
@@ -86,8 +87,10 @@ export function OryFormSocialButtonsForm() {
   }
 
   return (
-    <OryForm>
-      <OryFormOidcButtons />
-    </OryForm>
+    <OryFormProvider>
+      <OryForm>
+        <OryFormOidcButtons />
+      </OryForm>
+    </OryFormProvider>
   )
 }

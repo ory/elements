@@ -42,10 +42,13 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         return { current: "method_active", method: methodWithMessage.group }
       } else if (
         flow.flow.active &&
-        !["default", "identifier_first"].includes(flow.flow.active)
+        !["default", "identifier_first", "oidc"].includes(flow.flow.active)
       ) {
         return { current: "method_active", method: flow.flow.active }
       } else if (isChoosingMethod(flow.flow.ui.nodes)) {
+        return { current: "select_method" }
+      } else if (flow.flow.ui.messages?.some((m) => m.id === 1010016)) {
+        // Account linking edge case
         return { current: "select_method" }
       }
       return { current: "provide_identifier" }

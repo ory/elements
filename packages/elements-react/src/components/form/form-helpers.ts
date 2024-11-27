@@ -14,15 +14,18 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
         attrs.name === "method" ||
         attrs.type === "submit" ||
         typeof attrs.value === "undefined"
-      )
+      ) {
         return acc
+      }
 
       // Unroll nested traits or assign default values
-      const unrolled = unrollTrait({
-        name: attrs.name,
-        value: attrs.value,
-      })
-      Object.assign(acc, unrolled ?? { [attrs.name]: attrs.value })
+      return unrollTrait(
+        {
+          name: attrs.name,
+          value: attrs.value,
+        },
+        acc,
+      )
     }
 
     return acc
@@ -32,9 +35,8 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
 export function unrollTrait<T extends string, V>(
   input: { name: T; value: V },
   output: Partial<UnrollTrait<T, V>> = {},
-): UnrollTrait<T, V> | undefined {
+): UnrollTrait<T, V> {
   const keys = input.name.split(".")
-  if (!keys.length) return undefined
 
   // It's challenging to type this for deeply nested structures because the shape
   // of current changes dynamically as we navigate through levels.
