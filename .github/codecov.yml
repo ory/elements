@@ -1,0 +1,13 @@
+comment:
+  layout: "condensed_header, diff, flags, components"
+
+component_management:
+  individual_components:
+    - component_id: elements-react # this is an identifier that should not be changed
+      name: "@ory/elements-react" # this is a display name, and can be changed freely
+      paths:
+        - packages/elements-react
+    - component_id: nextjs # this is an identifier that should not be changed
+      name: "@ory/nextjs" # this is a display name, and can be changed freely
+      paths:
+        - packages/nextjs
