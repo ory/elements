@@ -10,7 +10,7 @@ type KratosMessage = {
   id: number
   text: string
   type: "info" | "error"
-  context: Record<string, any>
+  context: Record<string, unknown>
 }
 
 const kratosMessageOverrides: { [id: number]: (text: string) => string } = {
@@ -49,7 +49,7 @@ type ExtendedMessageDocumentation = {
     description?: string
   }
 }
-;(async () => {
+void (async () => {
   const files = await glob("../src/**/*.{ts,tsx}").then((files) =>
     files.filter((f) => !f.endsWith(".d.ts")),
   )
@@ -57,7 +57,7 @@ type ExtendedMessageDocumentation = {
   const extractedMessages = await formatjs.extract(files, {})
   await writeFile("../src/locales/formatjs.json", extractedMessages)
 
-  const kratosMessages: ExtendedMessageDocumentation = await fetch(
+  const kratosMessages = (await fetch(
     "https://raw.githubusercontent.com/ory/docs/master/docs/kratos/concepts/messages.json",
   )
     .then((res) => res.json())
@@ -67,7 +67,7 @@ type ExtendedMessageDocumentation = {
         { defaultMessage: kratosMessageOverrides[id]?.(text) ?? text },
       ]),
     )
-    .then(Object.fromEntries)
+    .then(Object.fromEntries)) as ExtendedMessageDocumentation
 
   await writeFile(
     "../src/locales/identities.messages.json",

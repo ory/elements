@@ -21,6 +21,6 @@
       "react-dom": ["./node_modules/preact/compat/"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "e2e"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

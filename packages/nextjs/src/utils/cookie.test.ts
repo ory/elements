@@ -4,7 +4,7 @@
 import { guessCookieDomain } from "./cookie"
 
 describe("cookie guesser", () => {
-  test("uses force domain", async () => {
+  test("uses force domain", () => {
     expect(
       guessCookieDomain("https://localhost", {
         forceCookieDomain: "some-domain",
@@ -12,29 +12,29 @@ describe("cookie guesser", () => {
     ).toEqual("some-domain")
   })
 
-  test("does not use any guessing domain", async () => {
+  test("does not use any guessing domain", () => {
     expect(guessCookieDomain("https://localhost", {})).toEqual("localhost")
   })
 
-  test("is not confused by invalid data", async () => {
+  test("is not confused by invalid data", () => {
     expect(guessCookieDomain("https://123.123.123.123.123", {})).toEqual(
       undefined,
     )
   })
 
-  test("is not confused by IPv4", async () => {
+  test("is not confused by IPv4", () => {
     expect(guessCookieDomain("https://123.123.123.123", {})).toEqual(
       "123.123.123.123",
     )
   })
 
-  test("is not confused by IPv6", async () => {
+  test("is not confused by IPv6", () => {
     expect(
       guessCookieDomain("https://2001:0000:130F:0000:0000:09C0:876A:130B", {}),
     ).toEqual(undefined)
   })
 
-  test("uses TLD", async () => {
+  test("uses TLD", () => {
     expect(guessCookieDomain("https://www.example.org", {})).toEqual(
       "example.org",
     )

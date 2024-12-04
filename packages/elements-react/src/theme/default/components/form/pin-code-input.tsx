@@ -15,7 +15,7 @@ export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
     setValue(name, v)
   }
 
-  const value = watch(name)
+  const value = watch(name) as string
 
   return (
     <InputOTP

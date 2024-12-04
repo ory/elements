@@ -17,9 +17,10 @@
     "noEmit": false,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "."
   },
-  "include": ["./src/test", "tsup.config.ts", "package.json"],
+  "include": ["./src", "tsup.config.ts", "package.json"],
   "exclude": [
     "**/*.spec.*",
     "**/*.test.*",

@@ -15,8 +15,8 @@ import { isProduction } from "./sdk"
  *   - `window.location.origin` (if not in production)
  *   - If none of the above are set, an error is thrown.
  *
- * @param config
- * @param forceSdkUrl
+ * @param config - The Ory config to enhance
+ * @param forceSdkUrl - An optional URL to override the SDK URL. If not provided, the SDK URL is determined as described above.
  */
 export function enhanceOryConfig(
   config: Partial<OryConfig>,

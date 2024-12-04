@@ -38,8 +38,8 @@ export function rewriteUrls(
  *
  * If `proxyUrl` is provided, the SDK URL is replaced with the proxy URL.
  *
- * @param obj
- * @param proxyUrl
+ * @param obj - The object to rewrite
+ * @param proxyUrl - The proxy URL to replace the SDK URL with
  */
 export function rewriteJsonResponse<T extends object>(
   obj: T,
@@ -56,10 +56,12 @@ export function rewriteJsonResponse<T extends object>(
             value
               .map((item) => {
                 if (typeof item === "object" && item !== null) {
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
                   return rewriteJsonResponse(item, proxyUrl)
                 } else if (typeof item === "string" && proxyUrl) {
                   return item.replaceAll(orySdkUrl(), proxyUrl)
                 }
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-return
                 return item
               })
               .filter((item) => item !== undefined),

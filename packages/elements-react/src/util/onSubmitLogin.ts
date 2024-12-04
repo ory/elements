@@ -43,6 +43,7 @@ export async function onSubmitLogin(
     .then(() => {
       // Workaround
       window.location.href =
+        // eslint-disable-next-line promise/always-return
         flow.return_to ?? config.sdk.url + "/self-service/login/browser"
     })
     .catch(

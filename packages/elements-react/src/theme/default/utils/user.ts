@@ -9,12 +9,21 @@ export type UserInitials = {
   avatar?: string
 }
 
+function isTraitsIndexable(
+  traits: unknown,
+): traits is Record<string, string | Record<string, string>> {
+  return typeof traits === "object" && traits !== null
+}
+
 export const getUserInitials = (session?: Session): UserInitials => {
   const avatar = ""
   let primary = ""
   let secondary = ""
 
-  if (!session?.identity?.traits) {
+  if (
+    !session?.identity?.traits ||
+    !isTraitsIndexable(session.identity.traits)
+  ) {
     return {
       primary,
       secondary,
@@ -24,7 +33,7 @@ export const getUserInitials = (session?: Session): UserInitials => {
 
   const traits = session.identity?.traits
 
-  if (traits.email) {
+  if (traits.email && typeof traits.email === "string") {
     secondary = traits.email
   }
 
@@ -33,7 +42,12 @@ export const getUserInitials = (session?: Session): UserInitials => {
       primary = traits.name
     }
 
-    if (traits.name.first && traits.name.last) {
+    if (
+      typeof traits.name === "object" &&
+      traits.name &&
+      traits.name.first &&
+      traits.name.last
+    ) {
       primary = traits.name.first + " " + traits.name.last
     }
   }

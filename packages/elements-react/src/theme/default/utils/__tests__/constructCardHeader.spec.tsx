@@ -210,7 +210,7 @@ test("constructCardHeaderText on account linking", () => {
           nodes: [defaultGroup],
           action: "",
           method: "",
-          messages: [{ id: 1010016, text: "", type: "error" }],
+          messages: [{ id: 1010016, text: "", type: "error", context: {} }],
         },
         { flowType: FlowType.Login, flow: { refresh: false } },
       ),

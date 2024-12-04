@@ -32,7 +32,7 @@ export function useOnRedirect(): OnRedirectHandler {
     if (external) {
       window.location.assign(url)
     } else {
-      router.push(url)
+      void router.push(url)
     }
   }
 }

@@ -9,7 +9,6 @@ import { renderHook } from "@testing-library/react"
 
 describe("utils/ui", () => {
   test("useNodesGroups", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const { result } = renderHook(() =>
       useNodesGroups(allMethodsInitialForm.ui.nodes as UiNode[]),
     )

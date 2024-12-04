@@ -40,6 +40,7 @@ export function unrollTrait<T extends string, V>(
 
   // It's challenging to type this for deeply nested structures because the shape
   // of current changes dynamically as we navigate through levels.
+  // TODO(jonas): This is not ideal. We should be able to type this properly.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let current: any = output
   keys.forEach((key, index) => {

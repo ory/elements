@@ -1,23 +1,21 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Nav } from "../nav"
-import { Typography } from "../typography"
-import { FormattedMessage, useIntl } from "react-intl"
 import { SettingsFlow } from "@ory/client"
-import { NodeMessages } from "./helpers/error-messages"
+import { FormattedMessage, useIntl } from "react-intl"
 import { Divider } from "../divider"
-import { UserSettingsCard, UserSettingsFlowType } from "./user-settings-card"
-import { NavSectionLinks } from "../nav"
+import { Nav, NavSectionLinks } from "../nav"
+import { Typography } from "../typography"
+import { NodeMessages } from "./helpers/error-messages"
 import {
-  hasOidc,
-  hasPassword,
   hasLookupSecret,
+  hasOidc,
+  hasPasskey,
+  hasPassword,
   hasTotp,
   hasWebauthn,
-  hasPasskey,
-  hasGroup,
 } from "./helpers/utils"
+import { UserSettingsCard, UserSettingsFlowType } from "./user-settings-card"
 
 /**
  * UserSettingsScreenProps

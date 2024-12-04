@@ -17,7 +17,7 @@ export const useIdWithFallback = () => {
     // since we're fine if the import doesn't exist, and we don't want
     // it to cause a build error.
     return React["useId".toString() as "useId"]() ?? fallback()
-  } catch (e) {
+  } catch (_e) {
     return fallback()
   }
 }

@@ -34,6 +34,7 @@ export const RegisterOryElementsExpress: OryEelementsExpressRoute = (
       // merge also creates a new object ensuring that we don't pollute the default or request theme
       inlineTheme = merge({}, inlineTheme, theme)
     }
+    // eslint-disable-next-line @typescript-eslint/no-base-to-string -- false positive?
     res.send(`body {${assignInlineVars(oryTheme, inlineTheme).toString()}}`)
   })
   app.use("/", express.static("node_modules/@ory/elements/dist"))

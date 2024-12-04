@@ -42,7 +42,7 @@ export const Login = () => {
     sdk
       .updateLoginFlow({
         flow: flow.id,
-        updateLoginFlowBody: body as UpdateLoginFlowBody,
+        updateLoginFlowBody: body,
       })
       .then(() => {
         // we successfully submitted the login flow, so lets redirect to the dashboard

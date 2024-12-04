@@ -10,7 +10,7 @@ import { useLocation } from "wouter-preact"
 export const Register = () => {
   const [flow, setFlow] = useState<RegistrationFlow | null>(null)
 
-  const [location, setLocation] = useLocation()
+  const [_, setLocation] = useLocation()
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(

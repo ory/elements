@@ -39,14 +39,14 @@ import { toFlowParams } from "./utils"
  * }
  * ```
  *
- * @param params The query parameters of the request.
+ * @param params - The query parameters of the request.
  */
 export async function getVerificationFlow(
   params: QueryParams | Promise<QueryParams>,
 ): Promise<VerificationFlow | null | void> {
   const p = await toFlowParams(await params)
   return getFlow(
-    params,
+    await params,
     () => serverSideFrontendClient.getVerificationFlowRaw(p, initOverrides),
     FlowType.Verification,
   )

@@ -82,7 +82,9 @@ describe("guessPotentiallyProxiedOrySdkUrl", () => {
 
   it("should return window.location.origin when window is defined", () => {
     const originalWindow = global.window
-    global.window = { location: { origin: "https://window-origin" } } as any
+    global.window = {
+      location: { origin: "https://window-origin" },
+    } as Window & typeof globalThis
     expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://window-origin")
     global.window = originalWindow
   })

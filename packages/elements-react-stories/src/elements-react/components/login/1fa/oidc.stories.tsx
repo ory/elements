@@ -1,11 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { LoginFlow, LoginFlowFromJSON } from "@ory/client-fetch"
 import { Login } from "@ory/elements-react/theme"
-import oidcNodes from "$/.stub-responses/login/1fa/oidc/initial-form.json"
-import { config } from "../../../utils"
-import { LoginFlow, LoginFlowFromJSON, UiNode } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
+import { config } from "../../../utils"
+
+const oidcNodes =
+  require("$/.stub-responses/login/1fa/oidc/initial-form.json") as LoginFlow
 
 const providers = [
   "apple",
@@ -29,11 +31,14 @@ const listOnly = (providers: string[]): LoginFlow => {
     ui: {
       ...oidcNodes.ui,
       nodes: oidcNodes.ui.nodes.filter((node) => {
-        if (node.group !== "oidc") {
+        if (node.group !== "oidc" || node.attributes.node_type !== "input") {
           return true
         }
-        return providers.includes(node.attributes.value.toLowerCase())
-      }) as UiNode[],
+
+        return providers.includes(
+          (node.attributes.value as string).toLowerCase(),
+        )
+      }),
     },
   })
 }
@@ -42,11 +47,7 @@ type LoginProxy = Record<(typeof providers)[number], boolean>
 
 function LoginProxy(providers: LoginProxy) {
   const flow = providers
-    ? listOnly(
-        Object.keys(providers).filter(
-          (key) => providers[key as keyof typeof providers],
-        ),
-      )
+    ? listOnly(Object.keys(providers).filter((key) => providers[key]))
     : LoginFlowFromJSON(oidcNodes)
 
   return <Login flow={flow} config={config} />

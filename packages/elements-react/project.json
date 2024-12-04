@@ -1,13 +1,10 @@
 {
   "targets": {
     "lint": {
-      "executor": "@nx/eslint:lint",
+      "command": "eslint",
       "dependsOn": ["build"],
       "options": {
-        "lintFilePatterns": [
-          "packages/elements-react/src/**/*.ts",
-          "packages/elements-react/src/**/*.tsx"
-        ]
+        "cwd": "packages/elements-react"
       }
     },
     "dev": {

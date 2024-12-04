@@ -50,8 +50,8 @@ const config: Config = {
     },
   },
   plugins: [
-    plugin(({ addVariant }) => {
-      addVariant("loading", "&[data-loading=true]")
+    plugin((plugin) => {
+      plugin.addVariant("loading", "&[data-loading=true]")
     }),
   ],
 }

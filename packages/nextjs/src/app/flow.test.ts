@@ -1,20 +1,22 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, handleFlowError } from "@ory/client-fetch"
+import { redirect } from "next/navigation"
 import {
   getLoginFlow,
   getRecoveryFlow,
   getRegistrationFlow,
   getVerificationFlow,
 } from "."
-import { redirect } from "next/navigation"
-import { getPublicUrl, toFlowParams } from "./utils"
 import { serverSideFrontendClient } from "./client"
+import { getPublicUrl } from "./utils"
+import { QueryParams } from "../types"
 
 jest.mock("./utils", () => ({
   getPublicUrl: jest.fn(),
-  toFlowParams: jest.fn().mockImplementation((params) => params),
+  toFlowParams: jest.fn().mockImplementation((params: QueryParams) => params),
 }))
 
 jest.mock("./client", () => ({
@@ -36,6 +38,7 @@ jest.mock("next/navigation", () => ({
 jest.mock("@ory/client-fetch", () => {
   const original = jest.requireActual("@ory/client-fetch")
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return {
     ...original,
     handleFlowError: jest.fn(),
