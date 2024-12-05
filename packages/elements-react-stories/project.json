@@ -1,3 +1,10 @@
 {
-  "targets": {}
+  "targets": {
+    "storybook": {
+      "dependsOn": ["@ory/elements-react:build"]
+    },
+    "build-storybook": {
+      "dependsOn": ["@ory/elements-react:build"]
+    }
+  }
 }

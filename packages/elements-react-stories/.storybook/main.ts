@@ -16,7 +16,7 @@ const config: StorybookConfig = {
     options: {},
   },
 
-  viteFinal: async (config) =>
+  viteFinal: (config) =>
     mergeConfig(config, {
       plugins: [nxViteTsPaths(), vitePluginRequire()],
       resolve: {
