@@ -1,16 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { CardGradient, CardGradientProps } from "../react-components"
 import { Container } from "./storyhelper"
 
 export default {
   title: "Component/CardGradient",
   component: CardGradient,
-} as ComponentMeta<typeof CardGradient>
+} as Meta<typeof CardGradient>
 
-const Template: Story<CardGradientProps> = (args: CardGradientProps) => (
+const Template: StoryFn<CardGradientProps> = (args: CardGradientProps) => (
   <Container>
     <CardGradient {...args} />
   </Container>

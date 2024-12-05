@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { UserAuthCard, UserAuthCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
@@ -32,9 +32,9 @@ import logo from "../assets/logo.svg"
 export default {
   title: "Ory/UserAuthCard",
   component: UserAuthCard,
-} as ComponentMeta<typeof UserAuthCard>
+} as Meta<typeof UserAuthCard>
 
-const Template: Story<UserAuthCardProps> = (args: UserAuthCardProps) => (
+const Template: StoryFn<UserAuthCardProps> = (args: UserAuthCardProps) => (
   <Container>
     <UserAuthCard {...args} />
   </Container>

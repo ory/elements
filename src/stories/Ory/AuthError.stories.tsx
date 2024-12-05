@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { UserErrorCard, UserErrorCardProps } from "../../react-components"
 import { Container } from "../storyhelper"
 
@@ -10,9 +10,9 @@ import { authError400, authError500 } from "./auth-error-data"
 export default {
   title: "Ory/ErrorAuthCard",
   component: UserErrorCard,
-} as ComponentMeta<typeof UserErrorCard>
+} as Meta<typeof UserErrorCard>
 
-const Template: Story<UserErrorCardProps> = (args: UserErrorCardProps) => (
+const Template: StoryFn<UserErrorCardProps> = (args: UserErrorCardProps) => (
   <Container>
     <UserErrorCard {...args} />
   </Container>

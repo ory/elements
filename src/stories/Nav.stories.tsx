@@ -1,16 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Card, Nav, NavProps } from "../react-components"
 import { Container } from "./storyhelper"
 
 export default {
   title: "Component/Nav",
   component: Nav,
-} as ComponentMeta<typeof Nav>
+} as Meta<typeof Nav>
 
-const Template: Story<NavProps> = (args: NavProps) => (
+const Template: StoryFn<NavProps> = (args: NavProps) => (
   <Container>
     <div
       style={{

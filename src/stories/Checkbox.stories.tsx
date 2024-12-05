@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Checkbox, CheckboxProps, Message } from "../react-components"
 import { Container } from "./storyhelper"
 
@@ -14,9 +14,9 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Checkbox>
+} as Meta<typeof Checkbox>
 
-const Template: Story<CheckboxProps> = (args: CheckboxProps) => (
+const Template: StoryFn<CheckboxProps> = (args: CheckboxProps) => (
   <Container>
     <Checkbox {...args} />
   </Container>

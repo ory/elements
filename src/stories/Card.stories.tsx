@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Card, CardProps, Message } from "../react-components"
 import logo from "./assets/logo.svg"
 import oryLogo from "./assets/ory_logomark.svg"
@@ -10,9 +10,9 @@ import { Container } from "./storyhelper"
 export default {
   title: "Component/Card",
   component: Card,
-} as ComponentMeta<typeof Card>
+} as Meta<typeof Card>
 
-const Template: Story<CardProps> = (args: CardProps) => (
+const Template: StoryFn<CardProps> = (args: CardProps) => (
   <Container>
     <Card {...args} />
   </Container>

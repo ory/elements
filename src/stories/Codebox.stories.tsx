@@ -1,16 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { CodeBox, CodeBoxProps } from "../react-components/codebox"
 import { Container } from "./storyhelper"
 
 export default {
   title: "Component/CodeBox",
   component: CodeBox,
-} as ComponentMeta<typeof CodeBox>
+} as Meta<typeof CodeBox>
 
-const Template: Story<CodeBoxProps> = (args: CodeBoxProps) => (
+const Template: StoryFn<CodeBoxProps> = (args: CodeBoxProps) => (
   <Container>
     <CodeBox {...args}>{args.children}</CodeBox>
   </Container>
