@@ -1,16 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button, ButtonProps } from "../react-components"
 import { Container } from "./storyhelper"
 
 export default {
   title: "Component/Button",
   component: Button,
-} as ComponentMeta<typeof Button>
+} as Meta<typeof Button>
 
-const Template: Story<ButtonProps> = (args: ButtonProps) => (
+const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (
   <Container>
     <Button {...args} />
   </Container>

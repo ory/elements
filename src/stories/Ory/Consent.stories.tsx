@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { ComponentProps } from "react"
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 
 import { Container } from "../storyhelper"
 import { UserConsentCard } from "../../react-components"
@@ -11,9 +11,9 @@ import logo from "../assets/logo.svg"
 export default {
   title: "Ory/UserConsentCard",
   component: UserConsentCard,
-} as ComponentMeta<typeof UserConsentCard>
+} as Meta<typeof UserConsentCard>
 
-const Template: Story<ComponentProps<typeof UserConsentCard>> = (
+const Template: StoryFn<ComponentProps<typeof UserConsentCard>> = (
   args: ComponentProps<typeof UserConsentCard>,
 ) => (
   <Container>

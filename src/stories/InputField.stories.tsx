@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { InputField, InputFieldProps, Message } from "../react-components"
 import { Container } from "./storyhelper"
 
@@ -14,9 +14,9 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof InputField>
+} as Meta<typeof InputField>
 
-const Template: Story<InputFieldProps> = (args: InputFieldProps) => (
+const Template: StoryFn<InputFieldProps> = (args: InputFieldProps) => (
   <Container>
     <InputField {...args} />
   </Container>
