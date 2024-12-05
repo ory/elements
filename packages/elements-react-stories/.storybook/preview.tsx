@@ -1,9 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Decorator, Preview } from "@storybook/react"
-import { chromaticModes } from "./modes"
 import "@ory/elements-react/theme/styles.css"
+import type { Decorator, Preview } from "@storybook/react"
 import { merge } from "lodash"
 import "./global.css"
 
@@ -23,9 +22,6 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    chromatic: {
-      modes: chromaticModes,
-    },
   },
 }
 
@@ -33,7 +29,19 @@ const withI18next: Decorator = (Story, context) => {
   const { locale } = context.globals
 
   return (
-    <Story args={merge({}, { config: { intl: { locale } } }, context.args)} />
+    <Story
+      args={merge(
+        {},
+        {
+          config: {
+            intl: {
+              locale: locale && typeof locale === "string" ? locale : "en",
+            },
+          },
+        },
+        context.args,
+      )}
+    />
   )
 }
 
@@ -48,7 +56,10 @@ export const globalTypes = {
       icon: "globe",
       items: [
         { value: "en", title: "English" },
-        { value: "de", title: "Deutsch" },
+        { value: "de", title: "German" },
+        { value: "sv", title: "Swedish" },
+        { value: "fr", title: "French" },
+        { value: "es", title: "Spanish" },
       ],
       showName: true,
     },
