@@ -20,4 +20,5 @@ export default {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   coverageDirectory: "../../coverage/packages/elements-react",
   coveragePathIgnorePatterns: ["/node_modules/", "/dist/", ".svg"],
+  reporters: ["default", "jest-junit"],
 } satisfies Config
