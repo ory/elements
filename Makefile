@@ -15,7 +15,7 @@ test:
 .PHONY: build
 build:
 	npx nx run-many --target=build --all
-    npx nx run-many --all --target=build-storybook -- --stats-json
+	npx nx run-many --all --target=build-storybook -- --stats-json
 
 .PHONY: dev
 dev:
