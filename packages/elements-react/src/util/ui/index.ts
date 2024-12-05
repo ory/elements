@@ -46,7 +46,7 @@ export function triggerToWindowCall(
     return
   }
 
-  // Retry every 250ms for 5 seconds
+  // Retry every 100ms for 10 seconds
   let i = 0
   const ms = 100
   const interval = setInterval(() => {
@@ -73,7 +73,7 @@ function triggerToFunction(
     | UiNodeInputAttributesOnloadTriggerEnum,
 ) {
   if (typeof window === "undefined") {
-    console.error(
+    console.debug(
       "The Ory SDK is missing a required function: window is undefined.",
     )
     return undefined
@@ -81,13 +81,12 @@ function triggerToFunction(
 
   const typedWindow = window as { [key: string]: any } // eslint-disable-line @typescript-eslint/no-explicit-any
   if (!(trigger in typedWindow) || !typedWindow[trigger]) {
-    console.error(`The Ory SDK is missing a required function: ${trigger}.`)
+    console.debug(`The Ory SDK is missing a required function: ${trigger}.`)
     return undefined
   }
-
   const triggerFn = typedWindow[trigger]
   if (typeof triggerFn !== "function") {
-    console.error(
+    console.debug(
       `The Ory SDK is missing a required function: ${trigger}. It is not a function.`,
     )
     return undefined

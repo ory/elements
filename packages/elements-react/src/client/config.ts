@@ -27,9 +27,13 @@ export function orySdkUrl() {
 /**
  * This function returns whether the current environment is a production environment.
  */
-export const isProduction = ["production", "prod"].includes(
-  process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? "",
-)
+export function isProduction() {
+  return (
+    ["production", "prod"].indexOf(
+      process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? "",
+    ) > -1
+  )
+}
 
 /**
  * This function returns the Ory SDK URL. If the environment is not production, it tries to guess the SDK URL based on the environment variables, assuming
@@ -42,7 +46,7 @@ export const isProduction = ["production", "prod"].includes(
 export function guessPotentiallyProxiedOrySdkUrl(options?: {
   knownProxiedUrl?: string
 }) {
-  if (isProduction) {
+  if (isProduction()) {
     // In production, we use the production custom domain
     return orySdkUrl()
   }
@@ -53,7 +57,7 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
     // The domain name of the generated deployment URL. Example: *.vercel.app. The value does not include the protocol scheme https://.
     //
     // This is only available for preview deployments on Vercel.
-    if (!isProduction && process.env.VERCEL_URL) {
+    if (!isProduction() && process.env.VERCEL_URL) {
       return `https://${process.env.VERCEL_URL}`.replace(/\/$/, "")
     }
 
