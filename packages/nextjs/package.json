@@ -1,0 +1,73 @@
+{
+  "name": "@ory/nextjs",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "private": false,
+  "dependencies": {
+    "@ory/client-fetch": "^1.15.6",
+    "cookie": "^1.0.1",
+    "psl": "^1.10.0",
+    "set-cookie-parser": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.6.0",
+    "@types/psl": "^1.1.3",
+    "@types/set-cookie-parser": "^2.4.10",
+    "babel-jest": "^29.7.0",
+    "jest-esm-transformer": "^1.0.0",
+    "tsup": "8.3.0"
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "react",
+    "passwordless",
+    "login",
+    "user management",
+    "permissions",
+    "authentication",
+    "nextjs",
+    "vercel",
+    "app router",
+    "pages router"
+  ],
+  "peerDependencies": {
+    "next": ">=13.1.0",
+    "react": ">=16.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./middleware": {
+      "types": "./dist/middleware/index.d.ts",
+      "import": "./dist/middleware/index.mjs",
+      "require": "./dist/middleware/index.js"
+    },
+    "./app": {
+      "types": "./dist/app/index.d.ts",
+      "import": "./dist/app/index.mjs",
+      "require": "./dist/app/index.js"
+    },
+    "./pages": {
+      "types": "./dist/pages/index.d.ts",
+      "import": "./dist/pages/index.mjs",
+      "require": "./dist/pages/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ],
+      "middleware": [
+        "./dist/middleware/index.d.ts"
+      ]
+    }
+  }
+}

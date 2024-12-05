@@ -1,0 +1,30 @@
+{
+  "name": "@ory/nextjs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nextjs/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "command": "tsup --clean --dts",
+      "options": {
+        "cwd": "packages/nextjs"
+      }
+    },
+    "dev": {
+      "command": "tsup --watch --dts",
+      "options": {
+        "cwd": "packages/nextjs"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "dependsOn": ["build"],
+      "options": {
+        "jestConfig": "packages/nextjs/jest.config.ts",
+        "coverage": true,
+        "coverageReporters": ["text", "cobertura"]
+      }
+    }
+  }
+}
