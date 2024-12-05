@@ -91,7 +91,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(1)
 
     act(() => {
       render(<TestComponent />)
@@ -99,7 +99,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(1)
   })
 
   it("handles errors during session fetching", async () => {
@@ -140,6 +140,6 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(1)
   })
 })

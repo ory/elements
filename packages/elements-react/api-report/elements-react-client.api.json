@@ -183,7 +183,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdk: {\n        url: string;\n    };\n}"
+              "text": "{\n    orySdkUrl?: string;\n}"
             },
             {
               "kind": "Content",

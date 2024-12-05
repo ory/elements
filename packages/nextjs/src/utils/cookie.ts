@@ -2,11 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { OryConfig } from "../types"
-import { ErrorResult, parse } from "psl"
-
-function isErrorResult(result: any): result is ErrorResult<any> {
-  return result && result.error
-}
+import { parse } from "psl"
 
 export function guessCookieDomain(url: string | undefined, config: OryConfig) {
   if (!url || config.forceCookieDomain) {
@@ -20,14 +16,14 @@ export function guessCookieDomain(url: string | undefined, config: OryConfig) {
     parsedUrl = url
   }
 
-  if (isIPAddress(parsedUrl)) {
-    return parsedUrl
-  }
-
   const parsed = parse(parsedUrl)
 
-  if (isErrorResult(parsed)) {
+  if (parsed.error) {
     return undefined
+  }
+
+  if (isIPAddress(parsedUrl)) {
+    return parsedUrl
   }
 
   return parsed.domain || parsed.input

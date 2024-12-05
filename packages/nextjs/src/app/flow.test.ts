@@ -9,7 +9,7 @@ import {
   getVerificationFlow,
 } from "."
 import { redirect } from "next/navigation"
-import { getPublicUrl, toFlowParams } from "./utils"
+import { getPublicUrl } from "./utils"
 import { serverSideFrontendClient } from "./client"
 
 jest.mock("./utils", () => ({
