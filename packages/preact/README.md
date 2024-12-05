@@ -1,5 +1,9 @@
 # Ory Elements
 
+> [!CAUTION] This package is in maintenance mode and is no longer actively
+> developed. Please use [`@ory/elements-react`](../elements-react/README.md)
+> instead.
+
 Ory Elements is a component library that makes building login, registration and
 account pages for Ory a breeze.
 
