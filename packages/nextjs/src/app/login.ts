@@ -39,14 +39,14 @@ import { toFlowParams } from "./utils"
  * }
  * ```
  *
- * @param params The query parameters of the request.
+ * @param params - The query parameters of the request.
  */
 export async function getLoginFlow(
   params: QueryParams | Promise<QueryParams>,
 ): Promise<LoginFlow | null | void> {
   const p = await toFlowParams(await params)
   return getFlow(
-    params,
+    await params,
     () => serverSideFrontendClient.getLoginFlowRaw(p, initOverrides),
     FlowType.Login,
   )

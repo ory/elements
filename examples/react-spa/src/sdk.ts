@@ -26,7 +26,6 @@ export const sdk = new FrontendApi(
  */
 export const sdkError = (
   getFlow: ((flowId: string) => Promise<void | AxiosError>) | undefined,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setFlow: React.Dispatch<React.SetStateAction<any>> | undefined,
   defaultNav: string | undefined,
   fatalToDash = false,

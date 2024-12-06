@@ -10,7 +10,7 @@ export type Context = {
   locale?: keyof typeof locales
 }
 
-export const ComponentWrapper = <Props extends {}>(
+export const ComponentWrapper = <Props extends object>(
   Component: FunctionComponent<Props>,
   props: Props,
   { locale = "en" }: Context,

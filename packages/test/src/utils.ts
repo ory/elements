@@ -12,7 +12,7 @@ import { Traits } from "./types"
 /**
  * A TypeScript type guard for nodes of the type <input>
  *
- * @param attrs
+ * @param attrs - The attributes of a node
  */
 export function isUiNodeInputAttributes(
   attrs: UiNodeAttributes,
@@ -73,7 +73,7 @@ export const traitsToNodes = (
     },
   )
 
-  includeCsrf &&
+  if (includeCsrf) {
     nodes.push({
       group: "default",
       type: "input",
@@ -87,8 +87,8 @@ export const traitsToNodes = (
       },
       meta: {},
       messages: [],
-    } as UiNode)
-
+    } satisfies UiNode)
+  }
   return nodes
 }
 

@@ -118,7 +118,7 @@ export const Login = (): JSX.Element => {
         forgotPasswordURL: {
           handler: () => {
             const search = new URLSearchParams()
-            flow.return_to && search.set("return_to", flow.return_to)
+            if (flow.return_to) search.set("return_to", flow.return_to)
             navigate(
               {
                 pathname: "/recovery",
@@ -131,9 +131,10 @@ export const Login = (): JSX.Element => {
         signupURL: {
           handler: () => {
             const search = new URLSearchParams()
-            flow.return_to && search.set("return_to", flow.return_to)
-            flow.oauth2_login_challenge &&
+            if (flow.return_to) search.set("return_to", flow.return_to)
+            if (flow.oauth2_login_challenge)
               search.set("login_challenge", flow.oauth2_login_challenge)
+
             navigate(
               {
                 pathname: "/registration",

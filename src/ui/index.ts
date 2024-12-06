@@ -134,7 +134,7 @@ export interface FilterNodesByGroups {
  * If no filtering options are specified, all nodes are returned.
  * Will always add default nodes unless `withoutDefaultGroup` is true.
  * Will always add default attributes unless `withoutDefaultAttributes` is true.
- * @param {Object} filterNodesByGroups - An object containing the nodes and the filtering options.
+ * @param filterNodesByGroups - An object containing the nodes and the filtering options.
  * @param {Array<UiNode>} filterNodesByGroups.nodes - An array of nodes.
  * @param {Array<UiNodeGroupEnum | string> | string} filterNodesByGroups.groups - An array or comma seperated strings of groups to filter by.
  * @param {boolean} filterNodesByGroups.withoutDefaultGroup - If true, will not add default nodes under the 'default' category.

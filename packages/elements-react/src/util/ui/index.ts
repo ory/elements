@@ -79,13 +79,12 @@ function triggerToFunction(
     return undefined
   }
 
-  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
   const typedWindow = window as { [key: string]: any } // eslint-disable-line @typescript-eslint/no-explicit-any
   if (!(trigger in typedWindow) || !typedWindow[trigger]) {
     console.error(`The Ory SDK is missing a required function: ${trigger}.`)
     return undefined
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
   const triggerFn = typedWindow[trigger]
   if (typeof triggerFn !== "function") {
     console.error(

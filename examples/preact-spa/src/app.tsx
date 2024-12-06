@@ -11,7 +11,7 @@ import { sdk, sdkError } from "./sdk"
 export const Dashboard = () => {
   const [session, setSession] = useState<Session | null>(null)
   const [logoutUrl, setLogoutUrl] = useState<string>()
-  const [location, setLocation] = useLocation()
+  const [_, setLocation] = useLocation()
 
   const sdkErrorHandler = sdkError(undefined, undefined, "/login")
 

@@ -8,6 +8,7 @@ import { QueryParams } from "../types"
 import { toFlowParams as baseToFlowParams } from "../utils/utils"
 
 export async function getCookieHeader() {
+  // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?
   const h = await headers()
   return h.get("cookie") ?? undefined
 }
@@ -21,6 +22,7 @@ export async function toFlowParams(params: QueryParams) {
 }
 
 export async function getPublicUrl() {
+  // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?
   const h = await headers()
   const host = h.get("host")
   const protocol = h.get("x-forwarded-proto") || "http"

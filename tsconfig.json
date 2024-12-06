@@ -11,13 +11,14 @@
     "noEmit": true,
     "declarationMap": true,
     "outDir": "dist",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "rootDir": "src"
   },
-  "include": ["./src", "vite.config.ts", "package.json"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "include": [
+    "./src",
+    "vite.config.ts",
+    "package.json",
+    "playwright/**/*.{ts,tsx}"
   ],
   "ts-node": {
     "compilerOptions": {

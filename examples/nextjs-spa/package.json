@@ -6,12 +6,11 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "debug": "playwright test --ui"
   },
   "dependencies": {
     "@next/font": "13.4.13",
-    "next": "14.2.10",
+    "next": "15.0.3",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -22,7 +21,7 @@
     "@types/node": "18.16.19",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "eslint-config-next": "13.1.5",
+    "eslint-config-next": "15.0.3",
     "typescript": "5.2.2",
     "vite": "5.4.10"
   }

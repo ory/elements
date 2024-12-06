@@ -1,7 +1,7 @@
 // Copyright © 2023 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-const globlSetup = async () => {
+const globlSetup = () => {
   process.env.APPLICATION_URL =
     process.env.APPLICATION_URL || "http://localhost:3200"
 

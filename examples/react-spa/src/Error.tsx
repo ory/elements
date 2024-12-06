@@ -7,7 +7,7 @@ import { CodeBox } from "@ory/elements"
 
 export const Error = () => {
   const [error, setError] = useState<string>()
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
   useEffect(() => {
     const queryError = searchParams.get("error")
@@ -17,7 +17,7 @@ export const Error = () => {
         setError(
           JSON.stringify(JSON.parse(decodeURIComponent(queryError)), null, 2),
         )
-      } catch (error) {
+      } catch (_error) {
         setError(queryError)
       }
     } else {

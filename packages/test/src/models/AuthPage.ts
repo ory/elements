@@ -156,9 +156,8 @@ export class AuthPage {
 
   async registerMockWhoamiResponse({
     response,
-    state,
+    state = "session_forbidden",
   }: Omit<MockFlow, "flow">) {
-    !state && (state = "session_forbidden")
     return this.locator.page().route("**/sessions/whoami", async (route) => {
       await route.fulfill({
         ...merge(

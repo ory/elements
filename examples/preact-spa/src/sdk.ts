@@ -10,7 +10,7 @@ import { useLocation } from "wouter-preact"
 export const sdk = new FrontendApi(
   new Configuration({
     //https://vitejs.dev/guide/env-and-mode.html#env-files
-    basePath: import.meta.env.VITE_ORY_SDK_URL,
+    basePath: import.meta.env.VITE_ORY_SDK_URL as string,
     baseOptions: {
       withCredentials: true,
     },
@@ -25,12 +25,11 @@ export const sdk = new FrontendApi(
  */
 export const sdkError = (
   getFlow: ((flowId: string) => Promise<void | AxiosError>) | undefined,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setFlow: StateUpdater<any> | undefined,
   defaultNav: string | undefined,
   fatalToDash = false,
 ) => {
-  const [location, setLocation] = useLocation()
+  const [_, setLocation] = useLocation()
 
   return useCallback(
     (error: AxiosError<any, unknown>): Promise<AxiosError | void> => {

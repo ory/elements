@@ -9,7 +9,7 @@ import { useLocation } from "wouter-preact"
 
 export const Verification = () => {
   const [flow, setFlow] = useState<VerificationFlow | null>(null)
-  const [location, setLocation] = useLocation()
+  const [, setLocation] = useLocation()
 
   // Get the flow based on the flowId in the URL (.e.g redirect to this page after flow initialized)
   const getFlow = useCallback(

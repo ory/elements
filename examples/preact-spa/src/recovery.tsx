@@ -10,7 +10,7 @@ import { getSearchParam, sdk, sdkError } from "./sdk"
 export const Recovery = () => {
   const [flow, setFlow] = useState<RecoveryFlow | null>(null)
 
-  const [location, setLocation] = useLocation()
+  const [_, setLocation] = useLocation()
 
   const getFlow = useCallback(
     (flowId: string) =>
@@ -41,7 +41,7 @@ export const Recovery = () => {
     sdk
       .updateRecoveryFlow({
         flow: flow.id,
-        updateRecoveryFlowBody: body as UpdateRecoveryFlowBody,
+        updateRecoveryFlowBody: body,
       })
       .then(({ data: flow }) => {
         // Form submission was successful, show the message to the user!

@@ -16,7 +16,7 @@ export const Error = () => {
         setError(
           JSON.stringify(JSON.parse(decodeURIComponent(queryError)), null, 2),
         )
-      } catch (error) {
+      } catch (_error) {
         setError(queryError)
       }
     } else {

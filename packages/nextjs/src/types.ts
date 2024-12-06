@@ -75,7 +75,7 @@ export interface OryConfig {
   }
 }
 
-export type QueryParams = { [key: string]: any }
+export type QueryParams = { [key: string]: string }
 
 export const initOverrides: RequestInit = {
   cache: "no-cache",

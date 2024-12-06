@@ -4,15 +4,7 @@
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { oryTheme } from "./theme.css"
 
-const SeverityTypes = [
-  "error",
-  "success",
-  "info",
-  "disabled",
-  "default",
-] as const
-
-export type Severity = (typeof SeverityTypes)[number]
+export type Severity = "error" | "success" | "info" | "disabled" | "default"
 
 export const messageStyle = recipe({
   base: {

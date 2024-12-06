@@ -5,7 +5,7 @@ import { Config } from "jest"
 
 export default {
   displayName: "@ory/elements-react",
-  preset: "../../jest.preset.js",
+  preset: "../../jest.preset.cjs",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
     ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":

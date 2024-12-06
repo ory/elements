@@ -50,7 +50,7 @@ export const Settings = () => {
     sdk
       .updateSettingsFlow({
         flow: flow.id,
-        updateSettingsFlowBody: body as UpdateSettingsFlowBody,
+        updateSettingsFlowBody: body,
       })
       .then(({ data: flow }) => {
         setFlow(flow)
