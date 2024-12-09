@@ -33,7 +33,7 @@ export default defineConfig([
     sourcemap: true,
     bundle: false,
     format: ["cjs", "esm"],
-    entry: ["src/client/**/*.ts"],
+    entry: ["src/client/**/*.{ts,tsx}", "!src/**/*.spec.{tsx,ts}"],
     outDir: "dist/client",
   },
   {

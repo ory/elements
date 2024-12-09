@@ -30,5 +30,5 @@ export async function getPublicUrl() {
 }
 
 export interface OryPageParams {
-  searchParams: Promise<URLSearchParams>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }

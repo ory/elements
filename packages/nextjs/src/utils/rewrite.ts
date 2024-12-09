@@ -18,6 +18,7 @@ export function rewriteUrls(
     ["/ui/login", config.override?.loginUiPath],
     ["/ui/verification", config.override?.verificationUiPath],
     ["/ui/settings", config.override?.settingsUiPath],
+    ["/ui/welcome", config.override?.defaultRedirectUri],
   ].entries()) {
     const match = joinUrlPaths(matchBaseUrl, matchPath || "")
     if (replaceWith && source.startsWith(match)) {

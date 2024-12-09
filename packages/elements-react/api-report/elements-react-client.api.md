@@ -4,18 +4,29 @@
 
 ```ts
 
+import * as react_jsx_runtime from 'react/jsx-runtime';
 import { Session } from '@ory/client-fetch';
 
-// @public
-export const useSession: (config?: {
-    sdk: {
-        url: string;
-    };
-}) => {
-    session: Session | undefined;
-    error: string | undefined;
+// @public (undocumented)
+export type SessionContextData = {
     isLoading: boolean;
+    isInitialLoading: boolean;
+    session: Session | null;
+    error?: Error;
+    refetch: () => Promise<void>;
 };
+
+// @public (undocumented)
+export function SessionProvider({ session: initialSession, children, baseUrl, }: SessionProviderProps): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
+export type SessionProviderProps = {
+    session?: Session | null;
+    baseUrl?: string;
+} & React.PropsWithChildren;
+
+// @public
+export function useSession(): SessionContextData;
 
 // (No @packageDocumentation comment for this package)
 

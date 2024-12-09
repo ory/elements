@@ -18,7 +18,7 @@ import {
 import { UserAvatar } from "./user-avater"
 
 type UserMenuProps = {
-  session?: Session
+  session: Session | null
   logoutFlow?: LogoutFlow
 }
 
