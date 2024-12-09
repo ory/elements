@@ -18,9 +18,9 @@ export async function toFlowParams(
   getCookieHeader: () => Promise<string | undefined>,
 ): Promise<FlowParams> {
   return {
-    id: params["flow"],
+    id: params["flow"]?.toString() ?? "",
     cookie: await getCookieHeader(),
-    return_to: params["return_to"],
+    return_to: params["return_to"]?.toString() ?? "",
   }
 }
 export function processSetCookieHeaders(

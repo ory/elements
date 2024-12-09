@@ -72,10 +72,15 @@ export interface OryConfig {
      * `/my-settings`.
      */
     settingsUiPath?: string
+
+    /**
+     * Set this to use a custom default redirect URI. This path should be relative to your application's base URL.
+     */
+    defaultRedirectUri?: string
   }
 }
 
-export type QueryParams = { [key: string]: string }
+export type QueryParams = { [key: string]: string | string[] | undefined }
 
 export const initOverrides: RequestInit = {
   cache: "no-cache",
