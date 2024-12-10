@@ -13,7 +13,7 @@ const identityBase: Identity = {
 
 describe("getUserInitials", () => {
   test("should return empty strings for primary, secondary, and avatar when no session is provided", () => {
-    const result: UserInitials = getUserInitials()
+    const result: UserInitials = getUserInitials(null)
     expect(result).toEqual({
       primary: "",
       secondary: "",

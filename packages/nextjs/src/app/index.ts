@@ -6,5 +6,7 @@ export { getLoginFlow } from "./login"
 export { getRegistrationFlow } from "./registration"
 export { getRecoveryFlow } from "./recovery"
 export { getVerificationFlow } from "./verification"
+export { getSettingsFlow } from "./settings"
+export { getServerSession } from "./session"
 
 export type { OryPageParams } from "./utils"

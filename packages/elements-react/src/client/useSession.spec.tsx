@@ -7,8 +7,10 @@ import { Session } from "@ory/client-fetch"
 import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/jest-globals"
 import { act, render, screen, waitFor } from "@testing-library/react"
-import { sessionStore, useSession } from "./useSession"
+import { useSession } from "./useSession"
 import { frontendClient } from "./frontendClient"
+import { SessionProvider } from "./session-provider"
+import { PropsWithChildren } from "react"
 
 jest.mock("./frontendClient", () => ({
   frontendClient: jest.fn(() => ({
@@ -18,13 +20,17 @@ jest.mock("./frontendClient", () => ({
 
 // Create a test component to use the hook
 const TestComponent = () => {
-  const { session, isLoading, error } = useSession()
+  const { isLoading, session, error } = useSession()
 
   if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Error: {error}</div>
+  if (error) return <div>Error: {error.message}</div>
   if (session) return <div>Session: {session.id}</div>
 
   return <div>No session</div>
+}
+
+const TestSessionProvider = ({ children }: { children: React.ReactNode }) => {
+  return <SessionProvider>{children}</SessionProvider>
 }
 
 describe("useSession", () => {
@@ -36,16 +42,12 @@ describe("useSession", () => {
       schema_id: "",
       schema_url: "",
     },
+    active: true,
     expires_at: new Date(),
   }
 
   beforeEach(() => {
     jest.clearAllMocks()
-    sessionStore.setState({
-      isLoading: false,
-      session: undefined,
-      error: undefined,
-    })
   })
 
   it("fetches and sets session successfully", async () => {
@@ -53,11 +55,16 @@ describe("useSession", () => {
       toSession: jest.fn().mockResolvedValue(mockSession),
     })
 
-    render(<TestComponent />)
+    const container = render(<TestComponent />, {
+      wrapper: TestSessionProvider,
+    })
 
     // Initially, it should show loading
-    expect(screen.getByText("Loading...")).toBeInTheDocument()
+    await waitFor(() =>
+      expect(screen.getByText("Loading...")).toBeInTheDocument(),
+    )
 
+    act(() => container.rerender(<TestComponent />))
     // Wait for the hook to update
     await waitFor(() =>
       expect(
@@ -74,11 +81,14 @@ describe("useSession", () => {
       toSession: jest.fn().mockResolvedValue(mockSession),
     })
 
-    render(<TestComponent />)
+    render(<TestComponent />, {
+      wrapper: TestSessionProvider,
+    })
 
     // Initially, it should show loading
     expect(screen.getByText("Loading...")).toBeInTheDocument()
 
+    // act(() => container.rerender(<TestComponent />))
     // Wait for the hook to update
     await waitFor(() =>
       expect(
@@ -91,7 +101,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(1)
 
     act(() => {
       render(<TestComponent />)
@@ -99,7 +109,7 @@ describe("useSession", () => {
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(1)
   })
 
   it("handles errors during session fetching", async () => {
@@ -108,7 +118,7 @@ describe("useSession", () => {
       toSession: jest.fn().mockRejectedValue(new Error(errorMessage)),
     })
 
-    render(<TestComponent />)
+    render(<TestComponent />, { wrapper: TestSessionProvider })
 
     // Initially, it should show loading
     expect(screen.getByText("Loading...")).toBeInTheDocument()
@@ -122,24 +132,46 @@ describe("useSession", () => {
     expect(screen.getByText(`Error: ${errorMessage}`)).toBeInTheDocument()
   })
 
-  it("does not fetch session if already loading or session is set", async () => {
+  it("does not fetch session if session is provided to provider", () => {
     ;(frontendClient as jest.Mock).mockReturnValue({
       toSession: jest.fn(),
     })
 
     // First render: no session, simulate loading
-    render(<TestComponent />)
+    render(<TestComponent />, {
+      wrapper: ({ children }: PropsWithChildren) => (
+        <SessionProvider session={{ ...mockSession, id: "provided-session" }}>
+          {children}
+        </SessionProvider>
+      ),
+    })
 
     // Initially, it should show loading
-    expect(screen.getByText("Loading...")).toBeInTheDocument()
+    expect(screen.getByText("Session: provided-session")).toBeInTheDocument()
 
-    // Simulate session already being set in the store
+    // this is fine, because jest is not calling the function
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(0)
+  })
+
+  it("fetches session automatically if not provided", async () => {
+    ;(frontendClient as jest.Mock).mockReturnValue({
+      toSession: jest.fn().mockResolvedValue(mockSession),
+    })
+
+    // First render: no session, simulate loading
+    render(<TestComponent />, {
+      wrapper: ({ children }: PropsWithChildren) => (
+        <SessionProvider>{children}</SessionProvider>
+      ),
+    })
+
     await waitFor(() =>
-      expect(screen.getByText("No session")).toBeInTheDocument(),
+      expect(screen.getByText("Session: test-session-id")).toBeInTheDocument(),
     )
 
     // this is fine, because jest is not calling the function
     // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(frontendClient("").toSession).toHaveBeenCalledTimes(1)
+    expect(frontendClient().toSession).toHaveBeenCalledTimes(1)
   })
 })
