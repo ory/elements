@@ -4,8 +4,9 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "types": ["node"],
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "jsx": "react-jsx"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }

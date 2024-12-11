@@ -27,7 +27,7 @@ export async function getFlow<T extends object>(
       "/self-service/" + flowType.toString() + "/browser",
       url,
     )
-    redirectTo.search = new URLSearchParams(params).toString()
+    redirectTo.search = queryParamsToURLSearch(params).toString()
     return redirect(redirectTo.toString(), RedirectType.replace)
   }
 
@@ -50,4 +50,15 @@ export async function getFlow<T extends object>(
     await errorHandler(error)
     return null
   }
+}
+
+function queryParamsToURLSearch(q: QueryParams) {
+  const url = new URLSearchParams()
+  for (const key in q) {
+    const v = q[key]
+    if (v) {
+      url.set(key, v.toString())
+    }
+  }
+  return url.toString()
 }

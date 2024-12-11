@@ -15,7 +15,7 @@ function isTraitsIndexable(
   return typeof traits === "object" && traits !== null
 }
 
-export const getUserInitials = (session?: Session): UserInitials => {
+export const getUserInitials = (session: Session | null): UserInitials => {
   const avatar = ""
   let primary = ""
   let secondary = ""

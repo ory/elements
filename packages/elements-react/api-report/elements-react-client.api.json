@@ -173,25 +173,17 @@
       "preserveMemberOrder": false,
       "members": [
         {
-          "kind": "Function",
-          "canonicalReference": "@ory/elements-react!useSession:function(1)",
-          "docComment": "/**\n * A hook to get the current session from the Ory Network.\n *\n * Usage:\n * ```ts\n * const { session, error, isLoading } = useSession()\n * ```\n *\n * @returns The current session, error and loading state.\n */\n",
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!SessionContextData:type",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "useSession: (config?: "
+              "text": "type SessionContextData = "
             },
             {
               "kind": "Content",
-              "text": "{\n    sdk: {\n        url: string;\n    };\n}"
-            },
-            {
-              "kind": "Content",
-              "text": ") => "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    session: "
+              "text": "{\n    isLoading: boolean;\n    initialized: boolean;\n    session: "
             },
             {
               "kind": "Reference",
@@ -200,26 +192,162 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    error: string | undefined;\n    isLoading: boolean;\n}"
+              "text": " | null;\n    error: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined;\n    refetch: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
             }
           ],
-          "fileUrlPath": "dist/client/useSession.d.ts",
+          "fileUrlPath": "dist/client/session-provider.d.ts",
+          "releaseTag": "Public",
+          "name": "SessionContextData",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!SessionProvider:function(1)",
+          "docComment": "/**\n * A provider that fetches the session from the Ory Network and provides it to the children.\n *\n * To use this provider, wrap your application in it:\n * ```tsx\n * import { SessionProvider } from \"@ory/elements-react\"\n *\n * export default function App() {\n *   return (\n *     <SessionProvider>\n *       <MyApp />\n *     </SessionProvider>\n *   )\n * }\n * ```\n *\n * If you have a session from the server, you can pass it to the provider:\n * ```tsx\n * <SessionProvider session={serverSession}>\n * ```\n *\n * @param props - The provider props\n *\n * @see\n *\n * {@link useSession}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function SessionProvider({ "
+            },
+            {
+              "kind": "Reference",
+              "text": "session",
+              "canonicalReference": "@ory/elements-react!~__type#session"
+            },
+            {
+              "kind": "Content",
+              "text": ": initialSession, children, baseUrl, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SessionProviderProps",
+              "canonicalReference": "@ory/elements-react!SessionProviderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/client/session-provider.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 3,
+            "startIndex": 5,
             "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "config",
+              "parameterName": "{ session: initialSession, children, baseUrl, }",
               "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
+                "startIndex": 3,
+                "endIndex": 4
               },
-              "isOptional": true
+              "isOptional": false
             }
           ],
+          "name": "SessionProvider"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!SessionProviderProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type SessionProviderProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    session?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n    baseUrl?: string;\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/client/session-provider.d.ts",
+          "releaseTag": "Public",
+          "name": "SessionProviderProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!useSession:function(1)",
+          "docComment": "/**\n * A hook to get the current session from the Ory Network.\n *\n * Usage:\n * ```ts\n * const session = useSession()\n *\n * if (session.state == \"loading\") {\n *  return <div>Loading...</div>\n * }\n *\n * if (session.state == \"authenticated\") {\n *  return <div>Session: {session.session.id}</div>\n * }\n * ```\n *\n * :::note This is a client-side hook and must be used within a React component. On the server, you can use the getServerSession function from `@ory/nextjs` and hydrate SessionProvider with the session. :::\n *\n * @returns The current session, and error or loading state.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useSession(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "SessionContextData",
+              "canonicalReference": "@ory/elements-react!SessionContextData:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/client/useSession.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
           "name": "useSession"
         }
       ]

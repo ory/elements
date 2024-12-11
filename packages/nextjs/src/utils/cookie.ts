@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryConfig } from "../types"
 import { errorCodes, ErrorResult, parse } from "psl"
+import { OryConfig } from "../types"
 
 function isErrorResult(
   result: unknown,
