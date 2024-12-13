@@ -1,4 +1,4 @@
-This is a simple example application using @ory/elements-react & Next.js app
+This is a simple example application using @ory/elements-react & Next.js pages
 router.
 
 ## Getting started
@@ -9,12 +9,25 @@ router.
    endpoints** URL
 4. Set the `NEXT_PUBLIC_ORY_SDK_URL` to your project's **API endpoints** URL
 5. Run `npm install`
-6. Run `npm run dev` and open navigate to https://localhost:3000
+6. Run `npm run dev` and open navigate to http://localhost:3000
 
-> [!WARNING] For convinience Ory provides a default "playground" project, that
+## Features
+
+- All self-service user flows Ory supports
+  - [Login](http://localhost:3000/auth/login)
+  - [Registration](http://localhost:3000/auth/registration)
+  - [Recovery](http://localhost:3000/auth/recovery)
+  - [Verification](http://localhost:3000/auth/verification)
+  - [Settings](http://localhost:3000/settings)
+- User Logout
+
+<!-- prettier-ignore-start -->
+> [!WARNING]
+> For convinience Ory provides a default "playground" project, that
 > can be used to interact with Ory's APIs. It is a public project, that can be
 > used by anyone and data can be deleted at any time. Make sure to use a
 > dedicated project.
+<!-- prettier-ignore-end -->
 
 ## Need help?
 
