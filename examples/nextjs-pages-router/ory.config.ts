@@ -10,6 +10,8 @@ const config: OryConfig = {
     registrationUiPath: "/auth/registration",
     recoveryUiPath: "/auth/recovery",
     verificationUiPath: "/auth/verification",
+    settingsUiPath: "/settings",
+    defaultRedirectUri: "/",
   },
 }
 
