@@ -94,6 +94,9 @@ export async function proxyRequest(request: NextRequest, options: OryConfig) {
     // This is not needed with the "new" account experience based on this SDK.
     if (location.startsWith("../self-service")) {
       location = location.replace("../self-service", "/self-service")
+    } else if (!location.startsWith("http")) {
+      // If the location header is not an absolute URL, we need to make it one for rewriteUrls to properly rewrite it.
+      location = new URL(location, matchBaseUrl).toString()
     }
 
     location = rewriteUrls(location, matchBaseUrl.toString(), selfUrl, options)

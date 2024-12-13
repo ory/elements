@@ -5,11 +5,13 @@ import type { OryConfig } from "@ory/nextjs"
 
 const config: OryConfig = {
   override: {
-    applicationName: "NextJS app router example",
+    applicationName: "Ory Next.js App Router Example",
     loginUiPath: "/auth/login",
     registrationUiPath: "/auth/registration",
     recoveryUiPath: "/auth/recovery",
     verificationUiPath: "/auth/verification",
+    settingsUiPath: "/settings",
+    defaultRedirectUri: "/",
   },
 }
 
