@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import config from "@/ory.config"
 import { getSettingsFlow, OryPageParams } from "@ory/nextjs/app"
 import { SessionProvider } from "../../../packages/elements-react/dist/client/session-provider"
