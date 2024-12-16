@@ -51,7 +51,7 @@ export function DefaultLabel({
   const fieldError = formState.errors[attributes.name]
 
   return (
-    <div className="flex flex-col antialiased gap-1">
+    <div className="flex flex-col gap-1 antialiased">
       {label && (
         <span className="inline-flex justify-between">
           <label
@@ -68,7 +68,7 @@ export function DefaultLabel({
               // TODO: make it possible to override with a custom component
               <a
                 href={config.project.recovery_ui_url}
-                className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium"
+                className="text-sm font-medium text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
               >
                 {intl.formatMessage({
                   id: "forms.label.forgot-password",
@@ -82,7 +82,7 @@ export function DefaultLabel({
               name={resendNode.attributes.name}
               value={resendNode.attributes.value}
               onClick={handleResend}
-              className="text-links-link-default hover:underline hover:text-link-hover transition-colors text-sm font-medium cursor-pointer"
+              className="cursor-pointer text-sm font-medium text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
             >
               {intl.formatMessage({ id: "identities.messages.1070008" })}
             </button>

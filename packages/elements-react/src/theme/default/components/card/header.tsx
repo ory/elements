@@ -11,7 +11,7 @@ function InnerCardHeader({ title, text }: { title: string; text?: string }) {
     <header className="flex flex-col gap-8 antialiased">
       <Card.Logo />
       <div className="flex flex-col gap-2">
-        <h2 className="font-semibold text-lg text-dialog-fg-default leading-normal">
+        <h2 className="text-lg font-semibold leading-normal text-dialog-fg-default">
           {title}
         </h2>
         <p className="text-sm leading-normal text-dialog-fg-subtle">{text}</p>

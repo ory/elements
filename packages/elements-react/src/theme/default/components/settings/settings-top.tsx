@@ -25,16 +25,16 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
     } = props.totpUnlink?.attributes as UiNodeInputAttributes
 
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="col-span-full">
           <DefaultHorizontalDivider />
         </div>
-        <div className="flex gap-6 items-center col-span-full">
-          <div className="size-8 aspect-square ">
+        <div className="col-span-full flex items-center gap-6">
+          <div className="aspect-square size-8 ">
             <QrCode size={32} />
           </div>
-          <div className="flex flex-col mr-auto">
-            <p className="text-dialog-fg-subtle text-sm font-medium">
+          <div className="mr-auto flex flex-col">
+            <p className="text-sm font-medium text-dialog-fg-subtle">
               Authenticator app
             </p>
           </div>
@@ -54,13 +54,13 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
 
   if ("totpSecret" in props) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="col-span-full">
           <DefaultHorizontalDivider />
         </div>
-        <div className="bg-dialog-bg-subtle p-8 rounded-xl flex justify-center">
-          <div className="h-44 aspect-square bg-[white] rounded">
-            <div className="mix-blend-multiply -m-3 antialiased">
+        <div className="flex justify-center rounded-xl bg-dialog-bg-subtle p-8">
+          <div className="aspect-square h-44 rounded bg-[white]">
+            <div className="-m-3 antialiased mix-blend-multiply">
               <DefaultImage
                 node={props.totpImage}
                 attributes={{

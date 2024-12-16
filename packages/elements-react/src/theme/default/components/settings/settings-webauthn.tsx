@@ -19,7 +19,7 @@ export function DefaultSettingsWebauthn({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex gap-3 items-end max-w-[60%]">
+      <div className="flex max-w-[60%] items-end gap-3">
         <div className="flex-1">
           <DefaultLabel
             node={nameInput}
@@ -67,7 +67,7 @@ export function DefaultSettingsWebauthn({
                     <span className="text-sm text-dialog-fg-mute">{keyId}</span>
                   </div>
                   {addedAt && (
-                    <p className="text-sm self-center text-dialog-fg-mute">
+                    <p className="self-center text-sm text-dialog-fg-mute">
                       {new Date(addedAt).toLocaleDateString()}
                     </p>
                   )}

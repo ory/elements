@@ -20,7 +20,7 @@ export function DefaultSettingsOidc({
   return (
     <div className="flex flex-col gap-8">
       {hasLinkButtons && (
-        <div className="flex gap-3 items-start [&>button]:w-[79px]">
+        <div className="flex items-start gap-3 [&>button]:w-[79px]">
           {linkButtons.map((button) => {
             const attrs = button.attributes as UiNodeInputAttributes
 
@@ -47,9 +47,9 @@ export function DefaultSettingsOidc({
 
         return (
           <div key={attrs.value} className="flex justify-between">
-            <div className="flex gap-6 items-center">
+            <div className="flex items-center gap-6">
               <Logo size={32} />
-              <p className="text-dialog-fg-subtle text-sm font-medium">
+              <p className="text-sm font-medium text-dialog-fg-subtle">
                 {provider}
               </p>
             </div>

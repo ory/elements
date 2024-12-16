@@ -25,23 +25,23 @@ export function DefaultAuthMethodListItem({
   const Icon = iconsMap[group] || null
 
   return (
-    <div className="w-full hover:bg-forms-bg-hover px-2 py-1 rounded">
+    <div className="w-full rounded px-2 py-1 hover:bg-forms-bg-hover">
       <button
-        className="flex text-left py-2 gap-3 cursor-pointer"
+        className="flex cursor-pointer gap-3 py-2 text-left"
         onClick={onClick}
         type={isGroupImmediateSubmit(group) ? "submit" : "button"}
         id={`auth-method-list-item-${group}`}
         data-testid="auth-method-list-item"
         aria-label={`Authenticate with ${group}`}
       >
-        <div className={"flex-none w-4 h-4 mt-[2px]"}>
+        <div className={"mt-[2px] size-4 flex-none"}>
           {Icon && <Icon size={20} className="text-forms-fg-default" />}
         </div>
         <div className={"flex-1 text-sm leading-normal"}>
-          <div className="text-forms-fg-default text-sm">
+          <div className="text-sm text-forms-fg-default">
             {intl.formatMessage({ id: `two-step.${group}.title` })}
           </div>
-          <div className="text-forms-fg-mute text-sm">
+          <div className="text-sm text-forms-fg-mute">
             {intl.formatMessage({ id: `two-step.${group}.description` })}
           </div>
         </div>
