@@ -6,6 +6,7 @@ import pluginPromise from "eslint-plugin-promise"
 import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import storybook from "eslint-plugin-storybook"
+import tailwind from "eslint-plugin-tailwindcss"
 import tsdoc from "eslint-plugin-tsdoc"
 import globals from "globals"
 import tseslint from "typescript-eslint"
@@ -177,6 +178,17 @@ const config = tseslint.config([
       "@typescript-eslint/no-unsafe-call": "off",
     },
   },
+  {
+    name: "tailwind",
+    files: ["packages/elements-react/**/*.{js,jsx,ts,tsx}"],
+    ...tailwind.configs["flat/recommended"][0],
+    ...tailwind.configs["flat/recommended"][1],
+    settings: {
+      tailwindcss: {
+        config: "packages/elements-react/tailwind.config.ts",
+      }
+    }
+  }
 ])
 
 export default config

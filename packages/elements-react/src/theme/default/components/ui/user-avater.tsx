@@ -14,10 +14,10 @@ export const UserAvatar = forwardRef<HTMLButtonElement, UserAvatarProps>(
     return (
       <button
         ref={ref}
-        className="size-10 relative flex overflow-hidden items-center justify-center rounded-full bg-button-primary-bg-default disabled:hover:bg-button-primary-bg-default hover:bg-button-primary-bg-hover"
+        className="relative flex size-10 items-center justify-center overflow-hidden rounded-full bg-button-primary-bg-default hover:bg-button-primary-bg-hover disabled:hover:bg-button-primary-bg-default"
         {...rest}
       >
-        <div className="relative size-full flex items-center justify-center">
+        <div className="relative flex size-full items-center justify-center">
           {initials.avatar ? (
             <img
               src={initials.avatar}

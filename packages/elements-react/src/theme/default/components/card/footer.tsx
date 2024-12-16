@@ -49,13 +49,13 @@ function LoginCardFooter() {
   }
 
   return (
-    <span className="text-sm font-normal antialiased leading-normal">
+    <span className="text-sm font-normal leading-normal antialiased">
       {intl.formatMessage({
         id: "login.registration-label",
         defaultMessage: "No account?",
       })}{" "}
       <a
-        className="text-links-link-default hover:underline hover:text-link-hover transition-colors"
+        className="text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
         href={registrationLink}
       >
         {intl.formatMessage({
@@ -102,7 +102,7 @@ function RegistrationCardFooter() {
   }
 
   return (
-    <span className="text-sm font-normal antialiased leading-normal">
+    <span className="text-sm font-normal leading-normal antialiased">
       {formState.current === "method_active" ? (
         <>
           {screenSelectionNode && (
@@ -125,7 +125,7 @@ function RegistrationCardFooter() {
             defaultMessage: "Already have an account?",
           })}{" "}
           <a
-            className="text-links-link-default hover:underline hover:text-link-hover transition-colors"
+            className="text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
             href={loginLink}
           >
             {intl.formatMessage({

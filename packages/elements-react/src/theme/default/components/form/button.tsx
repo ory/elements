@@ -14,9 +14,9 @@ import { cva, VariantProps } from "class-variance-authority"
 
 const buttonStyles = cva(
   [
-    "ring-1 relative overflow-hidden ring-inset rounded text-sm leading-none flex gap-3 justify-center",
-    "disabled:cursor-not-allowed loading:before:pointer-events-none loading:cursor-wait",
-    "transition-colors ease-linear duration-100",
+    "relative flex justify-center gap-3 overflow-hidden rounded text-sm leading-none ring-1 ring-inset",
+    "disabled:cursor-not-allowed loading:cursor-wait loading:before:pointer-events-none",
+    "transition-colors duration-100 ease-linear",
   ],
   {
     variants: {
@@ -26,14 +26,14 @@ const buttonStyles = cva(
           "hover:bg-button-primary-bg-hover hover:text-button-primary-fg-hover hover:ring-button-primary-border-hover",
           "disabled:bg-button-primary-bg-disabled disabled:text-button-primary-fg-disabled disabled:ring-button-primary-border-disabled",
           "loading:bg-button-primary-bg-default loading:text-button-primary-fg-default loading:ring-button-primary-border-default",
-          "loading:before:absolute loading:before:content-[''] loading:before:inset-0 loading:before:bg-button-primary-bg-default loading:before:opacity-80",
+          "loading:before:absolute loading:before:inset-0 loading:before:bg-button-primary-bg-default loading:before:opacity-80 loading:before:content-['']",
         ],
         secondary: [
           "bg-button-secondary-bg-default text-button-secondary-fg-default ring-button-secondary-border-default",
           "hover:bg-button-secondary-bg-hover hover:text-button-secondary-fg-hover hover:ring-button-secondary-border-hover",
           "disabled:bg-button-secondary-bg-disabled disabled:text-button-secondary-fg-disabled disabled:ring-button-secondary-border-disabled",
           "loading:bg-button-secondary-bg-default loading:text-button-secondary-fg-default loading:ring-button-secondary-border-default",
-          "loading:before:absolute loading:before:content-[''] loading:before:inset-0 loading:before:bg-button-secondary-bg-default loading:before:opacity-80",
+          "loading:before:absolute loading:before:inset-0 loading:before:bg-button-secondary-bg-default loading:before:opacity-80 loading:before:content-['']",
         ],
       },
       size: {

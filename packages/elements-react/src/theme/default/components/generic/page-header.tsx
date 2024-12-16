@@ -10,10 +10,10 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
   const { session } = useSession()
 
   return (
-    <div className="flex max-w-[896px] flex-col w-full gap-3 mt-16">
+    <div className="mt-16 flex w-full max-w-[896px] flex-col gap-3">
       <div className="flex flex-col gap-12">
-        <div className="flex gap-2 max-h-10 justify-between flex-1">
-          <div className="h-10 flex-1 relative">
+        <div className="flex max-h-10 flex-1 justify-between gap-2">
+          <div className="relative h-10 flex-1">
             <Card.Logo />
           </div>
           <UserMenu session={session} />

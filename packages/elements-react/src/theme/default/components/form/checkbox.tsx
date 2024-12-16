@@ -17,7 +17,7 @@ import { CheckboxLabel } from "../ui/checkbox-label"
 function CheckboxSVG() {
   return (
     <svg
-      className="absolute w-4 h-4 hidden peer-checked:block"
+      className="absolute hidden size-4 peer-checked:block"
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"
@@ -60,7 +60,7 @@ export const DefaultCheckbox = ({
 
   return (
     <div
-      className="flex antialiased gap-3 self-stretch item-start"
+      className="flex items-start gap-3 self-stretch antialiased"
       onClick={() => {
         setChecked(!checked)
       }}
@@ -82,14 +82,14 @@ export const DefaultCheckbox = ({
         />
         <CheckboxSVG />
       </div>
-      <div className="text-sm items-center">
+      <div className="items-center text-sm">
         <label className="text-sm font-normal leading-normal text-forms-fg-default">
           <CheckboxLabel label={label} />
         </label>
         {node.messages.map((message) => (
           <span
             key={message.id}
-            className="text-sm text-red-900 mt-1"
+            className="mt-1 text-sm text-forms-fg-error"
             {...messageTestId(message)}
           >
             {uiTextToFormattedMessage(message, intl)}

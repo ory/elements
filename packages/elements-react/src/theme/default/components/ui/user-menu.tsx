@@ -42,9 +42,9 @@ export const UserMenu = ({ session }: UserMenuProps) => {
         <UserAvatar initials={initials} />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel className="px-5 py-4.5 flex gap-3">
+        <DropdownMenuLabel className="flex gap-3 px-5 py-4.5">
           <UserAvatar disabled initials={initials} />
-          <div className="flex flex-col text-sm leading-tight justify-center">
+          <div className="flex flex-col justify-center text-sm leading-tight">
             <div className="text-dialog-fg-default">{initials.primary}</div>
             {initials.secondary && (
               <div className="text-dialog-fg-mute">{initials.secondary}</div>

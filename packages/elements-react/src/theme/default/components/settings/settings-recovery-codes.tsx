@@ -67,8 +67,8 @@ export function DefaultSettingsRecoveryCodes({
         ) : null}
       </div>
       {hasCodes ? (
-        <div className="rounded-border-radius-cards bg-bg-default ring-1 ring-dialog-border-default p-6">
-          <div className="grid grid-cols-6 gap-4 flex-wrap text-dialog-fg-default text-sm">
+        <div className="rounded-border-radius-cards bg-bg-default p-6 ring-1 ring-dialog-border-default">
+          <div className="grid grid-cols-6 flex-wrap gap-4 text-sm text-dialog-fg-default">
             {codes.map((code) => (
               <p key={code}>{code}</p>
             ))}

@@ -6,7 +6,7 @@ import OryLogoVertical from "../../assets/ory-badge-vertical.svg"
 
 export function Badge() {
   return (
-    <div className="font-bold bg-branding-bg-default absolute max-md:rounded-b-md p-2 max-md:bottom-0 max-md:translate-y-full max-md:left-8  md:right-0 md:translate-x-full md:top-8 md:rounded-r-md">
+    <div className="absolute bg-branding-bg-default p-2 font-bold max-md:bottom-0 max-md:left-8 max-md:translate-y-full max-md:rounded-b-md  md:right-0 md:top-8 md:translate-x-full md:rounded-r-md">
       <OryLogoHorizontal width={22} height={8} className="md:hidden" />
       <OryLogoVertical width={8} height={22} className="max-md:hidden" />
     </div>

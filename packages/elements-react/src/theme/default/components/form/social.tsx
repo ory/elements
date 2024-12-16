@@ -72,7 +72,7 @@ export function DefaultButtonSocial({
       {...props}
       onClick={onClick}
     >
-      <span className="w-5 h-5">
+      <span className="size-5">
         {Logo ? (
           <Logo
             size={20}
@@ -80,13 +80,13 @@ export function DefaultButtonSocial({
             // className="object-fill w-full h-full"
           />
         ) : (
-          <span className="rounded-full aspect-square border flex items-center justify-center text-xs">
+          <span className="flex aspect-square items-center justify-center rounded-full border text-xs">
             {provider.slice(0, 2)}
           </span>
         )}
       </span>
       {showLabel && node.meta.label ? (
-        <span className="text-sm text-left leading-none font-medium text-forms-fg-default flex-grow">
+        <span className="grow text-left text-sm font-medium leading-none text-forms-fg-default">
           {uiTextToFormattedMessage(node.meta.label, intl)}
         </span>
       ) : null}
