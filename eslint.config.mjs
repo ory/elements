@@ -186,9 +186,9 @@ const config = tseslint.config([
     settings: {
       tailwindcss: {
         config: "packages/elements-react/tailwind.config.ts",
-      }
-    }
-  }
+      },
+    },
+  },
 ])
 
 export default config
