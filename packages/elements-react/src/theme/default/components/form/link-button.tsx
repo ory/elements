@@ -22,7 +22,7 @@ export const DefaultLinkButton = forwardRef<
       ref={ref}
       title={label ? uiTextToFormattedMessage(label, intl) : ""}
       className={cn(
-        "antialiased rounded cursor-pointer text-center border border-transparent gap-3 leading-none bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-4.5 text-sm font-medium",
+        "antialiased rounded cursor-pointer text-center border gap-3 leading-none bg-button-primary-background-default hover:bg-button-primary-background-hover transition-colors text-button-primary-foreground-default hover:text-button-primary-foreground-hover p-4 font-medium",
       )}
     >
       {label ? uiTextToFormattedMessage(label, intl) : ""}

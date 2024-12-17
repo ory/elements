@@ -64,12 +64,13 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
       >
         {content}
       </Card.SettingsSectionContent>
-      <Card.SettingsSectionFooter>
-        <span>
-          {totpUnlink
+      <Card.SettingsSectionFooter
+        text={
+          totpUnlink
             ? intl.formatMessage({ id: "settings.totp.info.linked" })
-            : intl.formatMessage({ id: "settings.totp.info.not-linked" })}
-        </span>
+            : intl.formatMessage({ id: "settings.totp.info.not-linked" })
+        }
+      >
         {totpLinkButton && (
           <Node.Button
             node={totpLinkButton}

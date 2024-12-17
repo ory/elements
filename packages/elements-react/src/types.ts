@@ -73,4 +73,6 @@ export type OryFormSectionContentProps = PropsWithChildren<{
   description?: string
 }>
 
-export type OryFormSectionFooterProps = PropsWithChildren
+export type OryFormSectionFooterProps = PropsWithChildren<{
+  text?: string
+}>

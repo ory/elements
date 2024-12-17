@@ -24,13 +24,9 @@ export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
       name={name}
       value={value}
     >
-      <InputOTPGroup className="w-full justify-between space-x-2">
+      <InputOTPGroup className="w-full flex gap-2 justify-stretch">
         {[...Array(elements)].map((_, index) => (
-          <InputOTPSlot
-            index={index}
-            key={index}
-            className="h-10 w-11 rounded-border-radius-forms border border-solid border-forms-border-default bg-forms-bg-default px-1.5 py-2.5 text-center md:h-12 md:w-14"
-          />
+          <InputOTPSlot index={index} key={index} />
         ))}
       </InputOTPGroup>
     </InputOTP>

@@ -1,24 +1,18 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { UiNodeInputAttributes } from "@ory/client-fetch"
 import { OrySettingsRecoveryCodesProps } from "@ory/elements-react"
 import Download from "../../assets/icons/download.svg"
 import Eye from "../../assets/icons/eye.svg"
 import Refresh from "../../assets/icons/refresh.svg"
-import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-
-interface SettingsRecoveryCodesProps extends OrySettingsRecoveryCodesProps {
-  codes: string[]
-  regenerateButton?: UiNode
-  revealButton?: UiNode
-}
 
 export function DefaultSettingsRecoveryCodes({
   codes,
   regnerateButton,
   revealButton,
-}: SettingsRecoveryCodesProps) {
+}: OrySettingsRecoveryCodesProps) {
   const onDownload = () => {
     const element = document.createElement("a")
     const file = new Blob([codes.join("\n")], {
@@ -43,7 +37,7 @@ export function DefaultSettingsRecoveryCodes({
           >
             <Refresh
               size={24}
-              className="cursor-pointer text-links-link-mute-default hover:text-links-link-mute-hover"
+              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
             />
           </button>
         )}
@@ -54,21 +48,22 @@ export function DefaultSettingsRecoveryCodes({
           >
             <Eye
               size={24}
-              className="cursor-pointer text-links-link-mute-default hover:text-links-link-mute-hover"
+              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
             />
           </button>
         )}
-        {hasCodes ? (
-          <Download
-            size={24}
-            onClick={onDownload}
-            className="cursor-pointer text-links-link-mute-default hover:text-links-link-mute-hover"
-          />
-        ) : null}
+        {hasCodes && (
+          <button onClick={onDownload} type="button">
+            <Download
+              size={24}
+              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+            />
+          </button>
+        )}
       </div>
       {hasCodes ? (
-        <div className="rounded-border-radius-cards bg-bg-default p-6 ring-1 ring-dialog-border-default">
-          <div className="grid grid-cols-6 flex-wrap gap-4 text-sm text-dialog-fg-default">
+        <div className="rounded-general p-6 bg-interface-background-default-secondary border-interface-border-default-primary">
+          <div className="grid grid-cols-5 flex-wrap gap-4 text-sm text-interface-foreground-default-primary">
             {codes.map((code) => (
               <p key={code}>{code}</p>
             ))}

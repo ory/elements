@@ -49,7 +49,7 @@ export function DefaultSettingsOidc({
           <div key={attrs.value} className="flex justify-between">
             <div className="flex items-center gap-6">
               <Logo size={32} />
-              <p className="text-sm font-medium text-dialog-fg-subtle">
+              <p className="text-sm font-medium text-interface-foreground-default-secondary">
                 {provider}
               </p>
             </div>
@@ -61,7 +61,10 @@ export function DefaultSettingsOidc({
                 setValue("method", "oidc")
               }}
             >
-              <Trash className="cursor-pointer text-links-link-mute-default hover:text-links-link-mute-hover" />
+              <Trash
+                className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+                size={24}
+              />
             </button>
           </div>
         )

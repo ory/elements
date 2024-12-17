@@ -83,9 +83,9 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
           removeButtons={removeNodes}
         />
       </Card.SettingsSectionContent>
-      <Card.SettingsSectionFooter>
-        <span>{intl.formatMessage({ id: "settings.passkey.info" })}</span>
-      </Card.SettingsSectionFooter>
+      <Card.SettingsSectionFooter
+        text={intl.formatMessage({ id: "settings.passkey.info" })}
+      ></Card.SettingsSectionFooter>
     </>
   )
 }

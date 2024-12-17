@@ -49,10 +49,13 @@ export const DefaultInput = ({
       autoComplete={autocomplete}
       placeholder={formattedLabel}
       className={cn(
-        "antialiased disabled:text-forms-fg-disabled disabled:bg-forms-bg-disabled bg-forms-bg-default rounded-border-radius-forms border border-forms-border-default leading-tight hover:border-forms-border-hover transition-colors text-sm",
-        "px-3 py-2.5",
+        "antialiased rounded-forms border leading-tight transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus-visible:outline-none focus:ring-0",
+        "bg-input-background-default border-input-border-default text-input-foreground-primary",
+        "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
+        "focus:border-input-border-focus focus-visible:border-input-border-focus",
+        "px-4 py-[13px]",
         // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
-        flowType === FlowType.Settings ? "max-w-[488px]" : "md:px-4 md:py-4",
+        flowType === FlowType.Settings && "max-w-[488px]",
       )}
       {...register(name, { value })}
     />

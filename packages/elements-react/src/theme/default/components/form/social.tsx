@@ -62,10 +62,7 @@ export function DefaultButtonSocial({
 
   return (
     <button
-      className={cn(
-        "gap-3 ring-1 ring-forms-border-default bg-button-secondary-bg-default hover:bg-button-secondary-bg-hover transition-colors rounded flex items-center justify-center py-2.5 px-4 md:py-4",
-        { "py-2.5": showLabel },
-      )}
+      className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover transition-colors rounded flex items-center justify-center px-4 py-[13px]"
       value={attributes.value}
       type="submit"
       name="provider"
@@ -86,7 +83,7 @@ export function DefaultButtonSocial({
         )}
       </span>
       {showLabel && node.meta.label ? (
-        <span className="grow text-left text-sm font-medium leading-none text-forms-fg-default">
+        <span className="grow text-left font-medium leading-none text-button-social-foreground-default">
           {uiTextToFormattedMessage(node.meta.label, intl)}
         </span>
       ) : null}

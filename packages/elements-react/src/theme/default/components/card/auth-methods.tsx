@@ -25,26 +25,31 @@ export function DefaultAuthMethodListItem({
   const Icon = iconsMap[group] || null
 
   return (
-    <div className="w-full rounded px-2 py-1 hover:bg-forms-bg-hover">
+    <div className="w-full rounded px-2 py-1 hover:bg-interface-background-default-primary-hover">
       <button
-        className="flex cursor-pointer gap-3 py-2 text-left"
+        className="flex cursor-pointer gap-3 py-2 text-left items-start"
         onClick={onClick}
         type={isGroupImmediateSubmit(group) ? "submit" : "button"}
         id={`auth-method-list-item-${group}`}
         data-testid="auth-method-list-item"
         aria-label={`Authenticate with ${group}`}
       >
-        <div className={"mt-[2px] size-4 flex-none"}>
-          {Icon && <Icon size={20} className="text-forms-fg-default" />}
-        </div>
-        <div className={"flex-1 text-sm leading-normal"}>
-          <div className="text-sm text-forms-fg-default">
+        <span className="mt-1">
+          {Icon && (
+            <Icon
+              size={16}
+              className="text-interface-foreground-brand-primary"
+            />
+          )}
+        </span>
+        <span className="flex-1 leading-normal inline-flex flex-col">
+          <span className="text-interface-foreground-default-primary">
             {intl.formatMessage({ id: `two-step.${group}.title` })}
-          </div>
-          <div className="text-sm text-forms-fg-mute">
+          </span>
+          <span className="text-interface-foreground-default-secondary">
             {intl.formatMessage({ id: `two-step.${group}.description` })}
-          </div>
-        </div>
+          </span>
+        </span>
       </button>
     </div>
   )

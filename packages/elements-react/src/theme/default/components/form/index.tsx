@@ -53,11 +53,15 @@ export function DefaultMessage({ message }: OryMessageContentProps) {
   const intl = useIntl()
   return (
     <span
-      className={cn("text-sm leading-normal", {
-        "text-forms-fg-error": message.type === "error",
-        "text-forms-fg-default": message.type === "info",
-        "text-forms-fg-success": message.type === "success",
-      })}
+      className={cn(
+        "leading-normal",
+        message.type === "error" &&
+          "text-interface-foreground-validation-danger",
+        message.type === "info" &&
+          "text-interface-foreground-default-secondary",
+        message.type === "success" &&
+          "text-interface-foreground-validation-success",
+      )}
       {...messageTestId(message)}
     >
       {uiTextToFormattedMessage(message, intl)}

@@ -24,7 +24,7 @@ const DropdownMenuContent = forwardRef<
       align="end"
       className={cn(
         "z-50 min-w-[19rem] overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        "border border-dialog-border-default bg-dialog-bg-default rounded-border-radius-cards",
+        "border border-interface-border-default-primary bg-interface-background-default-primary rounded-cards",
         className,
       )}
       {...props}
@@ -44,10 +44,10 @@ const DropdownMenuItem = forwardRef<
     className={cn(
       "relative flex cursor-pointer select-none items-center outline-none transition-colors data-[disabled]:pointer-events-none",
       "px-8 py-3 lg:py-4.5 text-sm gap-6",
-      "first:border-0 border-t border-button-secondary-border-default hover:border-button-social-border-hover data-[disabled]:border-button-secondary-border-disabled",
-      "text-button-secondary-fg-default bg-button-secondary-bg-default",
-      "hover:text-button-secondary-fg-hover hover:bg-button-secondary-bg-hover",
-      "data-[disabled]:text-button-secondary-fg-disabled data-[disabled]:bg-button-secondary-bg-disabled",
+      "first:border-0 border-t border-button-secondary-border-default hover:border-button-social-border-hover",
+      "text-button-secondary-foreground-default bg-button-secondary-background-default",
+      "hover:text-button-secondary-foreground-hover hover:bg-button-secondary-background-hover",
+      "data-[disabled]:text-button-secondary-foreground-disabled data-[disabled]:bg-button-secondary-background-disabled",
       inset && "pl-8",
       className,
     )}
