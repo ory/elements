@@ -103,13 +103,21 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   )
 }
 
+const getScriptNode = (nodes: UiNode[]): UiNode | undefined =>
+  nodes.find(
+    (node) =>
+      "id" in node.attributes && node.attributes.id === "webauthn_script",
+  )
+
 export function OrySettingsCard() {
   const { flow } = useOryFlow()
   const uniqueGroups = useNodesGroups(flow.ui.nodes)
+  const scriptNode = getScriptNode(flow.ui.nodes)
 
   return (
     <>
       <OryCardValidationMessages />
+      {scriptNode && <Node node={scriptNode} />}
       {uniqueGroups.entries.map(([group, nodes]) => {
         if (group === UiNodeGroupEnum.Default) {
           return null
