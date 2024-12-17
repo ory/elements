@@ -9,6 +9,10 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
     const attrs = node.attributes
 
     if (isUiNodeInputAttributes(attrs)) {
+      // TODO: Kratos should return false for the value here, and not undefined.
+      if (attrs.type === "checkbox" && typeof attrs.value === "undefined") {
+        attrs.value = false
+      }
       // Skip the "method" field and "submit" button
       if (
         attrs.name === "method" ||
