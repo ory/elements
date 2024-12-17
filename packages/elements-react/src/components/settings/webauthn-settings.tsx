@@ -31,12 +31,6 @@ const getRemoveButtons = (nodes: UiNode[]): UiNode[] =>
       "name" in node.attributes && node.attributes.name === "webauthn_remove",
   )
 
-const getScriptNode = (nodes: UiNode[]): UiNode | undefined =>
-  nodes.find(
-    (node) =>
-      "id" in node.attributes && node.attributes.id === "webauthn_script",
-  )
-
 const getRegisterNode = (nodes: UiNode[]): UiNode | undefined =>
   nodes.find(
     (node) =>
@@ -56,7 +50,6 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
   const triggerButton = getTriggerNode(nodes)
   const inputNode = getInputNode(nodes)
   const removeButtons = getRemoveButtons(nodes)
-  const scriptNode = getScriptNode(nodes)
   const registerNode = getRegisterNode(nodes)
 
   if (!inputNode || !triggerButton) {
@@ -84,8 +77,6 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
         {groups.default?.map((node, i) => (
           <Node key={`webauthn-default-${i}`} node={node} />
         ))}
-        {scriptNode && <Node node={scriptNode} />}
-        {registerNode && <Node node={registerNode} />}
         <Form.WebauthnSettings
           nameInput={inputNode}
           triggerButton={{
@@ -95,6 +86,7 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
           }}
           removeButtons={removeButtons}
         />
+        {registerNode && <Node node={registerNode} />}
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter>
         <span>{intl.formatMessage({ id: "settings.webauthn.info" })}</span>
