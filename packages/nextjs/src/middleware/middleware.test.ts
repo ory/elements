@@ -56,6 +56,7 @@ const createOptions = (): OryConfig => ({
   forwardAdditionalHeaders: ["x-custom-header"],
   override: {
     loginUiPath: "/custom-login",
+    defaultRedirectUri: "/custom-redirect",
   },
 })
 
@@ -171,6 +172,25 @@ describe("proxyRequest", () => {
 
     expect(response?.headers.get("location")).toBe(
       "http://localhost/self-service/login",
+    )
+    expect(response?.status).toBe(302)
+  })
+
+  it("modifies relative location header for redirects", async () => {
+    const request = createMockLoginRequest()
+    const upstreamResponseHeaders = new Headers({
+      location: "/ui/welcome",
+    })
+
+    mockFetch({
+      headers: upstreamResponseHeaders,
+      status: 302,
+    })
+
+    const response = await proxyRequest(request, createOptions())
+
+    expect(response?.headers.get("location")).toBe(
+      "http://localhost/custom-redirect",
     )
     expect(response?.status).toBe(302)
   })

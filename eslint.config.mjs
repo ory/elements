@@ -107,6 +107,17 @@ const config = tseslint.config([
     },
   },
   {
+    files: [
+      "examples/nextjs-app-router/**/*.ts",
+      "examples/nextjs-app-router/**/*.tsx",
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./examples/nextjs-app-router/tsconfig.json"],
+      },
+    },
+  },
+  {
     name: "elements-react",
     files: ["packages/elements-react/**"],
     plugins: {

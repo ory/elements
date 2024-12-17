@@ -1,0 +1,18 @@
+/* Copyright © 2024 Ory Corp */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

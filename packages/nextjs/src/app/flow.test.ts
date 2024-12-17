@@ -10,9 +10,9 @@ import {
   getRegistrationFlow,
   getVerificationFlow,
 } from "."
+import { QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
 import { getPublicUrl } from "./utils"
-import { QueryParams } from "../types"
 
 jest.mock("./utils", () => ({
   getPublicUrl: jest.fn(),
