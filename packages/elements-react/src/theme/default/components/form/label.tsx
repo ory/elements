@@ -56,7 +56,7 @@ export function DefaultLabel({
         <span className="inline-flex justify-between">
           <label
             {...messageTestId(label)}
-            className="text-sm font-medium leading-normal"
+            className="leading-normal text-input-foreground-primary"
             htmlFor={attributes.name}
             {...rest}
           >
@@ -68,7 +68,7 @@ export function DefaultLabel({
               // TODO: make it possible to override with a custom component
               <a
                 href={config.project.recovery_ui_url}
-                className="text-sm font-medium text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
+                className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
               >
                 {intl.formatMessage({
                   id: "forms.label.forgot-password",
@@ -82,7 +82,7 @@ export function DefaultLabel({
               name={resendNode.attributes.name}
               value={resendNode.attributes.value}
               onClick={handleResend}
-              className="cursor-pointer text-sm font-medium text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
+              className="cursor-pointer text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
             >
               {intl.formatMessage({ id: "identities.messages.1070008" })}
             </button>

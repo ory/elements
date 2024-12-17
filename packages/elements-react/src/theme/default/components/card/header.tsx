@@ -11,10 +11,12 @@ function InnerCardHeader({ title, text }: { title: string; text?: string }) {
     <header className="flex flex-col gap-8 antialiased">
       <Card.Logo />
       <div className="flex flex-col gap-2">
-        <h2 className="text-lg font-semibold leading-normal text-dialog-fg-default">
+        <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
           {title}
         </h2>
-        <p className="text-sm leading-normal text-dialog-fg-subtle">{text}</p>
+        <p className="leading-normal text-interface-foreground-default-secondary">
+          {text}
+        </p>
         <DefaultCurrentIdentifierButton />
       </div>
     </header>

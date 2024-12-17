@@ -6,15 +6,13 @@ import {
   UiNodeInputAttributes,
   UiNodeTextAttributes,
 } from "@ory/client-fetch"
-import { OrySettingsTotpProps } from "@ory/elements-react"
-import { DefaultInput } from "../form/input"
-import { DefaultImage } from "../form/image"
-import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import { DefaultLabel } from "../form/label"
+import { OrySettingsTotpProps, useComponents } from "@ory/elements-react"
 import QrCode from "../../assets/icons/qrcode.svg"
 import Trash from "../../assets/icons/trash.svg"
+import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 
 export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
+  const { Node, Card } = useComponents()
   if ("totpUnlink" in props && props.totpUnlink) {
     const {
       type,
@@ -27,14 +25,14 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
     return (
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="col-span-full">
-          <DefaultHorizontalDivider />
+          <Card.Divider />
         </div>
         <div className="col-span-full flex items-center gap-6">
           <div className="aspect-square size-8 ">
             <QrCode size={32} />
           </div>
           <div className="mr-auto flex flex-col">
-            <p className="text-sm font-medium text-dialog-fg-subtle">
+            <p className="text-sm font-medium text-interface-foreground-default-primary">
               Authenticator app
             </p>
           </div>
@@ -43,8 +41,8 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
             {...buttonAttrs}
           >
             <Trash
+              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
               size={24}
-              className="text-links-link-mute-default hover:text-links-link-mute-hover"
             />
           </button>
         </div>
@@ -58,10 +56,10 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
         <div className="col-span-full">
           <DefaultHorizontalDivider />
         </div>
-        <div className="flex justify-center rounded-xl bg-dialog-bg-subtle p-8">
+        <div className="flex justify-center rounded-cards bg-interface-background-default-secondary p-8">
           <div className="aspect-square h-44 rounded bg-[white]">
             <div className="-m-3 antialiased mix-blend-multiply">
-              <DefaultImage
+              <Node.Image
                 node={props.totpImage}
                 attributes={{
                   ...(props.totpImage.attributes as UiNodeImageAttributes),
@@ -71,11 +69,11 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
           </div>
         </div>
         <div className="flex flex-col gap-6">
-          <DefaultLabel
+          <Node.Label
             node={props.totpSecret}
             attributes={props.totpSecret.attributes as UiNodeInputAttributes}
           >
-            <DefaultInput
+            <Node.Input
               node={props.totpSecret}
               attributes={{
                 disabled: true,
@@ -86,16 +84,16 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
                   .text.text,
               }}
             />
-          </DefaultLabel>
-          <DefaultLabel
+          </Node.Label>
+          <Node.Label
             attributes={props.totpInput.attributes as UiNodeInputAttributes}
             node={props.totpInput}
           >
-            <DefaultInput
+            <Node.Input
               node={props.totpInput}
               attributes={props.totpInput.attributes as UiNodeInputAttributes}
             />
-          </DefaultLabel>
+          </Node.Label>
         </div>
       </div>
     )

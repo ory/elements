@@ -24,6 +24,7 @@ import {
   OryCardLogoProps,
   OryFormRootProps,
   OryFormSectionContentProps,
+  OryFormSectionFooterProps,
   OryNodeAnchorProps,
   OryNodeButtonProps,
   OryNodeImageProps,
@@ -148,7 +149,7 @@ export type OryFlowComponents = {
     /**
      * The SettingsSectionFooter component is rendered around the footer of each section of the settings.
      */
-    SettingsSectionFooter: ComponentType<OryFormSectionContentProps>
+    SettingsSectionFooter: ComponentType<OryFormSectionFooterProps>
   }
   Form: {
     /**

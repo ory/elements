@@ -34,17 +34,23 @@ export function DefaultCurrentIdentifierButton() {
 
   return (
     <a
-      className="inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-full border border-button-identifier-border-default bg-button-identifier-bg-default px-3 py-[5px] transition-colors hover:border-button-identifier-border-hover hover:bg-button-identifier-bg-hover"
+      className={
+        "inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-full border px-[11px] py-[5px] transition-colors " +
+        "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
+      }
       {...attributes}
       href={initFlowUrl}
       title={`Adjust ${nodeBackButton?.attributes.value}`}
     >
-      <IconArrowLeft
-        size={16}
-        className="shrink-0 text-button-identifier-fg-subtle"
-      />
-      <span className="overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-button-identifier-fg-default">
-        {nodeBackButton?.attributes.value}
+      <span className="inline-flex min-h-5 items-center gap-2 ">
+        <IconArrowLeft
+          size={16}
+          stroke="1"
+          className="shrink-0 text-button-identifier-foreground-default "
+        />
+        <span className="overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-button-identifier-foreground-default">
+          {nodeBackButton?.attributes.value}
+        </span>
       </span>
     </a>
   )
