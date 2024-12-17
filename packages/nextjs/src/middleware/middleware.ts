@@ -44,7 +44,7 @@ export async function proxyRequest(request: NextRequest, options: OryConfig) {
     request.headers,
     options.forwardAdditionalHeaders,
   )
-  upstreamRequestHeaders.set("Host", upstreamUrl.hostname)
+  upstreamRequestHeaders.set("Host", upstreamUrl.host)
 
   // Ensures we use the correct URL in redirects like OIDC redirects.
   upstreamRequestHeaders.set("Ory-Base-URL-Rewrite", selfUrl.toString())
