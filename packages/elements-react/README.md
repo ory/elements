@@ -33,7 +33,7 @@ Visit https://ory.sh/docs to see the full Ory documentation.
 
 - React `>= 18`
 - Node.js `>= 18`
-- **`@ory/client-fetch`** - fetch based version of ory client
+- **`@ory/client-fetch`**
 
 **Installation**
 
@@ -93,42 +93,93 @@ export function init(params: QueryParams, flowType: FlowType) {
 
 To access & render the flow, on your flow page, you can use the `flow` query
 parameter, that is included in the redirect. Use it to call the
-[`getLoginFlow()`](https://www.ory.sh/docs/reference/api#tag/frontend/operation/getLoginFlow)
+[`getRegistrationFlowRaw()`](https://www.ory.sh/docs/reference/api#tag/frontend/operation/getRegistrationFlow)
 API.
 
 **Full Example**:
 
-````ts
-export async function getOrCreateRegistrationFlow(
-  params: QueryParams
-): Promise<RegistrationFlow> {
-  const onRestartFlow = () => init(params, FlowType.Registration);
+```ts
+import {
+  Configuration,
+  FlowType,
+  FrontendApi,
+  handleFlowError,
+  RegistrationFlow,
+} from "@ory/client-fetch"
+import { redirect, RedirectType } from "next/navigation"
 
-  // If flow ID doesn't exist in params simply trigget the init function.
+type QueryParams = {
+  flow?: string
+}
+export function serverClientFrontend() {
+  // For testing purposes we're using Ory tunnel
+
+  const config = new Configuration({
+    headers: {
+      Accept: "application/json",
+    },
+    basePath: "http://localhost:4000",
+  })
+  return new FrontendApi(config)
+}
+
+export function init(params: QueryParams, flowType: FlowType) {
+  // Take advantage of the fact, that Ory handles the flow creation for us and redirects the user to the default return to automatically if they're logged in already.
+  return redirect(
+    "http://localhost:4000" +
+      "/self-service/" +
+      flowType.toString() +
+      "/browser?" +
+      new URLSearchParams(params).toString(),
+    RedirectType.replace,
+  )
+}
+
+export async function getOrCreateRegistrationFlow(params: {
+  flow?: string
+}): Promise<RegistrationFlow> {
+  const onRestartFlow = () => init(params, FlowType.Registration)
+
+  // If flow ID doesn't exist in params simply trigger the init function.
   if (!params.flow) {
-    return onRestartFlow();
+    return onRestartFlow()
   }
 
   return await serverClientFrontend()
-    // Passing the flow ID
-    .getRegistrationFlowRaw({ id: flow })
-    .then(res => res.value())
+    // Pass in the flow ID
+    .getRegistrationFlowRaw({ id: params.flow })
+    .then((res) => res.value())
     .catch(
-      // Ory Elements predefines the handleFlowError function to simplify error handling.
+      // @ory/client-fetch predefines the handleFlowError function to simplify error handling.
       // You can define what should happen in each of these callbacks
       handleFlowError({
+        // Validation errors happen if the user's provided input failed a validation rule (e.g. not an email, etc.)
         onValidationError,
+        // Flows can sometimes encounter unrecoverable errors, in that case we need to start a new flow to protect the user.
+        // In most cases, it is enough to initialize a new flow.
         onRestartFlow,
+        // Sometimes a flow requires a redirect to a different URL/context. For example during OIDC flows.
+        // In that case, you can handle the redirect here, for example using your framework's preferred method for redirects.
         onRedirect,
-      })
-    );
-    ```
-````
+      }),
+    )
+}
+
+function onValidationError(flow: RegistrationFlow) {
+  // handle validation error
+}
+
+function onRedirect(url: string, external: boolean) {
+  // handle the redirect
+}
+```
 
 As soon as we have our flow data we can render the `<Registration/>` component
 from `@ory/elements-react` package.
 
 ```tsx
+import { Registration } from "@ory/elements-react/theme"
+
 export default async function RegistrationPage({ searchParams }: PageProps) {
   const flow = await getOrCreateRegistrationFlow(searchParams)
 
@@ -136,13 +187,7 @@ export default async function RegistrationPage({ searchParams }: PageProps) {
     return <div>Flow not found</div>
   }
 
-  return (
-    <Registration
-      flow={flow}
-      config={oryConfiguration}
-      components={ComponentOverrides}
-    />
-  )
+  return <Registration flow={flow} config={oryConfiguration} />
 }
 ```
 
@@ -166,11 +211,44 @@ Most styling can be overwritten, by providing your own custom CSS variables:
 }
 ```
 
-## Package development
+### Component overrides
 
-To develop and use the package `npm link` is recommended. To run the package in
-watch mode use
+Many components in Ory Elements can be overriden with your own implementation.
+Ory Elements also provides useful hooks that be used inside of your custom
+components to get access to the library configuration, or the current flow.
 
+**Example:**
+
+```tsx
+import { Registration } from "@ory/elements-react/theme"
+
+function CustomCardHeader() {
+  const { flowType } = useOryFlow()
+
+  return <div>My Custom {flowType} Card header</div>
+}
+
+export default async function RegistrationPage({ searchParams }: PageProps) {
+  const flow = await getOrCreateRegistrationFlow(searchParams)
+
+  if (!flow) {
+    return <div>Flow not found</div>
+  }
+
+  return (
+    <Registration
+      flow={flow}
+      config={oryConfiguration}
+      components={{
+        Card: {
+          CardHeader: CustomCardHeader,
+        },
+      }}
+    />
+  )
+}
 ```
-npx nx run @ory/elements-react:dev
-```
+
+## Development
+
+See [DEVELOPMENT.md](./DEVELOPMENT.md).
