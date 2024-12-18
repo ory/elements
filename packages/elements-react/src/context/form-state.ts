@@ -47,7 +47,7 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
       ) {
         return { current: "method_active", method: flow.flow.active }
       } else if (isChoosingMethod(flow.flow.ui.nodes)) {
-        // Login has a special case where we only have one method. Here, we
+        // Login and registration have a special case where we only have one method. Here, we
         // do not want to display the chooser.
         const authMethods = nodesToAuthMethodGroups(flow.flow.ui.nodes)
         if (authMethods.length === 1) {
