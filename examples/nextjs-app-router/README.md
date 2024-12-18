@@ -13,7 +13,7 @@ router.
 
 <!-- prettier-ignore-start -->
 > [!WARNING]
-> For convinience Ory provides a default "playground" project, that
+> For convenience Ory provides a default "playground" project, that
 > can be used to interact with Ory's APIs. It is a public project, that can be
 > used by anyone and data can be deleted at any time. Make sure to use a
 > dedicated project.
@@ -34,10 +34,20 @@ router.
 The project files reside in the `app/` directory:
 
 - `app/auth` - contains the page files for the user auth flows
-- `app/settings` - contaisn the page file for the settings flow
+- `app/settings` - contains the page file for the settings flow
 - `app` - contains the root page file and layout.
 
 ## Need help?
 
 If you have any issues using this examples, or Ory's products, don't hesitate to
 reach out via the [Ory Community Slack](https://slack.ory.sh).
+
+## Run against local Ory Network instance
+
+This section is relevant to Ory engineers only. When running a local Ory Network
+instance, you will need to disable TLS verification and set the
+`NEXT_PUBLIC_ORY_SDK_URL` to `https://<slug>.projects.oryapis:8080`:
+
+```sh
+NODE_TLS_REJECT_UNAUTHORIZED=0 npm run dev
+```
