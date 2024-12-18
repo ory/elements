@@ -5,6 +5,7 @@ import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { useReducer } from "react"
 import { isChoosingMethod } from "../components/card/card-two-step.utils"
 import { OryFlowContainer } from "../util"
+import { nodesToAuthMethodGroups } from "../util/ui"
 
 export type FormState =
   | { current: "provide_identifier" }
@@ -46,6 +47,12 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
       ) {
         return { current: "method_active", method: flow.flow.active }
       } else if (isChoosingMethod(flow.flow.ui.nodes)) {
+        // Login has a special case where we only have one method. Here, we
+        // do not want to display the chooser.
+        const authMethods = nodesToAuthMethodGroups(flow.flow.ui.nodes)
+        if (authMethods.length === 1) {
+          return { current: "method_active", method: authMethods[0] }
+        }
         return { current: "select_method" }
       } else if (flow.flow.ui.messages?.some((m) => m.id === 1010016)) {
         // Account linking edge case
