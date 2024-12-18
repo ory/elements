@@ -105,7 +105,7 @@ type Entries<T> = {
  * Please note that OIDC is not considered an auth method because it is
  * usually shown as a separate auth method
  *
- * This method the default, identifier_first, and profile groups.
+ * This method filters out the default, identifier_first, and profile groups.
  *
  * @param nodes The nodes to extract the auth methods from
  * @param excludeAuthMethods A list of auth methods to exclude
