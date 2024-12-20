@@ -22,7 +22,12 @@ export function DefaultCardFooter() {
   }
 }
 
-function getReturnToQueryParam() {
+export function getReturnToQueryParam(flow: {
+  return_to?: string
+}) {
+  if (flow.return_to) {
+    return flow.return_to
+  }
   if (typeof window !== "undefined") {
     const searchParams = new URLSearchParams(window.location.search)
     return searchParams.get("return_to")
@@ -30,7 +35,7 @@ function getReturnToQueryParam() {
 }
 
 function LoginCardFooter() {
-  const { config, formState } = useOryFlow()
+  const { config, formState, flow} = useOryFlow()
   const intl = useIntl()
 
   if (
@@ -43,7 +48,7 @@ function LoginCardFooter() {
   }
 
   let registrationLink = `${config.sdk.url}/self-service/registration/browser`
-  const returnTo = getReturnToQueryParam()
+  const returnTo = getReturnToQueryParam(flow)
   if (returnTo) {
     registrationLink += `?return_to=${returnTo}`
   }
@@ -57,6 +62,7 @@ function LoginCardFooter() {
       <a
         className="text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
         href={registrationLink}
+        data-testid={"ory/ui/login/link/registration"}
       >
         {intl.formatMessage({
           id: "login.registration-button",
@@ -96,7 +102,7 @@ function RegistrationCardFooter() {
   }
 
   let loginLink = `${config.sdk.url}/self-service/login/browser`
-  const returnTo = getReturnToQueryParam()
+  const returnTo = getReturnToQueryParam(flow)
   if (returnTo) {
     loginLink += `?return_to=${returnTo}`
   }
@@ -127,6 +133,7 @@ function RegistrationCardFooter() {
           <a
             className="text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
             href={loginLink}
+            data-testid={"ory/ui/login/link/login"}
           >
             {intl.formatMessage({
               id: "registration.login-button",
