@@ -41,7 +41,8 @@ export async function onSubmitLogin(
       updateLoginFlowBody: body,
     })
     .then(() => {
-      // Workaround
+      // TODO Remove this workaround. If the return_to value is missing we redirect to the browser endpoint which will redirect us
+      // TODO to the default_redirect_url. Ideally, this value comes from the project config.
       window.location.href =
         // eslint-disable-next-line promise/always-return
         flow.return_to ?? config.sdk.url + "/self-service/login/browser"
