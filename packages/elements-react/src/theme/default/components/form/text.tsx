@@ -9,7 +9,7 @@ export function DefaultText({ node, attributes }: OryNodeTextProps) {
   const intl = useIntl()
   return (
     <>
-      <p data-testid={`node/text/${attributes.id}/label`}>
+      <p data-testid={`ory/ui/node/text/${attributes.id}/label`}>
         {node.meta.label ? uiTextToFormattedMessage(node.meta.label, intl) : ""}
       </p>
       {(
@@ -17,7 +17,7 @@ export function DefaultText({ node, attributes }: OryNodeTextProps) {
           secrets: UiText[]
         }
       ).secrets?.map((text: UiText, index) => (
-        <pre data-testid={`node/text/lookup_secret_codes/text`} key={index}>
+        <pre data-testid={`ory/ui/node/text/lookup_secret_codes/text`} key={index}>
           <code>{text ? uiTextToFormattedMessage(text, intl) : ""}</code>
         </pre>
       ))}

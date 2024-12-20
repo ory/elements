@@ -142,17 +142,12 @@ export function nodesToAuthMethodGroups(
     )
 }
 
-type NodeGroups = {
-  groups: Partial<Record<UiNodeGroupEnum, UiNode[]>>
-  entries: Entries<Partial<Record<UiNodeGroupEnum, UiNode[]>>>
-}
-
 /**
  * Groups nodes by their group and returns an object with the groups and entries.
  *
  * @param nodes
  */
-export function useNodesGroups(nodes: UiNode[]): NodeGroups {
+export function useNodesGroups(nodes: UiNode[]) {
   const groupSorter = useGroupSorter()
 
   const groups = useMemo(() => {
