@@ -71,6 +71,7 @@ export function DefaultButtonSocial({
       value={attributes.value}
       type="submit"
       name="provider"
+      data-testid={`ory/ui/node/input/${attributes.name}`}
       {...props}
       onClick={onClick}
       disabled={isSubmitting}
