@@ -17,7 +17,10 @@ export function DefaultText({ node, attributes }: OryNodeTextProps) {
           secrets: UiText[]
         }
       ).secrets?.map((text: UiText, index) => (
-        <pre data-testid={`ory/ui/node/text/lookup_secret_codes/text`} key={index}>
+        <pre
+          data-testid={`ory/ui/node/text/lookup_secret_codes/text`}
+          key={index}
+        >
           <code>{text ? uiTextToFormattedMessage(text, intl) : ""}</code>
         </pre>
       ))}

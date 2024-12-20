@@ -1,3 +1,6 @@
+// Copyright © 2024 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 export function restartFlowUrl(
   flow: { request_url?: string; return_to?: string },
   fallback: string,
