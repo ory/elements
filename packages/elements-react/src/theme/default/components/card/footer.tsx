@@ -5,6 +5,7 @@ import { FlowType, UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
+import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 
 export function DefaultCardFooter() {
   const { flowType } = useOryFlow()
@@ -22,9 +23,7 @@ export function DefaultCardFooter() {
   }
 }
 
-export function getReturnToQueryParam(flow: {
-  return_to?: string
-}) {
+export function getReturnToQueryParam(flow: { return_to?: string }) {
   if (flow.return_to) {
     return flow.return_to
   }
@@ -35,7 +34,7 @@ export function getReturnToQueryParam(flow: {
 }
 
 function LoginCardFooter() {
-  const { config, formState, flow} = useOryFlow()
+  const { config, formState, flow } = useOryFlow()
   const intl = useIntl()
 
   if (
@@ -47,12 +46,6 @@ function LoginCardFooter() {
     return null
   }
 
-  let registrationLink = `${config.sdk.url}/self-service/registration/browser`
-  const returnTo = getReturnToQueryParam(flow)
-  if (returnTo) {
-    registrationLink += `?return_to=${returnTo}`
-  }
-
   return (
     <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
       {intl.formatMessage({
@@ -61,7 +54,7 @@ function LoginCardFooter() {
       })}{" "}
       <a
         className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-        href={registrationLink}
+        href={initFlowUrl(config.sdk.url, "registration", flow)}
         data-testid={"ory/ui/login/link/registration"}
       >
         {intl.formatMessage({
@@ -101,12 +94,6 @@ function RegistrationCardFooter() {
     }
   }
 
-  let loginLink = `${config.sdk.url}/self-service/login/browser`
-  const returnTo = getReturnToQueryParam(flow)
-  if (returnTo) {
-    loginLink += `?return_to=${returnTo}`
-  }
-
   return (
     <span className="font-normal leading-normal antialiased">
       {formState.current === "method_active" ? (
@@ -132,7 +119,7 @@ function RegistrationCardFooter() {
           })}{" "}
           <a
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href={loginLink}
+            href={initFlowUrl(config.sdk.url, "login", flow)}
             data-testid={"ory/ui/login/link/login"}
           >
             {intl.formatMessage({

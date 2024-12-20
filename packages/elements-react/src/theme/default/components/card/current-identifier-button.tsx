@@ -5,14 +5,11 @@ import { FlowType, UiNode } from "@ory/client-fetch"
 import { useOryFlow } from "@ory/elements-react"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 import { omit } from "../../utils/attributes"
+import { restartFlowUrl } from "../../utils/url"
 
 export function DefaultCurrentIdentifierButton() {
-  const {
-    flow: { ui },
-    flowType,
-    config,
-    formState,
-  } = useOryFlow()
+  const { flow, flowType, config, formState } = useOryFlow()
+  const ui = flow.ui
 
   if (formState.current === "provide_identifier") {
     return null
@@ -26,7 +23,12 @@ export function DefaultCurrentIdentifierButton() {
   ) {
     return null
   }
-  const initFlowUrl = `${config.sdk.url}/self-service/${flowType}/browser`
+
+  const initFlowUrl = restartFlowUrl(
+    flow,
+    `${config.sdk.url}/self-service/${flowType}/browser`,
+  )
+
   const attributes = omit(nodeBackButton.attributes, [
     "autocomplete",
     "node_type",
@@ -41,6 +43,7 @@ export function DefaultCurrentIdentifierButton() {
       {...attributes}
       href={initFlowUrl}
       title={`Adjust ${nodeBackButton?.attributes.value}`}
+      data-testid={"ory/ui/login/link/restart"}
     >
       <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
         <IconArrowLeft

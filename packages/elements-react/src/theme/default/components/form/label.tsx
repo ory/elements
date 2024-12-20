@@ -17,6 +17,7 @@ import {
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { getReturnToQueryParam } from "../card/footer"
+import { initFlowUrl } from "../../utils/url"
 
 function findResendNode(nodes: UiNode[]) {
   return nodes.find(
@@ -51,14 +52,6 @@ export function DefaultLabel({
 
   const fieldError = formState.errors[attributes.name]
 
-  const recoveryUrl = config.project.recovery_ui_url
-
-  let recoveryLink = `${config.sdk.url}/self-service/registration/browser`
-  const returnTo = getReturnToQueryParam(flow)
-  if (returnTo) {
-    recoveryLink += `?return_to=${returnTo}`
-  }
-
   return (
     <div className="flex flex-col gap-1 antialiased">
       {label && (
@@ -77,7 +70,7 @@ export function DefaultLabel({
             flowType === FlowType.Login && (
               // TODO: make it possible to override with a custom component
               <a
-                href={recoveryLink}
+                href={initFlowUrl(config.sdk.url, "recovery", flow)}
                 className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
               >
                 {intl.formatMessage({
