@@ -10,17 +10,28 @@ import { OrySettingsTotpProps, useComponents } from "@ory/elements-react"
 import QrCode from "../../assets/icons/qrcode.svg"
 import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
+import { useFormContext } from "react-hook-form"
+import { Spinner } from "../form/spinner"
 
-export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
+export function DefaultSettingsTotp({
+  totpImage,
+  totpInput,
+  totpSecret,
+  totpUnlink,
+  onUnlink,
+}: OrySettingsTotpProps) {
   const { Node, Card } = useComponents()
-  if ("totpUnlink" in props && props.totpUnlink) {
+  const {
+    formState: { isSubmitting },
+  } = useFormContext()
+  if (totpUnlink) {
     const {
       type,
       autocomplete: _ignoredAutocomplete,
       label: _ignoredLabel,
       node_type: _ignoredNodeType,
       ...buttonAttrs
-    } = props.totpUnlink?.attributes as UiNodeInputAttributes
+    } = totpUnlink.attributes as UiNodeInputAttributes
 
     return (
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -39,18 +50,24 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
           <button
             type={type === "button" ? "button" : "submit"}
             {...buttonAttrs}
+            onClick={onUnlink}
+            disabled={isSubmitting}
           >
-            <Trash
-              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
-              size={24}
-            />
+            {isSubmitting ? (
+              <Spinner className="relative" />
+            ) : (
+              <Trash
+                className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+                size={24}
+              />
+            )}
           </button>
         </div>
       </div>
     )
   }
 
-  if ("totpSecret" in props) {
+  if (totpImage && totpSecret && totpInput) {
     return (
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="col-span-full">
@@ -60,9 +77,9 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
           <div className="aspect-square h-44 rounded bg-[white]">
             <div className="-m-3 antialiased mix-blend-multiply">
               <Node.Image
-                node={props.totpImage}
+                node={totpImage}
                 attributes={{
-                  ...(props.totpImage.attributes as UiNodeImageAttributes),
+                  ...(totpImage.attributes as UiNodeImageAttributes),
                 }}
               />
             </div>
@@ -70,28 +87,28 @@ export function DefaultSettingsTotp(props: OrySettingsTotpProps) {
         </div>
         <div className="flex flex-col gap-6">
           <Node.Label
-            node={props.totpSecret}
-            attributes={props.totpSecret.attributes as UiNodeInputAttributes}
+            node={totpSecret}
+            attributes={totpSecret.attributes as UiNodeInputAttributes}
           >
             <Node.Input
-              node={props.totpSecret}
+              node={totpSecret}
               attributes={{
                 disabled: true,
                 name: "totp_secret_key",
                 node_type: "input",
                 type: "text",
-                value: (props.totpSecret.attributes as UiNodeTextAttributes)
-                  .text.text,
+                value: (totpSecret.attributes as UiNodeTextAttributes).text
+                  .text,
               }}
             />
           </Node.Label>
           <Node.Label
-            attributes={props.totpInput.attributes as UiNodeInputAttributes}
-            node={props.totpInput}
+            attributes={totpInput.attributes as UiNodeInputAttributes}
+            node={totpInput}
           >
-            <Node.Input
-              node={props.totpInput}
-              attributes={props.totpInput.attributes as UiNodeInputAttributes}
+            <Node.CodeInput
+              node={totpInput}
+              attributes={totpInput.attributes as UiNodeInputAttributes}
             />
           </Node.Label>
         </div>

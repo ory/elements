@@ -1,24 +1,64 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { PropsWithChildren } from "react"
-import { useComponents } from "../../context/component"
-import { OryForm } from "./form"
 import { UiNode } from "@ory/client-fetch"
+import {
+  ComponentPropsWithoutRef,
+  FormEventHandler,
+  PropsWithChildren,
+} from "react"
+import { useFormContext } from "react-hook-form"
+import { useComponents } from "../../context/component"
 import { OryFormProvider } from "./form-provider"
+import { useOryFormSubmit } from "./useOryFormSubmit"
+import { useOryFlow } from "../../context"
 
-export type OryFormSectionProps = PropsWithChildren<{
-  nodes?: UiNode[]
-}>
+type OryFormProps = Omit<
+  ComponentPropsWithoutRef<"form">,
+  "action" | "method" | "onSubmit"
+>
 
-export function OryFormSection({ children, nodes }: OryFormSectionProps) {
-  const { Card } = useComponents()
+export type OryFormSectionProps = PropsWithChildren<
+  OryFormProps & {
+    nodes?: UiNode[]
+  }
+>
 
+export type OryCardSettingsSectionProps = PropsWithChildren & {
+  action: string
+  method: string
+  onSubmit: FormEventHandler<HTMLFormElement>
+}
+
+export function OryFormSection({
+  children,
+  nodes,
+  ...rest
+}: OryFormSectionProps) {
   return (
     <OryFormProvider nodes={nodes}>
-      <OryForm>
-        <Card.SettingsSection>{children}</Card.SettingsSection>
-      </OryForm>
+      <OryFormSectionInner {...rest}>{children}</OryFormSectionInner>
     </OryFormProvider>
+  )
+}
+
+function OryFormSectionInner({
+  children,
+  ...rest
+}: PropsWithChildren<OryFormProps>) {
+  const { Card } = useComponents()
+  const flowContainer = useOryFlow()
+  const onSubmit = useOryFormSubmit()
+  const methods = useFormContext()
+
+  return (
+    <Card.SettingsSection
+      action={flowContainer.flow.ui.action}
+      method={flowContainer.flow.ui.method}
+      onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
+      {...rest}
+    >
+      {children}
+    </Card.SettingsSection>
   )
 }

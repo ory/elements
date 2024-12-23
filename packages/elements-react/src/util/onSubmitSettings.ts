@@ -56,9 +56,11 @@ export async function onSubmitSettings(
         return
       }
 
-      // We did not receive a valid continue_with, but the state flow is still a success. In this case we re-initialize
-      // the settings flow which will redirect the user to the default url.
-      onRedirect(settingsUrl(config), true)
+      setFlowContainer({
+        flow: body,
+        flowType: FlowType.Settings,
+        config,
+      })
     })
     .catch(
       handleFlowError({

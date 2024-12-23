@@ -14,7 +14,7 @@ import { OrySettingsRecoveryCodes } from "./recovery-codes-settings"
 import { OrySettingsTotp } from "./totp-settings"
 import { OrySettingsWebauthn } from "./webauthn-settings"
 
-interface SettingsSectionProps {
+type SettingsSectionProps = {
   group: UiNodeGroupEnum
   nodes: UiNode[]
 }
@@ -27,48 +27,78 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
 
   if (group === UiNodeGroupEnum.Totp) {
     return (
-      <OryFormSection nodes={uniqueGroups.groups.totp}>
+      <OryFormSection
+        nodes={uniqueGroups.groups.totp}
+        data-testid="totp-settings"
+      >
         <OrySettingsTotp nodes={uniqueGroups.groups.totp ?? []} />
+        {uniqueGroups.groups.default?.map((node, k) => (
+          <Node key={k} node={node} />
+        ))}
       </OryFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.LookupSecret) {
     return (
-      <OryFormSection nodes={uniqueGroups.groups.lookup_secret}>
+      <OryFormSection
+        nodes={uniqueGroups.groups.lookup_secret}
+        data-testid="recovery-codes-settings"
+      >
         <OrySettingsRecoveryCodes
           nodes={uniqueGroups.groups.lookup_secret ?? []}
         />
+        {uniqueGroups.groups.default?.map((node, k) => (
+          <Node key={k} node={node} />
+        ))}
       </OryFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.Oidc) {
     return (
-      <OryFormSection nodes={uniqueGroups.groups.oidc}>
+      <OryFormSection
+        nodes={uniqueGroups.groups.oidc}
+        data-testid="oidc-settings"
+      >
         <OrySettingsOidc nodes={uniqueGroups.groups.oidc ?? []} />
+        {uniqueGroups.groups.default?.map((node, k) => (
+          <Node key={k} node={node} />
+        ))}
       </OryFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.Webauthn) {
     return (
-      <OryFormSection nodes={uniqueGroups.groups.webauthn}>
+      <OryFormSection
+        nodes={uniqueGroups.groups.webauthn}
+        data-testid="webauthn-settings"
+      >
         <OrySettingsWebauthn nodes={uniqueGroups.groups.webauthn ?? []} />
+        {uniqueGroups.groups.default?.map((node, k) => (
+          <Node key={k} node={node} />
+        ))}
       </OryFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.Passkey) {
     return (
-      <OryFormSection nodes={uniqueGroups.groups.passkey}>
+      <OryFormSection
+        nodes={uniqueGroups.groups.passkey}
+        data-testid="passkey-settings"
+      >
         <OrySettingsPasskey nodes={uniqueGroups.groups.passkey ?? []} />
+        {uniqueGroups.groups.default?.map((node, k) => (
+          <Node key={k} node={node} />
+        ))}
       </OryFormSection>
     )
   }
 
   return (
-    <OryFormSection nodes={nodes}>
+    <OryFormSection nodes={nodes} data-testid={`${group}-settings`}>
       <Card.SettingsSectionContent
         title={intl.formatMessage({
           id: `settings.${group}.title`,

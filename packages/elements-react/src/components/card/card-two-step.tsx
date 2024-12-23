@@ -19,7 +19,7 @@ export function OryTwoStepCard() {
     flow: { ui },
   } = useOryFlow()
 
-  const { Form } = useComponents()
+  const { Form, Card } = useComponents()
   const { flowType, formState, dispatchFormState } = useOryFlow()
 
   const nodeSorter = useNodeSorter()
@@ -74,6 +74,7 @@ export function OryTwoStepCard() {
                 .map((node, k) => <Node node={node} key={k} />)}
             {formState.current === "select_method" && (
               <>
+                <Card.Divider />
                 <AuthMethodList
                   options={options}
                   setSelectedGroup={(group) =>

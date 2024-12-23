@@ -7,32 +7,32 @@ export * from "./settings-card"
 
 export type OrySettingsRecoveryCodesProps = {
   codes: string[]
-  regnerateButton?: UiNode
-  revealButton?: UiNode
+  regnerateButton: UiNode | undefined
+  revealButton: UiNode | undefined
+  onRegenerate: () => void
+  onReveal: () => void
 }
 
-export type OrySettingsTotpProps =
-  | {
-      totpImage: UiNode
-      totpSecret: UiNode
-      totpInput: UiNode
-    }
-  | {
-      totpUnlink: UiNode
-    }
+export type OrySettingsTotpProps = {
+  totpImage: UiNode | undefined
+  totpSecret: UiNode | undefined
+  totpInput: UiNode | undefined
+  totpUnlink: UiNode | undefined
+  onUnlink: () => void
+}
 
 export type OrySettingsOidcProps = {
-  linkButtons: UiNode[]
-  unlinkButtons: UiNode[]
+  linkButtons: (UiNode & { onClick: () => void })[]
+  unlinkButtons: (UiNode & { onClick: () => void })[]
 }
 
 export type OrySettingsWebauthnProps = {
   nameInput: UiNode
   triggerButton: UiNode & { onClick: () => void }
-  removeButtons: UiNode[]
+  removeButtons: (UiNode & { onClick: () => void })[]
 }
 
 export type OrySettingsPasskeyProps = {
   triggerButton: UiNode & { onClick: () => void }
-  removeButtons: UiNode[]
+  removeButtons: (UiNode & { onClick: () => void })[]
 }

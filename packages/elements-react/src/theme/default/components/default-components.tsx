@@ -41,7 +41,7 @@ import { DefaultPageHeader } from "./generic/page-header"
 import { DefaultSettingsOidc } from "./settings/settings-oidc"
 import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes"
-import { DefaultSettingsTotp } from "./settings/settings-top"
+import { DefaultSettingsTotp } from "./settings/settings-totp"
 import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
 
 export function getOryComponents(

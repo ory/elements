@@ -6,9 +6,10 @@ import {
   UiNodeAttributes,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { useComponents, useOryFlow } from "../../context"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { triggerToWindowCall, useNodesGroups } from "../../util/ui"
+import { useComponents, useOryFlow } from "../../context"
+import { triggerToWindowCall } from "../../util/ui"
 import { Node } from "../form/nodes/node"
 
 const getTriggerNode = (nodes: UiNode[]): UiNode | undefined =>
@@ -39,8 +40,7 @@ interface HeadlessSettingsPasskeyProps {
 export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
   const { Card, Form } = useComponents()
   const intl = useIntl()
-  const { flow } = useOryFlow()
-  const { groups } = useNodesGroups(flow.ui.nodes)
+  const { setValue } = useFormContext()
 
   const triggerButton = getTriggerNode(nodes)
   const settingsNodes = getSettingsNodes(nodes)
@@ -60,6 +60,13 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
     triggerToWindowCall(onclickTrigger)
   }
 
+  const removePasskeyHandler = (value: string) => {
+    return () => {
+      setValue("passkey_remove", value)
+      setValue("method", "passkey")
+    }
+  }
+
   return (
     <>
       <Card.SettingsSectionContent
@@ -68,9 +75,6 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
           id: "settings.passkey.description",
         })}
       >
-        {groups.default?.map((node, i) => (
-          <Node key={`passkey-default-nodes-${i}`} node={node} />
-        ))}
         {settingsNodes.map((node, i) => (
           <Node key={`passkey-settings-nodes-${i}`} node={node} />
         ))}
@@ -80,7 +84,13 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
             attributes: triggerAttributes as UiNodeAttributes,
             onClick: onTriggerClick,
           }}
-          removeButtons={removeNodes}
+          removeButtons={removeNodes.map((node) => ({
+            ...node,
+            onClick:
+              node.attributes.node_type === "input"
+                ? removePasskeyHandler(node.attributes.value as string)
+                : () => {},
+          }))}
         />
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter

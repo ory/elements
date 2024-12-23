@@ -7,12 +7,18 @@ import Download from "../../assets/icons/download.svg"
 import Eye from "../../assets/icons/eye.svg"
 import Refresh from "../../assets/icons/refresh.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
+import { useFormContext } from "react-hook-form"
 
 export function DefaultSettingsRecoveryCodes({
   codes,
   regnerateButton,
   revealButton,
+  onRegenerate,
+  onReveal,
 }: OrySettingsRecoveryCodesProps) {
+  const {
+    formState: { isSubmitting },
+  } = useFormContext()
   const onDownload = () => {
     const element = document.createElement("a")
     const file = new Blob([codes.join("\n")], {
@@ -28,42 +34,65 @@ export function DefaultSettingsRecoveryCodes({
 
   return (
     <div className="flex flex-col gap-8">
-      <DefaultHorizontalDivider />
-      <div className="flex justify-end gap-4">
-        {regnerateButton && (
-          <button
-            {...(regnerateButton.attributes as UiNodeInputAttributes)}
-            type="submit"
-          >
-            <Refresh
-              size={24}
-              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
-            />
-          </button>
-        )}
-        {revealButton && (
-          <button
-            {...(revealButton.attributes as UiNodeInputAttributes)}
-            type="submit"
-          >
-            <Eye
-              size={24}
-              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
-            />
-          </button>
-        )}
-        {hasCodes && (
-          <button onClick={onDownload} type="button">
-            <Download
-              size={24}
-              className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
-            />
-          </button>
-        )}
+      {codes.length > 0 && <DefaultHorizontalDivider />}
+      <div className="flex gap-4 justify-between">
+        <span className="text-interface-foreground-default-tertiary">
+          {revealButton && "Reveal recovery codes"}
+        </span>
+        <div className="flex gap-2">
+          {regnerateButton && codes.length > 0 && (
+            <button
+              {...(regnerateButton.attributes as UiNodeInputAttributes)}
+              type="submit"
+              className="ml-auto"
+              onClick={onRegenerate}
+              disabled={isSubmitting}
+              data-loading={isSubmitting}
+            >
+              <Refresh
+                size={24}
+                className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+              />
+            </button>
+          )}
+          {revealButton && (
+            <>
+              <button
+                {...(revealButton.attributes as UiNodeInputAttributes)}
+                type="submit"
+                className="ml-auto"
+                onClick={onReveal}
+                title="Reveal recovery codes"
+              >
+                <Eye
+                  size={24}
+                  className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+                />
+              </button>
+            </>
+          )}
+          {hasCodes && (
+            <button
+              onClick={onDownload}
+              type="button"
+              className="ml-auto"
+              data-testid="recovery-codes-download-button"
+              title="Download recovery codes"
+            >
+              <Download
+                size={24}
+                className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+              />
+            </button>
+          )}
+        </div>
       </div>
       {hasCodes ? (
         <div className="rounded-general p-6 bg-interface-background-default-secondary border-interface-border-default-primary">
-          <div className="grid grid-cols-5 flex-wrap gap-4 text-sm text-interface-foreground-default-primary">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 flex-wrap gap-4 text-sm text-interface-foreground-default-primary"
+            data-testid="recovery-codes-codes"
+          >
             {codes.map((code) => (
               <p key={code}>{code}</p>
             ))}

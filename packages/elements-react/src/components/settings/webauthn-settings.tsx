@@ -6,9 +6,10 @@ import {
   UiNodeAttributes,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { useComponents, useOryFlow } from "../../context"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { triggerToWindowCall, useNodesGroups } from "../../util/ui"
+import { useComponents } from "../../context"
+import { triggerToWindowCall } from "../../util/ui"
 import { Node } from "../form/nodes/node"
 
 const getInputNode = (nodes: UiNode[]): UiNode | undefined =>
@@ -44,8 +45,7 @@ interface HeadlessSettingsWebauthnProps {
 export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
   const { Card, Form } = useComponents()
   const intl = useIntl()
-  const { flow } = useOryFlow()
-  const { groups } = useNodesGroups(flow.ui.nodes)
+  const { setValue } = useFormContext()
 
   const triggerButton = getTriggerNode(nodes)
   const inputNode = getInputNode(nodes)
@@ -65,6 +65,12 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
   const onTriggerClick = () => {
     triggerToWindowCall(onclickTrigger)
   }
+  const removeWebauthnKeyHandler = (value: string) => {
+    return () => {
+      setValue("webauthn_remove", value)
+      setValue("method", "webauthn")
+    }
+  }
 
   return (
     <>
@@ -74,9 +80,6 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
           id: "settings.webauthn.description",
         })}
       >
-        {groups.default?.map((node, i) => (
-          <Node key={`webauthn-default-${i}`} node={node} />
-        ))}
         <Form.WebauthnSettings
           nameInput={inputNode}
           triggerButton={{
@@ -84,7 +87,13 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
             attributes: triggerAttributes as UiNodeAttributes,
             onClick: onTriggerClick,
           }}
-          removeButtons={removeButtons}
+          removeButtons={removeButtons.map((node) => ({
+            ...node,
+            onClick:
+              node.attributes.node_type === "input"
+                ? removeWebauthnKeyHandler(node.attributes.value as string)
+                : () => {},
+          }))}
         />
         {registerNode && <Node node={registerNode} />}
       </Card.SettingsSectionContent>
