@@ -7,13 +7,19 @@ import {
   OryFormSectionProps,
 } from "@ory/elements-react"
 import { cn } from "../../utils/cn"
-import { isValidElement } from "react"
 
-const DefaultFormSection = ({ children }: OryFormSectionProps) => {
+const DefaultFormSection = ({
+  children,
+  nodes: _nodes,
+  ...rest
+}: OryFormSectionProps) => {
   return (
-    <div className="flex w-80 flex-col md:w-[712px] lg:w-[802px] xl:w-[896px]">
+    <form
+      className="flex w-full max-w-screen-sm flex-col md:max-w-[712px] lg:max-w-[802px] xl:max-w-[896px] px-4"
+      {...rest}
+    >
       {children}
-    </div>
+    </form>
   )
 }
 
@@ -44,12 +50,10 @@ const DefaultFormSectionFooter = ({
   return (
     <div
       className={cn(
-        "flex min-h-[72px] items-center justify-end gap-2 rounded-b-xl border border-interface-border-default-primary bg-interface-background-default-secondary px-6 py-4 text-interface-foreground-default-tertiary",
-        isValidElement(children) && text && "justify-between",
-        text && "justify-start",
+        "flex min-h-[72px] items-center justify-between gap-2 rounded-b-xl border border-interface-border-default-primary bg-interface-background-default-secondary px-6 py-4 text-interface-foreground-default-tertiary",
       )}
     >
-      {text}
+      <span>{text}</span>
       {children}
     </div>
   )

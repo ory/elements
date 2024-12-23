@@ -55,7 +55,7 @@ function LoginCardFooter() {
         defaultMessage: "No account?",
       })}{" "}
       <a
-        className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover hover:underline"
+        className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
         href={registrationLink}
       >
         {intl.formatMessage({
@@ -125,7 +125,7 @@ function RegistrationCardFooter() {
             defaultMessage: "Already have an account?",
           })}{" "}
           <a
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover hover:underline"
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
             href={loginLink}
           >
             {intl.formatMessage({

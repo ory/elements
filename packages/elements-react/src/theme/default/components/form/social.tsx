@@ -11,6 +11,8 @@ import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
 import { ElementType } from "react"
+import { useFormContext } from "react-hook-form"
+import { Spinner } from "./spinner"
 
 export function extractProvider(
   context: object | undefined,
@@ -49,6 +51,9 @@ export function DefaultButtonSocial({
     flow: { ui },
   } = useOryFlow()
   const intl = useIntl()
+  const {
+    formState: { isSubmitting },
+  } = useFormContext()
 
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
@@ -68,18 +73,19 @@ export function DefaultButtonSocial({
       name="provider"
       {...props}
       onClick={onClick}
+      disabled={isSubmitting}
     >
-      <span className="size-5">
-        {Logo ? (
-          <Logo
-            size={20}
-            // alt={node.meta.label?.text || attributes.value}
-            // className="object-fill w-full h-full"
-          />
+      <span className="size-5 relative">
+        {!isSubmitting ? (
+          Logo ? (
+            <Logo size={20} />
+          ) : (
+            <span className="flex aspect-square items-center justify-center rounded-full border text-xs">
+              {provider.slice(0, 2)}
+            </span>
+          )
         ) : (
-          <span className="flex aspect-square items-center justify-center rounded-full border text-xs">
-            {provider.slice(0, 2)}
-          </span>
+          <Spinner className="size-5" />
         )}
       </span>
       {showLabel && node.meta.label ? (
