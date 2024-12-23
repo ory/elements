@@ -81,9 +81,6 @@ export const DefaultButton = ({
       value={value}
       name={name}
       type={type === "button" ? "button" : "submit"} // TODO
-      onSubmit={() => {
-        setValue(name, value)
-      }}
       onClick={(e) => {
         onClick?.(e)
 

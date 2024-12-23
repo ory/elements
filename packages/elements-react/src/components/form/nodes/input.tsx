@@ -79,13 +79,26 @@ export const NodeInput = ({
       }
 
       return (
-        <Node.Button attributes={attrs} node={node} onClick={handleClick} />
+        <Node.Label
+          // The label is rendered in the button component
+          attributes={{ ...attrs, label: undefined }}
+          node={{ ...node, meta: { ...node.meta, label: undefined } }}
+        >
+          <Node.Button attributes={attrs} node={node} onClick={handleClick} />
+        </Node.Label>
       )
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
       return (
-        <Node.Checkbox attributes={attrs} node={node} onClick={handleClick} />
+        // The label is rendered in the checkbox component
+        <Node.Label
+          // The label is rendered in the button component
+          attributes={{ ...attrs, label: undefined }}
+          node={{ ...node, meta: { ...node.meta, label: undefined } }}
+        >
+          <Node.Checkbox attributes={attrs} node={node} onClick={handleClick} />
+        </Node.Label>
       )
     case UiNodeInputAttributesTypeEnum.Hidden:
       return <Node.Input attributes={attrs} node={node} onClick={handleClick} />

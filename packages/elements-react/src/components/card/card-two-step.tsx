@@ -118,7 +118,7 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const handleClick = (group: UiNodeGroupEnum) => {
     if (isGroupImmediateSubmit(group)) {
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
-      // then the methid needs to be added to the form data.
+      // then the method needs to be added to the form data.
       setValue("method", group)
     } else {
       setSelectedGroup(group)
