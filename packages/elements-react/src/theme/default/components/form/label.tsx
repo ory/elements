@@ -51,7 +51,6 @@ export function DefaultLabel({
   }
 
   const fieldError = formState.errors[attributes.name]
-
   return (
     <div className="flex flex-col gap-1 antialiased">
       {label && (
