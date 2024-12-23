@@ -16,7 +16,6 @@ import {
 } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { getReturnToQueryParam } from "../card/footer"
 import { initFlowUrl } from "../../utils/url"
 
 function findResendNode(nodes: UiNode[]) {
