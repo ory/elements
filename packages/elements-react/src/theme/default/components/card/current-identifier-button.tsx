@@ -42,7 +42,7 @@ export function DefaultCurrentIdentifierButton() {
       href={initFlowUrl}
       title={`Adjust ${nodeBackButton?.attributes.value}`}
     >
-      <span className="inline-flex min-h-5 items-center gap-2 ">
+      <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
         <IconArrowLeft
           size={16}
           stroke="1"
