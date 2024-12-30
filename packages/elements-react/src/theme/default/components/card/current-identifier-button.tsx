@@ -35,7 +35,7 @@ export function DefaultCurrentIdentifierButton() {
   return (
     <a
       className={
-        "inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-full border px-[11px] py-[5px] transition-colors " +
+        "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-full border px-[11px] py-[5px] transition-colors " +
         "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
       }
       {...attributes}
@@ -46,9 +46,9 @@ export function DefaultCurrentIdentifierButton() {
         <IconArrowLeft
           size={16}
           stroke="1"
-          className="shrink-0 text-button-identifier-foreground-default "
+          className="shrink-0 text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover"
         />
-        <span className="overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-button-identifier-foreground-default">
+        <span className="overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover">
           {nodeBackButton?.attributes.value}
         </span>
       </span>
