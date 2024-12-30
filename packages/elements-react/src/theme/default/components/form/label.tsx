@@ -16,6 +16,7 @@ import {
 } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
+import { initFlowUrl } from "../../utils/url"
 
 function findResendNode(nodes: UiNode[]) {
   return nodes.find(
@@ -49,7 +50,6 @@ export function DefaultLabel({
   }
 
   const fieldError = formState.errors[attributes.name]
-
   return (
     <div className="flex flex-col gap-1 antialiased">
       {label && (
@@ -58,6 +58,7 @@ export function DefaultLabel({
             {...messageTestId(label)}
             className="text-sm font-medium leading-normal"
             htmlFor={attributes.name}
+            data-testid={`ory/ui/node/input/label/${attributes.name}`}
             {...rest}
           >
             {uiTextToFormattedMessage(label, intl)}
@@ -67,7 +68,7 @@ export function DefaultLabel({
             flowType === FlowType.Login && (
               // TODO: make it possible to override with a custom component
               <a
-                href={config.project.recovery_ui_url}
+                href={initFlowUrl(config.sdk.url, "recovery", flow)}
                 className="text-sm font-medium text-links-link-default transition-colors hover:text-links-link-hover hover:underline"
               >
                 {intl.formatMessage({

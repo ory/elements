@@ -30,8 +30,7 @@ export function DefaultAuthMethodListItem({
         className="flex cursor-pointer gap-3 py-2 text-left"
         onClick={onClick}
         type={isGroupImmediateSubmit(group) ? "submit" : "button"}
-        id={`auth-method-list-item-${group}`}
-        data-testid="auth-method-list-item"
+        data-testid={`ory/ui/groups/auth-method/${group}`}
         aria-label={`Authenticate with ${group}`}
       >
         <div className={"mt-[2px] size-4 flex-none"}>

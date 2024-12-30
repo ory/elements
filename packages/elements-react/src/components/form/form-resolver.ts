@@ -3,8 +3,10 @@
 
 import { useOryFlow } from "../../context"
 import { FormValues } from "../../types"
+import { isUiNodeInputAttributes } from "@ory/client-fetch"
 
 function isCodeResendRequest(data: FormValues) {
+  // There are two types of resend - one
   return data.email ?? data.resend
 }
 
@@ -20,10 +22,32 @@ export function useOryFormResolver() {
 
   return (data: FormValues) => {
     if (flowContainer.formState.current === "method_active") {
-      if (data.method === "code" && !data.code && !isCodeResendRequest(data)) {
+      // This is a workaround which prevents the flow from being submitted without a code,
+      // which in some cases can cause issues in Ory Kratos' resend detection.
+      if (
+        // When we submit a code
+        data.method === "code" &&
+        // And the code is not present
+        !data.code &&
+        // And the flow is not a code resend request
+        !isCodeResendRequest(data) &&
+        // And the flow has a code input node
+        flowContainer.flow.ui.nodes.find(({ attributes, group }) => {
+          if (!isUiNodeInputAttributes(attributes)) {
+            return false
+          }
+
+          return (
+            group === "code" &&
+            attributes.name === "code" &&
+            attributes.type !== "hidden"
+          )
+        })
+      ) {
         return {
           values: data,
           errors: {
+            // We know the code node exists, so we can safely hardcode the ID.
             code: {
               id: 4000002,
               context: {

@@ -11,6 +11,6 @@ import { UiText } from "@ory/client-fetch"
  */
 export function messageTestId(message: UiText) {
   return {
-    "data-testid": `ory-message-${message.id}`,
+    "data-testid": `ory/ui/message/${message.id}`,
   }
 }

@@ -21,6 +21,7 @@ export const DefaultLinkButton = forwardRef<
       {...attributes}
       ref={ref}
       title={label ? uiTextToFormattedMessage(label, intl) : ""}
+      data-testid={`ory/ui/node/link/${attributes.id}`}
       className={cn(
         "antialiased rounded cursor-pointer text-center border border-transparent gap-3 leading-none bg-button-primary-bg-default hover:bg-button-primary-bg-hover transition-colors text-button-primary-fg-default hover:text-button-primary-fg-hover px-4 py-4.5 text-sm font-medium",
       )}

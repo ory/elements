@@ -48,6 +48,7 @@ export const DefaultInput = ({
       maxLength={maxlength}
       autoComplete={autocomplete}
       placeholder={formattedLabel}
+      data-testid={`ory/ui/node/input/${name}`}
       className={cn(
         "antialiased disabled:text-forms-fg-disabled disabled:bg-forms-bg-disabled bg-forms-bg-default rounded-border-radius-forms border border-forms-border-default leading-tight hover:border-forms-border-hover transition-colors text-sm",
         "px-3 py-2.5",
