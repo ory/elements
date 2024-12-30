@@ -1,6 +1,7 @@
 {
   "name": "@ory/nextjs",
   "version": "0.0.1",
+  "license": "Apache License 2.0",
   "type": "commonjs",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
