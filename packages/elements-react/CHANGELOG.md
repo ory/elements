@@ -1,3 +1,26 @@
+## 1.0.0-next.18 (2024-12-30)
+
+### 🚀 Features
+
+- add page and app router examples ([#307](https://github.com/ory/elements/pull/307))
+- ⚠️  add getServerSession and SessionProvider ([#309](https://github.com/ory/elements/pull/309))
+- add @ory/nextjs package ([#303](https://github.com/ory/elements/pull/303))
+
+### 🩹 Fixes
+
+- align font sizes to design & use updated variable names ([#318](https://github.com/ory/elements/pull/318))
+- properly set default value for checkboxes ([#314](https://github.com/ory/elements/pull/314))
+- passkey and webauthn in settings flow ([#317](https://github.com/ory/elements/pull/317))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  add getServerSession and SessionProvider ([#309](https://github.com/ory/elements/pull/309))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.17 (2024-11-27)
 
 
