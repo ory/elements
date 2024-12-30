@@ -6,12 +6,20 @@ import {
   OryFormSectionFooterProps,
   OryFormSectionProps,
 } from "@ory/elements-react"
+import { cn } from "../../utils/cn"
 
-const DefaultFormSection = ({ children }: OryFormSectionProps) => {
+const DefaultFormSection = ({
+  children,
+  nodes: _nodes,
+  ...rest
+}: OryFormSectionProps) => {
   return (
-    <div className="flex w-80 flex-col md:w-[712px] lg:w-[802px] xl:w-[896px]">
+    <form
+      className="flex w-full max-w-screen-sm flex-col md:max-w-[712px] lg:max-w-[802px] xl:max-w-[896px] px-4"
+      {...rest}
+    >
       {children}
-    </div>
+    </form>
   )
 }
 
@@ -21,19 +29,31 @@ const DefaultFormSectionContent = ({
   children,
 }: OryFormSectionContentProps) => {
   return (
-    <div className="flex flex-col gap-8 rounded-t-xl border border-b-0 border-dialog-border-default bg-forms-bg-default px-6 py-8">
+    <div className="flex flex-col gap-8 rounded-t-xl border border-b-0 border-interface-border-default-primary bg-interface-background-default-primary px-6 py-8">
       <div className="flex flex-col gap-2">
-        <h3 className="font-medium text-dialog-fg-default">{title}</h3>
-        <span className="text-sm text-dialog-fg-subtle">{description}</span>
+        <h3 className="font-medium text-interface-foreground-default-primary">
+          {title}
+        </h3>
+        <span className="text-interface-foreground-default-secondary">
+          {description}
+        </span>
       </div>
       {children}
     </div>
   )
 }
 
-const DefaultFormSectionFooter = ({ children }: OryFormSectionFooterProps) => {
+const DefaultFormSectionFooter = ({
+  children,
+  text,
+}: OryFormSectionFooterProps) => {
   return (
-    <div className="flex min-h-[72px] items-center justify-end gap-2 rounded-b-xl border border-dialog-border-default bg-dialog-bg-subtle px-6 py-4 text-sm text-dialog-fg-mute [&>span]:mr-auto">
+    <div
+      className={cn(
+        "flex min-h-[72px] items-center justify-between gap-2 rounded-b-xl border border-interface-border-default-primary bg-interface-background-default-secondary px-6 py-4 text-interface-foreground-default-tertiary",
+      )}
+    >
+      <span>{text}</span>
       {children}
     </div>
   )

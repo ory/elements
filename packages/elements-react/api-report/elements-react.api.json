@@ -1535,8 +1535,8 @@
             },
             {
               "kind": "Reference",
-              "text": "OryFormSectionContentProps",
-              "canonicalReference": "@ory/elements-react!OryFormSectionContentProps:type"
+              "text": "OryFormSectionFooterProps",
+              "canonicalReference": "@ory/elements-react!OryFormSectionFooterProps:type"
             },
             {
               "kind": "Content",
@@ -2310,6 +2310,10 @@
             },
             {
               "kind": "Content",
+              "text": "<{\n    text?: string;\n}>"
+            },
+            {
+              "kind": "Content",
               "text": ";"
             }
           ],
@@ -2318,7 +2322,7 @@
           "name": "OryFormSectionFooterProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           }
         },
         {

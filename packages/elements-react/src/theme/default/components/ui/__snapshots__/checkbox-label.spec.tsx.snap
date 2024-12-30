@@ -3,7 +3,7 @@
 exports[`computeLabelElements handles a label with no text but a link 1`] = `
 <div>
   <a
-    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    class="text-button-link-brand-brand hover:text-button-link-brand-brand-hover underline"
     href="https://example.com"
     rel="noopener noreferrer"
     target="_blank"
@@ -17,7 +17,7 @@ exports[`computeLabelElements renders a text with a single markdown link correct
 <div>
   This is a 
   <a
-    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    class="text-button-link-brand-brand hover:text-button-link-brand-brand-hover underline"
     href="https://example.com"
     rel="noopener noreferrer"
     target="_blank"
@@ -31,7 +31,7 @@ exports[`computeLabelElements renders a text with link and extra text around it 
 <div>
   Click 
   <a
-    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    class="text-button-link-brand-brand hover:text-button-link-brand-brand-hover underline"
     href="https://example.com"
     rel="noopener noreferrer"
     target="_blank"
@@ -46,7 +46,7 @@ exports[`computeLabelElements renders a text with multiple markdown links correc
 <div>
   This 
   <a
-    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    class="text-button-link-brand-brand hover:text-button-link-brand-brand-hover underline"
     href="https://first.com"
     rel="noopener noreferrer"
     target="_blank"
@@ -55,7 +55,7 @@ exports[`computeLabelElements renders a text with multiple markdown links correc
   </a>
    and this 
   <a
-    class="text-links-link-default hover:text-links-link-hover hover:underline"
+    class="text-button-link-brand-brand hover:text-button-link-brand-brand-hover underline"
     href="https://second.com"
     rel="noopener noreferrer"
     target="_blank"

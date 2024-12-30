@@ -88,9 +88,9 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
         />
         {registerNode && <Node node={registerNode} />}
       </Card.SettingsSectionContent>
-      <Card.SettingsSectionFooter>
-        <span>{intl.formatMessage({ id: "settings.webauthn.info" })}</span>
-      </Card.SettingsSectionFooter>
+      <Card.SettingsSectionFooter
+        text={intl.formatMessage({ id: "settings.webauthn.info" })}
+      ></Card.SettingsSectionFooter>
     </>
   )
 }

@@ -1,12 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OrySettingsWebauthnProps } from "@ory/elements-react"
 import { UiNodeInputAttributes } from "@ory/client-fetch"
-import { DefaultLabel } from "../form/label"
-import { DefaultInput } from "../form/input"
-import { DefaultButton } from "../form/button"
-import { DefaultHorizontalDivider } from "../form/horizontal-divider"
+import { OrySettingsWebauthnProps, useComponents } from "@ory/elements-react"
 import Key from "../../assets/icons/key.svg"
 import Trash from "../../assets/icons/trash.svg"
 
@@ -15,24 +11,25 @@ export function DefaultSettingsWebauthn({
   triggerButton,
   removeButtons,
 }: OrySettingsWebauthnProps) {
+  const { Node, Card } = useComponents()
   const hasRemoveButtons = removeButtons.length > 0
 
   return (
     <div className="flex flex-col gap-8">
       <div className="flex max-w-[60%] items-end gap-3">
         <div className="flex-1">
-          <DefaultLabel
+          <Node.Label
             node={nameInput}
             attributes={nameInput.attributes as UiNodeInputAttributes}
           >
-            <DefaultInput
+            <Node.Input
               node={nameInput}
               attributes={nameInput.attributes as UiNodeInputAttributes}
             />
-          </DefaultLabel>
+          </Node.Label>
         </div>
         {triggerButton ? (
-          <DefaultButton
+          <Node.Button
             node={triggerButton}
             attributes={triggerButton.attributes as UiNodeInputAttributes}
             onClick={triggerButton.onClick}
@@ -41,7 +38,7 @@ export function DefaultSettingsWebauthn({
       </div>
       {hasRemoveButtons ? (
         <div className="flex flex-col gap-8">
-          <DefaultHorizontalDivider />
+          <Card.Divider />
           <div className="flex flex-col gap-2">
             {removeButtons.map((node, i) => {
               const context = node.meta.label?.context ?? {}
@@ -59,24 +56,33 @@ export function DefaultSettingsWebauthn({
                   className="flex justify-between gap-6"
                   key={`webauthn-remove-button-${i}`}
                 >
-                  <Key size={32} className="text-dialog-fg-default" />
+                  <Key
+                    size={32}
+                    className="text-interface-foreground-default-primary"
+                  />
                   <div className="flex-1 flex-col">
-                    <p className="text-sm font-medium text-dialog-fg-subtle">
+                    <p className="text-sm font-medium text-interface-foreground-default-secondary">
                       {diaplyName}
                     </p>
-                    <span className="text-sm text-dialog-fg-mute">{keyId}</span>
+                    <span className="text-sm text-interface-foreground-default-tertiary">
+                      {keyId}
+                    </span>
                   </div>
                   {addedAt && (
-                    <p className="self-center text-sm text-dialog-fg-mute">
-                      {new Date(addedAt).toLocaleDateString()}
+                    <p className="self-center text-sm text-interface-foreground-default-tertiary">
+                      {new Intl.DateTimeFormat(undefined, {
+                        dateStyle: "long",
+                      }).format(new Date(addedAt))}
                     </p>
                   )}
                   <button
                     {...(node.attributes as UiNodeInputAttributes)}
                     type="submit"
-                    className="cursor-pointer text-links-link-mute-default hover:text-links-link-mute-hover"
                   >
-                    <Trash size={20} />
+                    <Trash
+                      className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+                      size={24}
+                    />
                   </button>
                 </div>
               )

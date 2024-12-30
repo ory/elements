@@ -12,8 +12,8 @@ import { DefaultCardLayout } from "./layout"
 
 export function DefaultCard({ children }: OryCardProps) {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center font-sans">
-      <div className="relative grid max-w-sm grid-cols-1 gap-8 rounded-border-radius-cards border border-dialog-border-default bg-dialog-bg-default px-8 py-12 md:w-[480px] md:max-w-[480px] md:px-12 md:py-14">
+    <div className="flex flex-1 sm:items-center justify-center font-sans items-start w-full sm:w-[480px] sm:max-w-[480px]">
+      <div className="relative grid grid-cols-1 gap-8 sm:rounded-cards sm:border border-form-border-default bg-form-background-default px-8 py-12 sm:px-12 sm:py-14 border-b w-full">
         {children}
         <Badge />
       </div>

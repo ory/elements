@@ -38,7 +38,7 @@ export function computeLabelElements(labelText: string) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-links-link-default hover:text-links-link-hover hover:underline"
+        className="text-button-link-brand-brand hover:text-button-link-brand-brand-hover underline"
       >
         {linkText}
       </a>,

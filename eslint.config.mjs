@@ -194,9 +194,26 @@ const config = tseslint.config([
     files: ["packages/elements-react/**/*.{js,jsx,ts,tsx}"],
     ...tailwind.configs["flat/recommended"][0],
     ...tailwind.configs["flat/recommended"][1],
+    rules: {
+      ...tailwind.configs["flat/recommended"][1].rules,
+      "tailwindcss/classnames-order": "off",
+      "tailwindcss/no-custom-classname": [
+        "warn",
+        {
+          cssFiles: [
+            "packages/elements-react/**/*.css",
+            "!**/node_modules",
+            "!**/.*",
+            "!**/dist",
+            "!**/build",
+          ],
+        },
+      ],
+    },
     settings: {
       tailwindcss: {
         config: "packages/elements-react/tailwind.config.ts",
+        callees: ["classnames", "clsx", "ctl", "cn"],
       },
     },
   },

@@ -191,7 +191,7 @@ export type OryFlowComponents = {
         AuthMethodListItem: ComponentType<OryCardAuthMethodListItemProps>;
         SettingsSection: ComponentType<OryFormSectionProps>;
         SettingsSectionContent: ComponentType<OryFormSectionContentProps>;
-        SettingsSectionFooter: ComponentType<OryFormSectionContentProps>;
+        SettingsSectionFooter: ComponentType<OryFormSectionFooterProps>;
     };
     Form: {
         Root: ComponentType<OryFormRootProps>;
@@ -265,7 +265,9 @@ export type OryFormSectionContentProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export type OryFormSectionFooterProps = PropsWithChildren;
+export type OryFormSectionFooterProps = PropsWithChildren<{
+    text?: string;
+}>;
 
 // @public (undocumented)
 export type OryFormSectionProps = PropsWithChildren<{

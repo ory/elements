@@ -37,9 +37,9 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
           unlinkButtons={unlinkButtons}
         />
       </Card.SettingsSectionContent>
-      <Card.SettingsSectionFooter>
-        <span>{intl.formatMessage({ id: "settings.oidc.info" })}</span>
-      </Card.SettingsSectionFooter>
+      <Card.SettingsSectionFooter
+        text={intl.formatMessage({ id: "settings.oidc.info" })}
+      ></Card.SettingsSectionFooter>
     </>
   )
 }

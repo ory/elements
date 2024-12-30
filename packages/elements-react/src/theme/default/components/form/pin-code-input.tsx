@@ -4,12 +4,15 @@
 "use client"
 import { useFormContext } from "react-hook-form"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
-import { OryNodeInputProps } from "@ory/elements-react"
+import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
+import { FlowType } from "@ory/client-fetch"
+import { cn } from "../../utils/cn"
 
 export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
   const { setValue, watch } = useFormContext()
   const { maxlength, name } = attributes
   const elements = maxlength ?? 6
+  const { flowType } = useOryFlow()
 
   const handleInputChange = (v: string) => {
     setValue(name, v)
@@ -24,13 +27,15 @@ export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
       name={name}
       value={value}
     >
-      <InputOTPGroup className="w-full justify-between space-x-2">
+      <InputOTPGroup
+        className={cn(
+          "w-full flex gap-2 justify-stretch",
+          // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
+          flowType === FlowType.Settings && "max-w-[488px]",
+        )}
+      >
         {[...Array(elements)].map((_, index) => (
-          <InputOTPSlot
-            index={index}
-            key={index}
-            className="h-10 w-11 rounded-border-radius-forms border border-solid border-forms-border-default bg-forms-bg-default px-1.5 py-2.5 text-center md:h-12 md:w-14"
-          />
+          <InputOTPSlot index={index} key={index} />
         ))}
       </InputOTPGroup>
     </InputOTP>

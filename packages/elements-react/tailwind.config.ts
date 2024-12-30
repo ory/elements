@@ -19,40 +19,41 @@ const config: Config = {
       animation: {
         "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       padding: {
         "4.5": "1.125rem",
       },
       /* We need the default border radius as well in some cases. */
-      borderRadius: variables.borderRadius,
+      borderRadius: variables.borderRadius.default.number,
     },
     fontFamily: {
       sans: ["var(--font-sans)"],
     },
     colors: {
-      ...variables.colors.light,
+      ...variables.light.color,
+      ...variables.slate.color,
     },
     backgroundColor: {
-      ...variables.colors.light,
+      ...variables.light.color,
+      ...variables.slate.color,
     },
     borderColor: {
-      ...variables.colors.light,
+      ...variables.light.color,
+      ...variables.slate.color,
     },
     ringColor: {
-      ...variables.colors.light,
+      ...variables.light.color,
+      ...variables.slate.color,
     },
     fill: {
-      ...variables.colors.light,
+      ...variables.light.color,
+      ...variables.slate.color,
     },
   },
   plugins: [
     plugin((plugin) => {
       plugin.addVariant("loading", "&[data-loading=true]")
     }),
+    require("tailwindcss-animate"),
   ],
 }
 
