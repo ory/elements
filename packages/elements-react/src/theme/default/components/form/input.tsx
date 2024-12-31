@@ -53,6 +53,7 @@ export const DefaultInput = ({
         "bg-input-background-default border-input-border-default text-input-foreground-primary",
         "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
         "focus:border-input-border-focus focus-visible:border-input-border-focus",
+        "hover:bg-input-background-hover hover:border-input-border-hover",
         "px-4 py-[13px]",
         // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
         flowType === FlowType.Settings && "max-w-[488px]",
