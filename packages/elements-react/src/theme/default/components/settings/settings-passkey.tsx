@@ -6,11 +6,16 @@ import { OrySettingsPasskeyProps, useComponents } from "@ory/elements-react"
 import Passkey from "../../assets/icons/passkey.svg"
 import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
+import { useFormContext } from "react-hook-form"
+import { Spinner } from "../form/spinner"
 
 export function DefaultSettingsPasskey({
   triggerButton,
   removeButtons,
 }: OrySettingsPasskeyProps) {
+  const {
+    formState: { isSubmitting },
+  } = useFormContext()
   const { Node } = useComponents()
 
   const hasRemoveButtons = removeButtons.length > 0
@@ -43,36 +48,47 @@ export function DefaultSettingsPasskey({
 
               return (
                 <div
-                  className="flex justify-between gap-6"
-                  key={`webauthn-remove-button-${i}`}
+                  className="flex justify-between gap-6 md:items-center"
+                  key={`passkey-remove-button-${i}`}
                 >
-                  <Passkey
-                    size={32}
-                    className="text-interface-foreground-default-primary"
-                  />
-                  <div className="flex-1 flex-col">
-                    <p className="text-sm font-medium text-interface-foreground-default-secondary">
-                      {displayName}
-                    </p>
-                    <span className="text-sm text-interface-foreground-default-tertiary">
-                      {keyId}
-                    </span>
+                  <div className="flex gap-2 items-center flex-1">
+                    <Passkey
+                      size={32}
+                      className="text-interface-foreground-default-primary"
+                    />
+                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between gap-4">
+                      <div className="flex-1 flex-col">
+                        <p className="text-sm font-medium text-interface-foreground-default-secondary">
+                          {displayName}
+                        </p>
+                        <span className="text-sm text-interface-foreground-default-tertiary hidden sm:block">
+                          {keyId}
+                        </span>
+                      </div>
+                      {addedAt && (
+                        <p className="text-sm text-interface-foreground-default-tertiary">
+                          {new Intl.DateTimeFormat(undefined, {
+                            dateStyle: "long",
+                          }).format(new Date(addedAt))}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  {addedAt && (
-                    <p className="self-center text-sm text-interface-foreground-default-tertiary">
-                      {new Intl.DateTimeFormat(undefined, {
-                        dateStyle: "long",
-                      }).format(new Date(addedAt))}
-                    </p>
-                  )}
                   <button
                     {...(node.attributes as UiNodeInputAttributes)}
                     type="submit"
+                    onClick={node.onClick}
+                    disabled={isSubmitting}
+                    className="relative"
                   >
-                    <Trash
-                      className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
-                      size={24}
-                    />
+                    {isSubmitting ? (
+                      <Spinner className="relative" />
+                    ) : (
+                      <Trash
+                        className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+                        size={24}
+                      />
+                    )}
                   </button>
                 </div>
               )

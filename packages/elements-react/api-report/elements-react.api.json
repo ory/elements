@@ -1044,6 +1044,55 @@
           }
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryCardSettingsSectionProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryCardSettingsSectionProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n    action: string;\n    method: string;\n    onSubmit: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FormEventHandler",
+              "canonicalReference": "@types/react!React.FormEventHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLFormElement",
+              "canonicalReference": "!HTMLFormElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryCardSettingsSectionProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!OryCardValidationMessages:function(1)",
           "docComment": "",
@@ -1499,8 +1548,8 @@
             },
             {
               "kind": "Reference",
-              "text": "OryFormSectionProps",
-              "canonicalReference": "@ory/elements-react!OryFormSectionProps:type"
+              "text": "OryCardSettingsSectionProps",
+              "canonicalReference": "@ory/elements-react!OryCardSettingsSectionProps:type"
             },
             {
               "kind": "Content",
@@ -2223,7 +2272,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormSection({ children, nodes }: "
+              "text": "declare function OryFormSection({ children, nodes, ...rest }: "
             },
             {
               "kind": "Reference",
@@ -2253,7 +2302,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, nodes }",
+              "parameterName": "{ children, nodes, ...rest }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2341,7 +2390,16 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    nodes?: "
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormProps$1",
+              "canonicalReference": "@ory/elements-react!~OryFormProps$1:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n    nodes?: "
             },
             {
               "kind": "Reference",
@@ -2362,7 +2420,7 @@
           "name": "OryFormSectionProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 5
+            "endIndex": 7
           }
         },
         {
@@ -3058,7 +3116,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    linkButtons: "
+              "text": "{\n    linkButtons: ("
             },
             {
               "kind": "Reference",
@@ -3067,7 +3125,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    unlinkButtons: "
+              "text": " & {\n        onClick: () => void;\n    })[];\n    unlinkButtons: ("
             },
             {
               "kind": "Reference",
@@ -3076,7 +3134,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n}"
+              "text": " & {\n        onClick: () => void;\n    })[];\n}"
             },
             {
               "kind": "Content",
@@ -3111,7 +3169,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n        onClick: () => void;\n    };\n    removeButtons: "
+              "text": " & {\n        onClick: () => void;\n    };\n    removeButtons: ("
             },
             {
               "kind": "Reference",
@@ -3120,7 +3178,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n}"
+              "text": " & {\n        onClick: () => void;\n    })[];\n}"
             },
             {
               "kind": "Content",
@@ -3146,7 +3204,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    codes: string[];\n    regnerateButton?: "
+              "text": "{\n    codes: string[];\n    regnerateButton: "
             },
             {
               "kind": "Reference",
@@ -3155,7 +3213,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    revealButton?: "
+              "text": " | undefined;\n    revealButton: "
             },
             {
               "kind": "Reference",
@@ -3164,7 +3222,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": " | undefined;\n    onRegenerate: () => void;\n    onReveal: () => void;\n}"
             },
             {
               "kind": "Content",
@@ -3199,7 +3257,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    totpSecret: "
+              "text": " | undefined;\n    totpSecret: "
             },
             {
               "kind": "Reference",
@@ -3208,7 +3266,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    totpInput: "
+              "text": " | undefined;\n    totpInput: "
             },
             {
               "kind": "Reference",
@@ -3217,7 +3275,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    totpUnlink: "
+              "text": " | undefined;\n    totpUnlink: "
             },
             {
               "kind": "Reference",
@@ -3226,7 +3284,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": " | undefined;\n    onUnlink: () => void;\n}"
             },
             {
               "kind": "Content",
@@ -3270,7 +3328,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n        onClick: () => void;\n    };\n    removeButtons: "
+              "text": " & {\n        onClick: () => void;\n    };\n    removeButtons: ("
             },
             {
               "kind": "Reference",
@@ -3279,7 +3337,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n}"
+              "text": " & {\n        onClick: () => void;\n    })[];\n}"
             },
             {
               "kind": "Content",

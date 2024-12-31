@@ -37,3 +37,4 @@ jobs:
           workingDir: packages/elements-react-stories
           storybookBuildDir: storybook-static
           onlyChanged: true
+          externals: packages/elements-react/**

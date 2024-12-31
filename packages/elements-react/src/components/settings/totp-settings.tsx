@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
-import { useComponents } from "../../context"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { OrySettingsTotpProps } from "."
+import { useComponents } from "../../context"
 
 const getQrCodeNode = (nodes: UiNode[]): UiNode | undefined =>
   nodes.find(
@@ -40,6 +40,7 @@ interface HeadlessSettingsTotpProps {
 export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
   const { Card, Form, Node } = useComponents()
   const intl = useIntl()
+  const { setValue } = useFormContext()
 
   const totpUnlink = getTotpUnlinkInput(nodes)
   const qrNode = getQrCodeNode(nodes)
@@ -47,14 +48,12 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
   const totpCodeNode = getTotpInputNode(nodes)
   const totpLinkButton = getTotpLinkButton(nodes)
 
-  const props = {
-    totpImage: qrNode,
-    totpSecret: secretNode,
-    totpInput: totpCodeNode,
-    totpUnlink: totpUnlink,
-  } as OrySettingsTotpProps
-
-  const content = <Form.TotpSettings {...props} />
+  const handleUnlink = () => {
+    if (totpUnlink?.attributes.node_type === "input") {
+      setValue(totpUnlink.attributes.name, totpUnlink.attributes.value)
+      setValue("method", "totp")
+    }
+  }
 
   return (
     <>
@@ -62,7 +61,13 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
         title={intl.formatMessage({ id: "settings.totp.title" })}
         description={intl.formatMessage({ id: "settings.totp.description" })}
       >
-        {content}
+        <Form.TotpSettings
+          totpImage={qrNode}
+          totpSecret={secretNode}
+          totpInput={totpCodeNode}
+          totpUnlink={totpUnlink}
+          onUnlink={handleUnlink}
+        />
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter
         text={

@@ -2,24 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  FlowType,
-  OnRedirectHandler,
-  UpdateLoginFlowBody,
-  UpdateRecoveryFlowBody,
-  UpdateRegistrationFlowBody,
-  UpdateSettingsFlowBody,
-  UpdateVerificationFlowBody,
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
 } from "@ory/client-fetch"
 import { ComponentType, PropsWithChildren } from "react"
-import { SubmitHandler, useFormContext } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents, useOryFlow } from "../../context"
 import {
-  FormValues,
   OryCardAuthMethodListItemProps,
   OryCardLogoProps,
   OryFormRootProps,
@@ -32,12 +24,6 @@ import {
   OryNodeLabelProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryFlowContainer } from "../../util"
-import { onSubmitLogin } from "../../util/onSubmitLogin"
-import { onSubmitRecovery } from "../../util/onSubmitRecovery"
-import { onSubmitRegistration } from "../../util/onSubmitRegistration"
-import { onSubmitSettings } from "../../util/onSubmitSettings"
-import { onSubmitVerification } from "../../util/onSubmitVerification"
 import { OryCardFooterProps } from "../card"
 import { OryCardRootProps } from "../card/card"
 import { OryCardContentProps } from "../card/content"
@@ -50,15 +36,15 @@ import {
   OrySettingsTotpProps,
   OrySettingsWebauthnProps,
 } from "../settings"
-import { computeDefaultValues } from "./form-helpers"
 import { OryFormGroupProps, OryFormGroups } from "./groups"
 import { OryMessageContentProps, OryMessageRootProps } from "./messages"
-import { OryFormSectionProps } from "./section"
+import { OryCardSettingsSectionProps } from "./section"
 import {
   OryFormOidcButtons,
   OryFormOidcRootProps,
   OryNodeOidcButtonProps,
 } from "./social"
+import { useOryFormSubmit } from "./useOryFormSubmit"
 
 /**
  * A record of all the components that are used in the OryForm component.
@@ -141,7 +127,7 @@ export type OryFlowComponents = {
     /**
      * The SettingsSection component is rendered around each section of the settings.
      */
-    SettingsSection: ComponentType<OryFormSectionProps>
+    SettingsSection: ComponentType<OryCardSettingsSectionProps>
     /**
      * The SettingsSectionContent component is rendered around the content of each section of the settings.
      */
@@ -232,126 +218,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
 
   const intl = useIntl()
 
-  const onRedirect: OnRedirectHandler = (url, external) => {
-    if (external) {
-      window.location.href = url
-      return
-    }
-
-    // TODO(jonas): this should somehow be overridable by the user to allow next js specific redirects, or other frameworks.
-    window.location.href = url
-  }
-
-  const handleSuccess = (flow: OryFlowContainer) => {
-    flowContainer.setFlowContainer(flow)
-    methods.reset(computeDefaultValues(flow.flow.ui.nodes))
-  }
-
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    switch (flowContainer.flowType) {
-      case FlowType.Login: {
-        const submitData: UpdateLoginFlowBody = {
-          ...(data as unknown as UpdateLoginFlowBody),
-        }
-        if (submitData.method === "code" && data.code) {
-          submitData.resend = ""
-        }
-
-        await onSubmitLogin(flowContainer, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-      case FlowType.Registration: {
-        const submitData: UpdateRegistrationFlowBody = {
-          ...(data as unknown as UpdateRegistrationFlowBody),
-        }
-
-        if (submitData.method === "code" && submitData.code) {
-          submitData.resend = ""
-        }
-
-        await onSubmitRegistration(flowContainer, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-      case FlowType.Verification:
-        await onSubmitVerification(flowContainer, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: data as unknown as UpdateVerificationFlowBody,
-        })
-        break
-      case FlowType.Recovery: {
-        const submitData: UpdateRecoveryFlowBody = {
-          ...(data as unknown as UpdateRecoveryFlowBody),
-        }
-        // TODO: We should probably fix this in Kratos, and give the code priority over the email. However, that would be breaking :(
-        if (data.code) {
-          submitData.email = ""
-        }
-        await onSubmitRecovery(flowContainer, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-      case FlowType.Settings: {
-        const submitData: UpdateSettingsFlowBody = {
-          ...(data as unknown as UpdateSettingsFlowBody),
-        }
-
-        if ("totp_unlink" in submitData) {
-          submitData.method = "totp"
-        }
-
-        if (
-          "lookup_secret_confirm" in submitData ||
-          "lookup_secret_reveal" in submitData ||
-          "lookup_secret_regenerate" in submitData
-        ) {
-          submitData.method = "lookup_secret"
-        }
-
-        // Force the account selection screen on link to provide a better use experience.
-        // https://github.com/ory/elements/issues/268
-        // TODO: Maybe this needs to be configurable in the configuration
-        if (submitData.method === "oidc") {
-          submitData.upstream_parameters = {
-            prompt: "select_account",
-          }
-        }
-
-        if ("webauthn_remove" in submitData) {
-          submitData.method = "webauthn"
-        }
-
-        if ("passkey_remove" in submitData) {
-          submitData.method = "passkey"
-        }
-
-        await onSubmitSettings(flowContainer, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-    }
-    if ("password" in data) {
-      methods.setValue("password", "")
-    }
-    if ("code" in data) {
-      methods.setValue("code", "")
-    }
-    onAfterSubmit?.(data.method)
-  }
+  const onSubmit = useOryFormSubmit(onAfterSubmit)
 
   const hasMethods =
     flowContainer.flow.ui.nodes.filter((node) => {

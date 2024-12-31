@@ -8,6 +8,7 @@ import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import logos from "../../provider-logos"
 import Trash from "../../assets/icons/trash.svg"
 import { useFormContext } from "react-hook-form"
+import { Spinner } from "../form/spinner"
 
 export function DefaultSettingsOidc({
   linkButtons,
@@ -15,25 +16,24 @@ export function DefaultSettingsOidc({
 }: OrySettingsOidcProps) {
   const hasLinkButtons = linkButtons.length > 0
   const hasUnlinkButtons = unlinkButtons.length > 0
-  const { setValue } = useFormContext()
+  const {
+    formState: { isSubmitting },
+  } = useFormContext()
 
   return (
     <div className="flex flex-col gap-8">
       {hasLinkButtons && (
-        <div className="flex items-start gap-3 [&>button]:w-[79px]">
+        <div className="grid items-start gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {linkButtons.map((button) => {
             const attrs = button.attributes as UiNodeInputAttributes
 
             return (
               <DefaultButtonSocial
-                showLabel={false}
+                showLabel
                 key={attrs.value}
                 node={button}
                 attributes={attrs}
-                onClick={() => {
-                  setValue("link", attrs.value)
-                  setValue("method", "oidc")
-                }}
+                onClick={button.onClick}
               />
             )
           })}
@@ -56,15 +56,19 @@ export function DefaultSettingsOidc({
             <button
               {...attrs}
               type="submit"
-              onClick={() => {
-                setValue("unlink", attrs.value)
-                setValue("method", "oidc")
-              }}
+              onClick={button.onClick}
+              disabled={isSubmitting}
+              className="relative"
+              title={`Unlink ${provider}`}
             >
-              <Trash
-                className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
-                size={24}
-              />
+              {isSubmitting ? (
+                <Spinner className="relative" />
+              ) : (
+                <Trash
+                  className="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
+                  size={24}
+                />
+              )}
             </button>
           </div>
         )

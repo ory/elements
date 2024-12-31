@@ -1,11 +1,8 @@
 {
   "targets": {
     "lint": {
-      "command": "eslint",
-      "dependsOn": ["build"],
-      "options": {
-        "cwd": "packages/elements-react"
-      }
+      "command": "eslint packages/elements-react",
+      "dependsOn": ["build"]
     },
     "dev": {
       "command": "tsup --watch  --onSuccess 'tsup --dts-only'",

@@ -4,6 +4,7 @@
 import { UiNode } from "@ory/client-fetch"
 import { useComponents } from "../../context"
 import { useIntl } from "react-intl"
+import { useFormContext } from "react-hook-form"
 
 const getLinkButtons = (nodes: UiNode[]): UiNode[] =>
   nodes.filter(
@@ -22,9 +23,26 @@ export interface HeadlessSettingsOidcProps {
 export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
   const { Card, Form } = useComponents()
   const intl = useIntl()
+  const { setValue } = useFormContext()
 
-  const linkButtons = getLinkButtons(nodes)
-  const unlinkButtons = getUnlinkButtons(nodes)
+  const linkButtons = getLinkButtons(nodes).map((node) => ({
+    ...node,
+    onClick: () => {
+      if (node.attributes.node_type === "input") {
+        setValue("link", node.attributes.value)
+        setValue("method", "oidc")
+      }
+    },
+  }))
+  const unlinkButtons = getUnlinkButtons(nodes).map((node) => ({
+    ...node,
+    onClick: () => {
+      if (node.attributes.node_type === "input") {
+        setValue("unlink", node.attributes.value)
+        setValue("method", "oidc")
+      }
+    },
+  }))
 
   return (
     <>
