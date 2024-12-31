@@ -1,3 +1,13 @@
+## 1.0.0-next.19 (2024-12-31)
+
+### 🩹 Fixes
+
+- properly handle form submits in settings flow ([#322](https://github.com/ory/elements/pull/322))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.18 (2024-12-30)
 
 ### 🚀 Features
