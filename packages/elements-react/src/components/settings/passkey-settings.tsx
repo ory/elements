@@ -8,7 +8,7 @@ import {
 } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { useComponents, useOryFlow } from "../../context"
+import { useComponents } from "../../context"
 import { triggerToWindowCall } from "../../util/ui"
 import { Node } from "../form/nodes/node"
 
