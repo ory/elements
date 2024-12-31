@@ -66,7 +66,7 @@ export function DefaultSettingsWebauthn({
                       size={32}
                       className="text-interface-foreground-default-primary"
                     />
-                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between">
+                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between gap-4">
                       <div className="flex-1 flex-col">
                         <p className="text-sm font-medium text-interface-foreground-default-secondary">
                           {displayName}
