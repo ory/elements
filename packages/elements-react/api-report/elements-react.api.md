@@ -139,6 +139,13 @@ export type OryCardLogoProps = Record<string, never>;
 export type OryCardProps = PropsWithChildren;
 
 // @public (undocumented)
+export type OryCardSettingsSectionProps = PropsWithChildren & {
+    action: string;
+    method: string;
+    onSubmit: FormEventHandler<HTMLFormElement>;
+};
+
+// @public (undocumented)
 export function OryCardValidationMessages({ ...props }: OryMessageRootProps): react_jsx_runtime.JSX.Element | null;
 
 // @public (undocumented)
@@ -189,7 +196,7 @@ export type OryFlowComponents = {
         Logo: ComponentType<OryCardLogoProps>;
         Divider: ComponentType<OryCardDividerProps>;
         AuthMethodListItem: ComponentType<OryCardAuthMethodListItemProps>;
-        SettingsSection: ComponentType<OryFormSectionProps>;
+        SettingsSection: ComponentType<OryCardSettingsSectionProps>;
         SettingsSectionContent: ComponentType<OryFormSectionContentProps>;
         SettingsSectionFooter: ComponentType<OryFormSectionFooterProps>;
     };
@@ -256,7 +263,7 @@ export type OryFormRootProps = ComponentPropsWithoutRef<"form"> & {
 };
 
 // @public (undocumented)
-export function OryFormSection({ children, nodes }: OryFormSectionProps): react_jsx_runtime.JSX.Element;
+export function OryFormSection({ children, nodes, ...rest }: OryFormSectionProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type OryFormSectionContentProps = PropsWithChildren<{
@@ -269,8 +276,10 @@ export type OryFormSectionFooterProps = PropsWithChildren<{
     text?: string;
 }>;
 
+// Warning: (ae-forgotten-export) The symbol "OryFormProps$1" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export type OryFormSectionProps = PropsWithChildren<{
+export type OryFormSectionProps = PropsWithChildren<OryFormProps$1 & {
     nodes?: UiNode[];
 }>;
 
@@ -352,8 +361,12 @@ export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type OrySettingsOidcProps = {
-    linkButtons: UiNode[];
-    unlinkButtons: UiNode[];
+    linkButtons: (UiNode & {
+        onClick: () => void;
+    })[];
+    unlinkButtons: (UiNode & {
+        onClick: () => void;
+    })[];
 };
 
 // @public (undocumented)
@@ -361,23 +374,27 @@ export type OrySettingsPasskeyProps = {
     triggerButton: UiNode & {
         onClick: () => void;
     };
-    removeButtons: UiNode[];
+    removeButtons: (UiNode & {
+        onClick: () => void;
+    })[];
 };
 
 // @public (undocumented)
 export type OrySettingsRecoveryCodesProps = {
     codes: string[];
-    regnerateButton?: UiNode;
-    revealButton?: UiNode;
+    regnerateButton: UiNode | undefined;
+    revealButton: UiNode | undefined;
+    onRegenerate: () => void;
+    onReveal: () => void;
 };
 
 // @public (undocumented)
 export type OrySettingsTotpProps = {
-    totpImage: UiNode;
-    totpSecret: UiNode;
-    totpInput: UiNode;
-} | {
-    totpUnlink: UiNode;
+    totpImage: UiNode | undefined;
+    totpSecret: UiNode | undefined;
+    totpInput: UiNode | undefined;
+    totpUnlink: UiNode | undefined;
+    onUnlink: () => void;
 };
 
 // @public (undocumented)
@@ -386,7 +403,9 @@ export type OrySettingsWebauthnProps = {
     triggerButton: UiNode & {
         onClick: () => void;
     };
-    removeButtons: UiNode[];
+    removeButtons: (UiNode & {
+        onClick: () => void;
+    })[];
 };
 
 // @public (undocumented)
