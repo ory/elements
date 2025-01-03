@@ -4,11 +4,11 @@
 import { UiNode } from "@ory/client-fetch"
 
 import type {
-  UiNodeGroupEnum,
   UiNodeInputAttributesOnclickTriggerEnum,
   UiNodeInputAttributesOnloadTriggerEnum,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
+import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { useMemo } from "react"
 import { useGroupSorter } from "../../context/component"
 
@@ -98,7 +98,61 @@ type Entries<T> = {
   [K in keyof T]: [K, T[K]]
 }[keyof T][]
 
-export function useNodesGroups(nodes: UiNode[]) {
+/**
+ * Returns a list of auth methods from a list of nodes. For example,
+ * if Password and Passkey are present, it will return [password, passkey].
+ *
+ * Please note that OIDC is not considered an auth method because it is
+ * usually shown as a separate auth method
+ *
+ * This method the default, identifier_first, and profile groups.
+ *
+ * @param nodes The nodes to extract the auth methods from
+ * @param excludeAuthMethods A list of auth methods to exclude
+ */
+export function nodesToAuthMethodGroups(
+  nodes: Array<UiNode>,
+  excludeAuthMethods: Array<UiNodeGroupEnum> = [UiNodeGroupEnum.Oidc],
+): UiNodeGroupEnum[] {
+  const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+
+  for (const node of nodes) {
+    if (node.type === "script") {
+      // We always render all scripts, because the scripts for passkeys are part of the webauthn group,
+      // which leads to this hook returning a webauthn group on passkey flows (which it should not - webauthn is the "legacy" passkey implementation).
+      continue
+    }
+    const groupNodes = groups[node.group] ?? []
+    groupNodes.push(node)
+    groups[node.group] = groupNodes
+  }
+
+  return Object.values(UiNodeGroupEnum)
+    .filter((group) => groups[group]?.length)
+    .filter(
+      (group) =>
+        !(
+          [
+            UiNodeGroupEnum.Default,
+            UiNodeGroupEnum.IdentifierFirst,
+            UiNodeGroupEnum.Profile,
+            ...excludeAuthMethods,
+          ] as UiNodeGroupEnum[]
+        ).includes(group),
+    )
+}
+
+type NodeGroups = {
+  groups: Partial<Record<UiNodeGroupEnum, UiNode[]>>
+  entries: Entries<Partial<Record<UiNodeGroupEnum, UiNode[]>>>
+}
+
+/**
+ * Groups nodes by their group and returns an object with the groups and entries.
+ *
+ * @param nodes
+ */
+export function useNodesGroups(nodes: UiNode[]): NodeGroups {
   const groupSorter = useGroupSorter()
 
   const groups = useMemo(() => {
