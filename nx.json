@@ -16,7 +16,7 @@
   "release": {
     "projectsRelationship": "independent",
     "releaseTagPattern": "release/{projectName}/{version}",
-    "projects": ["@ory/elements-react"],
+    "projects": ["@ory/elements-react", "@ory/nextjs"],
     "version": {
       "generatorOptions": {
         "preid": "next",
