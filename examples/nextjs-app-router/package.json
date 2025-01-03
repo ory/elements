@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ory/nextjs": "^0.0.1",
+    "@ory/nextjs": "*",
     "next": "^15.0.3",
     "react": "^18",
     "react-dom": "^18"
