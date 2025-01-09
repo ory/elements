@@ -1,7 +1,7 @@
 # Ory Elements
 
-> [!CAUTION] This example uses an outdated version of Ory Elements. Please
-> use example [`nextjs-spa`](../nextjs-spa/README.md) instead.
+> [!CAUTION] This example uses an outdated version of Ory Elements. Please use
+> example [`nextjs-spa`](../nextjs-spa/README.md) instead.
 
 Ory Elements is a component library that makes building login, registration and
 account pages for Ory a breeze.
