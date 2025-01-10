@@ -5,7 +5,7 @@ import { FlowType, UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { initFlowUrl, restartFlowUrl } from "../../utils/url"
+import { initFlowUrl } from "../../utils/url"
 
 export function DefaultCardFooter() {
   const { flowType } = useOryFlow()

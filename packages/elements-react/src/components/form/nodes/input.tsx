@@ -91,9 +91,8 @@ export const NodeInput = ({
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
       return (
-        // The label is rendered in the checkbox component
         <Node.Label
-          // The label is rendered in the button component
+          // The label is rendered in the checkbox component
           attributes={{ ...attrs, label: undefined }}
           node={{ ...node, meta: { ...node.meta, label: undefined } }}
         >

@@ -39,7 +39,20 @@ const wrapper = ({ children }: PropsWithChildren) => (
     flow={
       {
         active: "code",
-        ui: { nodes: [], action: "", method: "" },
+        ui: {
+          nodes: [
+            {
+              group: "code",
+              attributes: {
+                node_type: "input",
+                name: "code",
+                type: "text",
+              },
+            },
+          ],
+          action: "",
+          method: "",
+        },
       } as unknown as LoginFlow // Fine, we're just testing the resolver
     }
     flowType={FlowType.Login}

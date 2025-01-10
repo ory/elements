@@ -19,5 +19,9 @@ export function Error({
   error,
   children,
 }: PropsWithChildren<ErrorFlowContextProps>) {
-  return <div>{JSON.stringify(error) || children}</div>
+  return (
+    <div data-testid={"ory/ui/error/raw"}>
+      {JSON.stringify(error) || children}
+    </div>
+  )
 }

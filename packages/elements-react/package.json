@@ -36,7 +36,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@ory/client-fetch": "^1.15.12",
+    "@ory/client-fetch": "~1.16.1",
     "@radix-ui/react-dropdown-menu": "2.1.2",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
