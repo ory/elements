@@ -11,6 +11,7 @@ import {
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { frontendClient } from "./client"
+import { replaceWindowFlowId } from "./internal"
 
 /**
  * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.
@@ -49,8 +50,12 @@ export async function onSubmitVerification(
     )
     .catch(
       handleFlowError({
-        onRestartFlow: () => {
-          onRedirect(verificationUrl(config), true)
+        onRestartFlow: (useFlowId) => {
+          if (useFlowId) {
+            replaceWindowFlowId(useFlowId)
+          } else {
+            onRedirect(verificationUrl(config), true)
+          }
         },
         onValidationError: (body: VerificationFlow) => {
           setFlowContainer({

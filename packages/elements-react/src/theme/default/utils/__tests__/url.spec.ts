@@ -42,6 +42,7 @@ describe("url utils", () => {
       const flow = {}
 
       // Not sure how to mock this.
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       ;(window.location.href =
         "http://example.com?return_to=http://example.com/return"),
         expect(initFlowUrl(sdkUrl, flowType, flow)).toBe(

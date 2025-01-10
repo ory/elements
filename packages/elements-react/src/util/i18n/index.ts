@@ -69,16 +69,16 @@ export const uiTextToFormattedMessage = (
               new Date(value),
               new Date(),
             ),
-            [key + "_since_minutes"]: Math.abs(
+            [key + "_since_minutes"]: Math.ceil(
               (value - new Date().getTime() / 1000) / 60,
-            ).toFixed(2),
+            ).toFixed(0),
             [key + "_until"]: intl.formatDateTimeRange(
               new Date(),
               new Date(value),
             ),
-            [key + "_until_minutes"]: Math.abs(
+            [key + "_until_minutes"]: Math.ceil(
               (new Date().getTime() / 1000 - value) / 60,
-            ).toFixed(2),
+            ).toFixed(0),
           }
         }
       }

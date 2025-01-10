@@ -17,6 +17,7 @@ import { frontendClient } from "./client"
 import { OryClientConfiguration } from "./clientConfiguration"
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { replaceWindowFlowId } from "./internal"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
@@ -24,7 +25,7 @@ import { OnSubmitHandlerProps } from "./submitHandler"
  * @param config - The configuration object.
  * @param flow - The flow object.
  * @param setFlowContainer - This method is used to update the flow container when a validation error occurs, for example.
- * @param body-  The form values to submit.
+ * @param body - The form values to submit.
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitRecovery(
@@ -66,8 +67,12 @@ export async function onSubmitRecovery(
     })
     .catch(
       handleFlowError({
-        onRestartFlow: () => {
-          onRedirect(recoveryUrl(config), true)
+        onRestartFlow: (useFlowId) => {
+          if (useFlowId) {
+            replaceWindowFlowId(useFlowId)
+          } else {
+            onRedirect(recoveryUrl(config), true)
+          }
         },
         onValidationError: (body: RecoveryFlow | { error: GenericError }) => {
           if ("error" in body) {

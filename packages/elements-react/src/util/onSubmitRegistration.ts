@@ -12,6 +12,7 @@ import {
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { frontendClient } from "./client"
+import { replaceWindowFlowId } from "./internal"
 
 /**
  * Use this method to submit a registration flow. This method is used in the `onSubmit` handler of the registration form.
@@ -60,8 +61,12 @@ export async function onSubmitRegistration(
     })
     .catch(
       handleFlowError({
-        onRestartFlow: () => {
-          onRedirect(registrationUrl(config), true)
+        onRestartFlow: (useFlowId) => {
+          if (useFlowId) {
+            replaceWindowFlowId(useFlowId)
+          } else {
+            onRedirect(registrationUrl(config), true)
+          }
         },
         onValidationError: (body: RegistrationFlow) => {
           setFlowContainer({

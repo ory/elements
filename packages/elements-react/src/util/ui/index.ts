@@ -107,8 +107,8 @@ type Entries<T> = {
  *
  * This method the default, identifier_first, and profile groups.
  *
- * @param nodes The nodes to extract the auth methods from
- * @param excludeAuthMethods A list of auth methods to exclude
+ * @param nodes - The nodes to extract the auth methods from
+ * @param excludeAuthMethods - A list of auth methods to exclude
  */
 export function nodesToAuthMethodGroups(
   nodes: Array<UiNode>,
@@ -145,7 +145,7 @@ export function nodesToAuthMethodGroups(
 /**
  * Groups nodes by their group and returns an object with the groups and entries.
  *
- * @param nodes
+ * @param nodes - The nodes to group
  */
 export function useNodesGroups(nodes: UiNode[]) {
   const groupSorter = useGroupSorter()

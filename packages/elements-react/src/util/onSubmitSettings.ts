@@ -14,6 +14,7 @@ import {
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { frontendClient } from "./client"
+import { replaceWindowFlowId } from "./internal"
 
 /**
  * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.
@@ -64,8 +65,12 @@ export async function onSubmitSettings(
     })
     .catch(
       handleFlowError({
-        onRestartFlow: () => {
-          onRedirect(settingsUrl(config), true)
+        onRestartFlow: (useFlowId) => {
+          if (useFlowId) {
+            replaceWindowFlowId(useFlowId)
+          } else {
+            onRedirect(settingsUrl(config), true)
+          }
         },
         onValidationError: (body: SettingsFlow) => {
           setFlowContainer({

@@ -11,6 +11,7 @@ import {
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { OryFlowContainer } from "./flowContainer"
 import { frontendClient } from "./client"
+import { replaceWindowFlowId } from "./internal"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.
@@ -49,8 +50,12 @@ export async function onSubmitLogin(
     })
     .catch(
       handleFlowError({
-        onRestartFlow: () => {
-          onRedirect(loginUrl(config), true)
+        onRestartFlow: (useFlowId?: string) => {
+          if (useFlowId) {
+            replaceWindowFlowId(useFlowId)
+          } else {
+            onRedirect(loginUrl(config), true)
+          }
         },
         onValidationError: (body: LoginFlow) => {
           setFlowContainer({
