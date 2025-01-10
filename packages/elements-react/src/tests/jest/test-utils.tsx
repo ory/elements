@@ -23,12 +23,12 @@ export const defaultConfiguration: OryClientConfiguration = {
   },
 }
 
-type ComponetOverrider = { components?: OryFlowComponentOverrides }
+type ComponentOverrider = { components?: OryFlowComponentOverrides }
 
 const ComponentProvider = ({
   children,
   components,
-}: PropsWithChildren<ComponetOverrider>) => (
+}: PropsWithChildren<ComponentOverrider>) => (
   <OryComponentProvider components={getOryComponents(components)}>
     {children}
   </OryComponentProvider>

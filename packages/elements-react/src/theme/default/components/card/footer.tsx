@@ -22,15 +22,8 @@ export function DefaultCardFooter() {
   }
 }
 
-function getReturnToQueryParam() {
-  if (typeof window !== "undefined") {
-    const searchParams = new URLSearchParams(window.location.search)
-    return searchParams.get("return_to")
-  }
-}
-
 function LoginCardFooter() {
-  const { config, formState } = useOryFlow()
+  const { config, formState, initFlowUrl } = useOryFlow()
   const intl = useIntl()
 
   if (
@@ -42,12 +35,6 @@ function LoginCardFooter() {
     return null
   }
 
-  let registrationLink = `${config.sdk.url}/self-service/registration/browser`
-  const returnTo = getReturnToQueryParam()
-  if (returnTo) {
-    registrationLink += `?return_to=${returnTo}`
-  }
-
   return (
     <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
       {intl.formatMessage({
@@ -56,7 +43,7 @@ function LoginCardFooter() {
       })}{" "}
       <a
         className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-        href={registrationLink}
+        href={initFlowUrl(FlowType.Registration)}
       >
         {intl.formatMessage({
           id: "login.registration-button",
@@ -80,42 +67,18 @@ function findScreenSelectionButton(
 
 function RegistrationCardFooter() {
   const intl = useIntl()
-  const { config, flow, formState } = useOryFlow()
-  const { setValue } = useFormContext()
-
+  const { flow, formState, initFlowUrl } = useOryFlow()
   if (formState.current === "select_method") {
     return null
   }
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
-
-  function handleScreenSelection() {
-    setValue("method", "profile")
-    if (screenSelectionNode) {
-      setValue("screen", "credential-selection")
-    }
-  }
-
-  let loginLink = `${config.sdk.url}/self-service/login/browser`
-  const returnTo = getReturnToQueryParam()
-  if (returnTo) {
-    loginLink += `?return_to=${returnTo}`
-  }
 
   return (
     <span className="font-normal leading-normal antialiased">
       {formState.current === "method_active" ? (
         <>
           {screenSelectionNode && (
-            <button
-              className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
-              type="submit"
-              onClick={handleScreenSelection}
-            >
-              {intl.formatMessage({
-                id: "card.footer.select-another-method",
-                defaultMessage: "Select another method",
-              })}
-            </button>
+            <SelectScreenButton screenSelectionNode={screenSelectionNode} />
           )}
         </>
       ) : (
@@ -126,7 +89,7 @@ function RegistrationCardFooter() {
           })}{" "}
           <a
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href={loginLink}
+            href={initFlowUrl(FlowType.Login)}
           >
             {intl.formatMessage({
               id: "registration.login-button",
@@ -136,6 +99,34 @@ function RegistrationCardFooter() {
         </>
       )}
     </span>
+  )
+}
+
+type SelectScreenButtonProps = {
+  screenSelectionNode: { attributes: UiNodeInputAttributes }
+}
+
+function SelectScreenButton({ screenSelectionNode }: SelectScreenButtonProps) {
+  const { setValue } = useFormContext()
+  const intl = useIntl()
+
+  function handleScreenSelection() {
+    setValue("method", "profile")
+    if (screenSelectionNode) {
+      setValue("screen", "credential-selection")
+    }
+  }
+  return (
+    <button
+      className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
+      type="submit"
+      onClick={handleScreenSelection}
+    >
+      {intl.formatMessage({
+        id: "card.footer.select-another-method",
+        defaultMessage: "Select another method",
+      })}
+    </button>
   )
 }
 

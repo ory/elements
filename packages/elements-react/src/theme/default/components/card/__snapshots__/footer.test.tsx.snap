@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login footer should render correct sign up link 1`] = `
+<div>
+  <span
+    class="font-normal leading-normal antialiased text-interface-foreground-default-primary"
+  >
+    Don't have an account?
+     
+    <a
+      class="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+      href="http://localhost:4455/self-service/registration/browser?return_to=https://ory.sh"
+    >
+      Sign up
+    </a>
+  </span>
+</div>
+`;
+
+exports[`registration footer should render correct sign in link 1`] = `
+<div>
+  <span
+    class="font-normal leading-normal antialiased"
+  >
+    Already have an account?
+     
+    <a
+      class="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+      href="http://localhost:4455/self-service/login/browser?return_to=https://ory.sh"
+    >
+      Sign in
+    </a>
+  </span>
+</div>
+`;

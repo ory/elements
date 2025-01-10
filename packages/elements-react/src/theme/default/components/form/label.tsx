@@ -8,8 +8,8 @@ import {
   UiNode,
 } from "@ory/client-fetch"
 import {
-  OryNodeLabelProps,
   messageTestId,
+  OryNodeLabelProps,
   uiTextToFormattedMessage,
   useComponents,
   useOryFlow,
@@ -35,7 +35,7 @@ export function DefaultLabel({
   const intl = useIntl()
   const label = getNodeLabel(node)
   const { Message } = useComponents()
-  const { config, flowType, flow } = useOryFlow()
+  const { config, flowType, flow, initFlowUrl } = useOryFlow()
   const { setValue, formState } = useFormContext()
 
   const isPassword = attributes.type === "password"
@@ -67,7 +67,7 @@ export function DefaultLabel({
             flowType === FlowType.Login && (
               // TODO: make it possible to override with a custom component
               <a
-                href={config.project.recovery_ui_url}
+                href={initFlowUrl(FlowType.Recovery)}
                 className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
               >
                 {intl.formatMessage({
