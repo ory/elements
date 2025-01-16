@@ -1,3 +1,19 @@
+## 1.0.0-next.20 (2025-01-16)
+
+### 🚀 Features
+
+- handle state transition edge cases ([f2e4023](https://github.com/ory/elements/commit/f2e4023))
+- user experience improvements and e2e test coverage ([f68744c](https://github.com/ory/elements/commit/f68744c))
+- do not show two-step selector if only one method exists ([6453673](https://github.com/ory/elements/commit/6453673))
+
+### 🩹 Fixes
+
+- better validation for code method ([b0d8e2c](https://github.com/ory/elements/commit/b0d8e2c))
+
+### ❤️  Thank You
+
+- aeneasr @aeneasr
+
 ## 1.0.0-next.19 (2024-12-31)
 
 ### 🩹 Fixes
