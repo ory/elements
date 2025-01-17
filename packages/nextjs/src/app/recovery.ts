@@ -4,8 +4,10 @@ import { FlowType, RecoveryFlow } from "@ory/client-fetch"
 
 import { initOverrides, QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
-import { getFlow } from "./flow"
-import { toFlowParams } from "./utils"
+import { getFlowFactory } from "./flow"
+import { getPublicUrl, toGetFlowParameter } from "./utils"
+import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
+import { useRouter } from "next/router"
 
 /**
  * Use this method in an app router page to fetch an existing recovery flow or to create a new one. This method works with server-side rendering.
@@ -44,10 +46,19 @@ import { toFlowParams } from "./utils"
 export async function getRecoveryFlow(
   params: QueryParams | Promise<QueryParams>,
 ): Promise<RecoveryFlow | null | void> {
-  const p = await toFlowParams(await params)
-  return getFlow(
+  const router = useRouter()
+  const currentRoute = router.pathname
+  return getFlowFactory(
     await params,
-    () => serverSideFrontendClient.getRecoveryFlowRaw(p, initOverrides),
+    async () =>
+      serverSideFrontendClient.getRecoveryFlowRaw(
+        await toGetFlowParameter(params),
+        initOverrides,
+      ),
     FlowType.Recovery,
+    guessPotentiallyProxiedOrySdkUrl({
+      knownProxiedUrl: await getPublicUrl(),
+    }),
+    currentRoute,
   )
 }

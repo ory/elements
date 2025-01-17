@@ -1,11 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 import { headers } from "next/headers"
-import { redirect } from "next/navigation"
-import { OnRedirectHandler } from "@ory/client-fetch"
+import { redirect, RedirectType } from "next/navigation"
+import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 
 import { QueryParams } from "../types"
 import { toFlowParams as baseToFlowParams } from "../utils/utils"
+import {
+  searchParamsToUrlQuery,
+  urlQueryToSearchParams,
+} from "next/dist/shared/lib/router/utils/querystring"
 
 export async function getCookieHeader() {
   // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?
@@ -17,8 +21,13 @@ export const onRedirect: OnRedirectHandler = (url) => {
   redirect(url)
 }
 
-export async function toFlowParams(params: QueryParams) {
-  return baseToFlowParams(params, getCookieHeader)
+export async function toGetFlowParameter(
+  params: Promise<QueryParams> | QueryParams,
+) {
+  return {
+    id: (await params)["flow"]?.toString() ?? "",
+    cookie: await getCookieHeader(),
+  }
 }
 
 export async function getPublicUrl() {
@@ -31,4 +40,19 @@ export async function getPublicUrl() {
 
 export interface OryPageParams {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export function init(params: QueryParams, flowType: FlowType, baseUrl: string) {
+  // Take advantage of the fact, that Ory handles the flow creation for us and redirects the user to the default
+  // return to automatically if they're logged in already.
+  return redirect(
+    new URL(
+      "/self-service/" +
+        flowType.toString() +
+        "/browser?" +
+        urlQueryToSearchParams(params).toString(),
+      baseUrl,
+    ).toString(),
+    RedirectType.replace,
+  )
 }

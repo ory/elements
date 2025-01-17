@@ -4,8 +4,10 @@ import { FlowType, SettingsFlow } from "@ory/client-fetch"
 
 import { initOverrides, QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
-import { getFlow } from "./flow"
-import { toFlowParams } from "./utils"
+import { getFlowFactory } from "./flow"
+import { getPublicUrl, toGetFlowParameter } from "./utils"
+import { useRouter } from "next/router"
+import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
 
 /**
  * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.
@@ -44,10 +46,19 @@ import { toFlowParams } from "./utils"
 export async function getSettingsFlow(
   params: QueryParams | Promise<QueryParams>,
 ): Promise<SettingsFlow | null | void> {
-  const p = await toFlowParams(await params)
-  return getFlow(
+  const router = useRouter()
+  const currentRoute = router.pathname
+  return getFlowFactory(
     await params,
-    () => serverSideFrontendClient.getSettingsFlowRaw(p, initOverrides),
+    async () =>
+      serverSideFrontendClient.getSettingsFlowRaw(
+        await toGetFlowParameter(params),
+        initOverrides,
+      ),
     FlowType.Settings,
+    guessPotentiallyProxiedOrySdkUrl({
+      knownProxiedUrl: await getPublicUrl(),
+    }),
+    currentRoute,
   )
 }
