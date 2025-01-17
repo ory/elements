@@ -10,6 +10,20 @@ import { onValidationError } from "../utils/utils"
 import { rewriteJsonResponse } from "../utils/rewrite"
 import * as runtime from "@ory/client-fetch/src/runtime"
 
+/**
+ * A function that creates a flow fetcher. The flow fetcher can be used
+ * to fetch a login, registration, recovery, settings, or verification flow
+ * from the SDK.
+ *
+ * Unless you are building something very custom, you will not need this method. Use it with care and expect
+ * potential breaking changes.
+ *
+ * @param params
+ * @param fetchFlowRaw
+ * @param flowType
+ * @param baseUrl
+ * @param route
+ */
 export async function getFlowFactory<T extends object>(
   params: QueryParams,
   fetchFlowRaw: () => Promise<runtime.ApiResponse<T>>,
