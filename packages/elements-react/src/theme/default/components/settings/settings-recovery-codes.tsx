@@ -76,7 +76,7 @@ export function DefaultSettingsRecoveryCodes({
               onClick={onDownload}
               type="button"
               className="ml-auto"
-              data-testid="recovery-codes-download-button"
+              data-testid="ory/screen/settings/group/recovery_code/download"
               title="Download recovery codes"
             >
               <Download
@@ -91,7 +91,7 @@ export function DefaultSettingsRecoveryCodes({
         <div className="rounded-general p-6 bg-interface-background-default-secondary border-interface-border-default-primary">
           <div
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 flex-wrap gap-4 text-sm text-interface-foreground-default-primary"
-            data-testid="recovery-codes-codes"
+            data-testid="ory/screen/settings/group/recovery_code/codes"
           >
             {codes.map((code) => (
               <p key={code}>{code}</p>

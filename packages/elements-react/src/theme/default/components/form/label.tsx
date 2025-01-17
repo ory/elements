@@ -58,7 +58,7 @@ export function DefaultLabel({
             {...messageTestId(label)}
             className="leading-normal text-input-foreground-primary"
             htmlFor={attributes.name}
-            data-testid={`ory/ui/node/input/label/${attributes.name}`}
+            data-testid={`ory/form/node/input/label/${attributes.name}`}
             {...rest}
           >
             {uiTextToFormattedMessage(label, intl)}

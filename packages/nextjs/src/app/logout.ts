@@ -31,7 +31,7 @@ import { getPublicUrl } from "./utils"
 export async function getLogoutFlow({
   returnTo,
 }: { returnTo?: string } = {}): Promise<LogoutFlow> {
-  const h = await headers()
+  const h = headers()
 
   const knownProxiedUrl = await getPublicUrl()
   const url = guessPotentiallyProxiedOrySdkUrl({

@@ -29,7 +29,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
     return (
       <OryFormSection
         nodes={uniqueGroups.groups.totp}
-        data-testid="totp-settings"
+        data-testid="ory/screen/settings/group/totp"
       >
         <OrySettingsTotp nodes={uniqueGroups.groups.totp ?? []} />
         {uniqueGroups.groups.default?.map((node, k) => (
@@ -43,7 +43,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
     return (
       <OryFormSection
         nodes={uniqueGroups.groups.lookup_secret}
-        data-testid="recovery-codes-settings"
+        data-testid="ory/screen/settings/group/lookup_secret"
       >
         <OrySettingsRecoveryCodes
           nodes={uniqueGroups.groups.lookup_secret ?? []}
@@ -59,7 +59,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
     return (
       <OryFormSection
         nodes={uniqueGroups.groups.oidc}
-        data-testid="oidc-settings"
+        data-testid="ory/screen/settings/group/oidc"
       >
         <OrySettingsOidc nodes={uniqueGroups.groups.oidc ?? []} />
         {uniqueGroups.groups.default?.map((node, k) => (
@@ -73,7 +73,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
     return (
       <OryFormSection
         nodes={uniqueGroups.groups.webauthn}
-        data-testid="webauthn-settings"
+        data-testid="ory/screen/settings/group/webauthn"
       >
         <OrySettingsWebauthn nodes={uniqueGroups.groups.webauthn ?? []} />
         {uniqueGroups.groups.default?.map((node, k) => (
@@ -87,7 +87,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
     return (
       <OryFormSection
         nodes={uniqueGroups.groups.passkey}
-        data-testid="passkey-settings"
+        data-testid="ory/screen/settings/group/passkey"
       >
         <OrySettingsPasskey nodes={uniqueGroups.groups.passkey ?? []} />
         {uniqueGroups.groups.default?.map((node, k) => (
@@ -98,7 +98,10 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   }
 
   return (
-    <OryFormSection nodes={nodes} data-testid={`${group}-settings`}>
+    <OryFormSection
+      nodes={nodes}
+      data-testid={`ory/screen/settings/group/${group}`}
+    >
       <Card.SettingsSectionContent
         title={intl.formatMessage({
           id: `settings.${group}.title`,

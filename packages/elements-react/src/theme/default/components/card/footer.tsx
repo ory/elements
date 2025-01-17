@@ -55,7 +55,7 @@ function LoginCardFooter() {
       <a
         className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
         href={initFlowUrl(config.sdk.url, "registration", flow)}
-        data-testid={"ory/ui/login/link/registration"}
+        data-testid={"ory/screen/registration/action/login"}
       >
         {intl.formatMessage({
           id: "login.registration-button",
@@ -120,7 +120,7 @@ function RegistrationCardFooter() {
           <a
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
             href={initFlowUrl(config.sdk.url, "login", flow)}
-            data-testid={"ory/ui/login/link/login"}
+            data-testid={"ory/screen/registration/action/login"}
           >
             {intl.formatMessage({
               id: "registration.login-button",
