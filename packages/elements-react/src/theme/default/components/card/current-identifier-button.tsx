@@ -43,7 +43,7 @@ export function DefaultCurrentIdentifierButton() {
       {...attributes}
       href={initFlowUrl}
       title={`Adjust ${nodeBackButton?.attributes.value}`}
-      data-testid={"ory/ui/login/link/restart"}
+      data-testid={"ory/screen/login/action/restart"}
     >
       <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
         <IconArrowLeft

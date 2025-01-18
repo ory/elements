@@ -174,3 +174,22 @@ watch mode use
 ```
 npx nx run @ory/elements-react:dev
 ```
+
+### Testing
+
+To run the tests use
+
+```
+nx lint @ory/elements-react
+nx test @ory/elements-react
+```
+
+#### Test selectors
+
+To select elements use a `data-testid` selector. Nomenclature mandates `/` as
+separators and a prefix of `ory/`:
+
+- `ory/form/` is the prefix for form elements;
+- `ory/screen/` is the prefix for elements on specific screens;
+- `ory/screen/` is the prefix for translatable messages (e.g. validation
+  errors).
