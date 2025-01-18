@@ -6,8 +6,8 @@ import { initOverrides, QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
 import { getFlowFactory } from "./flow"
 import { getPublicUrl, toGetFlowParameter } from "./utils"
-import { useRouter } from "next/router"
 import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
+import { OryConfigForNextJS } from "../utils/config"
 
 /**
  * Use this method in an app router page to fetch an existing verification flow or to create a new one. This method works with server-side rendering.
@@ -21,7 +21,8 @@ import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
  * import CardHeader from "@/app/auth/verification/card-header"
  *
  * export default async function VerificationPage(props: OryPageParams) {
- *   const flow = await getVerificationFlow(props.searchParams)
+ *   const config = enhanceConfig(baseConfig)
+ *   const flow = await getVerificationFlow(config, props.searchParams)
  *
  *   if (!flow) {
  *     return null
@@ -30,7 +31,7 @@ import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
  *   return (
  *     <Verification
  *       flow={flow}
- *       config={enhanceConfig(config)}
+ *       config={config}
  *       components={{
  *         Card: {
  *           Header: CardHeader,
@@ -41,13 +42,13 @@ import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
  * }
  * ```
  *
+ * @param config - The Ory configuration object.
  * @param params - The query parameters of the request.
  */
 export async function getVerificationFlow(
+  config: OryConfigForNextJS,
   params: QueryParams | Promise<QueryParams>,
 ): Promise<VerificationFlow | null | void> {
-  const router = useRouter()
-  const currentRoute = router.pathname
   return getFlowFactory(
     await params,
     async () =>
@@ -59,6 +60,6 @@ export async function getVerificationFlow(
     guessPotentiallyProxiedOrySdkUrl({
       knownProxiedUrl: await getPublicUrl(),
     }),
-    currentRoute,
+    config.project.verification_ui_url,
   )
 }

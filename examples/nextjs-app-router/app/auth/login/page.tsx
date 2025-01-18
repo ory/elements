@@ -5,10 +5,11 @@ import { Login } from "@ory/elements-react/theme"
 import { enhanceOryConfig } from "@ory/nextjs"
 import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
 
-import config from "@/ory.config"
+import baseConfig from "@/ory.config"
 
 export default async function LoginPage(props: OryPageParams) {
-  const flow = await getLoginFlow(props.searchParams)
+  const config = enhanceOryConfig(baseConfig)
+  const flow = await getLoginFlow(config, props.searchParams)
 
   if (!flow) {
     return null
@@ -17,7 +18,7 @@ export default async function LoginPage(props: OryPageParams) {
   return (
     <Login
       flow={flow}
-      config={enhanceOryConfig(config)}
+      config={config}
       components={{
         Card: {},
       }}

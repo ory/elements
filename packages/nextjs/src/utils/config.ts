@@ -21,7 +21,7 @@ import { isProduction } from "./sdk"
 export function enhanceOryConfig(
   config: Partial<OryConfig>,
   forceSdkUrl?: string,
-) {
+): OryConfigForNextJS {
   let sdkUrl =
     forceSdkUrl ??
     process.env["NEXT_PUBLIC_ORY_SDK_URL"] ??
@@ -58,6 +58,24 @@ export function enhanceOryConfig(
       verification_ui_url:
         config.override?.verificationUiPath ?? "/ui/verification",
       login_ui_url: config.override?.loginUiPath ?? "/ui/login",
+      settings_ui_url: config.override?.settingsUiPath ?? "/ui/settings",
     },
+  }
+}
+
+export interface OryConfigForNextJS {
+  name: string
+  sdk: {
+    url: string
+  }
+  project: {
+    registration_enabled: boolean
+    verification_enabled: boolean
+    recovery_enabled: boolean
+    recovery_ui_url: string
+    registration_ui_url: string
+    verification_ui_url: string
+    login_ui_url: string
+    settings_ui_url: string
   }
 }

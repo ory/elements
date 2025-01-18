@@ -42,7 +42,11 @@ export interface OryPageParams {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export function init(params: QueryParams, flowType: FlowType, baseUrl: string) {
+export function startNewFlow(
+  params: QueryParams,
+  flowType: FlowType,
+  baseUrl: string,
+) {
   // Take advantage of the fact, that Ory handles the flow creation for us and redirects the user to the default
   // return to automatically if they're logged in already.
   return redirect(

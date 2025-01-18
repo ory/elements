@@ -2,12 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 import { FlowType, LoginFlow } from "@ory/client-fetch"
 
-import { initOverrides, QueryParams } from "../types"
+import { initOverrides, OryConfig, QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
 import { getFlowFactory } from "./flow"
 import { getPublicUrl, toGetFlowParameter } from "./utils"
 import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
-import { useRouter } from "next/router"
+import { OryConfigForNextJS } from "../utils/config"
 
 /**
  * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.
@@ -16,12 +16,13 @@ import { useRouter } from "next/router"
  * import { Login } from "@ory/elements-react/theme"
  * import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
  * import { enhanceConfig } from "@ory/nextjs"
- *
- * import config from "@/ory.config"
  * import CardHeader from "@/app/auth/login/card-header"
  *
+ * import baseConfig from "@/ory.config"
+ *
  * export default async function LoginPage(props: OryPageParams) {
- *   const flow = await getLoginFlow(props.searchParams)
+ *   const config = enhanceConfig(baseConfig)
+ *   const flow = await getLoginFlow(config, props.searchParams)
  *
  *   if (!flow) {
  *     return null
@@ -30,7 +31,7 @@ import { useRouter } from "next/router"
  *   return (
  *     <Login
  *       flow={flow}
- *       config={enhanceConfig(config)}
+ *       config={config}
  *       components={{
  *         Card: {
  *           Header: CardHeader,
@@ -41,13 +42,13 @@ import { useRouter } from "next/router"
  * }
  * ```
  *
+ * @param config - The Ory configuration object.
  * @param params - The query parameters of the request.
  */
 export async function getLoginFlow(
+  config: OryConfigForNextJS,
   params: QueryParams | Promise<QueryParams>,
 ): Promise<LoginFlow | null | void> {
-  const router = useRouter()
-  const currentRoute = router.pathname
   return getFlowFactory(
     await params,
     async () =>
@@ -59,6 +60,6 @@ export async function getLoginFlow(
     guessPotentiallyProxiedOrySdkUrl({
       knownProxiedUrl: await getPublicUrl(),
     }),
-    currentRoute,
+    config.project.login_ui_url,
   )
 }

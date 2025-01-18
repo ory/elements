@@ -7,10 +7,11 @@ import { enhanceOryConfig } from "@ory/nextjs"
 import { getSettingsFlow, OryPageParams } from "@ory/nextjs/app"
 import "@ory/elements-react/theme/styles.css"
 
-import config from "@/ory.config"
+import baseConfig from "@/ory.config"
 
 export default async function SettingsPage(props: OryPageParams) {
-  const flow = await getSettingsFlow(props.searchParams)
+  const config = enhanceOryConfig(baseConfig)
+  const flow = await getSettingsFlow(config, props.searchParams)
 
   if (!flow) {
     return null
@@ -21,7 +22,7 @@ export default async function SettingsPage(props: OryPageParams) {
       <SessionProvider>
         <Settings
           flow={flow}
-          config={enhanceOryConfig(config)}
+          config={config}
           components={{
             Card: {},
           }}

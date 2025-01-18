@@ -44,6 +44,22 @@ jest.mock("@ory/client-fetch", () => {
     handleFlowError: jest.fn(),
   }
 })
+const config = {
+  name: "string",
+  sdk: {
+    url: "string",
+  },
+  project: {
+    registration_enabled: true,
+    verification_enabled: true,
+    recovery_enabled: true,
+    recovery_ui_url: "string",
+    registration_ui_url: "string",
+    verification_ui_url: "string",
+    login_ui_url: "string",
+    settings_ui_url: "string",
+  },
+}
 
 beforeEach(() => {
   ;(getPublicUrl as jest.Mock).mockResolvedValue("https://example.com")
@@ -79,7 +95,7 @@ for (const tc of testCases) {
   describe(`flowtype=${tc.flowType}`, () => {
     test("restarts flow if no id given", async () => {
       const queryParams = {}
-      await tc.fn(queryParams)
+      await tc.fn(config, queryParams)
       expect(redirect).toHaveBeenCalledWith(
         `https://example.com/self-service/${tc.flowType}/browser`,
         "replace",
@@ -90,7 +106,7 @@ for (const tc of testCases) {
       const queryParams = {
         refresh: "true",
       }
-      await tc.fn(queryParams)
+      await tc.fn(config, queryParams)
       expect(redirect).toHaveBeenCalledWith(
         `https://example.com/self-service/${tc.flowType}/browser?refresh=true`,
         "replace",
@@ -107,7 +123,7 @@ for (const tc of testCases) {
           bar: "https://ory.sh/",
         }),
       } as any)
-      const result = await tc.fn(queryParams)
+      const result = await tc.fn(config, queryParams)
       expect(result).toEqual({
         foo: "https://example.com/a",
         bar: "https://example.com/",
@@ -119,7 +135,7 @@ for (const tc of testCases) {
         flow: "1234",
       }
       ;(tc.m as jest.Mock).mockRejectedValue(new Error("error"))
-      const result = await tc.fn(queryParams)
+      const result = await tc.fn(config, queryParams)
       expect(result).toBeNull()
       expect(handleFlowError).toHaveBeenCalled()
     })

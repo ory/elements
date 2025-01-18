@@ -7,7 +7,7 @@ import { serverSideFrontendClient } from "./client"
 import { getFlowFactory } from "./flow"
 import { getPublicUrl, toGetFlowParameter } from "./utils"
 import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
-import { useRouter } from "next/router"
+import { OryConfigForNextJS } from "../utils/config"
 
 /**
  * Use this method in an app router page to fetch an existing recovery flow or to create a new one. This method works with server-side rendering.
@@ -21,7 +21,8 @@ import { useRouter } from "next/router"
  * import CardHeader from "@/app/auth/recovery/card-header"
  *
  * export default async function RecoveryPage(props: OryPageParams) {
- *   const flow = await getRecoveryFlow(props.searchParams)
+ *   const config = enhanceConfig(baseConfig)
+ *   const flow = await getRecoveryFlow(config, props.searchParams)
  *
  *   if (!flow) {
  *     return null
@@ -30,7 +31,7 @@ import { useRouter } from "next/router"
  *   return (
  *     <Recovery
  *       flow={flow}
- *       config={enhanceConfig(config)}
+ *       config={config}
  *       components={{
  *         Card: {
  *           Header: CardHeader,
@@ -41,13 +42,13 @@ import { useRouter } from "next/router"
  * }
  * ```
  *
+ * @param config - The Ory configuration object.
  * @param params - The query parameters of the request.
  */
 export async function getRecoveryFlow(
+  config: OryConfigForNextJS,
   params: QueryParams | Promise<QueryParams>,
 ): Promise<RecoveryFlow | null | void> {
-  const router = useRouter()
-  const currentRoute = router.pathname
   return getFlowFactory(
     await params,
     async () =>
@@ -59,6 +60,6 @@ export async function getRecoveryFlow(
     guessPotentiallyProxiedOrySdkUrl({
       knownProxiedUrl: await getPublicUrl(),
     }),
-    currentRoute,
+    config.project.recovery_ui_url,
   )
 }
