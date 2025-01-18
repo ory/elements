@@ -1,3 +1,7 @@
+## 1.0.0-next.21 (2025-01-18)
+
+This was a version bump only for @ory/nextjs to align it with other projects, there were no code changes.
+
 ## 1.0.0-next.20 (2025-01-16)
 
 ### 🚀 Features
