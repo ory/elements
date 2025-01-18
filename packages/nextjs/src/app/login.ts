@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { FlowType, LoginFlow } from "@ory/client-fetch"
 
-import { initOverrides, OryConfig, QueryParams } from "../types"
+import { initOverrides, QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
 import { getFlowFactory } from "./flow"
 import { getPublicUrl, toGetFlowParameter } from "./utils"
@@ -52,7 +52,7 @@ export async function getLoginFlow(
   return getFlowFactory(
     await params,
     async () =>
-      serverSideFrontendClient.getLoginFlowRaw(
+      serverSideFrontendClient().getLoginFlowRaw(
         await toGetFlowParameter(params),
         initOverrides,
       ),

@@ -52,7 +52,7 @@ export async function getRecoveryFlow(
   return getFlowFactory(
     await params,
     async () =>
-      serverSideFrontendClient.getRecoveryFlowRaw(
+      serverSideFrontendClient().getRecoveryFlowRaw(
         await toGetFlowParameter(params),
         initOverrides,
       ),

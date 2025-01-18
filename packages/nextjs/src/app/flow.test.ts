@@ -72,22 +72,22 @@ const testCases = [
   {
     fn: getLoginFlow,
     flowType: FlowType.Login,
-    m: serverSideFrontendClient.getLoginFlowRaw,
+    m: serverSideFrontendClient().getLoginFlowRaw,
   },
   {
     fn: getRegistrationFlow,
     flowType: FlowType.Registration,
-    m: serverSideFrontendClient.getRegistrationFlowRaw,
+    m: serverSideFrontendClient().getRegistrationFlowRaw,
   },
   {
     fn: getRecoveryFlow,
     flowType: FlowType.Recovery,
-    m: serverSideFrontendClient.getRecoveryFlowRaw,
+    m: serverSideFrontendClient().getRecoveryFlowRaw,
   },
   {
     fn: getVerificationFlow,
     flowType: FlowType.Verification,
-    m: serverSideFrontendClient.getVerificationFlowRaw,
+    m: serverSideFrontendClient().getVerificationFlowRaw,
   },
 ]
 

@@ -37,7 +37,7 @@ export async function getLogoutFlow({
   const url = guessPotentiallyProxiedOrySdkUrl({
     knownProxiedUrl,
   })
-  return serverSideFrontendClient
+  return serverSideFrontendClient()
     .createBrowserLogoutFlow({
       cookie: h.get("cookie") ?? "",
       returnTo,

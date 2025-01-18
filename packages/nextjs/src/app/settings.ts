@@ -52,7 +52,7 @@ export async function getSettingsFlow(
   return getFlowFactory(
     await params,
     async () =>
-      serverSideFrontendClient.getSettingsFlowRaw(
+      serverSideFrontendClient().getSettingsFlowRaw(
         await toGetFlowParameter(params),
         initOverrides,
       ),

@@ -52,7 +52,7 @@ export async function getVerificationFlow(
   return getFlowFactory(
     await params,
     async () =>
-      serverSideFrontendClient.getVerificationFlowRaw(
+      serverSideFrontendClient().getVerificationFlowRaw(
         await toGetFlowParameter(params),
         initOverrides,
       ),

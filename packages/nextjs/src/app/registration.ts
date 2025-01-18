@@ -52,7 +52,7 @@ export async function getRegistrationFlow(
   return getFlowFactory(
     await params,
     async () =>
-      serverSideFrontendClient.getRegistrationFlowRaw(
+      serverSideFrontendClient().getRegistrationFlowRaw(
         await toGetFlowParameter(params),
         initOverrides,
       ),
