@@ -32,6 +32,7 @@ export function DefaultCurrentIdentifierButton() {
   const attributes = omit(nodeBackButton.attributes, [
     "autocomplete",
     "node_type",
+    "maxlength",
   ])
 
   return (

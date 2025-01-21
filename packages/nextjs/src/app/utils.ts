@@ -3,9 +3,8 @@
 import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { headers } from "next/headers"
 import { redirect, RedirectType } from "next/navigation"
-
-import { urlQueryToSearchParams } from "next/dist/shared/lib/router/utils/querystring"
 import { QueryParams } from "../types"
+import { ParsedUrlQuery } from "querystring"
 
 export async function getCookieHeader() {
   // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?
@@ -55,4 +54,35 @@ export function startNewFlow(
     ).toString(),
     RedirectType.replace,
   )
+}
+
+// Copied over from https://github.com/vercel/next.js/blob/dbd5e1b274d30f9107141475eba116a8118bc346/packages/next/src/shared/lib/router/utils/querystring.ts
+// to avoid relying on internal APIs
+function stringifyUrlQueryParam(param: unknown): string {
+  if (typeof param === "string") {
+    return param
+  }
+
+  if (
+    (typeof param === "number" && !isNaN(param)) ||
+    typeof param === "boolean"
+  ) {
+    return String(param)
+  } else {
+    return ""
+  }
+}
+
+export function urlQueryToSearchParams(query: ParsedUrlQuery): URLSearchParams {
+  const searchParams = new URLSearchParams()
+  for (const [key, value] of Object.entries(query)) {
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        searchParams.append(key, stringifyUrlQueryParam(item))
+      }
+    } else {
+      searchParams.set(key, stringifyUrlQueryParam(value))
+    }
+  }
+  return searchParams
 }
