@@ -4,12 +4,13 @@
 import { Verification } from "@ory/elements-react/theme"
 import { enhanceOryConfig } from "@ory/nextjs"
 import { getVerificationFlow, OryPageParams } from "@ory/nextjs/app"
-
 import CustomCardHeader from "@/components/custom-card-header"
-import config from "@/ory.config"
+
+import baseConfig from "@/ory.config"
 
 export default async function VerificationPage(props: OryPageParams) {
-  const flow = await getVerificationFlow(props.searchParams)
+  const config = enhanceOryConfig(baseConfig)
+  const flow = await getVerificationFlow(config, props.searchParams)
 
   if (!flow) {
     return null
@@ -18,7 +19,7 @@ export default async function VerificationPage(props: OryPageParams) {
   return (
     <Verification
       flow={flow}
-      config={enhanceOryConfig(config)}
+      config={config}
       components={{
         Card: {
           Header: CustomCardHeader,

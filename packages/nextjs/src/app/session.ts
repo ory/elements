@@ -7,7 +7,7 @@ import { getCookieHeader } from "./utils"
 
 export async function getServerSession(): Promise<Session | null> {
   const cookie = await getCookieHeader()
-  return serverSideFrontendClient
+  return serverSideFrontendClient()
     .toSession({
       cookie,
     })

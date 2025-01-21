@@ -9,5 +9,6 @@ export { getVerificationFlow } from "./verification"
 export { getSettingsFlow } from "./settings"
 export { getLogoutFlow } from "./logout"
 export { getServerSession } from "./session"
+export { getFlowFactory } from "./flow"
 
 export type { OryPageParams } from "./utils"
