@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements-react",
-  "version": "1.0.0-next.21",
+  "version": "1.0.0-next.23",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
