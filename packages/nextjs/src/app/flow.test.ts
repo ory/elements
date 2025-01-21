@@ -17,15 +17,19 @@ import { getPublicUrl } from "./utils"
 jest.mock("./utils", () => ({
   getPublicUrl: jest.fn(),
   toFlowParams: jest.fn().mockImplementation((params: QueryParams) => params),
+  startNewFlow: jest.requireActual("./utils").startNewFlow,
+  toGetFlowParameter: jest
+    .fn()
+    .mockImplementation((params: QueryParams) => params),
 }))
 
 jest.mock("./client", () => ({
-  serverSideFrontendClient: {
+  serverSideFrontendClient: jest.fn().mockReturnValue({
     getLoginFlowRaw: jest.fn(),
     getRegistrationFlowRaw: jest.fn(),
     getRecoveryFlowRaw: jest.fn(),
     getVerificationFlowRaw: jest.fn(),
-  },
+  }),
 }))
 
 jest.mock("next/navigation", () => ({
@@ -97,7 +101,7 @@ for (const tc of testCases) {
       const queryParams = {}
       await tc.fn(config, queryParams)
       expect(redirect).toHaveBeenCalledWith(
-        `https://example.com/self-service/${tc.flowType}/browser`,
+        `https://example.com/self-service/${tc.flowType}/browser?`,
         "replace",
       )
     })
@@ -136,7 +140,7 @@ for (const tc of testCases) {
       }
       ;(tc.m as jest.Mock).mockRejectedValue(new Error("error"))
       const result = await tc.fn(config, queryParams)
-      expect(result).toBeNull()
+      expect(result).toBeUndefined()
       expect(handleFlowError).toHaveBeenCalled()
     })
   })

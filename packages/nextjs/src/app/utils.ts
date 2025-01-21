@@ -1,15 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
+import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 import { headers } from "next/headers"
 import { redirect, RedirectType } from "next/navigation"
-import { FlowType, OnRedirectHandler } from "@ory/client-fetch"
 
+import { urlQueryToSearchParams } from "next/dist/shared/lib/router/utils/querystring"
 import { QueryParams } from "../types"
-import { toFlowParams as baseToFlowParams } from "../utils/utils"
-import {
-  searchParamsToUrlQuery,
-  urlQueryToSearchParams,
-} from "next/dist/shared/lib/router/utils/querystring"
 
 export async function getCookieHeader() {
   // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?

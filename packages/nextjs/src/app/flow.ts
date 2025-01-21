@@ -30,9 +30,9 @@ export async function getFlowFactory<T extends object>(
   flowType: FlowType,
   baseUrl: string,
   route: string,
-  options?: {
+  options: {
     disableRewrite?: boolean
-  },
+  } = { disableRewrite: false },
 ): Promise<T | null | void> {
   // Guess our own public url using Next.js helpers. We need the hostname, port, and protocol.
   const onRestartFlow = (useFlowId?: string) => {
@@ -58,7 +58,7 @@ export async function getFlowFactory<T extends object>(
       .value()
       .then(
         (v: T): T =>
-          !options?.disableRewrite ? rewriteJsonResponse(v, baseUrl) : v,
+          options.disableRewrite ? v : rewriteJsonResponse(v, baseUrl),
       )
   } catch (error) {
     const errorHandler = handleFlowError({
