@@ -48,6 +48,9 @@ const config: Config = {
       ...variables.light.color,
       ...variables.slate.color,
     },
+    data: {
+      loading: `loading~="true"`,
+    },
   },
   plugins: [
     plugin((plugin) => {

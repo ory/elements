@@ -10,7 +10,7 @@ import {
 import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
-import { ElementType } from "react"
+import { ElementType, useEffect, useState } from "react"
 import { useFormContext } from "react-hook-form"
 import { Spinner } from "./spinner"
 
@@ -50,6 +50,7 @@ export function DefaultButtonSocial({
   const {
     flow: { ui },
   } = useOryFlow()
+  const [clicked, setClicked] = useState(false)
   const intl = useIntl()
   const {
     formState: { isSubmitting },
@@ -65,19 +66,31 @@ export function DefaultButtonSocial({
 
   const provider = extractProvider(node.meta.label?.context) ?? ""
 
+  const localOnClick = () => {
+    setClicked(true)
+    onClick?.()
+  }
+
+  useEffect(() => {
+    if (!isSubmitting) {
+      setClicked(false)
+    }
+  }, [isSubmitting])
+
   return (
     <button
-      className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover transition-colors rounded flex items-center justify-center px-4 py-[13px] disabled:bg-button-social-background-disabled disabled:border-button-social-border-disabled disabled:text-button-social-foreground-disabled hover:text-button-social-foreground-disabled"
+      className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover transition-colors rounded flex items-center justify-center px-4 py-[13px] loading:bg-button-social-background-disabled loading:border-button-social-border-disabled loading:text-button-social-foreground-disabled hover:text-button-social-foreground-hover"
       value={attributes.value}
       type="submit"
       name="provider"
       data-testid={`ory/form/node/input/${attributes.name}`}
       {...props}
-      onClick={onClick}
+      onClick={localOnClick}
+      data-loading={clicked}
       disabled={isSubmitting}
     >
       <span className="size-5 relative">
-        {!isSubmitting ? (
+        {!clicked ? (
           Logo ? (
             <Logo size={20} />
           ) : (

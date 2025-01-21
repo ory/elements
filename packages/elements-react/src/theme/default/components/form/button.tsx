@@ -10,6 +10,7 @@ import { cva, VariantProps } from "class-variance-authority"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { Spinner } from "./spinner"
+import { useEffect, useState } from "react"
 
 const buttonStyles = cva(
   [
@@ -62,12 +63,19 @@ export const DefaultButton = ({
     // End of skipped attributes
     ...rest
   } = attributes
+  const [clicked, setClicked] = useState(false)
   const intl = useIntl()
   const label = getNodeLabel(node)
   const {
     formState: { isSubmitting },
     setValue,
   } = useFormContext()
+
+  useEffect(() => {
+    if (!isSubmitting) {
+      setClicked(false)
+    }
+  }, [isSubmitting])
 
   const isPrimary =
     attributes.name === "method" ||
@@ -83,6 +91,7 @@ export const DefaultButton = ({
       type={type === "button" ? "button" : "submit"} // TODO
       onClick={(e) => {
         onClick?.(e)
+        setClicked(true)
 
         if (type !== "button") {
           setValue(name, value)
@@ -91,10 +100,10 @@ export const DefaultButton = ({
       className={buttonStyles({
         intent: isPrimary ? "primary" : "secondary",
       })}
-      disabled={rest.disabled ?? true}
-      data-loading={isSubmitting}
+      disabled={rest.disabled ?? isSubmitting}
+      data-loading={clicked}
     >
-      {isSubmitting ? <Spinner /> : null}
+      {clicked ? <Spinner /> : null}
       {label ? <span>{uiTextToFormattedMessage(label, intl)}</span> : ""}
     </button>
   )
