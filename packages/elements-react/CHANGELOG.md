@@ -1,3 +1,13 @@
+## 1.0.0-next.3 (2025-01-21)
+
+### 🚀 Features
+
+- expose get flow factory ([#333](https://github.com/ory/elements/pull/333))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
 ## 1.0.0-next.21 (2025-01-18)
 
 This was a version bump only for @ory/elements-react to align it with other projects, there were no code changes.
