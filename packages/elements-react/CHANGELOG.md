@@ -1,3 +1,18 @@
+## 1.0.0-next.23 (2025-01-21)
+
+### 🚀 Features
+
+- expose get flow factory ([#333](https://github.com/ory/elements/pull/333))
+
+### 🩹 Fixes
+
+- don't short circuit code method selector ([#336](https://github.com/ory/elements/pull/336))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.3 (2025-01-21)
 
 ### 🚀 Features
