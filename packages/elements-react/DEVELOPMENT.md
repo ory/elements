@@ -64,30 +64,16 @@ The stories use stub responses
 
 ## Releasing
 
-@ory/elements-react is released using nx releases.
+@ory/elements-react and @ory/nextjs is released using nx releases.
 
-The process is still manual, but will be replaced by a semi-automatic release
-pipeline.
+There is a helper script located in "./scripts/release.sh".
 
-To release a new version:
+Usage:
 
 ```bash
-# in the root of the repo
-npx nx build @ory/elements-react
-
-# nx is configured to generate a new -next.X version, in nx.json
-npx nx release version --verbose
-
-# make sure to replace .X with the version generated in the first step
-npx nx release changelog 1.0.0-next.X --verbose
-
-npx nx release publish --tag=next --dry-run --verbose
-
-npx nx release publish --tag=next --verbose --otp=<otp for npmjs.com from authenticator app> # otp is still required, if we have a bot for publishing this is not required anymore.
-
-# replace .X with the appropriate version
-git push origin tag release/@ory/elements-react/1.0.0-next.X
-
-# push the pin commit to the branch
-git push
+./scripts/release.sh @ory/elements-react # or @ory/nextjs
 ```
+
+The script asks the user before executing each steps. Please double check
+CHANGELOG.md and dry run outputs. nx also creates git tags and commits, that
+should be commited. The script will do that automatically.
