@@ -1,3 +1,19 @@
+## 1.0.0-next.24 (2025-01-22)
+
+### 🚀 Features
+
+- expose get flow factory ([#333](https://github.com/ory/elements/pull/333))
+
+### 🩹 Fixes
+
+- only show loading indicator on clicked button ([#335](https://github.com/ory/elements/pull/335))
+- don't short circuit code method selector ([#336](https://github.com/ory/elements/pull/336))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.23 (2025-01-21)
 
 ### 🩹 Fixes
