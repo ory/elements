@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://ory.sh">
-        <img src="https://raw.githubusercontent.com/ory/meta/jonas-jonas/orylogo/static/logos/logo-ory.svg" height="72" />
+        <img src="https://raw.githubusercontent.com/ory/meta/refs/heads/master/static/logos/logo-ory.svg" height="72" />
     </a>
 </p>
 
