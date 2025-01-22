@@ -2,8 +2,11 @@ playwright/.cache/
 playwright-report/*
 src/
 playwright/
-playwright-ct.config.ts
 project.json
-tsup.config.ts
-tsconfig.test.json
+tsconfig.spec.json
 !dist/
+api-report/
+DEVELOPEMENT.md
+*.config.ts
+config/
+.vscode
