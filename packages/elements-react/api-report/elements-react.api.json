@@ -964,13 +964,8 @@
               "text": "type OryCardHeaderProps = "
             },
             {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
               "kind": "Content",
-              "text": "<string, never>"
+              "text": "{\n    title: string;\n    text?: string;\n}"
             },
             {
               "kind": "Content",
@@ -982,7 +977,7 @@
           "name": "OryCardHeaderProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 3
+            "endIndex": 2
           }
         },
         {
@@ -1458,8 +1453,8 @@
             },
             {
               "kind": "Reference",
-              "text": "OryCardRootProps",
-              "canonicalReference": "@ory/elements-react!OryCardProps:type"
+              "text": "OryCardHeaderProps",
+              "canonicalReference": "@ory/elements-react!OryCardHeaderProps:type"
             },
             {
               "kind": "Content",

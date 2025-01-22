@@ -130,7 +130,10 @@ export type OryCardFooterProps = Record<string, never>;
 export function OryCardHeader(): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
-export type OryCardHeaderProps = Record<string, never>;
+export type OryCardHeaderProps = {
+    title: string;
+    text?: string;
+};
 
 // @public (undocumented)
 export type OryCardLogoProps = Record<string, never>;
@@ -191,7 +194,7 @@ export type OryFlowComponents = {
     Card: {
         Root: ComponentType<OryCardProps>;
         Footer: ComponentType<OryCardFooterProps>;
-        Header: ComponentType<OryCardProps>;
+        Header: ComponentType<OryCardHeaderProps>;
         Content: ComponentType<OryCardContentProps>;
         Logo: ComponentType<OryCardLogoProps>;
         Divider: ComponentType<OryCardDividerProps>;

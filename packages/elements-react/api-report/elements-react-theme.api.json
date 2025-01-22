@@ -456,7 +456,16 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultCardHeader(): "
+              "text": "declare function DefaultCardHeader({ title, text }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryCardHeaderProps",
+              "canonicalReference": "@ory/elements-react!~OryCardHeaderProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
             },
             {
               "kind": "Reference",
@@ -470,12 +479,21 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 2
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
-          "parameters": [],
+          "parameters": [
+            {
+              "parameterName": "{ title, text }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
           "name": "DefaultCardHeader"
         },
         {

@@ -24,7 +24,7 @@ import {
   OryNodeLabelProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryCardFooterProps } from "../card"
+import { OryCardFooterProps, OryCardHeaderProps } from "../card"
 import { OryCardRootProps } from "../card/card"
 import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
@@ -104,7 +104,7 @@ export type OryFlowComponents = {
     /**
      * The card header is the header of the card container.
      */
-    Header: ComponentType<OryCardRootProps>
+    Header: ComponentType<OryCardHeaderProps>
     /**
      * The card content is the main content of the card container.
      */

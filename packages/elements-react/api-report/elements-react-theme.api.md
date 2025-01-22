@@ -53,8 +53,10 @@ export function DefaultCardContent({ children }: OryCardContentProps): react.Rea
 // @public (undocumented)
 export function DefaultCardFooter(): react_jsx_runtime.JSX.Element | null;
 
+// Warning: (ae-forgotten-export) The symbol "OryCardHeaderProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export function DefaultCardHeader(): react_jsx_runtime.JSX.Element;
+export function DefaultCardHeader({ title, text }: OryCardHeaderProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export function DefaultCardLayout({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element;
