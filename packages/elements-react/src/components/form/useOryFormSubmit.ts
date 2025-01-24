@@ -57,6 +57,18 @@ export function useOryFormSubmit(
         if (submitData.method === "code" && data.code) {
           submitData.resend = ""
         }
+        // Force the account selection screen on OIDC to provide a better user experience.
+        // https://github.com/ory/elements/issues/268
+        // TODO: Maybe this needs to be configurable in the configuration
+        if (
+          submitData.method === "oidc" &&
+          submitData.provider &&
+          supportsSelectAccountPrompt.includes(submitData.provider)
+        ) {
+          submitData.upstream_parameters = {
+            prompt: "select_account",
+          }
+        }
 
         await onSubmitLogin(flowContainer, {
           onRedirect,
@@ -72,6 +84,18 @@ export function useOryFormSubmit(
 
         if (submitData.method === "code" && submitData.code) {
           submitData.resend = ""
+        }
+        // Force the account selection screen on OIDC to provide a better user experience.
+        // https://github.com/ory/elements/issues/268
+        // TODO: Maybe this needs to be configurable in the configuration
+        if (
+          submitData.method === "oidc" &&
+          submitData.provider &&
+          supportsSelectAccountPrompt.includes(submitData.provider)
+        ) {
+          submitData.upstream_parameters = {
+            prompt: "select_account",
+          }
         }
 
         await onSubmitRegistration(flowContainer, {
@@ -121,7 +145,7 @@ export function useOryFormSubmit(
           submitData.method = "lookup_secret"
         }
 
-        // Force the account selection screen on link to provide a better use experience.
+        // Force the account selection screen on link to provide a better user experience.
         // https://github.com/ory/elements/issues/268
         // TODO: Maybe this needs to be configurable in the configuration
         if (
