@@ -94,7 +94,7 @@ export function DefaultButtonSocial({
           Logo ? (
             <Logo size={20} />
           ) : (
-            <span className="flex aspect-square items-center justify-center rounded-full border text-xs">
+            <span className="flex aspect-square items-center justify-center rounded-[999px] border text-xs">
               {provider.slice(0, 2)}
             </span>
           )

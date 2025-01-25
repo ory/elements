@@ -29,7 +29,7 @@ const DefaultFormSectionContent = ({
   children,
 }: OryFormSectionContentProps) => {
   return (
-    <div className="flex flex-col gap-8 rounded-t-xl border border-b-0 border-interface-border-default-primary bg-interface-background-default-primary px-6 py-8">
+    <div className="flex flex-col gap-8 rounded-t-cards border border-b-0 border-interface-border-default-primary bg-interface-background-default-primary px-6 py-8">
       <div className="flex flex-col gap-2">
         <h3 className="font-medium text-interface-foreground-default-primary">
           {title}
@@ -50,7 +50,7 @@ const DefaultFormSectionFooter = ({
   return (
     <div
       className={cn(
-        "flex min-h-[72px] items-center justify-between gap-2 rounded-b-xl border border-interface-border-default-primary bg-interface-background-default-secondary px-6 py-4 text-interface-foreground-default-tertiary",
+        "flex min-h-[72px] items-center justify-between gap-2 rounded-b-cards border border-interface-border-default-primary bg-interface-background-default-secondary px-6 py-4 text-interface-foreground-default-tertiary",
       )}
     >
       <span>{text}</span>

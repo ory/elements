@@ -125,7 +125,8 @@
   },
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "scripts/*"
   ],
   "dependencies": {
     "lodash": "4.17.21",
