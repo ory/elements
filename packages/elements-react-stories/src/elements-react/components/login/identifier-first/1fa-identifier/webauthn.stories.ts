@@ -2,12 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Login } from "@ory/elements-react/theme"
-import { config } from "../../../utils"
+import { config } from "../../../../utils"
 import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Methods/WebAuthn",
+  title: "Ory Elements/First Factor Login/Select Identifier/WebAuthn",
   component: Login,
   parameters: {
     layout: "centered",

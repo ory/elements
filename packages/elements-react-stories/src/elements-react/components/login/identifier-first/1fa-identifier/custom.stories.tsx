@@ -11,7 +11,7 @@ import {
   OryNodeOidcButtonProps,
 } from "@ory/elements-react"
 import { Login, LoginFlowContextProps } from "@ory/elements-react/theme"
-import { config } from "../../../utils"
+import { config } from "../../../../utils"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

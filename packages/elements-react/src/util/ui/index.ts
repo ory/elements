@@ -112,7 +112,7 @@ type Entries<T> = {
  */
 export function nodesToAuthMethodGroups(
   nodes: Array<UiNode>,
-  excludeAuthMethods = [UiNodeGroupEnum.Oidc],
+  excludeAuthMethods = [],
 ): UiNodeGroupEnum[] {
   const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
 

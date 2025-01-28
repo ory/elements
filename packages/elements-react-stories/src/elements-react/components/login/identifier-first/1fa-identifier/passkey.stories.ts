@@ -1,13 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { config } from "../../../utils"
-import { LoginFlowFromJSON } from "@ory/client-fetch"
 import { Login } from "@ory/elements-react/theme"
+import { config } from "../../../../utils"
+import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Methods/None",
+  title: "Ory Elements/First Factor Login/Select Identifier/Passkey",
   component: Login,
   parameters: {
     layout: "centered",
@@ -18,10 +18,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const NoMethodsAvailable: Story = {
+export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$/.stub-responses/login/1fa/none/initial-form.json"),
+      require("$/.stub-responses/login/1fa/passkey/initial-form.json"),
     ),
     config,
   },

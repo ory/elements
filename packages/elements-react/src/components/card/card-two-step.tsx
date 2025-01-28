@@ -10,7 +10,7 @@ import { useNodesGroups } from "../../util/ui"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
-import { OryFormSocialButtonsForm } from "../form/social"
+import { OryFormOidcButtons, OryFormSocialButtonsForm } from "../form/social"
 import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
@@ -54,9 +54,7 @@ export function OryTwoStepCard() {
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {formState.current === "provide_identifier" && hasOidc && (
-          <OryFormSocialButtonsForm />
-        )}
+        {hasOidc && <OryFormOidcButtons />}
         <OryForm
           onAfterSubmit={(method) =>
             isGroupImmediateSubmit(method + "")
@@ -86,7 +84,7 @@ export function OryTwoStepCard() {
                 />
               </>
             )}
-            {formState.current === "method_active" && (
+            {(
               <>
                 {ui.nodes
                   .filter((n) => n.type === "script")
@@ -97,7 +95,7 @@ export function OryTwoStepCard() {
                   <Node node={node} key={k} />
                 ))}
               </>
-            )}
+            ) && formState.current === "method_active"}
           </Form.Group>
           <OryCardFooter />
         </OryForm>
