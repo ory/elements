@@ -342,13 +342,17 @@ export const Node = ({
         )
       case "datetime-local":
       case "checkbox":
+        let labelValue = formatMessage(getNodeLabel(node))
+        if (attrs.name ==='traits.terms') {
+          labelValue = "I agree to the terms and conditions <a href='http://google.com'>Terms and Conditions</a>"
+        }
         return (
           <Checkbox
             className={className}
             helperMessage={
               <NodeMessages nodes={[node]} gap={4} textPosition={"start"} />
             }
-            label={formatMessage(getNodeLabel(node))}
+            label={labelValue}
             name={attrs.name}
             required={attrs.required}
             defaultValue={attrs.value as string | number | string[]}
