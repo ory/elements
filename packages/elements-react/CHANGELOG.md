@@ -1,3 +1,20 @@
+## 1.0.0-next.25 (2025-01-29)
+
+### 🚀 Features
+
+- expose get flow factory ([#333](https://github.com/ory/elements/pull/333))
+
+### 🩹 Fixes
+
+- make OIDC remove button loading state specific ([#339](https://github.com/ory/elements/pull/339))
+- only show loading indicator on clicked button ([#335](https://github.com/ory/elements/pull/335))
+- don't short circuit code method selector ([#336](https://github.com/ory/elements/pull/336))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.24 (2025-01-22)
 
 ### 🩹 Fixes
