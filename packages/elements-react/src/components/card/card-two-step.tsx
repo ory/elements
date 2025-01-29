@@ -10,7 +10,7 @@ import { useNodesGroups } from "../../util/ui"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
-import { OryFormOidcButtons, OryFormSocialButtonsForm } from "../form/social"
+import { OryFormOidcButtons } from "../form/social"
 import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
