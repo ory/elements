@@ -33,7 +33,9 @@ export const ButtonSocial = ({
   ...props
 }: ButtonSocialProps): JSX.Element => {
   const brandClass =
-    brand !== "generic" ? `fa-brands fa-${brand}` : "fa-solid fa-layer-group"
+    brand !== "generic"
+      ? `fa-brands fa-${brand.split("-")[0]}`
+      : "fa-solid fa-layer-group"
   return (
     <div className={className}>
       <button
