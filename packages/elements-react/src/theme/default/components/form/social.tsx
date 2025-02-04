@@ -59,7 +59,7 @@ export function DefaultButtonSocial({
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
 
-  const Logo = logos[attributes.value]
+  const Logo = logos[(attributes.value as string).split("-")[0]]
 
   const showLabel =
     _showLabel ?? (oidcNodeCount % 3 !== 0 && oidcNodeCount % 4 !== 0)
