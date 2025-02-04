@@ -59,6 +59,11 @@ export function DefaultButtonSocial({
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
 
+  // Ideally, kratos would return the provider name in the context
+  // At the moment it only returns the label (misleadingly named `provider`).
+  // But changing that would be a breaking change.
+  // So we have to extract the provider name from the id, which sometimes might contain a - followed by a unique ID.
+  // TODO(kratos): Add provider to the context
   const Logo = logos[(attributes.value as string).split("-")[0]]
 
   const showLabel =
