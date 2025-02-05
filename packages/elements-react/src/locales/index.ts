@@ -19,7 +19,7 @@ import { default as sv } from "./sv.json"
 // A potential workaround is to have some code generation tool, that runs after the message extraction and produces a dts file containing all known keys.
 export type LocaleMap = Record<string, Record<string, string>>
 
-export const locales: LocaleMap = {
+export const OryLocales: LocaleMap = {
   en,
   de,
   es,

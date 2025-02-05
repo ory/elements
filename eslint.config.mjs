@@ -15,7 +15,7 @@ const config = tseslint.config([
   {
     ignores: [
       "**/assets/*.js",
-      "!.storybook",
+      "**/.storybook/**",
       "**/dist/**",
       "**/storybook-static/**",
       "**/*.config.{js,mjs,cjs,ts}",
@@ -217,6 +217,12 @@ const config = tseslint.config([
       },
     },
   },
+  {
+    files: ["packages/elements-react/stories/**/*.{js,jsx,ts,tsx}"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  }
 ])
 
 export default config

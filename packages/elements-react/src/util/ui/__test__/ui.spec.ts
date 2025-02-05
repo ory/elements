@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import allMethodsInitialForm from "../../../../../elements-react-stories/src/elements-react/.stub-responses/login/1fa/all-methods/initial-form.json"
+import allMethodsInitialForm from "$stories/.stub-responses/login/1fa/all-methods/initial-form.json"
 
 import { useNodesGroups } from ".."
 import { UiNode } from "@ory/client-fetch"

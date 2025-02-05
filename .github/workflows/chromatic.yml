@@ -34,7 +34,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_ELEMENTS_REACT }}
           exitOnceUploaded: true
-          workingDir: packages/elements-react-stories
+          workingDir: packages/elements-react
           storybookBuildDir: storybook-static
           onlyChanged: true
-          externals: packages/elements-react/**
