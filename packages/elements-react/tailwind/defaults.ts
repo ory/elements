@@ -1,3 +1,6 @@
+// Copyright © 2025 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { CustomThemeConfig } from "tailwindcss/types/config"
 import variables from "./generated/variables-processed.json"
 

@@ -1,3 +1,6 @@
+/* Copyright © 2025 Ory Corp */
+/* SPDX-License-Identifier: Apache-2.0 */
+
 :root {
   --ui-100: #f1f5f9;
   --ui-200: #e2e8f0;
@@ -16,53 +19,115 @@
   --ui-transparent: #ffffff00;
   --ui-warning: #eab308;
   --ui-white: #ffffff;
-  --button-identifier-background-default: var(--interface-background-brand-secondary);
-  --button-identifier-background-hover: var(--interface-background-brand-secondary-hover);
-  --button-identifier-border-border-default: var(--interface-border-brand-brand);
+  --button-identifier-background-default: var(
+    --interface-background-brand-secondary
+  );
+  --button-identifier-background-hover: var(
+    --interface-background-brand-secondary-hover
+  );
+  --button-identifier-border-border-default: var(
+    --interface-border-brand-brand
+  );
   --button-identifier-border-border-hover: var(--interface-border-brand-brand);
-  --button-identifier-foreground-default: var(--interface-foreground-brand-on-secondary);
-  --button-identifier-foreground-hover: var(--interface-foreground-brand-on-secondary);
+  --button-identifier-foreground-default: var(
+    --interface-foreground-brand-on-secondary
+  );
+  --button-identifier-foreground-hover: var(
+    --interface-foreground-brand-on-secondary
+  );
   --button-link-brand-brand: var(--interface-foreground-brand-primary);
   --button-link-brand-brand-hover: var(--interface-foreground-default-primary);
   --button-link-default-primary: var(--interface-foreground-default-primary);
-  --button-link-default-primary-hover: var(--interface-foreground-brand-primary);
-  --button-link-default-secondary: var(--interface-foreground-default-secondary);
-  --button-link-default-secondary-hover: var(--interface-foreground-default-tertiary);
-  --button-link-disabled-disabled: var(--interface-foreground-disabled-disabled);
-  --button-primary-background-default: var(--interface-background-brand-primary);
-  --button-primary-background-disabled: var(--interface-background-disabled-disabled);
-  --button-primary-background-hover: var(--interface-background-brand-primary-hover);
+  --button-link-default-primary-hover: var(
+    --interface-foreground-brand-primary
+  );
+  --button-link-default-secondary: var(
+    --interface-foreground-default-secondary
+  );
+  --button-link-default-secondary-hover: var(
+    --interface-foreground-default-tertiary
+  );
+  --button-link-disabled-disabled: var(
+    --interface-foreground-disabled-disabled
+  );
+  --button-primary-background-default: var(
+    --interface-background-brand-primary
+  );
+  --button-primary-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-primary-background-hover: var(
+    --interface-background-brand-primary-hover
+  );
   --button-primary-border-default: var(--interface-border-default-none);
   --button-primary-border-disabled: var(--interface-border-disabled-disabled);
   --button-primary-border-hover: var(--interface-border-default-none);
-  --button-primary-foreground-default: var(--interface-foreground-brand-on-primary);
-  --button-primary-foreground-disabled: var(--interface-foreground-disabled-on-disabled);
-  --button-primary-foreground-hover: var(--interface-foreground-brand-on-primary);
-  --button-secondary-background-default: var(--interface-background-default-primary);
-  --button-secondary-background-disabled: var(--interface-background-disabled-disabled);
-  --button-secondary-background-hover: var(--interface-background-default-primary-hover);
+  --button-primary-foreground-default: var(
+    --interface-foreground-brand-on-primary
+  );
+  --button-primary-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-primary-foreground-hover: var(
+    --interface-foreground-brand-on-primary
+  );
+  --button-secondary-background-default: var(
+    --interface-background-default-primary
+  );
+  --button-secondary-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-secondary-background-hover: var(
+    --interface-background-default-primary-hover
+  );
   --button-secondary-border-default: var(--interface-border-default-primary);
   --button-secondary-border-disabled: var(--interface-border-disabled-disabled);
   --button-secondary-border-hover: var(--interface-border-default-primary);
-  --button-secondary-foreground-default: var(--interface-foreground-default-primary);
-  --button-secondary-foreground-disabled: var(--interface-foreground-disabled-on-disabled);
-  --button-secondary-foreground-hover: var(--interface-foreground-default-secondary);
-  --button-social-background-default: var(--interface-background-default-primary);
-  --button-social-background-disabled: var(--interface-background-disabled-disabled);
-  --button-social-background-generic-provider: var(--interface-background-default-inverted);
-  --button-social-background-hover: var(--interface-background-default-primary-hover);
+  --button-secondary-foreground-default: var(
+    --interface-foreground-default-primary
+  );
+  --button-secondary-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-secondary-foreground-hover: var(
+    --interface-foreground-default-secondary
+  );
+  --button-social-background-default: var(
+    --interface-background-default-primary
+  );
+  --button-social-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-social-background-generic-provider: var(
+    --interface-background-default-inverted
+  );
+  --button-social-background-hover: var(
+    --interface-background-default-primary-hover
+  );
   --button-social-border-default: var(--interface-border-default-primary);
   --button-social-border-disabled: var(--interface-border-disabled-disabled);
   --button-social-border-generic-provider: var(--interface-border-default-none);
   --button-social-border-hover: var(--interface-border-default-primary);
-  --button-social-foreground-default: var(--interface-foreground-default-primary);
-  --button-social-foreground-disabled: var(--interface-foreground-disabled-on-disabled);
-  --button-social-foreground-generic-provider: var(--interface-foreground-default-inverted);
-  --button-social-foreground-hover: var(--interface-foreground-default-secondary);
+  --button-social-foreground-default: var(
+    --interface-foreground-default-primary
+  );
+  --button-social-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-social-foreground-generic-provider: var(
+    --interface-foreground-default-inverted
+  );
+  --button-social-foreground-hover: var(
+    --interface-foreground-default-secondary
+  );
   --checkbox-background-checked: var(--interface-background-brand-primary);
   --checkbox-background-default: var(--interface-background-default-secondary);
-  --checkbox-border-checkbox-border-checked: var(--interface-border-brand-brand);
-  --checkbox-border-checkbox-border-default: var(--interface-border-default-primary);
+  --checkbox-border-checkbox-border-checked: var(
+    --interface-border-brand-brand
+  );
+  --checkbox-border-checkbox-border-default: var(
+    --interface-border-default-primary
+  );
   --checkbox-foreground-checked: var(--interface-foreground-brand-on-primary);
   --checkbox-foreground-default: var(--interface-foreground-default-primary);
   --form-background-default: var(--interface-background-default-primary);
