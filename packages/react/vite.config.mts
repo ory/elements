@@ -14,7 +14,8 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        autoprefixer({}), // add options if needed
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        autoprefixer({}) as any, // add options if needed
       ],
     },
   },
