@@ -18,20 +18,19 @@ const config: StorybookConfig = {
   staticDirs: ["./public"],
 
   viteFinal: (config) => {
-    console.log(path.resolve(__dirname, "../src"))
     return mergeConfig(config, {
-      plugins: [vitePluginRequire(), svgr({ include: "**/*.svg" })],
-      build: {
-        rollupOptions: {
-          onwarn(warning, warn) {
-            // Suppress "Module level directives cause errors when bundled" warnings
-            if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
-              return
-            }
-            warn(warning)
+      plugins: [
+        vitePluginRequire(),
+        svgr({
+          include: "**/*.svg",
+          svgrOptions: {
+            svgProps: {
+              width: "{props?.width ? props.width : props?.size ?? 20}",
+              height: "{props?.height ? props.height : props?.size ?? 20}",
+            },
           },
-        },
-      },
+        }),
+      ],
       resolve: {
         alias: [
           {
