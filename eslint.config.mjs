@@ -222,7 +222,7 @@ const config = tseslint.config([
     rules: {
       "@typescript-eslint/no-require-imports": "off",
     },
-  }
+  },
 ])
 
 export default config
