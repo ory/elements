@@ -16,7 +16,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Login, LoginFlowContextProps } from "../../../../src/theme/default"
 
 const CustomSocialButton = ({ node }: OryNodeOidcButtonProps) => (
-  <div className="antialiased rounded-buttons border border-interface-background-default-inverted">
+  <div className="antialiased rounded-buttons border border-interface-background-default-inverted leading-none bg-button-primary-background-default hover:bg-button-primary-background-hover transition-colors text-button-primary-foreground-default hover:text-button-primary-foreground-hover px-4 py-4.5 text-sm font-medium">
     Custom {node.meta.label?.text}
   </div>
 )
