@@ -78,7 +78,7 @@ export interface Theme {
 }
 
 export const defaultFont: Font = {
-  fontFamily: `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;"`,
+  fontFamily: `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;`,
   fontFamilyMono: "JetBrainsMono",
   fontStyle: "normal",
 }
