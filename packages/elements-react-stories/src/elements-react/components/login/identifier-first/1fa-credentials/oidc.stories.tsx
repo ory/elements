@@ -4,10 +4,10 @@
 import { LoginFlow, LoginFlowFromJSON } from "@ory/client-fetch"
 import { Login } from "@ory/elements-react/theme"
 import type { Meta, StoryObj } from "@storybook/react"
-import { config } from "../../../utils"
+import { config } from "../../../../utils"
 
 const oidcNodes =
-  require("$/.stub-responses/login/1fa/oidc/initial-form.json") as LoginFlow
+  require("$/.stub-responses/login/1fa/oidc/credential-select.json") as LoginFlow
 
 const providers = [
   "apple",
@@ -35,6 +35,7 @@ const listOnly = (providers: string[]): LoginFlow => {
           return true
         }
 
+        console.log({ node })
         return providers.includes(
           (node.attributes.value as string).toLowerCase(),
         )
@@ -50,11 +51,13 @@ function LoginProxy(providers: LoginProxy) {
     ? listOnly(Object.keys(providers).filter((key) => providers[key]))
     : LoginFlowFromJSON(oidcNodes)
 
+  console.log({ flow, oidcNodes })
+
   return <Login flow={flow} config={config} />
 }
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Methods/Social Sign In",
+  title: "Ory Elements/First Factor Login/Select Credential/Social Sign In",
   component: LoginProxy,
   parameters: {
     layout: "centered",

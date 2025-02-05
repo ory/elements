@@ -33,6 +33,10 @@ export function DefaultCurrentIdentifierButton() {
     "autocomplete",
     "node_type",
     "maxlength",
+    "onload",
+    "onloadTrigger",
+    "onclick",
+    "onclickTrigger",
   ])
 
   return (

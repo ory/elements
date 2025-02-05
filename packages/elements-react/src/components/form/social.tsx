@@ -29,6 +29,7 @@ export function OryFormOidcButtons({
 }: OryFormOidcButtonsProps) {
   const {
     flow: { ui },
+    formState,
   } = useOryFlow()
   const { setValue } = useFormContext()
 
@@ -42,9 +43,26 @@ export function OryFormOidcButtons({
   }
 
   // Are there other first-factor nodes available?
-  const otherNodes = ui.nodes.filter(
-    (node) => node.group !== "oidc" && node.group !== "default",
-  )
+  const otherNodes = ui.nodes.filter((node) => {
+    const exclude = ["oidc"]
+    // In identifier first, second step, we ignore the identifier_first group
+    // as it renders the back button.
+    if (formState.current === "select_method") {
+      exclude.push("identifier_first")
+    }
+
+    // Ignore hidden nodes as well.
+    if (
+      node.attributes.node_type === "input" &&
+      node.attributes.type === "hidden"
+    ) {
+      return false
+    }
+
+    return !exclude.includes(node.group)
+  })
+
+  console.log(otherNodes)
 
   return (
     <>
