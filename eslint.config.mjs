@@ -15,7 +15,7 @@ const config = tseslint.config([
   {
     ignores: [
       "**/assets/*.js",
-      "!.storybook",
+      "**/.storybook/**",
       "**/dist/**",
       "**/storybook-static/**",
       "**/*.config.{js,mjs,cjs,ts}",
@@ -215,6 +215,12 @@ const config = tseslint.config([
         config: "packages/elements-react/tailwind.config.ts",
         callees: ["classnames", "clsx", "ctl", "cn"],
       },
+    },
+  },
+  {
+    files: ["packages/elements-react/stories/**/*.{js,jsx,ts,tsx}"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 ])

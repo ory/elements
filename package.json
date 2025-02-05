@@ -113,6 +113,7 @@
     "vite-plugin-dts": "4.1.0",
     "vite-plugin-require": "1.2.14",
     "vite-plugin-static-copy": "1.0.6",
+    "vite-plugin-svgr": "4.3.0",
     "vite-tsconfig-paths": "5.0.1",
     "which-builtin-type": "1.1.4"
   },

@@ -19,7 +19,8 @@
     "lib": ["ES6", "DOM", "WebWorker"],
     "rootDir": ".",
     "paths": {
-      "@ory/elements-react": ["./src/index.ts"]
+      "@ory/elements-react": ["./src/index.ts"],
+      "$snapshots/*": ["./.stub-responses/*"]
     }
   },
   "exclude": ["node_modules", "dist"],
@@ -27,8 +28,6 @@
     "**/*.ts",
     "**/*.tsx",
     "src/global.d.ts",
-    "src/tests/**/*.ts",
-    "src/tests/**/*.tsx",
     "tsup.config.ts",
     "jest.config.ts",
     "tailwind.config.ts"
