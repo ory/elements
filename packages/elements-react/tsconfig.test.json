@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "include": [
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "playwright/",
-    "playwright-ct.config.ts"
-  ]
-}

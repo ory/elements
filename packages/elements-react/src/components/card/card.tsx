@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { PropsWithChildren } from "react"
-import { OryCardFooter } from "."
+import { OryCardFooter } from "./footer"
 import { useComponents } from "../../context"
 import { OryCardContent } from "./content"
 import { OryCardHeader } from "./header"

@@ -78,15 +78,13 @@ export interface Theme {
 }
 
 export const defaultFont: Font = {
-  fontFamily: "Inter",
+  fontFamily: `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;`,
   fontFamilyMono: "JetBrainsMono",
   fontStyle: "normal",
 }
 
 export const defaultLightTheme: Theme = {
-  fontFamily: "Inter",
-  fontFamilyMono: "JetBrainsMono",
-  fontStyle: "normal",
+  ...defaultFont,
   accent: {
     def: "#3D53F5",
     muted: "#6475F7",
@@ -133,9 +131,7 @@ export const defaultLightTheme: Theme = {
 }
 
 export const defaultDarkTheme: Theme = {
-  fontFamily: "Inter",
-  fontFamilyMono: "JetBrainsMono",
-  fontStyle: "normal",
+  ...defaultFont,
   accent: {
     def: "#6475f7",
     disabled: "#757575",

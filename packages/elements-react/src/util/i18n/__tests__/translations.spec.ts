@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { locales as supportedLanguages } from "../../../locales"
+import { OryLocales as supportedLanguages } from "../../../locales"
 import { expect } from "@playwright/test"
 
 type TemplateStrings = {

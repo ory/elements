@@ -13,11 +13,15 @@ export function initFlowUrl(
   flowType: string,
   flow: {
     return_to?: string
+    oauth2_login_challenge?: string
   },
 ) {
   const result = `${sdkUrl}/self-service/${flowType}/browser`
   const qs = new URLSearchParams()
 
+  if (flow.oauth2_login_challenge) {
+    qs.set("login_challenge", flow.oauth2_login_challenge)
+  }
   if (flow.return_to) {
     qs.set("return_to", flow.return_to)
   } else if (typeof window !== "undefined") {

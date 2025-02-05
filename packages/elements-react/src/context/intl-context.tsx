@@ -3,7 +3,8 @@
 
 import { PropsWithChildren } from "react"
 import { IntlProvider as OriginalIntlProvider } from "react-intl"
-import { LocaleMap, locales } from "../locales"
+import { OryLocales } from ".."
+import { LocaleMap } from "../locales"
 
 // ISO 639-1 language codes
 // https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -146,7 +147,7 @@ export const LanguageCodes = [
   "zu",
 ] as const
 
-export type Locale = keyof typeof locales
+export type Locale = keyof typeof OryLocales
 
 export type IntlContextProps = {
   locale: Locale
@@ -155,9 +156,9 @@ export type IntlContextProps = {
 
 function mergeTranslations(customTranslations: Partial<LocaleMap>) {
   return Object.keys(customTranslations).reduce((acc, key) => {
-    acc[key] = { ...locales[key], ...customTranslations[key] }
+    acc[key] = { ...OryLocales[key], ...customTranslations[key] }
     return acc
-  }, locales)
+  }, OryLocales)
 }
 
 export const IntlProvider = ({

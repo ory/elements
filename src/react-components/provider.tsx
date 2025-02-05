@@ -223,7 +223,7 @@ export const IntlProvider = <
   let translation = locales.en
 
   if (props.locale && props.locale in locales) {
-    translation = locales[props.locale as locale]
+    translation = { ...locales.en, ...locales[props.locale as locale] }
   }
 
   const intlProps = isCustomTranslations(props)
