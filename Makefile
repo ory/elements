@@ -31,7 +31,7 @@ PRETTIER_VERSION=$(shell cat package.json | jq -r '.devDependencies["prettier"] 
 format: .bin/ory
 	.bin/ory dev headers copyright --type=open-source
 	@echo "Prettier Version: $(PRETTIER_VERSION)"
-	npx prettier@$$PRETTIER_VERSION --write .
+	npx prettier@$(PRETTIER_VERSION) --write .
 
 licenses: .bin/licenses node_modules  # checks open-source licenses
 	.bin/licenses
