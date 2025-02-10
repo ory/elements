@@ -14,7 +14,7 @@ import { useEffect, useState } from "react"
 
 const buttonStyles = cva(
   [
-    "relative flex justify-center gap-3 overflow-hidden rounded leading-none ring-1 ring-inset font-medium",
+    "relative flex justify-center gap-3 overflow-hidden rounded-buttons leading-none ring-1 ring-inset font-medium",
     "disabled:cursor-not-allowed loading:cursor-wait loading:before:pointer-events-none",
     "transition-colors duration-100 ease-linear",
     "p-4 max-w-[488px]",

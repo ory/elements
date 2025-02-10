@@ -38,7 +38,7 @@ export function DefaultCurrentIdentifierButton() {
   return (
     <a
       className={
-        "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-full border px-[11px] py-[5px] transition-colors " +
+        "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border px-[11px] py-[5px] transition-colors " +
         "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
       }
       {...attributes}

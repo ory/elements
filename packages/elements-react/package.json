@@ -17,7 +17,12 @@
       "import": "./dist/theme/default/index.mjs",
       "require": "./dist/theme/default/index.js"
     },
-    "./theme/styles.css": "./dist/theme/default/index.css"
+    "./theme/styles.css": "./dist/theme/default/index.css",
+    "./theme/tailwind": {
+      "types": "./dist/theme/default/tailwind/defaults.d.ts",
+      "import": "./dist/theme/default/tailwind/defaults.mjs",
+      "require": "./dist/theme/default/tailwind/defaults.js"
+    }
   },
   "typesVersions": {
     "*": {
