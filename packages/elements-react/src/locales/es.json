@@ -241,5 +241,11 @@
   "settings.title-webauthn": "",
   "settings.webauthn.info": "",
   "card.footer.select-another-method": "",
-  "account-linking.title": ""
+  "account-linking.title": "",
+  "property.code": "",
+  "property.email": "",
+  "property.identifier": "",
+  "property.password": "",
+  "property.phone": "",
+  "property.username": ""
 }

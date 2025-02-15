@@ -241,5 +241,11 @@
   "settings.title-webauthn": "Hardware-Token verwalten",
   "settings.webauthn.info": "Hardware-Tokens werden für die Zweitfaktor-Authentifizierung oder als Erstfaktor-Authentifizierung mit Passkeys verwendet",
   "card.footer.select-another-method": "Eine andere Methode verwenden",
-  "account-linking.title": "Account Verbinden"
+  "account-linking.title": "Account Verbinden",
+  "property.email": "E-Mail",
+  "property.identifier": "Kennung",
+  "property.password": "Passwort",
+  "property.phone": "Telefon",
+  "property.code": "Code",
+  "property.username": "Benutzername"
 }

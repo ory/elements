@@ -171,5 +171,6 @@
   "settings.title-passkey": "Zarządzaj Passkeys",
   "verification.registration-button": "Zarejestruj się",
   "verification.registration-label": "Nie posiadasz konta?",
-  "verification.title": "Zweryfikuj konto"
+  "verification.title": "Zweryfikuj konto",
+  "property.identifier": ""
 }
