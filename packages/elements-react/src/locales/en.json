@@ -86,7 +86,7 @@
   "identities.messages.1080002": "You successfully verified your email address.",
   "identities.messages.1080003": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
   "identities.messages.4000001": "{reason}",
-  "identities.messages.4000002": "Property {property} is missing.",
+  "identities.messages.4000002": "Please enter the {property} and try again.",
   "identities.messages.4000003": "length must be >= {min_length}, but got {actual_length}",
   "identities.messages.4000004": "does not match pattern \"{pattern}\"",
   "identities.messages.4000005": "The password can not be used because {reason}.",
@@ -241,5 +241,11 @@
   "settings.passkey.description": "Manage your passkey settings",
   "settings.passkey.info": "Manage your passkey settings",
   "card.footer.select-another-method": "Select another method",
-  "account-linking.title": "Link account"
+  "account-linking.title": "Link account",
+  "property.password": "password",
+  "property.email": "email",
+  "property.phone": "phone",
+  "property.username": "username",
+  "property.identifier": "identifier",
+  "property.code": "code"
 }

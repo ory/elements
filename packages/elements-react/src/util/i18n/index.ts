@@ -81,6 +81,14 @@ export const uiTextToFormattedMessage = (
             ).toFixed(0),
           }
         }
+      } else if (key === "property") {
+        return {
+          ...accumulator,
+          [key]: intl.formatMessage({
+            id: `property.${value}`,
+            defaultMessage: value,
+          }),
+        }
       }
       return {
         ...accumulator,
