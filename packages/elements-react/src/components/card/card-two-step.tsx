@@ -13,6 +13,14 @@ import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
 import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
+import { AuthMethodOption } from "../../types"
+
+// Groups that aren't real authentication methods
+const metaGroups: string[] = [
+  UiNodeGroupEnum.Default,
+  UiNodeGroupEnum.IdentifierFirst,
+  UiNodeGroupEnum.Profile,
+]
 
 export function OryTwoStepCard() {
   const {
@@ -25,28 +33,21 @@ export function OryTwoStepCard() {
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
 
-  const uniqueGroups = useNodesGroups(ui.nodes)
+  // Options that are available to the user
+  // (E.g. enabled in the configuration or set up by the user)
+  const availableGroups = useNodesGroups(ui.nodes)
 
-  const options: UiNodeGroupEnum[] = Object.values(UiNodeGroupEnum)
-    .filter((group) => uniqueGroups.groups[group]?.length)
-    .filter(
-      (group) =>
-        !(
-          [
-            UiNodeGroupEnum.Oidc,
-            UiNodeGroupEnum.Default,
-            UiNodeGroupEnum.IdentifierFirst,
-            UiNodeGroupEnum.Profile,
-          ] as UiNodeGroupEnum[]
-        ).includes(group),
-    )
+  // Filter out meta groups (profile, default, etc) and groups without nodes
+  const options = Object.entries(availableGroups.groups).filter(
+    ([group, nodes]) => !metaGroups.includes(group) && nodes.length,
+  )
 
-  const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
+  const hasOidc = Boolean(availableGroups.groups[UiNodeGroupEnum.Oidc]?.length)
 
   const zeroStepGroups = filterZeroStepGroups(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
-      ? getFinalNodes(uniqueGroups.groups, formState.method)
+      ? getFinalNodes(availableGroups.groups, formState.method)
       : []
 
   return (
@@ -59,7 +60,7 @@ export function OryTwoStepCard() {
         )}
         <OryForm
           onAfterSubmit={(method) =>
-            isGroupImmediateSubmit(method + "")
+            isGroupImmediateSubmit(method + "") && method != "oidc"
               ? dispatchFormState({
                   type: "action_select_method",
                   method: method as UiNodeGroupEnum,
@@ -107,7 +108,7 @@ export function OryTwoStepCard() {
 }
 
 type AuthMethodListProps = {
-  options: UiNodeGroupEnum[]
+  options: [string, UiNode[]][]
   setSelectedGroup: (group: UiNodeGroupEnum) => void
 }
 
@@ -115,7 +116,10 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { Card } = useComponents()
   const { setValue } = useFormContext()
 
-  const handleClick = (group: UiNodeGroupEnum) => {
+  const handleClick = (group: UiNodeGroupEnum, value: string) => {
+    if (group === "oidc") {
+      setValue("provider", value)
+    }
     if (isGroupImmediateSubmit(group)) {
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
       // then the method needs to be added to the form data.
@@ -124,11 +128,42 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
       setSelectedGroup(group)
     }
   }
-  return options.map((option) => (
+
+  const flattenedOptions = options
+    .flatMap(mapOptionsToAuthMethodOption)
+    .filter(Boolean) as AuthMethodOption[]
+
+  return flattenedOptions.map((option) => (
     <Card.AuthMethodListItem
-      key={option}
-      group={option}
-      onClick={() => handleClick(option)}
+      key={option.value}
+      option={option}
+      onClick={() => handleClick(option.group, option.value)}
     />
   ))
+}
+
+function mapOptionsToAuthMethodOption([group, nodes]: [string, UiNode[]]):
+  | AuthMethodOption
+  | (AuthMethodOption | undefined)[]
+  | undefined {
+  if (group === "oidc") {
+    return nodes.map((node) => {
+      if (node.attributes.node_type === "input") {
+        const provider = (node.attributes.value as string).split("-")[0]
+        return {
+          group: group,
+          value: node.attributes.value,
+          iconId: provider,
+          label: (node.meta.label?.context as Record<string, string>)?.provider,
+          description: node.meta.label,
+        }
+      }
+      // Safety, but the oidc group should only contain input nodes
+      return undefined
+    })
+  }
+  return {
+    group: group as UiNodeGroupEnum,
+    value: group,
+  }
 }
