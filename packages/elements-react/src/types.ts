@@ -4,9 +4,11 @@
 import {
   UiNode,
   UiNodeAnchorAttributes,
+  UiNodeGroupEnum,
   UiNodeImageAttributes,
   UiNodeInputAttributes,
   UiNodeTextAttributes,
+  UiText,
 } from "@ory/client-fetch"
 import {
   ComponentPropsWithoutRef,
@@ -39,13 +41,21 @@ export type OryNodeTextProps = {
 
 export type OryCardLogoProps = Record<string, never>
 
+export type AuthMethodOption = {
+  group: UiNodeGroupEnum
+  value: string
+  iconId?: string
+  label?: string
+  description?: UiText
+}
+
 /**
  * Props for the AuthMethodListItem component. This component is used
  * to render a single auth method in the AuthMethodList component.
  */
 export type OryCardAuthMethodListItemProps = {
   onClick: () => void
-  group: string
+  option: AuthMethodOption
 }
 
 export type OryNodeImageProps = {
