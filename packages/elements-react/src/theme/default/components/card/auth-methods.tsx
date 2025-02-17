@@ -29,36 +29,31 @@ export function DefaultAuthMethodListItem({
   const Icon = iconsMap[option.iconId ?? option.group] || null
 
   return (
-    <div className="w-full rounded px-2 py-1 hover:bg-interface-background-default-primary-hover">
-      <button
-        className="flex cursor-pointer gap-3 py-2 text-left items-start"
-        onClick={onClick}
-        type={isGroupImmediateSubmit(option.group) ? "submit" : "button"}
-        data-testid={`ory/form/auth-picker/${option.group}`}
-        aria-label={`Authenticate with ${option.group}`}
-      >
-        <span className="mt-1">
-          {Icon && (
-            <Icon
-              size={16}
-              className="text-interface-foreground-brand-primary"
-            />
-          )}
+    <button
+      className="flex cursor-pointer gap-3 text-left items-start w-full rounded-buttons p-2 hover:bg-interface-background-default-primary-hover"
+      onClick={onClick}
+      type={isGroupImmediateSubmit(option.group) ? "submit" : "button"}
+      data-testid={`ory/form/auth-picker/${option.group}`}
+      aria-label={`Authenticate with ${option.group}`}
+    >
+      <span className="mt-1">
+        {Icon && (
+          <Icon size={16} className="text-interface-foreground-brand-primary" />
+        )}
+      </span>
+      <span className="flex-1 leading-normal inline-flex flex-col">
+        <span className="text-interface-foreground-default-primary">
+          {option.label ??
+            intl.formatMessage({ id: `two-step.${option.group}.title` })}
         </span>
-        <span className="flex-1 leading-normal inline-flex flex-col">
-          <span className="text-interface-foreground-default-primary">
-            {option.label ??
-              intl.formatMessage({ id: `two-step.${option.group}.title` })}
-          </span>
-          <span className="text-interface-foreground-default-secondary">
-            {option.description
-              ? uiTextToFormattedMessage(option.description, intl)
-              : intl.formatMessage({
-                  id: `two-step.${option.group}.description`,
-                })}
-          </span>
+        <span className="text-interface-foreground-default-secondary">
+          {option.description
+            ? uiTextToFormattedMessage(option.description, intl)
+            : intl.formatMessage({
+                id: `two-step.${option.group}.description`,
+              })}
         </span>
-      </button>
-    </div>
+      </span>
+    </button>
   )
 }
