@@ -41,6 +41,7 @@ export function OryTwoStepCard() {
         ).includes(group),
     )
 
+  const hasError = Boolean(ui.messages?.some((m) => m.type === "error"))
   const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
 
   const zeroStepGroups = filterZeroStepGroups(ui.nodes)
@@ -53,7 +54,7 @@ export function OryTwoStepCard() {
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
-        <OryCardValidationMessages />
+        {hasError ? <OryCardValidationMessages /> : undefined}
         {formState.current === "provide_identifier" && hasOidc && (
           <OryFormSocialButtonsForm />
         )}

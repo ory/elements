@@ -2463,7 +2463,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "locales: "
+              "text": "OryLocales: "
             },
             {
               "kind": "Reference",
