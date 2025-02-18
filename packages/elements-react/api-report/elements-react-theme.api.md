@@ -22,6 +22,7 @@ import { RegistrationFlow } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import { UiNode } from '@ory/client-fetch';
 import { UiNodeAnchorAttributes } from '@ory/client-fetch';
+import { UiNodeGroupEnum } from '@ory/client-fetch';
 import { UiNodeImageAttributes } from '@ory/client-fetch';
 import { UiNodeInputAttributes } from '@ory/client-fetch';
 import { UiNodeTextAttributes } from '@ory/client-fetch';

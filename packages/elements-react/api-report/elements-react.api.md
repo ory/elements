@@ -38,6 +38,15 @@ import { UpdateVerificationFlowBody } from '@ory/client-fetch';
 import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
+// @public (undocumented)
+export type AuthMethodOption = {
+    group: UiNodeGroupEnum;
+    value: string;
+    iconId?: string;
+    label?: string;
+    description?: UiText;
+};
+
 // Warning: (ae-forgotten-export) The symbol "OryFlow" needs to be exported by the entry point index.d.ts
 //
 // @public
@@ -108,7 +117,7 @@ export function OryCard({ children }: PropsWithChildren): react_jsx_runtime.JSX.
 // @public
 export type OryCardAuthMethodListItemProps = {
     onClick: () => void;
-    group: string;
+    option: AuthMethodOption;
 };
 
 // @public
