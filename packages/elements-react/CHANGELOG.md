@@ -1,3 +1,19 @@
+## 1.0.0-next.27 (2025-02-18)
+
+### 🩹 Fixes
+
+- translate {property} in missing property validation message ([#357](https://github.com/ory/elements/pull/357))
+- invisible LinkedIn icon ([#355](https://github.com/ory/elements/pull/355))
+- in initFlowUrl carry over login challenge ([#347](https://github.com/ory/elements/pull/347))
+- define a fallback font stack ([#349](https://github.com/ory/elements/pull/349))
+- show correct OIDC provider logo ([#350](https://github.com/ory/elements/pull/350))
+- brand logic in social sign in icon ([#348](https://github.com/ory/elements/pull/348))
+
+### ❤️  Thank You
+
+- Henning Perl @hperl
+- Jonas Hungershausen
+
 ## 1.0.0-next.26 (2025-02-18)
 
 ### 🩹 Fixes
