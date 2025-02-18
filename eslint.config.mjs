@@ -213,7 +213,7 @@ const config = tseslint.config([
     settings: {
       tailwindcss: {
         config: "packages/elements-react/tailwind.config.ts",
-        callees: ["classnames", "clsx", "ctl", "cn"],
+        callees: ["classnames", "clsx", "ctl", "cn", "cva"],
       },
     },
   },

@@ -3,8 +3,8 @@
 
 import type { Config } from "tailwindcss"
 
-import variables from "./variables-processed.json"
 import plugin from "tailwindcss/plugin"
+import OryElementsTailwindConfig from "./tailwind/defaults"
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -22,32 +22,11 @@ const config: Config = {
       padding: {
         "4.5": "1.125rem",
       },
-      /* We need the default border radius as well in some cases. */
-      borderRadius: variables.borderRadius.default.number,
     },
     fontFamily: {
       sans: ["var(--font-sans)"],
     },
-    colors: {
-      ...variables.light.color,
-      ...variables.slate.color,
-    },
-    backgroundColor: {
-      ...variables.light.color,
-      ...variables.slate.color,
-    },
-    borderColor: {
-      ...variables.light.color,
-      ...variables.slate.color,
-    },
-    ringColor: {
-      ...variables.light.color,
-      ...variables.slate.color,
-    },
-    fill: {
-      ...variables.light.color,
-      ...variables.slate.color,
-    },
+    ...OryElementsTailwindConfig,
     data: {
       loading: `loading~="true"`,
     },

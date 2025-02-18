@@ -84,7 +84,7 @@ export function DefaultButtonSocial({
 
   return (
     <button
-      className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover transition-colors rounded flex items-center justify-center px-4 py-[13px] loading:bg-button-social-background-disabled loading:border-button-social-border-disabled loading:text-button-social-foreground-disabled hover:text-button-social-foreground-hover"
+      className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover transition-colors rounded-buttons flex items-center justify-center px-4 py-[13px] loading:bg-button-social-background-disabled loading:border-button-social-border-disabled loading:text-button-social-foreground-disabled hover:text-button-social-foreground-hover"
       value={attributes.value}
       type="submit"
       name="provider"
@@ -99,7 +99,7 @@ export function DefaultButtonSocial({
           Logo ? (
             <Logo size={20} />
           ) : (
-            <span className="flex aspect-square items-center justify-center rounded-full border text-xs">
+            <span className="flex aspect-square items-center justify-center rounded-[999px] border text-xs">
               {provider.slice(0, 2)}
             </span>
           )

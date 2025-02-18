@@ -86,7 +86,7 @@
   "identities.messages.1080002": "Du har verifierat din e-postadress.",
   "identities.messages.1080003": "Ett e-postmeddelande som innehåller en verifieringskod har skickats till den e-postadress du angett. Om du inte har fått ett mejl, kontrollera stavningen på adressen och se till att använda adressen du registrerade dig med.",
   "identities.messages.4000001": "{reason}",
-  "identities.messages.4000002": "Egenskap {property} saknas.",
+  "identities.messages.4000002": "Fyll i {property} och försök igen.",
   "identities.messages.4000003": "längd måste vara >= {min_length}, men var {actual_length}",
   "identities.messages.4000004": "matchar inte mönstret \"{pattern}\"",
   "identities.messages.4000005": "Lösenordet kan inte användas pga {reason}.",
@@ -249,5 +249,11 @@
   "settings.webauthn.info": "Hårdvarutokens används för andrafaktorsautentisering eller som förstafaktor med lösenordsnycklar",
   "settings.webauthn.title": "Hantera maskinvarutokens",
   "card.footer.select-another-method": "Välj en annan metod",
-  "account-linking.title": "Länka ditt konto"
+  "account-linking.title": "Länka ditt konto",
+  "property.password": "lösenord",
+  "property.email": "e-post",
+  "property.phone": "telefon",
+  "property.username": "användarnamn",
+  "property.identifier": "identifier",
+  "property.code": "kod"
 }

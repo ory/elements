@@ -1,0 +1,15 @@
+{
+  "name": "color-variable-processor",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "scripts": {
+    "process": "tsx main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "tsx": "4.19.2"
+  }
+}
