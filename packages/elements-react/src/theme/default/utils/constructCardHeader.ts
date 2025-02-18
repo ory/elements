@@ -28,7 +28,7 @@ type opts =
         refresh?: boolean
         requested_aal?: AuthenticatorAssuranceLevel
       }
-      formState: FormState
+      formState?: FormState
     }
   | {
       flowType:
@@ -229,7 +229,7 @@ export function useCardHeaderText(
           }),
           description: intl.formatMessage({
             id:
-              opts.formState.current === "method_active"
+              opts.formState?.current === "method_active"
                 ? `login.${opts.formState.method}.subtitle`
                 : "login.subtitle-aal2",
           }),
