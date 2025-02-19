@@ -7,6 +7,10 @@ import code from "../../assets/icons/code.svg"
 import passkey from "../../assets/icons/passkey.svg"
 import password from "../../assets/icons/password.svg"
 import webauthn from "../../assets/icons/webauthn.svg"
+import hardware_token from "../../assets/icons/passkey.svg"
+import totp from "../../assets/icons/totp.svg"
+import lookup_secret from "../../assets/icons/code-asterix.svg"
+
 import { isGroupImmediateSubmit } from "../../utils/form"
 
 const iconsMap: Record<string, typeof code> = {
@@ -14,6 +18,9 @@ const iconsMap: Record<string, typeof code> = {
   passkey,
   password,
   webauthn,
+  hardware_token,
+  totp,
+  lookup_secret,
 }
 
 // TODO: create a next specific component with Image for this
