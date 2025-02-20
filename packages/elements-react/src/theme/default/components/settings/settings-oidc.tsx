@@ -1,15 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OrySettingsOidcProps } from "@ory/elements-react"
-import { DefaultButtonSocial, extractProvider } from "../form/social"
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
-import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import logos from "../../provider-logos"
-import Trash from "../../assets/icons/trash.svg"
-import { useFormContext } from "react-hook-form"
-import { Spinner } from "../form/spinner"
+import { OrySettingsOidcProps } from "@ory/elements-react"
 import { useEffect, useState } from "react"
+import { useFormContext } from "react-hook-form"
+import Trash from "../../assets/icons/trash.svg"
+import logos from "../../provider-logos"
+import { DefaultHorizontalDivider } from "../form/horizontal-divider"
+import { DefaultButtonSocial, extractProvider } from "../form/social"
+import { Spinner } from "../form/spinner"
 
 export function DefaultSettingsOidc({
   linkButtons,
@@ -62,8 +62,12 @@ function UnlinkRow({ button }: UnlinkRowProps) {
   const Logo = attrs.value in logos ? logos[attrs.value] : logos.generic
 
   const localOnClick = () => {
-    setClicked(true)
     button.onClick()
+    // Safari cancels form submission events, if we do a state update in the same tick
+    // so we delay the state update by 100ms
+    setTimeout(() => {
+      setClicked(true)
+    }, 100)
   }
 
   useEffect(() => {
