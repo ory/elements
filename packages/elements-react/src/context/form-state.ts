@@ -46,7 +46,7 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         !["default", "identifier_first", "oidc"].includes(flow.flow.active)
       ) {
         return { current: "method_active", method: flow.flow.active }
-      } else if (isChoosingMethod(flow.flow.ui.nodes)) {
+      } else if (isChoosingMethod(flow)) {
         // Login has a special case where we only have one method. Here, we
         // do not want to display the chooser.
         const authMethods = nodesToAuthMethodGroups(flow.flow.ui.nodes)
