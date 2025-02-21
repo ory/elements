@@ -6,6 +6,7 @@ import { useReducer } from "react"
 import { isChoosingMethod } from "../components/card/card-two-step.utils"
 import { OryFlowContainer } from "../util"
 import { nodesToAuthMethodGroups } from "../util/ui"
+import { isGroupImmediateSubmit } from "../theme/default/utils/form"
 
 export type FormState =
   | { current: "provide_identifier" }
@@ -51,7 +52,10 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         // do not want to display the chooser.
         const authMethods = nodesToAuthMethodGroups(flow.flow.ui.nodes)
         // TODO: https://github.com/ory/kratos/issues/4271 - once this is fixed in Kratos, we can remove the check for "code"
-        if (authMethods.length === 1 && authMethods[0] !== "code") {
+        if (
+          authMethods.length === 1 &&
+          !isGroupImmediateSubmit(authMethods[0])
+        ) {
           return { current: "method_active", method: authMethods[0] }
         }
         return { current: "select_method" }
@@ -89,6 +93,7 @@ export function formStateReducer(
     case "action_flow_update":
       return parseStateFromFlow(action.flow)
     case "action_select_method":
+      console.log("action_select_method", action.method)
       return { current: "method_active", method: action.method }
   }
   return state
