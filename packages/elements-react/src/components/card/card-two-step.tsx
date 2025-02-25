@@ -22,10 +22,12 @@ function isUINodeGroupEnum(method: string): method is UiNodeGroupEnum {
 export function OryTwoStepCard() {
   const {
     flow: { ui },
+    flowType,
+    formState,
+    dispatchFormState,
   } = useOryFlow()
 
   const { Form, Card } = useComponents()
-  const { flowType, formState, dispatchFormState } = useOryFlow()
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
@@ -71,7 +73,9 @@ export function OryTwoStepCard() {
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {hasOidc && <OryFormSocialButtonsForm />}
+        {formState.current !== "method_active" && hasOidc && (
+          <OryFormSocialButtonsForm />
+        )}
         <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
             {formState.current === "provide_identifier" && (
