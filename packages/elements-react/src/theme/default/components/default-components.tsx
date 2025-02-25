@@ -12,7 +12,7 @@ import {
   DefaultCardHeader,
   DefaultCardLogo,
 } from "./card"
-import { DefaultAuthMethodListItem } from "./card/auth-methods"
+import { DefaultAuthMethodListItem } from "./card/auth-method-list-item"
 import {
   DefaultFormContainer,
   DefaultMessage,
@@ -43,6 +43,7 @@ import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes"
 import { DefaultSettingsTotp } from "./settings/settings-totp"
 import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
+import { DefaultAuthMethodListContainer } from "./card/auth-method-list-container"
 
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
@@ -57,6 +58,9 @@ export function getOryComponents(
       Content: overrides?.Card?.Content ?? DefaultCardContent,
       Logo: overrides?.Card?.Logo ?? DefaultCardLogo,
       Divider: overrides?.Card?.Divider ?? DefaultHorizontalDivider,
+      AuthMethodListContainer:
+        overrides?.Card?.AuthMethodListContainer ??
+        DefaultAuthMethodListContainer,
       AuthMethodListItem:
         overrides?.Card?.AuthMethodListItem ?? DefaultAuthMethodListItem,
       SettingsSection: overrides?.Card?.SettingsSection ?? DefaultFormSection,
