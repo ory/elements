@@ -240,12 +240,7 @@ export type OryFormGroupsProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export function OryFormOidcButtons({ children, hideDivider, }: OryFormOidcButtonsProps): react_jsx_runtime.JSX.Element | null;
-
-// @public (undocumented)
-export type OryFormOidcButtonsProps = PropsWithChildren<{
-    hideDivider?: boolean;
-}>;
+export function OryFormOidcButtons(): react_jsx_runtime.JSX.Element | null;
 
 // @public (undocumented)
 export type OryFormOidcRootProps = PropsWithChildren<{
