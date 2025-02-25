@@ -1,12 +1,12 @@
 {
-  "id": "e0e1fbff-1f67-4f43-b686-e2e13f20c31d",
+  "id": "b444f54e-d067-4dae-b653-0c8f39e04ccf",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:49.216119Z",
-  "issued_at": "2024-10-29T09:45:49.216119Z",
-  "request_url": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-25T18:12:00.333085Z",
+  "issued_at": "2025-02-25T17:12:00.333085Z",
+  "request_url": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login?flow=e0e1fbff-1f67-4f43-b686-e2e13f20c31d",
+    "action": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/login?flow=b444f54e-d067-4dae-b653-0c8f39e04ccf",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "XbAsvaU+Bxq08xhkISVldUEYq1JQJ0+wzZ/nGKgGcdABa2Sn+lCE99Eze934G3ei2fHlt5dD9jroN2WCr5zHRg==",
+          "value": "CAb9J+Xxvz7e4QVv1YQaud2819ffDTpgCsfT6/0J1vvIdjVFW4qYIZFUVyZSuXjQY7rKrQCeX1Xz6zsX1fSaDw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -75,8 +75,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:49.225749Z",
-  "updated_at": "2024-10-29T09:45:49.225749Z",
+  "created_at": "2025-02-25T17:12:00.33618Z",
+  "updated_at": "2025-02-25T17:12:00.33618Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

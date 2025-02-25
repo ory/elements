@@ -1,12 +1,12 @@
 {
-  "id": "35f2df88-8442-428c-887a-16b894afbcc8",
+  "id": "2b163565-c8db-447c-b87c-e8e036fbab02",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:37.2137798Z",
-  "issued_at": "2024-10-29T09:45:37.2137798Z",
-  "request_url": "https://lucid-mayer-fnz4cfjy9n.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-25T18:11:48.778820713Z",
+  "issued_at": "2025-02-25T17:11:48.778820713Z",
+  "request_url": "https://compassionate-elion-7uft5xbmx2.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://lucid-mayer-fnz4cfjy9n.projects.oryapis:8080/self-service/login?flow=35f2df88-8442-428c-887a-16b894afbcc8",
+    "action": "https://compassionate-elion-7uft5xbmx2.projects.oryapis:8080/self-service/login?flow=2b163565-c8db-447c-b87c-e8e036fbab02",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "q8qopE25+AzZleVcq18dhrm8HOnpITEP5FwosXaf61DvvT2/Qe1DJrFybDjSQB3QQZP4+YI/ZYDunHsxj4j5nQ==",
+          "value": "lesiSf8Yoo7TnzNpi1Kj8HShE9WzgNYfELpec4eseyBQ0DvjHXa2fzTQ7TaUAMQp/CzKp7I6UFCRlsvg2jyhpg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:37.21759Z",
-  "updated_at": "2024-10-29T09:45:37.21759Z",
+  "created_at": "2025-02-25T17:11:48.781807Z",
+  "updated_at": "2025-02-25T17:11:48.781807Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

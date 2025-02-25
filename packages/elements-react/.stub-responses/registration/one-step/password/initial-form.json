@@ -1,11 +1,11 @@
 {
-  "id": "c713a293-47c4-4605-8605-40127751083b",
+  "id": "2bebb08e-a077-48cc-a5a9-69ec444da2f9",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:42.152426303Z",
-  "issued_at": "2024-10-29T09:45:42.152426303Z",
-  "request_url": "https://serene-archimedes-edlkt7nkyd.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-25T18:11:55.169690341Z",
+  "issued_at": "2025-02-25T17:11:55.169690341Z",
+  "request_url": "https://romantic-gauss-lo0um7wqbs.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://serene-archimedes-edlkt7nkyd.projects.oryapis:8080/self-service/registration?flow=c713a293-47c4-4605-8605-40127751083b",
+    "action": "https://romantic-gauss-lo0um7wqbs.projects.oryapis:8080/self-service/registration?flow=2bebb08e-a077-48cc-a5a9-69ec444da2f9",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "y6s8GWDem5uw1EE6kJW14kj+MiQdDtIriC3ALVRTah5YZHF/w7Vtzk0MhrMN9rQDjVkd9FNBAp8r5aySd+9r7w==",
+          "value": "BSDwsuThFLVSxOtcH5nZVM3Ujy7RA+33r7DaxCbLnkRpN2WqtduTGv3kFTQIdFek8OMvoeTAXhr9B5bRtPY8WQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

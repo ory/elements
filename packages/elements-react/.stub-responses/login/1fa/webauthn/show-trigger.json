@@ -1,12 +1,12 @@
 {
-  "id": "fe189118-902c-4f78-a742-342356f2a3ec",
+  "id": "4b72feab-a84b-4a53-a070-3d247954e019",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:48.76084Z",
-  "issued_at": "2024-10-29T09:45:48.76084Z",
-  "request_url": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "expires_at": "2025-02-25T18:12:00.122256Z",
+  "issued_at": "2025-02-25T17:12:00.122256Z",
+  "request_url": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
   "ui": {
-    "action": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login?flow=fe189118-902c-4f78-a742-342356f2a3ec",
+    "action": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/login?flow=4b72feab-a84b-4a53-a070-3d247954e019",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.nqwe2lavry0.f4h5y029idj@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.9qodjmlqy0a0.imr8104r3x@ory.dev",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "bR+n055e6MR4iRaRuSJ239rLOiMMD6o2yhRwC5aLY1WB7obCtXaOW3s7l92uA18k/0Lta8xc8/HfEUjeL3iDBA==",
+          "value": "9Dj43KnSd3E0ta51vmUPOgtwboUeP/KQ6Z1JvhfMvXUudt1+7S5hWFU/TdNY2IDK3Y9TBjuQcYQpH/6NlAKK6g==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -41,14 +41,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "8c70f7a6-efee-4daf-b23b-62b8cbd07d01",
+          "nonce": "1e8572a6-e873-4d28-a92f-18b831a6b40c",
           "node_type": "script"
         },
         "messages": [],
@@ -60,9 +60,9 @@
         "attributes": {
           "name": "webauthn_login_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"challenge\":\"342M-urm4Mf2NR_-18jkvYqwUQBhbKrE1Z8nPfQylSM\",\"timeout\":120000,\"rpId\":\"romantic-tu-rf98ru5rql.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"IFIPP9EDx5argEdBKiwqhEBf1rGOqEWLXvTDCTT-EHw\"}],\"userVerification\":\"discouraged\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"wADiOBljwf-J2wBmaiezjprWFausgWhbR0bqUH3Zcvw\",\"timeout\":120000,\"rpId\":\"elastic-lederberg-u61eqogfjh.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"5FWn4Ai7KDmx1xnw5qSr8MMGd9pANti61Y6-M2-Hf-4\"}],\"userVerification\":\"discouraged\"}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"342M-urm4Mf2NR_-18jkvYqwUQBhbKrE1Z8nPfQylSM\",\"timeout\":120000,\"rpId\":\"romantic-tu-rf98ru5rql.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"IFIPP9EDx5argEdBKiwqhEBf1rGOqEWLXvTDCTT-EHw\"}],\"userVerification\":\"discouraged\"}})",
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"wADiOBljwf-J2wBmaiezjprWFausgWhbR0bqUH3Zcvw\",\"timeout\":120000,\"rpId\":\"elastic-lederberg-u61eqogfjh.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"5FWn4Ai7KDmx1xnw5qSr8MMGd9pANti61Y6-M2-Hf-4\"}],\"userVerification\":\"discouraged\"}})",
           "onclickTrigger": "oryWebAuthnLogin",
           "node_type": "input"
         },
@@ -97,8 +97,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:48.763474Z",
-  "updated_at": "2024-10-29T09:45:48.763474Z",
+  "created_at": "2025-02-25T17:12:00.12648Z",
+  "updated_at": "2025-02-25T17:12:00.12648Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

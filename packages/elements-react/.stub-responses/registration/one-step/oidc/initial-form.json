@@ -1,36 +1,13 @@
 {
-  "id": "a954b8ad-a5b1-4425-90f9-ec83712b5d69",
+  "id": "2883135a-27d6-4716-a32f-4f96d82c2cb4",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:52.416224377Z",
-  "issued_at": "2024-10-29T09:45:52.416224377Z",
-  "request_url": "https://goofy-ganguly-qodgfqj41p.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-25T18:12:02.318183428Z",
+  "issued_at": "2025-02-25T17:12:02.318183428Z",
+  "request_url": "https://practical-colden-j5tkcgkz9u.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://goofy-ganguly-qodgfqj41p.projects.oryapis:8080/self-service/registration?flow=a954b8ad-a5b1-4425-90f9-ec83712b5d69",
+    "action": "https://practical-colden-j5tkcgkz9u.projects.oryapis:8080/self-service/registration?flow=2883135a-27d6-4716-a32f-4f96d82c2cb4",
     "method": "POST",
     "nodes": [
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "X",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040002,
-            "text": "Sign up with x",
-            "type": "info",
-            "context": {
-              "provider": "x",
-              "provider_id": "X"
-            }
-          }
-        }
-      },
       {
         "type": "input",
         "group": "oidc",
@@ -194,142 +171,40 @@
       },
       {
         "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "x",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with x",
+            "type": "info",
+            "context": {
+              "provider": "x",
+              "provider_id": "x"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "il1NWIw7iTHPBVBsbzdfoetbAIx45nlsdJK/OirWaLi0h16E37xNXL2NBZSukVfDFhVfBJmbdyAE+BGPU1IHPA==",
+          "value": "9RDLCu+6SrfoLJZSF//8cI1ymbiJpfcNCLWk0zV+dvwZsHbavPqmB6Hg/cStSGaQOVdxAHSBMYEZDP8MDwsoUw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "traits.email",
-          "type": "email",
-          "required": true,
-          "autocomplete": "email",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "title": "E-Mail"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "new-password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070001,
-            "text": "Password",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "traits.tos",
-          "type": "checkbox",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Accept the terms of service",
-            "type": "info",
-            "context": {
-              "title": "Accept the terms of service"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "traits.phone",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Phone Number",
-            "type": "info",
-            "context": {
-              "title": "Phone Number"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "traits.nested.name",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Name",
-            "type": "info",
-            "context": {
-              "title": "Name"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040001,
-            "text": "Sign up",
-            "type": "info"
-          }
-        }
       }
     ]
   },

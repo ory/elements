@@ -1,12 +1,12 @@
 {
-  "id": "9af3e83e-23c1-41bd-9149-be39ea7c8048",
+  "id": "5e1ee6d8-cfc7-4813-bb35-5adf467414b4",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:38.857268593Z",
-  "issued_at": "2024-10-29T09:45:38.857268593Z",
-  "request_url": "https://dreamy-wiles-28csoig0cg.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-25T18:11:48.206555046Z",
+  "issued_at": "2025-02-25T17:11:48.206555046Z",
+  "request_url": "https://thirsty-yalow-sjhbc2wkng.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://dreamy-wiles-28csoig0cg.projects.oryapis:8080/self-service/login?flow=9af3e83e-23c1-41bd-9149-be39ea7c8048",
+    "action": "https://thirsty-yalow-sjhbc2wkng.projects.oryapis:8080/self-service/login?flow=5e1ee6d8-cfc7-4813-bb35-5adf467414b4",
     "method": "POST",
     "nodes": [
       {
@@ -61,7 +61,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "UpTfUf6a4w2CEUtZR/XLbglQeIWvznS5QdPSKX9WzjJItMMhoXxVRWEfNZ+QxkWFZgm2D0UQCg4wWgROuBHqlQ==",
+          "value": "qrx9CYhwIF1EQiMUbdQt7dTXI9L+5ZKUxIRths7sXWYsPFt911xim2FJXZjUHMMIdD9ilQ2Hk/w9XvBw/7pDBg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -97,14 +97,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://dreamy-wiles-28csoig0cg.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://thirsty-yalow-sjhbc2wkng.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "37c7008f-98d4-402d-a319-cf4d0f60e10c",
+          "nonce": "8f538706-1703-4616-a190-c6e5eb89cc52",
           "node_type": "script"
         },
         "messages": [],
@@ -139,8 +139,6 @@
           "disabled": false,
           "onclick": "window.oryPasskeyLogin()",
           "onclickTrigger": "oryPasskeyLogin",
-          "onload": "window.oryPasskeyLoginAutocompleteInit()",
-          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
           "node_type": "input"
         },
         "messages": [],
@@ -172,7 +170,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"j-AcTnYzHZCKq--PnEMGz72K0nh3BqH2emzwFOj-Dyw\",\"timeout\":300000,\"rpId\":\"dreamy-wiles-28csoig0cg.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"7a2eBMZ_Aw889pTgtMi2nPk59BqjDSnL8EY4NvkS6os\",\"timeout\":300000,\"rpId\":\"thirsty-yalow-sjhbc2wkng.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -239,8 +237,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:38.863683Z",
-  "updated_at": "2024-10-29T09:45:38.863683Z",
+  "created_at": "2025-02-25T17:11:48.220417Z",
+  "updated_at": "2025-02-25T17:11:48.220417Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

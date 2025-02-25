@@ -1,11 +1,11 @@
 {
-  "id": "2ee62ed3-9530-431c-b174-3570ed90af3c",
+  "id": "a845c40a-e49f-40d8-bb0a-3c8c9d74b893",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:39.474943Z",
-  "issued_at": "2024-10-29T09:45:39.474943Z",
-  "request_url": "https://inspiring-buck-m6ru2ompf4.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-25T18:11:50.604937Z",
+  "issued_at": "2025-02-25T17:11:50.604937Z",
+  "request_url": "https://modest-spence-jxqttjoa42.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://inspiring-buck-m6ru2ompf4.projects.oryapis:8080/self-service/registration?flow=2ee62ed3-9530-431c-b174-3570ed90af3c",
+    "action": "https://modest-spence-jxqttjoa42.projects.oryapis:8080/self-service/registration?flow=a845c40a-e49f-40d8-bb0a-3c8c9d74b893",
     "method": "POST",
     "nodes": [
       {
@@ -155,7 +155,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "4gO0cvwiVVNXxcMWr8xX36zYQIwF8DzAAtZeD3mBiqjaeR3YYddMcvUmBpTymc3uv0kIkrOix/V3HAJ3sRMb1w==",
+          "value": "mE0Zwa04mLjwSbB9rUbDscSat9uNWxuzrS2t9GDn/SSU+84ZNtYOyvZ/iIrBLPOf+esZXTCy++bv6/otbP1JVA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
