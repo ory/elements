@@ -36,14 +36,10 @@ import {
   OrySettingsTotpProps,
   OrySettingsWebauthnProps,
 } from "../settings"
-import { OryFormGroupProps, OryFormGroups } from "./groups"
+import { OryFormGroupProps } from "./groups"
 import { OryMessageContentProps, OryMessageRootProps } from "./messages"
 import { OryCardSettingsSectionProps } from "./section"
-import {
-  OryFormOidcButtons,
-  OryFormOidcRootProps,
-  OryNodeOidcButtonProps,
-} from "./social"
+import { OryFormOidcRootProps, OryNodeOidcButtonProps } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 
 /**
@@ -250,21 +246,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
       method={flowContainer.flow.ui.method}
       onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
     >
-      {children ?? (
-        <>
-          <OryFormOidcButtons />
-          <OryFormGroups
-            groups={[
-              "default",
-              "password",
-              "code",
-              "webauthn",
-              "passkey",
-              "identifier_first",
-            ]}
-          />
-        </>
-      )}
+      {children}
     </Form.Root>
   )
 }

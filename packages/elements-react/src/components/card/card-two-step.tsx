@@ -49,29 +49,38 @@ export function OryTwoStepCard() {
       ? getFinalNodes(uniqueGroups.groups, formState.method)
       : []
 
+  const handleAfterFormSubmit = (method: unknown) => {
+    if (
+      typeof method !== "string" ||
+      // @ts-expect-error it's a string array, but typescript thinks the argument must be stricter
+      !Object.values(UiNodeGroupEnum).includes(method)
+    ) {
+      return
+    }
+    if (isGroupImmediateSubmit(method)) {
+      dispatchFormState({
+        type: "action_select_method",
+        method: method,
+      })
+    }
+  }
+
   return (
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {formState.current === "provide_identifier" && hasOidc && (
-          <OryFormSocialButtonsForm />
-        )}
-        <OryForm
-          onAfterSubmit={(method) =>
-            isGroupImmediateSubmit(method + "")
-              ? dispatchFormState({
-                  type: "action_select_method",
-                  method: method as UiNodeGroupEnum,
-                })
-              : undefined
-          }
-        >
+        {hasOidc && <OryFormSocialButtonsForm />}
+        <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
-            {formState.current === "provide_identifier" &&
-              zeroStepGroups
-                .sort(sortNodes)
-                .map((node, k) => <Node node={node} key={k} />)}
+            {formState.current === "provide_identifier" && (
+              <>
+                {hasOidc && <Card.Divider />}
+                {zeroStepGroups.sort(sortNodes).map((node, k) => (
+                  <Node node={node} key={k} />
+                ))}
+              </>
+            )}
             {formState.current === "select_method" && (
               <>
                 <Card.Divider />
