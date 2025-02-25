@@ -14,6 +14,11 @@ import { OryFormSocialButtonsForm } from "../form/social"
 import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
+function isUINodeGroupEnum(method: string): method is UiNodeGroupEnum {
+  // @ts-expect-error it's a string array, but typescript thinks the argument must be stricter
+  return Object.values(UiNodeGroupEnum).includes(method)
+}
+
 export function OryTwoStepCard() {
   const {
     flow: { ui },
@@ -50,11 +55,7 @@ export function OryTwoStepCard() {
       : []
 
   const handleAfterFormSubmit = (method: unknown) => {
-    if (
-      typeof method !== "string" ||
-      // @ts-expect-error it's a string array, but typescript thinks the argument must be stricter
-      !Object.values(UiNodeGroupEnum).includes(method)
-    ) {
+    if (typeof method !== "string" || !isUINodeGroupEnum(method)) {
       return
     }
     if (isGroupImmediateSubmit(method)) {
