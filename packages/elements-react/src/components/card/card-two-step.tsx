@@ -65,6 +65,7 @@ export function OryTwoStepCard() {
       })
     }
   }
+  const hasOidc = ui.nodes.some((node) => node.group === UiNodeGroupEnum.Oidc)
 
   // We want to show the OIDC buttons on all screens, except when the user has selected a different method.
   const showOidc = !(
@@ -81,7 +82,7 @@ export function OryTwoStepCard() {
           <Form.Group>
             {formState.current === "provide_identifier" && (
               <>
-                {showOidc && <Card.Divider />}
+                {hasOidc && <Card.Divider />}
                 {nonOidcNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}

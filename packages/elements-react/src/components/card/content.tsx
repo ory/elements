@@ -3,12 +3,6 @@
 
 import { PropsWithChildren } from "react"
 import { useComponents } from "../../context"
-import {
-  OryCardValidationMessages,
-  OryForm,
-  OryFormGroups,
-  OryFormOidcButtons,
-} from "../form"
 
 /**
  * Props for the OryCardContent component.
@@ -29,28 +23,5 @@ export type OryCardContentProps = PropsWithChildren
 export function OryCardContent({ children }: OryCardContentProps) {
   const { Card } = useComponents()
 
-  if (children) {
-    return <Card.Content>{children}</Card.Content>
-  }
-
-  return (
-    <Card.Content>
-      <OryCardValidationMessages />
-      <OryForm>
-        <OryFormOidcButtons />
-        <OryFormGroups
-          groups={[
-            "default",
-            "password",
-            "passkey",
-            "code",
-            "webauthn",
-            "profile",
-            "totp",
-            "identifier_first",
-          ]}
-        />
-      </OryForm>
-    </Card.Content>
-  )
+  return <Card.Content>{children}</Card.Content>
 }
