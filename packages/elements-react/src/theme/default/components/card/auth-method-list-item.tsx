@@ -31,7 +31,6 @@ export function DefaultAuthMethodListItem({
       onClick={onClick}
       type={isGroupImmediateSubmit(group) ? "submit" : "button"}
       data-testid={`ory/form/auth-picker/${group}`}
-      aria-label={`Authenticate with ${group}`}
     >
       <span className="mt-1">
         {Icon && (
