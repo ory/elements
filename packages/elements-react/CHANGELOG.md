@@ -1,3 +1,13 @@
+## 1.0.0-next.28 (2025-02-20)
+
+### 🩹 Fixes
+
+- safari click handler and redirect handling ([#361](https://github.com/ory/elements/pull/361))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.27 (2025-02-18)
 
 ### 🩹 Fixes

@@ -38,14 +38,8 @@ export function useOryFormSubmit(
     methods.reset(computeDefaultValues(flow.flow.ui.nodes))
   }
 
-  const onRedirect: OnRedirectHandler = (url, external) => {
-    if (external) {
-      window.location.href = url
-      return
-    }
-
-    // TODO(jonas): this should somehow be overridable by the user to allow next js specific redirects, or other frameworks.
-    window.location.href = url
+  const onRedirect: OnRedirectHandler = (url, _external) => {
+    window.location.assign(url)
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
