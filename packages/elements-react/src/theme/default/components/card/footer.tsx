@@ -5,7 +5,8 @@ import { FlowType, UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { initFlowUrl } from "../../utils/url"
+import { initFlowUrl, restartFlowUrl } from "../../utils/url"
+import { nodesToAuthMethodGroups } from "../../../../util/ui"
 
 export function DefaultCardFooter() {
   const { flowType } = useOryFlow()
@@ -34,35 +35,68 @@ export function getReturnToQueryParam(flow: { return_to?: string }) {
 }
 
 function LoginCardFooter() {
-  const { config, formState, flow } = useOryFlow()
+  const { config, formState, flow, flowType } = useOryFlow()
   const intl = useIntl()
 
-  if (
-    !config.project.registration_enabled ||
-    formState.current !== "provide_identifier"
-  ) {
-    // The two-step login flow does not support the "navigation" between steps, so we don't have
-    // anything to render on the footer in those steps
-    return null
-  }
+  const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
+
+  console.log(flow.ui.nodes, authMethods.length, formState.current)
 
   return (
-    <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-      {intl.formatMessage({
-        id: "login.registration-label",
-        defaultMessage: "No account?",
-      })}{" "}
-      <a
-        className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-        href={initFlowUrl(config.sdk.url, "registration", flow)}
-        data-testid={"ory/screen/registration/action/login"}
-      >
-        {intl.formatMessage({
-          id: "login.registration-button",
-          defaultMessage: "Sign up",
-        })}
-      </a>
-    </span>
+    <>
+      {formState.current === "provide_identifier" && (
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          {intl.formatMessage({
+            id: "login.registration-label",
+            defaultMessage: "No account?",
+          })}{" "}
+          <a
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            href={initFlowUrl(config.sdk.url, "registration", flow)}
+            data-testid={"ory/screen/registration/action/login"}
+          >
+            {intl.formatMessage({
+              id: "login.registration-button",
+              defaultMessage: "Sign up",
+            })}
+          </a>
+        </span>
+      )}
+      {authMethods.length > 1 && formState.current === "method_active" && (
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          <a
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            href=""
+            data-testid={"ory/screen/registration/action/login"}
+          >
+            {intl.formatMessage({
+              id: "login.2fa.method.go-back",
+            })}
+          </a>
+        </span>
+      )}
+      {flowType === FlowType.Login &&
+        flow.requested_aal === "aal2" &&
+        formState.current === "select_method" && (
+          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+            {intl.formatMessage({
+              id: "login.2fa.go-back",
+            })}{" "}
+            <a
+              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              href={restartFlowUrl(
+                flow,
+                `${config.sdk.url}/self-service/${flowType}/browser`,
+              )}
+              data-testid={"ory/screen/registration/action/login"}
+            >
+              {intl.formatMessage({
+                id: "login.2fa.go-back.link",
+              })}
+            </a>
+          </span>
+        )}
+    </>
   )
 }
 
