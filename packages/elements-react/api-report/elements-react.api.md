@@ -223,7 +223,7 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer;
 
 // @public (undocumented)
-export function OryForm({ children, onAfterSubmit }: OryFormProps): string | react_jsx_runtime.JSX.Element;
+export function OryForm({ children, onAfterSubmit }: OryFormProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;

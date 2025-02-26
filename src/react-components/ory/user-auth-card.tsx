@@ -148,7 +148,7 @@ export const UserAuthCard = ({
         } else if (flowProps.flow.requested_aal === "aal2") {
           title = intl.formatMessage({
             id: "login.title-aal2",
-            defaultMessage: "Two-Factor Authentication",
+            defaultMessage: "Second factor authentication",
           })
         } else {
           title = intl.formatMessage({

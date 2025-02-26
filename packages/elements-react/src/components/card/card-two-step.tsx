@@ -15,12 +15,9 @@ import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
 export function OryTwoStepCard() {
-  const {
-    flow: { ui },
-  } = useOryFlow()
-
   const { Form, Card } = useComponents()
-  const { flowType, formState, dispatchFormState } = useOryFlow()
+  const { flow, flowType, formState, dispatchFormState } = useOryFlow()
+  const { ui } = flow
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
@@ -41,6 +38,7 @@ export function OryTwoStepCard() {
         ).includes(group),
     )
 
+  const hasError = Boolean(ui.messages?.some((m) => m.type === "error"))
   const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
 
   const zeroStepGroups = filterZeroStepGroups(ui.nodes)
@@ -53,7 +51,7 @@ export function OryTwoStepCard() {
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
-        <OryCardValidationMessages />
+        {hasError ? <OryCardValidationMessages /> : undefined}
         {formState.current === "provide_identifier" && hasOidc && (
           <OryFormSocialButtonsForm />
         )}
@@ -116,7 +114,7 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { setValue } = useFormContext()
 
   const handleClick = (group: UiNodeGroupEnum) => {
-    if (isGroupImmediateSubmit(group)) {
+    if (isGroupImmediateSubmit(group) && options.length === 1) {
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
       // then the method needs to be added to the form data.
       setValue("method", group)

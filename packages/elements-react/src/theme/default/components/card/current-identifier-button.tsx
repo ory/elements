@@ -15,6 +15,10 @@ export function DefaultCurrentIdentifierButton() {
     return null
   }
 
+  if (flowType === FlowType.Login && flow.requested_aal === "aal2") {
+    return null
+  }
+
   const nodeBackButton = getBackButtonNode(flowType, ui.nodes)
 
   if (
