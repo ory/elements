@@ -124,11 +124,15 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
       setSelectedGroup(group)
     }
   }
-  return options.map((option) => (
-    <Card.AuthMethodListItem
-      key={option}
-      group={option}
-      onClick={() => handleClick(option)}
-    />
-  ))
+  return (
+    <Card.AuthMethodListContainer>
+      {options.map((option) => (
+        <Card.AuthMethodListItem
+          key={option}
+          group={option}
+          onClick={() => handleClick(option)}
+        />
+      ))}
+    </Card.AuthMethodListContainer>
+  )
 }
