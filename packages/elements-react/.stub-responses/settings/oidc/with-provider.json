@@ -1,11 +1,11 @@
 {
-  "id": "b96276ca-68a1-41da-9f25-554c3b0b14ec",
+  "id": "a9551054-21fe-489a-bff9-d5c4735f40d9",
   "type": "browser",
-  "expires_at": "2025-02-25T18:11:58.689247468Z",
-  "issued_at": "2025-02-25T17:11:58.689247468Z",
-  "request_url": "https://pensive-swartz-1wizg7o4as.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-02-26T09:18:47.175427838Z",
+  "issued_at": "2025-02-26T08:18:47.175427838Z",
+  "request_url": "https://stoic-greider-s2mpkrnfkd.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://pensive-swartz-1wizg7o4as.projects.oryapis:8080/self-service/settings?flow=b96276ca-68a1-41da-9f25-554c3b0b14ec",
+    "action": "https://stoic-greider-s2mpkrnfkd.projects.oryapis:8080/self-service/settings?flow=a9551054-21fe-489a-bff9-d5c4735f40d9",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "VjZNMRKtGD3YrEFzEosfoYd+p3AjEG1rjMqn6UXjlqam6510IF3DVu+ZnjrFNWdEOtWuXSTf3tDvBjpynA+uJA==",
+          "value": "DQ4C4P5kF94ZS2CVAYxdnUuPD7+ymlmtYVCjtVnUPsHa5h4/FYaABg8Aiu6WnFxcu8hd0mJIr7Lep36SLqhy2Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.wm2uaata6c0.m7esfykte8q@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -166,42 +166,64 @@
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "unlink",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050003,
+            "text": "Unlink Fake Google",
+            "type": "info",
+            "context": {
+              "provider": "Fake Google"
+            }
+          }
+        }
       }
     ]
   },
   "identity": {
-    "id": "37c1ed3a-d2d8-4af1-85f0-800ea40982de",
+    "id": "d0c5c236-ea7f-4bfb-8ad0-8ca32b20644a",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://pensive-swartz-1wizg7o4as.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://stoic-greider-s2mpkrnfkd.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-02-25T17:11:57.254149Z",
+    "state_changed_at": "2025-02-26T08:18:45.729683Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.wm2uaata6c0.m7esfykte8q@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "71e2a291-561e-4991-bb5d-76164034a760",
-        "value": "dev+orycye2eda2f162daf6142dd0.wm2uaata6c0.m7esfykte8q@ory.dev",
+        "id": "010b338b-1912-43e2-b317-b34fdbe4a7ae",
+        "value": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-02-25T17:11:57.258148Z",
-        "updated_at": "2025-02-25T17:11:57.258148Z"
+        "created_at": "2025-02-26T08:18:45.735148Z",
+        "updated_at": "2025-02-26T08:18:45.735148Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "f10fdc51-eeea-4105-a231-ae2e8431bf41",
-        "value": "dev+orycye2eda2f162daf6142dd0.wm2uaata6c0.m7esfykte8q@ory.dev",
+        "id": "8814205a-1eda-4271-83de-53a14427aeb2",
+        "value": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
         "via": "email",
-        "created_at": "2025-02-25T17:11:57.262733Z",
-        "updated_at": "2025-02-25T17:11:57.262733Z"
+        "created_at": "2025-02-26T08:18:45.741638Z",
+        "updated_at": "2025-02-26T08:18:45.741638Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-02-25T17:11:57.255569Z",
-    "updated_at": "2025-02-25T17:11:57.255569Z",
+    "created_at": "2025-02-26T08:18:45.731663Z",
+    "updated_at": "2025-02-26T08:18:45.731663Z",
     "organization_id": null
   },
   "state": "show_form"
