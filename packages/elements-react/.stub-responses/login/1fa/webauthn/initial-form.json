@@ -1,12 +1,12 @@
 {
-  "id": "4b72feab-a84b-4a53-a070-3d247954e019",
+  "id": "1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-25T18:12:00.122256Z",
-  "issued_at": "2025-02-25T17:12:00.122256Z",
-  "request_url": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "expires_at": "2025-02-26T09:31:58.359011Z",
+  "issued_at": "2025-02-26T08:31:58.359011Z",
+  "request_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
   "ui": {
-    "action": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/login?flow=4b72feab-a84b-4a53-a070-3d247954e019",
+    "action": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login?flow=1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Ltzw5vwhoFgaCqYVbHs37ylSKGFXUpvFbHb6ixfyMgn0ktVEuN22cXuARbOKxrgf/60V4nL9GNGs9E24lDwFlg==",
+          "value": "OKlHCrtlTgAzBjc+NcIaFHF0yJRLZlhwtSeLHSQf63u5Z0rKQP2Gg0MFGH26aa+TzIFJIXXHUY16DuJJ/VUbhg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-02-25T17:12:00.12648Z",
-  "updated_at": "2025-02-25T17:12:00.12648Z",
+  "created_at": "2025-02-26T08:31:58.362635Z",
+  "updated_at": "2025-02-26T08:31:58.362635Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

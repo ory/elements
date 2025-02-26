@@ -1,11 +1,11 @@
 {
-  "id": "2e8e9c94-df34-44ef-ad09-15d1f24ccaf0",
+  "id": "41e5afbe-35ef-4e77-ab0e-73345d461335",
   "type": "browser",
-  "expires_at": "2025-02-25T18:12:00.665169Z",
-  "issued_at": "2025-02-25T17:12:00.665169Z",
-  "request_url": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/settings/browser?return_to=",
+  "expires_at": "2025-02-26T09:31:59.268006Z",
+  "issued_at": "2025-02-26T08:31:59.268006Z",
+  "request_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/settings/browser?return_to=",
   "ui": {
-    "action": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/self-service/settings?flow=2e8e9c94-df34-44ef-ad09-15d1f24ccaf0",
+    "action": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/settings?flow=41e5afbe-35ef-4e77-ab0e-73345d461335",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "LGl66Fs0y4WHEDMEF69Y6cJ5s81lOVO0R7xjqQmy5x9xNHE26iYmpM0wzMMKLEyWu5u7NefdG5V2MTDr5N0rtg==",
+          "value": "BsmfkTRipaDbTB9W1YdFflqdTHQ6Tz+RACdXLZ0y9msonS/JQ+jZAP6EEWCD3ZAxVlamkYb+SouLFHK9GfiiTw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.9qodjmlqy0a0.imr8104r3x@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.8e2a252998k0.nf5ru2d6xk@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -134,7 +134,7 @@
         "attributes": {
           "name": "webauthn_remove",
           "type": "submit",
-          "value": "e455a7e008bb2839b1d719f0e6a4abf0c30677da4036d8bad58ebe336f877fee",
+          "value": "88eb11bf54e7457a6a68d9ef70aaea985a1d562a0db9e5a919249446ff923d21",
           "disabled": true,
           "node_type": "input"
         },
@@ -145,8 +145,8 @@
             "text": "Remove security key \"unnamed\"",
             "type": "info",
             "context": {
-              "added_at": "2025-02-25T17:11:59Z",
-              "added_at_unix": 1740503519,
+              "added_at": "2025-02-26T08:31:58Z",
+              "added_at_unix": 1740558718,
               "display_name": "unnamed"
             }
           }
@@ -190,9 +190,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Tnwil8cCpZjJA4ME-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"elastic-lederberg-u61eqogfjh.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Tnwil8cCpZjJA4ME-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Tnwil8cCpZjJA4ME-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"U8PIDHP4SY2R9uugnxT_Xw\"},\"challenge\":\"10lNeS7teJqRgZaL7nVz9j9Cq5_UIRMMv-BmePCaFWQ\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-CJ8rKr1gDNg3wXiq-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"ecstatic-cohen-vqvlpcrrkw.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-CJ8rKr1gDNg3wXiq-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-CJ8rKr1gDNg3wXiq-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"73juKtoxTs6yJ5ObQhAqbQ\"},\"challenge\":\"d_trAqmcshO34GZM4eVbb70oYNaD0bMLQ11urLUPusY\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Tnwil8cCpZjJA4ME-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"elastic-lederberg-u61eqogfjh.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Tnwil8cCpZjJA4ME-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Tnwil8cCpZjJA4ME-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"U8PIDHP4SY2R9uugnxT_Xw\"},\"challenge\":\"10lNeS7teJqRgZaL7nVz9j9Cq5_UIRMMv-BmePCaFWQ\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-CJ8rKr1gDNg3wXiq-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"ecstatic-cohen-vqvlpcrrkw.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-CJ8rKr1gDNg3wXiq-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-CJ8rKr1gDNg3wXiq-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003ewebauthn states\",\"id\":\"73juKtoxTs6yJ5ObQhAqbQ\"},\"challenge\":\"d_trAqmcshO34GZM4eVbb70oYNaD0bMLQ11urLUPusY\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -209,14 +209,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "45367dcf-7e36-4f26-96a1-5b9186c8327c",
+          "nonce": "de125316-26ff-44ae-b852-5422764f6750",
           "node_type": "script"
         },
         "messages": [],
@@ -225,38 +225,38 @@
     ]
   },
   "identity": {
-    "id": "53c3c80c-73f8-498d-91f6-eba09f14ff5f",
+    "id": "ef78ee2a-da31-4ece-b227-939b42102a6d",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://elastic-lederberg-u61eqogfjh.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-02-25T17:11:59.248417Z",
+    "state_changed_at": "2025-02-26T08:31:57.543366Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.9qodjmlqy0a0.imr8104r3x@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.8e2a252998k0.nf5ru2d6xk@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "80e27e01-5a82-4197-9cf0-56c9ebcdd89d",
-        "value": "dev+orycye2eda2f162daf6142dd0.9qodjmlqy0a0.imr8104r3x@ory.dev",
+        "id": "c882c189-d56a-499d-ba47-59eca51bef24",
+        "value": "dev+orycye2eda2f162daf6142dd0.8e2a252998k0.nf5ru2d6xk@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-02-25T17:11:59.253834Z",
-        "updated_at": "2025-02-25T17:11:59.253834Z"
+        "created_at": "2025-02-26T08:31:57.547625Z",
+        "updated_at": "2025-02-26T08:31:57.547625Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "b006bed1-f6da-4d56-9294-df2c6eca1393",
-        "value": "dev+orycye2eda2f162daf6142dd0.9qodjmlqy0a0.imr8104r3x@ory.dev",
+        "id": "ab3b3ebe-7bc6-46f9-821a-18176c102f31",
+        "value": "dev+orycye2eda2f162daf6142dd0.8e2a252998k0.nf5ru2d6xk@ory.dev",
         "via": "email",
-        "created_at": "2025-02-25T17:11:59.259365Z",
-        "updated_at": "2025-02-25T17:11:59.259365Z"
+        "created_at": "2025-02-26T08:31:57.552676Z",
+        "updated_at": "2025-02-26T08:31:57.552676Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-02-25T17:11:59.251018Z",
-    "updated_at": "2025-02-25T17:11:59.251018Z",
+    "created_at": "2025-02-26T08:31:57.544952Z",
+    "updated_at": "2025-02-26T08:31:57.544952Z",
     "organization_id": null
   },
   "state": "show_form"

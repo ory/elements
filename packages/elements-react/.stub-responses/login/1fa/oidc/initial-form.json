@@ -1,12 +1,12 @@
 {
-  "id": "94dbc2fe-f479-40a8-b8d0-c4a49be51146",
+  "id": "c6e2f7d5-fd73-4eb9-ae50-3992171591fe",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-25T18:12:02.157993678Z",
-  "issued_at": "2025-02-25T17:12:02.157993678Z",
-  "request_url": "https://trusting-pascal-4aji3r4j08.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-26T16:16:55.527046Z",
+  "issued_at": "2025-02-26T15:16:55.527046Z",
+  "request_url": "https://exciting-germain-lpg1rzqvwj.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://trusting-pascal-4aji3r4j08.projects.oryapis:8080/self-service/login?flow=94dbc2fe-f479-40a8-b8d0-c4a49be51146",
+    "action": "https://exciting-germain-lpg1rzqvwj.projects.oryapis:8080/self-service/login?flow=c6e2f7d5-fd73-4eb9-ae50-3992171591fe",
     "method": "POST",
     "nodes": [
       {
@@ -199,18 +199,80 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "b0twVQ8SJTrnXtj5XDXrJjtr/rdBKW5NqxKNTjubbyAVvp6wsv2YjnxZ2WKC1OxHnMQJlDE4+Nsg1bpVnZDhng==",
+          "value": "/2JKGbf7z3Ia2wLNPJKF6j9+MEEMHNS4f7PAo2Sah1T9JKoK6WD5KPkXXP7Kk9+X5UGn/JstisSmjduMMHnq2A==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
+            "type": "info"
+          }
+        }
       }
     ]
   },
-  "created_at": "2025-02-25T17:12:02.162192Z",
-  "updated_at": "2025-02-25T17:12:02.162192Z",
+  "created_at": "2025-02-26T15:16:55.532629Z",
+  "updated_at": "2025-02-26T15:16:55.532629Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

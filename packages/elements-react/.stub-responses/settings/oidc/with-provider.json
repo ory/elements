@@ -1,11 +1,11 @@
 {
-  "id": "a9551054-21fe-489a-bff9-d5c4735f40d9",
+  "id": "65a42721-8d7a-4f10-aa01-95177cf609bf",
   "type": "browser",
-  "expires_at": "2025-02-26T09:18:47.175427838Z",
-  "issued_at": "2025-02-26T08:18:47.175427838Z",
-  "request_url": "https://stoic-greider-s2mpkrnfkd.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-02-26T16:16:48.111518595Z",
+  "issued_at": "2025-02-26T15:16:48.111518595Z",
+  "request_url": "https://quirky-aryabhata-dun2x0jy1x.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://stoic-greider-s2mpkrnfkd.projects.oryapis:8080/self-service/settings?flow=a9551054-21fe-489a-bff9-d5c4735f40d9",
+    "action": "https://quirky-aryabhata-dun2x0jy1x.projects.oryapis:8080/self-service/settings?flow=65a42721-8d7a-4f10-aa01-95177cf609bf",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "DQ4C4P5kF94ZS2CVAYxdnUuPD7+ymlmtYVCjtVnUPsHa5h4/FYaABg8Aiu6WnFxcu8hd0mJIr7Lep36SLqhy2Q==",
+          "value": "dMrjS98hQSamki1kvXxBKIZ6yTF87D95LFgGfAdx5UuOyo/FGjduG3Jdxzz63FvcB4///6HsuxUp/HArn0BaFw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -192,38 +192,37 @@
     ]
   },
   "identity": {
-    "id": "d0c5c236-ea7f-4bfb-8ad0-8ca32b20644a",
+    "id": "47512fc1-0184-456d-89e9-18b820d9f84c",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://stoic-greider-s2mpkrnfkd.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://quirky-aryabhata-dun2x0jy1x.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-02-26T08:18:45.729683Z",
+    "state_changed_at": "2025-02-26T15:16:46.390223Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
-      "nested": {}
+      "email": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "010b338b-1912-43e2-b317-b34fdbe4a7ae",
-        "value": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
+        "id": "83f9dbe4-ef1b-4ef5-9dd7-5b13d09d240b",
+        "value": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev",
         "verified": false,
         "via": "email",
-        "status": "sent",
-        "created_at": "2025-02-26T08:18:45.735148Z",
-        "updated_at": "2025-02-26T08:18:45.735148Z"
+        "status": "pending",
+        "created_at": "2025-02-26T15:16:46.416457Z",
+        "updated_at": "2025-02-26T15:16:46.416457Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "8814205a-1eda-4271-83de-53a14427aeb2",
-        "value": "dev+orycye2eda2f162daf6142dd0.uv42ou30i9m0.ja729xxnbg@ory.dev",
+        "id": "a62bb4dc-99ab-4761-88ad-04e2a8faf90b",
+        "value": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev",
         "via": "email",
-        "created_at": "2025-02-26T08:18:45.741638Z",
-        "updated_at": "2025-02-26T08:18:45.741638Z"
+        "created_at": "2025-02-26T15:16:46.444693Z",
+        "updated_at": "2025-02-26T15:16:46.444693Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-02-26T08:18:45.731663Z",
-    "updated_at": "2025-02-26T08:18:45.731663Z",
+    "created_at": "2025-02-26T15:16:46.405032Z",
+    "updated_at": "2025-02-26T15:16:46.405032Z",
     "organization_id": null
   },
   "state": "show_form"

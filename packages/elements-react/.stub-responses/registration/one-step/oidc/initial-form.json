@@ -1,11 +1,11 @@
 {
-  "id": "2883135a-27d6-4716-a32f-4f96d82c2cb4",
+  "id": "4b02d60a-e327-44b5-8bd1-a37c6bca35c9",
   "type": "browser",
-  "expires_at": "2025-02-25T18:12:02.318183428Z",
-  "issued_at": "2025-02-25T17:12:02.318183428Z",
-  "request_url": "https://practical-colden-j5tkcgkz9u.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-26T16:16:56.021127709Z",
+  "issued_at": "2025-02-26T15:16:56.021127709Z",
+  "request_url": "https://priceless-diffie-syl5xxfpm2.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://practical-colden-j5tkcgkz9u.projects.oryapis:8080/self-service/registration?flow=2883135a-27d6-4716-a32f-4f96d82c2cb4",
+    "action": "https://priceless-diffie-syl5xxfpm2.projects.oryapis:8080/self-service/registration?flow=4b02d60a-e327-44b5-8bd1-a37c6bca35c9",
     "method": "POST",
     "nodes": [
       {
@@ -198,13 +198,138 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "9RDLCu+6SrfoLJZSF//8cI1ymbiJpfcNCLWk0zV+dvwZsHbavPqmB6Hg/cStSGaQOVdxAHSBMYEZDP8MDwsoUw==",
+          "value": "v2C5SwyyKStht0PZzM9XfOGUmAnEDQ63/gCaGg0u8x3vfgHuFX1ArYbT44j5JUBCKJHXKNwLO209jdPl9FercA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
       }
     ]
   },

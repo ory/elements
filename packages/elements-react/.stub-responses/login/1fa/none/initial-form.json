@@ -1,12 +1,12 @@
 {
-  "id": "2b163565-c8db-447c-b87c-e8e036fbab02",
+  "id": "9d5402e7-41f3-4c54-87da-a3a8217bebb0",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-25T18:11:48.778820713Z",
-  "issued_at": "2025-02-25T17:11:48.778820713Z",
-  "request_url": "https://compassionate-elion-7uft5xbmx2.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-26T09:31:46.503313004Z",
+  "issued_at": "2025-02-26T08:31:46.503313004Z",
+  "request_url": "https://tender-torvalds-jrb3d41eub.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://compassionate-elion-7uft5xbmx2.projects.oryapis:8080/self-service/login?flow=2b163565-c8db-447c-b87c-e8e036fbab02",
+    "action": "https://tender-torvalds-jrb3d41eub.projects.oryapis:8080/self-service/login?flow=9d5402e7-41f3-4c54-87da-a3a8217bebb0",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "lesiSf8Yoo7TnzNpi1Kj8HShE9WzgNYfELpec4eseyBQ0DvjHXa2fzTQ7TaUAMQp/CzKp7I6UFCRlsvg2jyhpg==",
+          "value": "Z+s6aq/AWWcEPlzbDkESs3x9a0hWFka3IG/71bD0Moba+giAMqi7ypCrnGDuM4NxNh/rphxVSJCiBF0B0AT29A==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2025-02-25T17:11:48.781807Z",
-  "updated_at": "2025-02-25T17:11:48.781807Z",
+  "created_at": "2025-02-26T08:31:46.50659Z",
+  "updated_at": "2025-02-26T08:31:46.50659Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

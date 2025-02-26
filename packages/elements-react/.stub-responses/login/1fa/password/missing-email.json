@@ -1,11 +1,11 @@
 {
-  "id": "dd17d199-baf4-4f5a-94e4-1d5568858b91",
+  "id": "e57aff19-1995-44fb-b645-29fad0e9028e",
   "type": "browser",
-  "expires_at": "2025-02-25T18:11:56.260896Z",
-  "issued_at": "2025-02-25T17:11:56.260896Z",
-  "request_url": "https://friendly-lalande-kdkmq2clsa.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-26T09:31:54.677832Z",
+  "issued_at": "2025-02-26T08:31:54.677832Z",
+  "request_url": "https://romantic-saha-upddx0ogf8.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://friendly-lalande-kdkmq2clsa.projects.oryapis:8080/self-service/registration?flow=dd17d199-baf4-4f5a-94e4-1d5568858b91",
+    "action": "https://romantic-saha-upddx0ogf8.projects.oryapis:8080/self-service/registration?flow=e57aff19-1995-44fb-b645-29fad0e9028e",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "iiFuJw9q+gnce8lnB6bdKUmRHXExhP/YobFKyR5uQQPOj8CmzFb0+QQUfQ4xIp8wk31Y6egT2eoKbCVrcq4QHQ==",
+          "value": "VHQn0RDRFf16TYib1zdQZu6upQp+dawYjW1Kn5bMbLoZ1Hf/H5DVtXXrNOsXvY862X7bHspufm2z/zDZmf05QA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
