@@ -42,6 +42,10 @@ function LoginCardFooter() {
 
   console.log(flow.ui.nodes, authMethods.length, formState.current)
 
+  if (flowType === FlowType.Login && flow.refresh) {
+    return null
+  }
+
   return (
     <>
       {formState.current === "provide_identifier" && (
