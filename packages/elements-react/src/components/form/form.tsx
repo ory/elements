@@ -216,20 +216,19 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
 
   const onSubmit = useOryFormSubmit(onAfterSubmit)
 
-  const hasMethods =
-    flowContainer.flow.ui.nodes.filter((node) => {
-      if (isUiNodeInputAttributes(node.attributes)) {
-        return node.attributes.name !== "csrf_token"
-      } else if (isUiNodeAnchorAttributes(node.attributes)) {
-        return true
-      } else if (isUiNodeImageAttributes(node.attributes)) {
-        return true
-      } else if (isUiNodeScriptAttributes(node.attributes)) {
-        return true
-      }
+  const hasMethods = flowContainer.flow.ui.nodes.some((node) => {
+    if (isUiNodeInputAttributes(node.attributes)) {
+      return node.attributes.name !== "csrf_token"
+    } else if (isUiNodeAnchorAttributes(node.attributes)) {
+      return true
+    } else if (isUiNodeImageAttributes(node.attributes)) {
+      return true
+    } else if (isUiNodeScriptAttributes(node.attributes)) {
+      return true
+    }
 
-      return false
-    }).length > 0
+    return false
+  })
 
   if (!hasMethods && (flowContainer.flow.ui.messages ?? []).length === 0) {
     // This is defined in Ory Kratos as well.

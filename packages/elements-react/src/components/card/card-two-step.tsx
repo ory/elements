@@ -11,11 +11,11 @@ import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
-import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
+import { filterOidcOut, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
 function isUINodeGroupEnum(method: string): method is UiNodeGroupEnum {
-  // @ts-expect-error it's a string array, but typescript thinks the argument must be stricter
+  // @ts-expect-error it's a string array, but typescript thinks the argument must be validated stricter
   return Object.values(UiNodeGroupEnum).includes(method)
 }
 
@@ -48,9 +48,7 @@ export function OryTwoStepCard() {
         ).includes(group),
     )
 
-  const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
-
-  const zeroStepGroups = filterZeroStepGroups(ui.nodes)
+  const nonOidcNodes = filterOidcOut(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
       ? getFinalNodes(uniqueGroups.groups, formState.method)
@@ -68,9 +66,10 @@ export function OryTwoStepCard() {
     }
   }
 
-  const showOidc =
-    hasOidc &&
-    (formState.current !== "method_active" || formState.method === "oidc")
+  // We want to show the OIDC buttons on all screens, except when the user has selected a different method.
+  const showOidc = !(
+    formState.current === "method_active" && formState.method !== "oidc"
+  )
 
   return (
     <OryCard>
@@ -82,8 +81,8 @@ export function OryTwoStepCard() {
           <Form.Group>
             {formState.current === "provide_identifier" && (
               <>
-                {hasOidc && <Card.Divider />}
-                {zeroStepGroups.sort(sortNodes).map((node, k) => (
+                {showOidc && <Card.Divider />}
+                {nonOidcNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
               </>
