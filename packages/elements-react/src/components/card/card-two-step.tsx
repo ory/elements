@@ -68,14 +68,16 @@ export function OryTwoStepCard() {
     }
   }
 
+  const showOidc =
+    hasOidc &&
+    (formState.current !== "method_active" || formState.method === "oidc")
+
   return (
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {formState.current !== "method_active" && hasOidc && (
-          <OryFormSocialButtonsForm />
-        )}
+        {showOidc && <OryFormSocialButtonsForm />}
         <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
             {formState.current === "provide_identifier" && (
