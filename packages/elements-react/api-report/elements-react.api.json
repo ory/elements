@@ -1884,10 +1884,6 @@
               "text": "): "
             },
             {
-              "kind": "Content",
-              "text": "string | "
-            },
-            {
               "kind": "Reference",
               "text": "react_jsx_runtime.JSX.Element",
               "canonicalReference": "@types/react!JSX.Element:interface"
@@ -1900,7 +1896,7 @@
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 5
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
