@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  filterZeroStepGroups,
+  filterOidcOut,
   getFinalNodes,
   isChoosingMethod,
 } from "../card-two-step.utils"
@@ -15,7 +15,7 @@ describe("CardTwoStep/utils", () => {
         { group: UiNodeGroupEnum.Oidc } as UiNode,
         { group: UiNodeGroupEnum.Default } as UiNode,
       ]
-      const result = filterZeroStepGroups(nodes)
+      const result = filterOidcOut(nodes)
       expect(result).toHaveLength(1)
       expect(result[0].group).toBe(UiNodeGroupEnum.Default)
     })

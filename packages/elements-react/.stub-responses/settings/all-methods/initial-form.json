@@ -1,11 +1,11 @@
 {
-  "id": "09710ae0-b006-4366-88c4-59e28b946b50",
+  "id": "6eb41405-fa09-4ae4-a320-5240de9d7cc1",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:42.423762011Z",
-  "issued_at": "2024-10-29T09:45:42.423762011Z",
-  "request_url": "https://wizardly-haibt-hgodg3zpxs.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-02-26T09:31:50.282586173Z",
+  "issued_at": "2025-02-26T08:31:50.282586173Z",
+  "request_url": "https://kind-einstein-rd4w2atk1w.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://wizardly-haibt-hgodg3zpxs.projects.oryapis:8080/self-service/settings?flow=09710ae0-b006-4366-88c4-59e28b946b50",
+    "action": "https://kind-einstein-rd4w2atk1w.projects.oryapis:8080/self-service/settings?flow=6eb41405-fa09-4ae4-a320-5240de9d7cc1",
     "method": "POST",
     "nodes": [
       {
@@ -47,7 +47,7 @@
         "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"wizardly-haibt-hgodg3zpxs.projects.oryapis\"},\"user\":{\"name\":\"dev+orycye2eda2f162daf6142dd0.h31svd5j2ni0.4w1higf9lng@ory.dev\",\"displayName\":\"dev+orycye2eda2f162daf6142dd0.h31svd5j2ni0.4w1higf9lng@ory.dev\",\"id\":\"UUNCTjhFdEZvUHQ0M0twSGJQdlhaR1A4MkJFd0NNRnU4RlI4MHJwUVAwTGszcmNwdlFiVklsWG1mMHhnM3prag\"},\"challenge\":\"uQHpl4X75XEVT8F6N4dj_tUkjmzi7XHrbCwo7IvOQgM\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"userVerification\":\"preferred\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"kind-einstein-rd4w2atk1w.projects.oryapis\"},\"user\":{\"name\":\"dev+orycye2eda2f162daf6142dd0.wx4qzzfu8c0.xqwd78u7a6@ory.dev\",\"displayName\":\"dev+orycye2eda2f162daf6142dd0.wx4qzzfu8c0.xqwd78u7a6@ory.dev\",\"id\":\"aEIzbWFpSWRTTHVEeGxtUkUyTkl4ZWkxVVZ4SXRSYjczbmd2Z2NEWEkzbUhzV0g2ZWtVNGhaUnZYVjZQcDA5Tw\"},\"challenge\":\"YSLmEIqV9BByURfEopBnxCMSLHuYylKPJlsz1FgA4ZM\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Sr41jb21Vhj/EhHiIIJvQDtkwPgDtLZC4/gMRN8nGxgSmWJHZf4GBOuujFhL+Sj2On2MzZpuoGOQ8bScSKk1Ag==",
+          "value": "ojOUvYY/s5kWyUT0c3z36XOo6qfcWpYjXgcKZoTdjFYLZP+CbsyPBl+FgSbs97Pl836JkcL9IH3+EMkLqyKtWw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,7 +74,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.h31svd5j2ni0.4w1higf9lng@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.wx4qzzfu8c0.xqwd78u7a6@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -295,9 +295,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"wizardly-haibt-hgodg3zpxs.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"-N1nnLMnQLu0VZ1xMOCyig\"},\"challenge\":\"IPDlS7UoWehcxt5CLCHulWO1kOOBkrITtejmNjnni6w\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"kind-einstein-rd4w2atk1w.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"ecIW4Lf4RjeoPtbeTU7Tvg\"},\"challenge\":\"dnRy9BynfHpbwv3hd7TVTTqL2PbSCDIng4yRkzyLkkc\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"wizardly-haibt-hgodg3zpxs.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-VmByNytjonwfzxNO-0-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"-N1nnLMnQLu0VZ1xMOCyig\"},\"challenge\":\"IPDlS7UoWehcxt5CLCHulWO1kOOBkrITtejmNjnni6w\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"requireResidentKey\":false,\"userVerification\":\"discouraged\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"kind-einstein-rd4w2atk1w.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-f75QG8jpBk5J58tk-3-tests/elements/everything.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"ecIW4Lf4RjeoPtbeTU7Tvg\"},\"challenge\":\"dnRy9BynfHpbwv3hd7TVTTqL2PbSCDIng4yRkzyLkkc\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -314,14 +314,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://wizardly-haibt-hgodg3zpxs.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://kind-einstein-rd4w2atk1w.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "f3f60194-c156-4edb-9831-080e9c009d4b",
+          "nonce": "52465613-ba3a-44a5-857b-9425ba783925",
           "node_type": "script"
         },
         "messages": [],
@@ -330,38 +330,38 @@
     ]
   },
   "identity": {
-    "id": "f8dd679c-b327-40bb-b455-9d7130e0b28a",
+    "id": "79c216e0-b7f8-4637-a83e-d6de4d4ed3be",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://wizardly-haibt-hgodg3zpxs.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://kind-einstein-rd4w2atk1w.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2024-10-29T09:45:40.429334Z",
+    "state_changed_at": "2025-02-26T08:31:49.150312Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.h31svd5j2ni0.4w1higf9lng@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.wx4qzzfu8c0.xqwd78u7a6@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "f3ca816d-270a-4e5c-ac68-c013df16753b",
-        "value": "dev+orycye2eda2f162daf6142dd0.h31svd5j2ni0.4w1higf9lng@ory.dev",
+        "id": "3e63d9a3-425e-436e-9344-30214f7aaeef",
+        "value": "dev+orycye2eda2f162daf6142dd0.wx4qzzfu8c0.xqwd78u7a6@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2024-10-29T09:45:40.437076Z",
-        "updated_at": "2024-10-29T09:45:40.437076Z"
+        "created_at": "2025-02-26T08:31:49.154855Z",
+        "updated_at": "2025-02-26T08:31:49.154855Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "b6e02654-9356-4fd9-890f-5f05f66de6cd",
-        "value": "dev+orycye2eda2f162daf6142dd0.h31svd5j2ni0.4w1higf9lng@ory.dev",
+        "id": "f14875aa-1fa6-4af3-897c-d02519010f65",
+        "value": "dev+orycye2eda2f162daf6142dd0.wx4qzzfu8c0.xqwd78u7a6@ory.dev",
         "via": "email",
-        "created_at": "2024-10-29T09:45:40.549552Z",
-        "updated_at": "2024-10-29T09:45:40.549552Z"
+        "created_at": "2025-02-26T08:31:49.160495Z",
+        "updated_at": "2025-02-26T08:31:49.160495Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2024-10-29T09:45:40.432608Z",
-    "updated_at": "2024-10-29T09:45:40.432608Z",
+    "created_at": "2025-02-26T08:31:49.151627Z",
+    "updated_at": "2025-02-26T08:31:49.151627Z",
     "organization_id": null
   },
   "state": "show_form"
