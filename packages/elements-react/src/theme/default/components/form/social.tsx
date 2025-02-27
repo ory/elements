@@ -110,11 +110,13 @@ export function DefaultButtonSocial({
         )}
       </span>
       {showLabel && node.meta.label ? (
-        <span className="grow text-center font-medium leading-none text-button-social-foreground-default">
-          {uiTextToFormattedMessage(node.meta.label, intl)}
-        </span>
+        <>
+          <span className="grow text-center font-medium leading-none text-button-social-foreground-default">
+            {uiTextToFormattedMessage(node.meta.label, intl)}
+          </span>
+          <span className="size-5 block"></span>
+        </>
       ) : null}
-      <span className="size-5 block"></span>
     </button>
   )
 }
