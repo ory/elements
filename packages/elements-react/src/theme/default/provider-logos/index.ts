@@ -14,6 +14,7 @@ import microsoft from "./microsoft.svg"
 import slack from "./slack.svg"
 import spotify from "./spotify.svg"
 import yandex from "./yandex.svg"
+import x from "./x.svg"
 
 const logos: Record<string, typeof apple> = {
   apple,
@@ -29,5 +30,6 @@ const logos: Record<string, typeof apple> = {
   slack,
   spotify,
   yandex,
+  x,
 }
 export default logos

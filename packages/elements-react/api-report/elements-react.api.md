@@ -195,6 +195,7 @@ export type OryFlowComponents = {
         Content: ComponentType<OryCardContentProps>;
         Logo: ComponentType<OryCardLogoProps>;
         Divider: ComponentType<OryCardDividerProps>;
+        AuthMethodListContainer: ComponentType<PropsWithChildren>;
         AuthMethodListItem: ComponentType<OryCardAuthMethodListItemProps>;
         SettingsSection: ComponentType<OryCardSettingsSectionProps>;
         SettingsSectionContent: ComponentType<OryFormSectionContentProps>;

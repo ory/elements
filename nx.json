@@ -17,12 +17,6 @@
     "projectsRelationship": "independent",
     "releaseTagPattern": "release/{projectName}/{version}",
     "projects": ["@ory/elements-react", "@ory/nextjs"],
-    "version": {
-      "generatorOptions": {
-        "preid": "next",
-        "specifier": "prerelease"
-      }
-    },
     "changelog": {
       "automaticFromRef": true,
       "projectChangelogs": true,

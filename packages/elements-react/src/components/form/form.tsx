@@ -113,6 +113,13 @@ export type OryFlowComponents = {
      * The HorizontalDivider component is rendered between groups.
      */
     Divider: ComponentType<OryCardDividerProps>
+
+    /**
+     * The AuthMethodListContainer component is rendered around the "method" chooser step in the identifier_first login flow.
+     *
+     * This is only used, if login is configured to use identifier_first authentication.
+     */
+    AuthMethodListContainer: ComponentType<PropsWithChildren>
     /**
      * The AuthMethodListItem component is rendered on the "method" chooser step in the identifier_first login flow.
      *

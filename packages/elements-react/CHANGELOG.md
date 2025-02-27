@@ -1,3 +1,14 @@
+## 1.0.0-next.29 (2025-02-27)
+
+### 🩹 Fixes
+
+- remove untranslated aria label from auth list item ([#365](https://github.com/ory/elements/pull/365))
+- spacing in auth method list ([#359](https://github.com/ory/elements/pull/359))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.28 (2025-02-20)
 
 ### 🩹 Fixes
