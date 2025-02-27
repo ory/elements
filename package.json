@@ -44,6 +44,7 @@
     "@ory/client": "1.16.5",
     "@playwright/experimental-ct-react": "1.46.0",
     "@preact/preset-vite": "2.5.0",
+    "@storybook/addon-a11y": "8.3.0",
     "@storybook/addon-docs": "8.3.0",
     "@storybook/addon-essentials": "8.3.0",
     "@storybook/addon-interactions": "8.3.0",

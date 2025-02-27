@@ -21,6 +21,18 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+
+    a11y: {
+      config: {},
+      /*
+       * Axe's options parameter
+       * See https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter
+       * to learn more about the available options.
+       */
+      options: {
+        runOnly: ["wcag2a", "wcag2aa", "wcag2aaa", "best-practice", "EN-9.*"],
+      },
+    },
   },
 }
 
