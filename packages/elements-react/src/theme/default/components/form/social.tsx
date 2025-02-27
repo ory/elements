@@ -13,6 +13,7 @@ import { useIntl } from "react-intl"
 import { ElementType, useEffect, useState } from "react"
 import { useFormContext } from "react-hook-form"
 import { Spinner } from "./spinner"
+import { useDebounce } from "@uidotdev/usehooks"
 
 export function extractProvider(
   context: object | undefined,
@@ -55,6 +56,7 @@ export function DefaultButtonSocial({
   const {
     formState: { isSubmitting },
   } = useFormContext()
+  const debouncedClick = useDebounce(clicked, 100)
 
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
@@ -72,8 +74,8 @@ export function DefaultButtonSocial({
   const provider = extractProvider(node.meta.label?.context) ?? ""
 
   const localOnClick = () => {
-    setClicked(true)
     onClick?.()
+    setClicked(true)
   }
 
   useEffect(() => {
@@ -91,11 +93,11 @@ export function DefaultButtonSocial({
       data-testid={`ory/form/node/input/${attributes.name}`}
       {...props}
       onClick={localOnClick}
-      data-loading={clicked}
+      data-loading={debouncedClick}
       disabled={isSubmitting}
     >
       <span className="size-5 relative">
-        {!clicked ? (
+        {!debouncedClick ? (
           Logo ? (
             <Logo size={20} />
           ) : (
@@ -108,10 +110,11 @@ export function DefaultButtonSocial({
         )}
       </span>
       {showLabel && node.meta.label ? (
-        <span className="grow text-left font-medium leading-none text-button-social-foreground-default">
+        <span className="grow text-center font-medium leading-none text-button-social-foreground-default">
           {uiTextToFormattedMessage(node.meta.label, intl)}
         </span>
       ) : null}
+      <span className="size-5 block"></span>
     </button>
   )
 }

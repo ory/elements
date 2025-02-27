@@ -10,6 +10,7 @@ import logos from "../../provider-logos"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import { DefaultButtonSocial, extractProvider } from "../form/social"
 import { Spinner } from "../form/spinner"
+import { useDebounce } from "@uidotdev/usehooks"
 
 export function DefaultSettingsOidc({
   linkButtons,
@@ -59,15 +60,14 @@ function UnlinkRow({ button }: UnlinkRowProps) {
   } = useFormContext()
   const attrs = button.attributes as UiNodeInputAttributes
   const provider = extractProvider(button.meta.label?.context) ?? ""
-  const Logo = attrs.value in logos ? logos[attrs.value] : logos.generic
+  const Logo = logos[(attrs.value as string).split("-")[0]]
+  // Safari cancels form submission events, if we do a state update in the same tick
+  // so we delay the state update by 100ms
+  const debouncedClicked = useDebounce(clicked, 100)
 
   const localOnClick = () => {
     button.onClick()
-    // Safari cancels form submission events, if we do a state update in the same tick
-    // so we delay the state update by 100ms
-    setTimeout(() => {
-      setClicked(true)
-    }, 100)
+    setClicked(true)
   }
 
   useEffect(() => {
@@ -79,7 +79,7 @@ function UnlinkRow({ button }: UnlinkRowProps) {
   return (
     <div key={attrs.value} className="flex justify-between">
       <div className="flex items-center gap-6">
-        <Logo size={32} />
+        {Logo ? <Logo size={32} /> : <logos.generic size={32} />}
         <p className="text-sm font-medium text-interface-foreground-default-secondary">
           {provider}
         </p>
@@ -92,7 +92,7 @@ function UnlinkRow({ button }: UnlinkRowProps) {
         className="relative"
         title={`Unlink ${provider}`}
       >
-        {clicked ? (
+        {debouncedClicked ? (
           <Spinner className="relative" />
         ) : (
           <Trash
