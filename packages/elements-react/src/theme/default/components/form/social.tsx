@@ -7,13 +7,13 @@ import {
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
+import { ElementType, useEffect } from "react"
+import { useFormContext } from "react-hook-form"
+import { useIntl } from "react-intl"
+import { useDebounceValue } from "usehooks-ts"
 import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
-import { useIntl } from "react-intl"
-import { ElementType, useEffect, useState } from "react"
-import { useFormContext } from "react-hook-form"
 import { Spinner } from "./spinner"
-import { useDebounce } from "@uidotdev/usehooks"
 
 export function extractProvider(
   context: object | undefined,
@@ -51,12 +51,13 @@ export function DefaultButtonSocial({
   const {
     flow: { ui },
   } = useOryFlow()
-  const [clicked, setClicked] = useState(false)
+  // Safari cancels form submission events, if we do a state update in the same tick
+  // so we delay the state update by 100ms
+  const [clicked, setClicked] = useDebounceValue(false, 100)
   const intl = useIntl()
   const {
     formState: { isSubmitting },
   } = useFormContext()
-  const debouncedClick = useDebounce(clicked, 100)
 
   const oidcNodeCount =
     ui.nodes.filter((node) => node.group === "oidc").length ?? 0
@@ -82,7 +83,7 @@ export function DefaultButtonSocial({
     if (!isSubmitting) {
       setClicked(false)
     }
-  }, [isSubmitting])
+  }, [isSubmitting, setClicked])
 
   return (
     <button
@@ -93,11 +94,11 @@ export function DefaultButtonSocial({
       data-testid={`ory/form/node/input/${attributes.name}`}
       {...props}
       onClick={localOnClick}
-      data-loading={debouncedClick}
+      data-loading={clicked}
       disabled={isSubmitting}
     >
       <span className="size-5 relative">
-        {!debouncedClick ? (
+        {!clicked ? (
           Logo ? (
             <Logo size={20} />
           ) : (

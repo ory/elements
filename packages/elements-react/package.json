@@ -43,13 +43,13 @@
   "dependencies": {
     "@ory/client-fetch": "~1.16.1",
     "@radix-ui/react-dropdown-menu": "2.1.2",
-    "@uidotdev/usehooks": "2.4.1",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "input-otp": "1.2.4",
     "react-hook-form": "7.53.0",
     "react-intl": "6.7.0",
     "tailwind-merge": "2.5.2",
+    "usehooks-ts": "3.1.1",
     "zustand": "5.0.0"
   },
   "peerDependencies": {

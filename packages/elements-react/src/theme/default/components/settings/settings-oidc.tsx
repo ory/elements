@@ -3,14 +3,14 @@
 
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { OrySettingsOidcProps } from "@ory/elements-react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useFormContext } from "react-hook-form"
+import { useDebounceValue } from "usehooks-ts"
 import Trash from "../../assets/icons/trash.svg"
 import logos from "../../provider-logos"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import { DefaultButtonSocial, extractProvider } from "../form/social"
 import { Spinner } from "../form/spinner"
-import { useDebounce } from "@uidotdev/usehooks"
 
 export function DefaultSettingsOidc({
   linkButtons,
@@ -54,16 +54,15 @@ type UnlinkRowProps = {
 }
 
 function UnlinkRow({ button }: UnlinkRowProps) {
-  const [clicked, setClicked] = useState(false)
+  // Safari cancels form submission events, if we do a state update in the same tick
+  // so we delay the state update by 100ms
+  const [clicked, setClicked] = useDebounceValue(false, 100)
   const {
     formState: { isSubmitting },
   } = useFormContext()
   const attrs = button.attributes as UiNodeInputAttributes
   const provider = extractProvider(button.meta.label?.context) ?? ""
   const Logo = logos[(attrs.value as string).split("-")[0]]
-  // Safari cancels form submission events, if we do a state update in the same tick
-  // so we delay the state update by 100ms
-  const debouncedClicked = useDebounce(clicked, 100)
 
   const localOnClick = () => {
     button.onClick()
@@ -74,7 +73,7 @@ function UnlinkRow({ button }: UnlinkRowProps) {
     if (!isSubmitting) {
       setClicked(false)
     }
-  }, [isSubmitting])
+  }, [isSubmitting, setClicked])
 
   return (
     <div key={attrs.value} className="flex justify-between">
@@ -92,7 +91,7 @@ function UnlinkRow({ button }: UnlinkRowProps) {
         className="relative"
         title={`Unlink ${provider}`}
       >
-        {debouncedClicked ? (
+        {clicked ? (
           <Spinner className="relative" />
         ) : (
           <Trash
