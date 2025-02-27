@@ -1983,7 +1983,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormGroups({ children, groups }: "
+              "text": "declare function OryFormGroups({ groups }: "
             },
             {
               "kind": "Reference",
@@ -2013,7 +2013,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, groups }",
+              "parameterName": "{ groups }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
