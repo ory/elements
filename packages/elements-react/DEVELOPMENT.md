@@ -51,13 +51,13 @@ Each flow has its own story in the `packages/elements-react-stories` package. To
 run the storybook development environment, execute:
 
 ```bash
-npx nx storybook elements-react-stories
+npx nx storybook @ory/elements-react
 ```
 
 You can also build the Storybook using:
 
 ```bash
-npx nx build elements-react-stories
+npx nx build @ory/elements-react
 ```
 
 The stories use stub responses

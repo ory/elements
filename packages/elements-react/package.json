@@ -41,6 +41,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.1.0",
     "@ory/client-fetch": "~1.17.2",
     "@radix-ui/react-dropdown-menu": "2.1.2",
     "class-variance-authority": "0.7.0",
@@ -56,6 +57,9 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
     "@hookform/devtools": "4.3.1",
     "@svgr/plugin-svgo": "8.1.0",
     "@types/lodash.merge": "4.6.9",

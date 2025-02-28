@@ -37,6 +37,7 @@ export function getFinalNodes(
   return [
     ...(uniqueGroups?.identifier_first ?? []),
     ...(uniqueGroups?.default ?? []),
+    ...(uniqueGroups?.captcha ?? []),
   ]
     .flat()
     .filter(

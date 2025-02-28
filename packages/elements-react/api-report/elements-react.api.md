@@ -187,6 +187,7 @@ export type OryFlowComponents = {
         Label: ComponentType<OryNodeLabelProps>;
         Checkbox: ComponentType<OryNodeInputProps>;
         Text: ComponentType<OryNodeTextProps>;
+        Captcha: ComponentType<OryNodeCaptchaProps>;
     };
     Card: {
         Root: ComponentType<OryCardProps>;
@@ -308,6 +309,11 @@ export type OryNodeButtonProps = {
     attributes: UiNodeInputAttributes;
     node: UiNode;
 } & Omit<ComponentPropsWithoutRef<"button">, "children"> & ButtonVariants;
+
+// @public (undocumented)
+export type OryNodeCaptchaProps = {
+    node: UiNode;
+};
 
 // @public (undocumented)
 export type OryNodeImageProps = {
