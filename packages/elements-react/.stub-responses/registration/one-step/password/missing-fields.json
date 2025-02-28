@@ -1,11 +1,11 @@
 {
-  "id": "c713a293-47c4-4605-8605-40127751083b",
+  "id": "c8e9ed9a-8426-483b-95ae-9a7548f43cac",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:42.152426Z",
-  "issued_at": "2024-10-29T09:45:42.152426Z",
-  "request_url": "https://serene-archimedes-edlkt7nkyd.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-01-28T16:29:35.078002Z",
+  "issued_at": "2025-01-28T15:29:35.078002Z",
+  "request_url": "https://jovial-gagarin-0y29csx2wv.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://serene-archimedes-edlkt7nkyd.projects.oryapis:8080/self-service/registration?flow=c713a293-47c4-4605-8605-40127751083b",
+    "action": "https://jovial-gagarin-0y29csx2wv.projects.oryapis:8080/self-service/registration?flow=c8e9ed9a-8426-483b-95ae-9a7548f43cac",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "b4t2jzkWsZ67gMxwZ1WDdbblCPkF8Lkryka4hNK8Dpz8RDvpmn1Hy0ZYC/n6NoKUc0InKUu/aZ9pjtQ78QAPbQ==",
+          "value": "Res9GBadar3Qn6Vu7TnagLNejRb30JdnaboG/7TsewDMkJvZcipgEi6vsaLED0My0hCjr7IKrW0ENaHkN/u+6Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"

@@ -14,11 +14,13 @@ export function CaptchaSection({ nodes }: CaptchaSectionProps) {
     (node) => (node.group as string) === "captcha",
   )
   return filteredNodes.map((node, k) => {
-    if (
-      isUiNodeTextAttributes(node.attributes) &&
-      node.attributes.id === "captcha"
-    ) {
-      return <div id={node.attributes.id} key={node.attributes.id}></div>
+    if (isUiNodeTextAttributes(node.attributes)) {
+      if (
+        node.attributes.id === "captcha" ||
+        node.attributes.text.id === 1070015
+      ) {
+        return <div id={node.attributes.id} key={node.attributes.id}></div>
+      }
     }
     return <Node node={node} key={k} />
   })

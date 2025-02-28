@@ -1,13 +1,40 @@
 {
-  "id": "6f3a12a0-dca3-4352-9de7-f90834dcbce7",
+  "id": "edf7dad0-d2ae-46a3-822d-b83b53f4034c",
   "type": "browser",
-  "expires_at": "2025-01-28T16:29:38.777463Z",
-  "issued_at": "2025-01-28T15:29:38.777463Z",
-  "request_url": "https://loving-wescoff-6yhfm9dprw.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-25T15:45:14.458765Z",
+  "issued_at": "2025-02-25T14:45:14.458765Z",
+  "request_url": "https://hungry-carson-j1lcfdagsd.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://loving-wescoff-6yhfm9dprw.projects.oryapis:8080/self-service/registration?flow=6f3a12a0-dca3-4352-9de7-f90834dcbce7",
+    "action": "https://hungry-carson-j1lcfdagsd.projects.oryapis:8080/self-service/registration?flow=edf7dad0-d2ae-46a3-822d-b83b53f4034c",
     "method": "POST",
     "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.3qsk4smi7ls0.x02e5ld12fc@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "tYOlBY871ZVPaZHPfAO4KsKc5dsLyhF/b31kZjLfd/DLYMnHXy9PA+qz8VEfPD515vJxZfRKNu43gvd/07hAYA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
       {
         "type": "input",
         "group": "password",
@@ -65,44 +92,16 @@
             "type": "info"
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "traits.email",
-          "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.iooxiugvtll0.198ewz3cbix@ory.dev",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "Zo3vlpXfeD6DhWYUxcwoTbFkSfsBvOfNVAJqkZOptZCW7RdahXAf7Kap8p3p0QmMehLqZfIXDMEZGqoneD9GEg==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
       }
     ],
     "messages": [
       {
-        "id": 1040009,
-        "text": "Please choose a credential to authenticate yourself with.",
-        "type": "info"
+        "id": 4010003,
+        "text": "Could not find a strategy to sign you up with. Did you fill out the form correctly?",
+        "type": "error"
       }
     ]
   },
   "organization_id": null,
-  "transient_payload": {},
   "state": "choose_method"
 }
