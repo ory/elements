@@ -1,0 +1,76 @@
+{
+  "id": "56834271-bf33-4a90-986e-f7b043b5abd2",
+  "type": "browser",
+  "expires_at": "2025-03-01T16:04:47.858098Z",
+  "issued_at": "2025-03-01T15:04:47.858098Z",
+  "request_url": "https://upbeat-montalcini-585o41d7jz.projects.oryapis:8080/self-service/recovery/browser",
+  "active": "code",
+  "ui": {
+    "action": "https://upbeat-montalcini-585o41d7jz.projects.oryapis:8080/self-service/recovery?flow=56834271-bf33-4a90-986e-f7b043b5abd2",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "wpgAwE6TD9hwKV78KVHCex+CUZc+eMPa2I9mun4tYBh6Whq4rS2VajI5a62gK+P8cr8DiueI75y9U6I92RArWQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "email",
+          "type": "email",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property email is missing.",
+            "type": "error",
+            "context": {
+              "property": "email"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070007,
+            "text": "Email",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "state": "choose_method"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "d619f1e8-06ac-4a4d-82f5-dc144b1e0fb1",
+  "type": "browser",
+  "expires_at": "2025-03-01T16:10:46.139606877Z",
+  "issued_at": "2025-03-01T15:10:46.139606877Z",
+  "request_url": "https://goofy-goldberg-1zy5he2oxu.projects.oryapis:8080/self-service/verification/browser",
+  "active": "code",
+  "ui": {
+    "action": "https://goofy-goldberg-1zy5he2oxu.projects.oryapis:8080/self-service/verification?flow=d619f1e8-06ac-4a4d-82f5-dc144b1e0fb1",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "email",
+          "type": "email",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070007,
+            "text": "Email",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "81bG6bpe0qDIDjjaiFZUUu8GJHbvLUkErspy5Hx8T8mBfIS0GINGTsUagO0bFgAYRca1U3YNhueMyqewM2uzog==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "state": "choose_method"
+}
