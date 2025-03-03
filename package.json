@@ -101,7 +101,7 @@
     "react-dom": "18.3.1",
     "react-intl": "6.8.1",
     "storybook": "8.3.0",
-    "tailwindcss": "3.4.7",
+    "tailwindcss": "3.4.17",
     "ts-jest": "29.2.4",
     "ts-node": "10.9.2",
     "tsup": "8.2.4",
@@ -120,7 +120,7 @@
     "dist/*"
   ],
   "engines": {
-    "node": ">=20",
+    "node": ">=20 <=22",
     "npm": ">=8.11.0"
   },
   "workspaces": [
