@@ -7,7 +7,7 @@ import { config } from "../../../utils"
 import { Login } from "../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/Second Factor Login/Methods/Everything",
+  title: "Ory Elements/Second Factor Login/Methods/Everything 2FA",
   component: Login,
   parameters: {
     layout: "centered",
