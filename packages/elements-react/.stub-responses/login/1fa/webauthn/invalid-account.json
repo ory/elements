@@ -1,12 +1,12 @@
 {
-  "id": "e0e1fbff-1f67-4f43-b686-e2e13f20c31d",
+  "id": "3ff21a85-cfa1-4f6f-9b5a-9ba05bbc64be",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:49.216119Z",
-  "issued_at": "2024-10-29T09:45:49.216119Z",
-  "request_url": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-01-28T16:29:44.83742Z",
+  "issued_at": "2025-01-28T15:29:44.83742Z",
+  "request_url": "https://silly-visvesvaraya-me4e6betl2.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login?flow=e0e1fbff-1f67-4f43-b686-e2e13f20c31d",
+    "action": "https://silly-visvesvaraya-me4e6betl2.projects.oryapis:8080/self-service/login?flow=3ff21a85-cfa1-4f6f-9b5a-9ba05bbc64be",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "XbAsvaU+Bxq08xhkISVldUEYq1JQJ0+wzZ/nGKgGcdABa2Sn+lCE99Eze934G3ei2fHlt5dD9jroN2WCr5zHRg==",
+          "value": "WCHPnMlgwNELP3wQYILm9Ynx3isJar4pqEPgrVGB2y4/t3Y6LQID11v9l9CXgP1x/c2eMfPeBxhOIIDuPJGq5Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -75,8 +75,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:49.225749Z",
-  "updated_at": "2024-10-29T09:45:49.225749Z",
+  "created_at": "2025-01-28T15:29:44.842217Z",
+  "updated_at": "2025-01-28T15:29:44.842217Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

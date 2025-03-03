@@ -1,20 +1,69 @@
 {
-  "id": "c8e9ed9a-8426-483b-95ae-9a7548f43cac",
+  "id": "fc1a66ad-54e2-4d8f-9487-deefa6586a65",
   "type": "browser",
-  "expires_at": "2025-01-28T16:29:35.078002544Z",
-  "issued_at": "2025-01-28T15:29:35.078002544Z",
-  "request_url": "https://jovial-gagarin-0y29csx2wv.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-25T16:06:51.068241Z",
+  "issued_at": "2025-02-25T15:06:51.068241Z",
+  "request_url": "https://nervous-shaw-wb9gub6dit.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://jovial-gagarin-0y29csx2wv.projects.oryapis:8080/self-service/registration?flow=c8e9ed9a-8426-483b-95ae-9a7548f43cac",
+    "action": "https://nervous-shaw-wb9gub6dit.projects.oryapis:8080/self-service/registration?flow=fc1a66ad-54e2-4d8f-9487-deefa6586a65",
     "method": "POST",
     "nodes": [
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js?action=registration&sitekey=1x00000000000000000000AA&theme=light",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-E9KlAompkLTArdiN/TF+SjDBSbalu7tjmejuqLiwDPo39s4jsF35IukXLxir8KdbMp7k8GIY3zmITt7+qy36GQ==",
+          "type": "text/javascript",
+          "id": "captcha-trigger",
+          "nonce": "bb0a88c1-0c8c-45d1-b7ae-1fc74064254f",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "text",
+        "group": "captcha",
+        "attributes": {
+          "text": {
+            "id": 1070015,
+            "text": "Please complete the captcha challenge to continue.",
+            "type": "info"
+          },
+          "id": "captcha",
+          "node_type": "text"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha",
+          "nonce": "874691d6-178f-4c36-982f-65f6637bc837",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
       {
         "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "aD8U0JtSadAgrM3kq/44pSn5M4iCo0qkcPwrxekLwo7hRLIR/+Vjf96c2SiCyKEXSLcdMcd5cK4dc4zeahwHZw==",
+          "value": "wSPyRDPCpUJNl8S/x/t8IFcM/aqVN8mojEipQm14PRSL7gOmFKIZBmD2IVhbznJK3c3HAG0x7ipaI+sst7W5Mw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -146,6 +195,13 @@
             "type": "info"
           }
         }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000038,
+        "text": "Captcha verification failed, please try again.",
+        "type": "error"
       }
     ]
   },

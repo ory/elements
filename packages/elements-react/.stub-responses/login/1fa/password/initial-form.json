@@ -1,11 +1,11 @@
 {
-  "id": "78253dca-fd68-4e9f-9a39-3ebc5bbf2fda",
+  "id": "39cecc48-3cfe-4da1-aafc-42fdacf1ab44",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:42.780134678Z",
-  "issued_at": "2024-10-29T09:45:42.780134678Z",
-  "request_url": "https://keen-bartik-cvzpttoe79.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-01-28T16:29:36.733735976Z",
+  "issued_at": "2025-01-28T15:29:36.733735976Z",
+  "request_url": "https://brave-lederberg-qzy1u8jq9m.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://keen-bartik-cvzpttoe79.projects.oryapis:8080/self-service/registration?flow=78253dca-fd68-4e9f-9a39-3ebc5bbf2fda",
+    "action": "https://brave-lederberg-qzy1u8jq9m.projects.oryapis:8080/self-service/registration?flow=39cecc48-3cfe-4da1-aafc-42fdacf1ab44",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "jqF9x5lfM3JLsNcb5HWSRRm8xBLk9EQ/R6ozZJTLYhwLbjsg4kPzy2TTKlOxwPdXkYMuoYXW7/zjzh9H8Sg7zg==",
+          "value": "CkBzNe9kAIXs3D+hAv0v1zHY0rXNJPxgxyBxrU1pCqtKMdfuz2nEERlNjfwiNsKWPZ+JjbKNI0fdUU2YTJSpzQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

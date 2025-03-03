@@ -1,12 +1,12 @@
 {
-  "id": "1f745189-9900-4837-8dfd-8ffed03b205d",
+  "id": "e1834df6-7be9-4918-acc6-26fb0e9deef1",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:52.166247501Z",
-  "issued_at": "2024-10-29T09:45:52.166247501Z",
-  "request_url": "https://sad-brown-097vtt9h1o.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-01-28T16:29:46.387652727Z",
+  "issued_at": "2025-01-28T15:29:46.387652727Z",
+  "request_url": "https://gifted-lewin-00b6hf7djc.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://sad-brown-097vtt9h1o.projects.oryapis:8080/self-service/login?flow=1f745189-9900-4837-8dfd-8ffed03b205d",
+    "action": "https://gifted-lewin-00b6hf7djc.projects.oryapis:8080/self-service/login?flow=e1834df6-7be9-4918-acc6-26fb0e9deef1",
     "method": "POST",
     "nodes": [
       {
@@ -199,80 +199,18 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "K0E5HJdhmB41FQ2aVnp7UigvzIgePyw1otXksbN5mvjxJwyxd4GUbB8/m0susKPW3qRb97lfofm2r34hV5jKHg==",
+          "value": "kFxvEWi7QN3Ol4n/jWJiWYpWIzQaXv45R1os753HR0/5ryczjpalhskhBW3Cl3BcKRLQRSEN+tcCqZGPzYGIBw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "value": "",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "title": "E-Mail"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "current-password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070001,
-            "text": "Password",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010022,
-            "text": "Sign in with password",
-            "type": "info"
-          }
-        }
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:52.176289Z",
-  "updated_at": "2024-10-29T09:45:52.176289Z",
+  "created_at": "2025-01-28T15:29:46.393376Z",
+  "updated_at": "2025-01-28T15:29:46.393376Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

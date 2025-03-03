@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import {
+  isUiNodeInputAttributes,
+  UiNode,
+  UiNodeGroupEnum,
+} from "@ory/client-fetch"
 import { PropsWithChildren, createContext, useContext } from "react"
 import { OryFlowComponents } from "../components"
 
@@ -50,6 +54,7 @@ const defaultNodeOrder = [
   "passkey",
   "code",
   "webauthn",
+  "captcha",
 ]
 
 function defaultNodeSorter(
@@ -59,6 +64,12 @@ function defaultNodeSorter(
 ): number {
   const aGroupWeight = defaultNodeOrder.indexOf(a.group) ?? 999
   const bGroupWeight = defaultNodeOrder.indexOf(b.group) ?? 999
+
+  if (isUiNodeInputAttributes(a.attributes)) {
+    if (a.attributes.type === "submit") {
+      return 999
+    }
+  }
 
   return aGroupWeight - bGroupWeight
 }

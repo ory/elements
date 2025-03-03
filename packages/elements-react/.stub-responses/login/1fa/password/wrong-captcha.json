@@ -1,16 +1,30 @@
 {
-  "id": "6f3a12a0-dca3-4352-9de7-f90834dcbce7",
+  "id": "514cb2f4-a081-4fac-aac4-5ea4f903f04f",
   "type": "browser",
-  "expires_at": "2025-01-28T16:29:38.777463Z",
-  "issued_at": "2025-01-28T15:29:38.777463Z",
-  "request_url": "https://loving-wescoff-6yhfm9dprw.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-25T15:45:14.510642Z",
+  "issued_at": "2025-02-25T14:45:14.510642Z",
+  "request_url": "https://funny-mcclintock-c2r3u8z46z.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://loving-wescoff-6yhfm9dprw.projects.oryapis:8080/self-service/registration?flow=6f3a12a0-dca3-4352-9de7-f90834dcbce7",
+    "action": "https://funny-mcclintock-c2r3u8z46z.projects.oryapis:8080/self-service/registration?flow=514cb2f4-a081-4fac-aac4-5ea4f903f04f",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
         "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "WF7O0OqZ0/Udx/D+cw8PdWCeguEGtx/CbrZAYILuA662ByTiAp8Nj0OSUebv/oAarb3RdNp+a++Zx476vLdXlQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
         "attributes": {
           "name": "traits.email",
           "type": "email",
@@ -42,7 +56,27 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
         "attributes": {
           "name": "traits.tos",
           "type": "checkbox",
@@ -63,7 +97,7 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "password",
         "attributes": {
           "name": "traits.phone",
           "type": "text",
@@ -84,7 +118,7 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "password",
         "attributes": {
           "name": "traits.nested.name",
           "type": "text",
@@ -105,25 +139,11 @@
       },
       {
         "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "c6lBQjpsoaRxm8IZlAgeQ8SNAdcPLyyOeJU7OOlbaTeDybmOKsPGdlS3VpC4FT+CD/uiSfyEx4I1jfuOAs2atQ==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "profile",
+        "group": "password",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "profile",
+          "value": "password",
           "disabled": false,
           "node_type": "input"
         },

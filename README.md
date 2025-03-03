@@ -289,12 +289,14 @@ version.
 
 Below is an example of how you should add the package.
 
-```json
-...
-"devDependencies": {
-"@ory/elements": "*"
+```json5
+{
+  // ...
+  devDependencies: {
+    "@ory/elements": "*",
+  },
+  // ...
 }
-...
 ```
 
 ### Default Translations
