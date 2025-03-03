@@ -22,6 +22,14 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
         return acc
       }
 
+      if (attrs.name.startsWith("scopes")) {
+        const scope = attrs.value as string
+        return {
+          ...acc,
+          scopes: [...(acc.scopes || []), scope],
+        }
+      }
+
       // Unroll nested traits or assign default values
       return unrollTrait(
         {
