@@ -37,6 +37,7 @@ export type CardHeaderTextOptions =
         | FlowType.Verification
         | FlowType.Recovery
         | FlowType.Settings
+        | FlowType.Consent
     }
 
 /**
@@ -273,6 +274,15 @@ export function useCardHeaderText(
                 },
               )
             : "",
+      }
+    case FlowType.Consent:
+      return {
+        title: intl.formatMessage({
+          id: "consent.title",
+        }),
+        description: intl.formatMessage({
+          id: "consent.subtitle",
+        }),
       }
   }
 

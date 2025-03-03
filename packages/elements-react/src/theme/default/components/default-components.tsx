@@ -45,6 +45,7 @@ import { DefaultSettingsTotp } from "./settings/settings-totp"
 import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
 import { DefaultAuthMethodListContainer } from "./card/auth-method-list-container"
 import { DefaultCaptcha } from "./form/captcha"
+import { DefaultConsentScopeCheckbox } from "./form/consent-scope-checkbox"
 
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
@@ -81,6 +82,8 @@ export function getOryComponents(
       Text: overrides?.Node?.Text ?? DefaultText,
       Anchor: overrides?.Node?.Anchor ?? DefaultLinkButton,
       Captcha: overrides?.Node?.Captcha ?? DefaultCaptcha,
+      ConsentScopeCheckbox:
+        overrides?.Node?.ConsentScopeCheckbox ?? DefaultConsentScopeCheckbox,
     },
     Form: {
       Root: overrides?.Form?.Root ?? DefaultFormContainer,

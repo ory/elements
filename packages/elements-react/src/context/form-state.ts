@@ -7,10 +7,12 @@ import { isChoosingMethod } from "../components/card/card-two-step.utils"
 import { OryFlowContainer } from "../util"
 import { nodesToAuthMethodGroups } from "../util/ui"
 
+export type SupportedMethods = UiNodeGroupEnum | "consent"
+
 export type FormState =
   | { current: "provide_identifier" }
   | { current: "select_method" }
-  | { current: "method_active"; method: UiNodeGroupEnum }
+  | { current: "method_active"; method: SupportedMethods }
   | { current: "success_screen" }
   | { current: "settings" }
 
@@ -21,7 +23,7 @@ export type FormStateAction =
     }
   | {
       type: "action_select_method"
-      method: UiNodeGroupEnum
+      method: SupportedMethods
     }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
@@ -76,6 +78,8 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
       break
     case FlowType.Settings:
       return { current: "settings" }
+    case FlowType.Consent:
+      return { current: "method_active", method: "consent" }
   }
   console.warn(
     `[Ory/Elements React] Encountered an unknown form state on ${flow.flowType} flow with ID ${flow.flow.id}`,

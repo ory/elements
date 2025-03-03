@@ -6,6 +6,7 @@ import {
   LoginFlowContainer,
   RegistrationFlowContainer,
 } from "../../util/flowContainer"
+import { SupportedMethods } from "../../context/form-state"
 
 export function isChoosingMethod(
   flow: LoginFlowContainer | RegistrationFlowContainer,
@@ -40,8 +41,8 @@ export function removeSsoNodes(nodes: UiNode[]): UiNode[] {
 }
 
 export function getFinalNodes(
-  uniqueGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>>,
-  selectedGroup: UiNodeGroupEnum | undefined,
+  uniqueGroups: Partial<Record<SupportedMethods, UiNode[]>>,
+  selectedGroup: SupportedMethods | undefined,
 ): UiNode[] {
   const selectedNodes: UiNode[] = selectedGroup
     ? (uniqueGroups[selectedGroup] ?? [])

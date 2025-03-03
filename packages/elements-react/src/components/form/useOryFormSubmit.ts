@@ -144,6 +144,15 @@ export function useOryFormSubmit(
         })
         break
       }
+      case FlowType.Consent: {
+        await fetch(flowContainer.flow.ui.action, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+      }
     }
     if ("password" in data) {
       methods.setValue("password", "")
