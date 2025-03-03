@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import { SupportedMethods } from "../../context/form-state"
 
 export function isChoosingMethod(uiNodes: UiNode[]): boolean {
   return (
@@ -27,8 +28,8 @@ export function filterZeroStepGroups(nodes: UiNode[]): UiNode[] {
 }
 
 export function getFinalNodes(
-  uniqueGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>>,
-  selectedGroup: UiNodeGroupEnum | undefined,
+  uniqueGroups: Partial<Record<SupportedMethods, UiNode[]>>,
+  selectedGroup: SupportedMethods | undefined,
 ): UiNode[] {
   const selectedNodes: UiNode[] = selectedGroup
     ? (uniqueGroups[selectedGroup] ?? [])

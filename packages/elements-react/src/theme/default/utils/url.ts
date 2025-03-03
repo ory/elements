@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 export function restartFlowUrl(
-  flow: { request_url?: string; return_to?: string },
+  flow: { id: string; request_url?: string; return_to?: string },
   fallback: string,
 ) {
   return flow.request_url || appendReturnTo(fallback, flow.return_to)
@@ -12,6 +12,7 @@ export function initFlowUrl(
   sdkUrl: string,
   flowType: string,
   flow: {
+    id: string
     return_to?: string
     oauth2_login_challenge?: string
   },

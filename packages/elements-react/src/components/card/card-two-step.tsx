@@ -48,6 +48,7 @@ export function OryTwoStepCard() {
     formState.current === "method_active"
       ? getFinalNodes(uniqueGroups.groups, formState.method)
       : []
+  console.log(uniqueGroups, finalNodes)
 
   return (
     <OryCard>
