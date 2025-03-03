@@ -72,7 +72,7 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.Submit:
     case UiNodeInputAttributesTypeEnum.Button:
       if (isSocial) {
-        return <Node.OidcButton attributes={attrs} node={node} />
+        return null
       }
       if (isResendNode || isScreenSelectionNode) {
         return null

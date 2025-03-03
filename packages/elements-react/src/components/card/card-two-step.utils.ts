@@ -22,7 +22,7 @@ export function isChoosingMethod(uiNodes: UiNode[]): boolean {
   )
 }
 
-export function filterZeroStepGroups(nodes: UiNode[]): UiNode[] {
+export function filterOidcOut(nodes: UiNode[]): UiNode[] {
   return nodes.filter((node) => node.group !== UiNodeGroupEnum.Oidc)
 }
 

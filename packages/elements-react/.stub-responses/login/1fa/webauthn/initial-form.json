@@ -1,12 +1,12 @@
 {
-  "id": "fe189118-902c-4f78-a742-342356f2a3ec",
+  "id": "1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:48.76084Z",
-  "issued_at": "2024-10-29T09:45:48.76084Z",
-  "request_url": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "expires_at": "2025-02-26T09:31:58.359011Z",
+  "issued_at": "2025-02-26T08:31:58.359011Z",
+  "request_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
   "ui": {
-    "action": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login?flow=fe189118-902c-4f78-a742-342356f2a3ec",
+    "action": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login?flow=1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "gmsCHEYS8hdrurAvYH54e3R4YvFXZHN0z84nmCAo7d9umiMNbTqUiGgIMWN3X1GAUfG1uZc3KrPayx9NmdsNjg==",
+          "value": "OKlHCrtlTgAzBjc+NcIaFHF0yJRLZlhwtSeLHSQf63u5Z0rKQP2Gg0MFGH26aa+TzIFJIXXHUY16DuJJ/VUbhg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:48.763474Z",
-  "updated_at": "2024-10-29T09:45:48.763474Z",
+  "created_at": "2025-02-26T08:31:58.362635Z",
+  "updated_at": "2025-02-26T08:31:58.362635Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -24,6 +24,7 @@ const providers = [
   "slack",
   "spotify",
   "yandex",
+  "x",
 ]
 
 const listOnly = (providers: string[]): LoginFlow => {
@@ -44,23 +45,13 @@ const listOnly = (providers: string[]): LoginFlow => {
   })
 }
 
-type LoginProxy = Record<(typeof providers)[number], boolean>
-
-function LoginProxy(providers: LoginProxy) {
-  const flow = providers
-    ? listOnly(Object.keys(providers).filter((key) => providers[key]))
-    : LoginFlowFromJSON(oidcNodes)
-
-  return <Login flow={flow} config={config} />
-}
-
 const meta = {
   title: "Ory Elements/First Factor Login/Methods/Social Sign In",
-  component: LoginProxy,
+  component: Login,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof LoginProxy>
+} satisfies Meta<typeof Login>
 
 export default meta
 
@@ -68,76 +59,82 @@ type Story = StoryObj<typeof meta>
 
 export const OneSocialButton: Story = {
   args: {
-    google: true,
+    flow: listOnly(["google"]),
+    config,
   },
 }
 
 export const TwoSocialButtons: Story = {
   args: {
-    google: true,
-    x: true,
+    flow: listOnly(["google", "x"]),
+    config,
   },
 }
 
 export const ThreeSocialButtons: Story = {
   args: {
-    google: true,
-    x: true,
-    github: true,
+    flow: listOnly(["google", "x", "github"]),
+    config,
   },
 }
 
 export const FourSocialButtons: Story = {
   args: {
-    google: true,
-    x: true,
-    github: true,
-    linkedin: true,
+    flow: listOnly(["google", "x", "github", "linkedin"]),
+    config,
   },
 }
 
 export const FiveSocialButtons: Story = {
   args: {
-    google: true,
-    x: true,
-    github: true,
-    linkedin: true,
-    auth0: true,
+    flow: listOnly(["google", "x", "github", "linkedin", "auth0"]),
+    config,
   },
 }
 
 export const SixSocialButtons: Story = {
   args: {
-    google: true,
-    x: true,
-    github: true,
-    linkedin: true,
-    auth0: true,
-    apple: true,
+    flow: listOnly(["google", "x", "github", "linkedin", "auth0", "apple"]),
+    config,
   },
 }
 
 export const SevenSocialButtons: Story = {
   args: {
-    google: true,
-    x: true,
-    github: true,
-    linkedin: true,
-    auth0: true,
-    apple: true,
-    microsoft: true,
+    flow: listOnly([
+      "google",
+      "x",
+      "github",
+      "linkedin",
+      "auth0",
+      "apple",
+      "microsoft",
+    ]),
+    config,
   },
 }
 
 export const AllGenericButton: Story = {
   args: {
-    x: true,
-    ...Object.keys(providers).reduce(
-      (acc, key) => {
-        acc[key] = true
-        return acc
-      },
-      {} as Record<(typeof providers)[number], boolean>,
+    flow: listOnly(providers),
+    config,
+  },
+}
+
+export const CredentialSelect: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/oidc/credential-select.json"),
     ),
+    config,
+  },
+}
+
+export const CredentialSelectWithMethodSelect: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/oidc/credential-select-password.json"),
+    ),
+    config,
   },
 }
