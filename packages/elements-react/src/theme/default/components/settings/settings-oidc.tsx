@@ -3,8 +3,9 @@
 
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { OrySettingsOidcProps } from "@ory/elements-react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useFormContext } from "react-hook-form"
+import { useDebounceValue } from "usehooks-ts"
 import Trash from "../../assets/icons/trash.svg"
 import logos from "../../provider-logos"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
@@ -53,33 +54,31 @@ type UnlinkRowProps = {
 }
 
 function UnlinkRow({ button }: UnlinkRowProps) {
-  const [clicked, setClicked] = useState(false)
+  // Safari cancels form submission events, if we do a state update in the same tick
+  // so we delay the state update by 100ms
+  const [clicked, setClicked] = useDebounceValue(false, 100)
   const {
     formState: { isSubmitting },
   } = useFormContext()
   const attrs = button.attributes as UiNodeInputAttributes
   const provider = extractProvider(button.meta.label?.context) ?? ""
-  const Logo = attrs.value in logos ? logos[attrs.value] : logos.generic
+  const Logo = logos[(attrs.value as string).split("-")[0]]
 
   const localOnClick = () => {
     button.onClick()
-    // Safari cancels form submission events, if we do a state update in the same tick
-    // so we delay the state update by 100ms
-    setTimeout(() => {
-      setClicked(true)
-    }, 100)
+    setClicked(true)
   }
 
   useEffect(() => {
     if (!isSubmitting) {
       setClicked(false)
     }
-  }, [isSubmitting])
+  }, [isSubmitting, setClicked])
 
   return (
     <div key={attrs.value} className="flex justify-between">
       <div className="flex items-center gap-6">
-        <Logo size={32} />
+        {Logo ? <Logo size={32} /> : <logos.generic size={32} />}
         <p className="text-sm font-medium text-interface-foreground-default-secondary">
           {provider}
         </p>
