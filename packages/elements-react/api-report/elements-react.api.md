@@ -109,6 +109,10 @@ export function OryCard({ children }: PropsWithChildren): react_jsx_runtime.JSX.
 export type OryCardAuthMethodListItemProps = {
     onClick: () => void;
     group: string;
+    title?: {
+        id: string;
+        values?: Record<string, string>;
+    };
 };
 
 // @public
