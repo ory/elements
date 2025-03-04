@@ -40,8 +40,6 @@ function LoginCardFooter() {
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
 
-  console.log(flow.ui.nodes, authMethods.length, formState.current)
-
   if (flowType === FlowType.Login && flow.refresh) {
     return null
   }
@@ -71,7 +69,7 @@ function LoginCardFooter() {
           <a
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
             href=""
-            data-testid={"ory/screen/registration/action/login"}
+            data-testid={"ory/screen/login/mfa/action/selectMethod"}
           >
             {intl.formatMessage({
               id: "login.2fa.method.go-back",
@@ -79,6 +77,25 @@ function LoginCardFooter() {
           </a>
         </span>
       )}
+      {/* special case for code auth method */}
+      {authMethods.length === 1 &&
+        authMethods[0] === "code" &&
+        formState.current === "method_active" && (
+          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+            <a
+              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              href={restartFlowUrl(
+                flow,
+                `${config.sdk.url}/self-service/${flowType}/browser`,
+              )}
+              data-testid={"ory/screen/login/mfa/action/reauthenticate"}
+            >
+              {intl.formatMessage({
+                id: "login.2fa.go-back.link",
+              })}
+            </a>
+          </span>
+        )}
       {flowType === FlowType.Login &&
         flow.requested_aal === "aal2" &&
         formState.current === "select_method" && (
@@ -92,7 +109,7 @@ function LoginCardFooter() {
                 flow,
                 `${config.sdk.url}/self-service/${flowType}/browser`,
               )}
-              data-testid={"ory/screen/registration/action/login"}
+              data-testid={"ory/screen/login/mfa/action/reauthenticate"}
             >
               {intl.formatMessage({
                 id: "login.2fa.go-back.link",

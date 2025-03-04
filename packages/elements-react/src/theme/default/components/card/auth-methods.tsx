@@ -27,6 +27,7 @@ const iconsMap: Record<string, typeof code> = {
 export function DefaultAuthMethodListItem({
   onClick,
   group,
+  title,
 }: OryCardAuthMethodListItemProps) {
   const intl = useIntl()
   const Icon = iconsMap[group] || null
@@ -50,7 +51,10 @@ export function DefaultAuthMethodListItem({
         </span>
         <span className="flex-1 leading-normal inline-flex flex-col">
           <span className="text-interface-foreground-default-primary">
-            {intl.formatMessage({ id: `two-step.${group}.title` })}
+            {intl.formatMessage(
+              { id: title?.id ?? `two-step.${group}.title` },
+              title?.values,
+            )}
           </span>
           <span className="text-interface-foreground-default-secondary">
             {intl.formatMessage({ id: `two-step.${group}.description` })}
