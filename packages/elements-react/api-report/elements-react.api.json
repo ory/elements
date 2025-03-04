@@ -1526,6 +1526,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        AuthMethodListContainer: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n        AuthMethodListItem: "
             },
             {
@@ -1808,7 +1826,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 122
+            "endIndex": 126
           }
         },
         {

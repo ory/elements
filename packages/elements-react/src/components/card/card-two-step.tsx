@@ -151,12 +151,16 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
       setSelectedGroup(group)
     }
   }
-  return Object.entries(options).map(([group, options]) => (
-    <Card.AuthMethodListItem
-      key={group}
-      group={group}
-      title={options.title}
-      onClick={() => handleClick(group as UiNodeGroupEnum, options)}
-    />
-  ))
+  return (
+    <Card.AuthMethodListContainer>
+      {Object.entries(options).map(([group, options]) => (
+        <Card.AuthMethodListItem
+          key={group}
+          group={group}
+          title={options.title}
+          onClick={() => handleClick(group as UiNodeGroupEnum, options)}
+        />
+      ))}
+    </Card.AuthMethodListContainer>
+  )
 }
