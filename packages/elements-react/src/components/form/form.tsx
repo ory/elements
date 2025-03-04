@@ -47,7 +47,6 @@ import {
   OryNodeOidcButtonProps,
 } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
-import { nodesToAuthMethodGroups } from "../../util/ui"
 
 /**
  * A record of all the components that are used in the OryForm component.
@@ -238,14 +237,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
 
       return false
     }).length > 0
-  const authMethods = nodesToAuthMethodGroups(flowContainer.flow.ui.nodes)
-
-  if (
-    (!hasMethods && (flowContainer.flow.ui.messages ?? []).length === 0) ||
-    (flowContainer.flowType === FlowType.Login &&
-      flowContainer.flow.requested_aal == "aal2" &&
-      !authMethods.length)
-  ) {
+  if (!hasMethods) {
     // This is defined in Ory Kratos as well.
     const m: UiText = {
       id: 5000002,
