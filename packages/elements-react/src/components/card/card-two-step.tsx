@@ -14,33 +14,62 @@ import { OryFormSocialButtonsForm } from "../form/social"
 import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
-export function OryTwoStepCard() {
-  const {
-    flow: { ui },
-  } = useOryFlow()
+type MethodOption = {
+  title?: { id: string; values?: Record<string, string> }
+}
 
+type MethodOptions = Partial<Record<UiNodeGroupEnum, MethodOption>>
+
+type AuthMethodListProps = {
+  options: MethodOptions
+  setSelectedGroup: (group: UiNodeGroupEnum) => void
+}
+
+export function OryTwoStepCard() {
   const { Form, Card } = useComponents()
-  const { flowType, formState, dispatchFormState } = useOryFlow()
+  const { flow, flowType, formState, dispatchFormState } = useOryFlow()
+  const { ui } = flow
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
 
   const uniqueGroups = useNodesGroups(ui.nodes)
 
-  const options: UiNodeGroupEnum[] = Object.values(UiNodeGroupEnum)
-    .filter((group) => uniqueGroups.groups[group]?.length)
-    .filter(
-      (group) =>
-        !(
-          [
-            UiNodeGroupEnum.Oidc,
-            UiNodeGroupEnum.Default,
-            UiNodeGroupEnum.IdentifierFirst,
-            UiNodeGroupEnum.Profile,
-          ] as UiNodeGroupEnum[]
-        ).includes(group),
-    )
+  const options: MethodOptions = Object.fromEntries(
+    Object.values(UiNodeGroupEnum)
+      .filter((group) => uniqueGroups.groups[group]?.length)
+      .filter(
+        (group) =>
+          !(
+            [
+              UiNodeGroupEnum.Oidc,
+              UiNodeGroupEnum.Default,
+              UiNodeGroupEnum.IdentifierFirst,
+              UiNodeGroupEnum.Profile,
+            ] as UiNodeGroupEnum[]
+          ).includes(group),
+      )
+      .map((g) => [g, {}]),
+  )
 
+  // Special case for code method selector
+  if (Object.values(options).length > 1 && UiNodeGroupEnum.Code in options) {
+    const codeAttr = uniqueGroups.groups.code?.[0].attributes
+    const address =
+      codeAttr?.node_type === "input" && codeAttr?.name === "address"
+        ? codeAttr?.value
+        : ""
+    if (address) {
+      options[UiNodeGroupEnum.Code] = {
+        title: {
+          id: "identities.messages.1010023",
+          values: { address },
+        },
+      }
+    }
+  }
+
+  const hasError = Boolean(ui.messages?.some((m) => m.type === "error"))
   const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
 
   const zeroStepGroups = filterZeroStepGroups(ui.nodes)
@@ -53,7 +82,7 @@ export function OryTwoStepCard() {
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
-        <OryCardValidationMessages />
+        {hasError ? <OryCardValidationMessages /> : undefined}
         {formState.current === "provide_identifier" && hasOidc && (
           <OryFormSocialButtonsForm />
         )}
@@ -106,17 +135,15 @@ export function OryTwoStepCard() {
   )
 }
 
-type AuthMethodListProps = {
-  options: UiNodeGroupEnum[]
-  setSelectedGroup: (group: UiNodeGroupEnum) => void
-}
-
 function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { Card } = useComponents()
   const { setValue } = useFormContext()
 
-  const handleClick = (group: UiNodeGroupEnum) => {
+  const handleClick = (group: UiNodeGroupEnum, options?: MethodOption) => {
     if (isGroupImmediateSubmit(group)) {
+      // Required because idenitifer node is not defined with code method in aal2
+      if (group === "code" && options?.title?.values?.address)
+        setValue("identifier", options?.title?.values?.address)
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
       // then the method needs to be added to the form data.
       setValue("method", group)
@@ -126,11 +153,12 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   }
   return (
     <Card.AuthMethodListContainer>
-      {options.map((option) => (
+      {Object.entries(options).map(([group, options]) => (
         <Card.AuthMethodListItem
-          key={option}
-          group={option}
-          onClick={() => handleClick(option)}
+          key={group}
+          group={group}
+          title={options.title}
+          onClick={() => handleClick(group as UiNodeGroupEnum, options)}
         />
       ))}
     </Card.AuthMethodListContainer>
