@@ -11,16 +11,23 @@ import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
-import { filterZeroStepGroups, getFinalNodes } from "./card-two-step.utils"
+import { filterOidcOut, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
+
+function isUINodeGroupEnum(method: string): method is UiNodeGroupEnum {
+  // @ts-expect-error it's a string array, but typescript thinks the argument must be validated stricter
+  return Object.values(UiNodeGroupEnum).includes(method)
+}
 
 export function OryTwoStepCard() {
   const {
     flow: { ui },
+    flowType,
+    formState,
+    dispatchFormState,
   } = useOryFlow()
 
   const { Form, Card } = useComponents()
-  const { flowType, formState, dispatchFormState } = useOryFlow()
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
@@ -41,37 +48,46 @@ export function OryTwoStepCard() {
         ).includes(group),
     )
 
-  const hasOidc = Boolean(uniqueGroups.groups[UiNodeGroupEnum.Oidc]?.length)
-
-  const zeroStepGroups = filterZeroStepGroups(ui.nodes)
+  const nonOidcNodes = filterOidcOut(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
       ? getFinalNodes(uniqueGroups.groups, formState.method)
       : []
+
+  const handleAfterFormSubmit = (method: unknown) => {
+    if (typeof method !== "string" || !isUINodeGroupEnum(method)) {
+      return
+    }
+    if (isGroupImmediateSubmit(method)) {
+      dispatchFormState({
+        type: "action_select_method",
+        method: method,
+      })
+    }
+  }
+  const hasOidc = ui.nodes.some((node) => node.group === UiNodeGroupEnum.Oidc)
+
+  // We want to show the OIDC buttons on all screens, except when the user has selected a different method.
+  const showOidc = !(
+    formState.current === "method_active" && formState.method !== "oidc"
+  )
 
   return (
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {formState.current === "provide_identifier" && hasOidc && (
-          <OryFormSocialButtonsForm />
-        )}
-        <OryForm
-          onAfterSubmit={(method) =>
-            isGroupImmediateSubmit(method + "")
-              ? dispatchFormState({
-                  type: "action_select_method",
-                  method: method as UiNodeGroupEnum,
-                })
-              : undefined
-          }
-        >
+        {showOidc && <OryFormSocialButtonsForm />}
+        <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
-            {formState.current === "provide_identifier" &&
-              zeroStepGroups
-                .sort(sortNodes)
-                .map((node, k) => <Node node={node} key={k} />)}
+            {formState.current === "provide_identifier" && (
+              <>
+                {hasOidc && <Card.Divider />}
+                {nonOidcNodes.sort(sortNodes).map((node, k) => (
+                  <Node node={node} key={k} />
+                ))}
+              </>
+            )}
             {formState.current === "select_method" && (
               <>
                 <Card.Divider />

@@ -2,10 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { PropsWithChildren } from "react"
-import { OryCardFooter } from "./footer"
 import { useComponents } from "../../context"
-import { OryCardContent } from "./content"
-import { OryCardHeader } from "./header"
 import { OryFormProvider } from "../form/form-provider"
 
 export type OryCardRootProps = PropsWithChildren
@@ -22,21 +19,9 @@ export type OryCardRootProps = PropsWithChildren
  */
 export function OryCard({ children }: PropsWithChildren) {
   const { Card } = useComponents()
-  if (children) {
-    return (
-      <Card.Root>
-        <OryFormProvider>{children}</OryFormProvider>
-      </Card.Root>
-    )
-  }
-
   return (
     <Card.Root>
-      <OryFormProvider>
-        <OryCardHeader />
-        <OryCardContent />
-        <OryCardFooter />
-      </OryFormProvider>
+      <OryFormProvider>{children}</OryFormProvider>
     </Card.Root>
   )
 }

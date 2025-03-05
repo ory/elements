@@ -1,11 +1,11 @@
 {
-  "id": "2223b632-5224-45f0-a268-26d8782092eb",
+  "id": "1a220301-4c16-4b7f-9fd6-d39ab8f2f57c",
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:45.283503Z",
-  "issued_at": "2024-10-29T09:45:45.283503Z",
-  "request_url": "https://pedantic-spence-hvwjb2by59.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-02-26T09:31:56.756946Z",
+  "issued_at": "2025-02-26T08:31:56.756946Z",
+  "request_url": "https://gracious-matsumoto-3r7dg84qzb.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://pedantic-spence-hvwjb2by59.projects.oryapis:8080/self-service/registration?flow=2223b632-5224-45f0-a268-26d8782092eb",
+    "action": "https://gracious-matsumoto-3r7dg84qzb.projects.oryapis:8080/self-service/registration?flow=1a220301-4c16-4b7f-9fd6-d39ab8f2f57c",
     "method": "POST",
     "nodes": [
       {
@@ -109,7 +109,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "z/kMSPbeDK8RXBjLgKt0EJy5uJpHg0Soa5WkvD2xrYF8AUxwUpZA+7AxQJseB8StfoX9tFFBVLuuU49SNpdBCw==",
+          "value": "Dmrw1KXnBvpTAQCCFQ7wAiHlrqyKJ5nfreQFnMvUH6jgpi5NSKqEpV2B401lGGDuOdF1yUMv0HuhNBidp8Cm1A==",
           "required": true,
           "disabled": false,
           "node_type": "input"
