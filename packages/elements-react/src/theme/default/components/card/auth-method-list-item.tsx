@@ -44,8 +44,8 @@ export function DefaultAuthMethodListItem({
           <Icon size={16} className="text-interface-foreground-brand-primary" />
         )}
       </span>
-      <span className="flex-1 leading-normal inline-flex flex-col">
-        <span className="text-interface-foreground-default-primary">
+      <span className="flex-1 leading-normal inline-flex flex-col truncate">
+        <span className="text-interface-foreground-default-primary truncate">
           {intl.formatMessage(
             { id: title?.id ?? `two-step.${group}.title` },
             title?.values,
