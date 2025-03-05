@@ -30,6 +30,7 @@ export const IdentifierFirstLoginSection = (
           excludeAttributeTypes: ["submit", "hidden"],
         }}
       />
+      <CaptchaSection nodes={nodes} />
       <FilterFlowNodes
         filter={{
           nodes: nodes,

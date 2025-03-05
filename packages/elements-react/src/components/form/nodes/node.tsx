@@ -9,6 +9,7 @@ import {
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
   isUiNodeTextAttributes,
+  UiNodeGroupEnum,
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode } from "react"
 import { useComponents } from "../../../context"
@@ -21,6 +22,11 @@ export type NodeProps = {
 
 export const Node = ({ node, onClick }: NodeProps): ReactNode => {
   const { Node } = useComponents()
+
+  // Special case for CAPTCHA handling as we need to render a different component
+  if (node.group === UiNodeGroupEnum.Captcha) {
+    return <Node.Captcha node={node} />
+  }
 
   if (isUiNodeImageAttributes(node.attributes)) {
     return <Node.Image node={node} attributes={node.attributes} />
