@@ -98,7 +98,7 @@ function LoginCardFooter() {
         )}
       {flowType === FlowType.Login &&
         flow.requested_aal === "aal2" &&
-        formState.current === "select_method" && (
+        (formState.current === "select_method" || authMethods.length === 0) && (
           <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
             {intl.formatMessage({
               id: "login.2fa.go-back",

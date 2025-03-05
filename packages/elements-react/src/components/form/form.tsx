@@ -26,7 +26,7 @@ import {
   OryNodeLabelProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryCardFooterProps } from "../card"
+import { OryCardFooter, OryCardFooterProps } from "../card"
 import { OryCardRootProps } from "../card/card"
 import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
@@ -251,9 +251,12 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
     }
 
     return (
-      <Message.Root>
-        <Message.Content key={m.id} message={m} />
-      </Message.Root>
+      <>
+        <Message.Root>
+          <Message.Content key={m.id} message={m} />
+        </Message.Root>
+        <OryCardFooter />
+      </>
     )
   }
 
