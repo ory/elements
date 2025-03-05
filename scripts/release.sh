@@ -17,7 +17,11 @@ fi
 npx nx build $project
 
 # nx is configured to generate a new -next.X version, in nx.json
-npx nx release version --verbose -p $project --preid=$preid --specifier 0.0.0-pr.$(git rev-parse --short HEAD)
+if [ $preid == "next" ]; then
+  npx nx release version --verbose -p $project --preid=$preid --specifier prerelease
+else
+  npx nx release version --verbose -p $project --preid=$preid --specifier 0.0.0-pr.$(git rev-parse --short HEAD)
+fi
 
 # the version nx came up with
 new_version=$(jq -r --arg project "$project" '.packages | map(select(.name==$project))[].version' package-lock.json)
@@ -27,6 +31,7 @@ echo "\nNew version: $new_version"
 read -p "Correct? (y/n) " RESP
 if [ "$RESP" != "y" ]; then
   echo "Aborting"
+  exit 1
 fi
 
 if [ $preid == "next" ]; then
@@ -40,6 +45,7 @@ npx nx release publish --tag=$preid --dry-run --verbose -p $project
 read -p "Dry run and CHANGELOG.md correct? (y/n) " RESP
 if [ "$RESP" != "y" ]; then
   echo "Aborting"
+  exit 1
 fi
 
 npx nx release publish --tag=$preid --verbose -p $project
