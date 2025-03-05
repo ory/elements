@@ -233,7 +233,7 @@ export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;
 export type OryFormGroupProps = PropsWithChildren;
 
 // @public (undocumented)
-export function OryFormGroups({ children, groups }: OryFormGroupsProps): react_jsx_runtime.JSX.Element;
+export function OryFormGroups({ groups }: OryFormGroupsProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type OryFormGroupsProps = PropsWithChildren<{
@@ -241,12 +241,7 @@ export type OryFormGroupsProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export function OryFormOidcButtons({ children, hideDivider, }: OryFormOidcButtonsProps): react_jsx_runtime.JSX.Element | null;
-
-// @public (undocumented)
-export type OryFormOidcButtonsProps = PropsWithChildren<{
-    hideDivider?: boolean;
-}>;
+export function OryFormOidcButtons(): react_jsx_runtime.JSX.Element | null;
 
 // @public (undocumented)
 export type OryFormOidcRootProps = PropsWithChildren<{

@@ -1,13 +1,13 @@
 {
-  "id": "1c2b44ff-d5eb-4508-8671-9942fcf9c2fd",
+  "id": "39d30c32-c02b-434a-8cd6-960a9549237f",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:35.875715Z",
-  "issued_at": "2024-10-29T09:45:35.875715Z",
-  "request_url": "https://ecstatic-ganguly-vkw4on0o7a.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-26T09:31:42.871529Z",
+  "issued_at": "2025-02-26T08:31:42.871529Z",
+  "request_url": "https://relaxed-euler-qfenjed976.projects.oryapis:8080/self-service/login/browser",
   "active": "code",
   "ui": {
-    "action": "https://ecstatic-ganguly-vkw4on0o7a.projects.oryapis:8080/self-service/login?flow=1c2b44ff-d5eb-4508-8671-9942fcf9c2fd",
+    "action": "https://relaxed-euler-qfenjed976.projects.oryapis:8080/self-service/login?flow=39d30c32-c02b-434a-8cd6-960a9549237f",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.yrtjdvzksr0.y9ns4uih47d@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.tczk66cfwzr0.z1dt03wlbel@ory.dev",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -109,7 +109,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "HDU1ID5ZR7f5ITbHX/14LOkQF0+J+SwKp1kQ8b4uT9gq/tIGK1CfG4obszCxazcvXLgg62UNdSUdd8dqpXZjIQ==",
+          "value": "y/3mgMGoGONQ6AbxIvb2vQ5CC6KB/4bDD2cNbUqqjCMV8u3PpqmX5zzSlk6JcyufR6iIg1ZNx+DyK0OUorFYLg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -126,8 +126,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:35.88133Z",
-  "updated_at": "2024-10-29T09:45:35.88133Z",
+  "created_at": "2025-02-26T08:31:42.887144Z",
+  "updated_at": "2025-02-26T08:31:42.887144Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "sent_email",
