@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form"
 import { OryCard, OryCardContent, OryCardFooter } from "."
 import { useComponents, useNodeSorter, useOryFlow } from "../../context"
 import { isGroupImmediateSubmit } from "../../theme/default/utils/form"
-import { useNodesGroups } from "../../util/ui"
+import { findNode, useNodesGroups } from "../../util/ui"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
@@ -56,13 +56,12 @@ export function OryTwoStepCard() {
       .map((g) => [g, {}]),
   )
 
-  // Special case for code method selector
-  if (Object.values(options).length > 1 && UiNodeGroupEnum.Code in options) {
-    const codeAttr = uniqueGroups.groups.code?.[0].attributes
-    const address =
-      codeAttr?.node_type === "input" && codeAttr?.name === "address"
-        ? codeAttr?.value
-        : ""
+  // Special case to show the address on code method selector
+  if (UiNodeGroupEnum.Code in options) {
+    const address = findNode(ui.nodes, {
+      group: /identifier_first|code/,
+      node_type: "input",
+    })?.attributes?.value
     if (address) {
       options[UiNodeGroupEnum.Code] = {
         title: {
@@ -151,13 +150,18 @@ export function OryTwoStepCard() {
 
 function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { Card } = useComponents()
-  const { setValue } = useFormContext()
+  const { setValue, getValues } = useFormContext()
 
   const handleClick = (group: UiNodeGroupEnum, options?: MethodOption) => {
     if (isGroupImmediateSubmit(group)) {
-      // Required because idenitifer node is not defined with code method in aal2
-      if (group === "code" && options?.title?.values?.address)
+      // Required because identifier node is not always defined with code method in aal2
+      if (
+        group === "code" &&
+        !getValues("identifier") &&
+        options?.title?.values?.address
+      ) {
         setValue("identifier", options?.title?.values?.address)
+      }
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
       // then the method needs to be added to the form data.
       setValue("method", group)

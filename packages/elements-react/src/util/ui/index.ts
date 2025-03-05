@@ -4,6 +4,7 @@
 import { UiNode } from "@ory/client-fetch"
 
 import type {
+  UiNodeAttributes,
   UiNodeInputAttributesOnclickTriggerEnum,
   UiNodeInputAttributesOnloadTriggerEnum,
   UiNodeInputAttributesTypeEnum,
@@ -180,3 +181,27 @@ export function useNodesGroups(nodes: UiNode[]) {
     entries,
   }
 }
+
+/**
+ * Find a node
+ * @param nodes - The list of nodes to search
+ * @param opt  - The matching options
+ * @returns The first matching node
+ */
+export const findNode = <T extends UiNodeAttributes["node_type"]>(
+  nodes: UiNode[],
+  opt: {
+    node_type: T
+    group: UiNodeGroupEnum | RegExp
+  },
+) =>
+  nodes.find((n) => {
+    return (
+      n.attributes.node_type === opt.node_type &&
+      (opt.group instanceof RegExp
+        ? n.group.match(opt.group)
+        : n.group === opt.group)
+    )
+  }) as
+    | (UiNode & { attributes: UiNodeAttributes & { node_type: T } })
+    | undefined
