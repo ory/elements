@@ -2006,7 +2006,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormGroups({ children, groups }: "
+              "text": "declare function OryFormGroups({ groups }: "
             },
             {
               "kind": "Reference",
@@ -2036,7 +2036,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, groups }",
+              "parameterName": "{ groups }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2093,16 +2093,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormOidcButtons({ children, hideDivider, }: "
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFormOidcButtonsProps",
-              "canonicalReference": "@ory/elements-react!OryFormOidcButtonsProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
+              "text": "declare function OryFormOidcButtons(): "
             },
             {
               "kind": "Reference",
@@ -2120,53 +2111,13 @@
           ],
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 5
+            "startIndex": 1,
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "{ children, hideDivider, }",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isOptional": false
-            }
-          ],
+          "parameters": [],
           "name": "OryFormOidcButtons"
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!OryFormOidcButtonsProps:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "type OryFormOidcButtonsProps = "
-            },
-            {
-              "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<{\n    hideDivider?: boolean;\n}>"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "dist/index.d.ts",
-          "releaseTag": "Public",
-          "name": "OryFormOidcButtonsProps",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 3
-          }
         },
         {
           "kind": "TypeAlias",

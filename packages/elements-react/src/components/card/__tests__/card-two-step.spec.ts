@@ -2,21 +2,21 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  LoginFlowContainer,
-  RegistrationFlowContainer,
-} from "../../../util/flowContainer"
-import {
-  filterZeroStepGroups,
-  getFinalNodes,
-  isChoosingMethod,
-} from "../card-two-step.utils"
-import {
   AuthenticatorAssuranceLevel,
   FlowType,
   UiNode,
   UiNodeAttributes,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
+import {
+  LoginFlowContainer,
+  RegistrationFlowContainer,
+} from "../../../util/flowContainer"
+import {
+  filterOidcOut,
+  getFinalNodes,
+  isChoosingMethod,
+} from "../card-two-step.utils"
 
 const makeFlow = (
   nodes: UiNode[],
@@ -40,7 +40,7 @@ describe("CardTwoStep/utils", () => {
         { group: UiNodeGroupEnum.Oidc } as UiNode,
         { group: UiNodeGroupEnum.Default } as UiNode,
       ]
-      const result = filterZeroStepGroups(nodes)
+      const result = filterOidcOut(nodes)
       expect(result).toHaveLength(1)
       expect(result[0].group).toBe(UiNodeGroupEnum.Default)
     })

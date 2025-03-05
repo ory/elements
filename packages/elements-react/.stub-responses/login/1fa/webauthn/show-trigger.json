@@ -1,12 +1,12 @@
 {
-  "id": "fe189118-902c-4f78-a742-342356f2a3ec",
+  "id": "1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:48.76084Z",
-  "issued_at": "2024-10-29T09:45:48.76084Z",
-  "request_url": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "expires_at": "2025-02-26T09:31:58.359011Z",
+  "issued_at": "2025-02-26T08:31:58.359011Z",
+  "request_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
   "ui": {
-    "action": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/self-service/login?flow=fe189118-902c-4f78-a742-342356f2a3ec",
+    "action": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login?flow=1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.nqwe2lavry0.f4h5y029idj@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.8e2a252998k0.nf5ru2d6xk@ory.dev",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "bR+n055e6MR4iRaRuSJ239rLOiMMD6o2yhRwC5aLY1WB7obCtXaOW3s7l92uA18k/0Lta8xc8/HfEUjeL3iDBA==",
+          "value": "fE8F0SMijrJgRjqvu+mUl5IKVG5jBYTczE4JL1AX+2n9gQgR2LpGMRBFFew0QiEQL//V212kjSEDZ2B7iV0LlA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -41,14 +41,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://romantic-tu-rf98ru5rql.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-MDzBlwh32rr+eus2Yf1BetIj94m+ULLbewYDulbZjczycs81klNed+qQWG2yi2N03KV5uZlRJJtWdV2x9JNHzQ==",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "8c70f7a6-efee-4daf-b23b-62b8cbd07d01",
+          "nonce": "b74ebeac-7533-44c9-a12a-1200a2799a7d",
           "node_type": "script"
         },
         "messages": [],
@@ -60,9 +60,9 @@
         "attributes": {
           "name": "webauthn_login_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"challenge\":\"342M-urm4Mf2NR_-18jkvYqwUQBhbKrE1Z8nPfQylSM\",\"timeout\":120000,\"rpId\":\"romantic-tu-rf98ru5rql.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"IFIPP9EDx5argEdBKiwqhEBf1rGOqEWLXvTDCTT-EHw\"}],\"userVerification\":\"discouraged\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"4rlroXh_icFzO6Nu--5mb4pgcMi9GTIctL9XLTCXN9w\",\"timeout\":120000,\"rpId\":\"ecstatic-cohen-vqvlpcrrkw.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"iOsRv1TnRXpqaNnvcKrqmFodVioNueWpGSSURv-SPSE\"}],\"userVerification\":\"discouraged\"}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"342M-urm4Mf2NR_-18jkvYqwUQBhbKrE1Z8nPfQylSM\",\"timeout\":120000,\"rpId\":\"romantic-tu-rf98ru5rql.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"IFIPP9EDx5argEdBKiwqhEBf1rGOqEWLXvTDCTT-EHw\"}],\"userVerification\":\"discouraged\"}})",
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"4rlroXh_icFzO6Nu--5mb4pgcMi9GTIctL9XLTCXN9w\",\"timeout\":120000,\"rpId\":\"ecstatic-cohen-vqvlpcrrkw.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"iOsRv1TnRXpqaNnvcKrqmFodVioNueWpGSSURv-SPSE\"}],\"userVerification\":\"discouraged\"}})",
           "onclickTrigger": "oryWebAuthnLogin",
           "node_type": "input"
         },
@@ -97,8 +97,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:48.763474Z",
-  "updated_at": "2024-10-29T09:45:48.763474Z",
+  "created_at": "2025-02-26T08:31:58.362635Z",
+  "updated_at": "2025-02-26T08:31:58.362635Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "35f2df88-8442-428c-887a-16b894afbcc8",
+  "id": "9d5402e7-41f3-4c54-87da-a3a8217bebb0",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2024-10-29T10:45:37.2137798Z",
-  "issued_at": "2024-10-29T09:45:37.2137798Z",
-  "request_url": "https://lucid-mayer-fnz4cfjy9n.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-02-26T09:31:46.503313004Z",
+  "issued_at": "2025-02-26T08:31:46.503313004Z",
+  "request_url": "https://tender-torvalds-jrb3d41eub.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://lucid-mayer-fnz4cfjy9n.projects.oryapis:8080/self-service/login?flow=35f2df88-8442-428c-887a-16b894afbcc8",
+    "action": "https://tender-torvalds-jrb3d41eub.projects.oryapis:8080/self-service/login?flow=9d5402e7-41f3-4c54-87da-a3a8217bebb0",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "q8qopE25+AzZleVcq18dhrm8HOnpITEP5FwosXaf61DvvT2/Qe1DJrFybDjSQB3QQZP4+YI/ZYDunHsxj4j5nQ==",
+          "value": "Z+s6aq/AWWcEPlzbDkESs3x9a0hWFka3IG/71bD0Moba+giAMqi7ypCrnGDuM4NxNh/rphxVSJCiBF0B0AT29A==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2024-10-29T09:45:37.21759Z",
-  "updated_at": "2024-10-29T09:45:37.21759Z",
+  "created_at": "2025-02-26T08:31:46.50659Z",
+  "updated_at": "2025-02-26T08:31:46.50659Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

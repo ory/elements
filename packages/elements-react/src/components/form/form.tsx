@@ -38,14 +38,10 @@ import {
   OrySettingsTotpProps,
   OrySettingsWebauthnProps,
 } from "../settings"
-import { OryFormGroupProps, OryFormGroups } from "./groups"
+import { OryFormGroupProps } from "./groups"
 import { OryMessageContentProps, OryMessageRootProps } from "./messages"
 import { OryCardSettingsSectionProps } from "./section"
-import {
-  OryFormOidcButtons,
-  OryFormOidcRootProps,
-  OryNodeOidcButtonProps,
-} from "./social"
+import { OryFormOidcRootProps, OryNodeOidcButtonProps } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 
 /**
@@ -230,20 +226,18 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
 
   const onSubmit = useOryFormSubmit(onAfterSubmit)
 
-  const hasMethods =
-    flowContainer.flow.ui.nodes.filter((node) => {
-      if (isUiNodeInputAttributes(node.attributes)) {
-        return node.attributes.name !== "csrf_token"
-      } else if (isUiNodeAnchorAttributes(node.attributes)) {
-        return true
-      } else if (isUiNodeImageAttributes(node.attributes)) {
-        return true
-      } else if (isUiNodeScriptAttributes(node.attributes)) {
-        return true
-      }
-
-      return false
-    }).length > 0
+  const hasMethods = flowContainer.flow.ui.nodes.some((node) => {
+    if (isUiNodeInputAttributes(node.attributes)) {
+      return node.attributes.name !== "csrf_token"
+    } else if (isUiNodeAnchorAttributes(node.attributes)) {
+      return true
+    } else if (isUiNodeImageAttributes(node.attributes)) {
+      return true
+    } else if (isUiNodeScriptAttributes(node.attributes)) {
+      return true
+    }
+    return false
+  })
   if (!hasMethods) {
     // This is defined in Ory Kratos as well.
     const m: UiText = {
@@ -278,21 +272,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
       method={flowContainer.flow.ui.method}
       onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
     >
-      {children ?? (
-        <>
-          <OryFormOidcButtons />
-          <OryFormGroups
-            groups={[
-              "default",
-              "password",
-              "code",
-              "webauthn",
-              "passkey",
-              "identifier_first",
-            ]}
-          />
-        </>
-      )}
+      {children}
     </Form.Root>
   )
 }

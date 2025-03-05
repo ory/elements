@@ -1,3 +1,14 @@
+## 1.0.0-next.30 (2025-03-05)
+
+### 🩹 Fixes
+
+- show possible OIDC connections on login method selector ([#362](https://github.com/ory/elements/pull/362))
+- add correct x/twitter OIDC logo ([#364](https://github.com/ory/elements/pull/364))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.29 (2025-02-27)
 
 ### 🩹 Fixes
