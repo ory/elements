@@ -66,14 +66,29 @@ The stories use stub responses
 
 @ory/elements-react and @ory/nextjs is released using nx releases.
 
-There is a helper script located in "./scripts/release.sh".
+There is a helper script located in `./scripts/release.sh`.
 
 Usage:
 
 ```bash
-./scripts/release.sh @ory/elements-react # or @ory/nextjs
+./scripts/release.sh <project> <tag>
+
+./scripts/release.sh @ory/elements-react next
 ```
 
 The script asks the user before executing each steps. Please double check
 CHANGELOG.md and dry run outputs. nx also creates git tags and commits, that
 should be commited. The script will do that automatically.
+
+### Pre-releasing unmerged changes
+
+You can release a PR's changes to npm to test them in a different repository,
+etc. These versions are released on the `pr` npm tag, and will have the version
+`0.0.0-pr.<git hash>`. These releases wont be pushed to master, but you might
+have to revert the `package.json` and `package-lock.json` files.
+
+Usage:
+
+```bash
+./scripts/release.sh @ory/elements-react pr
+```
