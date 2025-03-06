@@ -7,8 +7,11 @@ import {
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
+import { useRef, useState } from "react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
+import EyeOff from "../../assets/icons/eye-off.svg"
+import Eye from "../../assets/icons/eye.svg"
 import { cn } from "../../utils/cn"
 
 export const DefaultInput = ({
@@ -28,6 +31,7 @@ export const DefaultInput = ({
   } = attributes
   const intl = useIntl()
   const { flowType } = useOryFlow()
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   const formattedLabel = label
     ? intl.formatMessage(
@@ -41,25 +45,77 @@ export const DefaultInput = ({
       )
     : ""
 
+  if (rest.type === "hidden") {
+    return (
+      <input
+        {...rest}
+        onClick={onClick}
+        maxLength={maxlength}
+        autoComplete={autocomplete}
+        placeholder={formattedLabel}
+        data-testid={`ory/form/node/input/${name}`}
+        {...register(name, { value })}
+      />
+    )
+  }
+
+  const { ref, ...restRegister } = register(name, { value })
+
   return (
-    <input
-      {...rest}
-      onClick={onClick}
-      maxLength={maxlength}
-      autoComplete={autocomplete}
-      placeholder={formattedLabel}
-      data-testid={`ory/form/node/input/${name}`}
+    <div
       className={cn(
-        "antialiased rounded-forms border leading-tight transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus-visible:outline-none focus:ring-0",
-        "bg-input-background-default border-input-border-default text-input-foreground-primary",
-        "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
-        "focus:border-input-border-focus focus-visible:border-input-border-focus",
-        "hover:bg-input-background-hover hover:border-input-border-hover",
-        "px-4 py-[13px]",
+        "relative flex justify-stretch",
         // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
         flowType === FlowType.Settings && "max-w-[488px]",
       )}
-      {...register(name, { value })}
-    />
+    >
+      <input
+        {...rest}
+        onClick={onClick}
+        maxLength={maxlength}
+        autoComplete={autocomplete}
+        placeholder={formattedLabel}
+        data-testid={`ory/form/node/input/${name}`}
+        className={cn(
+          "antialiased rounded-forms border leading-tight transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus-visible:outline-none focus:ring-0 w-full",
+          "bg-input-background-default border-input-border-default text-input-foreground-primary",
+          "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
+          "focus:border-input-border-focus focus-visible:border-input-border-focus",
+          "hover:bg-input-background-hover hover:border-input-border-hover",
+          "px-4 py-[13px]",
+        )}
+        ref={(e) => {
+          inputRef.current = e
+          ref(e)
+        }}
+        {...restRegister}
+      />
+      {rest.type === "password" && <PasswordToggle inputRef={inputRef} />}
+    </div>
+  )
+}
+
+function PasswordToggle({
+  inputRef,
+}: {
+  inputRef: React.RefObject<HTMLInputElement>
+}) {
+  const [shown, setShown] = useState(false)
+
+  const handleClick = () => {
+    setShown(!shown)
+    if (inputRef.current) {
+      inputRef.current.type = shown ? "password" : "text"
+    }
+  }
+
+  return (
+    <button
+      onClick={handleClick}
+      className="absolute right-0 h-full w-12 flex items-center justify-center"
+      type="button"
+    >
+      {shown ? <EyeOff /> : <Eye />}
+    </button>
   )
 }
