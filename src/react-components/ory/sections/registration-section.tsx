@@ -27,7 +27,6 @@ export const RegistrationSection = ({
           }}
         />
       </div>
-
       <CaptchaSection nodes={nodes} />
       <FilterFlowNodes
         filter={{

@@ -1,0 +1,78 @@
+{
+  "id": "3d2e7410-d007-43c3-a31c-a3a145d7f385",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-03-01T14:53:20.378621Z",
+  "issued_at": "2025-03-01T13:53:20.378621Z",
+  "request_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "ui": {
+    "action": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/login?flow=3d2e7410-d007-43c3-a31c-a3a145d7f385",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "tW0RpYDFLoqSYIkrKui5+Np8iaUT/MTirJwN5CNXrtc7ybO7ufk9OiVedqUTQrH4BJiDKf9d9x3GMHu82HYfqw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "totp_code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010006,
+            "text": "Authentication code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "totp",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010009,
+            "text": "Use Authenticator",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000008,
+        "text": "The provided authentication code is invalid, please try again.",
+        "type": "error"
+      }
+    ]
+  },
+  "created_at": "2025-03-01T13:53:20.403696Z",
+  "updated_at": "2025-03-01T13:53:20.403696Z",
+  "refresh": false,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

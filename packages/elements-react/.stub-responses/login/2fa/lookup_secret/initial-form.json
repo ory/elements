@@ -1,0 +1,79 @@
+{
+  "id": "6abcce99-945d-4f3e-b834-9077cc9ee912",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-03-01T14:59:40.045216958Z",
+  "issued_at": "2025-03-01T13:59:40.045216958Z",
+  "request_url": "https://trusting-keller-v67r9p5pzu.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "ui": {
+    "action": "https://trusting-keller-v67r9p5pzu.projects.oryapis:8080/self-service/login?flow=6abcce99-945d-4f3e-b834-9077cc9ee912",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "Me5DwejvRPEbd70to3vR6ox7vl7kDWx+wEbfssQTkYHzjcgkIJ4vgql8heopnpfDS0aR2XnpRAU7gvFZk8saQg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "lookup_secret",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010007,
+            "text": "Backup recovery code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "lookup_secret",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010010,
+            "text": "Use backup recovery code",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010004,
+        "text": "Please complete the second authentication challenge.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-03-01T13:59:40.066459Z",
+  "updated_at": "2025-03-01T13:59:40.066459Z",
+  "refresh": false,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

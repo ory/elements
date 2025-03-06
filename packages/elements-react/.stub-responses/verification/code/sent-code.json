@@ -1,0 +1,106 @@
+{
+  "id": "d619f1e8-06ac-4a4d-82f5-dc144b1e0fb1",
+  "type": "browser",
+  "expires_at": "2025-03-01T16:10:46.139606Z",
+  "issued_at": "2025-03-01T15:10:46.139606Z",
+  "request_url": "https://goofy-goldberg-1zy5he2oxu.projects.oryapis:8080/self-service/verification/browser",
+  "active": "code",
+  "ui": {
+    "action": "https://goofy-goldberg-1zy5he2oxu.projects.oryapis:8080/self-service/verification?flow=d619f1e8-06ac-4a4d-82f5-dc144b1e0fb1",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "hidden",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070011,
+            "text": "Verification code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "lt5aWo57o0ZAHUxClzDnhfODer2izqVwhvYsnN4+U/Hk9BgHLKY3qE0J9HUEcLPPWUPrmDvuapOk9vnIkSmvmg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "email",
+          "type": "submit",
+          "value": "dev+orycye2eda2f162daf6142dd0.8lbv1zsvj1n0.4kmhu6d53c3@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1080003,
+        "text": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+        "type": "info"
+      }
+    ]
+  },
+  "state": "sent_email"
+}

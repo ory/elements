@@ -6,7 +6,7 @@ import { OryClientConfiguration } from "@ory/elements-react"
 export const config = {
   name: "Acme Inc.",
   sdk: {
-    url: "",
+    url: "https://example.com",
   },
   project: {
     registration_enabled: true,

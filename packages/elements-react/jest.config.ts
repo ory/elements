@@ -7,10 +7,12 @@ export default {
   displayName: "@ory/elements-react",
   preset: "../../jest.preset.cjs",
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.(ts|tsx)?$": "ts-jest",
     ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
       "jest-transform-stub",
+    "^.+\\.(js|jsx)$": "babel-jest",
   },
+  transformIgnorePatterns: ["/node_modules/(?!@marsidev/react-turnstile)/"],
   collectCoverageFrom: [
     "src/**/*.ts",
     "src/**/*.tsx",

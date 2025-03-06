@@ -13,7 +13,7 @@ export type OryFormGroupsProps = PropsWithChildren<{
 
 export type OryFormGroupProps = PropsWithChildren
 
-export function OryFormGroups({ children, groups }: OryFormGroupsProps) {
+export function OryFormGroups({ groups }: OryFormGroupsProps) {
   const {
     flow: { ui },
   } = useOryFlow()
@@ -26,10 +26,9 @@ export function OryFormGroups({ children, groups }: OryFormGroupsProps) {
 
   return (
     <Form.Group>
-      {children ??
-        nodes.map((node, k) => {
-          return <Node node={node} key={k} />
-        })}
+      {nodes.map((node, k) => {
+        return <Node node={node} key={k} />
+      })}
     </Form.Group>
   )
 }

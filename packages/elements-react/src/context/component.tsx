@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import {
+  isUiNodeInputAttributes,
+  UiNode,
+  UiNodeGroupEnum,
+} from "@ory/client-fetch"
 import { PropsWithChildren, createContext, useContext } from "react"
 import { OryFlowComponents } from "../components"
 
@@ -47,6 +51,9 @@ const defaultNodeOrder = [
   "default",
   "profile",
   "password",
+  // CAPTCHA is below password because otherwise the password input field
+  // would be above the captcha. Somehow, we sort the password sign up button somewhere else to be always at the bottom.
+  "captcha",
   "passkey",
   "code",
   "webauthn",
@@ -59,6 +66,22 @@ function defaultNodeSorter(
 ): number {
   const aGroupWeight = defaultNodeOrder.indexOf(a.group) ?? 999
   const bGroupWeight = defaultNodeOrder.indexOf(b.group) ?? 999
+
+  if (
+    b.group === "captcha" &&
+    isUiNodeInputAttributes(a.attributes) &&
+    a.attributes.type === "submit"
+  ) {
+    // If the current node is a submit button and the next node is CAPTCHA; we sort the captcha before the submit button.
+    return aGroupWeight - (bGroupWeight - 2)
+  } else if (
+    a.group === "captcha" &&
+    isUiNodeInputAttributes(b.attributes) &&
+    b.attributes.type === "submit"
+  ) {
+    // If one node is a submit button and the other is CAPTCHA, we sort the captcha before the submit button.
+    return aGroupWeight - 2 - bGroupWeight
+  }
 
   return aGroupWeight - bGroupWeight
 }

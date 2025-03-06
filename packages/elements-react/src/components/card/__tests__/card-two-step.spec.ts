@@ -2,11 +2,36 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  filterZeroStepGroups,
+  AuthenticatorAssuranceLevel,
+  FlowType,
+  UiNode,
+  UiNodeAttributes,
+  UiNodeGroupEnum,
+} from "@ory/client-fetch"
+import {
+  LoginFlowContainer,
+  RegistrationFlowContainer,
+} from "../../../util/flowContainer"
+import {
+  filterOidcOut,
   getFinalNodes,
   isChoosingMethod,
 } from "../card-two-step.utils"
-import { UiNode, UiNodeAttributes, UiNodeGroupEnum } from "@ory/client-fetch"
+
+const makeFlow = (
+  nodes: UiNode[],
+  flowType?: FlowType.Login | FlowType.Registration,
+  requested_aal?: AuthenticatorAssuranceLevel,
+) =>
+  ({
+    flowType,
+    flow: {
+      requested_aal,
+      ui: {
+        nodes,
+      },
+    },
+  }) as LoginFlowContainer | RegistrationFlowContainer
 
 describe("CardTwoStep/utils", () => {
   describe("filterZeroStepGroups", () => {
@@ -15,7 +40,7 @@ describe("CardTwoStep/utils", () => {
         { group: UiNodeGroupEnum.Oidc } as UiNode,
         { group: UiNodeGroupEnum.Default } as UiNode,
       ]
-      const result = filterZeroStepGroups(nodes)
+      const result = filterOidcOut(nodes)
       expect(result).toHaveLength(1)
       expect(result[0].group).toBe(UiNodeGroupEnum.Default)
     })
@@ -29,7 +54,7 @@ describe("CardTwoStep/utils", () => {
           group: UiNodeGroupEnum.Default,
         } as UiNode,
       ]
-      expect(isChoosingMethod(uiNodes)).toBe(true)
+      expect(isChoosingMethod(makeFlow(uiNodes))).toBe(true)
     })
 
     test("should return true if a node is identifier first and hidden", () => {
@@ -42,7 +67,11 @@ describe("CardTwoStep/utils", () => {
           group: UiNodeGroupEnum.IdentifierFirst,
         } as UiNode,
       ]
-      expect(isChoosingMethod(uiNodes)).toBe(true)
+      expect(isChoosingMethod(makeFlow(uiNodes))).toBe(true)
+    })
+
+    test("should return true if a flow is aal2 login", () => {
+      expect(isChoosingMethod(makeFlow([], FlowType.Login, "aal2"))).toBe(true)
     })
 
     test("should return false if no conditions are met", () => {
@@ -52,7 +81,9 @@ describe("CardTwoStep/utils", () => {
           group: UiNodeGroupEnum.Default,
         } as UiNode,
       ]
-      expect(isChoosingMethod(uiNodes)).toBe(false)
+      expect(isChoosingMethod(makeFlow(uiNodes, FlowType.Login, "aal1"))).toBe(
+        false,
+      )
     })
   })
 

@@ -61,17 +61,17 @@ export function DefaultSettingsWebauthn({
                   className="flex justify-between gap-6 md:items-center"
                   key={`webauthn-remove-button-${i}`}
                 >
-                  <div className="flex gap-2 items-center flex-1">
+                  <div className="flex gap-2 items-center flex-1 truncate">
                     <Key
                       size={32}
                       className="text-interface-foreground-default-primary"
                     />
-                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between gap-4">
-                      <div className="flex-1 flex-col">
-                        <p className="text-sm font-medium text-interface-foreground-default-secondary">
+                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between gap-4 truncate">
+                      <div className="flex-1 flex-col truncate">
+                        <p className="text-sm font-medium text-interface-foreground-default-secondary truncate">
                           {displayName}
                         </p>
-                        <span className="text-sm text-interface-foreground-default-tertiary hidden sm:block">
+                        <span className="text-sm text-interface-foreground-default-tertiary hidden sm:block truncate">
                           {keyId}
                         </span>
                       </div>

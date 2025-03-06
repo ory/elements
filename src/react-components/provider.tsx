@@ -220,7 +220,7 @@ export const IntlProvider = <
   children,
   ...props
 }: IntlProviderProps<T>) => {
-  let translation = locales.en
+  let translation: TranslationFile = locales.en
 
   if (props.locale && props.locale in locales) {
     translation = { ...locales.en, ...locales[props.locale as locale] }

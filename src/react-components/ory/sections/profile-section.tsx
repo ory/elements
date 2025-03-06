@@ -8,6 +8,7 @@ import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
 import { hasProfile } from "../helpers/utils"
+import { CaptchaSection } from "../helpers/captcha"
 
 export interface ProfileSettingsProps {
   flow: SettingsFlow
@@ -42,6 +43,7 @@ export const ProfileRegistrationSection = (
           excludeAttributeTypes: "submit,hidden",
         }}
       />
+      <CaptchaSection nodes={flow.ui.nodes} />
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,

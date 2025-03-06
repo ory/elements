@@ -1,0 +1,241 @@
+{
+  "id": "ce22dd87-9cb7-4a32-ab4e-3975cf4f41b2",
+  "type": "browser",
+  "expires_at": "2025-03-01T14:53:19.180349Z",
+  "issued_at": "2025-03-01T13:53:19.180349Z",
+  "request_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/settings/browser",
+  "ui": {
+    "action": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/settings?flow=77ba84a8-e571-41d7-a1d3-370a1e42c4dd",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "E0taPFu4CbVaYFVar5mUdCDN1F2BOF/TMZYVU/p2ZsCdW2dAHm77Dod6XRgCX0JXM8z1CpCeUdDoVvWW8O9tmQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "value": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "totp_unlink",
+          "type": "submit",
+          "value": "true",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050004,
+            "text": "Unlink TOTP Authenticator App",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1050001,
+        "text": "Your changes have been saved!",
+        "type": "success"
+      }
+    ]
+  },
+  "identity": {
+    "id": "107ccd78-c273-43f2-9752-66d26003bd5a",
+    "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
+    "schema_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "state": "active",
+    "state_changed_at": "2025-03-01T13:53:17.846967Z",
+    "traits": {
+      "email": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+      "nested": {}
+    },
+    "verifiable_addresses": [
+      {
+        "id": "7f11bb9d-c8fd-4a73-b0c2-f987eb5cd963",
+        "value": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+        "verified": false,
+        "via": "email",
+        "status": "sent",
+        "created_at": "2025-03-01T13:53:17.850692Z",
+        "updated_at": "2025-03-01T13:53:17.850692Z"
+      }
+    ],
+    "recovery_addresses": [
+      {
+        "id": "f5459026-e35b-4bfb-9eb8-fa08bd7d8023",
+        "value": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+        "via": "email",
+        "created_at": "2025-03-01T13:53:17.855799Z",
+        "updated_at": "2025-03-01T13:53:17.855799Z"
+      }
+    ],
+    "metadata_public": null,
+    "created_at": "2025-03-01T13:53:17.848223Z",
+    "updated_at": "2025-03-01T13:53:19.761813Z",
+    "organization_id": null
+  },
+  "state": "success",
+  "continue_with": [
+    {
+      "action": "redirect_browser_to",
+      "redirect_browser_to": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/ui/settings?flow=ce22dd87-9cb7-4a32-ab4e-3975cf4f41b2"
+    }
+  ]
+}

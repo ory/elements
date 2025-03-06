@@ -6,6 +6,7 @@ import {
   OryCard,
   OryCardContent,
   OryForm,
+  OryFormGroupDivider,
   OryFormGroups,
   OryFormOidcButtons,
   OryNodeOidcButtonProps,
@@ -36,6 +37,7 @@ const CustomComponents = ({ flow, config }: LoginFlowContextProps) => {
         <OryCardContent>
           <OryForm>
             <OryFormOidcButtons />
+            <OryFormGroupDivider />
             <div>
               Even though the code method is available, we do not show it here
               with our customization:

@@ -60,6 +60,7 @@ export const DefaultButton = ({
     autocomplete: _ignoredAutocomplete,
     label: _ignoredLabel,
     node_type: _ignoredNodeType,
+    maxlength: _ignoredMaxLength,
     // End of skipped attributes
     ...rest
   } = attributes

@@ -1,0 +1,378 @@
+{
+  "id": "932c1c3c-548a-444e-a2b1-f58bf414c613",
+  "type": "browser",
+  "expires_at": "2025-03-01T15:33:37.684506346Z",
+  "issued_at": "2025-03-01T14:33:37.684506346Z",
+  "request_url": "https://gallant-lichterman-swm5jofmb0.projects.oryapis:8080/self-service/settings/browser",
+  "ui": {
+    "action": "https://gallant-lichterman-swm5jofmb0.projects.oryapis:8080/self-service/settings?flow=932c1c3c-548a-444e-a2b1-f58bf414c613",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "bR2PjJFvEgkWFO2i3nX6FRxqV1T8ebyXQdBqVWV6l7UZ6956u2n8LKz50Rn1Ty9h1xsN0mhRNix7/ayTzo8rmw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "value": "dev+orycye2eda2f162daf6142dd0.sip9m87r3bp0.cqma4ywp5q8@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "lookup_secret_regenerate",
+          "type": "submit",
+          "value": "true",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050008,
+            "text": "Generate new backup recovery codes",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_displayname",
+          "type": "text",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050013,
+            "text": "Name of the security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7yLvlAYtWmmvfHuD-22-tests/elements/everything_2fa.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003ewith all 2fa methods\",\"id\":\"gallant-lichterman-swm5jofmb0.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7yLvlAYtWmmvfHuD-22-tests/elements/everything_2fa.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003ewith all 2fa methods\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7yLvlAYtWmmvfHuD-22-tests/elements/everything_2fa.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003ewith all 2fa methods\",\"id\":\"E9-AA8TCS_eTR-VcpG4Yrg\"},\"challenge\":\"ox03sjl8czqc4GC1oQHvjWnazCvSTHZGGmLIh1h_SFw\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7yLvlAYtWmmvfHuD-22-tests/elements/everything_2fa.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003ewith all 2fa methods\",\"id\":\"gallant-lichterman-swm5jofmb0.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7yLvlAYtWmmvfHuD-22-tests/elements/everything_2fa.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003ewith all 2fa methods\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7yLvlAYtWmmvfHuD-22-tests/elements/everything_2fa.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003ewith all 2fa methods\",\"id\":\"E9-AA8TCS_eTR-VcpG4Yrg\"},\"challenge\":\"ox03sjl8czqc4GC1oQHvjWnazCvSTHZGGmLIh1h_SFw\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclickTrigger": "oryWebAuthnRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050012,
+            "text": "Add security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://gallant-lichterman-swm5jofmb0.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "ac48d967-a423-4b6b-a9d9-47215f46a7ab",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "img",
+        "group": "totp",
+        "attributes": {
+          "src": "data:image/png;base64,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",
+          "id": "totp_qr",
+          "width": 256,
+          "height": 256,
+          "node_type": "img"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050005,
+            "text": "Authenticator app QR code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "group": "totp",
+        "attributes": {
+          "text": {
+            "id": 1050006,
+            "text": "QWMQBWVVD2ULYN6LXWNURLNY36OFCNUK",
+            "type": "info",
+            "context": {
+              "secret": "QWMQBWVVD2ULYN6LXWNURLNY36OFCNUK"
+            }
+          },
+          "id": "totp_secret_key",
+          "node_type": "text"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050017,
+            "text": "This is your authenticator app secret. Use it if you can not scan the QR code.",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "totp_code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070006,
+            "text": "Verify code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "totp",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "identity": {
+    "id": "13df8003-c4c2-4bf7-9347-e55ca46e18ae",
+    "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
+    "schema_url": "https://gallant-lichterman-swm5jofmb0.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "state": "active",
+    "state_changed_at": "2025-03-01T14:33:36.592861Z",
+    "traits": {
+      "email": "dev+orycye2eda2f162daf6142dd0.sip9m87r3bp0.cqma4ywp5q8@ory.dev",
+      "nested": {}
+    },
+    "verifiable_addresses": [
+      {
+        "id": "d5dfaabb-ec9b-4c33-a2e1-ba8719f65f0b",
+        "value": "dev+orycye2eda2f162daf6142dd0.sip9m87r3bp0.cqma4ywp5q8@ory.dev",
+        "verified": false,
+        "via": "email",
+        "status": "sent",
+        "created_at": "2025-03-01T14:33:36.597164Z",
+        "updated_at": "2025-03-01T14:33:36.597164Z"
+      }
+    ],
+    "recovery_addresses": [
+      {
+        "id": "23e1d09d-1ce8-457e-93b8-6dc39975cd7d",
+        "value": "dev+orycye2eda2f162daf6142dd0.sip9m87r3bp0.cqma4ywp5q8@ory.dev",
+        "via": "email",
+        "created_at": "2025-03-01T14:33:36.60164Z",
+        "updated_at": "2025-03-01T14:33:36.60164Z"
+      }
+    ],
+    "metadata_public": null,
+    "created_at": "2025-03-01T14:33:36.594353Z",
+    "updated_at": "2025-03-01T14:33:36.594353Z",
+    "organization_id": null
+  },
+  "state": "show_form"
+}
