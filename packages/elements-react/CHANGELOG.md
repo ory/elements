@@ -1,3 +1,18 @@
+## 1.0.0-next.31 (2025-03-06)
+
+### 🚀 Features
+
+- support captchas natively in new and old elements ([#372](https://github.com/ory/elements/pull/372))
+
+### 🩹 Fixes
+
+- center text on OIDC buttons and debounce state update ([#366](https://github.com/ory/elements/pull/366))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.30 (2025-03-05)
 
 ### 🩹 Fixes
