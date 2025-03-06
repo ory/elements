@@ -59,15 +59,21 @@ export function OryTwoStepCard() {
 
   // Special case to show the address on code method selector
   if (UiNodeGroupEnum.Code in options) {
-    const address = findNode(ui.nodes, {
-      group: /identifier_first|code/,
+    let identifier = findNode(ui.nodes, {
+      group: "identifier_first",
       node_type: "input",
+      name: "identifier",
     })?.attributes?.value
-    if (address) {
+    identifier ||= findNode(ui.nodes, {
+      group: "code",
+      node_type: "input",
+      name: "address",
+    })?.attributes?.value
+    if (identifier) {
       options[UiNodeGroupEnum.Code] = {
         title: {
           id: "identities.messages.1010023",
-          values: { address },
+          values: { address: identifier },
         },
       }
     }
