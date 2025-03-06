@@ -1,3 +1,7 @@
+## 1.0.0-next.32 (2025-03-06)
+
+This was a version bump only for @ory/elements-react to align it with other projects, there were no code changes.
+
 ## 1.0.0-next.31 (2025-03-06)
 
 ### 🚀 Features
