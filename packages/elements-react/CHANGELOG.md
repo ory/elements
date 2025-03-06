@@ -1,3 +1,13 @@
+## 1.0.0-next.32 (2025-03-06)
+
+### 🚀 Features
+
+- use method selector in 2fa login ([#377](https://github.com/ory/elements/pull/377))
+
+### ❤️  Thank You
+
+- Pierre Caillaud @pcaillaudm
+
 ## 1.0.0-next.31 (2025-03-06)
 
 ### 🚀 Features
