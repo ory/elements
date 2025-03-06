@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form"
 import { OryCard, OryCardContent, OryCardFooter } from "."
 import { useComponents, useNodeSorter, useOryFlow } from "../../context"
 import { isGroupImmediateSubmit } from "../../theme/default/utils/form"
-import { useNodesGroups } from "../../util/ui"
+import { findNode, useNodesGroups } from "../../util/ui"
 import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
@@ -14,40 +14,72 @@ import { OryFormSocialButtonsForm } from "../form/social"
 import { filterOidcOut, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
+type MethodOption = {
+  title?: { id: string; values?: Record<string, string> }
+}
 function isUINodeGroupEnum(method: string): method is UiNodeGroupEnum {
   // @ts-expect-error it's a string array, but typescript thinks the argument must be validated stricter
   return Object.values(UiNodeGroupEnum).includes(method)
 }
 
-export function OryTwoStepCard() {
-  const {
-    flow: { ui },
-    flowType,
-    formState,
-    dispatchFormState,
-  } = useOryFlow()
+type MethodOptions = Partial<Record<UiNodeGroupEnum, MethodOption>>
 
+type AuthMethodListProps = {
+  options: MethodOptions
+  setSelectedGroup: (group: UiNodeGroupEnum) => void
+}
+
+export function OryTwoStepCard() {
   const { Form, Card } = useComponents()
+  const { flow, flowType, formState, dispatchFormState } = useOryFlow()
+  const { ui } = flow
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
 
   const uniqueGroups = useNodesGroups(ui.nodes)
 
-  const options: UiNodeGroupEnum[] = Object.values(UiNodeGroupEnum)
-    .filter((group) => uniqueGroups.groups[group]?.length)
-    .filter(
-      (group) =>
-        !(
-          [
-            UiNodeGroupEnum.Oidc,
-            UiNodeGroupEnum.Default,
-            UiNodeGroupEnum.IdentifierFirst,
-            UiNodeGroupEnum.Profile,
-            UiNodeGroupEnum.Captcha,
-          ] as UiNodeGroupEnum[]
-        ).includes(group),
-    )
+  const options: MethodOptions = Object.fromEntries(
+    Object.values(UiNodeGroupEnum)
+      .filter((group) => uniqueGroups.groups[group]?.length)
+      .filter(
+        (group) =>
+          !(
+            [
+              UiNodeGroupEnum.Oidc,
+              UiNodeGroupEnum.Default,
+              UiNodeGroupEnum.IdentifierFirst,
+              UiNodeGroupEnum.Profile,
+              UiNodeGroupEnum.Captcha,
+            ] as UiNodeGroupEnum[]
+          ).includes(group),
+      )
+      .map((g) => [g, {}]),
+  )
+
+  // Special case to show the address on code method selector
+  if (UiNodeGroupEnum.Code in options) {
+    let identifier = findNode(ui.nodes, {
+      group: "identifier_first",
+      node_type: "input",
+      name: "identifier",
+    })?.attributes?.value
+    identifier ||= findNode(ui.nodes, {
+      group: "code",
+      node_type: "input",
+      name: "address",
+    })?.attributes?.value
+    if (identifier) {
+      options[UiNodeGroupEnum.Code] = {
+        title: {
+          id: "identities.messages.1010023",
+          values: { address: identifier },
+        },
+      }
+    }
+  }
+
+  const hasError = Boolean(ui.messages?.some((m) => m.type === "error"))
 
   const nonOidcNodes = filterOidcOut(ui.nodes)
   const finalNodes =
@@ -77,7 +109,7 @@ export function OryTwoStepCard() {
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
-        <OryCardValidationMessages />
+        {hasError ? <OryCardValidationMessages /> : undefined}
         {showOidc && <OryFormSocialButtonsForm />}
         <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
@@ -128,17 +160,20 @@ export function OryTwoStepCard() {
   )
 }
 
-type AuthMethodListProps = {
-  options: UiNodeGroupEnum[]
-  setSelectedGroup: (group: UiNodeGroupEnum) => void
-}
-
 function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { Card } = useComponents()
-  const { setValue } = useFormContext()
+  const { setValue, getValues } = useFormContext()
 
-  const handleClick = (group: UiNodeGroupEnum) => {
+  const handleClick = (group: UiNodeGroupEnum, options?: MethodOption) => {
     if (isGroupImmediateSubmit(group)) {
+      // Required because identifier node is not always defined with code method in aal2
+      if (
+        group === "code" &&
+        !getValues("identifier") &&
+        options?.title?.values?.address
+      ) {
+        setValue("identifier", options?.title?.values?.address)
+      }
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
       // then the method needs to be added to the form data.
       setValue("method", group)
@@ -148,11 +183,12 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   }
   return (
     <Card.AuthMethodListContainer>
-      {options.map((option) => (
+      {Object.entries(options).map(([group, options]) => (
         <Card.AuthMethodListItem
-          key={option}
-          group={option}
-          onClick={() => handleClick(option)}
+          key={group}
+          group={group}
+          title={options.title}
+          onClick={() => handleClick(group as UiNodeGroupEnum, options)}
         />
       ))}
     </Card.AuthMethodListContainer>

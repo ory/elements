@@ -1,7 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiTextTypeEnum } from "@ory/client-fetch"
+import {
+  FlowType,
+  UiNode,
+  UiNodeGroupEnum,
+  UiTextTypeEnum,
+} from "@ory/client-fetch"
 import { useCardHeaderText } from "../constructCardHeader"
 import { renderHook } from "@testing-library/react"
 import { PropsWithChildren } from "react"
@@ -63,18 +68,46 @@ const passkey: UiNode = {
   meta: {},
 }
 
-const webauthn: UiNode = {
-  group: "webauthn",
-  type: "text",
-  attributes: {
-    node_type: "input",
-    name: "webauthn",
-    type: "text",
-    value: "",
-    disabled: false,
+const aal2Nodes: Record<string, UiNode> = {
+  webauthn: {
+    group: "webauthn",
+    type: "input",
+    attributes: {
+      node_type: "input",
+      name: "webauthn_login",
+      type: "hidden",
+      value: "",
+      disabled: false,
+    },
+    messages: [],
+    meta: {},
   },
-  messages: [],
-  meta: {},
+  totp: {
+    group: "totp",
+    type: "input",
+    attributes: {
+      node_type: "input",
+      name: "totp_code",
+      type: "text",
+      value: "",
+      disabled: false,
+    },
+    messages: [],
+    meta: {},
+  },
+  lookup_secret: {
+    group: "lookup_secret",
+    type: "input",
+    attributes: {
+      node_type: "input",
+      name: "lookup_secret",
+      type: "text",
+      value: "",
+      disabled: false,
+    },
+    messages: [],
+    meta: {},
+  },
 }
 
 const defaultGroup: UiNode = {
@@ -146,7 +179,7 @@ const combinations = {
   oidc,
   code,
   passkey,
-  webauthn,
+  webauthn: aal2Nodes.webauthn,
   defaultGroup,
   identifierFirst,
   password,
@@ -155,7 +188,7 @@ const combinations = {
   default_and_code: [defaultGroup, code],
   default_and_oidc: [defaultGroup, oidc],
   default_and_passkeys: [defaultGroup, passkey],
-  default_and_webauthn: [defaultGroup, webauthn],
+  default_and_webauthn: [defaultGroup, aal2Nodes.webauthn],
   idenfier_first_and_oidc: [identifierFirst, oidc],
 }
 
@@ -218,3 +251,50 @@ test("constructCardHeaderText on account linking", () => {
   )
   expect(res.result.current).toMatchSnapshot()
 })
+
+test("constructCardHeaderText on 2fa login - multi", () => {
+  const res = renderHook(
+    () =>
+      useCardHeaderText(
+        {
+          nodes: Object.values(aal2Nodes),
+          action: "",
+          method: "POST",
+          messages: [{ id: 1010004, text: "", type: "info", context: {} }],
+        },
+        {
+          flowType: FlowType.Login,
+          flow: { refresh: false, requested_aal: "aal2" },
+          formState: { current: "select_method" },
+        },
+      ),
+    { wrapper },
+  )
+  expect(res.result.current).toMatchSnapshot()
+})
+
+for (const method of ["webauthn", "totp", "lookup_secret"]) {
+  test(`constructCardHeaderText on 2fa login - ${method}`, () => {
+    const res = renderHook(
+      () =>
+        useCardHeaderText(
+          {
+            nodes: [aal2Nodes[method]],
+            action: "",
+            method: "POST",
+            messages: [{ id: 1010004, text: "", type: "info", context: {} }],
+          },
+          {
+            flowType: FlowType.Login,
+            flow: { refresh: false, requested_aal: "aal2" },
+            formState: {
+              current: "method_active",
+              method: method as UiNodeGroupEnum,
+            },
+          },
+        ),
+      { wrapper },
+    )
+    expect(res.result.current).toMatchSnapshot()
+  })
+}

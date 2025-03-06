@@ -2,10 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  FlowType,
   isUiNodeAnchorAttributes,
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
+  UiText,
 } from "@ory/client-fetch"
 import { ComponentType, PropsWithChildren } from "react"
 import { useFormContext } from "react-hook-form"
@@ -25,7 +27,7 @@ import {
   OryNodeLabelProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryCardFooterProps } from "../card"
+import { OryCardFooter, OryCardFooterProps } from "../card"
 import { OryCardRootProps } from "../card/card"
 import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
@@ -223,6 +225,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
   const { Form } = useComponents()
   const flowContainer = useOryFlow()
   const methods = useFormContext()
+  const { Message } = useComponents()
 
   const intl = useIntl()
 
@@ -238,17 +241,37 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
     } else if (isUiNodeScriptAttributes(node.attributes)) {
       return true
     }
-
     return false
   })
-
-  if (!hasMethods && (flowContainer.flow.ui.messages ?? []).length === 0) {
+  if (!hasMethods) {
     // This is defined in Ory Kratos as well.
-    return intl.formatMessage({
-      id: `identities.messages.${5000002}`,
-      defaultMessage:
-        "No authentication methods are available for this request. Please contact the site or app owner.",
-    })
+    const m: UiText = {
+      id: 5000002,
+      text: intl.formatMessage({
+        id: `identities.messages.${5000002}`,
+        defaultMessage:
+          "No authentication methods are available for this request. Please contact the site or app owner.",
+      }),
+      type: "error",
+    }
+
+    return (
+      <>
+        <Message.Root>
+          <Message.Content key={m.id} message={m} />
+        </Message.Root>
+        <OryCardFooter />
+      </>
+    )
+  }
+
+  if (
+    flowContainer.flowType === FlowType.Login &&
+    flowContainer.formState.current === "method_active" &&
+    flowContainer.formState.method === "code"
+  ) {
+    // This is enforced here because method code node is sometimes missing
+    methods.setValue("method", "code")
   }
 
   return (

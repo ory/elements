@@ -50,6 +50,7 @@ export type OryNodeCaptchaProps = {
 export type OryCardAuthMethodListItemProps = {
   onClick: () => void
   group: string
+  title?: { id: string; values?: Record<string, string> }
 }
 
 export type OryNodeImageProps = {

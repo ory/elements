@@ -2,11 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  AuthenticatorAssuranceLevel,
   FlowType,
   isUiNodeInputAttributes,
   UiContainer,
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
+import { FormState } from "../../../context"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
   if (list.length === 0) {
@@ -24,7 +26,9 @@ type opts =
       flowType: FlowType.Login
       flow: {
         refresh?: boolean
+        requested_aal?: AuthenticatorAssuranceLevel
       }
+      formState?: FormState
     }
   | {
       flowType:
@@ -217,6 +221,18 @@ export function useCardHeaderText(
               parts: joinWithCommaOr(parts),
             },
           ),
+        }
+      } else if (opts.flow.requested_aal === "aal2") {
+        return {
+          title: intl.formatMessage({
+            id: "login.title-aal2",
+          }),
+          description: intl.formatMessage({
+            id:
+              opts.formState?.current === "method_active"
+                ? `login.${opts.formState.method}.subtitle`
+                : "login.subtitle-aal2",
+          }),
         }
       }
       return {
