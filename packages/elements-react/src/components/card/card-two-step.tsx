@@ -50,6 +50,7 @@ export function OryTwoStepCard() {
               UiNodeGroupEnum.Default,
               UiNodeGroupEnum.IdentifierFirst,
               UiNodeGroupEnum.Profile,
+              UiNodeGroupEnum.Captcha,
             ] as UiNodeGroupEnum[]
           ).includes(group),
       )
@@ -126,6 +127,11 @@ export function OryTwoStepCard() {
                     })
                   }
                 />
+                {ui.nodes
+                  .filter((n) => n.group === UiNodeGroupEnum.Captcha)
+                  .map((node, k) => (
+                    <Node node={node} key={k} />
+                  ))}
               </>
             )}
             {formState.current === "method_active" && (

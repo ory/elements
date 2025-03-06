@@ -21,6 +21,7 @@ import {
   OryFormSectionFooterProps,
   OryNodeAnchorProps,
   OryNodeButtonProps,
+  OryNodeCaptchaProps,
   OryNodeImageProps,
   OryNodeInputProps,
   OryNodeLabelProps,
@@ -89,6 +90,10 @@ export type OryFlowComponents = {
      * The Text component is rendered whenever a "text" node is encountered.
      */
     Text: ComponentType<OryNodeTextProps>
+    /**
+     * The Captcha component is rendered whenever a "captcha" group is encountered.
+     */
+    Captcha: ComponentType<OryNodeCaptchaProps>
   }
   Card: {
     /**

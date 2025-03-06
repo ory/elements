@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
-    "@babel/core": "7.18.10",
+    "@babel/core": "^7.22.20",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "7.23.3",
     "@eslint/eslintrc": "2.1.4",

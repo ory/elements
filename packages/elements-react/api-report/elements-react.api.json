@@ -1418,6 +1418,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        Captcha: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeCaptchaProps",
+              "canonicalReference": "@ory/elements-react!OryNodeCaptchaProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n    };\n    Card: {\n        Root: "
             },
             {
@@ -1826,7 +1844,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 126
+            "endIndex": 130
           }
         },
         {
@@ -2674,6 +2692,41 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 11
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryNodeCaptchaProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryNodeCaptchaProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryNodeCaptchaProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
           }
         },
         {

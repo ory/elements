@@ -145,7 +145,10 @@ function RegistrationCardFooter() {
   function handleScreenSelection() {
     setValue("method", "profile")
     if (screenSelectionNode) {
-      setValue("screen", "credential-selection")
+      setValue(
+        screenSelectionNode.attributes.name,
+        screenSelectionNode.attributes.value,
+      )
     }
   }
 
@@ -157,6 +160,8 @@ function RegistrationCardFooter() {
             <button
               className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
               type="submit"
+              name={screenSelectionNode.attributes.name}
+              value={screenSelectionNode.attributes.value}
               onClick={handleScreenSelection}
             >
               {intl.formatMessage({

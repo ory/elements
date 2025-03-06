@@ -137,6 +137,7 @@ export function nodesToAuthMethodGroups(
             UiNodeGroupEnum.Default,
             UiNodeGroupEnum.IdentifierFirst,
             UiNodeGroupEnum.Profile,
+            UiNodeGroupEnum.Captcha,
             ...excludeAuthMethods,
           ] as UiNodeGroupEnum[]
         ).includes(group),

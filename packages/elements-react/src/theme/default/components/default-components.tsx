@@ -44,6 +44,7 @@ import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes
 import { DefaultSettingsTotp } from "./settings/settings-totp"
 import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
 import { DefaultAuthMethodListContainer } from "./card/auth-method-list-container"
+import { DefaultCaptcha } from "./form/captcha"
 
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
@@ -79,6 +80,7 @@ export function getOryComponents(
       Checkbox: overrides?.Node?.Checkbox ?? DefaultCheckbox,
       Text: overrides?.Node?.Text ?? DefaultText,
       Anchor: overrides?.Node?.Anchor ?? DefaultLinkButton,
+      Captcha: overrides?.Node?.Captcha ?? DefaultCaptcha,
     },
     Form: {
       Root: overrides?.Form?.Root ?? DefaultFormContainer,

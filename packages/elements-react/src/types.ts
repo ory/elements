@@ -39,6 +39,10 @@ export type OryNodeTextProps = {
 
 export type OryCardLogoProps = Record<string, never>
 
+export type OryNodeCaptchaProps = {
+  node: UiNode
+}
+
 /**
  * Props for the AuthMethodListItem component. This component is used
  * to render a single auth method in the AuthMethodList component.
