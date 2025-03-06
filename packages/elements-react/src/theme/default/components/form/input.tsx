@@ -62,7 +62,13 @@ export const DefaultInput = ({
   const { ref, ...restRegister } = register(name, { value })
 
   return (
-    <div className="relative flex justify-stretch">
+    <div
+      className={cn(
+        "relative flex justify-stretch",
+        // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
+        flowType === FlowType.Settings && "max-w-[488px]",
+      )}
+    >
       <input
         {...rest}
         onClick={onClick}
@@ -77,8 +83,6 @@ export const DefaultInput = ({
           "focus:border-input-border-focus focus-visible:border-input-border-focus",
           "hover:bg-input-background-hover hover:border-input-border-hover",
           "px-4 py-[13px]",
-          // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
-          flowType === FlowType.Settings && "max-w-[488px]",
         )}
         ref={(e) => {
           inputRef.current = e
