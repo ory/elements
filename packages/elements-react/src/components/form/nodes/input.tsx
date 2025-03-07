@@ -1,16 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { NodeProps } from "./node"
-import { useComponents } from "../../../context"
-import { triggerToWindowCall } from "../../../util/ui"
 import {
   UiNodeGroupEnum,
   UiNodeInputAttributes,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
-import { Controller, useFormContext } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
+import { useComponents } from "../../../context"
+import { triggerToWindowCall } from "../../../util/ui"
+import { NodeProps } from "./node"
 
 export const NodeInput = ({
   node,
@@ -73,13 +73,13 @@ export const NodeInput = ({
     (attrs.name === "totp_code" && node.group === "totp")
 
   const handleScopeChange = (checked: boolean) => {
-    const scopes = watch("scopes")
+    const scopes = watch("grant_scope")
     if (Array.isArray(scopes)) {
       if (checked) {
-        setValue("scopes", Array.from(new Set([...scopes, attrs.value])))
+        setValue("grant_scope", Array.from(new Set([...scopes, attrs.value])))
       } else {
         setValue(
-          "scopes",
+          "grant_scope",
           scopes.filter((scope: string) => scope !== attrs.value),
         )
       }

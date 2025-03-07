@@ -92,7 +92,6 @@ export function OryTwoStepCard() {
     formState.current === "method_active"
       ? getFinalNodes(uniqueGroups.groups, formState.method)
       : []
-  console.log(uniqueGroups, finalNodes)
 
   const handleAfterFormSubmit = (method: unknown) => {
     if (typeof method !== "string" || !isUINodeGroupEnum(method)) {

@@ -28,6 +28,7 @@ export function DefaultConsentScopeCheckbox({
       description={intl.formatMessage({
         id: `consent.scope.${attributes.value}.description`,
       })}
+      className="col-span-2"
     >
       <Switch.Root
         className="relative w-7 h-4 bg-toggle-background-default rounded-identifier border-toggle-border-default border p-[3px] data-[state=checked]:bg-toggle-background-checked transition-all data-[state=checked]:border-toggle-border-checked"
