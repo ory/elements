@@ -79,8 +79,6 @@ export function OryTwoStepCard() {
     }
   }
 
-  const hasError = Boolean(ui.messages?.some((m) => m.type === "error"))
-
   const nonOidcNodes = filterOidcOut(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
@@ -109,7 +107,7 @@ export function OryTwoStepCard() {
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
-        {hasError ? <OryCardValidationMessages /> : undefined}
+        <OryCardValidationMessages />
         {showOidc && <OryFormSocialButtonsForm />}
         <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
