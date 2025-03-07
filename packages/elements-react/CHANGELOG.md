@@ -1,3 +1,18 @@
+## 1.0.0-next.33 (2025-03-07)
+
+### 🚀 Features
+
+- add password toggle to input ([#378](https://github.com/ory/elements/pull/378))
+
+### 🩹 Fixes
+
+- validation message regression ([#380](https://github.com/ory/elements/pull/380))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+- Pierre Caillaud @pcaillaudm
+
 ## 1.0.0-next.32 (2025-03-06)
 
 ### 🚀 Features
