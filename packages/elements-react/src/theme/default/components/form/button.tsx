@@ -82,7 +82,8 @@ export const DefaultButton = ({
     attributes.name === "method" ||
     attributes.name.includes("passkey") ||
     attributes.name.includes("webauthn") ||
-    attributes.name.includes("lookup_secret")
+    attributes.name.includes("lookup_secret") ||
+    (attributes.name.includes("action") && attributes.value === "accept")
 
   return (
     <button

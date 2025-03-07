@@ -56,9 +56,10 @@ export function translateConsentChallengeToUiNodes(
     // TODO: CSRF
     nodes: [
       ...scopesToUiNodes(consentChallenge.requested_scope ?? []),
-      acceptButton,
       rejectButton,
+      acceptButton,
       csrfTokenNode(csrfToken),
+      challengeNode(consentChallenge.challenge),
     ],
     method: "POST",
     messages: [],
@@ -87,7 +88,7 @@ function scopesToUiNodes(scopes: string[]): UiNode[] {
     },
     attributes: {
       node_type: "input",
-      name: `scopes`,
+      name: `grant_scope`,
       value: scope,
       type: "checkbox",
       disabled: false,
@@ -105,6 +106,22 @@ function csrfTokenNode(csrfToken: string): UiNode {
       node_type: "input",
       name: "csrf_token",
       value: csrfToken,
+      type: "hidden",
+      disabled: false,
+    },
+    messages: [],
+  }
+}
+
+function challengeNode(challenge: string): UiNode {
+  return {
+    type: "input",
+    group: "default",
+    meta: {},
+    attributes: {
+      node_type: "input",
+      name: "consent_challenge",
+      value: challenge,
       type: "hidden",
       disabled: false,
     },

@@ -3,6 +3,7 @@
 
 import { PropsWithChildren } from "react"
 import { SVGIcon } from "../../assets/types"
+import { cn } from "../../utils/cn"
 
 type ListItemProps<T extends React.ElementType = "div"> = {
   icon: SVGIcon
@@ -18,6 +19,7 @@ export function ListItem<T extends React.ElementType = "div">({
   title,
   description,
   children,
+  className,
   ...props
 }: PropsWithChildren<ListItemProps<T>> & React.ComponentPropsWithoutRef<T>) {
   const Comp = as || "div"
@@ -25,7 +27,10 @@ export function ListItem<T extends React.ElementType = "div">({
   return (
     <Comp
       {...props}
-      className="flex cursor-pointer gap-3 text-left items-start w-full rounded-buttons p-2 hover:bg-interface-background-default-primary-hover"
+      className={cn(
+        "flex cursor-pointer gap-3 text-left items-start w-full rounded-buttons p-2 hover:bg-interface-background-default-primary-hover",
+        className as string,
+      )}
     >
       <span className="mt-1">
         {Icon && (

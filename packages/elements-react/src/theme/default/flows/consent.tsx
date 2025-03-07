@@ -71,8 +71,6 @@ export function Consent({
     formAction,
   )
 
-  console.log("flow", flow)
-
   return (
     <OryProvider
       config={config}
