@@ -4,7 +4,12 @@
 import { AuthenticatorAssuranceLevel } from "@ory/client-fetch"
 
 export function restartFlowUrl(
-  flow: { request_url?: string; requested_aal?: string; return_to?: string },
+  flow: {
+    id: string
+    request_url?: string
+    requested_aal?: string
+    return_to?: string
+  },
   fallback: string,
 ) {
   if (flow.requested_aal === "aal2")
@@ -16,6 +21,7 @@ export function initFlowUrl(
   sdkUrl: string,
   flowType: string,
   flow: {
+    id: string
     return_to?: string
     oauth2_login_challenge?: string
   },

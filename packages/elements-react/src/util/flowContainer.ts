@@ -8,6 +8,7 @@ import {
   RecoveryFlow,
   RegistrationFlow,
   SettingsFlow,
+  UiContainer,
   VerificationFlow,
 } from "@ory/client-fetch"
 import { OryClientConfiguration } from "./clientConfiguration"
@@ -17,7 +18,7 @@ import { OryClientConfiguration } from "./clientConfiguration"
  *
  * @see OryClientConfiguration
  */
-type OryFlow<TFlowType, TFlow> = {
+type OryFlow<TFlowType extends FlowType, TFlow> = {
   flowType: TFlowType
   flow: TFlow
   config: OryClientConfiguration
@@ -78,6 +79,17 @@ export type SettingsFlowContainer = OryFlow<FlowType.Settings, SettingsFlow>
  */
 export type ErrorFlowContainer = OryFlow<FlowType.Error, FlowError>
 
+export type ConsentFlow = {
+  created_at: Date
+  expires_at: Date
+  id: string
+  issued_at: Date
+  state: "show_form" | "rejected" | "accepted"
+  ui: UiContainer
+}
+
+export type ConsentFlowContainer = OryFlow<FlowType.Consent, ConsentFlow>
+
 /**
  * A union type of all flow containers
  */
@@ -87,4 +99,5 @@ export type OryFlowContainer =
   | RecoveryFlowContainer
   | VerificationFlowContainer
   | SettingsFlowContainer
+  | ConsentFlowContainer
 // TODO: Add ErrorFlowContainer

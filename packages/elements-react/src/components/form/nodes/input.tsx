@@ -1,15 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { NodeProps } from "./node"
-import { useComponents } from "../../../context"
-import { triggerToWindowCall } from "../../../util/ui"
 import {
   UiNodeInputAttributes,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
 import { useFormContext } from "react-hook-form"
+import { useComponents } from "../../../context"
+import { triggerToWindowCall } from "../../../util/ui"
+import { NodeProps } from "./node"
 
 export const NodeInput = ({
   node,
@@ -19,7 +19,7 @@ export const NodeInput = ({
   onClick?: MouseEventHandler
 }): ReactNode => {
   const { Node } = useComponents()
-  const { setValue } = useFormContext()
+  const { setValue, register, watch } = useFormContext()
 
   const {
     onloadTrigger: onloadTrigger,
@@ -35,7 +35,10 @@ export const NodeInput = ({
     "name" in node.attributes && node.attributes.name === "screen"
 
   const setFormValue = () => {
-    if (attrs.value && !(isResendNode || isScreenSelectionNode)) {
+    if (isResendNode || isScreenSelectionNode || node.group === "consent") {
+      return
+    }
+    if (attrs.value !== undefined) {
       setValue(attrs.name, attrs.value)
     }
   }
@@ -68,6 +71,20 @@ export const NodeInput = ({
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
 
+  const handleScopeChange = (checked: boolean) => {
+    const scopes = watch("grant_scope")
+    if (Array.isArray(scopes)) {
+      if (checked) {
+        setValue("grant_scope", Array.from(new Set([...scopes, attrs.value])))
+      } else {
+        setValue(
+          "grant_scope",
+          scopes.filter((scope: string) => scope !== attrs.value),
+        )
+      }
+    }
+  }
+
   switch (attributes.type) {
     case UiNodeInputAttributesTypeEnum.Submit:
     case UiNodeInputAttributesTypeEnum.Button:
@@ -90,6 +107,15 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
+      if (node.group === "consent") {
+        return (
+          <Node.ConsentScopeCheckbox
+            attributes={attrs}
+            node={node}
+            onCheckedChange={handleScopeChange}
+          />
+        )
+      }
       return (
         <Node.Label
           // The label is rendered in the checkbox component
