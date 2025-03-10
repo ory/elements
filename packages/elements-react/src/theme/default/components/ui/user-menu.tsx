@@ -2,12 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { LogoutFlow, Session } from "@ory/client-fetch"
-import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu"
-import { useCallback, useEffect, useState } from "react"
 import { useOryFlow } from "@ory/elements-react"
-import { frontendClient } from "../../../../util/client"
+import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu"
 import IconLogout from "../../assets/icons/logout.svg"
 import IconSettings from "../../assets/icons/settings.svg"
+import { useClientLogout } from "../../utils/logout"
 import { getUserInitials } from "../../utils/user"
 import {
   DropdownMenu,
@@ -25,16 +24,7 @@ type UserMenuProps = {
 export const UserMenu = ({ session }: UserMenuProps) => {
   const { config } = useOryFlow()
   const initials = getUserInitials(session)
-  const [logoutFlow, setLogoutFlow] = useState<LogoutFlow | undefined>()
-
-  const fetchLogoutFlow = useCallback(async () => {
-    const flow = await frontendClient(config.sdk.url).createBrowserLogoutFlow()
-    setLogoutFlow(flow)
-  }, [config.sdk.url])
-
-  useEffect(() => {
-    void fetchLogoutFlow()
-  }, [fetchLogoutFlow])
+  const logoutFlow = useClientLogout(config)
 
   return (
     <DropdownMenu>
