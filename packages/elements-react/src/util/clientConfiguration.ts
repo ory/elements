@@ -1,10 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  AccountExperienceConfiguration,
-  ConfigurationParameters,
-} from "@ory/client-fetch"
+import { ConfigurationParameters } from "@ory/client-fetch"
 import { IntlContextProps } from "../context/intl-context"
 
 export type IntlConfig = IntlContextProps
@@ -29,17 +26,16 @@ export type OryClientConfiguration = {
     options?: Partial<ConfigurationParameters>
   }
 
-  project:
-    | {
-        registration_enabled: boolean
-        verification_enabled: boolean
-        recovery_enabled: boolean
+  project: {
+    registration_enabled: boolean
+    verification_enabled: boolean
+    recovery_enabled: boolean
 
-        recovery_ui_url: string
-        registration_ui_url: string
-        verification_ui_url: string
-        login_ui_url: string
-      }
-    | AccountExperienceConfiguration
+    recovery_ui_url: string
+    registration_ui_url: string
+    verification_ui_url: string
+    login_ui_url: string
+    default_redirect_url?: string
+  }
   intl?: IntlConfig
 }

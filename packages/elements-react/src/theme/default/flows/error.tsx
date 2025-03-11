@@ -18,12 +18,11 @@ import { DefaultCard } from "../components"
 import { DefaultHorizontalDivider } from "../components/form/horizontal-divider"
 import { useClientLogout } from "../utils/logout"
 
-export type OryError = FlowError | OAuth2Error | GenericError
+export type OryError = FlowError | OAuth2Error | { error: GenericError }
 
 export type OAuth2Error = {
   error: string
   error_description: string
-  timestamp: Date
 }
 
 function isOAuth2Error(error: unknown): error is OAuth2Error {
@@ -64,7 +63,7 @@ function useStandardize(error: OryError): InternalStandardizedError {
         code: 400,
         message: error.error_description,
         status: error.error,
-        timestamp: error.timestamp,
+        timestamp: new Date(),
       }
     }
     if (instanceOfFlowError(error)) {
@@ -80,6 +79,7 @@ function useStandardize(error: OryError): InternalStandardizedError {
         message: error.error.message,
         status: error.error.status,
         reason: error.error.reason,
+        timestamp: new Date(),
       }
     }
     return {
@@ -100,9 +100,8 @@ export function Error({
   const Divider = Components?.Card?.Divider ?? DefaultHorizontalDivider
   const parsed = useStandardize(error)
 
-  console.log(error, parsed)
-
   const description = errorDescriptions[Math.floor(parsed.code / 100)]
+
   return (
     <Card data-testid={"ory/screen/error"}>
       <div className="flex flex-col gap-6 antialiased">
@@ -129,11 +128,14 @@ export function Error({
             What can I do?
           </h2>
           <p className="leading-normal text-interface-foreground-default-secondary">
-            Please try again in a few minutes.
+            Please try again in a few minutes or contact the website operator.
           </p>
           <div>
-            {session && <LoggedInActions config={config} />}
-            <GoBackButton config={config} />
+            {session ? (
+              <LoggedInActions config={config} />
+            ) : (
+              <GoBackButton config={config} />
+            )}
           </div>
         </div>
 
