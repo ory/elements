@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { isUiNodeInputAttributes } from "@ory/client-fetch"
-import { NodeProps } from "../../../../components/form/nodes/node"
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile"
 import { ReactElement, useRef } from "react"
 import { useFormContext } from "react-hook-form"
-import { NodeInput } from "../../../../components/form/nodes/input"
+import { DefaultInput } from "./input"
+import { OryNodeCaptchaProps } from "@ory/elements-react"
 
 type Config = {
   sitekey: string
@@ -15,7 +15,7 @@ type Config = {
   response_field_name: string
 }
 
-export const DefaultCaptcha = ({ node }: NodeProps) => {
+export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
   const { setValue } = useFormContext()
   const ref = useRef<TurnstileInstance>()
   // In this node, we only care about the `captcha-turnstile-options` node as that contains
@@ -27,7 +27,9 @@ export const DefaultCaptcha = ({ node }: NodeProps) => {
     if (
       node.attributes.name === "transient_payload.captcha_turnstile_response"
     ) {
-      nodes.push(<NodeInput key={1} node={node} attributes={node.attributes} />)
+      nodes.push(
+        <DefaultInput key={1} node={node} attributes={node.attributes} />,
+      )
     }
   }
 
