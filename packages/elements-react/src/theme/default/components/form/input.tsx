@@ -114,6 +114,7 @@ function PasswordToggle({
       onClick={handleClick}
       className="absolute right-0 h-full w-12 flex items-center justify-center"
       type="button"
+      aria-label="Toggle password visibility"
     >
       {shown ? <EyeOff /> : <Eye />}
     </button>

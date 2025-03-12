@@ -29,7 +29,7 @@ export const UserMenu = ({ session }: UserMenuProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <UserAvatar initials={initials} />
+        <UserAvatar initials={initials} title="User Menu" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel className="flex gap-3 px-5 py-4.5">
