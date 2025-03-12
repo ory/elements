@@ -1181,7 +1181,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    project: {\n        registration_enabled: boolean;\n        verification_enabled: boolean;\n        recovery_enabled: boolean;\n        recovery_ui_url: string;\n        registration_ui_url: string;\n        verification_ui_url: string;\n        login_ui_url: string;\n    };\n    intl?: "
+              "text": ">;\n    };\n    project: {\n        registration_enabled: boolean;\n        verification_enabled: boolean;\n        recovery_enabled: boolean;\n        recovery_ui_url: string;\n        registration_ui_url: string;\n        verification_ui_url: string;\n        login_ui_url: string;\n        default_redirect_url?: string;\n    };\n    intl?: "
             },
             {
               "kind": "Reference",
