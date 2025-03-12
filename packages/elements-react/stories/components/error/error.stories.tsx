@@ -1,17 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { FlowErrorFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 import { Error, OryError } from "../../../src/theme/default"
-import { config, ErrorGenericFromJSON } from "../../utils"
+import { config } from "../../utils"
 
 const errors: Record<string, OryError> = {
-  recovery_disabled: ErrorGenericFromJSON(
-    require("$snapshots/recovery/disabled/initial-form.json"),
-  ),
-  oidc_continuity: ErrorGenericFromJSON(
-    require("./errors/oidc_continuity.json"),
-  ),
+  oidc_continuity: FlowErrorFromJSON(require("./errors/oidc_continuity.json")),
   oauth2: {
     error: "invalid_request",
     error_description:

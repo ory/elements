@@ -264,5 +264,6 @@
   "error.title.what-can-i-do": "What can I do?",
   "error.instructions": "Please try again in a few minutes or contact the website operator.",
   "error.footer.text": "When reporting this error, please include the following information:",
-  "error.footer.copy": "Copy"
+  "error.footer.copy": "Copy",
+  "error.action.go-back": "Go back"
 }

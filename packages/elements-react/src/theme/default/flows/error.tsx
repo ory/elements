@@ -165,6 +165,9 @@ export function Error({
             <p className="text-interface-foreground-default-secondary text-sm">
               Time: <code>{parsed.timestamp?.toUTCString()}</code>
             </p>
+            <p className="text-interface-foreground-default-secondary text-sm">
+              Message: <code>{parsed.reason}</code>
+            </p>
 
             <div>
               <button
@@ -207,7 +210,7 @@ function GoBackButton({ config }: { config: OryClientConfiguration }) {
         className="text-interface-foreground-default-primary underline"
         href={config.project.default_redirect_url}
       >
-        Go back
+        <FormattedMessage id="error.action.go-back" />
       </a>
     )
   }

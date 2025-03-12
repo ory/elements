@@ -10,7 +10,7 @@
   "error.back-button": "Regresar",
   "error.description": "Ocurrió un error con el siguiente mensaje:",
   "error.support-email-link": "Si el problema persiste, por favor contacte a <a>{contactSupportEmail}</a>",
-  "error.title": "Ocurrió un error",
+  "error.title": "",
   "error.title-internal-server-error": "Error Interno del Servidor",
   "error.title-not-found": "404 - Página no encontrada",
   "identities.messages.1010001": "Iniciar sesión",
@@ -259,5 +259,11 @@
   "property.identifier": "",
   "property.password": "",
   "property.phone": "",
-  "property.username": ""
+  "property.username": "",
+  "error.action.go-back": "",
+  "error.footer.copy": "",
+  "error.footer.text": "",
+  "error.instructions": "",
+  "error.title.what-can-i-do": "",
+  "error.title.what-happened": ""
 }
