@@ -22,6 +22,24 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
         return acc
       }
 
+      if (attrs.name.startsWith("grant_scope")) {
+        const scope = attrs.value as string
+        if (Array.isArray(acc.grant_scope)) {
+          return {
+            ...acc,
+            // We want to have all scopes accepted by default, so that the user has to actively uncheck them.
+            grant_scope: [...acc.grant_scope, scope],
+          }
+        } else if (!acc.grant_scope) {
+          return {
+            ...acc,
+            grant_scope: [scope],
+          }
+        }
+        // This shouldn't happen, but just so that we don't throw an error.
+        return acc
+      }
+
       // Unroll nested traits or assign default values
       return unrollTrait(
         {

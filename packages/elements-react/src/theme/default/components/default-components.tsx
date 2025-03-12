@@ -12,6 +12,7 @@ import {
   DefaultCardHeader,
   DefaultCardLogo,
 } from "./card"
+import { DefaultAuthMethodListContainer } from "./card/auth-method-list-container"
 import { DefaultAuthMethodListItem } from "./card/auth-method-list-item"
 import {
   DefaultFormContainer,
@@ -19,7 +20,9 @@ import {
   DefaultMessageContainer,
 } from "./form"
 import { DefaultButton } from "./form/button"
+import { DefaultCaptcha } from "./form/captcha"
 import { DefaultCheckbox } from "./form/checkbox"
+import { DefaultConsentScopeCheckbox } from "./form/consent-scope-checkbox"
 import { DefaultGroupContainer } from "./form/group-container"
 import { DefaultHorizontalDivider } from "./form/horizontal-divider"
 import { DefaultImage } from "./form/image"
@@ -43,8 +46,6 @@ import { DefaultSettingsPasskey } from "./settings/settings-passkey"
 import { DefaultSettingsRecoveryCodes } from "./settings/settings-recovery-codes"
 import { DefaultSettingsTotp } from "./settings/settings-totp"
 import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
-import { DefaultAuthMethodListContainer } from "./card/auth-method-list-container"
-import { DefaultCaptcha } from "./form/captcha"
 
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
@@ -80,6 +81,8 @@ export function getOryComponents(
       Checkbox: overrides?.Node?.Checkbox ?? DefaultCheckbox,
       Text: overrides?.Node?.Text ?? DefaultText,
       Anchor: overrides?.Node?.Anchor ?? DefaultLinkButton,
+      ConsentScopeCheckbox:
+        overrides?.Node?.ConsentScopeCheckbox ?? DefaultConsentScopeCheckbox,
       Captcha: overrides?.Node?.Captcha ?? DefaultCaptcha,
     },
     Form: {
