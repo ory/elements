@@ -50,8 +50,6 @@ export type FlowContainerSetter = Dispatch<OryFlowContainer>;
 export type FlowContextValue = OryFlowContainer & {
     setFlowContainer: FlowContainerSetter;
     formState: FormState;
-    errors: UiText[];
-    setErrors: (e: UiText[]) => void;
     dispatchFormState: Dispatch<FormStateAction>;
 };
 

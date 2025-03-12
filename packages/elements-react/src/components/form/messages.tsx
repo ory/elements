@@ -21,25 +21,15 @@ const messageIdsToHide = [
 ]
 
 export function OryCardValidationMessages({ ...props }: OryMessageRootProps) {
-  const { flow, formState, errors } = useOryFlow()
+  const { flow } = useOryFlow()
+  const messages = flow.ui.messages?.filter(
+    (m) => !messageIdsToHide.includes(m.id),
+  )
   const { Message } = useComponents()
 
-  let messages =
-    flow.ui.messages?.filter((m) => !messageIdsToHide.includes(m.id)) || []
-
-  switch (formState.current) {
-    case "select_method":
-      messages = messages.filter((m) => m.type !== "error")
-      break
-    case "method_active":
-      messages = [
-        ...(messages.filter((m) => m.type !== "error") || []),
-        ...errors,
-      ]
-      break
+  if (!messages) {
+    return null
   }
-
-  if (!messages?.length) return null
 
   return (
     <Message.Root {...props}>

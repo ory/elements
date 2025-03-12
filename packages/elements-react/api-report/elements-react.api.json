@@ -295,25 +295,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    errors: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiText",
-              "canonicalReference": "@ory/client-fetch!UiText:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[];\n    setErrors: (e: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiText",
-              "canonicalReference": "@ory/client-fetch!UiText:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]) => void;\n    dispatchFormState: "
+              "text": ";\n    dispatchFormState: "
             },
             {
               "kind": "Reference",
@@ -343,7 +325,7 @@
           "name": "FlowContextValue",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 15
+            "endIndex": 11
           }
         },
         {

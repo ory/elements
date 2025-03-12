@@ -35,9 +35,6 @@ export function useOryFormSubmit(
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)
-    flowContainer.setErrors(
-      (flow.flow.ui.messages || []).filter((m) => m.type === "error"),
-    )
     methods.reset(computeDefaultValues(flow.flow.ui.nodes))
   }
 

@@ -10,7 +10,6 @@ import {
 } from "react"
 import { OryFlowContainer } from "../util/flowContainer"
 import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
-import { UiText } from "@ory/client-fetch"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
@@ -47,16 +46,6 @@ export type FlowContextValue = OryFlowContainer & {
   formState: FormState
 
   /**
-   * Current flow errors
-   */
-  errors: UiText[]
-
-  /**
-   * Function to set the current flow errors.
-   */
-  setErrors: (e: UiText[]) => void
-
-  /**
    * Dispatch function to update the form state.
    */
   dispatchFormState: Dispatch<FormStateAction>
@@ -73,7 +62,6 @@ export function OryFlowProvider({
 }: OryFlowProviderProps) {
   const [flowContainer, setFlowContainer] = useState(container)
   const [formState, dispatchFormState] = useFormStateReducer(container)
-  const [errors, setErrors] = useState<UiText[]>([])
 
   return (
     <OryFlowContext.Provider
@@ -87,8 +75,6 @@ export function OryFlowProvider({
               flow: flowContainer,
             })
           },
-          errors,
-          setErrors,
           formState,
           dispatchFormState,
         } as FlowContextValue
