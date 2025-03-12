@@ -1,3 +1,13 @@
+## 1.0.0-next.36 (2025-03-12)
+
+### 🩹 Fixes
+
+- handle error messages for selected methods ([#385](https://github.com/ory/elements/pull/385))
+
+### ❤️  Thank You
+
+- Pierre Caillaud @pcaillaudm
+
 ## 1.0.0-next.35 (2025-03-12)
 
 ### 🚀 Features
