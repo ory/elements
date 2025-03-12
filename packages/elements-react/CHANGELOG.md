@@ -1,3 +1,13 @@
+## 1.0.0-next.37 (2025-03-12)
+
+### 🩹 Fixes
+
+- correctly render test id for error card ([#386](https://github.com/ory/elements/pull/386))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.36 (2025-03-12)
 
 ### 🩹 Fixes
