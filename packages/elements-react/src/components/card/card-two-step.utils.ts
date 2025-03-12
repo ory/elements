@@ -1,28 +1,35 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import {
+  LoginFlowContainer,
+  RegistrationFlowContainer,
+} from "../../util/flowContainer"
 
-export function isChoosingMethod(uiNodes: UiNode[]): boolean {
+export function isChoosingMethod(
+  flow: LoginFlowContainer | RegistrationFlowContainer,
+): boolean {
   return (
-    uiNodes.some(
+    flow.flow.ui.nodes.some(
       (node) =>
         "name" in node.attributes &&
         node.attributes.name === "screen" &&
         "value" in node.attributes &&
         node.attributes.value === "previous",
     ) ||
-    uiNodes.some(
+    flow.flow.ui.nodes.some(
       (node) =>
         node.group === UiNodeGroupEnum.IdentifierFirst &&
         "name" in node.attributes &&
         node.attributes.name === "identifier" &&
         node.attributes.type === "hidden",
-    )
+    ) ||
+    (flow.flowType === FlowType.Login && flow.flow.requested_aal === "aal2")
   )
 }
 
-export function filterZeroStepGroups(nodes: UiNode[]): UiNode[] {
+export function filterOidcOut(nodes: UiNode[]): UiNode[] {
   return nodes.filter((node) => node.group !== UiNodeGroupEnum.Oidc)
 }
 
@@ -37,6 +44,7 @@ export function getFinalNodes(
   return [
     ...(uniqueGroups?.identifier_first ?? []),
     ...(uniqueGroups?.default ?? []),
+    ...(uniqueGroups?.captcha ?? []),
   ]
     .flat()
     .filter(

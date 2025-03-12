@@ -745,7 +745,16 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    onClick: () => void;\n    group: string;\n}"
+              "text": "{\n    onClick: () => void;\n    group: string;\n    title?: {\n        id: string;\n        values?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, string>;\n    };\n}"
             },
             {
               "kind": "Content",
@@ -757,7 +766,7 @@
           "name": "OryCardAuthMethodListItemProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 4
           }
         },
         {
@@ -1409,6 +1418,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        Captcha: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeCaptchaProps",
+              "canonicalReference": "@ory/elements-react!OryNodeCaptchaProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n    };\n    Card: {\n        Root: "
             },
             {
@@ -1817,7 +1844,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 126
+            "endIndex": 130
           }
         },
         {
@@ -1902,10 +1929,6 @@
               "text": "): "
             },
             {
-              "kind": "Content",
-              "text": "string | "
-            },
-            {
               "kind": "Reference",
               "text": "react_jsx_runtime.JSX.Element",
               "canonicalReference": "@types/react!JSX.Element:interface"
@@ -1918,7 +1941,7 @@
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 5
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2001,7 +2024,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormGroups({ children, groups }: "
+              "text": "declare function OryFormGroups({ groups }: "
             },
             {
               "kind": "Reference",
@@ -2031,7 +2054,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, groups }",
+              "parameterName": "{ groups }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2088,16 +2111,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormOidcButtons({ children, hideDivider, }: "
-            },
-            {
-              "kind": "Reference",
-              "text": "OryFormOidcButtonsProps",
-              "canonicalReference": "@ory/elements-react!OryFormOidcButtonsProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
+              "text": "declare function OryFormOidcButtons(): "
             },
             {
               "kind": "Reference",
@@ -2115,53 +2129,13 @@
           ],
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 5
+            "startIndex": 1,
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "{ children, hideDivider, }",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isOptional": false
-            }
-          ],
+          "parameters": [],
           "name": "OryFormOidcButtons"
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!OryFormOidcButtonsProps:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "type OryFormOidcButtonsProps = "
-            },
-            {
-              "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<{\n    hideDivider?: boolean;\n}>"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "dist/index.d.ts",
-          "releaseTag": "Public",
-          "name": "OryFormOidcButtonsProps",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 3
-          }
         },
         {
           "kind": "TypeAlias",
@@ -2718,6 +2692,41 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 11
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryNodeCaptchaProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryNodeCaptchaProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryNodeCaptchaProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
           }
         },
         {

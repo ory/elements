@@ -38,6 +38,10 @@ export const InputField = ({
   const [visibility, setVisibility] = useState(false)
   const visibilityToggleRef = useRef<HTMLDivElement>(null)
 
+  if (props.type === "hidden") {
+    return <input data-testid={dataTestid} {...props} />
+  }
+
   return (
     <div
       data-testid={dataTestid}

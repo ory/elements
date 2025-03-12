@@ -1,3 +1,64 @@
+## 1.0.0-next.34 (2025-03-12)
+
+### 🩹 Fixes
+
+- use correct import paths ([#384](https://github.com/ory/elements/pull/384))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
+## 1.0.0-next.33 (2025-03-07)
+
+### 🚀 Features
+
+- add password toggle to input ([#378](https://github.com/ory/elements/pull/378))
+
+### 🩹 Fixes
+
+- validation message regression ([#380](https://github.com/ory/elements/pull/380))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+- Pierre Caillaud @pcaillaudm
+
+## 1.0.0-next.32 (2025-03-06)
+
+### 🚀 Features
+
+- use method selector in 2fa login ([#377](https://github.com/ory/elements/pull/377))
+
+### ❤️  Thank You
+
+- Pierre Caillaud @pcaillaudm
+
+## 1.0.0-next.31 (2025-03-06)
+
+### 🚀 Features
+
+- support captchas natively in new and old elements ([#372](https://github.com/ory/elements/pull/372))
+
+### 🩹 Fixes
+
+- center text on OIDC buttons and debounce state update ([#366](https://github.com/ory/elements/pull/366))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
+## 1.0.0-next.30 (2025-03-05)
+
+### 🩹 Fixes
+
+- show possible OIDC connections on login method selector ([#362](https://github.com/ory/elements/pull/362))
+- add correct x/twitter OIDC logo ([#364](https://github.com/ory/elements/pull/364))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.29 (2025-02-27)
 
 ### 🩹 Fixes

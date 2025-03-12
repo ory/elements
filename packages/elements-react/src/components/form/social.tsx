@@ -9,10 +9,6 @@ import { OryForm } from "./form"
 import { useFormContext } from "react-hook-form"
 import { OryFormProvider } from "./form-provider"
 
-export type OryFormOidcButtonsProps = PropsWithChildren<{
-  hideDivider?: boolean
-}>
-
 export type OryFormOidcRootProps = PropsWithChildren<{
   nodes: UiNode[]
 }>
@@ -23,10 +19,7 @@ export type OryNodeOidcButtonProps = {
   onClick?: () => void
 }
 
-export function OryFormOidcButtons({
-  children,
-  hideDivider,
-}: OryFormOidcButtonsProps) {
+export function OryFormOidcButtons() {
   const {
     flow: { ui },
   } = useOryFlow()
@@ -35,42 +28,29 @@ export function OryFormOidcButtons({
   // Only get the oidc nodes.
   const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
 
-  const { Form, Card, Node } = useComponents()
+  const { Form, Node } = useComponents()
 
   if (filteredNodes.length === 0) {
     return null
   }
 
-  // Are there other first-factor nodes available?
-  const otherNodes = ui.nodes.filter(
-    (node) => node.group !== "oidc" && node.group !== "default",
-  )
-
   return (
-    <>
-      <Form.OidcRoot nodes={filteredNodes}>
-        {children ??
-          filteredNodes.map((node, k) => {
-            return (
-              <Node.OidcButton
-                node={node}
-                key={k}
-                attributes={node.attributes as UiNodeInputAttributes}
-                onClick={() => {
-                  setValue(
-                    "provider",
-                    (node.attributes as UiNodeInputAttributes).value,
-                  )
-                  setValue("method", "oidc")
-                }}
-              />
+    <Form.OidcRoot nodes={filteredNodes}>
+      {filteredNodes.map((node, k) => (
+        <Node.OidcButton
+          node={node}
+          key={k}
+          attributes={node.attributes as UiNodeInputAttributes}
+          onClick={() => {
+            setValue(
+              "provider",
+              (node.attributes as UiNodeInputAttributes).value,
             )
-          })}
-      </Form.OidcRoot>
-      {!hideDivider && filteredNodes.length > 0 && otherNodes.length > 0 && (
-        <Card.Divider />
-      )}
-    </>
+            setValue("method", "oidc")
+          }}
+        />
+      ))}
+    </Form.OidcRoot>
   )
 }
 

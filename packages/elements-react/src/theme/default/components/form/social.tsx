@@ -7,11 +7,12 @@ import {
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
+import { ElementType, useEffect } from "react"
+import { useFormContext } from "react-hook-form"
+import { useIntl } from "react-intl"
+import { useDebounceValue } from "usehooks-ts"
 import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
-import { useIntl } from "react-intl"
-import { ElementType, useEffect, useState } from "react"
-import { useFormContext } from "react-hook-form"
 import { Spinner } from "./spinner"
 
 export function extractProvider(
@@ -50,7 +51,9 @@ export function DefaultButtonSocial({
   const {
     flow: { ui },
   } = useOryFlow()
-  const [clicked, setClicked] = useState(false)
+  // Safari cancels form submission events, if we do a state update in the same tick
+  // so we delay the state update by 100ms
+  const [clicked, setClicked] = useDebounceValue(false, 100)
   const intl = useIntl()
   const {
     formState: { isSubmitting },
@@ -72,15 +75,15 @@ export function DefaultButtonSocial({
   const provider = extractProvider(node.meta.label?.context) ?? ""
 
   const localOnClick = () => {
-    setClicked(true)
     onClick?.()
+    setClicked(true)
   }
 
   useEffect(() => {
     if (!isSubmitting) {
       setClicked(false)
     }
-  }, [isSubmitting])
+  }, [isSubmitting, setClicked])
 
   const label = node.meta.label
     ? uiTextToFormattedMessage(node.meta.label, intl)
@@ -113,9 +116,12 @@ export function DefaultButtonSocial({
         )}
       </span>
       {showLabel && node.meta.label ? (
-        <span className="grow text-left font-medium leading-none text-button-social-foreground-default">
-          {label}
-        </span>
+        <>
+          <span className="grow text-center font-medium leading-none text-button-social-foreground-default">
+            {label}
+          </span>
+          <span className="size-5 block"></span>
+        </>
       ) : null}
     </button>
   )

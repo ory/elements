@@ -7,6 +7,9 @@ import code from "../../assets/icons/code.svg"
 import passkey from "../../assets/icons/passkey.svg"
 import password from "../../assets/icons/password.svg"
 import webauthn from "../../assets/icons/webauthn.svg"
+import hardware_token from "../../assets/icons/passkey.svg"
+import totp from "../../assets/icons/totp.svg"
+import lookup_secret from "../../assets/icons/code-asterix.svg"
 import logos from "../../provider-logos"
 import { isGroupImmediateSubmit } from "../../utils/form"
 
@@ -15,12 +18,16 @@ const iconsMap: Record<string, typeof code> = {
   passkey,
   password,
   webauthn,
+  hardware_token,
+  totp,
+  lookup_secret,
   ...logos,
 }
 
 export function DefaultAuthMethodListItem({
   onClick,
   group,
+  title,
 }: OryCardAuthMethodListItemProps) {
   const intl = useIntl()
   const Icon = iconsMap[group] || null
@@ -37,9 +44,12 @@ export function DefaultAuthMethodListItem({
           <Icon size={16} className="text-interface-foreground-brand-primary" />
         )}
       </span>
-      <span className="flex-1 leading-normal inline-flex flex-col">
-        <span className="text-interface-foreground-default-primary">
-          {intl.formatMessage({ id: `two-step.${group}.title` })}
+      <span className="flex-1 leading-normal inline-flex flex-col w-full">
+        <span className="text-interface-foreground-default-primary truncate mr-6">
+          {intl.formatMessage(
+            { id: title?.id ?? `two-step.${group}.title` },
+            title?.values,
+          )}{" "}
         </span>
         <span className="text-interface-foreground-default-secondary">
           {intl.formatMessage({
