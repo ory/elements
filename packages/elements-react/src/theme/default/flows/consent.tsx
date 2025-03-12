@@ -18,7 +18,7 @@ export type ConsentFlowContextProps = {
   session: Session
   config: OryClientConfiguration
   csrfToken: string
-  formAction: string
+  formActionUrl: string
 } & PropsWithComponents
 
 export function Consent({
@@ -28,14 +28,14 @@ export function Consent({
   components: Passed,
   children,
   csrfToken,
-  formAction,
+  formActionUrl,
 }: PropsWithChildren<ConsentFlowContextProps>) {
   const components = getOryComponents(Passed)
 
   const flow = translateConsentChallengeToUiNodes(
     consentChallenge,
     csrfToken,
-    formAction,
+    formActionUrl,
     session,
   )
 
