@@ -17,9 +17,17 @@ import { PropsWithChildren, useMemo } from "react"
 import { DefaultCard } from "../components"
 import { DefaultHorizontalDivider } from "../components/form/horizontal-divider"
 import { useClientLogout } from "../utils/logout"
+import { IntlProvider } from "../../../context/intl-context"
+import { FormattedMessage } from "react-intl"
 
+/**
+ * A union type of all possible errors that can be returned by the Ory SDK.
+ */
 export type OryError = FlowError | OAuth2Error | { error: GenericError }
 
+/**
+ * An OAuth2 error response.
+ */
 export type OAuth2Error = {
   error: string
   error_description: string
@@ -103,74 +111,79 @@ export function Error({
   const description = errorDescriptions[Math.floor(parsed.code / 100)]
 
   return (
-    <Card data-testid={"ory/screen/error"}>
-      <div className="flex flex-col gap-6 antialiased">
-        <header className="flex flex-col gap-8 antialiased">
-          <ErrorLogo config={config} />
+    <IntlProvider
+      locale={config.intl?.locale ?? "en"}
+      customTranslations={config.intl?.customTranslations}
+    >
+      <Card data-testid={"ory/screen/error"}>
+        <div className="flex flex-col gap-6 antialiased">
+          <header className="flex flex-col gap-8 antialiased">
+            <ErrorLogo config={config} />
+            <div className="flex flex-col gap-2">
+              <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
+                <FormattedMessage id="error.title.what-happened" />
+              </h2>
+              <p className="leading-normal text-interface-foreground-default-secondary">
+                {parsed.message ?? description}
+              </p>
+              {parsed.reason && (
+                <p className="leading-normal text-interface-foreground-default-secondary">
+                  {parsed.reason}
+                </p>
+              )}
+            </div>
+          </header>
+          <Divider />
+
           <div className="flex flex-col gap-2">
             <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
-              What happened?
+              <FormattedMessage id="error.title.what-can-i-do" />
             </h2>
             <p className="leading-normal text-interface-foreground-default-secondary">
-              {parsed.message ?? description}
+              <FormattedMessage id="error.instructions" />
             </p>
-            {parsed.reason && (
-              <p className="leading-normal text-interface-foreground-default-secondary">
-                {parsed.reason}
+            <div>
+              {session ? (
+                <LoggedInActions config={config} />
+              ) : (
+                <GoBackButton config={config} />
+              )}
+            </div>
+          </div>
+
+          <Divider />
+          <div className="font-normal leading-normal antialiased gap-2 flex flex-col">
+            <span className="text-interface-foreground-default-primary text-sm">
+              <FormattedMessage id="error.footer.text" />
+            </span>
+
+            {parsed.id && (
+              <p className="text-interface-foreground-default-secondary text-sm">
+                ID: <code>{parsed.id}</code>
               </p>
             )}
-          </div>
-        </header>
-        <Divider />
-
-        <div className="flex flex-col gap-2">
-          <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
-            What can I do?
-          </h2>
-          <p className="leading-normal text-interface-foreground-default-secondary">
-            Please try again in a few minutes or contact the website operator.
-          </p>
-          <div>
-            {session ? (
-              <LoggedInActions config={config} />
-            ) : (
-              <GoBackButton config={config} />
-            )}
-          </div>
-        </div>
-
-        <Divider />
-        <div className="font-normal leading-normal antialiased gap-2 flex flex-col">
-          <span className="text-interface-foreground-default-primary text-sm">
-            When reporting this error, please include the following information:
-          </span>
-
-          {parsed.id && (
             <p className="text-interface-foreground-default-secondary text-sm">
-              ID: <code>{parsed.id}</code>
+              Time: <code>{parsed.timestamp?.toUTCString()}</code>
             </p>
-          )}
-          <p className="text-interface-foreground-default-secondary text-sm">
-            Time: <code>{parsed.timestamp?.toUTCString()}</code>
-          </p>
 
-          <div>
-            <button
-              className="text-interface-foreground-default-primary underline"
-              onClick={() => {
-                const text = `
+            <div>
+              <button
+                className="text-interface-foreground-default-primary underline"
+                onClick={() => {
+                  const text = `
               ${parsed.id ? `ID: ${parsed.id}\n` : ""}
               Time: ${parsed.timestamp?.toUTCString()}
               `
-                void navigator.clipboard.writeText(text)
-              }}
-            >
-              Copy
-            </button>
+                  void navigator.clipboard.writeText(text)
+                }}
+              >
+                <FormattedMessage id="error.footer.copy" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </IntlProvider>
   )
 }
 

@@ -259,5 +259,10 @@
   "property.phone": "phone",
   "property.username": "username",
   "property.identifier": "identifier",
-  "property.code": "code"
+  "property.code": "code",
+  "error.title.what-happened": "What happened?",
+  "error.title.what-can-i-do": "What can I do?",
+  "error.instructions": "Please try again in a few minutes or contact the website operator.",
+  "error.footer.text": "When reporting this error, please include the following information:",
+  "error.footer.copy": "Copy"
 }
