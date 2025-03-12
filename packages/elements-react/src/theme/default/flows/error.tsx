@@ -140,19 +140,34 @@ export function Error({
         </div>
 
         <Divider />
-        <div className="font-normal leading-normal antialiased text-sm gap-2 flex flex-col">
-          <span className="text-interface-foreground-default-primary ">
+        <div className="font-normal leading-normal antialiased gap-2 flex flex-col">
+          <span className="text-interface-foreground-default-primary text-sm">
             When reporting this error, please include the following information:
           </span>
 
           {parsed.id && (
-            <p className="text-interface-foreground-default-secondary">
+            <p className="text-interface-foreground-default-secondary text-sm">
               ID: <code>{parsed.id}</code>
             </p>
           )}
-          <p className="text-interface-foreground-default-secondary">
+          <p className="text-interface-foreground-default-secondary text-sm">
             Time: <code>{parsed.timestamp?.toUTCString()}</code>
           </p>
+
+          <div>
+            <button
+              className="text-interface-foreground-default-primary underline"
+              onClick={() => {
+                const text = `
+              ${parsed.id ? `ID: ${parsed.id}\n` : ""}
+              Time: ${parsed.timestamp?.toUTCString()}
+              `
+                void navigator.clipboard.writeText(text)
+              }}
+            >
+              Copy
+            </button>
+          </div>
         </div>
       </div>
     </Card>

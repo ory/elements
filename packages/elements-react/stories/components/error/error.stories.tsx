@@ -9,6 +9,9 @@ const errors: Record<string, OryError> = {
   recovery_disabled: ErrorGenericFromJSON(
     require("$snapshots/recovery/disabled/initial-form.json"),
   ),
+  oidc_continuity: ErrorGenericFromJSON(
+    require("./errors/oidc_continuity.json"),
+  ),
   oauth2: {
     error: "invalid_request",
     error_description:
