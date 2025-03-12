@@ -210,7 +210,6 @@ type ConsentFlowProps = {
 
 function ConsentCardFooter({ flow }: ConsentFlowProps) {
   const { Node } = useComponents()
-  console.log(flow.ui.nodes.filter((n) => n.attributes.node_type === "input"))
   return (
     <div className="flex gap-8 flex-col">
       <div>

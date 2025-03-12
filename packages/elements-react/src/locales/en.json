@@ -261,7 +261,7 @@
   "property.identifier": "identifier",
   "property.code": "code",
   "consent.title": "Authorize {party}",
-  "consent.subtitle": "A third party application wants to access information associated with your account",
+  "consent.subtitle": "A third party application wants to access information associated with your account {identifier}.",
   "consent.scope.openid.title": "Public Data",
   "consent.scope.offline_access.title": "Offline Access",
   "consent.scope.openid.description": "This application will be able to identify you and read public information about you.",

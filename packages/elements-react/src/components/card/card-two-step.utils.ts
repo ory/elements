@@ -41,8 +41,8 @@ export function removeSsoNodes(nodes: UiNode[]): UiNode[] {
 }
 
 export function getFinalNodes(
-  uniqueGroups: Partial<Record<SupportedMethods, UiNode[]>>,
-  selectedGroup: SupportedMethods | undefined,
+  uniqueGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>>,
+  selectedGroup: UiNodeGroupEnum | undefined,
 ): UiNode[] {
   const selectedNodes: UiNode[] = selectedGroup
     ? (uniqueGroups[selectedGroup] ?? [])

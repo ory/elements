@@ -44,7 +44,6 @@ export function useOryFormSubmit(
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log(data)
     switch (flowContainer.flowType) {
       case FlowType.Login: {
         const submitData: UpdateLoginFlowBody = {
@@ -146,6 +145,7 @@ export function useOryFormSubmit(
         break
       }
       case FlowType.OAuth2Consent: {
+        // TODO: move this to a full fleged SDK method?
         const response = await fetch(flowContainer.flow.ui.action, {
           method: "POST",
           body: JSON.stringify(data),

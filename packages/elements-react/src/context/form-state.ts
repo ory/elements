@@ -7,12 +7,10 @@ import { isChoosingMethod } from "../components/card/card-two-step.utils"
 import { OryFlowContainer } from "../util"
 import { nodesToAuthMethodGroups } from "../util/ui"
 
-export type SupportedMethods = UiNodeGroupEnum | "consent"
-
 export type FormState =
   | { current: "provide_identifier" }
   | { current: "select_method" }
-  | { current: "method_active"; method: SupportedMethods }
+  | { current: "method_active"; method: UiNodeGroupEnum }
   | { current: "success_screen" }
   | { current: "settings" }
 
@@ -23,7 +21,7 @@ export type FormStateAction =
     }
   | {
       type: "action_select_method"
-      method: SupportedMethods
+      method: UiNodeGroupEnum
     }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
