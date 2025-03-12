@@ -11,6 +11,7 @@ import { DetailedHTMLProps } from 'react';
 import { ElementType } from 'react';
 import { FlowError } from '@ory/client-fetch';
 import { FormEventHandler } from 'react';
+import { GenericError } from '@ory/client-fetch';
 import { HTMLAttributes } from 'react';
 import { LoginFlow } from '@ory/client-fetch';
 import { MouseEventHandler } from 'react';
@@ -19,6 +20,7 @@ import * as react from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
+import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import { UiNode } from '@ory/client-fetch';
 import { UiNodeAnchorAttributes } from '@ory/client-fetch';
@@ -79,14 +81,15 @@ export function DefaultMessage({ message }: OryMessageContentProps): react_jsx_r
 export function DefaultMessageContainer({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element | null;
 
 // @public (undocumented)
-function Error_2({ error, children, }: PropsWithChildren<ErrorFlowContextProps>): react_jsx_runtime.JSX.Element;
+function Error_2({ error, components: Components, config, session, }: PropsWithChildren<ErrorFlowContextProps>): react_jsx_runtime.JSX.Element;
 export { Error_2 as Error }
 
 // @public (undocumented)
 export type ErrorFlowContextProps = {
-    error: FlowError;
+    error: OryError;
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
+    session?: Session;
 };
 
 // Warning: (ae-forgotten-export) The symbol "OryFlowComponents" needs to be exported by the entry point index.d.ts
@@ -102,6 +105,17 @@ export type LoginFlowContextProps = {
     flow: LoginFlow;
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
+};
+
+// @public
+export type OAuth2Error = {
+    error: string;
+    error_description: string;
+};
+
+// @public
+export type OryError = FlowError | OAuth2Error | {
+    error: GenericError;
 };
 
 // @public (undocumented)
@@ -141,8 +155,8 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:38:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:39:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:51:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:52:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

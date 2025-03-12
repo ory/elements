@@ -259,5 +259,11 @@
   "property.phone": "telefon",
   "property.username": "användarnamn",
   "property.identifier": "identifier",
-  "property.code": "kod"
+  "property.code": "kod",
+  "error.action.go-back": "",
+  "error.footer.copy": "",
+  "error.footer.text": "",
+  "error.title.what-can-i-do": "",
+  "error.title.what-happened": "",
+  "error.instructions": ""
 }

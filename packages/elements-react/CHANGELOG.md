@@ -1,3 +1,58 @@
+## 1.0.0-next.37 (2025-03-12)
+
+### 🩹 Fixes
+
+- correctly render test id for error card ([#386](https://github.com/ory/elements/pull/386))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
+## 1.0.0-next.36 (2025-03-12)
+
+### 🩹 Fixes
+
+- handle error messages for selected methods ([#385](https://github.com/ory/elements/pull/385))
+
+### ❤️  Thank You
+
+- Pierre Caillaud @pcaillaudm
+
+## 1.0.0-next.35 (2025-03-12)
+
+### 🚀 Features
+
+- add more intelligent error screen ([#383](https://github.com/ory/elements/pull/383))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
+## 1.0.0-next.34 (2025-03-12)
+
+### 🩹 Fixes
+
+- use correct import paths ([#384](https://github.com/ory/elements/pull/384))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
+## 1.0.0-next.33 (2025-03-07)
+
+### 🚀 Features
+
+- add password toggle to input ([#378](https://github.com/ory/elements/pull/378))
+
+### 🩹 Fixes
+
+- validation message regression ([#380](https://github.com/ory/elements/pull/380))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+- Pierre Caillaud @pcaillaudm
+
 ## 1.0.0-next.32 (2025-03-06)
 
 ### 🚀 Features

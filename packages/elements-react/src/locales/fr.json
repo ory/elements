@@ -259,5 +259,11 @@
   "property.identifier": "",
   "property.password": "",
   "property.phone": "",
-  "property.username": ""
+  "property.username": "",
+  "error.action.go-back": "",
+  "error.footer.copy": "",
+  "error.footer.text": "",
+  "error.title.what-can-i-do": "",
+  "error.title.what-happened": "",
+  "error.instructions": ""
 }

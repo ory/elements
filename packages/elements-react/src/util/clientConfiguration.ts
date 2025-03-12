@@ -35,6 +35,7 @@ export type OryClientConfiguration = {
     registration_ui_url: string
     verification_ui_url: string
     login_ui_url: string
+    default_redirect_url?: string
   }
   intl?: IntlConfig
 }

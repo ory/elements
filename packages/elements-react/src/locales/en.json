@@ -265,5 +265,11 @@
   "consent.scope.openid.title": "Public Data",
   "consent.scope.offline_access.title": "Offline Access",
   "consent.scope.openid.description": "This application will be able to identify you and read public information about you.",
-  "consent.scope.offline_access.description": "This application will be able to identify you and read personal information about you."
+  "consent.scope.offline_access.description": "This application will be able to identify you and read personal information about you.",
+  "error.title.what-happened": "What happened?",
+  "error.title.what-can-i-do": "What can I do?",
+  "error.instructions": "Please try again in a few minutes or contact the website operator.",
+  "error.footer.text": "When reporting this error, please include the following information:",
+  "error.footer.copy": "Copy",
+  "error.action.go-back": "Go back"
 }

@@ -259,5 +259,11 @@
   "property.password": "Passwort",
   "property.phone": "Telefon",
   "property.code": "Code",
-  "property.username": "Benutzername"
+  "property.username": "Benutzername",
+  "error.title.what-happened": "Was ist passiert?",
+  "error.footer.copy": "Kopieren",
+  "error.footer.text": "Bitte fügen Sie bei der Meldung dieses Fehlers die folgenden Informationen hinzu:",
+  "error.instructions": "Bitte versuchen Sie es in wenigen Minuten erneut oder wenden Sie sich an den Website-Betreiber.",
+  "error.title.what-can-i-do": "Was kann ich tun?",
+  "error.action.go-back": "Zurück"
 }

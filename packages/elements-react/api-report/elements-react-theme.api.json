@@ -752,7 +752,16 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Error({ error, children, }: "
+              "text": "declare function Error({ error, "
+            },
+            {
+              "kind": "Reference",
+              "text": "components",
+              "canonicalReference": "@ory/elements-react!~__type#components"
+            },
+            {
+              "kind": "Content",
+              "text": ": Components, config, session, }: "
             },
             {
               "kind": "Reference",
@@ -788,17 +797,17 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 6,
-            "endIndex": 7
+            "startIndex": 8,
+            "endIndex": 9
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ error, children, }",
+              "parameterName": "{ error, components: Components, config, session, }",
               "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 5
+                "startIndex": 3,
+                "endIndex": 7
               },
               "isOptional": false
             }
@@ -820,8 +829,8 @@
             },
             {
               "kind": "Reference",
-              "text": "FlowError",
-              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+              "text": "OryError",
+              "canonicalReference": "@ory/elements-react!OryError:type"
             },
             {
               "kind": "Content",
@@ -843,6 +852,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    session?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             },
             {
@@ -855,7 +873,7 @@
           "name": "ErrorFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 10
           }
         },
         {
@@ -1025,6 +1043,81 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OAuth2Error:type",
+          "docComment": "/**\n * An OAuth2 error response.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OAuth2Error = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    error: string;\n    error_description: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OAuth2Error",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryError:type",
+          "docComment": "/**\n * A union type of all possible errors that can be returned by the Ory SDK.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryError = "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2Error",
+              "canonicalReference": "@ory/elements-react!OAuth2Error:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | {\n    error: "
+            },
+            {
+              "kind": "Reference",
+              "text": "GenericError",
+              "canonicalReference": "@ory/client-fetch!GenericError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryError",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
           }
         },
         {
