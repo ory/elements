@@ -416,3 +416,42 @@ test(`should parse select_method from account linking flow`, () => {
   const [state] = result.current
   expect(state).toEqual({ current: "select_method" })
 })
+
+test(`should keep current method active on "action_flow_update" if a method is already selected`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  act(() => {
+    dispatch({
+      type: "action_select_method",
+      method: "totp",
+    })
+  })
+
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "identifier_first",
+      ui: {
+        nodes: [],
+        messages: [
+          {
+            id: 4000006,
+            text: "",
+            type: "error",
+          } satisfies UiText,
+        ],
+      },
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({ current: "method_active", method: "totp" })
+})

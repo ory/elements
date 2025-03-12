@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import { useReducer } from "react"
+import { useReducer, useState } from "react"
 import { isChoosingMethod } from "../components/card/card-two-step.utils"
 import { OryFlowContainer } from "../util"
 import { nodesToAuthMethodGroups } from "../util/ui"
@@ -81,19 +81,29 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
   throw new Error("Unknown form state")
 }
 
-export function formStateReducer(
-  state: FormState,
-  action: FormStateAction,
-): FormState {
-  switch (action.type) {
-    case "action_flow_update":
-      return parseStateFromFlow(action.flow)
-    case "action_select_method":
-      return { current: "method_active", method: action.method }
-  }
-  return state
-}
-
 export function useFormStateReducer(flow: OryFlowContainer) {
-  return useReducer(formStateReducer, parseStateFromFlow(flow))
+  const action = parseStateFromFlow(flow)
+  const [selectedMethod, setSelectedMethod] = useState<
+    UiNodeGroupEnum | undefined
+  >()
+
+  const formStateReducer = (
+    state: FormState,
+    action: FormStateAction,
+  ): FormState => {
+    switch (action.type) {
+      case "action_flow_update": {
+        if (selectedMethod)
+          return { current: "method_active", method: selectedMethod }
+        return parseStateFromFlow(action.flow)
+      }
+      case "action_select_method": {
+        setSelectedMethod(action.method)
+        return { current: "method_active", method: action.method }
+      }
+    }
+    return state
+  }
+
+  return useReducer(formStateReducer, action)
 }
