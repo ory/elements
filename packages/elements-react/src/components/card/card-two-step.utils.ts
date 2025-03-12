@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import { SupportedMethods } from "../../context/form-state"
 import {
   LoginFlowContainer,
   RegistrationFlowContainer,
@@ -35,8 +34,8 @@ export function filterOidcOut(nodes: UiNode[]): UiNode[] {
 }
 
 export function getFinalNodes(
-  uniqueGroups: Partial<Record<SupportedMethods, UiNode[]>>,
-  selectedGroup: SupportedMethods | undefined,
+  uniqueGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>>,
+  selectedGroup: UiNodeGroupEnum | undefined,
 ): UiNode[] {
   const selectedNodes: UiNode[] = selectedGroup
     ? (uniqueGroups[selectedGroup] ?? [])

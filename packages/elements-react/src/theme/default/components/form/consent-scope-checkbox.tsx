@@ -13,7 +13,6 @@ const ScopeIcons: Record<string, typeof IconPersonal> = {
 
 export function DefaultConsentScopeCheckbox({
   attributes,
-  node,
   onCheckedChange,
 }: OryNodeConsentScopeCheckboxProps) {
   const intl = useIntl()

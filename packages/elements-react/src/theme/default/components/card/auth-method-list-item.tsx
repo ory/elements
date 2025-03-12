@@ -37,7 +37,10 @@ export function DefaultAuthMethodListItem({
     <ListItem
       as="button"
       icon={Icon}
-      title={intl.formatMessage({ id: `two-step.${group}.title` })}
+      title={intl.formatMessage(
+        { id: title?.id ?? `two-step.${group}.title` },
+        title?.values,
+      )}
       description={intl.formatMessage({
         id: `two-step.${group}.description`,
       })}

@@ -5,16 +5,12 @@ import {
   OryFlowComponentOverrides,
   OryProvider,
 } from "@ory/elements-react"
-import { ComponentProps, PropsWithChildren } from "react"
+import { PropsWithChildren } from "react"
 import { getOryComponents } from "../components"
 import { translateConsentChallengeToUiNodes } from "../utils/oauth2"
 
 type PropsWithComponents = {
   components?: OryFlowComponentOverrides
-}
-
-export type ConsentFormData = {
-  scopes: string[]
 }
 
 export type ConsentFlowContextProps = {
@@ -23,10 +19,7 @@ export type ConsentFlowContextProps = {
   config: OryClientConfiguration
   csrfToken: string
   formAction: string
-} & PropsWithComponents &
-  ComponentProps<"form"> & {
-    submitting: boolean
-  }
+} & PropsWithComponents
 
 export function Consent({
   consentChallenge,
