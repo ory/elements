@@ -173,11 +173,10 @@ export function Error({
               <button
                 className="text-interface-foreground-default-primary underline"
                 onClick={() => {
-                  const text = `
-              ${parsed.id ? `ID: ${parsed.id}\n` : ""}
-              Time: ${parsed.timestamp?.toUTCString()}
-              ${parsed.reason ? `Message: ${parsed.reason}` : ""}
-              `
+                  const text = `${parsed.id ? `ID: ${parsed.id}` : ""}
+Time: ${parsed.timestamp?.toUTCString()}
+${parsed.reason ? `Message: ${parsed.reason}` : ""}
+`
                   void navigator.clipboard.writeText(text)
                 }}
               >
