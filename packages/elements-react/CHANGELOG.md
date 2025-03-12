@@ -1,3 +1,13 @@
+## 1.0.0-next.35 (2025-03-12)
+
+### 🚀 Features
+
+- add more intelligent error screen ([#383](https://github.com/ory/elements/pull/383))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.34 (2025-03-12)
 
 ### 🩹 Fixes
