@@ -115,8 +115,11 @@ export function Error({
       locale={config.intl?.locale ?? "en"}
       customTranslations={config.intl?.customTranslations}
     >
-      <Card data-testid={"ory/screen/error"}>
-        <div className="flex flex-col gap-6 antialiased">
+      <Card>
+        <div
+          className="flex flex-col gap-6 antialiased"
+          data-testid={"ory/screen/error"}
+        >
           <header className="flex flex-col gap-8 antialiased">
             <ErrorLogo config={config} />
             <div className="flex flex-col gap-2">
