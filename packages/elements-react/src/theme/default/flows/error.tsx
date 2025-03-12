@@ -176,6 +176,7 @@ export function Error({
                   const text = `
               ${parsed.id ? `ID: ${parsed.id}\n` : ""}
               Time: ${parsed.timestamp?.toUTCString()}
+              ${parsed.reason ? `Message: ${parsed.reason}` : ""}
               `
                   void navigator.clipboard.writeText(text)
                 }}
