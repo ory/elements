@@ -10,8 +10,10 @@ export function DefaultGroupContainer({ children }: OryFormGroupProps) {
   return (
     <div
       className={cn(
-        "grid gap-8",
-        flowType === FlowType.Consent ? "grid-cols-2" : "grid-cols-1",
+        "grid",
+        flowType === FlowType.OAuth2Consent
+          ? "grid-cols-2 gap-2"
+          : "grid-cols-1 gap-8",
       )}
     >
       {children}

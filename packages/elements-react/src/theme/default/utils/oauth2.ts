@@ -1,15 +1,15 @@
 import {
   OAuth2ConsentRequest,
+  Session,
   UiContainer,
   UiNode,
-  UiNodeGroupEnum,
   UiTextTypeEnum,
 } from "@ory/client-fetch"
 import { ConsentFlow } from "../../../util"
 
 const acceptButton: UiNode = {
   type: "input",
-  group: "consent" as UiNodeGroupEnum,
+  group: "oauth2_consent",
   meta: {
     label: {
       id: 9999111,
@@ -28,7 +28,7 @@ const acceptButton: UiNode = {
 }
 const rejectButton: UiNode = {
   type: "input",
-  group: "consent" as UiNodeGroupEnum,
+  group: "oauth2_consent",
   meta: {
     label: {
       id: 9999111,
@@ -50,6 +50,7 @@ export function translateConsentChallengeToUiNodes(
   consentChallenge: OAuth2ConsentRequest,
   csrfToken: string,
   formAction: string,
+  session: Session,
 ): ConsentFlow {
   const ui: UiContainer = {
     action: formAction,
@@ -71,14 +72,17 @@ export function translateConsentChallengeToUiNodes(
     expires_at: new Date(),
     issued_at: new Date(),
     state: "show_form",
+    active: "oauth2_consent",
     ui,
+    consent_request: consentChallenge,
+    session,
   }
 }
 
 function scopesToUiNodes(scopes: string[]): UiNode[] {
-  return scopes.map((scope, i) => ({
+  return scopes.map((scope) => ({
     type: "input",
-    group: "consent" as UiNodeGroupEnum,
+    group: "oauth2_consent",
     meta: {
       label: {
         id: 9999111,
@@ -116,7 +120,7 @@ function csrfTokenNode(csrfToken: string): UiNode {
 function challengeNode(challenge: string): UiNode {
   return {
     type: "input",
-    group: "default",
+    group: "oauth2_consent",
     meta: {},
     attributes: {
       node_type: "input",

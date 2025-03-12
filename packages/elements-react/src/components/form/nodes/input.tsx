@@ -19,7 +19,7 @@ export const NodeInput = ({
   onClick?: MouseEventHandler
 }): ReactNode => {
   const { Node } = useComponents()
-  const { setValue, register, watch } = useFormContext()
+  const { setValue, watch } = useFormContext()
 
   const {
     onloadTrigger: onloadTrigger,
@@ -35,7 +35,11 @@ export const NodeInput = ({
     "name" in node.attributes && node.attributes.name === "screen"
 
   const setFormValue = () => {
-    if (isResendNode || isScreenSelectionNode || node.group === "consent") {
+    if (
+      isResendNode ||
+      isScreenSelectionNode ||
+      node.group === "oauth2_consent"
+    ) {
       return
     }
     if (attrs.value !== undefined) {
@@ -94,6 +98,9 @@ export const NodeInput = ({
       if (isResendNode || isScreenSelectionNode) {
         return null
       }
+      if (node.group === "oauth2_consent") {
+        return null
+      }
 
       return (
         <Node.Label
@@ -107,7 +114,7 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
-      if (node.group === "consent") {
+      if (node.group === "oauth2_consent") {
         return (
           <Node.ConsentScopeCheckbox
             attributes={attrs}

@@ -5,8 +5,10 @@ import {
   FlowError,
   FlowType,
   LoginFlow,
+  OAuth2ConsentRequest,
   RecoveryFlow,
   RegistrationFlow,
+  Session,
   SettingsFlow,
   UiContainer,
   VerificationFlow,
@@ -85,10 +87,13 @@ export type ConsentFlow = {
   id: string
   issued_at: Date
   state: "show_form" | "rejected" | "accepted"
+  active: string
   ui: UiContainer
+  consent_request: OAuth2ConsentRequest
+  session: Session
 }
 
-export type ConsentFlowContainer = OryFlow<FlowType.Consent, ConsentFlow>
+export type ConsentFlowContainer = OryFlow<FlowType.OAuth2Consent, ConsentFlow>
 
 /**
  * A union type of all flow containers
