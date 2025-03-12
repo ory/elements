@@ -32,7 +32,7 @@ export const GenericError: Story = {
     date: new Date(Date.UTC(2025, 1, 1)),
   },
   args: {
-    error: errors.recovery_disabled,
+    error: errors.oidc_continuity,
     config,
   },
 
@@ -47,11 +47,10 @@ export const GenericError: Story = {
 
 export const GenericErrorWithSession: Story = {
   parameters: {
-    error: errors.recovery_disabled,
     date: new Date(Date.UTC(2025, 1, 1)),
   },
   args: {
-    error: errors.recovery_disabled,
+    error: errors.oidc_continuity,
     session: {
       id: "session-id",
     },
@@ -60,7 +59,7 @@ export const GenericErrorWithSession: Story = {
 
   argTypes: {
     error: {
-      options: ["recovery_disabled"],
+      options: Object.keys(errors),
       control: { type: "select" },
       mapping: errors,
     },
