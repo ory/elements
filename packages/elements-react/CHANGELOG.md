@@ -1,3 +1,13 @@
+## 1.0.0-next.34 (2025-03-12)
+
+### 🩹 Fixes
+
+- use correct import paths ([#384](https://github.com/ory/elements/pull/384))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
 ## 1.0.0-next.33 (2025-03-07)
 
 ### 🚀 Features
