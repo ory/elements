@@ -4,6 +4,7 @@
 import {
   FlowType,
   OnRedirectHandler,
+  UiNodeGroupEnum,
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
   UpdateRegistrationFlowBody,
@@ -119,7 +120,8 @@ export function useOryFormSubmit(
         // https://github.com/ory/elements/issues/268
         // TODO: Maybe this needs to be configurable in the configuration
         if (
-          submitData.method === "oidc" &&
+          (submitData.method === UiNodeGroupEnum.Oidc ||
+            submitData.method === UiNodeGroupEnum.Saml) &&
           submitData.link &&
           supportsSelectAccountPrompt.includes(submitData.link)
         ) {

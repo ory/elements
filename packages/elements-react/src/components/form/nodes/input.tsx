@@ -5,6 +5,7 @@ import { NodeProps } from "./node"
 import { useComponents } from "../../../context"
 import { triggerToWindowCall } from "../../../util/ui"
 import {
+  UiNodeGroupEnum,
   UiNodeInputAttributes,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
@@ -63,7 +64,7 @@ export const NodeInput = ({
 
   const isSocial =
     (attrs.name === "provider" || attrs.name === "link") &&
-    node.group === "oidc"
+    (node.group === UiNodeGroupEnum.Oidc || node.group === UiNodeGroupEnum.Saml)
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")

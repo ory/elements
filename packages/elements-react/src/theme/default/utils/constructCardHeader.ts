@@ -164,7 +164,7 @@ export function useCardHeaderText(
     }
   }
 
-  if (nodes.find((node) => node.group === "oidc")) {
+  if (nodes.find((node) => node.group === "oidc" || node.group === "saml")) {
     parts.push(
       intl.formatMessage({
         id: "card.header.parts.oidc",

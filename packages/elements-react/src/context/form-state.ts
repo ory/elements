@@ -43,7 +43,9 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         return { current: "method_active", method: methodWithMessage.group }
       } else if (
         flow.flow.active &&
-        !["default", "identifier_first", "oidc"].includes(flow.flow.active)
+        !["default", "identifier_first", "oidc", "saml"].includes(
+          flow.flow.active,
+        )
       ) {
         return { current: "method_active", method: flow.flow.active }
       } else if (isChoosingMethod(flow)) {

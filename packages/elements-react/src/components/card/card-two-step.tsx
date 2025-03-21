@@ -1,7 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import {
+  isUiNodeInputAttributes,
+  isUiNodeScriptAttributes,
+  UiNode,
+  UiNodeGroupEnum,
+  UiNodeInputAttributesTypeEnum,
+} from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { OryCard, OryCardContent, OryCardFooter } from "."
 import { useComponents, useNodeSorter, useOryFlow } from "../../context"
@@ -11,12 +17,13 @@ import { OryForm } from "../form/form"
 import { OryCardValidationMessages } from "../form/messages"
 import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
-import { filterOidcOut, getFinalNodes } from "./card-two-step.utils"
+import { removeSsoNodes, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
 
 type MethodOption = {
   title?: { id: string; values?: Record<string, string> }
 }
+
 function isUINodeGroupEnum(method: string): method is UiNodeGroupEnum {
   // @ts-expect-error it's a string array, but typescript thinks the argument must be validated stricter
   return Object.values(UiNodeGroupEnum).includes(method)
@@ -47,6 +54,7 @@ export function OryTwoStepCard() {
           !(
             [
               UiNodeGroupEnum.Oidc,
+              UiNodeGroupEnum.Saml,
               UiNodeGroupEnum.Default,
               UiNodeGroupEnum.IdentifierFirst,
               UiNodeGroupEnum.Profile,
@@ -79,7 +87,7 @@ export function OryTwoStepCard() {
     }
   }
 
-  const nonOidcNodes = filterOidcOut(ui.nodes)
+  const nonSsoNodes = removeSsoNodes(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
       ? getFinalNodes(uniqueGroups.groups, formState.method)
@@ -96,32 +104,53 @@ export function OryTwoStepCard() {
       })
     }
   }
-  const hasOidc = ui.nodes.some((node) => node.group === UiNodeGroupEnum.Oidc)
+  const hasSso = ui.nodes.some(
+    (node) =>
+      node.group === UiNodeGroupEnum.Oidc ||
+      node.group === UiNodeGroupEnum.Saml,
+  )
 
   // We want to show the OIDC buttons on all screens, except when the user has selected a different method.
-  const showOidc = !(
-    formState.current === "method_active" && formState.method !== "oidc"
+  const showSso = !(
+    formState.current === "method_active" &&
+    !(
+      formState.method === UiNodeGroupEnum.Oidc ||
+      formState.method === UiNodeGroupEnum.Saml
+    )
   )
+
+  const showSsoDivider =
+    hasSso &&
+    nonSsoNodes.filter((n) => {
+      if (isUiNodeInputAttributes(n.attributes)) {
+        // We don't need the divider for hidden fields.
+        return n.attributes.type !== UiNodeInputAttributesTypeEnum.Hidden
+      } else if (isUiNodeScriptAttributes(n.attributes)) {
+        // Script tags are hidden
+        return false
+      }
+      return true
+    }).length > 0
 
   return (
     <OryCard>
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        {showOidc && <OryFormSocialButtonsForm />}
+        {showSso && <OryFormSocialButtonsForm />}
         <OryForm onAfterSubmit={handleAfterFormSubmit}>
           <Form.Group>
             {formState.current === "provide_identifier" && (
               <>
-                {hasOidc && <Card.Divider />}
-                {nonOidcNodes.sort(sortNodes).map((node, k) => (
+                {showSsoDivider && <Card.Divider />}
+                {nonSsoNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
               </>
             )}
             {formState.current === "select_method" && (
               <>
-                <Card.Divider />
+                {showSsoDivider && <Card.Divider />}
                 <AuthMethodList
                   options={options}
                   setSelectedGroup={(group) =>

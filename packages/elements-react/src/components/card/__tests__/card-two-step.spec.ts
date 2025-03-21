@@ -13,7 +13,7 @@ import {
   RegistrationFlowContainer,
 } from "../../../util/flowContainer"
 import {
-  filterOidcOut,
+  removeSsoNodes,
   getFinalNodes,
   isChoosingMethod,
 } from "../card-two-step.utils"
@@ -40,7 +40,7 @@ describe("CardTwoStep/utils", () => {
         { group: UiNodeGroupEnum.Oidc } as UiNode,
         { group: UiNodeGroupEnum.Default } as UiNode,
       ]
-      const result = filterOidcOut(nodes)
+      const result = removeSsoNodes(nodes)
       expect(result).toHaveLength(1)
       expect(result[0].group).toBe(UiNodeGroupEnum.Default)
     })
