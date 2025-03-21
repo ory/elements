@@ -1,6 +1,7 @@
 import { OryNodeConsentScopeCheckboxProps } from "@ory/elements-react"
 import IconPersonal from "../../assets/icons/personal.svg"
 import IconMessage from "../../assets/icons/message.svg"
+import Phone from "../../assets/icons/phone.svg"
 import { ListItem } from "../card/list-item"
 import { useIntl } from "react-intl"
 import * as Switch from "@radix-ui/react-switch"
@@ -8,7 +9,9 @@ import * as Switch from "@radix-ui/react-switch"
 const ScopeIcons: Record<string, typeof IconPersonal> = {
   openid: IconPersonal,
   offline_access: IconPersonal,
+  profile: IconPersonal,
   email: IconMessage,
+  phone: Phone,
 }
 
 export function DefaultConsentScopeCheckbox({
@@ -23,9 +26,11 @@ export function DefaultConsentScopeCheckbox({
       icon={Icon}
       title={intl.formatMessage({
         id: `consent.scope.${attributes.value}.title`,
+        defaultMessage: attributes.value,
       })}
       description={intl.formatMessage({
         id: `consent.scope.${attributes.value}.description`,
+        defaultMessage: [],
       })}
       className="col-span-2"
     >

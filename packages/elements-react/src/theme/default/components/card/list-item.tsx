@@ -37,8 +37,8 @@ export function ListItem<T extends React.ElementType = "div">({
           <Icon size={16} className="text-interface-foreground-brand-primary" />
         )}
       </span>
-      <span className="flex-1 leading-normal inline-flex flex-col">
-        <span className="text-interface-foreground-default-primary">
+      <span className="flex-1 leading-normal inline-flex flex-col max-w-full min-w-1">
+        <span className="text-interface-foreground-default-primary break-words">
           {title}
         </span>
         <span className="text-interface-foreground-default-secondary">
