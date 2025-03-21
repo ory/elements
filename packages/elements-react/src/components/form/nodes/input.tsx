@@ -115,14 +115,22 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
-      if (node.group === "oauth2_consent") {
-        return (
-          <Node.ConsentScopeCheckbox
-            attributes={attrs}
-            node={node}
-            onCheckedChange={handleScopeChange}
-          />
-        )
+      if (
+        node.group === "oauth2_consent" &&
+        node.attributes.node_type === "input"
+      ) {
+        switch (node.attributes.name) {
+          case "grant_scope":
+            return (
+              <Node.ConsentScopeCheckbox
+                attributes={attrs}
+                node={node}
+                onCheckedChange={handleScopeChange}
+              />
+            )
+          default:
+            return null
+        }
       }
       return (
         <Node.Label

@@ -7,6 +7,25 @@ import {
 } from "@ory/client-fetch"
 import { ConsentFlow } from "../../../util"
 
+const rememberCheckbox: UiNode = {
+  type: "input",
+  group: "oauth2_consent",
+  meta: {
+    label: {
+      id: 9999111,
+      text: "Remember my decision",
+      type: UiTextTypeEnum.Info,
+    },
+  },
+  attributes: {
+    node_type: "input",
+    name: "remember",
+    value: false,
+    type: "checkbox",
+    disabled: false,
+  },
+  messages: [],
+}
 const acceptButton: UiNode = {
   type: "input",
   group: "oauth2_consent",
@@ -54,9 +73,9 @@ export function translateConsentChallengeToUiNodes(
 ): ConsentFlow {
   const ui: UiContainer = {
     action: formAction,
-    // TODO: CSRF
     nodes: [
       ...scopesToUiNodes(consentChallenge.requested_scope ?? []),
+      rememberCheckbox,
       rejectButton,
       acceptButton,
       csrfTokenNode(csrfToken),

@@ -6,7 +6,7 @@ import { ConsentFlow, useComponents, useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
-import { nodesToAuthMethodGroups } from "../../../../util/ui"
+import { findNode, nodesToAuthMethodGroups } from "../../../../util/ui"
 
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
@@ -210,6 +210,13 @@ type ConsentFlowProps = {
 
 function ConsentCardFooter({ flow }: ConsentFlowProps) {
   const { Node } = useComponents()
+
+  const rememberNode = findNode(flow.ui.nodes, {
+    group: "oauth2_consent",
+    node_type: "input",
+    name: "remember",
+  })
+
   return (
     <div className="flex gap-8 flex-col">
       <div>
@@ -221,6 +228,12 @@ function ConsentCardFooter({ flow }: ConsentFlowProps) {
           application.
         </p>
       </div>
+      {rememberNode && (
+        <Node.Checkbox
+          attributes={rememberNode.attributes}
+          node={rememberNode}
+        />
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {flow.ui.nodes
           .filter(
@@ -232,7 +245,7 @@ function ConsentCardFooter({ flow }: ConsentFlowProps) {
             const attributes = n.attributes as UiNodeInputAttributes
             return (
               <Node.Button
-                key={attributes.name}
+                key={attributes.value}
                 node={n}
                 attributes={attributes}
               />
