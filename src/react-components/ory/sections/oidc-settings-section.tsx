@@ -18,7 +18,7 @@ export const OIDCSettingsSection = ({
 }: OIDCSettingsProps): JSX.Element | null => {
   const filter = {
     nodes: flow.ui.nodes,
-    groups: "oidc",
+    groups: ["oidc", "saml"],
     withoutDefaultGroup: true,
   }
 
