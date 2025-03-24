@@ -150,7 +150,7 @@ export function OryTwoStepCard() {
             )}
             {formState.current === "select_method" && (
               <>
-                {showSsoDivider && <Card.Divider />}
+                <Card.Divider />
                 <AuthMethodList
                   options={options}
                   setSelectedGroup={(group) =>
