@@ -56,7 +56,7 @@ function LoginCardFooter() {
             <a
               className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
               href={initFlowUrl(config.sdk.url, "registration", flow)}
-              data-testid={"ory/screen/registration/action/login"}
+              data-testid={"ory/screen/login/action/register"}
             >
               {intl.formatMessage({
                 id: "login.registration-button",
