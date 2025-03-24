@@ -40,4 +40,10 @@ describe("DefaultComponent", () => {
     expect(result.Node.Button).toBe(CustomComponent)
     expect(result.Node.Input).toBeDefined()
   })
+  test("can override consent scope checkbox component", () => {
+    const result = getOryComponents({
+      Node: { ConsentScopeCheckbox: CustomComponent },
+    })
+    expect(result.Node.ConsentScopeCheckbox).toBe(CustomComponent)
+  })
 })
