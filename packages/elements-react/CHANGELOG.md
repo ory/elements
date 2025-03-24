@@ -1,3 +1,13 @@
+## 1.0.0-next.38 (2025-03-24)
+
+### 🩹 Fixes
+
+- hide registration link again ([#387](https://github.com/ory/elements/pull/387))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
 ## 1.0.0-next.37 (2025-03-12)
 
 ### 🩹 Fixes
