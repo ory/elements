@@ -205,7 +205,7 @@ for (const flowType of [
   FlowType.Verification,
   FlowType.Recovery,
   FlowType.Settings,
-]) {
+] as const) {
   describe("flowType=" + flowType, () => {
     for (const refresh of [true, false]) {
       // Yes, it doesn't make sense to test other flows with refresh enabled, but it doesn't hurt, and typescript is dumb here.
