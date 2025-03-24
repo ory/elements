@@ -7,7 +7,10 @@ import {
   UiNodeGroupEnum,
   UiTextTypeEnum,
 } from "@ory/client-fetch"
-import { useCardHeaderText } from "../constructCardHeader"
+import {
+  CardHeaderTextOptions,
+  useCardHeaderText,
+} from "../constructCardHeader"
 import { renderHook } from "@testing-library/react"
 import { PropsWithChildren } from "react"
 import { IntlProvider } from "../../../../context/intl-context"
@@ -222,7 +225,7 @@ for (const flowType of [
                       action: "",
                       method: "",
                     },
-                    opts,
+                    opts as CardHeaderTextOptions,
                   ),
                 { wrapper },
               )

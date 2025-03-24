@@ -21,7 +21,7 @@ function joinWithCommaOr(list: string[], orText = "or"): string {
   }
 }
 
-type opts =
+export type CardHeaderTextOptions =
   | {
       flowType: FlowType.Login
       flow: {
@@ -57,7 +57,7 @@ type opts =
  */
 export function useCardHeaderText(
   container: UiContainer,
-  opts: opts,
+  opts: CardHeaderTextOptions,
 ): { title: string; description: string } {
   const nodes = container.nodes
   const intl = useIntl()
