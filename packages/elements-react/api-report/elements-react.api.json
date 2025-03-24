@@ -1576,24 +1576,6 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        ConsentScopeCheckbox: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ComponentType",
-              "canonicalReference": "@types/react!React.ComponentType:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "OryNodeConsentScopeCheckboxProps",
-              "canonicalReference": "@ory/elements-react!OryNodeConsentScopeCheckboxProps:type"
-            },
-            {
-              "kind": "Content",
               "text": ">;\n        Captcha: "
             },
             {
@@ -1609,6 +1591,24 @@
               "kind": "Reference",
               "text": "OryNodeCaptchaProps",
               "canonicalReference": "@ory/elements-react!OryNodeCaptchaProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        ConsentScopeCheckbox: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeConsentScopeCheckboxProps",
+              "canonicalReference": "@ory/elements-react!OryNodeConsentScopeCheckboxProps:type"
             },
             {
               "kind": "Content",

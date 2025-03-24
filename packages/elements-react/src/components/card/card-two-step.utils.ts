@@ -6,7 +6,6 @@ import {
   LoginFlowContainer,
   RegistrationFlowContainer,
 } from "../../util/flowContainer"
-import { SupportedMethods } from "../../context/form-state"
 
 export function isChoosingMethod(
   flow: LoginFlowContainer | RegistrationFlowContainer,

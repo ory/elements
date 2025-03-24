@@ -214,8 +214,8 @@ export type OryFlowComponents = {
         Label: ComponentType<OryNodeLabelProps>;
         Checkbox: ComponentType<OryNodeInputProps>;
         Text: ComponentType<OryNodeTextProps>;
-        ConsentScopeCheckbox: ComponentType<OryNodeConsentScopeCheckboxProps>;
         Captcha: ComponentType<OryNodeCaptchaProps>;
+        ConsentScopeCheckbox: ComponentType<OryNodeConsentScopeCheckboxProps>;
     };
     Card: {
         Root: ComponentType<OryCardProps>;
