@@ -46,24 +46,25 @@ function LoginCardFooter() {
 
   return (
     <>
-      {formState.current === "provide_identifier" && (
-        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-          {intl.formatMessage({
-            id: "login.registration-label",
-            defaultMessage: "No account?",
-          })}{" "}
-          <a
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href={initFlowUrl(config.sdk.url, "registration", flow)}
-            data-testid={"ory/screen/registration/action/login"}
-          >
+      {formState.current === "provide_identifier" &&
+        config.project.registration_enabled && (
+          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
             {intl.formatMessage({
-              id: "login.registration-button",
-              defaultMessage: "Sign up",
-            })}
-          </a>
-        </span>
-      )}
+              id: "login.registration-label",
+              defaultMessage: "No account?",
+            })}{" "}
+            <a
+              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              href={initFlowUrl(config.sdk.url, "registration", flow)}
+              data-testid={"ory/screen/registration/action/login"}
+            >
+              {intl.formatMessage({
+                id: "login.registration-button",
+                defaultMessage: "Sign up",
+              })}
+            </a>
+          </span>
+        )}
       {authMethods.length > 1 && formState.current === "method_active" && (
         <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
           <a
