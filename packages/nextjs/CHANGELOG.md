@@ -1,3 +1,26 @@
+## 1.0.0-next.4 (2025-03-25)
+
+### 🚀 Features
+
+- add SAML group handling ([#390](https://github.com/ory/elements/pull/390))
+- add more intelligent error screen ([#383](https://github.com/ory/elements/pull/383))
+- support captchas natively in new and old elements ([#372](https://github.com/ory/elements/pull/372))
+- expose get flow factory ([#333](https://github.com/ory/elements/pull/333))
+
+### 🩹 Fixes
+
+- center text on OIDC buttons and debounce state update ([#366](https://github.com/ory/elements/pull/366))
+- translate {property} in missing property validation message ([#357](https://github.com/ory/elements/pull/357))
+- invisible LinkedIn icon ([#355](https://github.com/ory/elements/pull/355))
+- define a fallback font stack ([#349](https://github.com/ory/elements/pull/349))
+- brand logic in social sign in icon ([#348](https://github.com/ory/elements/pull/348))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Henning Perl @hperl
+- Jonas Hungershausen
+
 ## 1.0.0-next.3 (2025-01-21)
 
 ### 🚀 Features
