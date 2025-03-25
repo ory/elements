@@ -35,9 +35,10 @@ const makeFlow = (
 
 describe("CardTwoStep/utils", () => {
   describe("filterZeroStepGroups", () => {
-    test("should filter out nodes with group Oidc", () => {
+    test("should filter out nodes with group Oidc and Saml", () => {
       const nodes: UiNode[] = [
         { group: UiNodeGroupEnum.Oidc } as UiNode,
+        { group: UiNodeGroupEnum.Saml } as UiNode,
         { group: UiNodeGroupEnum.Default } as UiNode,
       ]
       const result = removeSsoNodes(nodes)
