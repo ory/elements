@@ -1,3 +1,13 @@
+## 1.0.0-next.39 (2025-03-25)
+
+### 🚀 Features
+
+- add SAML group handling ([#390](https://github.com/ory/elements/pull/390))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
 ## 1.0.0-next.38 (2025-03-24)
 
 ### 🩹 Fixes
