@@ -41,7 +41,7 @@
     "@nx/storybook": "20.1.0",
     "@nx/vite": "20.1.0",
     "@nx/web": "20.1.0",
-    "@ory/client": "1.17.2",
+    "@ory/client": "1.19.0",
     "@playwright/experimental-ct-react": "1.46.0",
     "@preact/preset-vite": "2.5.0",
     "@storybook/addon-docs": "8.3.0",

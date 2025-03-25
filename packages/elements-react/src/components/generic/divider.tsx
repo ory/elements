@@ -3,6 +3,7 @@
 
 import { useComponents } from "../../context"
 import { useOryFlow } from "../../context"
+import { UiNodeGroupEnum } from "@ory/client-fetch"
 
 /**
  * Props type for the Form Group Divider component.
@@ -25,15 +26,24 @@ export function OryFormGroupDivider() {
   } = useOryFlow()
 
   // Only get the oidc nodes.
-  const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
+  const filteredNodes = ui.nodes.filter(
+    (node) =>
+      node.group === UiNodeGroupEnum.Oidc ||
+      node.group === UiNodeGroupEnum.Saml,
+  )
 
   // Are there other first-factor nodes available?
   const otherNodes = ui.nodes.filter(
-    (node) => node.group !== "oidc" && node.group !== "default",
+    (node) =>
+      !(
+        node.group === UiNodeGroupEnum.Oidc ||
+        node.group === UiNodeGroupEnum.Saml
+      ) && node.group !== "default",
   )
 
   if (filteredNodes.length > 0 && otherNodes.length > 0) {
     return <Card.Divider />
   }
+
   return null
 }

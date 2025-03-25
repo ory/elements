@@ -14,6 +14,7 @@ import { useDebounceValue } from "usehooks-ts"
 import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { Spinner } from "./spinner"
+import { UiNodeGroupEnum } from "@ory/client-fetch"
 
 export function extractProvider(
   context: object | undefined,
@@ -60,7 +61,11 @@ export function DefaultButtonSocial({
   } = useFormContext()
 
   const oidcNodeCount =
-    ui.nodes.filter((node) => node.group === "oidc").length ?? 0
+    ui.nodes.filter(
+      (node) =>
+        node.group === UiNodeGroupEnum.Oidc ||
+        node.group === UiNodeGroupEnum.Saml,
+    ).length ?? 0
 
   // Ideally, kratos would return the provider name in the context
   // At the moment it only returns the label (misleadingly named `provider`).

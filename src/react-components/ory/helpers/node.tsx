@@ -275,7 +275,7 @@ export const Node = ({
       (attrs.name === "provider" ||
         attrs.name === "link" ||
         attrs.name === "unlink") &&
-      node.group === "oidc"
+      (node.group === "oidc" || node.group === "saml")
 
     const submit: ButtonSubmit = {
       type: attrs.type as "submit" | "reset" | "button" | undefined,

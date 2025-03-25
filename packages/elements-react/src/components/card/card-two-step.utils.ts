@@ -29,8 +29,14 @@ export function isChoosingMethod(
   )
 }
 
-export function filterOidcOut(nodes: UiNode[]): UiNode[] {
-  return nodes.filter((node) => node.group !== UiNodeGroupEnum.Oidc)
+export function removeSsoNodes(nodes: UiNode[]): UiNode[] {
+  return nodes.filter(
+    (node) =>
+      !(
+        node.group === UiNodeGroupEnum.Oidc ||
+        node.group === UiNodeGroupEnum.Saml
+      ),
+  )
 }
 
 export function getFinalNodes(
