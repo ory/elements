@@ -1,0 +1,340 @@
+{
+  "id": "49549d58-9212-4581-a3c6-05282e0db767",
+  "type": "browser",
+  "expires_at": "2025-03-27T09:43:05.864445673Z",
+  "issued_at": "2025-03-27T08:43:05.864445673Z",
+  "request_url": "https://nice-driscoll-a19ob17c25.projects.oryapis:8080/self-service/settings/browser",
+  "ui": {
+    "action": "https://nice-driscoll-a19ob17c25.projects.oryapis:8080/self-service/settings?flow=49549d58-9212-4581-a3c6-05282e0db767",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "6xs5Y4P53eXya/G/f6wpDUQx8bAa9BpSwSZ/fkzPlVGX4uIW9O8SmuFsA7p/Cby0KS8cTL3DPL4ncCgFhwzG1w==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "value": "dev+orycye2eda2f162daf6142dd0.prum2miwjk0.l6p2zyg6lp@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "auth0",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link Auth0",
+            "type": "info",
+            "context": {
+              "provider": "Auth0"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "azure",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link Azure AD",
+            "type": "info",
+            "context": {
+              "provider": "Azure AD"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "unlink",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050003,
+            "text": "Unlink Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "okta",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link Okta",
+            "type": "info",
+            "context": {
+              "provider": "Okta"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "onelogin",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link OneLogin",
+            "type": "info",
+            "context": {
+              "provider": "OneLogin"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "pingfederate",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link PingFederate",
+            "type": "info",
+            "context": {
+              "provider": "PingFederate"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "identity": {
+    "id": "3a04b1a8-37aa-4794-8c18-fae7454e6074",
+    "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
+    "schema_url": "https://nice-driscoll-a19ob17c25.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "state": "active",
+    "state_changed_at": "2025-03-27T08:43:04.746124Z",
+    "traits": {
+      "email": "dev+orycye2eda2f162daf6142dd0.prum2miwjk0.l6p2zyg6lp@ory.dev"
+    },
+    "verifiable_addresses": [
+      {
+        "id": "9330e241-8be3-4114-901b-470220f03785",
+        "value": "dev+orycye2eda2f162daf6142dd0.prum2miwjk0.l6p2zyg6lp@ory.dev",
+        "verified": true,
+        "via": "email",
+        "status": "completed",
+        "verified_at": "2025-03-27T08:43:04.748643Z",
+        "created_at": "2025-03-27T08:43:04.74896Z",
+        "updated_at": "2025-03-27T08:43:04.74896Z"
+      }
+    ],
+    "recovery_addresses": [
+      {
+        "id": "6daa5013-7a83-4350-bb27-d43533d1ebaa",
+        "value": "dev+orycye2eda2f162daf6142dd0.prum2miwjk0.l6p2zyg6lp@ory.dev",
+        "via": "email",
+        "created_at": "2025-03-27T08:43:04.75281Z",
+        "updated_at": "2025-03-27T08:43:04.75281Z"
+      }
+    ],
+    "metadata_public": null,
+    "created_at": "2025-03-27T08:43:04.747101Z",
+    "updated_at": "2025-03-27T08:43:04.747101Z",
+    "organization_id": null
+  },
+  "state": "show_form"
+}
