@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { config } from "../../../utils"
-import { LoginFlowFromJSON, RegistrationFlowFromJSON } from "@ory/client-fetch"
+import { RegistrationFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 import { Registration } from "../../../../src/theme/default"
 
