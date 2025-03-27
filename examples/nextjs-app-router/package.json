@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ory/nextjs": "*",
-    "next": "^15.0.3",
+    "next": "^14.2.25",
     "react": "^18",
     "react-dom": "^18"
   },
