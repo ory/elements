@@ -1,0 +1,292 @@
+{
+  "id": "6bd99aac-3ab6-4f4b-8fd8-2bc7e618366d",
+  "type": "browser",
+  "expires_at": "2025-03-27T09:43:04.912529881Z",
+  "issued_at": "2025-03-27T08:43:04.912529881Z",
+  "request_url": "https://competent-jang-5m3cavlsl8.projects.oryapis:8080/self-service/registration/browser",
+  "ui": {
+    "action": "https://competent-jang-5m3cavlsl8.projects.oryapis:8080/self-service/registration?flow=6bd99aac-3ab6-4f4b-8fd8-2bc7e618366d",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "auth0",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Auth0",
+            "type": "info",
+            "context": {
+              "provider": "Auth0",
+              "provider_id": "auth0"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "azure",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Azure AD",
+            "type": "info",
+            "context": {
+              "provider": "Azure AD",
+              "provider_id": "azure"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace",
+              "provider_id": "gsuite"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "okta",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Okta",
+            "type": "info",
+            "context": {
+              "provider": "Okta",
+              "provider_id": "okta"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "onelogin",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with OneLogin",
+            "type": "info",
+            "context": {
+              "provider": "OneLogin",
+              "provider_id": "onelogin"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "pingfederate",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with PingFederate",
+            "type": "info",
+            "context": {
+              "provider": "PingFederate",
+              "provider_id": "pingfederate"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "yDE7NLoEZR05K2GNg08gdmOMkY5C615/tF0FI9osLmvhN9M18HzsA0eT+0v5cpIbFkQxfklt90kl/RlJSgDwdg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "organization_id": null,
+  "state": "choose_method"
+}

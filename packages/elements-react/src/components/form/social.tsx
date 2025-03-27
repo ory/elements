@@ -68,7 +68,11 @@ export function OryFormSocialButtonsForm() {
   } = useOryFlow()
 
   // Only get the oidc nodes.
-  const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
+  const filteredNodes = ui.nodes.filter(
+    (node) =>
+      node.group === UiNodeGroupEnum.Saml ||
+      node.group === UiNodeGroupEnum.Oidc,
+  )
 
   if (filteredNodes.length === 0) {
     return null
