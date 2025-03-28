@@ -17,6 +17,16 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const mockSession = {
+  id: "UNSET",
+  identity: {
+    id: "UNSET",
+    schema_id: "UNSET",
+    schema_url: "UNSET",
+    traits: { email: "john.doe@example.org" },
+  },
+}
+
 export const GenericConsent: Story = {
   args: {
     consentChallenge: {
@@ -26,7 +36,7 @@ export const GenericConsent: Story = {
       },
       requested_scope: ["openid", "offline_access"],
     },
-    session: { id: "UNSET" },
+    session: mockSession,
     config,
     csrfToken: "",
     formActionUrl: "/api/oauth2-polyfill/consent",
@@ -49,7 +59,7 @@ export const AllOIDCScopes: Story = {
         "phone",
       ],
     },
-    session: { id: "UNSET" },
+    session: mockSession,
     config,
     csrfToken: "",
     formActionUrl: "/api/oauth2-polyfill/consent",
@@ -70,7 +80,7 @@ export const CustomScopes: Story = {
         "ridiculously_long_scope_name_to_test_ui_layout",
       ],
     },
-    session: { id: "UNSET" },
+    session: mockSession,
     config,
     csrfToken: "",
     formActionUrl: "/api/oauth2-polyfill/consent",
