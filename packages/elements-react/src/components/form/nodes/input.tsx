@@ -39,7 +39,7 @@ export const NodeInput = ({
     if (
       isResendNode ||
       isScreenSelectionNode ||
-      node.group === "oauth2_consent"
+      node.group === UiNodeGroupEnum.Oauth2Consent
     ) {
       return
     }
