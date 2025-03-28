@@ -76,6 +76,8 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
       break
     case FlowType.Settings:
       return { current: "settings" }
+    case FlowType.OAuth2Consent:
+      return { current: "method_active", method: "oauth2_consent" }
   }
   console.warn(
     `[Ory/Elements React] Encountered an unknown form state on ${flow.flowType} flow with ID ${flow.flow.id}`,

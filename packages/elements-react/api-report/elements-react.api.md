@@ -17,12 +17,15 @@ import { HTMLAttributes } from 'react';
 import { IntlShape } from 'react-intl';
 import { LoginFlow } from '@ory/client-fetch';
 import { MouseEventHandler } from 'react';
+import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import { OnRedirectHandler } from '@ory/client-fetch';
 import { PropsWithChildren } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
+import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
+import { UiContainer } from '@ory/client-fetch';
 import { UiNode } from '@ory/client-fetch';
 import { UiNodeAnchorAttributes } from '@ory/client-fetch';
 import { UiNodeGroupEnum } from '@ory/client-fetch';
@@ -38,8 +41,24 @@ import { UpdateVerificationFlowBody } from '@ory/client-fetch';
 import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
+// @public (undocumented)
+export type ConsentFlow = {
+    created_at: Date;
+    expires_at: Date;
+    id: string;
+    issued_at: Date;
+    state: "show_form" | "rejected" | "accepted";
+    active: string;
+    ui: UiContainer;
+    consent_request: OAuth2ConsentRequest;
+    session: Session;
+};
+
 // Warning: (ae-forgotten-export) The symbol "OryFlow" needs to be exported by the entry point index.d.ts
 //
+// @public (undocumented)
+export type ConsentFlowContainer = OryFlow<FlowType.OAuth2Consent, ConsentFlow>;
+
 // @public
 export type ErrorFlowContainer = OryFlow<FlowType.Error, FlowError>;
 
@@ -175,6 +194,9 @@ export type OryClientConfiguration = {
     intl?: IntlConfig;
 };
 
+// @public (undocumented)
+export function OryConsentCard(): react_jsx_runtime.JSX.Element;
+
 // Warning: (ae-forgotten-export) The symbol "DeepPartialTwoLevels" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
@@ -193,6 +215,7 @@ export type OryFlowComponents = {
         Checkbox: ComponentType<OryNodeInputProps>;
         Text: ComponentType<OryNodeTextProps>;
         Captcha: ComponentType<OryNodeCaptchaProps>;
+        ConsentScopeCheckbox: ComponentType<OryNodeConsentScopeCheckboxProps>;
     };
     Card: {
         Root: ComponentType<OryCardProps>;
@@ -227,7 +250,7 @@ export type OryFlowComponents = {
 };
 
 // @public
-export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer;
+export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer | ConsentFlowContainer;
 
 // @public (undocumented)
 export function OryForm({ children, onAfterSubmit }: OryFormProps): react_jsx_runtime.JSX.Element;
@@ -318,6 +341,13 @@ export type OryNodeButtonProps = {
 // @public (undocumented)
 export type OryNodeCaptchaProps = {
     node: UiNode;
+};
+
+// @public (undocumented)
+export type OryNodeConsentScopeCheckboxProps = {
+    attributes: UiNodeInputAttributes;
+    node: UiNode;
+    onCheckedChange: (checked: boolean) => void;
 };
 
 // @public (undocumented)

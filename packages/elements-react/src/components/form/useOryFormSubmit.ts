@@ -144,6 +144,23 @@ export function useOryFormSubmit(
         })
         break
       }
+      case FlowType.OAuth2Consent: {
+        // TODO: move this to a full fleged SDK method?
+        const response = await fetch(flowContainer.flow.ui.action, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        const oauth2Success = await response.json()
+        if (
+          oauth2Success.redirect_to &&
+          typeof oauth2Success.redirect_to === "string"
+        ) {
+          onRedirect(oauth2Success.redirect_to as string, true)
+        }
+      }
     }
     if ("password" in data) {
       methods.setValue("password", "")

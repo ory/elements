@@ -1,0 +1,515 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`translate consent challenge to flow - custom scopes 1`] = `
+{
+  "active": "oauth2_consent",
+  "consent_request": {
+    "challenge": "consent-challenge",
+    "requested_scope": [
+      "custom_scope",
+      "foo:bar",
+    ],
+  },
+  "created_at": 2025-03-24T12:00:00.000Z,
+  "expires_at": 2025-03-24T12:00:00.000Z,
+  "id": "UNSET",
+  "issued_at": 2025-03-24T12:00:00.000Z,
+  "session": {
+    "id": "session-id",
+  },
+  "state": "show_form",
+  "ui": {
+    "action": "/foo/bar/oauth",
+    "messages": [],
+    "method": "POST",
+    "nodes": [
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "grant_scope",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": "custom_scope",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "custom_scope",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "grant_scope",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": "foo:bar",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "foo:bar",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "remember",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": false,
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Remember my decision",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "reject",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Reject",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "accept",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Accept",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "csrf_token",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "csrfToken",
+        },
+        "group": "default",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "consent_challenge",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "consent-challenge",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+    ],
+  },
+}
+`;
+
+exports[`translate consent challenge to flow - default scopes 1`] = `
+{
+  "active": "oauth2_consent",
+  "consent_request": {
+    "challenge": "consent-challenge",
+    "requested_scope": [
+      "openid",
+      "offline_access",
+    ],
+  },
+  "created_at": 2025-03-24T12:00:00.000Z,
+  "expires_at": 2025-03-24T12:00:00.000Z,
+  "id": "UNSET",
+  "issued_at": 2025-03-24T12:00:00.000Z,
+  "session": {
+    "id": "session-id",
+  },
+  "state": "show_form",
+  "ui": {
+    "action": "/foo/bar/oauth",
+    "messages": [],
+    "method": "POST",
+    "nodes": [
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "grant_scope",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": "openid",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "openid",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "grant_scope",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": "offline_access",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "offline_access",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "remember",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": false,
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Remember my decision",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "reject",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Reject",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "accept",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Accept",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "csrf_token",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "csrfToken",
+        },
+        "group": "default",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "consent_challenge",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "consent-challenge",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+    ],
+  },
+}
+`;
+
+exports[`translate consent challenge to flow - empty scopes 1`] = `
+{
+  "active": "oauth2_consent",
+  "consent_request": {
+    "challenge": "consent-challenge",
+    "requested_scope": [],
+  },
+  "created_at": 2025-03-24T12:00:00.000Z,
+  "expires_at": 2025-03-24T12:00:00.000Z,
+  "id": "UNSET",
+  "issued_at": 2025-03-24T12:00:00.000Z,
+  "session": {
+    "id": "session-id",
+  },
+  "state": "show_form",
+  "ui": {
+    "action": "/foo/bar/oauth",
+    "messages": [],
+    "method": "POST",
+    "nodes": [
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "remember",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": false,
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Remember my decision",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "reject",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Reject",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "accept",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Accept",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "csrf_token",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "csrfToken",
+        },
+        "group": "default",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "consent_challenge",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "consent-challenge",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+    ],
+  },
+}
+`;
+
+exports[`translate consent challenge to flow - no defined scope 1`] = `
+{
+  "active": "oauth2_consent",
+  "consent_request": {
+    "challenge": "consent-challenge",
+    "requested_scope": undefined,
+  },
+  "created_at": 2025-03-24T12:00:00.000Z,
+  "expires_at": 2025-03-24T12:00:00.000Z,
+  "id": "UNSET",
+  "issued_at": 2025-03-24T12:00:00.000Z,
+  "session": {
+    "id": "session-id",
+  },
+  "state": "show_form",
+  "ui": {
+    "action": "/foo/bar/oauth",
+    "messages": [],
+    "method": "POST",
+    "nodes": [
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "remember",
+          "node_type": "input",
+          "type": "checkbox",
+          "value": false,
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Remember my decision",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "reject",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Reject",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "action",
+          "node_type": "input",
+          "type": "submit",
+          "value": "accept",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 9999111,
+            "text": "Accept",
+            "type": "info",
+          },
+        },
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "csrf_token",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "csrfToken",
+        },
+        "group": "default",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+      {
+        "attributes": {
+          "disabled": false,
+          "name": "consent_challenge",
+          "node_type": "input",
+          "type": "hidden",
+          "value": "consent-challenge",
+        },
+        "group": "oauth2_consent",
+        "messages": [],
+        "meta": {},
+        "type": "input",
+      },
+    ],
+  },
+}
+`;

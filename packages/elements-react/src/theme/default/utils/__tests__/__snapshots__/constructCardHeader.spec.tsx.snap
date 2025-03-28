@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`constructCardHeaderText on 2fa login - multi 1`] = `
+exports[`constructCardHeaderText on 2fa login - lookup_secret 1`] = `
 {
-  "description": "Choose a way to complete your second factor authentication",
+  "description": "Please enter one of your 8-digit backup recovery codes",
   "title": "Second factor authentication",
 }
 `;
 
-exports[`constructCardHeaderText on 2fa login - webauthn 1`] = `
+exports[`constructCardHeaderText on 2fa login - multi 1`] = `
 {
-  "description": "Please prepare your WebAuthN device",
+  "description": "Choose a way to complete your second factor authentication",
   "title": "Second factor authentication",
 }
 `;
@@ -21,9 +21,9 @@ exports[`constructCardHeaderText on 2fa login - totp 1`] = `
 }
 `;
 
-exports[`constructCardHeaderText on 2fa login - lookup_secret 1`] = `
+exports[`constructCardHeaderText on 2fa login - webauthn 1`] = `
 {
-  "description": "Please enter one of your 8-digit backup recovery codes",
+  "description": "Please prepare your WebAuthN device",
   "title": "Second factor authentication",
 }
 `;
@@ -32,6 +32,13 @@ exports[`constructCardHeaderText on account linking 1`] = `
 {
   "description": "You tried to sign in with "{duplicateIdentifier}", but that email is already used by another account. Sign in to your account with one of the options below to add your account "{duplicateIdentifier}" at "{provider}" as another way to sign in.",
   "title": "Link account",
+}
+`;
+
+exports[`constructCardHeaderText on consent screen 1`] = `
+{
+  "description": "A third party application wants to access information associated with your account .",
+  "title": "Authorize Client Test",
 }
 `;
 

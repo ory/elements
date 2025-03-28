@@ -22,6 +22,7 @@ import {
   OryNodeAnchorProps,
   OryNodeButtonProps,
   OryNodeCaptchaProps,
+  OryNodeConsentScopeCheckboxProps,
   OryNodeImageProps,
   OryNodeInputProps,
   OryNodeLabelProps,
@@ -94,6 +95,11 @@ export type OryFlowComponents = {
      * The Captcha component is rendered whenever a "captcha" group is encountered.
      */
     Captcha: ComponentType<OryNodeCaptchaProps>
+
+    /**
+     * Special version of the Input component for scopes in OAuth2 flows.
+     */
+    ConsentScopeCheckbox: ComponentType<OryNodeConsentScopeCheckboxProps>
   }
   Card: {
     /**

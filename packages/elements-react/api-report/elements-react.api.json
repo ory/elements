@@ -174,6 +174,135 @@
       "members": [
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!ConsentFlow:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ConsentFlow = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    created_at: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Date",
+              "canonicalReference": "!Date:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    expires_at: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Date",
+              "canonicalReference": "!Date:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    id: string;\n    issued_at: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Date",
+              "canonicalReference": "!Date:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    state: \"show_form\" | \"rejected\" | \"accepted\";\n    active: string;\n    ui: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiContainer",
+              "canonicalReference": "@ory/client-fetch!UiContainer:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    consent_request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    session: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ConsentFlow",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 14
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!ConsentFlowContainer:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ConsentFlowContainer = "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlow",
+              "canonicalReference": "@ory/elements-react!~OryFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.OAuth2Consent",
+              "canonicalReference": "@ory/client-fetch!FlowType.OAuth2Consent:member"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "ConsentFlow",
+              "canonicalReference": "@ory/elements-react!ConsentFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ConsentFlowContainer",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!ErrorFlowContainer:type",
           "docComment": "/**\n * A flow container for the error flow\n *\n * @see\n *\n * OryFlow\n *\n * @see\n *\n * FlowError (Error flow)\n */\n",
           "excerptTokens": [
@@ -1206,6 +1335,35 @@
           }
         },
         {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryConsentCard:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryConsentCard(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "OryConsentCard"
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryFlowComponentOverrides:type",
           "docComment": "",
@@ -1433,6 +1591,24 @@
               "kind": "Reference",
               "text": "OryNodeCaptchaProps",
               "canonicalReference": "@ory/elements-react!OryNodeCaptchaProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n        ConsentScopeCheckbox: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeConsentScopeCheckboxProps",
+              "canonicalReference": "@ory/elements-react!OryNodeConsentScopeCheckboxProps:type"
             },
             {
               "kind": "Content",
@@ -1844,7 +2020,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 130
+            "endIndex": 134
           }
         },
         {
@@ -1899,6 +2075,15 @@
             },
             {
               "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "ConsentFlowContainer",
+              "canonicalReference": "@ory/elements-react!ConsentFlowContainer:type"
+            },
+            {
+              "kind": "Content",
               "text": ";"
             }
           ],
@@ -1907,7 +2092,7 @@
           "name": "OryFlowContainer",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 12
           }
         },
         {
@@ -2727,6 +2912,50 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryNodeConsentScopeCheckboxProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryNodeConsentScopeCheckboxProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onCheckedChange: (checked: boolean) => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryNodeConsentScopeCheckboxProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
           }
         },
         {

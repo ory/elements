@@ -8,7 +8,7 @@ import {
   OryNodeInputProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
-import { useForm } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
 import { CheckboxLabel } from "../ui/checkbox-label"
@@ -49,7 +49,7 @@ export const DefaultCheckbox = ({
 
   const intl = useIntl()
   const label = getNodeLabel(node)
-  const { register } = useForm()
+  const { register } = useFormContext()
   const hasError = node.messages.some((m) => m.type === "error")
 
   return (
@@ -57,14 +57,13 @@ export const DefaultCheckbox = ({
       <span className="flex h-5 items-center">
         <input
           {...attributes}
-          value={1}
           defaultChecked={Boolean(value)}
           type="checkbox"
           className={cn(
             "peer size-4 border appearance-none rounded-forms bg-checkbox-background-default border-checkbox-border-checkbox-border-default checked:bg-checkbox-background-checked checked:border-checkbox-border-checkbox-border-checked",
             hasError && "border-interface-border-validation-danger",
           )}
-          {...register(name, { value })}
+          {...register(name)}
         />
         <CheckboxSVG />
       </span>
