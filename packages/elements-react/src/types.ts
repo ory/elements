@@ -73,6 +73,12 @@ export type OryNodeInputProps = {
   onClick?: MouseEventHandler
 }
 
+export type OryNodeConsentScopeCheckboxProps = {
+  attributes: UiNodeInputAttributes
+  node: UiNode
+  onCheckedChange: (checked: boolean) => void
+}
+
 export type OryFormSectionContentProps = PropsWithChildren<{
   title?: string
   description?: string

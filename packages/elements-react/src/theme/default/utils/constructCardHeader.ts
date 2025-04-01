@@ -5,6 +5,8 @@ import {
   AuthenticatorAssuranceLevel,
   FlowType,
   isUiNodeInputAttributes,
+  OAuth2ConsentRequest,
+  Session,
   UiContainer,
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
@@ -29,6 +31,13 @@ export type CardHeaderTextOptions =
         requested_aal?: AuthenticatorAssuranceLevel
       }
       formState?: FormState
+    }
+  | {
+      flowType: FlowType.OAuth2Consent
+      flow: {
+        consent_request: OAuth2ConsentRequest
+        session: Session
+      }
     }
   | {
       flowType:
@@ -273,6 +282,26 @@ export function useCardHeaderText(
                 },
               )
             : "",
+      }
+    case FlowType.OAuth2Consent:
+      return {
+        title: intl.formatMessage(
+          {
+            id: "consent.title",
+          },
+          {
+            party: opts.flow.consent_request.client?.client_name,
+          },
+        ),
+        description: intl.formatMessage(
+          {
+            id: "consent.subtitle",
+          },
+          {
+            identifier: (opts.flow.session.identity?.traits.email ??
+              "") as string,
+          },
+        ),
       }
   }
 

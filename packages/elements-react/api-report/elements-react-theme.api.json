@@ -174,6 +174,133 @@
       "members": [
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!Consent:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function Consent({ consentChallenge, session, config, "
+            },
+            {
+              "kind": "Reference",
+              "text": "components",
+              "canonicalReference": "@ory/elements-react!~__type#components"
+            },
+            {
+              "kind": "Content",
+              "text": ": Passed, children, csrfToken, formActionUrl, }: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithChildren",
+              "canonicalReference": "@types/react!React.PropsWithChildren:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ConsentFlowContextProps",
+              "canonicalReference": "@ory/elements-react!ConsentFlowContextProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "Consent"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!ConsentFlowContextProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ConsentFlowContextProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    consentChallenge: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    session: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryClientConfiguration",
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    csrfToken: string;\n    formActionUrl: string;\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsWithComponents",
+              "canonicalReference": "@ory/elements-react!~PropsWithComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/theme/default/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ConsentFlowContextProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 9
+          }
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultButtonSocial:function(1)",
           "docComment": "",
           "excerptTokens": [
