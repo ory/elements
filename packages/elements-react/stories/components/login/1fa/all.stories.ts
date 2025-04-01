@@ -27,6 +27,21 @@ export const ShowForm: Story = {
   },
 }
 
+export const RegistrationDisabled: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/all-methods/initial-form.json"),
+    ),
+    config: {
+      ...config,
+      project: {
+        ...config.project,
+        registration_enabled: false,
+      },
+    },
+  },
+}
+
 export const ValidationMissingFields: Story = {
   args: {
     flow: LoginFlowFromJSON(

@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
-import { useOryFlow } from "@ory/elements-react"
+import { ConsentFlow, useComponents, useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
-import { nodesToAuthMethodGroups } from "../../../../util/ui"
+import { findNode, nodesToAuthMethodGroups } from "../../../../util/ui"
 
 export function DefaultCardFooter() {
-  const { flowType } = useOryFlow()
-  switch (flowType) {
+  const oryFlow = useOryFlow()
+  switch (oryFlow.flowType) {
     case FlowType.Login:
       return <LoginCardFooter />
     case FlowType.Registration:
@@ -19,6 +19,8 @@ export function DefaultCardFooter() {
       return <RecoveryCardFooter />
     case FlowType.Verification:
       return <VerificationCardFooter />
+    case FlowType.OAuth2Consent:
+      return <ConsentCardFooter flow={oryFlow.flow} />
     default:
       return null
   }
@@ -46,24 +48,25 @@ function LoginCardFooter() {
 
   return (
     <>
-      {formState.current === "provide_identifier" && (
-        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-          {intl.formatMessage({
-            id: "login.registration-label",
-            defaultMessage: "No account?",
-          })}{" "}
-          <a
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href={initFlowUrl(config.sdk.url, "registration", flow)}
-            data-testid={"ory/screen/registration/action/login"}
-          >
+      {formState.current === "provide_identifier" &&
+        config.project.registration_enabled && (
+          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
             {intl.formatMessage({
-              id: "login.registration-button",
-              defaultMessage: "Sign up",
-            })}
-          </a>
-        </span>
-      )}
+              id: "login.registration-label",
+              defaultMessage: "No account?",
+            })}{" "}
+            <a
+              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              href={initFlowUrl(config.sdk.url, "registration", flow)}
+              data-testid={"ory/screen/login/action/register"}
+            >
+              {intl.formatMessage({
+                id: "login.registration-button",
+                defaultMessage: "Sign up",
+              })}
+            </a>
+          </span>
+        )}
       {authMethods.length > 1 && formState.current === "method_active" && (
         <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
           <a
@@ -199,4 +202,62 @@ function RecoveryCardFooter() {
 
 function VerificationCardFooter() {
   return null
+}
+
+type ConsentFlowProps = {
+  flow: ConsentFlow
+}
+
+function ConsentCardFooter({ flow }: ConsentFlowProps) {
+  const { Node } = useComponents()
+
+  const rememberNode = findNode(flow.ui.nodes, {
+    group: "oauth2_consent",
+    node_type: "input",
+    name: "remember",
+  })
+
+  return (
+    <div className="flex gap-8 flex-col">
+      <div>
+        <p className="text-interface-foreground-default-secondary leading-normal font-medium">
+          Make sure you trust {flow.consent_request.client?.client_name}
+        </p>
+        <p className="text-interface-foreground-default-secondary leading-normal">
+          You may be sharing sensitive information with this site or
+          application.
+        </p>
+      </div>
+      {rememberNode && (
+        <Node.Checkbox
+          attributes={rememberNode.attributes}
+          node={rememberNode}
+        />
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        {flow.ui.nodes
+          .filter(
+            (n) =>
+              n.attributes.node_type === "input" &&
+              n.attributes.type === "submit",
+          )
+          .map((n) => {
+            const attributes = n.attributes as UiNodeInputAttributes
+            return (
+              <Node.Button
+                key={attributes.value}
+                node={n}
+                attributes={attributes}
+              />
+            )
+          })}
+      </div>
+      <p className="text-sm">
+        <span className="text-interface-foreground-default-tertiary">
+          Authorizing will redirect to{" "}
+        </span>
+        {flow.consent_request.client?.client_name}
+      </p>
+    </div>
+  )
 }

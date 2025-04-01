@@ -47,6 +47,7 @@ export function useGroupSorter() {
 
 const defaultNodeOrder = [
   "oidc",
+  "saml",
   "identifier_first",
   "default",
   "profile",

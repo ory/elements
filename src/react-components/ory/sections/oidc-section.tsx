@@ -7,25 +7,25 @@ import { JSX } from "react"
 import { gridStyle } from "../../../theme"
 import { FilterFlowNodes } from "../helpers/filter-flow-nodes"
 import { SelfServiceFlow } from "../helpers/types"
-import { hasOidc } from "../helpers/utils"
+import { hasOidc, hasSaml } from "../helpers/utils"
 
 export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
-  const hasOidcTraits =
+  const hasTraits =
     filterNodesByGroups({
       nodes: flow.ui.nodes,
-      groups: "oidc",
+      groups: ["oidc", "saml"],
       withoutDefaultGroup: true,
       excludeAttributeTypes: "submit",
     }).length > 0
 
-  return hasOidc(flow.ui.nodes) ? (
+  return hasOidc(flow.ui.nodes) || hasSaml(flow.ui.nodes) ? (
     <div className={gridStyle({ gap: 32 })}>
-      {hasOidcTraits && (
+      {hasTraits && (
         <div className={gridStyle({ gap: 16 })}>
           <FilterFlowNodes
             filter={{
               nodes: flow.ui.nodes,
-              groups: "oidc",
+              groups: ["oidc", "saml"],
               withoutDefaultGroup: true,
               excludeAttributeTypes: ["submit"],
             }}
@@ -36,7 +36,7 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: "oidc",
+          groups: ["oidc", "saml"],
           attributes: "submit",
           withoutDefaultGroup: true,
         }}

@@ -7,7 +7,10 @@ import {
   UiNodeGroupEnum,
   UiTextTypeEnum,
 } from "@ory/client-fetch"
-import { useCardHeaderText } from "../constructCardHeader"
+import {
+  CardHeaderTextOptions,
+  useCardHeaderText,
+} from "../constructCardHeader"
 import { renderHook } from "@testing-library/react"
 import { PropsWithChildren } from "react"
 import { IntlProvider } from "../../../../context/intl-context"
@@ -202,7 +205,7 @@ for (const flowType of [
   FlowType.Verification,
   FlowType.Recovery,
   FlowType.Settings,
-]) {
+] as const) {
   describe("flowType=" + flowType, () => {
     for (const refresh of [true, false]) {
       // Yes, it doesn't make sense to test other flows with refresh enabled, but it doesn't hurt, and typescript is dumb here.
@@ -222,7 +225,7 @@ for (const flowType of [
                       action: "",
                       method: "",
                     },
-                    opts,
+                    opts as CardHeaderTextOptions,
                   ),
                 { wrapper },
               )
@@ -298,3 +301,29 @@ for (const method of ["webauthn", "totp", "lookup_secret"]) {
     expect(res.result.current).toMatchSnapshot()
   })
 }
+
+test("constructCardHeaderText on consent screen", () => {
+  const res = renderHook(
+    () =>
+      useCardHeaderText(
+        {
+          nodes: [],
+          action: "",
+          method: "",
+          messages: [],
+        },
+        {
+          flowType: FlowType.OAuth2Consent,
+          flow: {
+            consent_request: {
+              challenge: "consent-challenge",
+              client: { client_name: "Client Test" },
+            },
+            session: { id: "session-id" },
+          },
+        },
+      ),
+    { wrapper },
+  )
+  expect(res.result.current).toMatchSnapshot()
+})

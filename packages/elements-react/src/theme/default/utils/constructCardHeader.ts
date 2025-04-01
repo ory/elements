@@ -5,6 +5,8 @@ import {
   AuthenticatorAssuranceLevel,
   FlowType,
   isUiNodeInputAttributes,
+  OAuth2ConsentRequest,
+  Session,
   UiContainer,
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
@@ -21,7 +23,7 @@ function joinWithCommaOr(list: string[], orText = "or"): string {
   }
 }
 
-type opts =
+export type CardHeaderTextOptions =
   | {
       flowType: FlowType.Login
       flow: {
@@ -29,6 +31,13 @@ type opts =
         requested_aal?: AuthenticatorAssuranceLevel
       }
       formState?: FormState
+    }
+  | {
+      flowType: FlowType.OAuth2Consent
+      flow: {
+        consent_request: OAuth2ConsentRequest
+        session: Session
+      }
     }
   | {
       flowType:
@@ -57,7 +66,7 @@ type opts =
  */
 export function useCardHeaderText(
   container: UiContainer,
-  opts: opts,
+  opts: CardHeaderTextOptions,
 ): { title: string; description: string } {
   const nodes = container.nodes
   const intl = useIntl()
@@ -164,7 +173,7 @@ export function useCardHeaderText(
     }
   }
 
-  if (nodes.find((node) => node.group === "oidc")) {
+  if (nodes.find((node) => node.group === "oidc" || node.group === "saml")) {
     parts.push(
       intl.formatMessage({
         id: "card.header.parts.oidc",
@@ -273,6 +282,26 @@ export function useCardHeaderText(
                 },
               )
             : "",
+      }
+    case FlowType.OAuth2Consent:
+      return {
+        title: intl.formatMessage(
+          {
+            id: "consent.title",
+          },
+          {
+            party: opts.flow.consent_request.client?.client_name,
+          },
+        ),
+        description: intl.formatMessage(
+          {
+            id: "consent.subtitle",
+          },
+          {
+            identifier: (opts.flow.session.identity?.traits.email ??
+              "") as string,
+          },
+        ),
       }
   }
 

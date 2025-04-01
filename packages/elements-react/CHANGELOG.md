@@ -1,3 +1,53 @@
+## 1.0.0-next.39 (2025-03-25)
+
+### 🚀 Features
+
+- add SAML group handling ([#390](https://github.com/ory/elements/pull/390))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
+## 1.0.0-next.38 (2025-03-24)
+
+### 🩹 Fixes
+
+- hide registration link again ([#387](https://github.com/ory/elements/pull/387))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
+## 1.0.0-next.37 (2025-03-12)
+
+### 🩹 Fixes
+
+- correctly render test id for error card ([#386](https://github.com/ory/elements/pull/386))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
+## 1.0.0-next.36 (2025-03-12)
+
+### 🩹 Fixes
+
+- handle error messages for selected methods ([#385](https://github.com/ory/elements/pull/385))
+
+### ❤️  Thank You
+
+- Pierre Caillaud @pcaillaudm
+
+## 1.0.0-next.35 (2025-03-12)
+
+### 🚀 Features
+
+- add more intelligent error screen ([#383](https://github.com/ory/elements/pull/383))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.34 (2025-03-12)
 
 ### 🩹 Fixes

@@ -3,7 +3,11 @@
 
 import { useComponents } from "../../context"
 import { useOryFlow } from "../../context"
-import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
+import {
+  UiNode,
+  UiNodeGroupEnum,
+  UiNodeInputAttributes,
+} from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryForm } from "./form"
 import { useFormContext } from "react-hook-form"
@@ -26,7 +30,11 @@ export function OryFormOidcButtons() {
   const { setValue } = useFormContext()
 
   // Only get the oidc nodes.
-  const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
+  const filteredNodes = ui.nodes.filter(
+    (node) =>
+      node.group === UiNodeGroupEnum.Oidc ||
+      node.group === UiNodeGroupEnum.Saml,
+  )
 
   const { Form, Node } = useComponents()
 
@@ -46,7 +54,7 @@ export function OryFormOidcButtons() {
               "provider",
               (node.attributes as UiNodeInputAttributes).value,
             )
-            setValue("method", "oidc")
+            setValue("method", node.group)
           }}
         />
       ))}
@@ -60,7 +68,11 @@ export function OryFormSocialButtonsForm() {
   } = useOryFlow()
 
   // Only get the oidc nodes.
-  const filteredNodes = ui.nodes.filter((node) => node.group === "oidc")
+  const filteredNodes = ui.nodes.filter(
+    (node) =>
+      node.group === UiNodeGroupEnum.Saml ||
+      node.group === UiNodeGroupEnum.Oidc,
+  )
 
   if (filteredNodes.length === 0) {
     return null

@@ -1,15 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { NodeProps } from "./node"
-import { useComponents } from "../../../context"
-import { triggerToWindowCall } from "../../../util/ui"
 import {
+  UiNodeGroupEnum,
   UiNodeInputAttributes,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
 import { useFormContext } from "react-hook-form"
+import { useComponents } from "../../../context"
+import { triggerToWindowCall } from "../../../util/ui"
+import { NodeProps } from "./node"
 
 export const NodeInput = ({
   node,
@@ -19,7 +20,7 @@ export const NodeInput = ({
   onClick?: MouseEventHandler
 }): ReactNode => {
   const { Node } = useComponents()
-  const { setValue } = useFormContext()
+  const { setValue, watch } = useFormContext()
 
   const {
     onloadTrigger: onloadTrigger,
@@ -35,7 +36,14 @@ export const NodeInput = ({
     "name" in node.attributes && node.attributes.name === "screen"
 
   const setFormValue = () => {
-    if (attrs.value && !(isResendNode || isScreenSelectionNode)) {
+    if (
+      isResendNode ||
+      isScreenSelectionNode ||
+      node.group === UiNodeGroupEnum.Oauth2Consent
+    ) {
+      return
+    }
+    if (attrs.value !== undefined) {
       setValue(attrs.name, attrs.value)
     }
   }
@@ -63,10 +71,24 @@ export const NodeInput = ({
 
   const isSocial =
     (attrs.name === "provider" || attrs.name === "link") &&
-    node.group === "oidc"
+    (node.group === UiNodeGroupEnum.Oidc || node.group === UiNodeGroupEnum.Saml)
   const isPinCodeInput =
     (attrs.name === "code" && node.group === "code") ||
     (attrs.name === "totp_code" && node.group === "totp")
+
+  const handleScopeChange = (checked: boolean) => {
+    const scopes = watch("grant_scope")
+    if (Array.isArray(scopes)) {
+      if (checked) {
+        setValue("grant_scope", Array.from(new Set([...scopes, attrs.value])))
+      } else {
+        setValue(
+          "grant_scope",
+          scopes.filter((scope: string) => scope !== attrs.value),
+        )
+      }
+    }
+  }
 
   switch (attributes.type) {
     case UiNodeInputAttributesTypeEnum.Submit:
@@ -75,6 +97,9 @@ export const NodeInput = ({
         return null
       }
       if (isResendNode || isScreenSelectionNode) {
+        return null
+      }
+      if (node.group === "oauth2_consent") {
         return null
       }
 
@@ -90,6 +115,23 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
+      if (
+        node.group === "oauth2_consent" &&
+        node.attributes.node_type === "input"
+      ) {
+        switch (node.attributes.name) {
+          case "grant_scope":
+            return (
+              <Node.ConsentScopeCheckbox
+                attributes={attrs}
+                node={node}
+                onCheckedChange={handleScopeChange}
+              />
+            )
+          default:
+            return null
+        }
+      }
       return (
         <Node.Label
           // The label is rendered in the checkbox component

@@ -7,6 +7,7 @@ export const hasGroup = (group: string) => (nodes: UiNode[]) =>
   nodes.some(({ type, group: g }) => type === "input" && g === group)
 
 export const hasOidc = hasGroup("oidc")
+export const hasSaml = hasGroup("saml")
 export const hasPassword = hasGroup("password")
 export const hasDefault = hasGroup("default")
 export const hasProfile = hasGroup("profile")

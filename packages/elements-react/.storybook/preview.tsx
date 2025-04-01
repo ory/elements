@@ -4,6 +4,7 @@
 import type { Decorator, Preview } from "@storybook/react"
 import { merge } from "lodash"
 import "./global.css"
+import { mockDateDecorator } from "storybook-mock-date-decorator"
 
 const preview: Preview = {
   parameters: {
@@ -58,7 +59,7 @@ const withI18next: Decorator = (Story, context) => {
 }
 
 // export decorators for storybook to wrap your stories in
-export const decorators = [withI18next]
+export const decorators = [withI18next, mockDateDecorator]
 
 export const globalTypes = {
   locale: {

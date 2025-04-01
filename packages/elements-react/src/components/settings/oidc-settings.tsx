@@ -30,7 +30,7 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
     onClick: () => {
       if (node.attributes.node_type === "input") {
         setValue("link", node.attributes.value)
-        setValue("method", "oidc")
+        setValue("method", node.group)
       }
     },
   }))
@@ -39,7 +39,7 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
     onClick: () => {
       if (node.attributes.node_type === "input") {
         setValue("unlink", node.attributes.value)
-        setValue("method", "oidc")
+        setValue("method", node.group)
       }
     },
   }))

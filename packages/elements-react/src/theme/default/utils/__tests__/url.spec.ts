@@ -6,13 +6,13 @@ import { restartFlowUrl, initFlowUrl } from "../url"
 describe("url utils", () => {
   describe("restartFlowUrl", () => {
     it("should return request_url if present", () => {
-      const flow = { request_url: "http://example.com/request" }
+      const flow = { id: "fake-id", request_url: "http://example.com/request" }
       const fallback = "http://example.com/fallback"
       expect(restartFlowUrl(flow, fallback)).toBe(flow.request_url)
     })
 
     it("should return fallback with return_to if request_url is not present", () => {
-      const flow = { return_to: "http://example.com/return" }
+      const flow = { id: "fake-id", return_to: "http://example.com/return" }
       const fallback = "http://example.com/fallback"
       expect(restartFlowUrl(flow, fallback)).toBe(
         "http://example.com/fallback?return_to=http%3A%2F%2Fexample.com%2Freturn",
@@ -20,7 +20,7 @@ describe("url utils", () => {
     })
 
     it("should return fallback if neither request_url nor return_to are present", () => {
-      const flow = {}
+      const flow = { id: "fake-id" }
       const fallback = "http://example.com/fallback"
       expect(restartFlowUrl(flow, fallback)).toBe(fallback)
     })
@@ -30,7 +30,7 @@ describe("url utils", () => {
     it("should return sdkUrl with flowType and return_to if present in flow", () => {
       const sdkUrl = "http://example.com"
       const flowType = "login"
-      const flow = { return_to: "http://example.com/return" }
+      const flow = { id: "fake-id", return_to: "http://example.com/return" }
       expect(initFlowUrl(sdkUrl, flowType, flow)).toBe(
         "http://example.com/self-service/login/browser?return_to=http%3A%2F%2Fexample.com%2Freturn",
       )
@@ -39,7 +39,7 @@ describe("url utils", () => {
     xit("should return sdkUrl with flowType and return_to if present in window location", () => {
       const sdkUrl = "http://example.com"
       const flowType = "login"
-      const flow = {}
+      const flow = { id: "fake-id" }
 
       // Not sure how to mock this.
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -53,7 +53,7 @@ describe("url utils", () => {
     xit("should return sdkUrl with flowType if return_to is not present", () => {
       const sdkUrl = "http://example.com"
       const flowType = "login"
-      const flow = {}
+      const flow = { id: "fake-id" }
 
       // Not sure how to mock this.
       window.location.href = "http://example.com"

@@ -15,7 +15,7 @@
     },
     "build": {
       "command": "next build",
-      "dependsOn": ["lint"],
+      "dependsOn": ["@ory/elements:build"],
       "options": {
         "cwd": "examples/nextjs-spa"
       }

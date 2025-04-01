@@ -4,6 +4,7 @@
 import {
   FlowType,
   OnRedirectHandler,
+  UiNodeGroupEnum,
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
   UpdateRegistrationFlowBody,
@@ -119,7 +120,7 @@ export function useOryFormSubmit(
         // https://github.com/ory/elements/issues/268
         // TODO: Maybe this needs to be configurable in the configuration
         if (
-          submitData.method === "oidc" &&
+          submitData.method === UiNodeGroupEnum.Oidc &&
           submitData.link &&
           supportsSelectAccountPrompt.includes(submitData.link)
         ) {
@@ -142,6 +143,23 @@ export function useOryFormSubmit(
           body: submitData,
         })
         break
+      }
+      case FlowType.OAuth2Consent: {
+        // TODO: move this to a full fleged SDK method?
+        const response = await fetch(flowContainer.flow.ui.action, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        const oauth2Success = await response.json()
+        if (
+          oauth2Success.redirect_to &&
+          typeof oauth2Success.redirect_to === "string"
+        ) {
+          onRedirect(oauth2Success.redirect_to as string, true)
+        }
       }
     }
     if ("password" in data) {
