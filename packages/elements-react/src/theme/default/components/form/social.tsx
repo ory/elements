@@ -90,6 +90,10 @@ export function DefaultButtonSocial({
     }
   }, [isSubmitting, setClicked])
 
+  const label = node.meta.label
+    ? uiTextToFormattedMessage(node.meta.label, intl)
+    : ""
+
   return (
     <button
       className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover transition-colors rounded-buttons flex items-center justify-center px-4 py-[13px] loading:bg-button-social-background-disabled loading:border-button-social-border-disabled loading:text-button-social-foreground-disabled hover:text-button-social-foreground-hover"
@@ -101,6 +105,7 @@ export function DefaultButtonSocial({
       onClick={localOnClick}
       data-loading={clicked}
       disabled={isSubmitting}
+      aria-label={label}
     >
       <span className="size-5 relative">
         {!clicked ? (
@@ -118,7 +123,7 @@ export function DefaultButtonSocial({
       {showLabel && node.meta.label ? (
         <>
           <span className="grow text-center font-medium leading-none text-button-social-foreground-default">
-            {uiTextToFormattedMessage(node.meta.label, intl)}
+            {label}
           </span>
           <span className="size-5 block"></span>
         </>

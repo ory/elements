@@ -3,10 +3,10 @@
 
 import { OryNodeImageProps } from "@ory/elements-react"
 
-export function DefaultImage({ attributes }: OryNodeImageProps) {
+export function DefaultImage({ attributes, node }: OryNodeImageProps) {
   return (
     <figure>
-      <img {...attributes} />
+      <img {...attributes} alt={node.meta.label?.text || ""} />
     </figure>
   )
 }

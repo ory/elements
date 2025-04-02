@@ -22,6 +22,19 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+
+    a11y: {
+      config: {},
+      /*
+       * Axe's options parameter
+       * See https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter
+       * to learn more about the available options.
+       */
+      options: {
+        // TODO: try to meet "wcag2aaa" (error messages are don't have enough contrast)
+        // runOnly: ["wcag2a", "wcag2aa", "best-practice"],
+      },
+    },
   },
 }
 
