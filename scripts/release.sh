@@ -14,7 +14,7 @@ if [ "$preid" != "next" ] && [ "$preid" != "pr" ]; then
   exit 1
 fi
 
-npx nx build $project
+npx nx build $project --skip-nx-cache
 
 # nx is configured to generate a new -next.X version, in nx.json
 if [ $preid == "next" ]; then
