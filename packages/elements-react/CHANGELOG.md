@@ -1,3 +1,13 @@
+## 1.0.0-next.40 (2025-04-02)
+
+### 🚀 Features
+
+- support SAML-native ([#395](https://github.com/ory/elements/pull/395))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
 ## 1.0.0-next.39 (2025-03-25)
 
 ### 🚀 Features
