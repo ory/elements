@@ -32,19 +32,18 @@ import { UiText } from '@ory/client-fetch';
 import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
-// @public (undocumented)
-export function Consent({ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, }: PropsWithChildren<ConsentFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Consent({ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, }: PropsWithChildren<ConsentFlowProps>): react_jsx_runtime.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "PropsWithComponents" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type ConsentFlowContextProps = {
+// @public
+export type ConsentFlowProps = {
     consentChallenge: OAuth2ConsentRequest;
     session: Session;
     config: OryClientConfiguration;
     csrfToken: string;
     formActionUrl: string;
-} & PropsWithComponents;
+    components?: OryFlowComponentOverrides;
+};
 
 // Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
 //
@@ -170,8 +169,8 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:51:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:98:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:114:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:137:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
