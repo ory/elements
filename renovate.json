@@ -25,6 +25,13 @@
       "groupName": "@ory/elements-react",
       "matchManagers": ["npm"],
       "matchFileNames": ["packages/elements-react/package.json"]
+    },
+    {
+      "description": "root",
+      "enabled": true,
+      "groupName": "root package",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["package.json"]
     }
   ]
 }
