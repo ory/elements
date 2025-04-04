@@ -10,7 +10,6 @@
     ".github/workflows/pm.yml",
     ".github/workflows/release.yml",
     ".github/workflows/stale.yml",
-    "package.json",
     "packages/legacy-stories/package.json",
     "packages/markup/package.json",
     "packages/nextjs/package.json",
