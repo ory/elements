@@ -2,10 +2,21 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabled": true,
   "ignorePaths": [
-    "*",
-    "!packages/elements-react/package.json",
-    "!.github/workflows/ci.yml",
-    "!.github/workflows/chromatic.yml",
-    "!.github/workflows/main.yml"
+    ".github/workflows/closed_references.yml",
+    ".github/workflows/conventional_commits.yml",
+    ".github/workflows/format.yml",
+    ".github/workflows/labels.yml",
+    ".github/workflows/licenses.yml",
+    ".github/workflows/pm.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/stale.yml",
+    "package.json",
+    "packages/legacy-stories/package.json",
+    "packages/markup/package.json",
+    "packages/nextjs/package.json",
+    "packages/preact/package.json",
+    "packages/react/package.json",
+    "scripts/package.json",
+    "scripts/theme-variable-helper/package.json"
   ]
 }
