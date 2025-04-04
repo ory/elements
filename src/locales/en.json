@@ -158,7 +158,7 @@
   "login.registration-label": "Don't have an account?",
   "login.subtitle-oauth2": "To authenticate {clientName}",
   "login.title": "Sign in",
-  "login.title-aal2": "Two-Factor Authentication",
+  "login.title-aal2": "Second factor authentication",
   "login.title-refresh": "Confirm it's you",
   "logout.accept-button": "Yes",
   "logout.reject-button": "No",
