@@ -1,6 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "enabled": true,
+  "ignorePaths": [
+    "*",
+    "!packages/elements-react/package.json",
+    "!.github/workflows/ci.yml",
+    "!.github/workflows/chromatic.yml",
+    "!.github/workflows/main.yml"
   ]
 }
