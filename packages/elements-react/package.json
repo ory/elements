@@ -69,7 +69,7 @@
     "eslint-plugin-react": "7.37.1",
     "postcss": "8.4.47",
     "tailwindcss-animate": "1.0.7",
-    "tsup": "8.3.0"
+    "tsup": "8.3.5"
   },
   "keywords": [
     "ory",
