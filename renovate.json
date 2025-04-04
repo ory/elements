@@ -18,5 +18,14 @@
     "packages/react/package.json",
     "scripts/package.json",
     "scripts/theme-variable-helper/package.json"
+  ],
+  "packageRules": [
+    {
+      "description": "@ory/elements-react",
+      "enabled": true,
+      "groupName": "@ory/elements-react",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["package/elements-react/package.json"]
+    }
   ]
 }
