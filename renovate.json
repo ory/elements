@@ -16,7 +16,10 @@
     "packages/preact/package.json",
     "packages/react/package.json",
     "scripts/package.json",
-    "scripts/theme-variable-helper/package.json"
+    "scripts/theme-variable-helper/package.json",
+    "examples/nextjs-spa/package.json",
+    "examples/preact-spa/package.json",
+    "examples/react-spa/package.json"
   ],
   "packageRules": [
     {
