@@ -25,7 +25,7 @@
       "enabled": true,
       "groupName": "@ory/elements-react",
       "matchManagers": ["npm"],
-      "matchFileNames": ["package/elements-react/package.json"]
+      "matchFileNames": ["packages/elements-react/package.json"]
     }
   ]
 }
