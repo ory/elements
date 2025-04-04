@@ -36,5 +36,12 @@
       "matchManagers": ["npm"],
       "matchFileNames": ["package.json"]
     }
+    {
+      "description": "examples",
+      "enabled": true,
+      "groupName": "examples",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["examples/nextjs-app-router/package.json", "examples/nextjs-pages-router/package.json"]
+    }
   ]
 }
