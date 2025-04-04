@@ -49,14 +49,14 @@
     "clsx": "2.1.1",
     "input-otp": "1.4.2",
     "react-hook-form": "7.55.0",
-    "react-intl": "6.8.9",
-    "tailwind-merge": "2.6.0",
+    "react-intl": "7.1.10",
+    "tailwind-merge": "3.1.0",
     "usehooks-ts": "3.1.1",
     "zustand": "5.0.3"
   },
   "peerDependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
