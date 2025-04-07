@@ -1292,7 +1292,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    name: string;\n    logoUrl?: string;\n    stylesheet?: string;\n    favicon?: string;\n    sdk: {\n        url: string;\n        options?: "
+              "text": "{\n    logoUrl?: string;\n    sdk: {\n        url: string;\n        options?: "
             },
             {
               "kind": "Reference",
@@ -1310,7 +1310,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    project: {\n        registration_enabled: boolean;\n        verification_enabled: boolean;\n        recovery_enabled: boolean;\n        recovery_ui_url: string;\n        registration_ui_url: string;\n        verification_ui_url: string;\n        login_ui_url: string;\n        default_redirect_url?: string;\n    };\n    intl?: "
+              "text": ">;\n    };\n    intl?: "
             },
             {
               "kind": "Reference",
@@ -1319,7 +1319,34 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": ";\n} & ({\n    name: string;\n    project: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "AccountExperienceConfiguration",
+              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"name\"> & {\n        name?: string;\n    };\n} | {\n    name?: string;\n    project: "
+            },
+            {
+              "kind": "Reference",
+              "text": "AccountExperienceConfiguration",
+              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n})"
             },
             {
               "kind": "Content",
@@ -1331,7 +1358,7 @@
           "name": "OryClientConfiguration",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 14
           }
         },
         {

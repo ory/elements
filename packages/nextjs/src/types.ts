@@ -77,6 +77,13 @@ export interface OryConfig {
      * Set this to use a custom default redirect URI. This path should be relative to your application's base URL.
      */
     defaultRedirectUri?: string
+
+    /**
+     * Set this to use a custom error UI for the error flow. This path should be relative to the
+     * project root. Assuming you have a file at `./app/my-error/page.tsx`, you would set this to
+     * `/my-error`.
+     */
+    errorUiPath?: string
   }
 }
 

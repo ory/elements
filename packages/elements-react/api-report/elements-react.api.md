@@ -4,6 +4,7 @@
 
 ```ts
 
+import { AccountExperienceConfiguration } from '@ory/client-fetch';
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
@@ -173,26 +174,21 @@ export function OryCardValidationMessages({ ...props }: OryMessageRootProps): re
 
 // @public (undocumented)
 export type OryClientConfiguration = {
-    name: string;
     logoUrl?: string;
-    stylesheet?: string;
-    favicon?: string;
     sdk: {
         url: string;
         options?: Partial<ConfigurationParameters>;
     };
-    project: {
-        registration_enabled: boolean;
-        verification_enabled: boolean;
-        recovery_enabled: boolean;
-        recovery_ui_url: string;
-        registration_ui_url: string;
-        verification_ui_url: string;
-        login_ui_url: string;
-        default_redirect_url?: string;
-    };
     intl?: IntlConfig;
-};
+} & ({
+    name: string;
+    project: Omit<AccountExperienceConfiguration, "name"> & {
+        name?: string;
+    };
+} | {
+    name?: string;
+    project: AccountExperienceConfiguration;
+});
 
 // @public (undocumented)
 export function OryConsentCard(): react_jsx_runtime.JSX.Element;
