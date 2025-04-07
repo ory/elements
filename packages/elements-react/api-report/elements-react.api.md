@@ -172,7 +172,7 @@ export type OryCardSettingsSectionProps = PropsWithChildren & {
 // @public (undocumented)
 export function OryCardValidationMessages({ ...props }: OryMessageRootProps): react_jsx_runtime.JSX.Element | null;
 
-// @public (undocumented)
+// @public
 export type OryClientConfiguration = {
     logoUrl?: string;
     sdk: {

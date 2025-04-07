@@ -1284,7 +1284,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryClientConfiguration:type",
-          "docComment": "",
+          "docComment": "/**\n * The configuration for Ory Elements.\n *\n * This configuration is used to customize the behavior and appearance of Ory Elements.\n *\n * By setting UI urls, you can override the default URLs for the login, registration, recovery, and verification flows.\n *\n * You can also set the name of the application, the logo URL, and the SDK configuration. By default, the name and logo are displayed in the card's header.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
