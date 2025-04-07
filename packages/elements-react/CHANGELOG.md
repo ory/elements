@@ -1,3 +1,18 @@
+## 1.0.0-next.41 (2025-04-07)
+
+### 🚀 Features
+
+- add missing French translations ([#401](https://github.com/ory/elements/pull/401))
+
+### 🩹 Fixes
+
+- resolve wcag2aa color contrast issues ([#367](https://github.com/ory/elements/pull/367))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+- Jordan Labrosse
+
 ## 1.0.0-next.40 (2025-04-02)
 
 ### 🚀 Features
