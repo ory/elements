@@ -1,7 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ConfigurationParameters } from "@ory/client-fetch"
+import {
+  AccountExperienceConfiguration,
+  ConfigurationParameters,
+} from "@ory/client-fetch"
 import { IntlContextProps } from "../context/intl-context"
 
 export type IntlConfig = IntlContextProps
@@ -9,33 +12,23 @@ export type IntlConfig = IntlContextProps
 export type OryClientConfiguration = {
   /**
    * The name of the application the user is logging in to.
+   * @deprecated Use `project.name` instead.
+   * @see {@link AccountExperienceConfiguration.name}
    */
-  name: string
+  name?: string
 
   /**
    * An optional logo URL to display in the UI instead of the name.
+   * @deprecated Use `project.logo_light_url` instead.
+   * @see {@link AccountExperienceConfiguration.logo_light_url}
    */
   logoUrl?: string
-
-  stylesheet?: string
-
-  favicon?: string
 
   sdk: {
     url: string
     options?: Partial<ConfigurationParameters>
   }
 
-  project: {
-    registration_enabled: boolean
-    verification_enabled: boolean
-    recovery_enabled: boolean
-
-    recovery_ui_url: string
-    registration_ui_url: string
-    verification_ui_url: string
-    login_ui_url: string
-    default_redirect_url?: string
-  }
+  project: AccountExperienceConfiguration
   intl?: IntlConfig
 }
