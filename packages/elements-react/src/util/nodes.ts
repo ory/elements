@@ -1,3 +1,6 @@
+// Copyright © 2025 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 
 export function findScreenSelectionButton(

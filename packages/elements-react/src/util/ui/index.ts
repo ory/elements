@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client-fetch"
+import {
+  isUiNodeInputAttributes,
+  isUiNodeScriptAttributes,
+  UiNode,
+} from "@ory/client-fetch"
 
 import type {
   UiNodeAttributes,
@@ -156,11 +160,18 @@ export function useNodesGroups(nodes: UiNode[]) {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
 
     for (const node of nodes) {
-      if (node.type === "script") {
-        // We always render all scripts, because the scripts for passkeys are part of the webauthn group,
-        // which leads to this hook returning a webauthn group on passkey flows (which it should not - webauthn is the "legacy" passkey implementation).
+      if (isUiNodeScriptAttributes(node.attributes)) {
+        // Scripts are included in the node list even though the method itself isn't available. So ignore those.
         continue
       }
+
+      if (isUiNodeInputAttributes(node.attributes)) {
+        // Hidden input fields can not be seen, so the method is not available. Ignore these.
+        if (node.attributes.type === "hidden") {
+          continue
+        }
+      }
+
       const groupNodes = groups[node.group] ?? []
       groupNodes.push(node)
       groups[node.group] = groupNodes

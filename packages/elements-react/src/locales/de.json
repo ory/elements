@@ -165,7 +165,7 @@
   "two-step.code.description": "Ein Bestätigungscode wird an Ihre E-Mail gesendet.",
   "two-step.code.title": "E-Mail-Code",
   "two-step.passkey.description": "Verwenden Sie die Fingerabdruck- oder Gesichtserkennung Ihres Geräts",
-  "two-step.passkey.title": "Passwort (empfohlen)",
+  "two-step.passkey.title": "Passkey (empfohlen)",
   "two-step.password.description": "Geben Sie Ihr Passwort ein, das mit Ihrem Konto verknüpft ist",
   "two-step.password.title": "Passwort",
   "two-step.webauthn.title": "Sicherheitsschlüssel",
