@@ -253,6 +253,7 @@
   "settings.passkey.description": "Manage your passkey settings",
   "settings.passkey.info": "Manage your passkey settings",
   "card.footer.select-another-method": "Select another method",
+  "card.footer.return-profile": "Return to profile",
   "account-linking.title": "Link account",
   "property.password": "password",
   "property.email": "email",

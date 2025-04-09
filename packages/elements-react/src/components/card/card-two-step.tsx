@@ -132,6 +132,10 @@ export function OryTwoStepCard() {
       return true
     }).length > 0
 
+  const captchaNodes = ui.nodes.filter(
+    (n) => n.group === UiNodeGroupEnum.Captcha,
+  )
+
   return (
     <OryCard>
       <OryCardHeader />
@@ -139,18 +143,18 @@ export function OryTwoStepCard() {
         <OryCardValidationMessages />
         {showSso && <OryFormSocialButtonsForm />}
         <OryForm onAfterSubmit={handleAfterFormSubmit}>
-          <Form.Group>
-            {formState.current === "provide_identifier" && (
-              <>
-                {showSsoDivider && <Card.Divider />}
-                {nonSsoNodes.sort(sortNodes).map((node, k) => (
-                  <Node node={node} key={k} />
-                ))}
-              </>
-            )}
-            {formState.current === "select_method" && (
-              <>
-                <Card.Divider />
+          {formState.current === "provide_identifier" && (
+            <Form.Group>
+              {showSsoDivider && <Card.Divider />}
+              {nonSsoNodes.sort(sortNodes).map((node, k) => (
+                <Node node={node} key={k} />
+              ))}
+            </Form.Group>
+          )}
+          {formState.current === "select_method" && (
+            <Form.Group>
+              {Object.entries(options).length > 0 && <Card.Divider />}
+              {Object.entries(options).length > 0 && (
                 <AuthMethodList
                   options={options}
                   setSelectedGroup={(group) =>
@@ -160,26 +164,24 @@ export function OryTwoStepCard() {
                     })
                   }
                 />
-                {ui.nodes
-                  .filter((n) => n.group === UiNodeGroupEnum.Captcha)
-                  .map((node, k) => (
-                    <Node node={node} key={k} />
-                  ))}
-              </>
-            )}
-            {formState.current === "method_active" && (
-              <>
-                {ui.nodes
-                  .filter((n) => n.type === "script")
-                  .map((node, k) => (
-                    <Node node={node} key={k} />
-                  ))}
-                {finalNodes.sort(sortNodes).map((node, k) => (
+              )}
+              {captchaNodes.map((node, k) => (
+                <Node node={node} key={k} />
+              ))}
+            </Form.Group>
+          )}
+          {formState.current === "method_active" && (
+            <Form.Group>
+              {ui.nodes
+                .filter((n) => n.type === "script")
+                .map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
-              </>
-            )}
-          </Form.Group>
+              {finalNodes.sort(sortNodes).map((node, k) => (
+                <Node node={node} key={k} />
+              ))}
+            </Form.Group>
+          )}
           <OryCardFooter />
         </OryForm>
       </OryCardContent>
@@ -190,6 +192,10 @@ export function OryTwoStepCard() {
 function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { Card } = useComponents()
   const { setValue, getValues } = useFormContext()
+
+  if (Object.entries(options).length === 0) {
+    return null
+  }
 
   const handleClick = (group: UiNodeGroupEnum, options?: MethodOption) => {
     if (isGroupImmediateSubmit(group)) {
@@ -208,6 +214,7 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
       setSelectedGroup(group)
     }
   }
+
   return (
     <Card.AuthMethodListContainer>
       {Object.entries(options).map(([group, options]) => (
