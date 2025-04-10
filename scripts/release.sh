@@ -50,7 +50,7 @@ npx nx release publish --tag=$preid --dry-run --verbose -p $project
 
 echo "--------------- CHANGELOG ------------------"
 echo ""
-cat "packages/$package_dir/CHANGELOG.md" | tail -n 30
+cat "packages/$package_dir/CHANGELOG.md" | head -n 30
 echo ""
 echo "--------------------------------------------"
 
