@@ -1,3 +1,13 @@
+## 1.0.0-next.44 (2025-04-10)
+
+### 🩹 Fixes
+
+- use currentColor in eye icons ([#433](https://github.com/ory/elements/pull/433))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-next.43 (2025-04-10)
 
 ### 🚀 Features
