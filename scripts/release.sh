@@ -42,6 +42,8 @@ fi
 
 npx nx release publish --tag=$preid --dry-run --verbose -p $project
 
+cat CHANGELOG.md | tail -n 30
+
 read -p "Dry run and CHANGELOG.md correct? (y/n) " RESP
 if [ "$RESP" != "y" ]; then
   echo "Aborting"
