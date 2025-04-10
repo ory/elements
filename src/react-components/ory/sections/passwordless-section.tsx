@@ -16,7 +16,7 @@ export const PasswordlessSection = (
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["webauthn", "identifier_first"],
+          groups: ["webauthn", "identifier_first", "captcha"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
@@ -53,7 +53,7 @@ export const PasskeySection = (flow: SelfServiceFlow): JSX.Element | null => {
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["identifier_first", "passkey"],
+          groups: ["identifier_first", "passkey", "captcha"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
@@ -92,7 +92,7 @@ export const PasskeyLoginSection = (
       <FilterFlowNodes
         filter={{
           nodes: flow.ui.nodes,
-          groups: ["passkey", "identifier_first"],
+          groups: ["passkey", "identifier_first", "captcha"],
           withoutDefaultAttributes: true,
           attributes: ["hidden"], // the form will take care of hidden fields
         }}
@@ -120,7 +120,7 @@ export const PasswordlessLoginSection = (
         <FilterFlowNodes
           filter={{
             nodes: flow.ui.nodes,
-            groups: ["webauthn", "identifier_first"],
+            groups: ["webauthn", "identifier_first", "captcha"],
             withoutDefaultAttributes: true,
             attributes: ["hidden"], // the form will take care of hidden fields
           }}

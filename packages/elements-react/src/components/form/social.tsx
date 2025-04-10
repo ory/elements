@@ -42,8 +42,16 @@ export function OryFormOidcButtons() {
     return null
   }
 
+  // Get captcha nodes
+  const captchaNodes = ui.nodes.filter(
+    (node) => node.group === UiNodeGroupEnum.Captcha,
+  )
+
   return (
     <Form.OidcRoot nodes={filteredNodes}>
+      {captchaNodes.map((node) => (
+        <Node.Captcha node={node} />
+      ))}
       {filteredNodes.map((node, k) => (
         <Node.OidcButton
           node={node}
