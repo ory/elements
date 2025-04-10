@@ -27,7 +27,7 @@ export function DefaultCurrentIdentifierButton() {
     return null
   }
 
-  const nodeBackButton = getBackButtonNode(flowType, ui.nodes)
+  const nodeBackButton = getBackButtonNodeAttributes(flowType, ui.nodes)
   if (!nodeBackButton) {
     return null
   }
@@ -126,7 +126,7 @@ export function DefaultCurrentIdentifierButton() {
   )
 }
 
-export function getBackButtonNode(
+export function getBackButtonNodeAttributes(
   flowType: FlowType,
   nodes: UiNode[],
 ): UiNodeInputAttributes | undefined {
@@ -135,7 +135,7 @@ export function getBackButtonNode(
     case FlowType.Login:
       nodeBackButtonAttributes = nodes.find(
         (node) =>
-          "name" in node.attributes &&
+          isUiNodeInputAttributes(node.attributes) &&
           node.attributes.name === "identifier" &&
           ["default", "identifier_first"].includes(node.group),
       )?.attributes as UiNodeInputAttributes | undefined
@@ -156,7 +156,7 @@ export function getBackButtonNode(
 
   if (
     nodeBackButtonAttributes?.node_type !== "input" ||
-    !nodeBackButtonAttributes.value
+    !nodeBackButtonAttributes?.value
   ) {
     return undefined
   }
@@ -169,6 +169,7 @@ const backButtonCandiates = [
   "traits.username",
   "traits.phone_number",
 ]
+
 /**
  * Guesses the back button for registration flows
  *
@@ -177,7 +178,7 @@ const backButtonCandiates = [
  * The list is most likely not exhaustive yet, and may need to be updated in the future.
  *
  */
-function guessRegistrationBackButton(
+export function guessRegistrationBackButton(
   uiNodes: UiNode[],
 ): UiNodeInputAttributes | undefined {
   return uiNodes.find(

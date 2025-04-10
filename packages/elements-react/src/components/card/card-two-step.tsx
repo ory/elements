@@ -44,11 +44,14 @@ export function OryTwoStepCard() {
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
 
-  const uniqueGroups = useNodesGroups(ui.nodes)
+  const groupsToShow = useNodesGroups(ui.nodes, {
+    // We only want to render groups that have visible elements.
+    omit: ["script", "input_hidden"],
+  })
 
   const options: MethodOptions = Object.fromEntries(
     Object.values(UiNodeGroupEnum)
-      .filter((group) => uniqueGroups.groups[group]?.length)
+      .filter((group) => groupsToShow.groups[group]?.length)
       .filter(
         (group) =>
           !(
@@ -90,7 +93,7 @@ export function OryTwoStepCard() {
   const nonSsoNodes = removeSsoNodes(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
-      ? getFinalNodes(uniqueGroups.groups, formState.method)
+      ? getFinalNodes(groupsToShow.groups, formState.method)
       : []
 
   const handleAfterFormSubmit = (method: unknown) => {

@@ -152,24 +152,32 @@ export function nodesToAuthMethodGroups(
  * Groups nodes by their group and returns an object with the groups and entries.
  *
  * @param nodes - The nodes to group
+ * @param opts - The options to use
+ * @param opts.omit - Which nodes to omit from the groups
  */
-export function useNodesGroups(nodes: UiNode[]) {
+export function useNodesGroups(
+  nodes: UiNode[],
+  { omit }: { omit?: Array<"script" | "input_hidden"> } = {},
+) {
   const groupSorter = useGroupSorter()
 
   const groups = useMemo(() => {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
 
     for (const node of nodes) {
-      if (isUiNodeScriptAttributes(node.attributes)) {
-        // Scripts are included in the node list even though the method itself isn't available. So ignore those.
+      if (
+        omit?.includes("script") &&
+        isUiNodeScriptAttributes(node.attributes)
+      ) {
         continue
       }
 
-      if (isUiNodeInputAttributes(node.attributes)) {
-        // Hidden input fields can not be seen, so the method is not available. Ignore these.
-        if (node.attributes.type === "hidden") {
-          continue
-        }
+      if (
+        omit?.includes("input_hidden") &&
+        isUiNodeInputAttributes(node.attributes) &&
+        node.attributes.type === "hidden"
+      ) {
+        continue
       }
 
       const groupNodes = groups[node.group] ?? []
