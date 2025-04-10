@@ -25,6 +25,14 @@ export const OIDCSection = (flow: SelfServiceFlow): JSX.Element | null => {
           <FilterFlowNodes
             filter={{
               nodes: flow.ui.nodes,
+              groups: ["captcha"],
+              withoutDefaultGroup: true,
+              attributes: ["hidden"],
+            }}
+          />
+          <FilterFlowNodes
+            filter={{
+              nodes: flow.ui.nodes,
               groups: ["oidc", "saml"],
               withoutDefaultGroup: true,
               excludeAttributeTypes: ["submit"],
