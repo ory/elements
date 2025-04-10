@@ -4,7 +4,13 @@ project=$1
 preid=$2
 
 # check that projec is either @ory/elements-react @ory/nextjs
-if [ "$project" != "@ory/elements-react" ] && [ "$project" != "@ory/nextjs" ]; then
+
+# Map npm package names to directory paths
+if [ "$project" = "@ory/elements-react" ]; then
+  package_dir="elements-react"
+elif [ "$project" = "@ory/nextjs" ]; then
+  package_dir="nextjs"
+else
   echo "Invalid project name. Please provide either @ory/elements-react or @ory/nextjs"
   exit 1
 fi
@@ -44,7 +50,7 @@ npx nx release publish --tag=$preid --dry-run --verbose -p $project
 
 echo "--------------- CHANGELOG ------------------"
 echo ""
-cat "packages/$project/CHANGELOG.md" | tail -n 30
+cat "packages/$package_dir/CHANGELOG.md" | tail -n 30
 echo ""
 echo "--------------------------------------------"
 
