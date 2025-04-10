@@ -1,9 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
+import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
 import { ConsentFlow, useComponents, useOryFlow } from "@ory/elements-react"
-import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 import { findNode, nodesToAuthMethodGroups } from "../../../../util/ui"

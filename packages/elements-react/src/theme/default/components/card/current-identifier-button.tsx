@@ -16,7 +16,7 @@ import { useFormContext } from "react-hook-form"
 
 export function DefaultCurrentIdentifierButton() {
   const { flow, flowType, config, formState } = useOryFlow()
-  const { setValue, handleSubmit } = useFormContext()
+  const { setValue } = useFormContext()
   const ui = flow.ui
 
   if (formState.current === "provide_identifier") {
