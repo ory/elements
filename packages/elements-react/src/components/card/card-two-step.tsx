@@ -65,7 +65,6 @@ export function OryTwoStepCard() {
       .map((g) => [g, {}]),
   )
 
-
   // Special case to show the address on code method selector
   if (UiNodeGroupEnum.Code in options) {
     let identifier = findNode(ui.nodes, {
