@@ -7,6 +7,9 @@ import {
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
+  UiNodeGroupEnum,
+  UiNodeInputAttributes,
+  UiNodeInputAttributesTypeEnum,
   UiText,
 } from "@ory/client-fetch"
 import { ComponentType, PropsWithChildren } from "react"
@@ -225,9 +228,14 @@ export type OryFlowComponentOverrides = DeepPartialTwoLevels<OryFlowComponents>
 
 export type OryFormProps = PropsWithChildren<{
   onAfterSubmit?: (method: string | number | boolean | undefined) => void
+  "data-testid"?: string
 }>
 
-export function OryForm({ children, onAfterSubmit }: OryFormProps) {
+export function OryForm({
+  children,
+  onAfterSubmit,
+  "data-testid": dataTestId,
+}: OryFormProps) {
   const { Form } = useComponents()
   const flowContainer = useOryFlow()
   const methods = useFormContext()
@@ -262,12 +270,12 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
     }
 
     return (
-      <>
+      <div data-testid={dataTestId}>
         <Message.Root>
           <Message.Content key={m.id} message={m} />
         </Message.Root>
         <OryCardFooter />
-      </>
+      </div>
     )
   }
 
@@ -282,6 +290,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
 
   return (
     <Form.Root
+      data-testid={dataTestId}
       action={flowContainer.flow.ui.action}
       method={flowContainer.flow.ui.method}
       onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}

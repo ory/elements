@@ -65,6 +65,7 @@ export type FormValues = Record<string, string | boolean | number | undefined>
 
 export type OryFormRootProps = ComponentPropsWithoutRef<"form"> & {
   onSubmit: FormEventHandler<HTMLFormElement>
+  "data-testid"?: string
 }
 
 export type OryNodeInputProps = {

@@ -4,9 +4,11 @@
 import { useComponents } from "../../context"
 import { useOryFlow } from "../../context"
 import {
+  isUiNodeInputAttributes,
   UiNode,
   UiNodeGroupEnum,
   UiNodeInputAttributes,
+  UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryForm } from "./form"
@@ -42,16 +44,8 @@ export function OryFormOidcButtons() {
     return null
   }
 
-  // Get captcha nodes
-  const captchaNodes = ui.nodes.filter(
-    (node) => node.group === UiNodeGroupEnum.Captcha,
-  )
-
   return (
     <Form.OidcRoot nodes={filteredNodes}>
-      {captchaNodes.map((node) => (
-        <Node.Captcha node={node} />
-      ))}
       {filteredNodes.map((node, k) => (
         <Node.OidcButton
           node={node}
@@ -88,7 +82,7 @@ export function OryFormSocialButtonsForm() {
 
   return (
     <OryFormProvider>
-      <OryForm>
+      <OryForm data-testid={`ory/form/methods/oidc-saml`}>
         <OryFormOidcButtons />
       </OryForm>
     </OryFormProvider>
