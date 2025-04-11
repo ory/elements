@@ -30,6 +30,7 @@
     "src/theme/default/assets/global.d.ts",
     "tsup.config.ts",
     "jest.config.ts",
-    "tailwind.config.ts"
+    "tailwind.config.ts",
+    ".storybook/**/*.ts"
   ]
 }

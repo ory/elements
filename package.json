@@ -10,9 +10,7 @@
     "build:test": "nx run @ory/elements-test:build --skip-nx-cache",
     "test": "nx run-many --target=test --all",
     "lint": "nx run-many --target=lint,api-extractor --all",
-    "docs": "typedoc --entryPointStrategy packages . --out docs",
-    "generate-locales": "cd scripts && npm run generate-locales",
-    "prerelease-v1": "nx release --skip-publish && nx release publish --tag next"
+    "generate-locales": "cd scripts && npm run generate-locales"
   },
   "repository": {
     "type": "git",
