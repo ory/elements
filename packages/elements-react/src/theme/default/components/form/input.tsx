@@ -20,7 +20,7 @@ export const DefaultInput = ({
   onClick,
 }: OryNodeInputProps) => {
   const label = getNodeLabel(node)
-  const { register } = useFormContext()
+  const { register, watch } = useFormContext()
   const {
     value,
     autocomplete,

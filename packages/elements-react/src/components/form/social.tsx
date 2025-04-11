@@ -4,9 +4,11 @@
 import { useComponents } from "../../context"
 import { useOryFlow } from "../../context"
 import {
+  isUiNodeInputAttributes,
   UiNode,
   UiNodeGroupEnum,
   UiNodeInputAttributes,
+  UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { OryForm } from "./form"
@@ -80,7 +82,7 @@ export function OryFormSocialButtonsForm() {
 
   return (
     <OryFormProvider>
-      <OryForm>
+      <OryForm data-testid={`ory/form/methods/oidc-saml`}>
         <OryFormOidcButtons />
       </OryForm>
     </OryFormProvider>
