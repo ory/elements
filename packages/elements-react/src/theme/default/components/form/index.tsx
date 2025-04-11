@@ -18,9 +18,11 @@ export function DefaultFormContainer({
   onSubmit,
   action,
   method,
+  "data-testid": dataTestId,
 }: PropsWithChildren<OryFormRootProps>) {
   return (
     <form
+      data-testid={dataTestId}
       onSubmit={onSubmit}
       noValidate
       action={action}

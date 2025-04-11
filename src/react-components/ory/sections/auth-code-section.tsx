@@ -28,7 +28,7 @@ export const AuthCodeSection = ({
           groups: ["code", "identifier_first", "captcha"],
           // we don't want to map the default group twice
           // the form already maps hidden fields under the default group
-          // we are only interested in hidden fields that are under the code group
+          // we are only interested in hidden fields that are under the code, identifier first, or captcha group
           withoutDefaultGroup: true,
           withoutDefaultAttributes: true,
           attributes: ["hidden"],
