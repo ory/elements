@@ -17,33 +17,7 @@ jobs:
         run: npm ci
       - uses: nrwl/nx-set-shas@v4
       - run: npx playwright install --with-deps
-      # Re-enable, once we don't have weird depdenency issues, because of the shared src/ folder
-      # - run: npx nx affected -t lint test build
       - run: npx nx run-many --all -t lint test build api-extractor
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: react-spa playwright-report
-          path: |
-            examples/react-spa/playwright-report/
-            examples/react-spa/test-results/
-          retention-days: 7
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: preact-spa playwright-report
-          path: |
-            examples/preact-spa/playwright-report/
-            examples/preact-spa/test-results/
-          retention-days: 7
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: nextjs-spa playwright-report
-          path: |
-            examples/nextjs-spa/playwright-report/
-            examples/nextjs-spa/test-results/
-          retention-days: 7
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
