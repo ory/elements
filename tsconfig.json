@@ -1,29 +1,25 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "useDefineForClassFields": true,
-    "allowJs": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "alwaysStrict": false,
+    "declaration": true,
+    "declarationMap": false,
+    "downlevelIteration": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "declarationMap": true,
-    "outDir": "dist",
-    "jsx": "react-jsx",
-    "rootDir": "src"
+    "importHelpers": true,
+    "lib": ["es6"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "ES2019",
+    "noErrorTruncation": true
   },
-  "include": [
-    "./src",
-    "vite.config.ts",
-    "package.json",
-    "playwright/**/*.{ts,tsx}"
-  ],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs"
-    }
-  },
-  "extends": "./tsconfig.base.json"
+  "exclude": ["node_modules", "dist", "**/dist/**", "packages/*/dist/**"]
 }

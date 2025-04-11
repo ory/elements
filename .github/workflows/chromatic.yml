@@ -18,18 +18,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - run: npx nx run-many -t build -p @ory/elements-react -p @ory/elements
-
       - run: npx nx run-many --all -t build-storybook -- --stats-json
 
-      - uses: chromaui/action@v11
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          exitOnceUploaded: true
-          workingDir: packages/legacy-stories
-          storybookBuildDir: storybook-static
-          onlyChanged: true
       - uses: chromaui/action@v11
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_ELEMENTS_REACT }}
