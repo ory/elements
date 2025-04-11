@@ -25,13 +25,6 @@ jobs:
 
       - uses: chromaui/action@v11
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          exitOnceUploaded: true
-          workingDir: packages/legacy-stories
-          storybookBuildDir: storybook-static
-          onlyChanged: true
-      - uses: chromaui/action@v11
-        with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_ELEMENTS_REACT }}
           exitOnceUploaded: true
           workingDir: packages/elements-react
