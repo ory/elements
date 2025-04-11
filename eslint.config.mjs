@@ -137,48 +137,10 @@ const config = tseslint.config([
     },
   },
   {
-    name: "legacy-examples",
-    files: ["examples/preact-spa/**", "examples/react-spa/**"],
-    languageOptions: {
-      parserOptions: {
-        tsconfigRootDir: "./",
-        ecmaVersion: 2021,
-        sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    plugins: {
-      react,
-      tsdoc,
-    },
-    rules: {
-      "tsdoc/syntax": "warn",
-      // The legacy examples violate these rule a ton, so we disable it
-      "promise/always-return": "off",
-      "@typescript-eslint/no-unsafe-member-access": "off",
-      "@typescript-eslint/no-unsafe-argument": "off",
-      "@typescript-eslint/no-unsafe-assignment": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  },
-  {
     files: ["packages/elements-react-stories/**"],
     rules: {
       // The stories need to be able to require the JSON files, at the moment
       "@typescript-eslint/no-require-imports": "off",
-    },
-  },
-  {
-    name: "legacy-elements",
-    files: ["src/react-components/**", "src/ui/**"],
-    rules: {
-      "@typescript-eslint/unbound-method": "off",
-      "@typescript-eslint/no-unsafe-call": "off",
-      "@typescript-eslint/no-unsafe-argument": "off",
-      "tsdoc/syntax": "off",
-      "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {
