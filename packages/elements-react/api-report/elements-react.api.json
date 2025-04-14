@@ -2102,7 +2102,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryForm({ children, onAfterSubmit }: "
+              "text": "declare function OryForm({ children, onAfterSubmit, \"data-testid\": dataTestId, }: "
             },
             {
               "kind": "Reference",
@@ -2132,7 +2132,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, onAfterSubmit }",
+              "parameterName": "{ children, onAfterSubmit, \"data-testid\": dataTestId, }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2378,7 +2378,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n}>"
+              "text": "<{\n    onAfterSubmit?: (method: string | number | boolean | undefined) => void;\n    \"data-testid\"?: string;\n}>"
             },
             {
               "kind": "Content",
@@ -2427,7 +2427,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n}"
+              "text": ">;\n    \"data-testid\"?: string;\n}"
             },
             {
               "kind": "Content",

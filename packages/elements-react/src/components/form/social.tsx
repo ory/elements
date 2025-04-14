@@ -80,7 +80,7 @@ export function OryFormSocialButtonsForm() {
 
   return (
     <OryFormProvider>
-      <OryForm>
+      <OryForm data-testid={`ory/form/methods/oidc-saml`}>
         <OryFormOidcButtons />
       </OryForm>
     </OryFormProvider>
