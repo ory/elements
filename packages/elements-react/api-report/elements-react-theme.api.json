@@ -721,7 +721,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultFormContainer({ children, onSubmit, action, method, }: "
+              "text": "declare function DefaultFormContainer({ children, onSubmit, action, method, \"data-testid\": dataTestId, }: "
             },
             {
               "kind": "Reference",
@@ -764,7 +764,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, onSubmit, action, method, }",
+              "parameterName": "{ children, onSubmit, action, method, \"data-testid\": dataTestId, }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 5
