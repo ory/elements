@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements-markup",
-  "version": "0.5.4",
+  "version": "0.6.0-pre.0",
   "publishConfig": {
     "access": "public"
   },
