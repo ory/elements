@@ -8,7 +8,7 @@ account pages for Ory a breeze:
 - Reduces time to add complex auth flows to your customer experience, including
   multi-factor authentication and account recovery.
 - Customizable, themeable, and replaceable components.
-- Works with the React ecosystem (NextJS, React SPA).
+- Works with the React ecosystem (Next.js, plain React).
 - Dynamically adapts the user interface to your Ory identity schema, sign-in and
   flow configuration.
 
@@ -17,620 +17,412 @@ Ory Elements' comes with several packages:
 - [`@ory/elements-react`](./packages/elements-react/README.md)
 - [`@ory/nextjs`](./packages/nextjs/README.md)
 
-Additionally, the v0 version of Ory Elements is in maintenance mode for
-packages:
-
-- [`@ory/elements-markup`](./packages/markup/README.md)
-- [`@ory/elements-preact`](./packages/preact/README.md)
-- [`@ory/elements-markup`](./packages/markup/README.md)
-
-If you use one of the above packages, we recommend migrating to the new packages
-ASAP.
+> [!NOTE]  
+> If you've used @ory/elements, @ory/elements-markup or @ory/elements-preact
+> before, we recommend migrating to @ory/elements-react.
 
 ## Getting Started
 
-Install Ory Elements into your existing React / Preact or Express.js
-application. You can find example apps [here](#example-apps)
+Install Ory Elements into your existing React application. You can find example
+apps [here](#example-apps)
 
-**React**
+> [!TIP]  
+> Using Next.js? Skip [ahead](#nextjs)!
 
 ```shell
-npm install @ory/elements --save
+npm install @ory/elements-react react react-dom
 ```
 
-**Preact**
+To get started, add a login route to your application, and import the `Login`
+from the `@ory/elements-react/theme` package:
 
-```shell
-npm install @ory/elements-preact --save
+```tsx
+import { OryClientConfiguration } from "@ory/elements-react"
+import { Login } from "@ory/elements-react/theme"
+
+const baseConfig = {
+  // Add
+  project: {
+    login_ui_url: "http://localhost:3000/auth/login",
+    // additional project configuration
+  }
+} satisfies OryClientConfiguration
+
+export default async function LoginPage() {
+  const flow = // create or fetch a new login flow
+
+  return (
+    <Login
+      flow={flow}
+      config={config}
+      components={{
+        Card: {},
+      }}
+    />
+  )
+}
 ```
 
-**Express.js**
+### Next.js
 
 ```shell
-npm install @ory/elements-markup --save
+npm install @ory/nextjs
+```
+
+To use the middleware, add the following to `middleware.ts`:
+
+```ts
+import { createOryMiddleware } from "@ory/nextjs/middleware"
+
+const oryConfig = {
+  // Add your configuration
+} satisfies
+
+export const middleware = createOryMiddleware(oryConfig)
+
+// See https://nextjs.org/docs/app/building-your-application/routing/middleware#matching-paths
+export const config = {}
+```
+
+`@ory/nextjs` also comes with a few helpers to make working with the
+self-service Ory flows easier:
+
+```tsx
+import { Login } from "@ory/elements-react/theme"
+import { enhanceOryConfig } from "@ory/nextjs"
+// or @ory/nextjs/pages if you're using the Next.js pages router
+import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
+
+import baseConfig from "@/ory.config"
+
+export default async function LoginPage(props: OryPageParams) {
+  const config = enhanceOryConfig(baseConfig)
+  const flow = await getLoginFlow(config, props.searchParams)
+
+  if (!flow) {
+    return null
+  }
+
+  return (
+    <Login
+      flow={flow}
+      config={config}
+      components={{
+        Card: {},
+      }}
+    />
+  )
+}
 ```
 
 ## Example Apps
 
-Dive into Ory Elements with our `react` and `preact` SPA example applications,
-located in the `examples/` directory.
+Full examples are available in the `examples/` directory of this repository.
 
-To run the example application you will need a couple of things:
-
-1. An [Ory Network (free) account](https://console.ory.sh/)
-2. The [Ory CLI (tunnel)](https://www.ory.sh/docs/guides/cli/installation)
-
-Clone this repository and set up the React example.
-
-```shell
-git clone git@github.com:ory/elements
-npm install
-npm run build:clean
-cd examples/react-spa
-export VITE_ORY_SDK_URL=http://localhost:4000
-npm run dev -- --port 3000
-```
-
-Now run the [Ory CLI](https://www.ory.sh/docs/guides/cli/installation) tunnel.
-
-```shell
-ory tunnel http://localhost:3000 --project <project-slug> --dev
-```
-
-The tunnel will now _mirror_ the Ory APIs under `http://localhost:4000` which we
-have explicitly told our React app to use through the `VITE_ORY_SDK_URL` export.
-
-Now you can see Ory Elements in action by opening <http://localhost:3000> in
-your browser!
+- [app router](https://github.com/ory/elements/tree/main/examples/nextjs-app-router)
+- [pages router](https://github.com/ory/elements/tree/main/examples/nextjs-pages-router)
 
 ## Internalization (i18n)
 
-Ory Elements supports translations out-of-the-box with the `IntlProvider`. The
-`IntlProvider` is required by Ory Elements and maps American English as the
-default language.
+`@ory/elements-react` comes with default translations for many languages.
+Additionally, it provides a way to override the default messages, through the
+`locale` property of the `OryClientConfiguration`.
 
-```tsx
-import { ThemeProvider } from "@ory/elements"
-
-const RootComponent = () => {
-  return (
-    <ThemeProvider>
-      <IntlProvider>// children</IntlProvider>
-    </ThemeProvider>
-  )
-}
-```
-
-To switch the language the UI should use, you can pass in the language code
-through the `locale` prop.
-
-```tsx
-import { ThemeProvider } from "@ory/elements"
-
-const RootComponent = () => {
-  return (
-    <ThemeProvider>
-      <IntlProvider locale="nl" defaultLocale="en">
-        // children
-      </IntlProvider>
-    </ThemeProvider>
-  )
-}
-```
-
-The `IntlProvider` has the ability to accept custom translations through a
-`CustomLanguageFormats` type. You can specify to the `<IntlProvider>` that you
-would like to use a `CustomTranslations` instead of the
-`SupportedLanguages (default)` type which will require providing the
-`customTranslations` prop.
-
-More information on the Ory messages can be found
-[in the docs](https://www.ory.sh/docs/kratos/concepts/ui-user-interface#ui-message-codes)
-
-When providing a translation, you can merge an existing supported locale from
-Ory Elements so that you do not need to provide all keys for the entire
-tranlsation file :)
-
-For example, I want to adjust the English translation to say `Email` instead of
-`ID` when a Login card is shown. So I provide the key-value pair
-`"identities.messages.1070004": "Email"`. Another unsupported language such as
-`af` (Afrikaans) is also added only for one entry
-`"identities.messages.1070004": "E-posadres"`. We merge the supported `en`
-locale from Ory Elements so that we don't need to provide all key-value pairs.
-
-```tsx
-import {
-  ThemeProvider,
-  IntlProvider,
-  CustomTranslations,
-  locales,
-} from "@ory/elements"
-
-const RootComponent = () => {
-  const myCustomTranslations: CustomLanguageFormats = {
-    ...locales,
-    en: {
-      ...locales.en,
-      "identities.messages.1070004": "Email",
+```ts
+const config = {
+  intl: {
+    locale: "en", // Or any of the other supported locales.
+    customTranslations: {
+      en: {
+        "identities.messages.1040006": "This is a custom translation",
+      },
     },
-    af: {
-      // fallback to English on other labels
-      ...locales.en,
-      "identities.messages.1070004": "E-posadres",
-    },
-  }
-
-  return (
-    <ThemeProvider>
-      <IntlProvider<CustomTranslations>
-        customTranslations={myCustomTranslations}
-        locale="af"
-        defaultLocale="en"
-      >
-        // children
-      </IntlProvider>
-    </ThemeProvider>
-  )
-}
-```
-
-It is of course also possible to provide the `IntlProvider` directly from the
-[react-intl](https://formatjs.io/docs/react-intl/) library to format messages
-and provide translations. The default translations of Ory Elements are located
-in the `src/locales` directory.
-
-```tsx
-import { IntlProvider } from "react-intl"
-import { locales } from "@ory/elements"
-
-const customMessages = {
-  ...locales,
-  de: {
-    ...locales.de,
-    "login.title": "Login",
   },
 }
-
-const Main = () => {
-  return (
-    <IntlProvider locale={customMessageLocale} messages={customMessages}>
-      <Router>
-        <Route path="/" component={Dashboard} />
-        {/* ... */}
-      </Router>
-    </IntlProvider>
-  )
-}
 ```
 
-## End-to-end Testing with Playwright
-
-Ory Elements provides an end-to-end library based on
-[Playwright](https://playwright.dev/). This library can be used to test your
-application's login, registration, recovery, verification and settings pages
-with Ory Elements or with your own custom components.
-
-It also provides a set of functions that can mock the Ory APIs and provide
-fixtures mocking the Ory API responses. This is perfect for testing your
-application's logic without having to run it against an Ory Network project,
-making it really fast and easy to implement.
-
-This is a great way for running on your CI/CD pipeline to catch any regressions
-that may have been introduced.
-
-Read more about the [Ory Elements E2E library](./packages/test/README.md).
-
-## Breaking Changes
-
-### v0.1.0-beta.1
-
-All components have to be wrapped in a `<IntlProvider />` component. Either use
-the default one from Ory Elements, or provide your custom messages through the
-`<IntlProvider />` from `react-intl`.
-
-### Before v0.0.1-beta.1
-
-Before v0.0.1-beta.1, Ory Elements exposed a singular `style.css` file which
-contained all the required fonts and icons necessary to work out of the box.
-This was convenient for elements to work out of the box, but caused the bundle
-size to be larger than necessary, especially for applications that only use a
-few components or their own icons and fonts.
-
-The new version of Ory Elements now only exposes the CSS for the components in
-the `style.css` file, and the rest of the CSS are optional and can be imported
-individually.
-
-```tsx
-// Ory Elements
-// optional global css reset
-import "@ory/elements/assets/normalize.css"
-// optional fontawesome icons
-import "@ory/elements/assets/fa-brands.min.css"
-import "@ory/elements/assets/fa-solid.min.css"
-import "@ory/elements/assets/fontawesome.min.css"
-
-// optional fonts
-import "@ory/elements/assets/inter-font.css"
-import "@ory/elements/assets/jetbrains-mono-font.css"
-
-// required styles for Ory Elements
-import "@ory/elements/style.css"
-```
-
-## Quickstart: Storybook
-
-Explore the Ory Elements via [Storybook](https://storybook.js.org/)!
-
-Clone this repository and run:
-
-```shell
-npm run install
-npm run build
-# or `npm run build:clean` to ensure no packages have cached versions
-npm run storybook
-```
-
-## Contributing
-
-Write a new component inside the `src/react-components` directory with its
-corresponding CSS in `src/theme`. Check it out by writing a new story for the
-component in the `src/stories` folder.
-
-Add a test to verify the component works correctly by creating a new file next
-to the component file with the same name and an added `*.spec.ts` extension. All
-E2E and component tests are written in [Playwright](https://playwright.dev/).
-
-**Example Apps**
-
-To contribute an example application, please add it to the `examples/` folder.
-To ensure the example works correctly within the workspace build system, add the
-`elements` package to the example `package.json` with an asterisk `*` as the
-version.
-
-Below is an example of how you should add the package.
-
-```json5
-{
-  // ...
-  devDependencies: {
-    "@ory/elements": "*",
-  },
-  // ...
-}
-```
-
-### Default Translations
-
-Ory Elements comes with default translations for a few language, like Spanish
-and German. The language files are located in the `src/locales` directory. The
-English messages are extracted from this codebase and merged with Kratos
-messages. To update them, run `npm run generate-locales`. They need to be
-updated every time new messages are added to Elements or Kratos. All other
-languages are derived from the English messages. The `IntlProvider` from Ory
-Elements loads the default translations.
+For a full list of messages, see
+[en.json](https://github.com/ory/elements/blob/main/packages/elements-react/src/locales/en.json).
 
 ## Understanding Ory Elements
 
 ### Bundling System
 
-Ory Elements uses [nx](https://nx.dev/) to bundle each package in the Ory
-Elements mono-repository.
-
-Nx publishes the code to the public [npm registry](https://www.npmjs.com/).
-
-### Strongly typed CSS using Vanilla-Extract
-
-[Vanilla-Extract](https://vanilla-extract.style/) is used to strongly type the
-CSS, a type of `CSS-in-JS` library which generates a static CSS file for us when
-the library is built. This means we can manage our CSS and reduce a lot of
-typing, since it can generate the CSS classes for us.
-
-Here is an example of vanilla-extract in action!
-
-```ts
-export const dividerStyle = recipe({
-  base: {
-    display: "block",
-    textAlign: "center",
-    overflow: "hidden",
-    boxSizing: "border-box",
-    border: 0,
-    borderTop: `${pxToRem(4)} solid`,
-    borderColor: oryTheme.border.def,
-    width: pxToRem(64),
-  },
-  variants: {
-    sizes: {
-      fullWidth: {
-        width: "100%",
-      },
-    },
-  },
-})
-```
-
-Generated JS function.
-
-```js
-var dividerStyle = createRuntimeFn({
-  defaultClassName: "_3ldkmt0",
-  variantClassNames: { sizes: { fullWidth: "_3ldkmt1" } },
-  defaultVariants: {},
-  compoundVariants: [],
-})
-```
-
-And the CSS.
-
-```css
-gO .\_3ldkmt0 {
-  display: block;
-  text-align: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  border: 0;
-  border-top: 0.25rem solid;
-  border-color: var(--ory-theme-border-def);
-  width: 4rem;
-}
-
-.\_3ldkmt1 {
-  width: 100%;
-}
-```
+Ory Elements uses [nx](https://nx.dev/) as a task
 
 ### Overriding Styles
 
-Vanilla-Extract also provides us theme variables which we can give static names.
-This means we can overwrite them inside the project consuming the library!
+@ory/elements-react provides CSS variables, that can be used to override
+specific elements or groups of elements in the UI. For more complex
+customizations see the [Component System](#component-system).
 
 ```css
 :root {
-  --ory-theme-font-family: Inter;
-  --ory-theme-font-style: normal;
-  --ory-theme-accent-def: #3d53f5;
-  --ory-theme-accent-muted: #6475f7;
-  --ory-theme-accent-emphasis: #3142c4;
-  --ory-theme-accent-disabled: #e0e0e0;
-  --ory-theme-accent-subtle: #eceefe;
-  --ory-theme-foreground-def: #171717;
-  --ory-theme-foreground-muted: #616161;
-  --ory-theme-foreground-subtle: #9e9e9e;
-  --ory-theme-foreground-disabled: #bdbdbd;
-  --ory-theme-foreground-on-dark: #ffffff;
-  --ory-theme-foreground-on-accent: #ffffff;
-  --ory-theme-foreground-on-disabled: #e0e0e0;
-  --ory-theme-background-surface: #ffffff;
-  --ory-theme-background-canvas: #fcfcfc;
-  --ory-theme-error-def: #9c0f2e;
-  --ory-theme-error-subtle: #fce8ec;
-  --ory-theme-error-muted: #e95c7b;
-  --ory-theme-error-emphasis: #df1642;
-  --ory-theme-success-emphasis: #18a957;
-  --ory-theme-border-def: #e0e0e0;
-  --ory-theme-text-def: #ffffff;
-  --ory-theme-text-disabled: #757575;
-  --ory-theme-input-background: #ffffff;
-  --ory-theme-input-disabled: #e0e0e0;
-  --ory-theme-input-placeholder: #9e9e9e;
-  --ory-theme-input-text: #424242;
+  /* primitives */
+  /* Overriding these may affect more variables "down stream" */
+  --ui-100: #f1f5f9;
+  --ui-200: #e2e8f0;
+  --ui-300: #cbd5e1;
+  --ui-400: #94a3b8;
+  --ui-50: #f8fafc;
+  --ui-500: #64748b;
+  --ui-600: #475569;
+  --ui-700: #334155;
+  --ui-800: #1e293b;
+  --ui-900: #0f172a;
+  --ui-950: #020617;
+  --ui-black: #000000;
+  --ui-danger: #dc2626;
+  --ui-success: #22c55e;
+  --ui-transparent: #ffffff00;
+  --ui-warning: #eab308;
+  --ui-white: #ffffff;
+  /* primitives end */
+
+  /* brand */
+  --brand-100: var(--ui-100);
+  --brand-200: var(--ui-300);
+  --brand-300: var(--ui-500);
+  --brand-400: var(--ui-700);
+  --brand-50: var(--ui-50);
+  --brand-500: var(--ui-900);
+  --brand-600: var(--ui-white);
+  --brand-700: var(--ui-200);
+  --brand-800: var(--ui-400);
+  --brand-900: var(--ui-600);
+  --brand-950: var(--ui-800);
+  /* brand end */
+
+  /* interface */
+  /* These variables affect "groups" of variables, and are re-used in the more specific variables below */
+  --interface-background-brand-primary: var(--brand-500);
+  --interface-background-brand-primary-hover: var(--brand-400);
+  --interface-background-brand-secondary: var(--brand-50);
+  --interface-background-brand-secondary-hover: var(--brand-100);
+  --interface-background-default-inverted: var(--ui-900);
+  --interface-background-default-inverted-hover: var(--ui-800);
+  --interface-background-default-none: var(--ui-transparent);
+  --interface-background-default-primary: var(--ui-white);
+  --interface-background-default-primary-hover: var(--ui-50);
+  --interface-background-default-secondary: var(--ui-50);
+  --interface-background-default-secondary-hover: var(--ui-200);
+  --interface-background-default-tertiary: var(--ui-200);
+  --interface-background-default-tertiary-hover: var(--ui-300);
+  --interface-background-disabled-disabled: var(--ui-200);
+  --interface-background-validation-danger: var(--ui-danger);
+  --interface-background-validation-success: var(--ui-success);
+  --interface-background-validation-warning: var(--ui-warning);
+  --interface-border-brand-brand: var(--brand-500);
+  --interface-border-default-inverted: var(--ui-700);
+  --interface-border-default-none: var(--ui-transparent);
+  --interface-border-default-primary: var(--ui-300);
+  --interface-border-disabled-disabled: var(--ui-300);
+  --interface-border-validation-danger: var(--ui-danger);
+  --interface-border-validation-success: var(--ui-success);
+  --interface-border-validation-warning: var(--ui-warning);
+  --interface-foreground-brand-on-primary: var(--brand-50);
+  --interface-foreground-brand-on-secondary: var(--brand-950);
+  --interface-foreground-brand-primary: var(--brand-500);
+  --interface-foreground-brand-secondary: var(--brand-50);
+  --interface-foreground-default-inverted: var(--ui-white);
+  --interface-foreground-default-primary: var(--ui-900);
+  --interface-foreground-default-secondary: var(--ui-700);
+  --interface-foreground-default-tertiary: var(--ui-500);
+  --interface-foreground-disabled-disabled: var(--ui-300);
+  --interface-foreground-disabled-on-disabled: var(--ui-400);
+  --interface-foreground-validation-danger: var(--ui-danger);
+  --interface-foreground-validation-success: var(--ui-success);
+  --interface-foreground-validation-warning: var(--ui-warning);
+  /* interface end */
+
+  /* Specific elements */
+  --button-identifier-background-default: var(
+    --interface-background-brand-secondary
+  );
+  --button-identifier-background-hover: var(
+    --interface-background-brand-secondary-hover
+  );
+  --button-identifier-border-border-default: var(
+    --interface-border-brand-brand
+  );
+  --button-identifier-border-border-hover: var(--interface-border-brand-brand);
+  --button-identifier-foreground-default: var(
+    --interface-foreground-brand-on-secondary
+  );
+  --button-identifier-foreground-hover: var(
+    --interface-foreground-brand-on-secondary
+  );
+  --button-link-brand-brand: var(--interface-foreground-brand-primary);
+  --button-link-brand-brand-hover: var(--interface-foreground-default-primary);
+  --button-link-default-primary: var(--interface-foreground-default-primary);
+  --button-link-default-primary-hover: var(
+    --interface-foreground-brand-primary
+  );
+  --button-link-default-secondary: var(
+    --interface-foreground-default-secondary
+  );
+  --button-link-default-secondary-hover: var(
+    --interface-foreground-default-tertiary
+  );
+  --button-link-disabled-disabled: var(
+    --interface-foreground-disabled-disabled
+  );
+  --button-primary-background-default: var(
+    --interface-background-brand-primary
+  );
+  --button-primary-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-primary-background-hover: var(
+    --interface-background-brand-primary-hover
+  );
+  --button-primary-border-default: var(--interface-border-default-none);
+  --button-primary-border-disabled: var(--interface-border-disabled-disabled);
+  --button-primary-border-hover: var(--interface-border-default-none);
+  --button-primary-foreground-default: var(
+    --interface-foreground-brand-on-primary
+  );
+  --button-primary-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-primary-foreground-hover: var(
+    --interface-foreground-brand-on-primary
+  );
+  --button-secondary-background-default: var(
+    --interface-background-default-primary
+  );
+  --button-secondary-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-secondary-background-hover: var(
+    --interface-background-default-primary-hover
+  );
+  --button-secondary-border-default: var(--interface-border-default-primary);
+  --button-secondary-border-disabled: var(--interface-border-disabled-disabled);
+  --button-secondary-border-hover: var(--interface-border-default-primary);
+  --button-secondary-foreground-default: var(
+    --interface-foreground-default-primary
+  );
+  --button-secondary-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-secondary-foreground-hover: var(
+    --interface-foreground-default-secondary
+  );
+  --button-social-background-default: var(
+    --interface-background-default-primary
+  );
+  --button-social-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-social-background-generic-provider: var(
+    --interface-background-default-inverted
+  );
+  --button-social-background-hover: var(
+    --interface-background-default-primary-hover
+  );
+  --button-social-border-default: var(--interface-border-default-primary);
+  --button-social-border-disabled: var(--interface-border-disabled-disabled);
+  --button-social-border-generic-provider: var(--interface-border-default-none);
+  --button-social-border-hover: var(--interface-border-default-primary);
+  --button-social-foreground-default: var(
+    --interface-foreground-default-primary
+  );
+  --button-social-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-social-foreground-generic-provider: var(
+    --interface-foreground-default-inverted
+  );
+  --button-social-foreground-hover: var(
+    --interface-foreground-default-secondary
+  );
+  --checkbox-background-checked: var(--interface-background-brand-primary);
+  --checkbox-background-default: var(--interface-background-default-secondary);
+  --checkbox-border-checkbox-border-checked: var(
+    --interface-border-brand-brand
+  );
+  --checkbox-border-checkbox-border-default: var(
+    --interface-border-default-primary
+  );
+  --checkbox-foreground-checked: var(--interface-foreground-brand-on-primary);
+  --checkbox-foreground-default: var(--interface-foreground-default-primary);
+  --form-background-default: var(--interface-background-default-primary);
+  --form-border-default: var(--interface-border-default-primary);
+  --input-background-default: var(--interface-background-default-primary);
+  --input-background-disabled: var(--interface-background-disabled-disabled);
+  --input-background-hover: var(--interface-background-default-primary-hover);
+  --input-border-default: var(--interface-border-default-primary);
+  --input-border-disabled: var(--interface-border-disabled-disabled);
+  --input-border-focus: var(--interface-border-brand-brand);
+  --input-border-hover: var(--interface-border-default-primary);
+  --input-foreground-disabled: var(--interface-foreground-disabled-on-disabled);
+  --input-foreground-primary: var(--interface-foreground-default-primary);
+  --input-foreground-secondary: var(--interface-foreground-default-secondary);
+  --input-foreground-tertiary: var(--interface-foreground-default-tertiary);
+  --ory-background-default: var(--interface-background-default-primary);
+  --ory-border-default: var(--interface-border-default-primary);
+  --ory-foreground-default: var(--interface-foreground-default-primary);
+  --radio-background-checked: var(--interface-background-brand-primary);
+  --radio-background-default: var(--interface-background-default-secondary);
+  --radio-border-checked: var(--interface-border-brand-brand);
+  --radio-border-default: var(--interface-border-default-primary);
+  --radio-foreground-checked: var(--interface-foreground-brand-on-primary);
+  --radio-foreground-default: var(--interface-foreground-default-primary);
+  --toggle-background-checked: var(--interface-background-brand-primary);
+  --toggle-background-default: var(--interface-background-default-secondary);
+  --toggle-border-checked: var(--interface-border-default-none);
+  --toggle-border-default: var(--interface-border-default-primary);
+  --toggle-foreground-checked: var(--interface-foreground-brand-on-primary);
+  --toggle-foreground-default: var(--interface-foreground-brand-primary);
+  /* Specific elements end */
+
+  /* border radius */
+  --border-radius-buttons: 0.25rem;
+  --border-radius-forms: 0.25rem;
+  --border-radius-general: 0.25rem;
+  --border-radius-branding: 0.5rem;
+  --border-radius-cards: 0.75rem;
+  --border-radius-identifier: 62.4375rem;
+  /* border radius end*/
 }
 ```
 
-Inside our components we provide the `<ThemeProvider />` which exposes the
-`themeOverrides` property so that you can implement your own theme.
+### Component System
+
+@ory/elements-react allows overriding many specific components with your own
+implementation.
+
+To provide your own implementation, pass the `components` prop to any of the
+self-service flow components (`<Login />`, `<Registration />`, etc.).
+
+`app/login/page.tsx`:
 
 ```tsx
-// Ory Elements
-// optional global css reset
-import "@ory/elements-preact/assets/normalize.css"
-// optional fontawesome icons
-import "@ory/elements-preact/assets/fa-brands.min.css"
-import "@ory/elements-preact/assets/fa-solid.min.css"
-import "@ory/elements-preact/assets/fontawesome.min.css"
+import { Login } from "@ory/elements-react/theme"
+import { MyCustomHeader } from "./my-custom-header"
 
-// optional fonts
-import "@ory/elements-preact/assets/inter-font.css"
-import "@ory/elements-preact/assets/jetbrains-mono-font.css"
-
-// required styles for Ory Elements
-import "@ory/elements-preact/style.css"
-
-const Main = () => {
+export default async function LoginPage() {
+  // Other setup variables
   return (
-    <ThemeProvider themeOverrides={customTheme}>
-      <Router>
-        <Route path="/" component={Dashboard} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Register} />
-        <Route path="/verification" component={Verification} />
-        <Route path="/recovery" component={Recovery} />
-        <Route path="/settings" component={Settings} />
-      </Router>
-    </ThemeProvider>
+    <Login
+      // other props
+      components={{
+        Card: {
+          Header: MyCustomHeader,
+        },
+      }}
+    />
   )
 }
 ```
 
-### Theme CSS in Express.js
+`my-custom-header.tsx`:
 
-For Express.js the library also exports a helper function which registers all
-the CSS the library produces.
+```tsx
+"use client"
 
-```ts
-import express, { Application } from "express"
-import { assignInlineVars } from "@vanilla-extract/dynamic"
-import { oryTheme, Theme } from "../theme"
-
-export const RegisterOryElementsExpress = (app: Application, theme: Theme) => {
-  app.use("/theme.css", (req, res) => {
-    res.header("Content-Type", "text/css")
-    res.send(
-      `body {${assignInlineVars(oryTheme, {
-        ...oryTheme,
-        ...theme,
-      }).toString()}}`,
-    )
-  })
-  app.use("/", express.static("node_modules/@ory/elements/dist"))
+function MyCustomHeader() {
+  return <div>My custom header</div>
 }
 ```
-
-Which exposes all the relevant CSS files for us which we just import in our HTML
-page:
-
-```html
-<link rel="stylesheet" href="style.css" /> // the default theme variables
-<link rel="stylesheet" href="theme.css" /> // the overidden theme variables
-```
-
-### Rendering components
-
-We can then reference a component through handlebars' helper functions that
-return pure HTML.
-
-```handlebars
-{{{card}}}
-
-{{{typography "Welcome!" "headline37" "foregroundDefault"}}}
-```
-
-```ts
-// Render the data using a view (e.g. Jade Template):
-res.render("login", {
-  ...flow,
-  typography: (text: string, size: any, color: any) =>
-    Typography({
-      children: text,
-      type: "regular",
-      size,
-      color,
-    }),
-  card: UserAuthCard({
-    title: !(flow.refresh || flow.requested_aal === "aal2")
-      ? "Sign In"
-      : "Two-Factor Authentication",
-    flow: flow as SelfServiceFlow,
-    flowType: "login",
-    cardImage: "ory-logo.svg",
-    additionalProps: {
-      forgotPasswordURL: "recovery",
-      signupURL: initRegistrationUrl,
-      logoutURL: logoutUrl,
-    },
-  }),
-})
-```
-
----
-
-### Component System
-
-Ory Elements solely relies on React components since they are easy to write and
-provides support to a large React based ecosystem. The project then bundles
-these components to their respective needs. An example is bundling for Preact
-which you can find in the
-[packages](https://github.com/ory/elements/tree/main/packages)' folder. It uses
-the React components directly in this case, but bundles it specifically for
-Preact support.
-
-Each component relies on some CSS styles, which are located in the
-[theme](https://github.com/ory/elements/tree/main/src/theme) directory. To
-understand how this works, please refer to the [CSS System](#css-system)
-
-#### Express.js systems
-
-Express.js is an edge-case which requires the React components to be wrapped by
-the `ReactDOMServer` to produce static HTML. This essentially does server-side
-rendering of the components and removes any client-side JavaScript. Each
-component needs to be wrapped by `ComponentWrapper` which essentially uses
-`ReactDOMServer`. The `elements-markup` package then bundles the React library
-with it so that the React code lives with the component library. The exported
-function takes the component props and context. The context is used for context
-providers, such as the `IntlProvider` from `react-intl`.
-
-Here is an example of exporting the `UserAuthCard`.
-
-```ts
-import {
-  UserAuthCard as userAuthCard,
-  UserAuthCardProps,
-} from "../react-components"
-import { ComponentWrapper, Context } from "./component-wrapper"
-
-export const UserAuthCard = (
-  props: UserAuthCardProps,
-  context: Context = {},
-) => {
-  return ComponentWrapper(userAuthCard, props, context)
-}
-
-export type { UserAuthCardProps } from "../react-components"
-```
-
-### Asset System
-
-Assets are bundled into a singular `style.css` file under each packages' `dist/`
-folder. Anything placed inside the
-[assets](https://github.com/ory/elements/tree/main/src/assets) folder will be
-bundled. They can also be directly imported by the React components to be used
-and are sometimes required by a component. An example is the
-[Social Button Component](https://github.com/ory/elements/blob/main/src/react-components/button-social.tsx#L11-L13).
-
-## Versioning and Publishing
-
-Ory Elements uses a fully automatic release publishing pipeline. All that is
-necessary is to create a new release on GitHub, after which the workflow runs
-all the necessary steps to release the modules to the NPM registry.
-
-## Using local Ory SDKs
-
-Most of the time, new features to this repository need some work in the
-corresponding Ory products to work. To make the development cycle more
-productive, it's possible to generate the SDK from a local OpenAPI / Swagger
-spec file.
-
-```bash
-export KRATOS_DIR=/path/to/kratos # point this variable to the root of your local Kratos clone
-
-make build-sdk
-```
-
-This copies the current OpenAPI spec from the local Kratos repository to the
-current Elements directory (`./contrib/sdk/api.json`).
-
-After that, it generates the Typescript SDK according to the spec and copies it
-to the `node_modules` directory. This overrides the currently installed module!
-
-Now you can use the updated SDK without publishing to NPM first.
-
-## Testing `@ory/elements` changes locally
-
-To test local changes in `@ory/elements` in a local Ory examples repository, you
-can point NPM to use a local directory instead of a remote package from the
-registry.
-
-This requires to first build `@ory/elements`:
-
-```bash
-# In your cloned elements directory
-npm run build # or more specialized `npm run build:react, etc.`
-```
-
-Make sure, that the build passed without errors!
-
-After that, you can set the path to elements in the `package.json` of your
-project:
-
-```shell
-npm i /path/to/elements/packages/markup
-
-# or for preact
-# npm i /path/to/elements/packages/preact
-
-# or for react
-# npm i /path/to/elements/packages/react
-```
-
-Make sure to not commit these changes, as they will break on CI or on other
-machines that have a different setup.
