@@ -153,7 +153,6 @@ export function nodesToAuthMethodGroups(
  *
  * @param nodes - The nodes to group
  * @param opts - The options to use
- * @param opts.omit - Which nodes to omit from the groups
  */
 export function useNodesGroups(
   nodes: UiNode[],
@@ -186,7 +185,7 @@ export function useNodesGroups(
     }
 
     return groups
-  }, [nodes])
+  }, [nodes, omit])
 
   const entries = useMemo(
     () =>
