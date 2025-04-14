@@ -148,7 +148,9 @@ For a full list of messages, see
 
 ### Bundling System
 
-Ory Elements uses [nx](https://nx.dev/) as a task
+Ory Elements uses [nx](https://nx.dev/) as a task runner and
+[tsup](https://github.com/egoist/tsup) as a bundler. The build configuration for
+tsup can be found in each package's directory.
 
 ### Overriding Styles
 
