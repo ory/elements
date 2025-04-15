@@ -47,6 +47,12 @@ export function DefaultButtonSocial({
     node_type: _ignoredNodeType,
     type: _ignoredType,
     name: _ignoredName,
+    onclickTrigger: _ignoredOnClickTrigger,
+    onclick: _onClick,
+    onload: _ignoredOnLoad,
+    onloadTrigger: _ignoredOnLoadTrigger,
+    maxlength: _ignoredMaxLength,
+    autocomplete: _ignoredAutocomplete,
     ...props
   } = attributes
   const {
