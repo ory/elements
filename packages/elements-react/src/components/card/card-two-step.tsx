@@ -191,7 +191,9 @@ export function OryTwoStepCard() {
                 .filter(
                   (n) =>
                     isUiNodeScriptAttributes(n.attributes) ||
-                    n.group === UiNodeGroupEnum.Captcha,
+                    n.group === UiNodeGroupEnum.Captcha ||
+                    n.group === UiNodeGroupEnum.Default ||
+                    n.group === UiNodeGroupEnum.Profile,
                 )
                 .map((node, k) => (
                   <Node node={node} key={k} />
