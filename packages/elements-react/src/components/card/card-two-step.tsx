@@ -146,7 +146,7 @@ export function OryTwoStepCard() {
         return false
       }
       return true
-    }).length > 0
+    })
 
   return (
     <OryCard>
