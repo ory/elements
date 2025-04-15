@@ -166,26 +166,29 @@ export function OryTwoStepCard() {
               ))}
             </Form.Group>
           )}
-          {formState.current === "select_method" && (
-            <Form.Group>
-              {Object.entries(authMethodBlocks).length > 0 && <Card.Divider />}
-              {Object.entries(authMethodBlocks).length > 0 && (
-                <AuthMethodList
-                  options={authMethodBlocks}
-                  setSelectedGroup={(group) =>
-                    dispatchFormState({
-                      type: "action_select_method",
-                      method: group,
-                    })
-                  }
-                />
-              )}
-              {authMethodAdditionalNodes.sort(sortNodes).map((node, k) => (
-                <Node node={node} key={k} />
-              ))}
-            </Form.Group>
-          )}
-          {formState.current === "method_active" && (
+          {formState.current === "select_method" &&
+            Object.entries(authMethodBlocks).length > 0 && (
+              <Form.Group>
+                {Object.entries(authMethodBlocks).length > 0 && (
+                  <Card.Divider />
+                )}
+                {Object.entries(authMethodBlocks).length > 0 && (
+                  <AuthMethodList
+                    options={authMethodBlocks}
+                    setSelectedGroup={(group) =>
+                      dispatchFormState({
+                        type: "action_select_method",
+                        method: group,
+                      })
+                    }
+                  />
+                )}
+                {authMethodAdditionalNodes.sort(sortNodes).map((node, k) => (
+                  <Node node={node} key={k} />
+                ))}
+              </Form.Group>
+            )}
+          {formState.current === "method_active" && finalNodes.length > 0 && (
             <Form.Group>
               {ui.nodes
                 .filter(
