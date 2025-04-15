@@ -1,3 +1,15 @@
+## 1.0.0-next.45 (2025-04-15)
+
+### 🩹 Fixes
+
+- add missing test id to scope checkbox label ([#437](https://github.com/ory/elements/pull/437))
+- add missing captcha group to all methods ([#432](https://github.com/ory/elements/pull/432))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.44 (2025-04-10)
 
 ### 🩹 Fixes
