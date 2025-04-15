@@ -43,7 +43,6 @@ describe("utils/ui", () => {
       }),
     )
 
-    console.log(result.current.groups)
     expect(result.current.groups.oidc).toHaveLength(2)
     expect(result.current.groups.default).toHaveLength(2)
     expect(result.current.groups.webauthn).toBeUndefined()
