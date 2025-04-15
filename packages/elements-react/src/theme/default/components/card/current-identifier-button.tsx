@@ -31,6 +31,7 @@ export function DefaultCurrentIdentifierButton() {
   if (!nodeBackButton) {
     return null
   }
+
   const initFlowUrl = restartFlowUrl(
     flow,
     `${config.sdk.url}/self-service/${flowType}/browser`,
@@ -43,7 +44,6 @@ export function DefaultCurrentIdentifierButton() {
   ])
 
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
-
   if (screenSelectionNode) {
     // Kill me. Without this, the form will lose the user input data. Therefore, we need to hack around
     // adding this data here.
@@ -84,7 +84,7 @@ export function DefaultCurrentIdentifierButton() {
           name={screenSelectionNode.attributes.name}
           value={screenSelectionNode.attributes.value}
           title={`Adjust ${nodeBackButton?.value}`}
-          data-testid={"ory/screen/login/action/restart"}
+          data-testid={`ory/screen/${flowType}/action/restart`}
         >
           <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
             <IconArrowLeft
@@ -110,7 +110,7 @@ export function DefaultCurrentIdentifierButton() {
       {...attributes}
       href={initFlowUrl}
       title={`Adjust ${nodeBackButton?.value}`}
-      data-testid={"ory/screen/login/action/restart"}
+      data-testid={`ory/screen/${flowType}/action/restart`}
     >
       <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
         <IconArrowLeft
