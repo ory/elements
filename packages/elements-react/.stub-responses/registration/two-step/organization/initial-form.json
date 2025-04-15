@@ -1,0 +1,134 @@
+{
+  "id": "75750961-b7f9-4495-9287-348781b65e8d",
+  "type": "browser",
+  "expires_at": "2025-04-15T17:36:45.667592255Z",
+  "issued_at": "2025-04-15T16:36:45.667592255Z",
+  "request_url": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration/browser",
+  "ui": {
+    "action": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration?flow=75750961-b7f9-4495-9287-348781b65e8d",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "LgSTBVDUmfx/OaFcWzdDhBrEMR0o8TRe0iNFmjzp7QZw22o25j8DBu/531h7q18Y8ci71UOE5ypC4l1fS6F+VA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "organization_id": null,
+  "state": "choose_method"
+}
