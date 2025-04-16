@@ -28,7 +28,7 @@ import {
   OryNodeLabelProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryCardFooter, OryCardFooterProps } from "../card"
+import { OryCardFooterProps } from "../card"
 import { OryCardRootProps } from "../card/card"
 import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
