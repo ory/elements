@@ -476,7 +476,7 @@ export default async function RegistrationPage({ searchParams }: PageProps) {
 }
 ```
 
-### Internalization (i18n)
+### internationalization (i18n)
 
 `@ory/elements-react` comes with default translations for many languages.
 Additionally, it provides a way to override the default messages, through the
