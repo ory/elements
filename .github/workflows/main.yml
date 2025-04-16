@@ -16,5 +16,4 @@ jobs:
         with:
           node-version: "22"
       - run: npm ci
-      - run: npx playwright install --with-deps
       - run: npx nx run-many --target=build --all

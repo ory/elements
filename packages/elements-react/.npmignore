@@ -1,7 +1,4 @@
-playwright/.cache/
-playwright-report/*
 src/
-playwright/
 project.json
 tsconfig.spec.json
 !dist/
