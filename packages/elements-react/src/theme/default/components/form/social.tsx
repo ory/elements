@@ -15,6 +15,7 @@ import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { Spinner } from "./spinner"
 import { UiNodeGroupEnum } from "@ory/client-fetch"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 export function extractProvider(
   context: object | undefined,
@@ -43,18 +44,7 @@ export function DefaultButtonSocial({
   logos: providedLogos,
 }: DefaultSocialButtonProps) {
   const logos = { ...defaultLogos, ...providedLogos }
-  const {
-    node_type: _ignoredNodeType,
-    type: _ignoredType,
-    name: _ignoredName,
-    onclickTrigger: _ignoredOnClickTrigger,
-    onclick: _onClick,
-    onload: _ignoredOnLoad,
-    onloadTrigger: _ignoredOnLoadTrigger,
-    maxlength: _ignoredMaxLength,
-    autocomplete: _ignoredAutocomplete,
-    ...props
-  } = attributes
+  const { type: _ignoredType, name: _ignoredName, ...rest } = attributes
   const {
     flow: { ui },
   } = useOryFlow()
@@ -107,11 +97,11 @@ export function DefaultButtonSocial({
       type="submit"
       name="provider"
       data-testid={`ory/form/node/input/${attributes.name}`}
-      {...props}
       onClick={localOnClick}
       data-loading={clicked}
       disabled={isSubmitting}
       aria-label={label}
+      {...omitInputAttributes(rest)}
     >
       <span className="size-5 relative">
         {!clicked ? (
