@@ -137,7 +137,7 @@ export function OryTwoStepCard() {
 
   const showSsoDivider =
     hasSso &&
-    nonSsoNodes.filter((n) => {
+    nonSsoNodes.some((n) => {
       if (isUiNodeInputAttributes(n.attributes)) {
         // We don't need the divider for hidden fields.
         return n.attributes.type !== UiNodeInputAttributesTypeEnum.Hidden
@@ -146,7 +146,7 @@ export function OryTwoStepCard() {
         return false
       }
       return true
-    }).length > 0
+    })
 
   return (
     <OryCard>
@@ -168,17 +168,19 @@ export function OryTwoStepCard() {
           )}
           {formState.current === "select_method" && (
             <Form.Group>
-              {Object.entries(authMethodBlocks).length > 0 && <Card.Divider />}
               {Object.entries(authMethodBlocks).length > 0 && (
-                <AuthMethodList
-                  options={authMethodBlocks}
-                  setSelectedGroup={(group) =>
-                    dispatchFormState({
-                      type: "action_select_method",
-                      method: group,
-                    })
-                  }
-                />
+                <>
+                  <Card.Divider />
+                  <AuthMethodList
+                    options={authMethodBlocks}
+                    setSelectedGroup={(group) =>
+                      dispatchFormState({
+                        type: "action_select_method",
+                        method: group,
+                      })
+                    }
+                  />
+                </>
               )}
               {authMethodAdditionalNodes.sort(sortNodes).map((node, k) => (
                 <Node node={node} key={k} />
@@ -191,7 +193,9 @@ export function OryTwoStepCard() {
                 .filter(
                   (n) =>
                     isUiNodeScriptAttributes(n.attributes) ||
-                    n.group === UiNodeGroupEnum.Captcha,
+                    n.group === UiNodeGroupEnum.Captcha ||
+                    n.group === UiNodeGroupEnum.Default ||
+                    n.group === UiNodeGroupEnum.Profile,
                 )
                 .map((node, k) => (
                   <Node node={node} key={k} />

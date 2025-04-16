@@ -1,7 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import allMethodsInitialForm from "../../../../.stub-responses/login/1fa/all-methods/initial-form.json"
+import allMethodsInitialForm from "./.fixtures/initial-form.json"
+import omitHiddenInput from "./.fixtures/omit-hidden-input.json"
 
 import { useNodesGroups } from ".."
 import { UiNode } from "@ory/client-fetch"
@@ -15,7 +16,7 @@ describe("utils/ui", () => {
 
     expect(result.current.groups.oidc).toHaveLength(2)
     expect(result.current.groups.default).toHaveLength(2)
-    expect(result.current.groups.webauthn).toHaveLength(2)
+    expect(result.current.groups.webauthn).toHaveLength(1)
     expect(result.current.groups.passkey).toHaveLength(3)
     expect(result.current.groups.password).toHaveLength(2)
     expect(result.current.groups.code).toHaveLength(1)
@@ -29,9 +30,9 @@ describe("utils/ui", () => {
     )
 
     expect(result.current.groups.oidc).toHaveLength(2)
-    expect(result.current.groups.default).toHaveLength(1)
-    expect(result.current.groups.webauthn).toHaveLength(1)
-    expect(result.current.groups.passkey).toHaveLength(1)
+    expect(result.current.groups.default).toHaveLength(2)
+    expect(result.current.groups.webauthn).toBeUndefined()
+    expect(result.current.groups.passkey).toHaveLength(3)
     expect(result.current.groups.password).toHaveLength(2)
     expect(result.current.groups.code).toHaveLength(1)
   })
@@ -45,8 +46,23 @@ describe("utils/ui", () => {
 
     expect(result.current.groups.oidc).toHaveLength(2)
     expect(result.current.groups.default).toHaveLength(2)
-    expect(result.current.groups.webauthn).toHaveLength(1)
+    expect(result.current.groups.webauthn).toBeUndefined()
     expect(result.current.groups.passkey).toHaveLength(3)
+    expect(result.current.groups.password).toHaveLength(2)
+    expect(result.current.groups.code).toHaveLength(1)
+  })
+
+  test("useNodesGroups with omit hidden input fields", () => {
+    const { result } = renderHook(() =>
+      useNodesGroups(omitHiddenInput.ui.nodes as UiNode[], {
+        omit: ["input_hidden"],
+      }),
+    )
+
+    expect(result.current.groups.oidc).toHaveLength(2)
+    expect(result.current.groups.default).toHaveLength(2)
+    expect(result.current.groups.webauthn).toHaveLength(1)
+    expect(result.current.groups.passkey).toBeUndefined()
     expect(result.current.groups.password).toHaveLength(2)
     expect(result.current.groups.code).toHaveLength(1)
   })

@@ -61,6 +61,7 @@ export const DefaultButton = ({
     label: _ignoredLabel,
     node_type: _ignoredNodeType,
     maxlength: _ignoredMaxLength,
+    onclick: _ignoredOnClick,
     // End of skipped attributes
     ...rest
   } = attributes

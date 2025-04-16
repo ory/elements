@@ -162,8 +162,13 @@ export function useNodesGroups(
 
   const groups = useMemo(() => {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+    const groupRetained: Partial<Record<UiNodeGroupEnum, number>> = {}
 
     for (const node of nodes) {
+      const groupNodes = groups[node.group] ?? []
+      groupNodes.push(node)
+      groups[node.group] = groupNodes
+
       if (
         omit?.includes("script") &&
         isUiNodeScriptAttributes(node.attributes)
@@ -179,12 +184,17 @@ export function useNodesGroups(
         continue
       }
 
-      const groupNodes = groups[node.group] ?? []
-      groupNodes.push(node)
-      groups[node.group] = groupNodes
+      groupRetained[node.group] = (groupRetained[node.group] ?? 0) + 1
     }
 
-    return groups
+    const finalGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+    for (const [group, count] of Object.entries(groupRetained)) {
+      if (count > 0) {
+        finalGroups[group as UiNodeGroupEnum] = groups[group as UiNodeGroupEnum]
+      }
+    }
+
+    return finalGroups
   }, [nodes, omit])
 
   const entries = useMemo(
