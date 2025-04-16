@@ -33,10 +33,5 @@ storybook-static
 
 pnpm-lock.yaml
 /test-results/
-/playwright-report/
-/playwright/.cache/
-/test-results/
-/playwright-report/
-/playwright/.cache/
 .nx
 coverage/
