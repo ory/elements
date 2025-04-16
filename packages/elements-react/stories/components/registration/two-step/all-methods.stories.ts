@@ -36,7 +36,7 @@ export const FirstStepValidationError: Story = {
   },
 }
 
-export const EnterPassword: Story = {
+export const ShowMethodChooser: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/registration/two-step/all-methods/enter-password.json"),
@@ -45,10 +45,37 @@ export const EnterPassword: Story = {
   },
 }
 
-export const SecondStepValidationError: Story = {
+export const PasswordValidationError: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/registration/two-step/all-methods/password-validation-error.json"),
+    ),
+    config,
+  },
+}
+
+export const PasskeyValidationError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/registration/two-step/all-methods/passkey-error.json"),
+    ),
+    config,
+  },
+}
+
+export const WebAuthnValidationError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/registration/two-step/all-methods/webauthn-error.json"),
+    ),
+    config,
+  },
+}
+
+export const EmailCodeSent: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/registration/two-step/all-methods/code-sent.json"),
     ),
     config,
   },
