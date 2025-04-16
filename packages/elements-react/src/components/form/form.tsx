@@ -271,7 +271,6 @@ export function OryForm({
         <Message.Root>
           <Message.Content key={m.id} message={m} />
         </Message.Root>
-        <OryCardFooter />
       </div>
     )
   }
