@@ -68,12 +68,6 @@ export function OryTwoStepCard() {
       .map((g) => [g, {}]),
   )
 
-  console.log({
-    authMethodBlocks: Object.entries(authMethodBlocks),
-    groupsToShow,
-    a: formState.current,
-    length: Object.entries(authMethodBlocks).length,
-  })
   const authMethodAdditionalNodes = ui.nodes.filter(({ group }) =>
     (
       [
