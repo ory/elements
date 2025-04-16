@@ -267,7 +267,7 @@ export function OryForm({
     }
 
     return (
-      <div className="grid gap-8" data-testid={dataTestId}>
+      <div data-testid={dataTestId}>
         <Message.Root>
           <Message.Content key={m.id} message={m} />
         </Message.Root>
