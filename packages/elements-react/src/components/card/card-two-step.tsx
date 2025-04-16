@@ -244,7 +244,7 @@ export function OryTwoStepCard() {
       )
   }
 
-  return "unknown form state: " + formState.current
+  return <>unknown form state: {formState.current}</>
 }
 
 function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
