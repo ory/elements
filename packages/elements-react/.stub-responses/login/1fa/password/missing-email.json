@@ -1,11 +1,12 @@
 {
-  "id": "e57aff19-1995-44fb-b645-29fad0e9028e",
+  "id": "62499cf1-3868-4866-8eda-557c3b90dc37",
+  "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:54.677832Z",
-  "issued_at": "2025-02-26T08:31:54.677832Z",
-  "request_url": "https://romantic-saha-upddx0ogf8.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-16T10:18:58.384942Z",
+  "issued_at": "2025-04-16T09:18:58.384942Z",
+  "request_url": "https://quirky-gates-g9exj643he.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://romantic-saha-upddx0ogf8.projects.oryapis:8080/self-service/registration?flow=e57aff19-1995-44fb-b645-29fad0e9028e",
+    "action": "https://quirky-gates-g9exj643he.projects.oryapis:8080/self-service/login?flow=62499cf1-3868-4866-8eda-557c3b90dc37",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "VHQn0RDRFf16TYib1zdQZu6upQp+dawYjW1Kn5bMbLoZ1Hf/H5DVtXXrNOsXvY862X7bHspufm2z/zDZmf05QA==",
+          "value": "dCq9Yp8ejk6HPAgZYOiLg1UxbjPWqj/DHS1IS3Lr/mmDX1XZnZSklO8SLNH/Xn1En61ZDPekDMWV8DOVeAvcIA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -24,22 +25,22 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
-          "name": "traits.email",
-          "type": "email",
+          "name": "identifier",
+          "type": "text",
+          "value": "",
           "required": true,
-          "autocomplete": "email",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [
           {
             "id": 4000002,
-            "text": "Property email is missing.",
+            "text": "Property identifier is missing.",
             "type": "error",
             "context": {
-              "property": "email"
+              "property": "identifier"
             }
           }
         ],
@@ -61,7 +62,7 @@
           "name": "password",
           "type": "password",
           "required": true,
-          "autocomplete": "new-password",
+          "autocomplete": "current-password",
           "disabled": false,
           "node_type": "input"
         },
@@ -87,69 +88,6 @@
         "type": "input",
         "group": "password",
         "attributes": {
-          "name": "traits.tos",
-          "type": "checkbox",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Accept the terms of service",
-            "type": "info",
-            "context": {
-              "title": "Accept the terms of service"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "traits.phone",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Phone Number",
-            "type": "info",
-            "context": {
-              "title": "Phone Number"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "traits.nested.name",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Name",
-            "type": "info",
-            "context": {
-              "title": "Name"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
           "name": "method",
           "type": "submit",
           "value": "password",
@@ -159,14 +97,17 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1040001,
-            "text": "Sign up",
+            "id": 1010022,
+            "text": "Sign in with password",
             "type": "info"
           }
         }
       }
     ]
   },
-  "organization_id": null,
+  "created_at": "2025-04-16T09:18:58.389923Z",
+  "updated_at": "2025-04-16T09:18:58.389923Z",
+  "refresh": false,
+  "requested_aal": "aal1",
   "state": "choose_method"
 }
