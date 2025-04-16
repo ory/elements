@@ -44,11 +44,14 @@ export function OryTwoStepCard() {
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
 
-  const uniqueGroups = useNodesGroups(ui.nodes)
+  const groupsToShow = useNodesGroups(ui.nodes, {
+    // We only want to render groups that have visible elements.
+    omit: ["script", "input_hidden"],
+  })
 
-  const options: MethodOptions = Object.fromEntries(
+  const authMethodBlocks: MethodOptions = Object.fromEntries(
     Object.values(UiNodeGroupEnum)
-      .filter((group) => uniqueGroups.groups[group]?.length)
+      .filter((group) => groupsToShow.groups[group]?.length)
       .filter(
         (group) =>
           !(
@@ -65,8 +68,21 @@ export function OryTwoStepCard() {
       .map((g) => [g, {}]),
   )
 
+  const authMethodAdditionalNodes = ui.nodes.filter(({ group }) =>
+    (
+      [
+        UiNodeGroupEnum.Oidc,
+        UiNodeGroupEnum.Saml,
+        UiNodeGroupEnum.Default,
+        UiNodeGroupEnum.IdentifierFirst,
+        UiNodeGroupEnum.Profile,
+        UiNodeGroupEnum.Captcha,
+      ] as UiNodeGroupEnum[]
+    ).includes(group),
+  )
+
   // Special case to show the address on code method selector
-  if (UiNodeGroupEnum.Code in options) {
+  if (UiNodeGroupEnum.Code in authMethodBlocks) {
     let identifier = findNode(ui.nodes, {
       group: "identifier_first",
       node_type: "input",
@@ -78,7 +94,7 @@ export function OryTwoStepCard() {
       name: "address",
     })?.attributes?.value
     if (identifier) {
-      options[UiNodeGroupEnum.Code] = {
+      authMethodBlocks[UiNodeGroupEnum.Code] = {
         title: {
           id: "identities.messages.1010023",
           values: { address: identifier },
@@ -90,7 +106,7 @@ export function OryTwoStepCard() {
   const nonSsoNodes = removeSsoNodes(ui.nodes)
   const finalNodes =
     formState.current === "method_active"
-      ? getFinalNodes(uniqueGroups.groups, formState.method)
+      ? getFinalNodes(groupsToShow.groups, formState.method)
       : []
 
   const handleAfterFormSubmit = (method: unknown) => {
@@ -121,7 +137,7 @@ export function OryTwoStepCard() {
 
   const showSsoDivider =
     hasSso &&
-    nonSsoNodes.filter((n) => {
+    nonSsoNodes.some((n) => {
       if (isUiNodeInputAttributes(n.attributes)) {
         // We don't need the divider for hidden fields.
         return n.attributes.type !== UiNodeInputAttributesTypeEnum.Hidden
@@ -130,66 +146,108 @@ export function OryTwoStepCard() {
         return false
       }
       return true
-    }).length > 0
+    })
 
-  return (
-    <OryCard>
-      <OryCardHeader />
-      <OryCardContent>
-        <OryCardValidationMessages />
-        {showSso && <OryFormSocialButtonsForm />}
-        <OryForm onAfterSubmit={handleAfterFormSubmit}>
-          <Form.Group>
-            {formState.current === "provide_identifier" && (
-              <>
+  switch (formState.current) {
+    case "provide_identifier":
+      return (
+        <OryCard>
+          <OryCardHeader />
+          <OryCardContent>
+            <OryCardValidationMessages />
+            {showSso && <OryFormSocialButtonsForm />}
+            <OryForm
+              data-testid={`ory/form/methods/local`}
+              onAfterSubmit={handleAfterFormSubmit}
+            >
+              <Form.Group>
                 {showSsoDivider && <Card.Divider />}
                 {nonSsoNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
-              </>
-            )}
-            {formState.current === "select_method" && (
-              <>
-                <Card.Divider />
-                <AuthMethodList
-                  options={options}
-                  setSelectedGroup={(group) =>
-                    dispatchFormState({
-                      type: "action_select_method",
-                      method: group,
-                    })
-                  }
-                />
-                {ui.nodes
-                  .filter((n) => n.group === UiNodeGroupEnum.Captcha)
-                  .map((node, k) => (
+              </Form.Group>
+            </OryForm>
+          </OryCardContent>
+          <OryCardFooter />
+        </OryCard>
+      )
+    case "select_method":
+      return (
+        <OryCard>
+          <OryCardHeader />
+          <OryCardContent>
+            <OryCardValidationMessages />
+            {showSso && <OryFormSocialButtonsForm />}
+            {Object.entries(authMethodBlocks).length > 0 && (
+              <OryForm
+                data-testid={`ory/form/methods/local`}
+                onAfterSubmit={handleAfterFormSubmit}
+              >
+                <Form.Group>
+                  <Card.Divider />
+                  <AuthMethodList
+                    options={authMethodBlocks}
+                    setSelectedGroup={(group) =>
+                      dispatchFormState({
+                        type: "action_select_method",
+                        method: group,
+                      })
+                    }
+                  />
+                  {authMethodAdditionalNodes.sort(sortNodes).map((node, k) => (
                     <Node node={node} key={k} />
                   ))}
-              </>
+                </Form.Group>
+              </OryForm>
             )}
-            {formState.current === "method_active" && (
-              <>
+          </OryCardContent>
+          <OryCardFooter />
+        </OryCard>
+      )
+    case "method_active":
+      return (
+        <OryCard>
+          <OryCardHeader />
+          <OryCardContent>
+            <OryCardValidationMessages />
+            {showSso && <OryFormSocialButtonsForm />}
+            <OryForm
+              data-testid={`ory/form/methods/local`}
+              onAfterSubmit={handleAfterFormSubmit}
+            >
+              <Form.Group>
                 {ui.nodes
-                  .filter((n) => n.type === "script")
+                  .filter(
+                    (n) =>
+                      isUiNodeScriptAttributes(n.attributes) ||
+                      n.group === UiNodeGroupEnum.Captcha ||
+                      n.group === UiNodeGroupEnum.Default ||
+                      n.group === UiNodeGroupEnum.Profile,
+                  )
                   .map((node, k) => (
                     <Node node={node} key={k} />
                   ))}
                 {finalNodes.sort(sortNodes).map((node, k) => (
                   <Node node={node} key={k} />
                 ))}
-              </>
-            )}
-          </Form.Group>
+              </Form.Group>
+            </OryForm>
+          </OryCardContent>
           <OryCardFooter />
-        </OryForm>
-      </OryCardContent>
-    </OryCard>
-  )
+        </OryCard>
+      )
+  }
+
+  return <>unknown form state: {formState.current}</>
 }
 
 function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
   const { Card } = useComponents()
   const { setValue, getValues } = useFormContext()
+
+  if (Object.entries(options).length === 0) {
+    return null
+  }
 
   const handleClick = (group: UiNodeGroupEnum, options?: MethodOption) => {
     if (isGroupImmediateSubmit(group)) {
@@ -208,6 +266,7 @@ function AuthMethodList({ options, setSelectedGroup }: AuthMethodListProps) {
       setSelectedGroup(group)
     }
   }
+
   return (
     <Card.AuthMethodListContainer>
       {Object.entries(options).map(([group, options]) => (

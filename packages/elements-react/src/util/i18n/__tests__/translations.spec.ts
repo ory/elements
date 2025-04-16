@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { OryLocales as supportedLanguages } from "../../../locales"
-import { expect } from "@playwright/test"
 
 type TemplateStrings = {
   [k in keyof typeof supportedLanguages.en]: string[]
@@ -25,10 +24,9 @@ describe("Translations", () => {
 
   for (const [language, translation] of Object.entries(supportedLanguages)) {
     test(`language keys and templates match [${language}]`, () => {
-      expect(
-        Object.keys(translation).sort(),
-        `expected locales/${language}.json to contain all supported keys`,
-      ).toEqual(Object.keys(supportedLanguages.en).sort())
+      expect(Object.keys(translation).sort()).toEqual(
+        Object.keys(supportedLanguages.en).sort(),
+      )
     })
   }
 

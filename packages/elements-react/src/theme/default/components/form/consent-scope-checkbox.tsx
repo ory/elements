@@ -36,6 +36,7 @@ export function DefaultConsentScopeCheckbox({
         defaultMessage: [],
       })}
       className="col-span-2"
+      data-testid="ory/screen/consent/scope-checkbox-label"
     >
       <Switch.Root
         className="relative w-7 h-4 bg-toggle-background-default rounded-identifier border-toggle-border-default border p-[3px] data-[state=checked]:bg-toggle-background-checked transition-all data-[state=checked]:border-toggle-border-checked"

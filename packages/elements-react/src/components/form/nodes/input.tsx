@@ -1,6 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { NodeProps } from "./node"
+import { useComponents } from "../../../context"
+import { triggerToWindowCall } from "../../../util/ui"
 import {
   UiNodeGroupEnum,
   UiNodeInputAttributes,
@@ -8,9 +11,6 @@ import {
 } from "@ory/client-fetch"
 import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
 import { useFormContext } from "react-hook-form"
-import { useComponents } from "../../../context"
-import { triggerToWindowCall } from "../../../util/ui"
-import { NodeProps } from "./node"
 
 export const NodeInput = ({
   node,
@@ -37,13 +37,13 @@ export const NodeInput = ({
 
   const setFormValue = () => {
     if (
-      isResendNode ||
-      isScreenSelectionNode ||
-      node.group === UiNodeGroupEnum.Oauth2Consent
+      attrs.value &&
+      !(
+        isResendNode ||
+        isScreenSelectionNode ||
+        node.group === UiNodeGroupEnum.Oauth2Consent
+      )
     ) {
-      return
-    }
-    if (attrs.value !== undefined) {
       setValue(attrs.name, attrs.value)
     }
   }

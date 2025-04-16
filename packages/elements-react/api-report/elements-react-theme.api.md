@@ -86,7 +86,7 @@ export function DefaultCurrentIdentifierButton(): react_jsx_runtime.JSX.Element 
 // Warning: (ae-forgotten-export) The symbol "OryFormRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function DefaultFormContainer({ children, onSubmit, action, method, }: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
+export function DefaultFormContainer({ children, onSubmit, action, method, "data-testid": dataTestId, }: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryMessageContentProps" needs to be exported by the entry point index.d.ts
 //

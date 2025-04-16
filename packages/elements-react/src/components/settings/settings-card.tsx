@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import {
+  isUiNodeScriptAttributes,
+  UiNode,
+  UiNodeGroupEnum,
+} from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 import { useComponents, useOryFlow } from "../../context"
 import { useNodesGroups } from "../../util/ui"
@@ -23,16 +27,19 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   const { Card } = useComponents()
   const intl = useIntl()
   const { flow } = useOryFlow()
-  const uniqueGroups = useNodesGroups(flow.ui.nodes)
+  const groupedNodes = useNodesGroups(flow.ui.nodes, {
+    // Script nodes are already handled by the parent component.
+    omit: ["script"],
+  })
 
   if (group === UiNodeGroupEnum.Totp) {
     return (
       <OryFormSection
-        nodes={uniqueGroups.groups.totp}
+        nodes={groupedNodes.groups.totp}
         data-testid="ory/screen/settings/group/totp"
       >
-        <OrySettingsTotp nodes={uniqueGroups.groups.totp ?? []} />
-        {uniqueGroups.groups.default?.map((node, k) => (
+        <OrySettingsTotp nodes={groupedNodes.groups.totp ?? []} />
+        {groupedNodes.groups.default?.map((node, k) => (
           <Node key={k} node={node} />
         ))}
       </OryFormSection>
@@ -42,13 +49,13 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   if (group === UiNodeGroupEnum.LookupSecret) {
     return (
       <OryFormSection
-        nodes={uniqueGroups.groups.lookup_secret}
+        nodes={groupedNodes.groups.lookup_secret}
         data-testid="ory/screen/settings/group/lookup_secret"
       >
         <OrySettingsRecoveryCodes
-          nodes={uniqueGroups.groups.lookup_secret ?? []}
+          nodes={groupedNodes.groups.lookup_secret ?? []}
         />
-        {uniqueGroups.groups.default?.map((node, k) => (
+        {groupedNodes.groups.default?.map((node, k) => (
           <Node key={k} node={node} />
         ))}
       </OryFormSection>
@@ -58,11 +65,11 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   if (group === UiNodeGroupEnum.Oidc) {
     return (
       <OryFormSection
-        nodes={uniqueGroups.groups.oidc}
+        nodes={groupedNodes.groups.oidc}
         data-testid="ory/screen/settings/group/oidc"
       >
-        <OrySettingsOidc nodes={uniqueGroups.groups.oidc ?? []} />
-        {uniqueGroups.groups.default?.map((node, k) => (
+        <OrySettingsOidc nodes={groupedNodes.groups.oidc ?? []} />
+        {groupedNodes.groups.default?.map((node, k) => (
           <Node key={k} node={node} />
         ))}
       </OryFormSection>
@@ -72,11 +79,11 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   if (group === UiNodeGroupEnum.Webauthn) {
     return (
       <OryFormSection
-        nodes={uniqueGroups.groups.webauthn}
+        nodes={groupedNodes.groups.webauthn}
         data-testid="ory/screen/settings/group/webauthn"
       >
-        <OrySettingsWebauthn nodes={uniqueGroups.groups.webauthn ?? []} />
-        {uniqueGroups.groups.default?.map((node, k) => (
+        <OrySettingsWebauthn nodes={groupedNodes.groups.webauthn ?? []} />
+        {groupedNodes.groups.default?.map((node, k) => (
           <Node key={k} node={node} />
         ))}
       </OryFormSection>
@@ -86,11 +93,11 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   if (group === UiNodeGroupEnum.Passkey) {
     return (
       <OryFormSection
-        nodes={uniqueGroups.groups.passkey}
+        nodes={groupedNodes.groups.passkey}
         data-testid="ory/screen/settings/group/passkey"
       >
-        <OrySettingsPasskey nodes={uniqueGroups.groups.passkey ?? []} />
-        {uniqueGroups.groups.default?.map((node, k) => (
+        <OrySettingsPasskey nodes={groupedNodes.groups.passkey ?? []} />
+        {groupedNodes.groups.default?.map((node, k) => (
           <Node key={k} node={node} />
         ))}
       </OryFormSection>
@@ -110,7 +117,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
           id: `settings.${group}.description`,
         })}
       >
-        {uniqueGroups.groups.default?.map((node, k) => (
+        {groupedNodes.groups.default?.map((node, k) => (
           <Node key={k} node={node} />
         ))}
         {nodes
@@ -136,21 +143,26 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
   )
 }
 
-const getScriptNode = (nodes: UiNode[]): UiNode | undefined =>
-  nodes.find(
+const onlyScriptNodes = (nodes: UiNode[]): UiNode[] =>
+  nodes.filter(
     (node) =>
-      "id" in node.attributes && node.attributes.id === "webauthn_script",
+      isUiNodeScriptAttributes(node.attributes) &&
+      node.attributes.id === "webauthn_script",
   )
 
 export function OrySettingsCard() {
   const { flow } = useOryFlow()
-  const uniqueGroups = useNodesGroups(flow.ui.nodes)
-  const scriptNode = getScriptNode(flow.ui.nodes)
+
+  // Script nodes render individually so we don't render blocks for them.
+  const uniqueGroups = useNodesGroups(flow.ui.nodes, { omit: ["script"] })
+  const scriptNodes = onlyScriptNodes(flow.ui.nodes)
 
   return (
     <>
       <OryCardValidationMessages />
-      {scriptNode && <Node node={scriptNode} />}
+      {scriptNodes.map((n) => (
+        <Node node={n} />
+      ))}
       {uniqueGroups.entries.map(([group, nodes]) => {
         if (group === UiNodeGroupEnum.Default) {
           return null

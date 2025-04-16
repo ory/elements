@@ -1,12 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
+import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
 import { ConsentFlow, useComponents, useOryFlow } from "@ory/elements-react"
-import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 import { findNode, nodesToAuthMethodGroups } from "../../../../util/ui"
+import { findScreenSelectionButton } from "../../../../util/nodes"
 
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
@@ -124,58 +124,32 @@ function LoginCardFooter() {
   )
 }
 
-function findScreenSelectionButton(
-  nodes: UiNode[],
-): { attributes: UiNodeInputAttributes } | undefined {
-  return nodes.find(
-    (node) =>
-      node.attributes.node_type === "input" &&
-      node.attributes.type === "submit" &&
-      node.attributes.name === "screen",
-  ) as { attributes: UiNodeInputAttributes }
-}
-
 function RegistrationCardFooter() {
   const intl = useIntl()
   const { config, flow, formState } = useOryFlow()
-  const { setValue } = useFormContext()
 
-  if (formState.current === "select_method") {
-    return null
-  }
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
-
-  function handleScreenSelection() {
-    setValue("method", "profile")
-    if (screenSelectionNode) {
-      setValue(
-        screenSelectionNode.attributes.name,
-        screenSelectionNode.attributes.value,
-      )
-    }
-  }
-
-  return (
-    <span className="font-normal leading-normal antialiased">
-      {formState.current === "method_active" ? (
-        <>
+  switch (formState.current) {
+    case "method_active":
+      return (
+        <span className="font-normal leading-normal antialiased">
           {screenSelectionNode && (
-            <button
+            <a
               className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
-              type="submit"
-              name={screenSelectionNode.attributes.name}
-              value={screenSelectionNode.attributes.value}
-              onClick={handleScreenSelection}
+              href=""
             >
               {intl.formatMessage({
                 id: "card.footer.select-another-method",
                 defaultMessage: "Select another method",
               })}
-            </button>
+            </a>
           )}
-        </>
-      ) : (
-        <>
+        </span>
+      )
+    case "select_method":
+    default:
+      return (
+        <span className="font-normal leading-normal antialiased">
           {intl.formatMessage({
             id: "registration.login-label",
             defaultMessage: "Already have an account?",
@@ -190,10 +164,9 @@ function RegistrationCardFooter() {
               defaultMessage: "Sign in",
             })}
           </a>
-        </>
-      )}
-    </span>
-  )
+        </span>
+      )
+  }
 }
 
 function RecoveryCardFooter() {

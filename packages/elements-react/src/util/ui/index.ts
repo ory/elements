@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client-fetch"
+import {
+  isUiNodeInputAttributes,
+  isUiNodeScriptAttributes,
+  UiNode,
+} from "@ory/client-fetch"
 
 import type {
   UiNodeAttributes,
@@ -148,26 +152,50 @@ export function nodesToAuthMethodGroups(
  * Groups nodes by their group and returns an object with the groups and entries.
  *
  * @param nodes - The nodes to group
+ * @param opts - The options to use
  */
-export function useNodesGroups(nodes: UiNode[]) {
+export function useNodesGroups(
+  nodes: UiNode[],
+  { omit }: { omit?: Array<"script" | "input_hidden"> } = {},
+) {
   const groupSorter = useGroupSorter()
 
   const groups = useMemo(() => {
     const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+    const groupRetained: Partial<Record<UiNodeGroupEnum, number>> = {}
 
     for (const node of nodes) {
-      if (node.type === "script") {
-        // We always render all scripts, because the scripts for passkeys are part of the webauthn group,
-        // which leads to this hook returning a webauthn group on passkey flows (which it should not - webauthn is the "legacy" passkey implementation).
-        continue
-      }
       const groupNodes = groups[node.group] ?? []
       groupNodes.push(node)
       groups[node.group] = groupNodes
+
+      if (
+        omit?.includes("script") &&
+        isUiNodeScriptAttributes(node.attributes)
+      ) {
+        continue
+      }
+
+      if (
+        omit?.includes("input_hidden") &&
+        isUiNodeInputAttributes(node.attributes) &&
+        node.attributes.type === "hidden"
+      ) {
+        continue
+      }
+
+      groupRetained[node.group] = (groupRetained[node.group] ?? 0) + 1
     }
 
-    return groups
-  }, [nodes])
+    const finalGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+    for (const [group, count] of Object.entries(groupRetained)) {
+      if (count > 0) {
+        finalGroups[group as UiNodeGroupEnum] = groups[group as UiNodeGroupEnum]
+      }
+    }
+
+    return finalGroups
+  }, [nodes, omit])
 
   const entries = useMemo(
     () =>

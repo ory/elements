@@ -1,0 +1,189 @@
+{
+  "id": "75750961-b7f9-4495-9287-348781b65e8d",
+  "type": "browser",
+  "expires_at": "2025-04-15T17:36:45.667592Z",
+  "issued_at": "2025-04-15T16:36:45.667592Z",
+  "request_url": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration/browser",
+  "ui": {
+    "action": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration?flow=75750961-b7f9-4495-9287-348781b65e8d",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "mycorp-oidc-sso",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with mycorpOIDC SSO",
+            "type": "info",
+            "context": {
+              "provider": "mycorpOIDC SSO",
+              "provider_id": "mycorp-oidc-sso"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "mycorp-saml-sso",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with mycorpSAML SSO",
+            "type": "info",
+            "context": {
+              "provider": "mycorpSAML SSO",
+              "provider_id": "mycorp-saml-sso"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "DWIbfdhcGjGne/BVgE2iy8j51xYjaiLpLOqH7CekBnRTveJObreAyze7jlGg0b5XI/Vd3kgf8Z28K58pUOyVJg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.lf9r6iy992i0.jv9pvzo250o@example.com",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "screen",
+          "type": "submit",
+          "value": "previous",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040008,
+            "text": "Back",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1040009,
+        "text": "Please choose a credential to authenticate yourself with.",
+        "type": "info"
+      }
+    ]
+  },
+  "organization_id": "4ad8b9cc-bd4f-4a3d-83ea-2e3179afc1f6",
+  "transient_payload": {},
+  "state": "choose_method"
+}

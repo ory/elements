@@ -6,7 +6,6 @@ export PATH               := .bin:${PATH}
 .PHONY: install
 install:
 	npm install
-	npx playwright install --with-deps
 
 .PHONY: test
 test:
@@ -20,11 +19,6 @@ build:
 .PHONY: dev
 dev:
 	npx nx run-many --target=dev --all
-
-test-containerized: 
-	# https://github.com/microsoft/playwright/issues/26482
-	# For unsupported distros, use the `test-containerized` target instead of `test`
-	sh -c ./playwright-docker.sh
 
 PRETTIER_VERSION=$(shell cat package.json | jq -r '.devDependencies["prettier"] // .dependencies["prettier"]')
 

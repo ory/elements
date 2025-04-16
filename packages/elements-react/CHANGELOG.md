@@ -1,3 +1,53 @@
+## 1.0.0-next.46 (2025-04-16)
+
+### 🩹 Fixes
+
+- missing hidden field regression ([#439](https://github.com/ory/elements/pull/439))
+- use correct testid ([#438](https://github.com/ory/elements/pull/438))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
+## 1.0.0-next.45 (2025-04-15)
+
+### 🩹 Fixes
+
+- add missing test id to scope checkbox label ([#437](https://github.com/ory/elements/pull/437))
+- add missing captcha group to all methods ([#432](https://github.com/ory/elements/pull/432))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
+## 1.0.0-next.44 (2025-04-10)
+
+### 🩹 Fixes
+
+- use currentColor in eye icons ([#433](https://github.com/ory/elements/pull/433))
+
+### ❤️  Thank You
+
+- Jonas Hungershausen
+
+## 1.0.0-next.43 (2025-04-10)
+
+### 🚀 Features
+
+- add missing French translations ([#401](https://github.com/ory/elements/pull/401))
+
+### 🩹 Fixes
+
+- two-step registration back button ([#428](https://github.com/ory/elements/pull/428))
+- resolve wcag2aa color contrast issues ([#367](https://github.com/ory/elements/pull/367))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+- Jordan Labrosse
+
 ## 1.0.0-next.41 (2025-04-07)
 
 ### 🩹 Fixes
