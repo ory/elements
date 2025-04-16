@@ -4,7 +4,7 @@
 import { SettingsFlowFromJSON } from "@ory/client-fetch"
 import { Meta, StoryObj } from "@storybook/react"
 import { config } from "../../utils"
-import { Settings } from "../../../src/theme/default"
+import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
   title: "Ory Elements/Settings/Methods/OIDC",
