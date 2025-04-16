@@ -80,3 +80,12 @@ export const EmailCodeSent: Story = {
     config,
   },
 }
+
+export const EmailCodeError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/registration/two-step/all-methods/code-sent-error.json"),
+    ),
+    config,
+  },
+}

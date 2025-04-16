@@ -1,12 +1,12 @@
 {
-  "id": "432af6a9-3b4e-40c5-93ae-3cbbd787c1b0",
+  "id": "330ddab2-1b38-4dbc-9238-20ea429ae017",
   "type": "browser",
-  "expires_at": "2025-04-15T18:01:37.835394Z",
-  "issued_at": "2025-04-15T17:01:37.835394Z",
-  "request_url": "https://upbeat-vaughan-udpe9j4ivt.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-16T10:03:48.238184Z",
+  "issued_at": "2025-04-16T09:03:48.238184Z",
+  "request_url": "https://stoic-bouman-z6rixmw57u.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://upbeat-vaughan-udpe9j4ivt.projects.oryapis:8080/self-service/registration?flow=432af6a9-3b4e-40c5-93ae-3cbbd787c1b0",
+    "action": "https://stoic-bouman-z6rixmw57u.projects.oryapis:8080/self-service/registration?flow=330ddab2-1b38-4dbc-9238-20ea429ae017",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "0Q+MRswvRdqgmks2MdP9NJ4S51O2QE9nTjamGw08lAA6Ui76c2OMTzIugYtTwSYqR3IkQOxw9Xc5dDYFC+4Glw==",
+          "value": "AEj7UHg3nP+taDyw6eslhllrufYPx/lT4slJoafzZhL+YT2m6uJwOCP0pIKUDmWwIF78eDxe2gi/SVAyQjg/WQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.xyxdut7rkh90.u56z1cn4ol@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.n6hh3enp3zf0.keq5iycdxe7@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

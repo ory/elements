@@ -1,11 +1,11 @@
 {
-  "id": "704f6482-c9ec-4371-b74a-db3950829cc2",
+  "id": "00a1b2bc-f01e-4b3b-af85-64482e6b6294",
   "type": "browser",
-  "expires_at": "2025-04-15T18:01:37.979168Z",
-  "issued_at": "2025-04-15T17:01:37.979168Z",
-  "request_url": "https://upbeat-vaughan-udpe9j4ivt.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-16T10:03:48.391187Z",
+  "issued_at": "2025-04-16T09:03:48.391187Z",
+  "request_url": "https://stoic-bouman-z6rixmw57u.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://upbeat-vaughan-udpe9j4ivt.projects.oryapis:8080/self-service/registration?flow=704f6482-c9ec-4371-b74a-db3950829cc2",
+    "action": "https://stoic-bouman-z6rixmw57u.projects.oryapis:8080/self-service/registration?flow=00a1b2bc-f01e-4b3b-af85-64482e6b6294",
     "method": "POST",
     "nodes": [
       {
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Q79FS4rff4NBl91vpLgWHnGka9NlMFBbjsNUCH51Lpmo4uf3NZO2FtMjF9LGqs0AqMSowD8A6kv5gcQWeKe8Dg==",
+          "value": "6SA7FyuAzsUuHRjL/l6EXO+fmmYZaIBmcHz3WtJHu4QXCf3huVUiAqCBgPmDu8Rqlqrf6Crxoz0t/O7JN4zizw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -73,8 +73,8 @@
         "group": "default",
         "attributes": {
           "name": "traits.email",
-          "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.xyxdut7rkh90.u56z1cn4ol@ory.dev",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.v2s2xn9hzjd0.zlxe61yj3da@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -97,7 +97,7 @@
         "group": "default",
         "attributes": {
           "name": "traits.tos",
-          "type": "checkbox",
+          "type": "hidden",
           "disabled": false,
           "node_type": "input"
         },
@@ -118,7 +118,7 @@
         "group": "default",
         "attributes": {
           "name": "traits.phone",
-          "type": "text",
+          "type": "hidden",
           "disabled": false,
           "node_type": "input"
         },
@@ -139,7 +139,7 @@
         "group": "default",
         "attributes": {
           "name": "traits.nested.name",
-          "type": "text",
+          "type": "hidden",
           "disabled": false,
           "node_type": "input"
         },
@@ -157,53 +157,165 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_displayname",
+          "type": "text",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050013,
+            "text": "Name of the security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
         "attributes": {
           "name": "webauthn_register",
-          "type": "text",
+          "type": "hidden",
+          "value": "",
           "disabled": false,
           "node_type": "input"
         },
-        "messages": [
-          {
-            "id": 4000002,
-            "text": "Property webauthn_register is missing.",
-            "type": "error",
-            "context": {
-              "property": "webauthn_register"
-            }
-          }
-        ],
+        "messages": [],
         "meta": {}
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "webauthn",
         "attributes": {
-          "name": "identifier",
-          "type": "text",
+          "name": "webauthn_register_trigger",
+          "type": "button",
+          "value": "{\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"AejL9uX4nP6FB2JQPHOKC4nNjXy2pGYrgG9JxpvKA8Q\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"stoic-bouman-z6rixmw57u.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"JG2GgE2EQhyYysjGHyOWTA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}}",
           "disabled": false,
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"AejL9uX4nP6FB2JQPHOKC4nNjXy2pGYrgG9JxpvKA8Q\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"stoic-bouman-z6rixmw57u.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"JG2GgE2EQhyYysjGHyOWTA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}})",
+          "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
-        "messages": [
-          {
-            "id": 4000002,
-            "text": "Property identifier is missing.",
-            "type": "error",
-            "context": {
-              "property": "identifier"
-            }
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040004,
+            "text": "Sign up with security key",
+            "type": "info"
           }
-        ],
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://stoic-bouman-z6rixmw57u.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "0f552489-486c-4dd6-8dc8-d37aa6703d12",
+          "node_type": "script"
+        },
+        "messages": [],
         "meta": {}
       },
       {
         "type": "input",
-        "group": "profile",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register_trigger",
+          "type": "button",
+          "disabled": false,
+          "onclick": "window.oryPasskeyRegistration()",
+          "onclickTrigger": "oryPasskeyRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040007,
+            "text": "Sign up with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_create_data",
+          "type": "hidden",
+          "value": "{\"credentialOptions\": {\"publicKey\": {\"authenticatorSelection\": {\"authenticatorAttachment\": \"platform\", \"requireResidentKey\": true, \"residentKey\": \"required\", \"userVerification\": \"preferred\"}, \"challenge\": \"6ZAP1p-LIEZfvRMYXP68ALJZ-AubWvzWIQZFWmINEiM\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"stoic-bouman-z6rixmw57u.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 300000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"eHpRY0ZLRFM2Q05HOG9rSURCampVdTJaYUlidGlVV3dXeWI2c2ZZQXZVeUpZSmdoS0YzN1I2YmpCTGhrSzdKbA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-jCQG1qzU7xhrCcGd-0-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}}, \"displayNameFieldName\": \"traits.email\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "profile",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040006,
+            "text": "Send sign up code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
           "disabled": false,
           "node_type": "input"
         },
@@ -214,6 +326,35 @@
             "text": "Sign up",
             "type": "info"
           }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "screen",
+          "type": "submit",
+          "value": "previous",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040008,
+            "text": "Back",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response: Parse error for Registration",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response: Parse error for Registration"
         }
       }
     ]
