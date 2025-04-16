@@ -13,6 +13,7 @@ import { useIntl } from "react-intl"
 import EyeOff from "../../assets/icons/eye-off.svg"
 import Eye from "../../assets/icons/eye.svg"
 import { cn } from "../../utils/cn"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 export const DefaultInput = ({
   node,
@@ -21,14 +22,7 @@ export const DefaultInput = ({
 }: OryNodeInputProps) => {
   const label = getNodeLabel(node)
   const { register } = useFormContext()
-  const {
-    value,
-    autocomplete,
-    name,
-    maxlength,
-    node_type: _,
-    ...rest
-  } = attributes
+  const { value, autocomplete, name, maxlength, ...rest } = attributes
   const intl = useIntl()
   const { flowType } = useOryFlow()
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -70,7 +64,7 @@ export const DefaultInput = ({
       )}
     >
       <input
-        {...rest}
+        {...omitInputAttributes(rest)}
         onClick={onClick}
         maxLength={maxlength}
         autoComplete={autocomplete}

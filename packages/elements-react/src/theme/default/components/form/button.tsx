@@ -11,6 +11,7 @@ import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { Spinner } from "./spinner"
 import { useEffect, useState } from "react"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 const buttonStyles = cva(
   [
@@ -52,19 +53,7 @@ export const DefaultButton = ({
   node,
   onClick,
 }: OryNodeButtonProps) => {
-  const {
-    type,
-    name,
-    value,
-    // Button does not support these attributes, so we skip them
-    autocomplete: _ignoredAutocomplete,
-    label: _ignoredLabel,
-    node_type: _ignoredNodeType,
-    maxlength: _ignoredMaxLength,
-    onclick: _ignoredOnClick,
-    // End of skipped attributes
-    ...rest
-  } = attributes
+  const { type, name, value, ...rest } = attributes
   const [clicked, setClicked] = useState(false)
   const intl = useIntl()
   const label = getNodeLabel(node)
@@ -88,7 +77,7 @@ export const DefaultButton = ({
 
   return (
     <button
-      {...rest}
+      {...omitInputAttributes(rest)}
       value={value}
       name={name}
       type={type === "button" ? "button" : "submit"} // TODO

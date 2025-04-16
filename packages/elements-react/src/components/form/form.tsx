@@ -28,7 +28,7 @@ import {
   OryNodeLabelProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryCardFooter, OryCardFooterProps } from "../card"
+import { OryCardFooterProps } from "../card"
 import { OryCardRootProps } from "../card/card"
 import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
@@ -267,11 +267,10 @@ export function OryForm({
     }
 
     return (
-      <div className="grid gap-8" data-testid={dataTestId}>
+      <div data-testid={dataTestId}>
         <Message.Root>
           <Message.Content key={m.id} message={m} />
         </Message.Root>
-        <OryCardFooter />
       </div>
     )
   }
