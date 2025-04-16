@@ -255,7 +255,7 @@
   "card.header.description.login": "Se connecter avec {identifierLabel}",
   "card.header.description.registration": "S'inscrire avec {identifierLabel}",
   "misc.or": "ou",
-  "forms.label.forgot-password": "Mot de passe oublié\u00a0?",
+  "forms.label.forgot-password": "Mot de passe oublié?",
   "settings.lookup_secret.title": "Codes de récupération de sauvegarde (second facteur)",
   "settings.lookup_secret.description": "Les codes de récupération sont une sauvegarde sécurisée pour l'authentification à deux facteurs (2FA), vous permettant de retrouver l'accès à votre compte si vous perdez votre appareil 2FA.",
   "settings.oidc.title": "Comptes connectés",
