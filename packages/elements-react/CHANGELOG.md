@@ -1,3 +1,14 @@
+## 1.0.0-next.46 (2025-04-16)
+
+### 🩹 Fixes
+
+- missing hidden field regression ([#439](https://github.com/ory/elements/pull/439))
+- use correct testid ([#438](https://github.com/ory/elements/pull/438))
+
+### ❤️  Thank You
+
+- hackerman @aeneasr
+
 ## 1.0.0-next.45 (2025-04-15)
 
 ### 🩹 Fixes
