@@ -12,6 +12,7 @@ import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
 import { CheckboxLabel } from "../ui/checkbox-label"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 function CheckboxSVG() {
   return (
@@ -36,16 +37,7 @@ export const DefaultCheckbox = ({
   attributes: initialAttributes,
   node,
 }: OryNodeInputProps) => {
-  const {
-    value,
-    name,
-    // Button does not support these attributes, so we skip them
-    autocomplete: _autocomplete,
-    onclick: _onclick,
-    maxlength: _max,
-    // End of skipped attributes
-    ...attributes
-  } = initialAttributes
+  const { value, name, ...attributes } = initialAttributes
 
   const intl = useIntl()
   const label = getNodeLabel(node)
@@ -56,7 +48,7 @@ export const DefaultCheckbox = ({
     <label className="flex items-start gap-3 self-stretch antialiased">
       <span className="flex h-5 items-center">
         <input
-          {...attributes}
+          {...omitInputAttributes(attributes)}
           defaultChecked={Boolean(value)}
           type="checkbox"
           className={cn(

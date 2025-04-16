@@ -9,6 +9,7 @@ import {
 import { forwardRef } from "react"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 export const DefaultLinkButton = forwardRef<
   HTMLAnchorElement,
@@ -18,7 +19,7 @@ export const DefaultLinkButton = forwardRef<
   const label = getNodeLabel(node)
   return (
     <a
-      {...attributes}
+      {...omitInputAttributes(attributes)}
       ref={ref}
       title={label ? uiTextToFormattedMessage(label, intl) : ""}
       data-testid={`ory/form/node/link/${attributes.id}`}
