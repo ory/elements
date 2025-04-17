@@ -7,6 +7,7 @@ import {
   UiNode,
   UiNodeGroupEnum,
   UiNodeInputAttributesTypeEnum,
+  UiText,
 } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { OryCard, OryCardContent, OryCardFooter } from "."
@@ -19,6 +20,7 @@ import { Node } from "../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../form/social"
 import { removeSsoNodes, getFinalNodes } from "./card-two-step.utils"
 import { OryCardHeader } from "./header"
+import { useIntl } from "react-intl"
 
 type MethodOption = {
   title?: { id: string; values?: Record<string, string> }
@@ -37,9 +39,10 @@ type AuthMethodListProps = {
 }
 
 export function OryTwoStepCard() {
-  const { Form, Card } = useComponents()
+  const { Form, Card, Message } = useComponents()
   const { flow, flowType, formState, dispatchFormState } = useOryFlow()
   const { ui } = flow
+  const intl = useIntl()
 
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
@@ -148,6 +151,17 @@ export function OryTwoStepCard() {
       return true
     })
 
+  // This is defined in Ory Kratos as well.
+  const noMethods: UiText = {
+    id: 5000002,
+    text: intl.formatMessage({
+      id: `identities.messages.${5000002}`,
+      defaultMessage:
+        "No authentication methods are available for this request. Please contact the site or app owner.",
+    }),
+    type: "error",
+  }
+
   switch (formState.current) {
     case "provide_identifier":
       return (
@@ -178,7 +192,7 @@ export function OryTwoStepCard() {
           <OryCardContent>
             <OryCardValidationMessages />
             {showSso && <OryFormSocialButtonsForm />}
-            {Object.entries(authMethodBlocks).length > 0 && (
+            {Object.entries(authMethodBlocks).length > 0 ? (
               <OryForm
                 data-testid={`ory/form/methods/local`}
                 onAfterSubmit={handleAfterFormSubmit}
@@ -199,6 +213,12 @@ export function OryTwoStepCard() {
                   ))}
                 </Form.Group>
               </OryForm>
+            ) : (
+              <div data-testid={`ory/form/methods/local`}>
+                <Message.Root>
+                  <Message.Content key={noMethods.id} message={noMethods} />
+                </Message.Root>
+              </div>
             )}
           </OryCardContent>
           <OryCardFooter />

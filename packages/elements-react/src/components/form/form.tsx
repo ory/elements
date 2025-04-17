@@ -7,6 +7,7 @@ import {
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
+  UiNodeGroupEnum,
   UiText,
 } from "@ory/client-fetch"
 import { ComponentType, PropsWithChildren } from "react"
@@ -244,6 +245,9 @@ export function OryForm({
 
   const hasMethods = flowContainer.flow.ui.nodes.some((node) => {
     if (isUiNodeInputAttributes(node.attributes)) {
+      if (node.attributes.type === "hidden") {
+        return false
+      }
       return node.attributes.name !== "csrf_token"
     } else if (isUiNodeAnchorAttributes(node.attributes)) {
       return true
@@ -254,6 +258,7 @@ export function OryForm({
     }
     return false
   })
+
   if (!hasMethods) {
     // This is defined in Ory Kratos as well.
     const m: UiText = {
