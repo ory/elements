@@ -278,5 +278,6 @@
   "error.instructions": "Veuillez réessayer dans quelques minutes ou contacter l'opérateur du site Web.",
   "error.footer.text": "Lorsque vous signalez cette erreur, veuillez inclure les informations suivantes:",
   "error.footer.copy": "Copier",
-  "error.action.go-back": "Retour"
+  "error.action.go-back": "Retour",
+  "identities.messages.1010020": ""
 }

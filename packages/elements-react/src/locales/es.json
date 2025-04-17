@@ -277,5 +277,7 @@
   "error.instructions": "Por favor, inténtalo de nuevo en unos minutos o contacta al operador del sitio web.",
   "error.footer.text": "Al informar este error, incluye la siguiente información:",
   "error.footer.copy": "Copiar",
-  "error.action.go-back": "Regresar"
+  "error.action.go-back": "Regresar",
+  "identities.messages.1010020": "",
+  "identities.messages.1050020": "Eliminar passkey \"{display_name}\""
 }
