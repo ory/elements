@@ -1,8 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { AuthenticatorAssuranceLevel } from "@ory/client-fetch"
-
 export function restartFlowUrl(
   flow: {
     id: string
@@ -53,17 +51,5 @@ function appendReturnTo(url: string, returnTo?: string) {
 
   const urlObj = new URL(url)
   urlObj.searchParams.set("return_to", returnTo)
-  return urlObj.toString()
-}
-
-function appendAal(url: string, aal: AuthenticatorAssuranceLevel) {
-  const urlObj = new URL(url)
-  urlObj.searchParams.set("aal", aal)
-  return urlObj.toString()
-}
-
-function appendRefresh(url: string, refresh: boolean) {
-  const urlObj = new URL(url)
-  urlObj.searchParams.set("refresh", refresh ? "true" : "false")
   return urlObj.toString()
 }
