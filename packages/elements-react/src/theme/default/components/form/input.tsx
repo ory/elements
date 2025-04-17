@@ -15,6 +15,15 @@ import Eye from "../../assets/icons/eye.svg"
 import { cn } from "../../utils/cn"
 import { omitInputAttributes } from "../../../../util/omitAttributes"
 
+export const defaultInputClassName = cn(
+  "antialiased rounded-forms border leading-tight transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus-visible:outline-none focus:ring-0 w-full",
+  "bg-input-background-default border-input-border-default text-input-foreground-primary",
+  "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
+  "focus:border-input-border-focus focus-visible:border-input-border-focus",
+  "hover:bg-input-background-hover hover:border-input-border-hover",
+  "px-4 py-[13px]",
+)
+
 export const DefaultInput = ({
   node,
   attributes,
@@ -70,14 +79,7 @@ export const DefaultInput = ({
         autoComplete={autocomplete}
         placeholder={formattedLabel}
         data-testid={`ory/form/node/input/${name}`}
-        className={cn(
-          "antialiased rounded-forms border leading-tight transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus-visible:outline-none focus:ring-0 w-full",
-          "bg-input-background-default border-input-border-default text-input-foreground-primary",
-          "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
-          "focus:border-input-border-focus focus-visible:border-input-border-focus",
-          "hover:bg-input-background-hover hover:border-input-border-hover",
-          "px-4 py-[13px]",
-        )}
+        className={defaultInputClassName}
         ref={(e) => {
           inputRef.current = e
           ref(e)
