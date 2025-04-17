@@ -24,7 +24,10 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
             <Card.Logo />
             {config.project.default_redirect_url && (
               <div className="mt-2">
-                <a data-testid={"ory/screen/settings/default_redirect_url"} href={config.project.default_redirect_url}>
+                <a
+                  data-testid={"ory/screen/settings/default_redirect_url"}
+                  href={config.project.default_redirect_url}
+                >
                   &#x2190;{" "}
                   {intl.formatMessage({
                     id: "settings.navigation-back-button",
