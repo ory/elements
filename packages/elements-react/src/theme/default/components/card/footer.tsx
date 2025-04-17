@@ -51,6 +51,17 @@ function LoginCardFooter() {
     return null
   }
 
+  let returnTo = config.project.default_redirect_url
+  if (flowType === FlowType.Login && flow.return_to) {
+    returnTo = flow.return_to
+  }
+  if (!returnTo) {
+    returnTo = restartFlowUrl(
+      flow,
+      `${config.sdk.url}/self-service/${flowType}/browser`,
+    )
+  }
+
   return (
     <>
       {formState.current === "provide_identifier" &&
@@ -92,11 +103,8 @@ function LoginCardFooter() {
           <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
             <a
               className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              href={restartFlowUrl(
-                flow,
-                `${config.sdk.url}/self-service/${flowType}/browser`,
-              )}
-              data-testid={"ory/screen/login/mfa/action/reauthenticate"}
+              href={returnTo}
+              data-testid={"ory/screen/login/mfa/action/cancel"}
             >
               {intl.formatMessage({
                 id: "login.2fa.go-back.link",
@@ -113,11 +121,8 @@ function LoginCardFooter() {
             })}{" "}
             <a
               className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              href={restartFlowUrl(
-                flow,
-                `${config.sdk.url}/self-service/${flowType}/browser`,
-              )}
-              data-testid={"ory/screen/login/mfa/action/reauthenticate"}
+              href={returnTo}
+              data-testid={"ory/screen/login/mfa/action/cancel"}
             >
               {intl.formatMessage({
                 id: "login.2fa.go-back.link",

@@ -12,8 +12,6 @@ export function restartFlowUrl(
   },
   fallback: string,
 ) {
-  if (flow.requested_aal === "aal2")
-    return appendRefresh(appendAal(fallback, "aal1"), true)
   return flow.request_url || appendReturnTo(fallback, flow.return_to)
 }
 
