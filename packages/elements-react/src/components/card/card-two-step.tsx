@@ -214,11 +214,13 @@ export function OryTwoStepCard() {
                 </Form.Group>
               </OryForm>
             ) : (
-              <div data-testid={`ory/form/methods/local`}>
-                <Message.Root>
-                  <Message.Content key={noMethods.id} message={noMethods} />
-                </Message.Root>
-              </div>
+              !showSso && (
+                <div data-testid={`ory/form/methods/local`}>
+                  <Message.Root>
+                    <Message.Content key={noMethods.id} message={noMethods} />
+                  </Message.Root>
+                </div>
+              )
             )}
           </OryCardContent>
           <OryCardFooter />
