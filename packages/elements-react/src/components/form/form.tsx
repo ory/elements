@@ -7,7 +7,6 @@ import {
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
-  UiNodeGroupEnum,
   UiText,
 } from "@ory/client-fetch"
 import { ComponentType, PropsWithChildren } from "react"
