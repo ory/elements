@@ -155,7 +155,7 @@ export function OryTwoStepCard() {
   const noMethods: UiText = {
     id: 5000002,
     text: intl.formatMessage({
-      id: `identities.messages.${5000002}`,
+      id: `identities.messages.5000002`,
       defaultMessage:
         "No authentication methods are available for this request. Please contact the site or app owner.",
     }),
