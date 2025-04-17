@@ -7,7 +7,8 @@ router.
 2. Create a new or use an existing project
 3. Go to https://console.ory.sh/projects/current/settings and copy the **API
    endpoints** URL
-4. Set the `NEXT_PUBLIC_ORY_SDK_URL` to your project's **API endpoints** URL
+4. Set `NEXT_PUBLIC_ORY_SDK_URL` in the `.env` file to your project's **API
+   endpoints** URL
 5. Run `npm install`
 6. Run `npm run dev` and open navigate to http://localhost:3000
 
