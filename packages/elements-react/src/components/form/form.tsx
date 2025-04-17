@@ -276,7 +276,8 @@ export function OryForm({
   }
 
   if (
-    flowContainer.flowType === FlowType.Login &&
+    (flowContainer.flowType === FlowType.Login ||
+      flowContainer.flowType === FlowType.Registration) &&
     flowContainer.formState.current === "method_active" &&
     flowContainer.formState.method === "code"
   ) {
