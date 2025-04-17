@@ -19,7 +19,8 @@ Ory Elements comes with several packages:
 
 > [!NOTE]  
 > If you've used @ory/elements, @ory/elements-markup or @ory/elements-preact
-> before, we recommend migrating to @ory/elements-react.
+> before, we recommend migrating to @ory/elements-react. The legacy code base is
+> in https://github.com/ory/elements-legacy.
 
 ## Getting Started
 
