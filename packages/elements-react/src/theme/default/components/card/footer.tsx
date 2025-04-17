@@ -131,25 +131,26 @@ function RegistrationCardFooter() {
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
   switch (formState.current) {
     case "method_active":
+      if (!screenSelectionNode) {
+        return null
+      }
       return (
         <span className="font-normal leading-normal antialiased">
-          {screenSelectionNode && (
-            <a
-              className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
-              href=""
-            >
-              {intl.formatMessage({
-                id: "card.footer.select-another-method",
-                defaultMessage: "Select another method",
-              })}
-            </a>
-          )}
+          <a
+            className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
+            href=""
+          >
+            {intl.formatMessage({
+              id: "card.footer.select-another-method",
+              defaultMessage: "Select another method",
+            })}
+          </a>
         </span>
       )
     case "select_method":
     default:
       return (
-        <span className="font-normal leading-normal antialiased">
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
           {intl.formatMessage({
             id: "registration.login-label",
             defaultMessage: "Already have an account?",
