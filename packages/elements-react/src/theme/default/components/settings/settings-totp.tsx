@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  FlowType,
   UiNodeImageAttributes,
   UiNodeInputAttributes,
   UiNodeTextAttributes,
@@ -13,8 +12,6 @@ import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import { useFormContext } from "react-hook-form"
 import { Spinner } from "../form/spinner"
-import { cn } from "../../utils/cn"
-import { omitInputAttributes } from "../../../../util/omitAttributes"
 import { defaultInputClassName } from "../form/input"
 
 export function DefaultSettingsTotp({
