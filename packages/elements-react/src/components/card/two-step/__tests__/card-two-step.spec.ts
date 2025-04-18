@@ -12,10 +12,7 @@ import {
   LoginFlowContainer,
   RegistrationFlowContainer,
 } from "@ory/elements-react"
-import {
-  getFinalNodes,
-  isChoosingMethod,
-} from "../utils"
+import { getFinalNodes, isChoosingMethod } from "../utils"
 
 const makeFlow = (
   nodes: UiNode[],

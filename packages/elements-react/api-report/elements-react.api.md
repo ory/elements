@@ -73,14 +73,7 @@ export type FlowContextValue = OryFlowContainer & {
 };
 
 // @public (undocumented)
-export type FormState = {
-    current: "provide_identifier";
-} | {
-    current: "select_method";
-} | {
-    current: "method_active";
-    method: UiNodeGroupEnum;
-} | {
+export type FormState = FormStateSelectMethod | FormStateProvideIdentifier | FormStateMethodActive | {
     current: "success_screen";
 } | {
     current: "settings";
@@ -93,6 +86,22 @@ export type FormStateAction = {
 } | {
     type: "action_select_method";
     method: UiNodeGroupEnum;
+};
+
+// @public (undocumented)
+export type FormStateMethodActive = {
+    current: "method_active";
+    method: UiNodeGroupEnum;
+};
+
+// @public (undocumented)
+export type FormStateProvideIdentifier = {
+    current: "provide_identifier";
+};
+
+// @public (undocumented)
+export type FormStateSelectMethod = {
+    current: "select_method";
 };
 
 // @public
