@@ -35,23 +35,9 @@ export const NodeInput = ({
   const isScreenSelectionNode =
     "name" in node.attributes && node.attributes.name === "screen"
 
-  const setFormValue = () => {
-    if (
-      attrs.value &&
-      !(
-        isResendNode ||
-        isScreenSelectionNode ||
-        node.group === UiNodeGroupEnum.Oauth2Consent
-      )
-    ) {
-      setValue(attrs.name, attrs.value)
-    }
-  }
-
   const hasRun = useRef(false)
   useEffect(
     () => {
-      setFormValue()
       if (!hasRun.current && onloadTrigger) {
         hasRun.current = true
         triggerToWindowCall(onloadTrigger)
@@ -63,7 +49,6 @@ export const NodeInput = ({
   )
 
   const handleClick: MouseEventHandler = () => {
-    setFormValue()
     if (onclickTrigger) {
       triggerToWindowCall(onclickTrigger)
     }
