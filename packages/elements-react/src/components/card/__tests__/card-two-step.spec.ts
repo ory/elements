@@ -16,7 +16,7 @@ import {
   removeSsoNodes,
   getFinalNodes,
   isChoosingMethod,
-} from "../card-two-step.utils"
+} from "../two-step/card-two-step.utils"
 
 const makeFlow = (
   nodes: UiNode[],
