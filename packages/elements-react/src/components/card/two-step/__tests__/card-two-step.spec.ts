@@ -11,12 +11,11 @@ import {
 import {
   LoginFlowContainer,
   RegistrationFlowContainer,
-} from "../../../util/flowContainer"
+} from "@ory/elements-react"
 import {
-  removeSsoNodes,
   getFinalNodes,
   isChoosingMethod,
-} from "../two-step/card-two-step.utils"
+} from "../utils"
 
 const makeFlow = (
   nodes: UiNode[],
@@ -34,19 +33,6 @@ const makeFlow = (
   }) as LoginFlowContainer | RegistrationFlowContainer
 
 describe("CardTwoStep/utils", () => {
-  describe("filterZeroStepGroups", () => {
-    test("should filter out nodes with group Oidc and Saml", () => {
-      const nodes: UiNode[] = [
-        { group: UiNodeGroupEnum.Oidc } as UiNode,
-        { group: UiNodeGroupEnum.Saml } as UiNode,
-        { group: UiNodeGroupEnum.Default } as UiNode,
-      ]
-      const result = removeSsoNodes(nodes)
-      expect(result).toHaveLength(1)
-      expect(result[0].group).toBe(UiNodeGroupEnum.Default)
-    })
-  })
-
   describe("isChoosingMethod", () => {
     test("should return true if a node has value 'screen=previous'", () => {
       const uiNodes: UiNode[] = [

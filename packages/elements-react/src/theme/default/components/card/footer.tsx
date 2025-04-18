@@ -138,11 +138,10 @@ function RegistrationCardFooter() {
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
   switch (formState.current) {
     case "method_active":
-      if (!screenSelectionNode) {
-        return null
-      } else if (Object.entries(authMethodBlocks).length < 2) {
+      if (!screenSelectionNode || Object.entries(authMethodBlocks).length < 2) {
         return null
       }
+
       return (
         <span className="font-normal leading-normal antialiased">
           <a
