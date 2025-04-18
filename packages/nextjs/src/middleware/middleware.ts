@@ -41,7 +41,7 @@ export async function proxyRequest(request: NextRequest, options: OryConfig) {
   upstreamUrl.port = matchBaseUrl.port
 
   const upstreamRequestHeaders = filterRequestHeaders(
-    request.headers,
+    await request.headers,
     options.forwardAdditionalHeaders,
   )
   upstreamRequestHeaders.set("Host", upstreamUrl.host)
