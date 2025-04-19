@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.47.9",
+    "toolVersion": "7.52.4",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -467,17 +467,31 @@
               "text": "type FormState = "
             },
             {
+              "kind": "Reference",
+              "text": "FormStateSelectMethod",
+              "canonicalReference": "@ory/elements-react!FormStateSelectMethod:type"
+            },
+            {
               "kind": "Content",
-              "text": "{\n    current: \"provide_identifier\";\n} | {\n    current: \"select_method\";\n} | {\n    current: \"method_active\";\n    method: "
+              "text": " | "
             },
             {
               "kind": "Reference",
-              "text": "UiNodeGroupEnum",
-              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
+              "text": "FormStateProvideIdentifier",
+              "canonicalReference": "@ory/elements-react!FormStateProvideIdentifier:type"
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    current: \"success_screen\";\n} | {\n    current: \"settings\";\n}"
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "FormStateMethodActive",
+              "canonicalReference": "@ory/elements-react!FormStateMethodActive:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | {\n    current: \"success_screen\";\n} | {\n    current: \"settings\";\n}"
             },
             {
               "kind": "Content",
@@ -489,7 +503,7 @@
           "name": "FormState",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 4
+            "endIndex": 7
           }
         },
         {
@@ -534,6 +548,93 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FormStateMethodActive:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FormStateMethodActive = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    current: \"method_active\";\n    method: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeGroupEnum",
+              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FormStateMethodActive",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FormStateProvideIdentifier:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FormStateProvideIdentifier = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    current: \"provide_identifier\";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FormStateProvideIdentifier",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!FormStateSelectMethod:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FormStateSelectMethod = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    current: \"select_method\";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "FormStateSelectMethod",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
           }
         },
         {

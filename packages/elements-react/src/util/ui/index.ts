@@ -11,29 +11,10 @@ import type {
   UiNodeAttributes,
   UiNodeInputAttributesOnclickTriggerEnum,
   UiNodeInputAttributesOnloadTriggerEnum,
-  UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
 import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { useMemo } from "react"
 import { useGroupSorter } from "../../context/component"
-
-export function capitalize(s: string) {
-  if (!s) {
-    return s
-  }
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
-
-export type FilterNodesByGroups = {
-  nodes: UiNode[]
-  groups?: UiNodeGroupEnum[] | UiNodeGroupEnum
-  withoutDefaultGroup?: boolean
-  attributes?: UiNodeInputAttributesTypeEnum[] | UiNodeInputAttributesTypeEnum
-  withoutDefaultAttributes?: boolean
-  excludeAttributes?:
-    | UiNodeInputAttributesTypeEnum[]
-    | UiNodeInputAttributesTypeEnum
-}
 
 export function triggerToWindowCall(
   trigger:
@@ -151,6 +132,7 @@ export function nodesToAuthMethodGroups(
 /**
  * Groups nodes by their group and returns an object with the groups and entries.
  *
+ * @deprecated use useNodeGroupsWithVisibleNodes instead
  * @param nodes - The nodes to group
  * @param opts - The options to use
  */
@@ -240,3 +222,118 @@ export const findNode = <T extends UiNodeAttributes["node_type"]>(
   }) as
     | (UiNode & { attributes: UiNodeAttributes & { node_type: T } })
     | undefined
+
+/**
+ * Returns functional nodes not related to credentials (e.g. password node) but
+ * nodes belonging profile information, identifier first nodes, captcha, or default
+ * nodes (e.g. csrf_token).
+ *
+ * @param nodes - Array of nodes to filter on.
+ */
+export function useFunctionalNodes(nodes: UiNode[]) {
+  return nodes.filter(({ group }) =>
+    (
+      [
+        UiNodeGroupEnum.Default,
+        UiNodeGroupEnum.IdentifierFirst,
+        UiNodeGroupEnum.Profile,
+        UiNodeGroupEnum.Captcha,
+      ] as UiNodeGroupEnum[]
+    ).includes(group),
+  )
+}
+
+/**
+ * Type guard for UiNodeGroupEnum
+ *
+ * @param method - The string to type guard
+ */
+export function isUiNodeGroupEnum(method: string): method is UiNodeGroupEnum {
+  // @ts-expect-error it's a string array, but typescript thinks the argument must be validated stricter
+  return Object.values(UiNodeGroupEnum).includes(method)
+}
+
+/**
+ * Returns true if the node is of group saml or oidc.
+ *
+ * @param node - The node
+ */
+function isSingleSignOnNode(node: UiNode): boolean {
+  return (
+    node.group === UiNodeGroupEnum.Oidc || node.group === UiNodeGroupEnum.Saml
+  )
+}
+
+/**
+ * Returns true if the node group contains oidc or saml nodes.
+ *
+ * @param nodes - Array of nodes to search in.
+ */
+export function hasSingleSignOnNodes(nodes: UiNode[]) {
+  return nodes.some(isSingleSignOnNode)
+}
+
+/** Returns all nodes that are not single sign on nodes (saml, oidc).
+ *
+ * @param nodes - Array of nodes to filter.
+ */
+export function withoutSingleSignOnNodes(nodes: UiNode[]) {
+  return nodes.filter((node: UiNode) => !isSingleSignOnNode(node))
+}
+
+/**
+ * Returns true if the node is visible.
+ *
+ * @param node - The node to check.
+ */
+export function isNodeVisible(node: UiNode) {
+  if (isUiNodeScriptAttributes(node.attributes)) {
+    return false
+  } else if (isUiNodeInputAttributes(node.attributes)) {
+    if (node.attributes.type === "hidden") {
+      return false
+    }
+  }
+  return true
+}
+
+export type GroupedNodes = Partial<Record<UiNodeGroupEnum, UiNode[]>>
+
+/**
+ * Returns a record which have at least one visible or interactive element (button,
+ * text field, image).
+ *
+ * Groups which have only hidden or otherwise non-interactive elements (e.g. scripts or
+ * hidden input fields) are omitted from the result.
+ *
+ * @param nodes - Array of nodes to filter on.
+ * @returns Record of groups with at least one visible element and their nodes.
+ */
+export function useNodeGroupsWithVisibleNodes(nodes: UiNode[]): GroupedNodes {
+  return useMemo(() => {
+    const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+    const groupRetained: Partial<Record<UiNodeGroupEnum, number>> = {}
+
+    for (const node of nodes) {
+      const groupNodes = groups[node.group] ?? []
+      const groupCount = groupRetained[node.group] ?? 0
+
+      groupNodes.push(node)
+      groups[node.group] = groupNodes
+      if (!isNodeVisible(node)) {
+        continue
+      }
+
+      groupRetained[node.group] = groupCount + 1
+    }
+
+    const finalGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+    for (const [group, count] of Object.entries(groupRetained)) {
+      if (count > 0) {
+        finalGroups[group as UiNodeGroupEnum] = groups[group as UiNodeGroupEnum]
+      }
+    }
+
+    return finalGroups
+  }, [nodes])
+}

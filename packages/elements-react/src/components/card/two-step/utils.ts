@@ -5,7 +5,11 @@ import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import {
   LoginFlowContainer,
   RegistrationFlowContainer,
-} from "../../util/flowContainer"
+} from "../../../util/flowContainer"
+import { isGroupImmediateSubmit } from "../../../theme/default/utils/form"
+import { GroupedNodes, isUiNodeGroupEnum } from "../../../util/ui"
+import { Dispatch } from "react"
+import { FormStateAction } from "@ory/elements-react"
 
 export function isChoosingMethod(
   flow: LoginFlowContainer | RegistrationFlowContainer,
@@ -29,18 +33,8 @@ export function isChoosingMethod(
   )
 }
 
-export function removeSsoNodes(nodes: UiNode[]): UiNode[] {
-  return nodes.filter(
-    (node) =>
-      !(
-        node.group === UiNodeGroupEnum.Oidc ||
-        node.group === UiNodeGroupEnum.Saml
-      ),
-  )
-}
-
 export function getFinalNodes(
-  uniqueGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>>,
+  uniqueGroups: GroupedNodes,
   selectedGroup: UiNodeGroupEnum | undefined,
 ): UiNode[] {
   const selectedNodes: UiNode[] = selectedGroup
@@ -58,3 +52,17 @@ export function getFinalNodes(
     )
     .concat(selectedNodes)
 }
+
+export const handleAfterFormSubmit =
+  (dispatchFormState: Dispatch<FormStateAction>) => (method: unknown) => {
+    if (typeof method !== "string" || !isUiNodeGroupEnum(method)) {
+      return
+    }
+
+    if (isGroupImmediateSubmit(method)) {
+      dispatchFormState({
+        type: "action_select_method",
+        method: method,
+      })
+    }
+  }
