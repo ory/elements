@@ -1,0 +1,82 @@
+{
+  "id": "e36c646d-3731-4458-ae78-943ce2ee3d44",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-19T15:13:13.452832Z",
+  "issued_at": "2025-04-19T14:13:13.452832Z",
+  "request_url": "https://quizzical-matsumoto-x0sgfloz3l.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://quizzical-matsumoto-x0sgfloz3l.projects.oryapis:8080/self-service/login?flow=e36c646d-3731-4458-ae78-943ce2ee3d44",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000037,
+            "text": "This account does not exist or has no login method configured.",
+            "type": "error"
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "DB5aCs83Y5f+jUFMsVTmRIjS2M3XbM8aS0ey76E/4x06EZrUHFWaWlXb8kcHfxx77eUGB/ZIlN/6d6fF4hYqKw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-19T14:13:13.455677Z",
+  "updated_at": "2025-04-19T14:13:13.455677Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

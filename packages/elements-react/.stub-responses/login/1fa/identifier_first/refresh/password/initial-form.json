@@ -1,0 +1,92 @@
+{
+  "id": "f03fb0d3-2655-4916-a03f-3038ebe4a405",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-19T14:06:31.672330717Z",
+  "issued_at": "2025-04-19T13:06:31.672330717Z",
+  "request_url": "https://serene-clarke-6qcngiqbdy.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://serene-clarke-6qcngiqbdy.projects.oryapis:8080/self-service/login?flow=f03fb0d3-2655-4916-a03f-3038ebe4a405",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "HcRvY9648NuJk06ZIIaf6OCXwwu5VKYw3IM+lhyL4vSjB4rjsC8eZ7o0Zy5LckRTmRMVCwB3z97fY5WWujTONg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.jfeuzdqsctg0.7q51kgiudj@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-19T13:06:31.68347Z",
+  "updated_at": "2025-04-19T13:06:31.68347Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
