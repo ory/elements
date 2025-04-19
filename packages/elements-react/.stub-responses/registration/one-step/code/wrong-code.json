@@ -1,0 +1,213 @@
+{
+  "id": "9b8d763a-7b3e-4ffd-b7af-4a3846ab0820",
+  "type": "browser",
+  "expires_at": "2025-04-19T15:13:13.705174Z",
+  "issued_at": "2025-04-19T14:13:13.705174Z",
+  "request_url": "https://happy-mclaren-0aue598cl4.projects.oryapis:8080/self-service/registration/browser",
+  "active": "code",
+  "ui": {
+    "action": "https://happy-mclaren-0aue598cl4.projects.oryapis:8080/self-service/registration?flow=9b8d763a-7b3e-4ffd-b7af-4a3846ab0820",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "BzYSc1xpivogx9JjWPw6W8wZzCrOBfBpkDlhfqxvyPKonbG4ITBp2N4wjEV+fk0C7qGB7E1kaYoKsIbjo2atZw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.s2lsm5s5gt0.aoim0aog02@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070012,
+            "text": "Registration code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "resend",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "hidden",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "screen",
+          "type": "submit",
+          "value": "credential-selection",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040008,
+            "text": "Back",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4040003,
+        "text": "The registration code is invalid or has already been used. Please try again.",
+        "type": "error"
+      }
+    ]
+  },
+  "organization_id": null,
+  "state": "sent_email"
+}

@@ -1,0 +1,85 @@
+{
+  "id": "41d8acfe-a972-4367-8d71-2f33adda57ff",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-19T15:13:13.533315Z",
+  "issued_at": "2025-04-19T14:13:13.533315Z",
+  "request_url": "https://relaxed-kowalevski-1tctog1obc.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://relaxed-kowalevski-1tctog1obc.projects.oryapis:8080/self-service/login?flow=41d8acfe-a972-4367-8d71-2f33adda57ff",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "F+8W9AYFHByCKiZENhAfclRgv60a1FUJTRac0pqwn2FudxfOomAhOgDCv3srP754ZGAy9sSchfvZLIhPFUrj7Q==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-19T14:13:13.535354Z",
+  "updated_at": "2025-04-19T14:13:13.535354Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
