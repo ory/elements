@@ -1,0 +1,78 @@
+{
+  "id": "e36c646d-3731-4458-ae78-943ce2ee3d44",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-19T15:13:13.452832Z",
+  "issued_at": "2025-04-19T14:13:13.452832Z",
+  "request_url": "https://quizzical-matsumoto-x0sgfloz3l.projects.oryapis:8080/self-service/login/browser",
+  "active": "identifier_first",
+  "ui": {
+    "action": "https://quizzical-matsumoto-x0sgfloz3l.projects.oryapis:8080/self-service/login?flow=e36c646d-3731-4458-ae78-943ce2ee3d44",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.qvkxb2517w0.26nxgo0pzbz@ory.dev",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "3RZD66wSb5j64FeATEmJXEzaSvIZC+m1qXPI1sHOWiPrGYM1f3CWVVG25Iv6YnNjKe2UODgvsnAYQ938gueTFQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-19T14:13:13.455677Z",
+  "updated_at": "2025-04-19T14:13:13.455677Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}
