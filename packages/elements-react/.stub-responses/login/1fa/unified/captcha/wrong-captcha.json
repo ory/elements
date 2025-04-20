@@ -1,0 +1,244 @@
+{
+  "id": "7eeea57c-3d88-4c7c-8fc4-bef738202dda",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-20T14:37:45.984968Z",
+  "issued_at": "2025-04-20T13:37:45.984968Z",
+  "request_url": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/self-service/login?flow=7eeea57c-3d88-4c7c-8fc4-bef738202dda",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "transient_payload.captcha_turnstile_response",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_trigger_script",
+          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "text",
+        "group": "captcha",
+        "attributes": {
+          "text": {
+            "id": 1070015,
+            "text": "Please complete the captcha challenge to continue.",
+            "type": "info"
+          },
+          "id": "captcha_turnstile_inject",
+          "node_type": "text"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_script",
+          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "captcha_turnstile_options",
+          "type": "hidden",
+          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "yY+Mit2x5HLlYCooXhfCvIQIBUSzFL+Dh1szkVLZEPNJjpEWEzi6WnQDDbzA+jEUgsNQm1p5ywj5vq8j3baqKA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "b9f4029d-d11e-45dc-8db4-092980569a9b",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"QQ0lZRknbR_HlVRgjv6Ypp09qn3JSfaWRBZUhVtPLsM\",\"timeout\":300000,\"rpId\":\"eloquent-swanson-b2iiwd2uyh.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000038,
+        "text": "Captcha verification failed, please try again.",
+        "type": "error"
+      }
+    ]
+  },
+  "created_at": "2025-04-20T13:37:45.988686Z",
+  "updated_at": "2025-04-20T13:37:45.988686Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}

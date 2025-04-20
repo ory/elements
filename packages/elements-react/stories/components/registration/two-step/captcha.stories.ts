@@ -2,17 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { config } from "../../../utils"
-import { LoginFlowFromJSON } from "@ory/client-fetch"
+import { LoginFlowFromJSON, RegistrationFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Login } from "../../../../src/theme/default"
+import { Registration } from "../../../../src/theme/default"
 
 const meta = {
   title: "Ory Elements/Two Step Registration/Methods/Captcha",
-  component: Login,
+  component: Registration,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Login>
+} satisfies Meta<typeof Registration>
 
 export default meta
 
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const ShowForm: Story = {
   args: {
-    flow: LoginFlowFromJSON(
+    flow: RegistrationFlowFromJSON(
       require("$snapshots/registration/two-step/captcha/initial-form.json"),
     ),
     config,
@@ -29,8 +29,17 @@ export const ShowForm: Story = {
 
 export const ValidationCaptchaUnsolved: Story = {
   args: {
-    flow: LoginFlowFromJSON(
+    flow: RegistrationFlowFromJSON(
       require("$snapshots/registration/two-step/captcha/wrong-captcha.json"),
+    ),
+    config,
+  },
+}
+
+export const EnterPassword: Story = {
+  args: {
+    flow: RegistrationFlowFromJSON(
+      require("$snapshots/registration/two-step/captcha/enter-password.json"),
     ),
     config,
   },

@@ -1,11 +1,12 @@
 {
-  "id": "dc5989c4-5cce-429c-8607-ebeae384fe27",
+  "id": "7eeea57c-3d88-4c7c-8fc4-bef738202dda",
+  "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-03-05T10:47:24.716611Z",
-  "issued_at": "2025-03-05T09:47:24.716611Z",
-  "request_url": "https://epic-carson-nt06ct6jva.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-20T14:37:45.984968055Z",
+  "issued_at": "2025-04-20T13:37:45.984968055Z",
+  "request_url": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://epic-carson-nt06ct6jva.projects.oryapis:8080/self-service/registration?flow=dc5989c4-5cce-429c-8607-ebeae384fe27",
+    "action": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/self-service/login?flow=7eeea57c-3d88-4c7c-8fc4-bef738202dda",
     "method": "POST",
     "nodes": [
       {
@@ -32,7 +33,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "7b41d916-706f-487d-97ed-589544e043fb",
+          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
           "node_type": "script"
         },
         "messages": [],
@@ -64,7 +65,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "bd976f46-cd20-45e3-8108-22d20b06b4bc",
+          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
           "node_type": "script"
         },
         "messages": [],
@@ -76,7 +77,7 @@
         "attributes": {
           "name": "captcha_turnstile_options",
           "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
           "disabled": false,
           "node_type": "input"
         },
@@ -87,10 +88,25 @@
         "type": "input",
         "group": "default",
         "attributes": {
-          "name": "traits.email",
-          "type": "email",
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "yY+Mit2x5HLlYCooXhfCvIQIBUSzFL+Dh1szkVLZEPNJjpEWEzi6WnQDDbzA+jEUgsNQm1p5ywj5vq8j3baqKA==",
           "required": true,
-          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
           "disabled": false,
           "node_type": "input"
         },
@@ -107,76 +123,64 @@
         }
       },
       {
-        "type": "input",
-        "group": "default",
+        "type": "script",
+        "group": "webauthn",
         "attributes": {
-          "name": "traits.tos",
-          "type": "checkbox",
+          "src": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "b9f4029d-d11e-45dc-8db4-092980569a9b",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
           "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070002,
-            "text": "Accept the terms of service",
-            "type": "info",
-            "context": {
-              "title": "Accept the terms of service"
-            }
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
           }
         }
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "passkey",
         "attributes": {
-          "name": "traits.phone",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Phone Number",
-            "type": "info",
-            "context": {
-              "title": "Phone Number"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "traits.nested.name",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Name",
-            "type": "info",
-            "context": {
-              "title": "Name"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
+          "name": "passkey_login",
           "type": "hidden",
-          "value": "0RVly5vQeHRuXXMeHn+4xD2e3dhCXGXXEomFDkZ5QR9lkzOFOb2TCYDw8CCRBbZ5EhdTDMTku0wMiqFoACFGDg==",
-          "required": true,
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"QQ0lZRknbR_HlVRgjv6Ypp09qn3JSfaWRBZUhVtPLsM\",\"timeout\":300000,\"rpId\":\"eloquent-swanson-b2iiwd2uyh.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -185,32 +189,48 @@
       },
       {
         "type": "input",
-        "group": "profile",
+        "group": "password",
         "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "profile",
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1040001,
-            "text": "Sign up",
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
             "type": "info"
           }
         }
       }
-    ],
-    "messages": [
-      {
-        "id": 4000038,
-        "text": "Captcha verification failed, please try again.",
-        "type": "error"
-      }
     ]
   },
-  "organization_id": null,
+  "created_at": "2025-04-20T13:37:45.988686Z",
+  "updated_at": "2025-04-20T13:37:45.988686Z",
+  "refresh": false,
+  "requested_aal": "aal1",
   "state": "choose_method"
 }

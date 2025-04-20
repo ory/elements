@@ -1,0 +1,203 @@
+{
+  "id": "5fe38a95-e6ca-4fe0-be8e-359f05554058",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-20T14:37:46.70026Z",
+  "issued_at": "2025-04-20T13:37:46.70026Z",
+  "request_url": "https://competent-yalow-vpxhtmxnme.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://competent-yalow-vpxhtmxnme.projects.oryapis:8080/self-service/login?flow=5fe38a95-e6ca-4fe0-be8e-359f05554058",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "transient_payload.captcha_turnstile_response",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_trigger_script",
+          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "text",
+        "group": "captcha",
+        "attributes": {
+          "text": {
+            "id": 1070015,
+            "text": "Please complete the captcha challenge to continue.",
+            "type": "info"
+          },
+          "id": "captcha_turnstile_inject",
+          "node_type": "text"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_script",
+          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "captcha_turnstile_options",
+          "type": "hidden",
+          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "mdGd1HNMcTsEh6AhkPnfgKr7FXd8eoeOgkYO3qwlEif6aAAbJH517ujNPLQSprWpY5WXvc3ZjJX7RhDCS9BR+w==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://competent-yalow-vpxhtmxnme.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "09837c6f-e115-4dd0-b925-5c226fc45445",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"ETn_P-RI8iol-t97k8CXSjQ7va7u2ZFEcyDK7c0zE5Y\",\"timeout\":300000,\"rpId\":\"competent-yalow-vpxhtmxnme.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000038,
+        "text": "Captcha verification failed, please try again.",
+        "type": "error"
+      }
+    ]
+  },
+  "created_at": "2025-04-20T13:37:46.70316Z",
+  "updated_at": "2025-04-20T13:37:46.70316Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}

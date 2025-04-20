@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Methods/Captcha",
+  title: "Ory Elements/First Factor Login/Identifier First/Methods/Captcha",
   component: Login,
   parameters: {
     layout: "centered",
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/captcha/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/captcha/initial-form.json"),
     ),
     config,
   },
@@ -29,7 +29,7 @@ export const ShowForm: Story = {
 export const ValidationCaptchaUnsolved: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/captcha/wrong-captcha.json"),
+      require("$snapshots/login/1fa/identifier_first/captcha/wrong-captcha.json"),
     ),
     config,
   },

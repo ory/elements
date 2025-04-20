@@ -1,11 +1,12 @@
 {
-  "id": "dc5989c4-5cce-429c-8607-ebeae384fe27",
+  "id": "5fe38a95-e6ca-4fe0-be8e-359f05554058",
+  "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-03-05T10:47:24.716611167Z",
-  "issued_at": "2025-03-05T09:47:24.716611167Z",
-  "request_url": "https://epic-carson-nt06ct6jva.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-20T14:37:46.700260889Z",
+  "issued_at": "2025-04-20T13:37:46.700260889Z",
+  "request_url": "https://competent-yalow-vpxhtmxnme.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://epic-carson-nt06ct6jva.projects.oryapis:8080/self-service/registration?flow=dc5989c4-5cce-429c-8607-ebeae384fe27",
+    "action": "https://competent-yalow-vpxhtmxnme.projects.oryapis:8080/self-service/login?flow=5fe38a95-e6ca-4fe0-be8e-359f05554058",
     "method": "POST",
     "nodes": [
       {
@@ -32,7 +33,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "7b41d916-706f-487d-97ed-589544e043fb",
+          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
           "node_type": "script"
         },
         "messages": [],
@@ -64,7 +65,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "bd976f46-cd20-45e3-8108-22d20b06b4bc",
+          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
           "node_type": "script"
         },
         "messages": [],
@@ -76,7 +77,7 @@
         "attributes": {
           "name": "captcha_turnstile_options",
           "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
           "disabled": false,
           "node_type": "input"
         },
@@ -85,12 +86,13 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "identifier_first",
         "attributes": {
-          "name": "traits.email",
-          "type": "email",
+          "name": "identifier",
+          "type": "text",
+          "value": "",
           "required": true,
-          "autocomplete": "email",
+          "autocomplete": "username webauthn",
           "disabled": false,
           "node_type": "input"
         },
@@ -108,64 +110,20 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "identifier_first",
         "attributes": {
-          "name": "traits.tos",
-          "type": "checkbox",
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070002,
-            "text": "Accept the terms of service",
-            "type": "info",
-            "context": {
-              "title": "Accept the terms of service"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "traits.phone",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Phone Number",
-            "type": "info",
-            "context": {
-              "title": "Phone Number"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "traits.nested.name",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "Name",
-            "type": "info",
-            "context": {
-              "title": "Name"
-            }
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
           }
         }
       },
@@ -175,7 +133,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "0RVly5vQeHRuXXMeHn+4xD2e3dhCXGXXEomFDkZ5QR9lkzOFOb2TCYDw8CCRBbZ5EhdTDMTku0wMiqFoACFGDg==",
+          "value": "mdGd1HNMcTsEh6AhkPnfgKr7FXd8eoeOgkYO3qwlEif6aAAbJH517ujNPLQSprWpY5WXvc3ZjJX7RhDCS9BR+w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -184,26 +142,54 @@
         "meta": {}
       },
       {
-        "type": "input",
-        "group": "profile",
+        "type": "script",
+        "group": "webauthn",
         "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "profile",
+          "src": "https://competent-yalow-vpxhtmxnme.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "09837c6f-e115-4dd0-b925-5c226fc45445",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"ETn_P-RI8iol-t97k8CXSjQ7va7u2ZFEcyDK7c0zE5Y\",\"timeout\":300000,\"rpId\":\"competent-yalow-vpxhtmxnme.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040001,
-            "text": "Sign up",
-            "type": "info"
-          }
-        }
+        "meta": {}
       }
     ]
   },
-  "organization_id": null,
+  "created_at": "2025-04-20T13:37:46.70316Z",
+  "updated_at": "2025-04-20T13:37:46.70316Z",
+  "refresh": false,
+  "requested_aal": "aal1",
   "state": "choose_method"
 }
