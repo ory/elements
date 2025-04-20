@@ -7,7 +7,7 @@ import { config } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const oidcNodes = LoginFlowFromJSON(
-  require("$snapshots/login/1fa/unified/oidc/initial-form.json"),
+  require("$snapshots/login/1fa/identifier_first/oidc/initial-form.json"),
 )
 
 const providers = [
@@ -46,7 +46,8 @@ const listOnly = (providers: string[]): LoginFlow => {
 }
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Methods/Social Sign In",
+  title:
+    "Ory Elements/First Factor Login/Identifier First/Methods/Social Sign In",
   component: Login,
   parameters: {
     layout: "centered",
@@ -117,6 +118,24 @@ export const SevenSocialButtons: Story = {
 export const AllGenericButton: Story = {
   args: {
     flow: listOnly(providers),
+    config,
+  },
+}
+
+export const CredentialSelect: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/oidc/credential-select.json"),
+    ),
+    config,
+  },
+}
+
+export const CredentialSelectWithMethodSelect: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/oidc/credential-select-password.json"),
+    ),
     config,
   },
 }

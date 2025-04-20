@@ -1,0 +1,115 @@
+{
+  "id": "59f9468e-8b1a-48ee-91f5-21d55a057ef1",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-20T15:09:47.549655708Z",
+  "issued_at": "2025-04-20T14:09:47.549655708Z",
+  "request_url": "https://jolly-chebyshev-jhm7stmojh.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://jolly-chebyshev-jhm7stmojh.projects.oryapis:8080/self-service/login?flow=59f9468e-8b1a-48ee-91f5-21d55a057ef1",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Fake Google",
+            "type": "info",
+            "context": {
+              "provider": "Fake Google",
+              "provider_id": "google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "xJ/Gc3DvhJ3Qt7zK45O+gSpUizAf4o+M02saQM+Nzu/EssFZ66PF9iGfKmUMidnoE2En+5TPAQk+YUUm+xZGNg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.sf9tb77nv880.ywkyq8yc02i@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-20T14:09:47.562764Z",
+  "updated_at": "2025-04-20T14:09:47.562764Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
