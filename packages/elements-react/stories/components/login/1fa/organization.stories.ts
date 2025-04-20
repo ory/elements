@@ -1,13 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { config } from "../../../../utils"
+import { config } from "../../../utils"
 import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Login } from "../../../../../src/theme/default"
+import { Login } from "../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Methods/Organizations",
+  title: "Ory Elements/First Factor Login/Identifier First/Methods/Organizations",
   component: Login,
   parameters: {
     layout: "centered",
