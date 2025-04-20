@@ -5,8 +5,13 @@ import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
 import { ConsentFlow, useComponents, useOryFlow } from "@ory/elements-react"
 import { useIntl } from "react-intl"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
-import { findNode, nodesToAuthMethodGroups } from "../../../../util/ui"
+import {
+  findNode,
+  nodesToAuthMethodGroups,
+  useNodeGroupsWithVisibleNodes,
+} from "../../../../util/ui"
 import { findScreenSelectionButton } from "../../../../util/nodes"
+import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
 
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
@@ -127,13 +132,16 @@ function LoginCardFooter() {
 function RegistrationCardFooter() {
   const intl = useIntl()
   const { config, flow, formState } = useOryFlow()
+  const visibleGroups = useNodeGroupsWithVisibleNodes(flow.ui.nodes)
+  const authMethodBlocks = toAuthMethodPickerOptions(visibleGroups)
 
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
   switch (formState.current) {
     case "method_active":
-      if (!screenSelectionNode) {
+      if (!screenSelectionNode || Object.entries(authMethodBlocks).length < 2) {
         return null
       }
+
       return (
         <span className="font-normal leading-normal antialiased">
           <a

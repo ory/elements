@@ -9,4 +9,10 @@ export {
 } from "./flow-context"
 export * from "./provider"
 
-export type { FormState, FormStateAction } from "./form-state"
+export type {
+  FormStateSelectMethod,
+  FormStateProvideIdentifier,
+  FormStateMethodActive,
+  FormState,
+  FormStateAction,
+} from "./form-state"
