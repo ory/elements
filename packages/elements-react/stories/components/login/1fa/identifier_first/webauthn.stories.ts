@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Methods/WebAuthn",
+  title: "Ory Elements/First Factor Login/Identifier First/Methods/WebAuthn",
   component: Login,
   parameters: {
     layout: "centered",
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/webauthn/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/webauthn/initial-form.json"),
     ),
     config,
   },
@@ -30,16 +30,25 @@ export const ShowForm: Story = {
 export const MissingEmail: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/webauthn/missing-email.json"),
+      require("$snapshots/login/1fa/identifier_first/webauthn/missing-email.json"),
     ),
     config,
   },
 }
 
-export const WrongCredentials: Story = {
+export const WebAuthnTrigger: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/webauthn/wrong-credentials.json"),
+      require("$snapshots/login/1fa/identifier_first/webauthn/webauthn-trigger.json"),
+    ),
+    config,
+  },
+}
+
+export const WebAuthnError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/webauthn/webauthn-error.json"),
     ),
     config,
   },

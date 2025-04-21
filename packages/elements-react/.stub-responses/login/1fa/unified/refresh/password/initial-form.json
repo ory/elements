@@ -1,12 +1,12 @@
 {
-  "id": "b4af4697-cde6-4102-a92e-aab753de0cc3",
+  "id": "921969c6-fa37-4ea1-b6a3-45ce200fe321",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-19T14:02:24.998168922Z",
-  "issued_at": "2025-04-19T13:02:24.998168922Z",
-  "request_url": "https://dazzling-bartik-i7tyhipsas.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-21T15:02:15.267880094Z",
+  "issued_at": "2025-04-21T14:02:15.267880094Z",
+  "request_url": "https://kind-ganguly-p17gb50wxf.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://dazzling-bartik-i7tyhipsas.projects.oryapis:8080/self-service/login?flow=b4af4697-cde6-4102-a92e-aab753de0cc3",
+    "action": "https://kind-ganguly-p17gb50wxf.projects.oryapis:8080/self-service/login?flow=921969c6-fa37-4ea1-b6a3-45ce200fe321",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "x8ZJramZTqjD7OOmfS78rzG1wY1SeGogTPmawkUbBOmJ15L6F/jDDyyw+xhrf48sO6lQTIu3Ah3b5N6Da3I9iQ==",
+          "value": "1vAFGKTAE9FMmp0WAWf68ei0Uz14HWuuDImbhwmnF9Wmeokew5Takx1BbcdznUrpzfL/AXMH9hcK2Afths7BRw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.h2240ijb1z0.boul449xrw7@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.ur5sgmt63lk0.sbvix4ea9u@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-19T13:02:25.012599Z",
-  "updated_at": "2025-04-19T13:02:25.012599Z",
+  "created_at": "2025-04-21T14:02:15.278759Z",
+  "updated_at": "2025-04-21T14:02:15.278759Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

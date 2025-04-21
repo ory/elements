@@ -1,8 +1,8 @@
 {
   "id": "677424ee-935b-49bc-ac37-fe81856be026",
   "type": "browser",
-  "expires_at": "2025-04-21T14:28:08.022824883Z",
-  "issued_at": "2025-04-21T13:28:08.022824883Z",
+  "expires_at": "2025-04-21T14:28:08.022824Z",
+  "issued_at": "2025-04-21T13:28:08.022824Z",
   "request_url": "https://optimistic-jennings-hmdz0iu2km.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
     "action": "https://optimistic-jennings-hmdz0iu2km.projects.oryapis:8080/self-service/registration?flow=677424ee-935b-49bc-ac37-fe81856be026",
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "QUJhyyuP8prkPyKNj7iDTVkqiBrNzDAGz8vPHFcXU0CetJ+nZtYpyn1M8tuBde+vD2rzQDGv6B6RXsYPCh5Cxg==",
+          "value": "A4bCDDmOrdulBvo88p+Gigtl81mi7qokKxYT3klsmwLccDxgdNd2izx1Kmr8UupoXSWIA16Ncjx1gxrNFGWKhA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,6 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
+          "value": "dev+orycye2eda2f162daf6142dd0.7cxpt84rstq0.6y09qo55jb4@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -110,6 +111,27 @@
       },
       {
         "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
+        "meta": {}
+      },
+      {
+        "type": "input",
         "group": "webauthn",
         "attributes": {
           "name": "webauthn_register_displayname",
@@ -137,7 +159,16 @@
           "disabled": false,
           "node_type": "input"
         },
-        "messages": [],
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property webauthn_register is missing.",
+            "type": "error",
+            "context": {
+              "property": "webauthn_register"
+            }
+          }
+        ],
         "meta": {}
       },
       {

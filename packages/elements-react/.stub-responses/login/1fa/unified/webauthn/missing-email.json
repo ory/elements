@@ -1,12 +1,12 @@
 {
-  "id": "1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
+  "id": "9fb76850-f59f-41b4-9885-1845bd4f8715",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:58.359011Z",
-  "issued_at": "2025-02-26T08:31:58.359011Z",
-  "request_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "expires_at": "2025-04-21T14:44:21.818498Z",
+  "issued_at": "2025-04-21T13:44:21.818498Z",
+  "request_url": "https://thirsty-keldysh-bpviucdq2w.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login?flow=1d2b48f1-3a54-4fa9-8ec5-aa1adab90019",
+    "action": "https://thirsty-keldysh-bpviucdq2w.projects.oryapis:8080/self-service/login?flow=9fb76850-f59f-41b4-9885-1845bd4f8715",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "OKlHCrtlTgAzBjc+NcIaFHF0yJRLZlhwtSeLHSQf63u5Z0rKQP2Gg0MFGH26aa+TzIFJIXXHUY16DuJJ/VUbhg==",
+          "value": "52lnEoGwr6HXc3oSZBoSpMu5MYyrSEFyiymg2VAn0a/+z3gFBzChYqGorbFMt7phb6nBox9C2010wF62fvoSLw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -35,7 +35,16 @@
           "disabled": false,
           "node_type": "input"
         },
-        "messages": [],
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
         "meta": {
           "label": {
             "id": 1070002,
@@ -68,8 +77,8 @@
       }
     ]
   },
-  "created_at": "2025-02-26T08:31:58.362635Z",
-  "updated_at": "2025-02-26T08:31:58.362635Z",
+  "created_at": "2025-04-21T13:44:21.820065Z",
+  "updated_at": "2025-04-21T13:44:21.820065Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,0 +1,107 @@
+{
+  "id": "daa370b4-fe2c-47d6-8af0-b88229f144cb",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-21T15:02:20.361751Z",
+  "issued_at": "2025-04-21T14:02:20.361751Z",
+  "request_url": "https://great-bhaskara-ckjumowaom.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://great-bhaskara-ckjumowaom.projects.oryapis:8080/self-service/login?flow=daa370b4-fe2c-47d6-8af0-b88229f144cb",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "Z+mmIjOZ6CQ94nbiKandPVyJ3lKQZc6oZ3X4aEqgpCrw9Lvf4DRU8TZftw632wrHBvXSkQE7u9PZT1LhcTg+Nw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.hxdrw8927v70.t2megvqnfbk@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://great-bhaskara-ckjumowaom.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "8fc50980-a182-415e-a114-eeef5ba99947",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"xMLxEcKmL_cSY6vRCunBTpqoHspqWLw0qlOtHFrjqP4\",\"timeout\":120000,\"rpId\":\"great-bhaskara-ckjumowaom.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"vRdo-Lr5KRM2JZpmMQKT_XUbcDBCzOWeJdlBarWdcFc\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"xMLxEcKmL_cSY6vRCunBTpqoHspqWLw0qlOtHFrjqP4\",\"timeout\":120000,\"rpId\":\"great-bhaskara-ckjumowaom.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"vRdo-Lr5KRM2JZpmMQKT_XUbcDBCzOWeJdlBarWdcFc\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response.",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response."
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-21T14:02:20.378349Z",
+  "updated_at": "2025-04-21T14:02:20.378349Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

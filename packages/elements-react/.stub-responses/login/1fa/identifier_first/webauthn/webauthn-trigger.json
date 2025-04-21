@@ -1,0 +1,78 @@
+{
+  "id": "efe89f1a-fb10-44e7-ac78-199009a3e614",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-21T14:51:59.112593Z",
+  "issued_at": "2025-04-21T13:51:59.112593Z",
+  "request_url": "https://priceless-cray-zmsa4h19r1.projects.oryapis:8080/self-service/login/browser",
+  "active": "identifier_first",
+  "ui": {
+    "action": "https://priceless-cray-zmsa4h19r1.projects.oryapis:8080/self-service/login?flow=efe89f1a-fb10-44e7-ac78-199009a3e614",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.qv4rwphpx20.qeqczmvwtig@ory.dev",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "JXzoxW8Z2pKI4vOxaCk/kSmazkRN2KvfwLbLahS3r6UeTQP0Ww2RlEI4WXCyZgTT7FZWps7vy+BvqH/X6Ga6QQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-21T13:51:59.115414Z",
+  "updated_at": "2025-04-21T13:51:59.115414Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}

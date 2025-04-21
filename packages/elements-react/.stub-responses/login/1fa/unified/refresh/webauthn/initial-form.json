@@ -1,0 +1,104 @@
+{
+  "id": "fb1b5c20-d3af-47ca-bbae-f33870ac597e",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-21T15:02:20.571006889Z",
+  "issued_at": "2025-04-21T14:02:20.571006889Z",
+  "request_url": "https://upbeat-tereshkova-90yf3om53w.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://upbeat-tereshkova-90yf3om53w.projects.oryapis:8080/self-service/login?flow=fb1b5c20-d3af-47ca-bbae-f33870ac597e",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "Ou5M6bERhrFRSMixPsnw2XZ12kR8PCpWbzZS5FxH/RLPnRKBKf6Y869+0/WJDjoSwnomk+wbgFxcW56A0BHi/g==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.x8v0st6f9qr0.75t7fccjrg@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://upbeat-tereshkova-90yf3om53w.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "5314b762-4de4-441a-8084-cf85c9c7e7a7",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"fSVzI3MKaH2mUQPrXnZWTy4a6ijvJ3HG4pBdozSfQAs\",\"timeout\":120000,\"rpId\":\"upbeat-tereshkova-90yf3om53w.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"x3JkUSClwNDA6HA5YusMsbtXayiKiT6NqWWZRYtQKoc\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"fSVzI3MKaH2mUQPrXnZWTy4a6ijvJ3HG4pBdozSfQAs\",\"timeout\":120000,\"rpId\":\"upbeat-tereshkova-90yf3om53w.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"x3JkUSClwNDA6HA5YusMsbtXayiKiT6NqWWZRYtQKoc\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-21T14:02:20.585822Z",
+  "updated_at": "2025-04-21T14:02:20.585822Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

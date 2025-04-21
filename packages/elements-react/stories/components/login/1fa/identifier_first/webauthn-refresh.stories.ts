@@ -7,7 +7,8 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Methods/WebAuthn",
+  title:
+    "Ory Elements/First Factor Login/Identifier First/Refresh/Methods/WebAuthn",
   component: Login,
   parameters: {
     layout: "centered",
@@ -21,25 +22,16 @@ type Story = StoryObj<typeof meta>
 export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/webauthn/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/refresh/webauthn/initial-form.json"),
     ),
     config,
   },
 }
 
-export const MissingEmail: Story = {
+export const WebAuthnError: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/webauthn/missing-email.json"),
-    ),
-    config,
-  },
-}
-
-export const WrongCredentials: Story = {
-  args: {
-    flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/webauthn/wrong-credentials.json"),
+      require("$snapshots/login/1fa/identifier_first/refresh/webauthn/wrong-webauthn.json"),
     ),
     config,
   },

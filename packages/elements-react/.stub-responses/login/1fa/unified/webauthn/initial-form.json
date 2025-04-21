@@ -1,12 +1,12 @@
 {
-  "id": "e60bdb05-4051-42a9-9d5f-cd207cf7a1f8",
+  "id": "9fb76850-f59f-41b4-9885-1845bd4f8715",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:58.540675Z",
-  "issued_at": "2025-02-26T08:31:58.540675Z",
-  "request_url": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-21T14:44:21.818498542Z",
+  "issued_at": "2025-04-21T13:44:21.818498542Z",
+  "request_url": "https://thirsty-keldysh-bpviucdq2w.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://ecstatic-cohen-vqvlpcrrkw.projects.oryapis:8080/self-service/login?flow=e60bdb05-4051-42a9-9d5f-cd207cf7a1f8",
+    "action": "https://thirsty-keldysh-bpviucdq2w.projects.oryapis:8080/self-service/login?flow=9fb76850-f59f-41b4-9885-1845bd4f8715",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "lIK5ygedwebxp+4590F5ACYP/kra1B4DYxYXO3zMcDHh89BY4xZBg2dqDz6x3+og4IrRNvfHGeJQdArWhFqPdg==",
+          "value": "KKzMghzWQC2Lle9thJsoItEKG7cdyflOEzuxXZYihMkxCtOVmlZO7v1OOM6sNoDndRrrmKnDY3Hs0k8yuP9HSQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -66,17 +66,10 @@
           }
         }
       }
-    ],
-    "messages": [
-      {
-        "id": 4000015,
-        "text": "This account does not exist or has no security key set up.",
-        "type": "error"
-      }
     ]
   },
-  "created_at": "2025-02-26T08:31:58.544395Z",
-  "updated_at": "2025-02-26T08:31:58.544395Z",
+  "created_at": "2025-04-21T13:44:21.820065Z",
+  "updated_at": "2025-04-21T13:44:21.820065Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"
