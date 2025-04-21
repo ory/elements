@@ -3,14 +3,21 @@
 
 import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { useReducer, useState } from "react"
-import { isChoosingMethod } from "../components/card/card-two-step.utils"
+import { isChoosingMethod } from "../components/card/two-step/utils"
 import { OryFlowContainer } from "../util"
 import { nodesToAuthMethodGroups } from "../util/ui"
 
+export type FormStateSelectMethod = { current: "select_method" }
+export type FormStateProvideIdentifier = { current: "provide_identifier" }
+export type FormStateMethodActive = {
+  current: "method_active"
+  method: UiNodeGroupEnum
+}
+
 export type FormState =
-  | { current: "provide_identifier" }
-  | { current: "select_method" }
-  | { current: "method_active"; method: UiNodeGroupEnum }
+  | FormStateSelectMethod
+  | FormStateProvideIdentifier
+  | FormStateMethodActive
   | { current: "success_screen" }
   | { current: "settings" }
 
