@@ -7,7 +7,7 @@ import { config } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Refresh/Methods/Captcha",
+  title: "Ory Elements/First Factor Login/Unified Refresh/Captcha",
   component: Login,
   parameters: {
     layout: "centered",

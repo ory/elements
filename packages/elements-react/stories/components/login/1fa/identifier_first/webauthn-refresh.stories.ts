@@ -8,7 +8,7 @@ import { Login } from "../../../../../src/theme/default"
 
 const meta = {
   title:
-    "Ory Elements/First Factor Login/Identifier First/Refresh/Methods/WebAuthn",
+    "Ory Elements/First Factor Login/Identifier First Refresh/WebAuthn",
   component: Login,
   parameters: {
     layout: "centered",

@@ -20,7 +20,7 @@ const providers = [
 ]
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Identifier First/Methods/SAML",
+  title: "Ory Elements/First Factor Login/Identifier First/SAML",
   component: Login,
   parameters: {
     layout: "centered",
