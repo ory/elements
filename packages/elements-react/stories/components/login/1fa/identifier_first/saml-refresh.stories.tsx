@@ -11,8 +11,7 @@ const samlNodes = LoginFlowFromJSON(
 )
 
 const meta = {
-  title:
-    "Ory Elements/First Factor Login/Identifier First Refresh/SAML",
+  title: "Ory Elements/First Factor Login/Identifier First Refresh/SAML",
   component: Login,
   parameters: {
     layout: "centered",
