@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { OryClientConfiguration } from "@ory/elements-react"
+import { LoginFlow, LoginFlowFromJSON, UiNode } from "@ory/client-fetch"
 
 export const config = {
   name: "Acme Inc.",
@@ -138,4 +139,30 @@ export interface GenericError {
    * @memberof GenericError
    */
   status?: string
+}
+
+export const listOnly = (
+  flow: LoginFlow,
+  group: "saml" | "oidc",
+  providers: string[],
+): LoginFlow => {
+  return LoginFlowFromJSON({
+    ...flow,
+    ui: {
+      ...flow.ui,
+      nodes: flow.ui.nodes.filter((node) => {
+        if (
+          node.group !== group ||
+          node.attributes.node_type !== "input" ||
+          node.attributes.name !== "provider"
+        ) {
+          return true
+        }
+
+        return providers.includes(
+          (node.attributes.value as string).toLowerCase(),
+        )
+      }),
+    },
+  })
 }

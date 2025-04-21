@@ -7,7 +7,7 @@ import { config, listOnly } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const samlNodes = LoginFlowFromJSON(
-  require("$snapshots/login/1fa/unified/saml/initial-form.json"),
+  require("$snapshots/login/1fa/identifier_first/saml/initial-form.json"),
 )
 
 const providers = [
@@ -20,7 +20,7 @@ const providers = [
 ]
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Methods/SAML",
+  title: "Ory Elements/First Factor Login/Identifier First/Methods/SAML",
   component: Login,
   parameters: {
     layout: "centered",
@@ -68,7 +68,7 @@ export const FiveSamlButtons: Story = {
 
 export const AllGenericButton: Story = {
   args: {
-    flow: listOnly(samlNodes, "saml", providers),
+    flow: samlNodes,
     config,
   },
 }
@@ -76,7 +76,7 @@ export const AllGenericButton: Story = {
 export const CredentialSelect: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/saml/credential-select.json"),
+      require("$snapshots/login/1fa/identifier_first/saml/credential-select.json"),
     ),
     config,
   },
@@ -85,7 +85,7 @@ export const CredentialSelect: Story = {
 export const CredentialSelectWithMethodSelect: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/saml/credential-select-password.json"),
+      require("$snapshots/login/1fa/identifier_first/saml/credential-select-password.json"),
     ),
     config,
   },

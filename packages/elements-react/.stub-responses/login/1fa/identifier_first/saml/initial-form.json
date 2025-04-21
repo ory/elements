@@ -1,12 +1,12 @@
 {
-  "id": "88f42b31-b992-4952-9fe9-480da716783f",
+  "id": "cbb2ac8c-0e9a-447b-bf34-f5f94ca31b9f",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-03-27T10:35:43.93776851Z",
-  "issued_at": "2025-03-27T09:35:43.93776851Z",
-  "request_url": "https://exciting-pascal-qx0blfl2qh.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-21T12:45:25.121030594Z",
+  "issued_at": "2025-04-21T11:45:25.121030594Z",
+  "request_url": "https://quirky-banzai-twokbvgyfk.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://exciting-pascal-qx0blfl2qh.projects.oryapis:8080/self-service/login?flow=88f42b31-b992-4952-9fe9-480da716783f",
+    "action": "https://quirky-banzai-twokbvgyfk.projects.oryapis:8080/self-service/login?flow=cbb2ac8c-0e9a-447b-bf34-f5f94ca31b9f",
     "method": "POST",
     "nodes": [
       {
@@ -149,26 +149,13 @@
       },
       {
         "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "5WXUb6G+GM6Y5C1J2iBBNZvxJg0485U7pgNa2t26DFxPZZmXX/VVJ8OewfeZszYNpznlo+fZGQ8hX99N8/f4+A==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "default",
+        "group": "identifier_first",
         "attributes": {
           "name": "identifier",
           "type": "text",
           "value": "",
           "required": true,
+          "autocomplete": "username webauthn",
           "disabled": false,
           "node_type": "input"
         },
@@ -186,47 +173,41 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "identifier_first",
         "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "current-password",
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070001,
-            "text": "Password",
+            "id": 1070009,
+            "text": "Continue",
             "type": "info"
           }
         }
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "password",
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "u+WILaYjx5fp9GRxn7fGowCdRD3x8bEKqFYVL1lTmO1O6gBSEfKUcT7/xKZCXHP6EpnyqLreSB1ACRuuKSJPfA==",
+          "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010022,
-            "text": "Sign in with password",
-            "type": "info"
-          }
-        }
+        "meta": {}
       }
     ]
   },
-  "created_at": "2025-03-27T09:35:43.94014Z",
-  "updated_at": "2025-03-27T09:35:43.94014Z",
+  "created_at": "2025-04-21T11:45:25.122658Z",
+  "updated_at": "2025-04-21T11:45:25.122658Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

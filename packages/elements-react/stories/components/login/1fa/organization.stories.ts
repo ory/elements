@@ -7,7 +7,8 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Login } from "../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Identifier First/Methods/Organizations",
+  title:
+    "Ory Elements/First Factor Login/Identifier First/Methods/Organizations",
   component: Login,
   parameters: {
     layout: "centered",
@@ -21,7 +22,7 @@ type Story = StoryObj<typeof meta>
 export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/organization/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/organization/initial-form.json"),
     ),
     config,
   },
@@ -30,7 +31,7 @@ export const ShowForm: Story = {
 export const ShowOrganizationIDPs: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/organization/selected-email.json"),
+      require("$snapshots/login/1fa/identifier_first/organization/selected-email.json"),
     ),
     config,
   },

@@ -1,0 +1,105 @@
+{
+  "id": "554ca811-5df3-47c0-9299-e081feca65ee",
+  "organization_id": "3b3a4d15-81ab-4452-bbf8-23b883ba2503",
+  "type": "browser",
+  "expires_at": "2025-04-21T12:35:36.257964Z",
+  "issued_at": "2025-04-21T11:35:36.257964Z",
+  "request_url": "https://distracted-roentgen-24cda4jveg.projects.oryapis:8080/self-service/login/browser",
+  "active": "identifier_first",
+  "ui": {
+    "action": "https://distracted-roentgen-24cda4jveg.projects.oryapis:8080/self-service/login?flow=554ca811-5df3-47c0-9299-e081feca65ee",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.ygxmhzyo8j0.ug6bup6ms3@example.com",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "NRoDEdNtZnMIcYP5UDH+9xVkRDzuxh5jHkok9fhNbGMqNLMBVHQKE6SNxhHilsJE3OVx17rwbN+1mO5Kh7cZBA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "mycorp-saml-sso",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with mycorpSAML SSO",
+            "type": "info",
+            "context": {
+              "provider": "mycorpSAML SSO",
+              "provider_id": "mycorp-saml-sso"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "mycorp-oidc-sso",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with mycorpOIDC SSO",
+            "type": "info",
+            "context": {
+              "provider": "mycorpOIDC SSO",
+              "provider_id": "mycorp-oidc-sso"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-21T11:35:36.259653Z",
+  "updated_at": "2025-04-21T11:35:36.259653Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}
