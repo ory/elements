@@ -26,3 +26,12 @@ export const ShowForm: Story = {
     config,
   },
 }
+
+export const FormError: Story = {
+  args: {
+    flow: SettingsFlowFromJSON(
+      require("$snapshots/settings/passkey/wrong-credentials.json"),
+    ),
+    config,
+  },
+}

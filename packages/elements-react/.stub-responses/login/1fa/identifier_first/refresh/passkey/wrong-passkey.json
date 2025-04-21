@@ -1,0 +1,119 @@
+{
+  "id": "1809cd77-9380-4773-9913-d4a7c453ba4d",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-21T15:07:50.07752Z",
+  "issued_at": "2025-04-21T14:07:50.07752Z",
+  "request_url": "https://quizzical-rubin-zt0j7dztt2.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://quizzical-rubin-zt0j7dztt2.projects.oryapis:8080/self-service/login?flow=1809cd77-9380-4773-9913-d4a7c453ba4d",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "ShLzEHl4mtgzSenBOlICm0OUrEQuFL5KVgIDV5xSJn9yCzD1Hy165XjrCBqZFgTaqNwlKomYm3pQ4y5u5OXxfg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.ji67wrmig5n0.x8ivd4thq7b@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://quizzical-rubin-zt0j7dztt2.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "8c982275-6378-4e9b-8c71-51c95418a3b0",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"bI6IxPgEi6LJZwXeGiirpLg5XQECHC24P5AvlemEvXA\",\"timeout\":300000,\"rpId\":\"quizzical-rubin-zt0j7dztt2.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"25bpHCAq2bRPIhwe6vtaqye3V3EBILPY30FmVE-67t4\"}],\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response.",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response."
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-21T14:07:50.094734Z",
+  "updated_at": "2025-04-21T14:07:50.094734Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

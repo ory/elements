@@ -1,0 +1,119 @@
+{
+  "id": "edd17dc6-ff63-4b87-baff-f8ba60f60f82",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-21T15:07:49.733276Z",
+  "issued_at": "2025-04-21T14:07:49.733276Z",
+  "request_url": "https://gallant-newton-mldon8wfuq.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://gallant-newton-mldon8wfuq.projects.oryapis:8080/self-service/login?flow=edd17dc6-ff63-4b87-baff-f8ba60f60f82",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "6Np3yrGShYZg8+60QHSYv+ppmL29Rsj1HUtMTvUGi2zMCOnpsHzg+BcgZK22j2b1uR4xo/yXYjjgkyCTWgkM7A==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.lvf3iiqi2q0.02fblr7wy8w@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://gallant-newton-mldon8wfuq.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "7552bccc-fef7-40cc-8fe9-00196cab9ae5",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"QlpmE7StLq11YGDfnTxcl26qGQF-IWemP_UPWW9rJOI\",\"timeout\":300000,\"rpId\":\"gallant-newton-mldon8wfuq.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"mT8wxr5O_Kvf0wcRt0lECMaszc86_xFsyYKiJtJjXog\"}],\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response.",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response."
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-21T14:07:49.766351Z",
+  "updated_at": "2025-04-21T14:07:49.766351Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

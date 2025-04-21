@@ -1,0 +1,120 @@
+{
+  "id": "c837c055-9137-4a68-9d47-e4d03b9ab1da",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-21T15:07:49.426537138Z",
+  "issued_at": "2025-04-21T14:07:49.426537138Z",
+  "request_url": "https://compassionate-newton-0tq02lp1ea.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://compassionate-newton-0tq02lp1ea.projects.oryapis:8080/self-service/login?flow=c837c055-9137-4a68-9d47-e4d03b9ab1da",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "wdYdzGHNWA3roYafoX+h4QEQul7nWDOWm46Pt8p9uE/hQeGI1jR9rrMbaN6V+PgOmw/26zWFUJeyAGEaGCBYpQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://compassionate-newton-0tq02lp1ea.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "1d312531-18b1-4cca-b8af-7066984a8871",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"Bs_-BECJ0m6cKCcHuOcxld1U0UV1L1ZEiJHn8tHoaN4\",\"timeout\":300000,\"rpId\":\"compassionate-newton-0tq02lp1ea.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-21T14:07:49.428892Z",
+  "updated_at": "2025-04-21T14:07:49.428892Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
