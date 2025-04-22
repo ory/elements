@@ -10,7 +10,11 @@ import { useLogoutFlow } from "@ory/nextjs/pages"
 
 function HomeContent() {
   const { session } = useSession()
-
+  const traits = session?.identity?.traits as {
+    email: string
+    username: string
+    phone: string
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="flex flex-col items-center gap-4">
@@ -35,11 +39,7 @@ function HomeContent() {
         {session && (
           <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
             <h2 className="w-full">
-              Hi,{" "}
-              {session.identity?.traits.email ??
-                session.identity?.traits.username ??
-                session.identity?.traits.phone}
-              !
+              Hi, {traits.email ?? traits.username ?? traits.phone}!
             </h2>
             <Link className="underline block w-full" href="/settings">
               Settings
