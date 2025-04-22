@@ -32,19 +32,9 @@ export function DefaultCardFooter() {
   }
 }
 
-export function getReturnToQueryParam(flow: { return_to?: string }) {
-  if (flow.return_to) {
-    return flow.return_to
-  }
-  if (typeof window !== "undefined") {
-    const searchParams = new URLSearchParams(window.location.search)
-    return searchParams.get("return_to")
-  }
-}
-
 function LoginCardFooter() {
   const { config, formState, flow, flowType } = useOryFlow()
-  const logout = useClientLogout()
+  const logout = useClientLogout(config)
   const intl = useIntl()
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
