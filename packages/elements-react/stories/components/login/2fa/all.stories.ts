@@ -3,8 +3,9 @@
 
 import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { config } from "../../../utils"
+import { config, patchMethodActive } from "../../../utils"
 import { Login } from "../../../../src/theme/default"
+import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 const meta = {
   title: "Ory Elements/Login/Second Factor/Everything 2FA",
@@ -22,6 +23,32 @@ export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/login/2fa/all-2fa-methods/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+// Needs a dedicated state: CodeSelected
+
+export const LookupSecretSelected: Story = {
+  args: {
+    flow: patchMethodActive(
+      LoginFlowFromJSON(
+        require("$snapshots/login/2fa/all-2fa-methods/initial-form.json"),
+      ),
+      LoginFlowActiveEnum.LookupSecret,
+    ),
+    config,
+  },
+}
+
+export const TOTPSelected: Story = {
+  args: {
+    flow: patchMethodActive(
+      LoginFlowFromJSON(
+        require("$snapshots/login/2fa/all-2fa-methods/initial-form.json"),
+      ),
+      LoginFlowActiveEnum.Totp,
     ),
     config,
   },

@@ -1,12 +1,12 @@
 {
-  "id": "d1802d72-abef-49b9-a911-8290c38f8913",
+  "id": "f307dfae-68ec-4968-881f-f888415a89ca",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:21.924358298Z",
-  "issued_at": "2025-04-22T08:51:21.924358298Z",
-  "request_url": "https://elegant-mccarthy-jvf6fvxfej.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T12:18:26.491855674Z",
+  "issued_at": "2025-04-22T11:18:26.491855674Z",
+  "request_url": "https://optimistic-benz-hsv82sjict.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://elegant-mccarthy-jvf6fvxfej.projects.oryapis:8080/self-service/login?flow=d1802d72-abef-49b9-a911-8290c38f8913",
+    "action": "https://optimistic-benz-hsv82sjict.projects.oryapis:8080/self-service/login?flow=f307dfae-68ec-4968-881f-f888415a89ca",
     "method": "POST",
     "nodes": [
       {
@@ -153,80 +153,18 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "UO6SI3tJiKmYdoA+LfFYO1GrVgDuc0DGNo1AV9ZQfSNZQlCVq2vB6vH1dUVvqb4iQ099hvUjfwO5bg7l6ylcJQ==",
+          "value": "Olsh3BVDSFcPKiaDKIWH9Ws2on57YRZDAFyWMUNFpWZgJGQSnJfloi18twqOHpOfEBjjnTd2YcyTqOm1kR1IbQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "value": "",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "title": "E-Mail"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "current-password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070001,
-            "text": "Password",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010022,
-            "text": "Sign in with password",
-            "type": "info"
-          }
-        }
       }
     ]
   },
-  "created_at": "2025-04-22T08:51:21.92739Z",
-  "updated_at": "2025-04-22T08:51:21.92739Z",
+  "created_at": "2025-04-22T11:18:26.493454Z",
+  "updated_at": "2025-04-22T11:18:26.493454Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

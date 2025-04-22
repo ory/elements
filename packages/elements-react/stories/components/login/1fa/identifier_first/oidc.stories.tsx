@@ -1,49 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { LoginFlow, LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { config } from "../../../../utils"
+import { LoginFlowFromJSON, UiNodeGroupEnum } from "@ory/client-fetch"
 import { Login } from "../../../../../src/theme/default"
-
-const oidcNodes = LoginFlowFromJSON(
-  require("$snapshots/login/1fa/identifier_first/oidc/initial-form.json"),
-)
-
-const providers = [
-  "apple",
-  "auth0",
-  "discord",
-  "facebook",
-  "generic",
-  "github",
-  "gitlab",
-  "google",
-  "linkedin",
-  "microsoft",
-  "slack",
-  "spotify",
-  "yandex",
-  "x",
-]
-
-const listOnly = (providers: string[]): LoginFlow => {
-  return LoginFlowFromJSON({
-    ...oidcNodes,
-    ui: {
-      ...oidcNodes.ui,
-      nodes: oidcNodes.ui.nodes.filter((node) => {
-        if (node.group !== "oidc" || node.attributes.node_type !== "input") {
-          return true
-        }
-
-        return providers.includes(
-          (node.attributes.value as string).toLowerCase(),
-        )
-      }),
-    },
-  })
-}
+import { config, listOnlyGroups, listOnlySsoProviders } from "../../../../utils"
 
 const meta = {
   title: "Ory Elements/Login/First Factor/Identifier First/OIDC",
@@ -57,51 +18,73 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const OneSocialButton: Story = {
-  args: {
-    flow: listOnly(["google"]),
-    config,
-  },
-}
+const oidcNodes = LoginFlowFromJSON(
+  require("$snapshots/login/1fa/identifier_first/oidc/with-password/initial-form.json"),
+)
 
 export const TwoSocialButtons: Story = {
   args: {
-    flow: listOnly(["google", "x"]),
+    flow: listOnlySsoProviders(LoginFlowFromJSON(oidcNodes), "oidc", [
+      "google",
+      "x",
+    ]),
     config,
   },
 }
 
 export const ThreeSocialButtons: Story = {
   args: {
-    flow: listOnly(["google", "x", "github"]),
+    flow: listOnlySsoProviders(LoginFlowFromJSON(oidcNodes), "oidc", [
+      "google",
+      "x",
+      "github",
+    ]),
     config,
   },
 }
 
 export const FourSocialButtons: Story = {
   args: {
-    flow: listOnly(["google", "x", "github", "linkedin"]),
+    flow: listOnlySsoProviders(LoginFlowFromJSON(oidcNodes), "oidc", [
+      "google",
+      "x",
+      "github",
+      "linkedin",
+    ]),
     config,
   },
 }
 
 export const FiveSocialButtons: Story = {
   args: {
-    flow: listOnly(["google", "x", "github", "linkedin", "auth0"]),
+    flow: listOnlySsoProviders(LoginFlowFromJSON(oidcNodes), "oidc", [
+      "google",
+      "x",
+      "github",
+      "linkedin",
+      "auth0",
+    ]),
     config,
   },
 }
 
 export const SixSocialButtons: Story = {
   args: {
-    flow: listOnly(["google", "x", "github", "linkedin", "auth0", "apple"]),
+    flow: listOnlySsoProviders(LoginFlowFromJSON(oidcNodes), "oidc", [
+      "google",
+      "x",
+      "github",
+      "linkedin",
+      "auth0",
+      "apple",
+    ]),
     config,
   },
 }
 
 export const SevenSocialButtons: Story = {
   args: {
-    flow: listOnly([
+    flow: listOnlySsoProviders(LoginFlowFromJSON(oidcNodes), "oidc", [
       "google",
       "x",
       "github",
@@ -116,7 +99,7 @@ export const SevenSocialButtons: Story = {
 
 export const AllGenericButton: Story = {
   args: {
-    flow: listOnly(providers),
+    flow: LoginFlowFromJSON(oidcNodes),
     config,
   },
 }
@@ -134,6 +117,15 @@ export const CredentialSelectWithMethodSelect: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/login/1fa/identifier_first/oidc/credential-select-password.json"),
+    ),
+    config,
+  },
+}
+
+export const AllGenericButtonNoPassword: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/oidc/standalone/initial-form.json"),
     ),
     config,
   },

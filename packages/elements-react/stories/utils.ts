@@ -2,7 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { OryClientConfiguration } from "@ory/elements-react"
-import { LoginFlow, LoginFlowFromJSON, UiNode } from "@ory/client-fetch"
+import {
+  LoginFlow,
+  LoginFlowFromJSON,
+  RegistrationFlow,
+  SettingsFlow,
+  UiNode,
+  UiNodeGroupEnum,
+} from "@ory/client-fetch"
 import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 export const config = {
@@ -27,6 +34,7 @@ export const config = {
 // This is a temporary solution to make the SDKs work with the new error types.
 
 /** Error parsing polyfils */
+
 /* eslint-disable */
 /**
  * The standard Ory JSON API error format.
@@ -142,13 +150,33 @@ export interface GenericError {
   status?: string
 }
 
+/** Lists only the given groups for a given flow.
+ *
+ * @param flow
+ * @param groups
+ */
+export const listOnlyGroups = (
+  flow: LoginFlow | RegistrationFlow | SettingsFlow,
+  groups: UiNodeGroupEnum[],
+): LoginFlow => {
+  return LoginFlowFromJSON({
+    ...flow,
+    ui: {
+      ...flow.ui,
+      nodes: flow.ui.nodes.filter((node) => {
+        return groups.includes(node.group)
+      }),
+    },
+  })
+}
+
 /** Lists the available social login providers for a given flow.
  *
  * @param flow
  * @param group
  * @param providers
  */
-export const listOnly = (
+export const listOnlySsoProviders = (
   flow: LoginFlow,
   group: "saml" | "oidc",
   providers: string[],
