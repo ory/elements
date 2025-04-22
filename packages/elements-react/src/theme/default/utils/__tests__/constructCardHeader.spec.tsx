@@ -246,7 +246,17 @@ test("constructCardHeaderText on account linking", () => {
           nodes: [defaultGroup],
           action: "",
           method: "",
-          messages: [{ id: 1010016, text: "", type: "error", context: {} }],
+          messages: [
+            {
+              id: 1010016,
+              text: "",
+              type: "error",
+              context: {
+                duplicateIdentifier: "duplicateIdentifier",
+                provider: "provider",
+              },
+            },
+          ],
         },
         { flowType: FlowType.Login, flow: { refresh: false } },
       ),

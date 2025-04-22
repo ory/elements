@@ -12,6 +12,7 @@ import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import { useFormContext } from "react-hook-form"
 import { Spinner } from "../form/spinner"
+import { defaultInputClassName } from "../form/input"
 
 export function DefaultSettingsTotp({
   totpImage,
@@ -90,17 +91,18 @@ export function DefaultSettingsTotp({
             node={totpSecret}
             attributes={totpSecret.attributes as UiNodeInputAttributes}
           >
-            <Node.Input
-              node={totpSecret}
-              attributes={{
-                disabled: true,
-                name: "totp_secret_key",
-                node_type: "input",
-                type: "text",
-                value: (totpSecret.attributes as UiNodeTextAttributes).text
-                  .text,
-              }}
-            />
+            <div className="relative flex justify-stretch max-w-[488px]">
+              <input
+                disabled
+                name="totp_secret_key"
+                type="text"
+                value={
+                  (totpSecret.attributes as UiNodeTextAttributes).text.text
+                }
+                data-testid={`ory/form/node/input/totp_secret_key`}
+                className={defaultInputClassName}
+              />
+            </div>
           </Node.Label>
           <Node.Label
             attributes={totpInput.attributes as UiNodeInputAttributes}

@@ -1,3 +1,34 @@
+## 1.0.0-rc.1 (2025-04-21)
+
+### 🩹 Fixes
+
+- re-add missing error message when no methods provided ([#460](https://github.com/ory/elements/pull/460))
+- resend not working for registration ([#468](https://github.com/ory/elements/pull/468))
+- add missing color class to registration footer ([#473](https://github.com/ory/elements/pull/473))
+- resend not working for registration ([#467](https://github.com/ory/elements/pull/467))
+
+### ❤️ Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
+## 1.0.0-rc.0 (2025-04-17)
+
+### 🚀 Features
+
+- add missing translations for de, es and fr ([#456](https://github.com/ory/elements/pull/456))
+
+### 🩹 Fixes
+
+- correctly set input field value ([#447](https://github.com/ory/elements/pull/447))
+- add missing settings padding ([#446](https://github.com/ory/elements/pull/446))
+- always omit conflicting keys ([#444](https://github.com/ory/elements/pull/444))
+
+### ❤️ Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-next.46 (2025-04-16)
 
 ### 🩹 Fixes

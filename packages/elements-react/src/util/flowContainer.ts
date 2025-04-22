@@ -91,6 +91,7 @@ export type ConsentFlow = {
   ui: UiContainer
   consent_request: OAuth2ConsentRequest
   session: Session
+  return_to?: string
 }
 
 export type ConsentFlowContainer = OryFlow<FlowType.OAuth2Consent, ConsentFlow>
