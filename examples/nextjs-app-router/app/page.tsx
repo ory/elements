@@ -51,11 +51,7 @@ export default async function RootLayout() {
           {session && (
             <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
               <h2 className="w-full">
-                Hi,{" "}
-                {traits.email ??
-                  traits.username ??
-                  traits.phone}
-                !
+                Hi, {traits.email ?? traits.username ?? traits.phone}!
               </h2>
               <Link className="underline block w-full" href="/settings">
                 Settings
