@@ -1,12 +1,12 @@
 {
-  "id": "fc03ef44-0f03-439d-a9b5-368f1d38f56d",
+  "id": "dd120f10-f98f-4941-930b-b4503fd00363",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:37.871740639Z",
-  "issued_at": "2025-04-22T08:43:37.871740639Z",
-  "request_url": "https://interesting-burnell-d57os0qd9v.projects.oryapis:8080/self-service/verification/browser",
+  "expires_at": "2025-04-22T09:50:38.026448472Z",
+  "issued_at": "2025-04-22T08:50:38.026448472Z",
+  "request_url": "https://frosty-mccarthy-t23ginr65a.projects.oryapis:8080/self-service/verification/browser",
   "active": "code",
   "ui": {
-    "action": "https://interesting-burnell-d57os0qd9v.projects.oryapis:8080/self-service/verification?flow=fc03ef44-0f03-439d-a9b5-368f1d38f56d",
+    "action": "https://frosty-mccarthy-t23ginr65a.projects.oryapis:8080/self-service/verification?flow=dd120f10-f98f-4941-930b-b4503fd00363",
     "method": "POST",
     "nodes": [
       {
@@ -53,7 +53,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "u+iv+4xvvt/rTLA6jUeHTPnDJQoOw9FKT1UPDOK3cGUDOwz7jOkDX2I7pDSsbjUMiuhjKcYQyyEu7WzGDr3eTw==",
+          "value": "rNcc0OC/KtH43kHvx/CReycwSn+9C1a/P8ZDFRmV7yz5rVKrwl/Y1UkxTCKdYu96fGX+lw5YiH2B5egYC2b5NA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

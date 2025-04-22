@@ -1,11 +1,11 @@
 {
-  "id": "d86144a3-afc4-468d-89cf-a471ce0b6e04",
+  "id": "e28537fe-bb6f-47ef-8d87-34f20462a497",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:14.651762753Z",
-  "issued_at": "2025-04-22T08:44:14.651762753Z",
-  "request_url": "https://charming-ganguly-juzexlykui.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:14.531611503Z",
+  "issued_at": "2025-04-22T08:51:14.531611503Z",
+  "request_url": "https://practical-einstein-jmln62yip7.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://charming-ganguly-juzexlykui.projects.oryapis:8080/self-service/registration?flow=d86144a3-afc4-468d-89cf-a471ce0b6e04",
+    "action": "https://practical-einstein-jmln62yip7.projects.oryapis:8080/self-service/registration?flow=e28537fe-bb6f-47ef-8d87-34f20462a497",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "bc8ccRlhy9O8Xg+1yYWAYROVT9iOHuBxDfjXsq6ZcDinDVmEsI8Yhopea/NaLQL1n6FTvBpl17ZMDam7mnwY9Q==",
+          "value": "jT7ShoKQ7LfD8/oKNRPVLF/LfDLoWz+3MarR9BE44kjgWHJy+gFPMmby1YdJ1JXzg3mm8/vXyM4qzLV/qhV77A==",
           "required": true,
           "disabled": false,
           "node_type": "input"

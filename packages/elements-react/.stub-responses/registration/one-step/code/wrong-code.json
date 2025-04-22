@@ -1,12 +1,12 @@
 {
-  "id": "df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
+  "id": "c7ddf611-c4ad-4e08-9bf2-e9a45f8d755e",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:32.119773Z",
-  "issued_at": "2025-04-22T08:43:32.119773Z",
-  "request_url": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:50:32.163357Z",
+  "issued_at": "2025-04-22T08:50:32.163357Z",
+  "request_url": "https://amazing-taussig-ynt7ptrcum.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration?flow=df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
+    "action": "https://amazing-taussig-ynt7ptrcum.projects.oryapis:8080/self-service/registration?flow=c7ddf611-c4ad-4e08-9bf2-e9a45f8d755e",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "vwn5UAzjiBymudEh5D/DBL73mqnxAoVcRULutuuYdsE1Z037XXBKlKMCB+pan+2V71UWBRpoKrhCIFnLXgDTAQ==",
+          "value": "DOj7nzjqJZTXbdaEBfgfj8aJSwGUX0Noct4Ys/+nmhL7qiH/fEtTZ+eZin/Q7LcVwPEa7N3BIXGUkVMNDVMwXw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.ke8xzea7dpl0.l2l9ovjnla@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.yq008o2266q0.msghe69vwn@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -176,25 +176,6 @@
           "label": {
             "id": 1070009,
             "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "profile",
-        "attributes": {
-          "name": "screen",
-          "type": "submit",
-          "value": "credential-selection",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040008,
-            "text": "Back",
             "type": "info"
           }
         }

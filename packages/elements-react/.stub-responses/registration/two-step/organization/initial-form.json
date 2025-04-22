@@ -1,11 +1,11 @@
 {
-  "id": "8d392f7d-953d-4bbc-9d5b-dd7624d0e66f",
+  "id": "0c4b4b3c-1892-4e35-b333-c2373889470f",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:05.684868346Z",
-  "issued_at": "2025-04-22T08:44:05.684868346Z",
-  "request_url": "https://mystifying-poitras-z7g01q1wi3.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:06.611624096Z",
+  "issued_at": "2025-04-22T08:51:06.611624096Z",
+  "request_url": "https://sharp-perlman-48gzysdg9d.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://mystifying-poitras-z7g01q1wi3.projects.oryapis:8080/self-service/registration?flow=8d392f7d-953d-4bbc-9d5b-dd7624d0e66f",
+    "action": "https://sharp-perlman-48gzysdg9d.projects.oryapis:8080/self-service/registration?flow=0c4b4b3c-1892-4e35-b333-c2373889470f",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "MRSaKMfgJBOMmdUdbgbs77+LorjnkDrUR6gS1uoYy6vX8pEvONGil+VZt1ykJ8HCq5Usp47jFLazdzah1bbG3g==",
+          "value": "89k5vGDOvjEB8Jl1AUN9V6HtzmVW0QZoBBhenDabMHIQxe9ZPoaghVhHsDzpZ7YxjIdV6zydXAVM0fv0Negu4g==",
           "required": true,
           "disabled": false,
           "node_type": "input"

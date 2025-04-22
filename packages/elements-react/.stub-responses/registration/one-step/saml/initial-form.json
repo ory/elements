@@ -1,11 +1,11 @@
 {
-  "id": "d9568b83-c8f1-4e80-a055-cbea1b3caa2e",
+  "id": "a5ccc48f-bfa9-4743-81d7-9925495f5d7f",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:22.32477059Z",
-  "issued_at": "2025-04-22T08:44:22.32477059Z",
-  "request_url": "https://happy-hofstadter-qs7csdvw2k.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:23.814891299Z",
+  "issued_at": "2025-04-22T08:51:23.814891299Z",
+  "request_url": "https://epic-borg-u7isirg7ot.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://happy-hofstadter-qs7csdvw2k.projects.oryapis:8080/self-service/registration?flow=d9568b83-c8f1-4e80-a055-cbea1b3caa2e",
+    "action": "https://epic-borg-u7isirg7ot.projects.oryapis:8080/self-service/registration?flow=a5ccc48f-bfa9-4743-81d7-9925495f5d7f",
     "method": "POST",
     "nodes": [
       {
@@ -152,7 +152,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "52Qlo6Wd9hO7cITbWf58VPvAQDueiuPWKMPNOWU39KQij5rUGHrrjJmSZY0o5WipomXHXwg/FfRmB7HBLjMU2w==",
+          "value": "lreHmj6ymHUjZ3pAiGWAzIhm+M2nq062KteJi18BiZ/Ekomw5+EbZPe4QWOAP75QF2g/ya83gJmGt6wbnSJP0A==",
           "required": true,
           "disabled": false,
           "node_type": "input"

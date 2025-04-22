@@ -1,11 +1,11 @@
 {
-  "id": "09951873-f6d0-4f1e-a7f3-1d29930ab17c",
+  "id": "ac4ac1bb-acb6-43e7-a9dd-05591e7886a5",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:31.95693Z",
-  "issued_at": "2025-04-22T08:43:31.95693Z",
-  "request_url": "https://suspicious-cori-o5z22vfi35.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:50:32.615423Z",
+  "issued_at": "2025-04-22T08:50:32.615423Z",
+  "request_url": "https://amazing-jennings-ijfucrk5zb.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://suspicious-cori-o5z22vfi35.projects.oryapis:8080/self-service/registration?flow=09951873-f6d0-4f1e-a7f3-1d29930ab17c",
+    "action": "https://amazing-jennings-ijfucrk5zb.projects.oryapis:8080/self-service/registration?flow=ac4ac1bb-acb6-43e7-a9dd-05591e7886a5",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "FPvpzgjWpPZlpddm9P/eqoGlJ1iAVsmKHPrKehKNDmLxT4yE4qObn3J3yqA06Ny/F0+c3pXU20gyJZtERsEoyw==",
+          "value": "SgRJp8whLgyledSs3gnG6X/HH74ZIrhKVxZlxUBjEWwb58QLqp+CpYhYfA6lkV0Uytu10Q0+MqQuHZ9mgE4XhA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.u09470c3y6m0.7w9x2a08inf@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.poq0pn6tkj0.wflaca7the@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

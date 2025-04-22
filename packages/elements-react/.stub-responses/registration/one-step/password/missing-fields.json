@@ -1,11 +1,11 @@
 {
-  "id": "0c5bc465-0f28-4164-b09b-792095e35ed2",
+  "id": "5b59c5ff-aaae-4f33-b0e1-66f0971eca30",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:14.452494Z",
-  "issued_at": "2025-04-22T08:44:14.452494Z",
-  "request_url": "https://zealous-golick-0ubehzxd3r.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:13.67298Z",
+  "issued_at": "2025-04-22T08:51:13.67298Z",
+  "request_url": "https://jolly-wescoff-09fc3kco3l.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://zealous-golick-0ubehzxd3r.projects.oryapis:8080/self-service/registration?flow=0c5bc465-0f28-4164-b09b-792095e35ed2",
+    "action": "https://jolly-wescoff-09fc3kco3l.projects.oryapis:8080/self-service/registration?flow=5b59c5ff-aaae-4f33-b0e1-66f0971eca30",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "cvTQMd3EsqOKSQCsEs2Cq6UVJPEEwf7Pfbmz27dM48QVW0Feetq4ChKDWPRr3T266Xr45TCRzOPO5xx2qK7Q0w==",
+          "value": "9R9pzgJEX9WjjvzwhdmYBYI7GYkIILQp2lsXNgebcO/ort5+41NdcUbC+CWAlP20QAxRYWS0a8gzz0NrHZoocQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -56,10 +56,12 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "password",
         "attributes": {
           "name": "password",
-          "type": "text",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
           "disabled": false,
           "node_type": "input"
         },
@@ -73,7 +75,13 @@
             }
           }
         ],
-        "meta": {}
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
       },
       {
         "type": "input",
@@ -140,11 +148,11 @@
       },
       {
         "type": "input",
-        "group": "profile",
+        "group": "password",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "profile",
+          "value": "password",
           "disabled": false,
           "node_type": "input"
         },

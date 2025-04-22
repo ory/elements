@@ -1,11 +1,11 @@
 {
-  "id": "dec44509-9635-4eab-ae3f-49b8cd79011b",
+  "id": "896010cb-7c8d-45bf-8c79-20a94a909367",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:20.13682Z",
-  "issued_at": "2025-04-22T08:44:20.13682Z",
-  "request_url": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-04-22T09:51:19.993594Z",
+  "issued_at": "2025-04-22T08:51:19.993594Z",
+  "request_url": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/settings?flow=f149841e-79fd-447f-9fa5-74cbc534ceee",
+    "action": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/self-service/settings?flow=cf7cbc1b-cf40-4dc9-87d5-898662d27a21",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "WY/N1IFJz8Lx7YSvBLOHVgsL2IjXEAihQ2qBajvVClfBYaylSHFG8v0RnxjeJV/z5PPd3Z1X0Y7urTzIlX4pNQ==",
+          "value": "dlVw1+VXIgEgcx2E06GpH7oypdhoaEFd0nICOfZ/YIjPdwGPth05oNb78FSdxDpT7UCPMZmgdA9RWY7PzEoBHA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -197,45 +197,45 @@
     ]
   },
   "identity": {
-    "id": "d6800d13-7b77-4332-9a44-e19450fba064",
+    "id": "ecaeb2fc-49b4-46b9-9f5e-269126eed34b",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-22T08:44:18.947146Z",
+    "state_changed_at": "2025-04-22T08:51:18.806093Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "fd3f33ca-1e61-4f97-ae79-3d8b48f1a2b2",
-        "value": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
+        "id": "83314ce7-1f13-4f49-a3c0-8b4e53ac8a74",
+        "value": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-04-22T08:44:18.949415Z",
-        "updated_at": "2025-04-22T08:44:18.949415Z"
+        "created_at": "2025-04-22T08:51:18.808115Z",
+        "updated_at": "2025-04-22T08:51:18.808115Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "70efaef9-29ff-4fb2-99d0-1b827ce4d72f",
-        "value": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
+        "id": "0e984f34-9b66-496c-b835-d44d2b6ca702",
+        "value": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
         "via": "email",
-        "created_at": "2025-04-22T08:44:18.952513Z",
-        "updated_at": "2025-04-22T08:44:18.952513Z"
+        "created_at": "2025-04-22T08:51:18.811472Z",
+        "updated_at": "2025-04-22T08:51:18.811472Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-22T08:44:18.94792Z",
-    "updated_at": "2025-04-22T08:44:20.724557Z",
+    "created_at": "2025-04-22T08:51:18.8068Z",
+    "updated_at": "2025-04-22T08:51:20.582323Z",
     "organization_id": null
   },
   "state": "success",
   "continue_with": [
     {
       "action": "redirect_browser_to",
-      "redirect_browser_to": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/ui/settings?flow=dec44509-9635-4eab-ae3f-49b8cd79011b"
+      "redirect_browser_to": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/ui/settings?flow=896010cb-7c8d-45bf-8c79-20a94a909367"
     }
   ]
 }

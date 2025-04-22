@@ -1,12 +1,12 @@
 {
-  "id": "4e5b0f3f-9337-44e3-bf95-140c2a46dcca",
+  "id": "6166da06-928c-4fdc-8914-ed94c603995b",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:13.50350121Z",
-  "issued_at": "2025-04-22T08:44:13.50350121Z",
-  "request_url": "https://boring-villani-i92j7sg4h3.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:51:13.969568794Z",
+  "issued_at": "2025-04-22T08:51:13.969568794Z",
+  "request_url": "https://clever-allen-zitalufft5.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://boring-villani-i92j7sg4h3.projects.oryapis:8080/self-service/login?flow=4e5b0f3f-9337-44e3-bf95-140c2a46dcca",
+    "action": "https://clever-allen-zitalufft5.projects.oryapis:8080/self-service/login?flow=6166da06-928c-4fdc-8914-ed94c603995b",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "J9100GFdP4TBw+tkAdOk6yPgZucpJEaGB2xCDjh7NbGBpPwbixea2GQ0nV7lyamUhOZgNHLdvtLY/mEhBm161g==",
+          "value": "vnwWhZgSypjntqLLySMK3byUsnJAaWpCrqUURgeHfHk138INKACojH3lT2sFf5xk6r35rEDqJ+ni1UpylyHL/Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:13.505485Z",
-  "updated_at": "2025-04-22T08:44:13.505485Z",
+  "created_at": "2025-04-22T08:51:13.97138Z",
+  "updated_at": "2025-04-22T08:51:13.97138Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

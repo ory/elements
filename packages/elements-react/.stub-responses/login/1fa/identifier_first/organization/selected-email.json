@@ -1,13 +1,13 @@
 {
-  "id": "8b62d5b5-316a-4192-b66c-39bb45337b90",
-  "organization_id": "7e439a04-b964-4ec9-9d8e-087c23a2a5b4",
+  "id": "e106b572-097f-442a-9082-581ef8eb62cb",
+  "organization_id": "c256d562-e468-4b06-a3a8-6c39db5af2bc",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:58.57564Z",
-  "issued_at": "2025-04-22T08:43:58.57564Z",
-  "request_url": "https://intelligent-wiles-4e9t7308hq.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:59.310999Z",
+  "issued_at": "2025-04-22T08:50:59.310999Z",
+  "request_url": "https://laughing-haslett-pzxawhiyek.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://intelligent-wiles-4e9t7308hq.projects.oryapis:8080/self-service/login?flow=8b62d5b5-316a-4192-b66c-39bb45337b90",
+    "action": "https://laughing-haslett-pzxawhiyek.projects.oryapis:8080/self-service/login?flow=e106b572-097f-442a-9082-581ef8eb62cb",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.b7ut5du3f9d0.1cptptris15@example.com",
+          "value": "dev+orycye2eda2f162daf6142dd0.l3xv34q1x40.0v28n3g9sgee@example.com",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "zrFH5FJhHynQlOOKtpvHPrKkAzM/X1lkr7IC/UsQKDTxIcDQDNmvfKf3jDcCdF4tkkUfMMDLvL/KmfyLO0B30g==",
+          "value": "7E3CXFlkLg1Nt46mAJfp5sPpvD2gSvb2SrBmtz4yysQ8Xv+BJFWQlvu2vjHW4Jzs3kvLZk1i0pR5co4rbQI8Jg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -96,8 +96,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:58.577638Z",
-  "updated_at": "2025-04-22T08:43:58.577638Z",
+  "created_at": "2025-04-22T08:50:59.312889Z",
+  "updated_at": "2025-04-22T08:50:59.312889Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

@@ -1,11 +1,11 @@
 {
-  "id": "df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
+  "id": "c7ddf611-c4ad-4e08-9bf2-e9a45f8d755e",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:32.119773Z",
-  "issued_at": "2025-04-22T08:43:32.119773Z",
-  "request_url": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:50:32.163357Z",
+  "issued_at": "2025-04-22T08:50:32.163357Z",
+  "request_url": "https://amazing-taussig-ynt7ptrcum.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration?flow=df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
+    "action": "https://amazing-taussig-ynt7ptrcum.projects.oryapis:8080/self-service/registration?flow=c7ddf611-c4ad-4e08-9bf2-e9a45f8d755e",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "fzQ9wMUm6efXbST+wDYoiHCsEAmSJsw6lZ5dNSrOmDX1WolrlLUrb9LW8jV+lgYZIQ6cpXlMY96S/OpIn1Y99Q==",
+          "value": "SrqepIBV3EmfapBp+Pjqsawa3WYmZ1fdZGnEnjvtoZS9+ETExPSquq+ezJIt7EIrqmKMi2/5NcSCJo8gyRkL2Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -119,19 +119,19 @@
       },
       {
         "type": "input",
-        "group": "profile",
+        "group": "code",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "profile",
+          "value": "code",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1040001,
-            "text": "Sign up",
+            "id": 1040006,
+            "text": "Send sign up code",
             "type": "info"
           }
         }

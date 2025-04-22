@@ -7,7 +7,7 @@ import { config } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/Login/First Factor/Identifier First/Everything",
+  title: "Ory Elements/Login/First Factor/Identifier First/All Methods/General",
   component: Login,
   parameters: {
     layout: "centered",
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/all-methods/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/all-methods/enumeration-protection-enabled/initial-form.json"),
     ),
     config,
   },
@@ -30,7 +30,7 @@ export const ShowForm: Story = {
 export const RegistrationDisabled: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/all-methods/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/all-methods/enumeration-protection-enabled/initial-form.json"),
     ),
     config: {
       ...config,
@@ -39,23 +39,5 @@ export const RegistrationDisabled: Story = {
         registration_enabled: false,
       },
     },
-  },
-}
-
-export const ValidationMissingFields: Story = {
-  args: {
-    flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/all-methods/missing-email.json"),
-    ),
-    config,
-  },
-}
-
-export const ShowCredentialsSelector: Story = {
-  args: {
-    flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/all-methods/show-options.json"),
-    ),
-    config,
   },
 }

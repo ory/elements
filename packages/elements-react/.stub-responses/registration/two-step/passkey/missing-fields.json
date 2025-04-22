@@ -1,11 +1,11 @@
 {
-  "id": "ef7af783-dc78-4464-9180-7fc4c15d83ef",
+  "id": "d7cce8c4-deea-4f79-a066-f8dac7fde5ed",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:03.985801Z",
-  "issued_at": "2025-04-22T08:44:03.985801Z",
-  "request_url": "https://amazing-ptolemy-mx8y3s42ke.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:04.639191Z",
+  "issued_at": "2025-04-22T08:51:04.639191Z",
+  "request_url": "https://laughing-babbage-uwzd884dii.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://amazing-ptolemy-mx8y3s42ke.projects.oryapis:8080/self-service/registration?flow=ef7af783-dc78-4464-9180-7fc4c15d83ef",
+    "action": "https://laughing-babbage-uwzd884dii.projects.oryapis:8080/self-service/registration?flow=d7cce8c4-deea-4f79-a066-f8dac7fde5ed",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Y6uE60J7vbHgDfHMqtIFMDHIN+b2fpgAmzvy7jmakZ1ZbVSrB/Rm8oBVd3aisS2XA0oepb1DaSeXqhoUTzbN4g==",
+          "value": "AM0V0t8BtZw4KHpTbogLYtiZLBhebxvzrRWQdAeNtPzJhUfTqIv7nyd0POTYI4p60Hmkn5JfDaL8ypdkwkDpuw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

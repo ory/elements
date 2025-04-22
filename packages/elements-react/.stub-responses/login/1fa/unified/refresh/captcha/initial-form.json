@@ -1,12 +1,12 @@
 {
-  "id": "98b157aa-d132-47b7-bf52-c37252619700",
+  "id": "2c2fb6c4-3c22-4e7b-8c41-5ddfed61b4f9",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:33.864184637Z",
-  "issued_at": "2025-04-22T08:43:33.864184637Z",
-  "request_url": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:50:33.927674678Z",
+  "issued_at": "2025-04-22T08:50:33.927674678Z",
+  "request_url": "https://zen-wright-j15u7sbbty.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/self-service/login?flow=98b157aa-d132-47b7-bf52-c37252619700",
+    "action": "https://zen-wright-j15u7sbbty.projects.oryapis:8080/self-service/login?flow=2c2fb6c4-3c22-4e7b-8c41-5ddfed61b4f9",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "KXWtYHuzBq8pvxlWkQSdC+EGDrhcRQNswinbn2TAOppGFd57NOZ6PcYOs88WlyS99BLMVF39Fa77lqO0fcxKmw==",
+          "value": "w/VIbVTy+4le4qzy8/ZqkUGnCwAn80tLEE/XeXGDOGnWAx6+V1pI1XuLYttNzvGGsUn5SIVH7Rsb+fNvhJa70A==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.vhr4r7p8wy90.48lx3rero3f@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.3psem6kzaj30.yrkrwfj043j@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:33.881224Z",
-  "updated_at": "2025-04-22T08:43:33.881224Z",
+  "created_at": "2025-04-22T08:50:33.948548Z",
+  "updated_at": "2025-04-22T08:50:33.948548Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

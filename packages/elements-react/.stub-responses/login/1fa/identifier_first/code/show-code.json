@@ -1,13 +1,13 @@
 {
-  "id": "badbd5c9-2bbd-48db-8924-0d284aa2c1be",
+  "id": "7c713c40-da4b-40c9-bdf0-d81ff3d47756",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:37.106344Z",
-  "issued_at": "2025-04-22T08:43:37.106344Z",
-  "request_url": "https://gallant-jepsen-rzfliakuzf.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:37.355567Z",
+  "issued_at": "2025-04-22T08:50:37.355567Z",
+  "request_url": "https://exciting-diffie-ogdytwrr3m.projects.oryapis:8080/self-service/login/browser",
   "active": "code",
   "ui": {
-    "action": "https://gallant-jepsen-rzfliakuzf.projects.oryapis:8080/self-service/login?flow=badbd5c9-2bbd-48db-8924-0d284aa2c1be",
+    "action": "https://exciting-diffie-ogdytwrr3m.projects.oryapis:8080/self-service/login?flow=7c713c40-da4b-40c9-bdf0-d81ff3d47756",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.r9w07j0y410.il0024bnqv@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.psvmt60f43q0.l8fud1i0npg@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -110,7 +110,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "hS0EiHb81xPFhbX0Oi3G6yI2ACCeysi142BPieq7EqdkPYQ6k5IHL46gkWjhsbaq3H7kWqZJ6sBCZGdItxyLCA==",
+          "value": "foL1RCizBxSKGh8BVtQkxske/djL7/BVkAGqbEPj9HL3tZe5X6fHxrfm5pcH5JOWRJMPtw7I6OQTLKiNv1tutQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -127,8 +127,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:37.113465Z",
-  "updated_at": "2025-04-22T08:43:37.113465Z",
+  "created_at": "2025-04-22T08:50:37.357475Z",
+  "updated_at": "2025-04-22T08:50:37.357475Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "sent_email",

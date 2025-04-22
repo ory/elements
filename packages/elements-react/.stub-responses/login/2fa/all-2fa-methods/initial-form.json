@@ -1,12 +1,12 @@
 {
-  "id": "9e9a5394-8e5b-478c-b0bb-9a0178584a58",
+  "id": "df0569a2-ee8b-446e-9605-fc02f13f2ce5",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:45.332711586Z",
-  "issued_at": "2025-04-22T08:43:45.332711586Z",
-  "request_url": "https://recursing-pare-t1d1k2l9ot.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "2025-04-22T09:50:45.785355628Z",
+  "issued_at": "2025-04-22T08:50:45.785355628Z",
+  "request_url": "https://heuristic-chatelet-3dtry4z0y7.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "ui": {
-    "action": "https://recursing-pare-t1d1k2l9ot.projects.oryapis:8080/self-service/login?flow=9e9a5394-8e5b-478c-b0bb-9a0178584a58",
+    "action": "https://heuristic-chatelet-3dtry4z0y7.projects.oryapis:8080/self-service/login?flow=df0569a2-ee8b-446e-9605-fc02f13f2ce5",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "DOOgCfdd+YplhTIVniez9Yyi5v9hz7BsyfarcqWgCee+NyhFhZxdFw8xIDsss6W6GLRTG1e0KhMSYAbK5hbRpQ==",
+          "value": "KG0Uoi4Pj5u0PP0iIuTTncSmL4saj5U7DaykwoSh7TGs2v9cDgD2ZmTtrHC4P6IcyHGzFYUZrqFUxm+H+52jaw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "address",
           "type": "submit",
-          "value": "dev+orycye2eda2f162daf6142dd0.sgv4gs3zbb0.pj97gwj09w8@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.538fpe3dzei0.23rk0hmzyzyh@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -37,10 +37,10 @@
         "meta": {
           "label": {
             "id": 1010023,
-            "text": "Send code to dev+orycye2eda2f162daf6142dd0.sgv4gs3zbb0.pj97gwj09w8@ory.dev",
+            "text": "Send code to dev+orycye2eda2f162daf6142dd0.538fpe3dzei0.23rk0hmzyzyh@ory.dev",
             "type": "info",
             "context": {
-              "address": "dev+orycye2eda2f162daf6142dd0.sgv4gs3zbb0.pj97gwj09w8@ory.dev",
+              "address": "dev+orycye2eda2f162daf6142dd0.538fpe3dzei0.23rk0hmzyzyh@ory.dev",
               "channel": "email"
             }
           }
@@ -133,8 +133,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:45.366495Z",
-  "updated_at": "2025-04-22T08:43:45.366495Z",
+  "created_at": "2025-04-22T08:50:45.815596Z",
+  "updated_at": "2025-04-22T08:50:45.815596Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "choose_method"

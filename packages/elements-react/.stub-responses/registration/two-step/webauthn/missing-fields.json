@@ -1,11 +1,11 @@
 {
-  "id": "27680ac4-dbd4-4e2c-807a-63de9cb4ae29",
+  "id": "0aa7f4ba-61f5-4715-9d67-0231b9992af8",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:25.709361Z",
-  "issued_at": "2025-04-22T08:44:25.709361Z",
-  "request_url": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:26.163149Z",
+  "issued_at": "2025-04-22T08:51:26.163149Z",
+  "request_url": "https://hopeful-ride-dbgo5jswyd.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/self-service/registration?flow=27680ac4-dbd4-4e2c-807a-63de9cb4ae29",
+    "action": "https://hopeful-ride-dbgo5jswyd.projects.oryapis:8080/self-service/registration?flow=0aa7f4ba-61f5-4715-9d67-0231b9992af8",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "HtYFke12o5BmET/J3CIdNBoi//F84u2sPPkpvaFoLl7C44Cp7RVrZkeTBfLmEzDUOIiLcAxb+pMdKFqgoUonew==",
+          "value": "qfojFvfonWhla4rD/HfYLqBeSHYysbv4EsUWeB2B80bHOgopbtCeDfsLIFMgx3rcdauCDQX3rfOEvOoVo9Idgw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

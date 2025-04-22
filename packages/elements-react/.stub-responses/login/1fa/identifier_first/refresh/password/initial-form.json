@@ -1,12 +1,12 @@
 {
-  "id": "722dc6b2-d1eb-4257-b954-9eb6ea5f419c",
+  "id": "fd26e1c7-2176-4f72-8f96-223989a89cf3",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:14.093844086Z",
-  "issued_at": "2025-04-22T08:44:14.093844086Z",
-  "request_url": "https://condescending-pare-zmoehzjv77.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:51:14.346532877Z",
+  "issued_at": "2025-04-22T08:51:14.346532877Z",
+  "request_url": "https://objective-hawking-5tpn1nn4gw.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://condescending-pare-zmoehzjv77.projects.oryapis:8080/self-service/login?flow=722dc6b2-d1eb-4257-b954-9eb6ea5f419c",
+    "action": "https://objective-hawking-5tpn1nn4gw.projects.oryapis:8080/self-service/login?flow=fd26e1c7-2176-4f72-8f96-223989a89cf3",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "WwmTcShu/u5CeTUlR+ZV7/x5SqJJgzqUZ9VcknwTxFlpmU2448aK7G7XrbXuEloHsodMPAuOIRo9JnB3Zy7FQw==",
+          "value": "ZvuXDt0Cqoplj7CNtFVKJ5uKb5vJUPKr/Gpndqj4uoPTJF2MqZylosWKq3T1M8vtDYisNVMaO8jVcxltdqf92w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.pkmi6vduf80.hmda595qtmw@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.np9fgleafzs0.q8dk8skpt4@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:14.106064Z",
-  "updated_at": "2025-04-22T08:44:14.106064Z",
+  "created_at": "2025-04-22T08:51:14.36107Z",
+  "updated_at": "2025-04-22T08:51:14.36107Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

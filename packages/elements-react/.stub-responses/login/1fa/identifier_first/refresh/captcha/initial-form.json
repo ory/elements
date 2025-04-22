@@ -1,12 +1,12 @@
 {
-  "id": "97b6d1da-768e-4b8a-a49b-3b59697edcf8",
+  "id": "ccec372a-ed61-4f67-9f29-18d8912b548f",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:33.060059011Z",
-  "issued_at": "2025-04-22T08:43:33.060059011Z",
-  "request_url": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:50:33.907856303Z",
+  "issued_at": "2025-04-22T08:50:33.907856303Z",
+  "request_url": "https://sad-mayer-0zi9sqzb8w.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/self-service/login?flow=97b6d1da-768e-4b8a-a49b-3b59697edcf8",
+    "action": "https://sad-mayer-0zi9sqzb8w.projects.oryapis:8080/self-service/login?flow=ccec372a-ed61-4f67-9f29-18d8912b548f",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "mT0xdBKpT36gp0GuP+ErrtGx+7rvUcpAZWGQ1H1O5fzEdeLexFw1qc8gI2YFuDnJxkVNloMHbJd11lV5C9falw==",
+          "value": "qRkaV3MOcdBzQbqC6pz/6/lW/h1geFW2o6WCXFA7+pzN9dapoqX5RgO17q/dYdwtXkTyqUEs8YVbgdTJB1wrrQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.b5denncp8dw0.wsxe50rhsvm@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.jyqyzk1jt10.cn0xir34k4u@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:33.076052Z",
-  "updated_at": "2025-04-22T08:43:33.076052Z",
+  "created_at": "2025-04-22T08:50:33.927098Z",
+  "updated_at": "2025-04-22T08:50:33.927098Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

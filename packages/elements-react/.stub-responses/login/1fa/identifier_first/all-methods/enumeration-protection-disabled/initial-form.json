@@ -1,14 +1,37 @@
 {
-  "id": "c7f884c0-b92e-45e9-8043-3ce71572b4ed",
+  "id": "ddc0bd36-0d8c-4b55-9ec3-4adc0ee21e63",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:08.157081708Z",
-  "issued_at": "2025-04-22T08:51:08.157081708Z",
-  "request_url": "https://charming-robinson-sxlaz9aqwa.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T11:29:33.88620722Z",
+  "issued_at": "2025-04-22T10:29:33.88620722Z",
+  "request_url": "https://bold-agnesi-i24pb5kb9d.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://charming-robinson-sxlaz9aqwa.projects.oryapis:8080/self-service/login?flow=c7f884c0-b92e-45e9-8043-3ce71572b4ed",
+    "action": "https://bold-agnesi-i24pb5kb9d.projects.oryapis:8080/self-service/login?flow=ddc0bd36-0d8c-4b55-9ec3-4adc0ee21e63",
     "method": "POST",
     "nodes": [
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace",
+              "provider_id": "gsuite"
+            }
+          }
+        }
+      },
       {
         "type": "input",
         "group": "identifier_first",
@@ -54,11 +77,57 @@
       },
       {
         "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub",
+              "provider_id": "github"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google",
+            "type": "info",
+            "context": {
+              "provider": "Google",
+              "provider_id": "google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "sdH/yjPFXKUl9/DLuTVfzgY4ObaoGJSZOJkuRffcFrlzff1jZbMwzdZLWhsV2SkA2761VR97NK1oC4SBkf8bMg==",
+          "value": "h2Y1PQlTWTv/rMCS5o3nRar5BxCveH721pidU7bymPUTM+uKSvjaHtdK3O4W8SlTGwdtltAU3CGnH/LUnN0vrQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -70,14 +139,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://charming-robinson-sxlaz9aqwa.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://bold-agnesi-i24pb5kb9d.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "f472c370-2535-4a99-9a0b-9d7892f20e8b",
+          "nonce": "e8f36472-4123-41ba-b138-531abc0c4abc",
           "node_type": "script"
         },
         "messages": [],
@@ -103,7 +172,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"C9ALHvnn1WGezLlCAl7YrRFVzgrmet_ZR1kMV3MbjaY\",\"timeout\":300000,\"rpId\":\"charming-robinson-sxlaz9aqwa.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"Z-73Coih6hEebDJ1PqvNFkptMbDC7pe3xDECdwGPU4M\",\"timeout\":300000,\"rpId\":\"bold-agnesi-i24pb5kb9d.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -112,8 +181,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:51:08.159242Z",
-  "updated_at": "2025-04-22T08:51:08.159242Z",
+  "created_at": "2025-04-22T10:29:33.891057Z",
+  "updated_at": "2025-04-22T10:29:33.891057Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

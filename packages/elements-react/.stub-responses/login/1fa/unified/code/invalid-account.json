@@ -1,12 +1,12 @@
 {
-  "id": "84a50194-9cad-4afe-9a8a-4e799c78ced0",
+  "id": "40144641-85d4-470b-8f61-8401d1bcf8c0",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:32.39702Z",
-  "issued_at": "2025-04-22T08:43:32.39702Z",
-  "request_url": "https://friendly-cohen-s3k1egmpla.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:32.375989Z",
+  "issued_at": "2025-04-22T08:50:32.375989Z",
+  "request_url": "https://loving-carver-vnp81g34z8.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://friendly-cohen-s3k1egmpla.projects.oryapis:8080/self-service/login?flow=84a50194-9cad-4afe-9a8a-4e799c78ced0",
+    "action": "https://loving-carver-vnp81g34z8.projects.oryapis:8080/self-service/login?flow=40144641-85d4-470b-8f61-8401d1bcf8c0",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "nlKlxoCGkoAeCqHkBmdJucEf4L6gxVjene6eoE0DBgegzPfUelgbGJIbGywxQ9Zbq164x2OsdjWB7F0Slojzmg==",
+          "value": "tefhsLmzlmVkNI/CmLiVffa7iI2PmVPXVCc86j70BPlFN/WYK7Y1uwoc//0dWWYOs298SjE6p8FxAxVD8QvKIQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -75,8 +75,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:32.398666Z",
-  "updated_at": "2025-04-22T08:43:32.398666Z",
+  "created_at": "2025-04-22T08:50:32.377744Z",
+  "updated_at": "2025-04-22T08:50:32.377744Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "c4bdcd1c-cd8a-46ce-965d-5146b0e47b16",
+  "id": "fcb88d0a-db97-48e0-841f-29cd3833c00d",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:31.713467177Z",
-  "issued_at": "2025-04-22T08:44:31.713467177Z",
-  "request_url": "https://confident-feistel-lnoxqbcey9.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:51:31.735279261Z",
+  "issued_at": "2025-04-22T08:51:31.735279261Z",
+  "request_url": "https://amazing-panini-dwbzg658pg.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://confident-feistel-lnoxqbcey9.projects.oryapis:8080/self-service/login?flow=c4bdcd1c-cd8a-46ce-965d-5146b0e47b16",
+    "action": "https://amazing-panini-dwbzg658pg.projects.oryapis:8080/self-service/login?flow=fcb88d0a-db97-48e0-841f-29cd3833c00d",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "1w6+3tcHpAdAxDnPPqrAWdNW++VVjjBj05UzloU7FBc9IxL2HWFMK1cECMoc1Xim1R8vgXTNq6x8z6PeXxgy9A==",
+          "value": "t611sVE+YTKSjRcnVaFcnJ3ip8tet0azMuvTGcdw93rymMPYPI4pV/ulWYqnRDkTwv5GzUaa+1a6UeoXrCy9LA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.zn2471vyl70.4sj49bg1g6v@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.iyzykmgwawn0.ji8dyt1l44@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -53,14 +53,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://confident-feistel-lnoxqbcey9.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://amazing-panini-dwbzg658pg.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "dccfa3f2-cc81-4c1d-8d71-a12c89744d05",
+          "nonce": "0a18b75e-ea0e-4481-ba58-1fccce783d23",
           "node_type": "script"
         },
         "messages": [],
@@ -72,9 +72,9 @@
         "attributes": {
           "name": "webauthn_login_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"challenge\":\"QYbJnP95s9R_MGpBy241l6UTy35n1D3MERs2wcWZSog\",\"timeout\":120000,\"rpId\":\"confident-feistel-lnoxqbcey9.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"VtdhofJfJvpxtmGN7Y1KylGNr2Vr9DImpABO6iQDvlc\"}],\"userVerification\":\"discouraged\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"p5xwZccb5XjRoAquVPtP2SeN0HmFZVbblA9fth5VFs0\",\"timeout\":120000,\"rpId\":\"amazing-panini-dwbzg658pg.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"1XhnHP2WqD8sF5A2t__xqXmJEfNZlradlFw8ZUfQfZA\"}],\"userVerification\":\"discouraged\"}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"QYbJnP95s9R_MGpBy241l6UTy35n1D3MERs2wcWZSog\",\"timeout\":120000,\"rpId\":\"confident-feistel-lnoxqbcey9.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"VtdhofJfJvpxtmGN7Y1KylGNr2Vr9DImpABO6iQDvlc\"}],\"userVerification\":\"discouraged\"}})",
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"p5xwZccb5XjRoAquVPtP2SeN0HmFZVbblA9fth5VFs0\",\"timeout\":120000,\"rpId\":\"amazing-panini-dwbzg658pg.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"1XhnHP2WqD8sF5A2t__xqXmJEfNZlradlFw8ZUfQfZA\"}],\"userVerification\":\"discouraged\"}})",
           "onclickTrigger": "oryWebAuthnLogin",
           "node_type": "input"
         },
@@ -96,8 +96,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:31.753511Z",
-  "updated_at": "2025-04-22T08:44:31.753511Z",
+  "created_at": "2025-04-22T08:51:31.76714Z",
+  "updated_at": "2025-04-22T08:51:31.76714Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

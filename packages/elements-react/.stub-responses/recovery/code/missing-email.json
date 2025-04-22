@@ -1,12 +1,12 @@
 {
-  "id": "967c1ea3-1458-44ab-ad1b-e0bd7348d20c",
+  "id": "1d263110-501d-46e4-8917-8733d725a926",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:37.645874Z",
-  "issued_at": "2025-04-22T08:43:37.645874Z",
-  "request_url": "https://cranky-elbakyan-z2y8mkesud.projects.oryapis:8080/self-service/recovery/browser",
+  "expires_at": "2025-04-22T09:50:37.970965Z",
+  "issued_at": "2025-04-22T08:50:37.970965Z",
+  "request_url": "https://suspicious-hellman-92bfcq4oex.projects.oryapis:8080/self-service/recovery/browser",
   "active": "code",
   "ui": {
-    "action": "https://cranky-elbakyan-z2y8mkesud.projects.oryapis:8080/self-service/recovery?flow=967c1ea3-1458-44ab-ad1b-e0bd7348d20c",
+    "action": "https://suspicious-hellman-92bfcq4oex.projects.oryapis:8080/self-service/recovery?flow=1d263110-501d-46e4-8917-8733d725a926",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "1R4d0NAP7ecCG9OCz7lYIJ9ZkyzDXCGzXClGc9aNsYDcYqgVQmDVcNx83HUX26zhyYtlcukjZV6UsInQhY/Nlg==",
+          "value": "HKJa7CEp4xIxH6q6kATiysVPbuiV+zlZpUlqgcExBIOkT3RvyLvSDvXBuTuRRZHf00ynHuQDB7IFzJJUWllNgw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

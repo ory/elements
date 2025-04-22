@@ -1,12 +1,12 @@
 {
-  "id": "43503f6b-840b-4efd-b132-216b4c83e23f",
+  "id": "ee857cef-ad68-46e1-af22-daf03a3744df",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:32.464736Z",
-  "issued_at": "2025-04-22T08:43:32.464736Z",
-  "request_url": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:33.284921Z",
+  "issued_at": "2025-04-22T08:50:33.284921Z",
+  "request_url": "https://sad-mayer-0zi9sqzb8w.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/self-service/login?flow=43503f6b-840b-4efd-b132-216b4c83e23f",
+    "action": "https://sad-mayer-0zi9sqzb8w.projects.oryapis:8080/self-service/login?flow=ee857cef-ad68-46e1-af22-daf03a3744df",
     "method": "POST",
     "nodes": [
       {
@@ -133,7 +133,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Mta4qBFBttVydW0xX2cynQHsVJQPhkRaY6wrRehLIrPqNFeYHhRTL3gQfnUbK1jn5Yp/v9fwa+9x5AjfZSF0RA==",
+          "value": "7ZyYCerG05AwCciBq8W4vs/oOosnNhJhfRtyboz8Gm2o2e2FGnCS7cjjoT7CIFbA5ocvpWwb7s5HgN7KReoANw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -145,14 +145,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://sad-mayer-0zi9sqzb8w.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "2b188ff6-b1d3-442a-b267-8a3dd94775bb",
+          "nonce": "f111b64c-e2cb-4ee6-9068-de2bef575ecb",
           "node_type": "script"
         },
         "messages": [],
@@ -178,7 +178,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"VeKVaRjdex1exmmkjc5-DlgLLu7_8FGmQRNp6Osbfqg\",\"timeout\":300000,\"rpId\":\"laughing-volhard-qih76wylx8.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"QNbeA35MfnlWW0O36cTDK17XIkrpOSDL6UloYHko8Gs\",\"timeout\":300000,\"rpId\":\"sad-mayer-0zi9sqzb8w.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -194,8 +194,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:32.467049Z",
-  "updated_at": "2025-04-22T08:43:32.467049Z",
+  "created_at": "2025-04-22T08:50:33.28727Z",
+  "updated_at": "2025-04-22T08:50:33.28727Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

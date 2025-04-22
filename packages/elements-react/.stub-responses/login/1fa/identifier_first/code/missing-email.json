@@ -1,12 +1,12 @@
 {
-  "id": "badbd5c9-2bbd-48db-8924-0d284aa2c1be",
+  "id": "7c713c40-da4b-40c9-bdf0-d81ff3d47756",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:37.106344Z",
-  "issued_at": "2025-04-22T08:43:37.106344Z",
-  "request_url": "https://gallant-jepsen-rzfliakuzf.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:37.355567Z",
+  "issued_at": "2025-04-22T08:50:37.355567Z",
+  "request_url": "https://exciting-diffie-ogdytwrr3m.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://gallant-jepsen-rzfliakuzf.projects.oryapis:8080/self-service/login?flow=badbd5c9-2bbd-48db-8924-0d284aa2c1be",
+    "action": "https://exciting-diffie-ogdytwrr3m.projects.oryapis:8080/self-service/login?flow=7c713c40-da4b-40c9-bdf0-d81ff3d47756",
     "method": "POST",
     "nodes": [
       {
@@ -64,7 +64,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Dz0JQAYnbbltKfVaKSvQM/kfbZr6fMoj+Lqfmkwx+H/uLYny40m9hSYM0cbyt6ByB1eJ4ML/6FZZvrdbEZZh0A==",
+          "value": "U3uRHqE5ivltoZiUpkpaqkj0EbV4c6sXhAkNEBWV7UTaTPPj1i1KK1BdYQL3eu36xXnj2r1Us6YHJA/x6S13gw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,8 +74,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:37.113465Z",
-  "updated_at": "2025-04-22T08:43:37.113465Z",
+  "created_at": "2025-04-22T08:50:37.357475Z",
+  "updated_at": "2025-04-22T08:50:37.357475Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,11 +1,11 @@
 {
-  "id": "4c284271-353b-4d5c-933d-adfb19ab35e0",
+  "id": "4ef6ec45-266d-40e5-ba9d-98735e01a4d8",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:46.703883Z",
-  "issued_at": "2025-04-22T08:43:46.703883Z",
-  "request_url": "https://stupefied-agnesi-q7e5x4gal3.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T10:19:57.600015Z",
+  "issued_at": "2025-04-22T09:19:57.600015Z",
+  "request_url": "https://boring-joliot-r22dzzchb3.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://stupefied-agnesi-q7e5x4gal3.projects.oryapis:8080/self-service/registration?flow=4c284271-353b-4d5c-933d-adfb19ab35e0",
+    "action": "https://boring-joliot-r22dzzchb3.projects.oryapis:8080/self-service/registration?flow=4ef6ec45-266d-40e5-ba9d-98735e01a4d8",
     "method": "POST",
     "nodes": [
       {
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Q4IUmfkVTY1knoszoZe0FmVnsCSjBFhF65DTJn9vRYLm5I4Yb4ecRMRc3lbF1z5DWgLq2x+NRnHRZQOSx4EwiA==",
+          "value": "HmUuuTidTajh6z5ssBZfwvz9sxNBwEiF6sNsww1YlzavZQPTByeZ8s1uXVMiHLUB/cva9xV5JVX8DhYK3nzMyQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -165,11 +165,165 @@
       },
       {
         "type": "input",
-        "group": "profile",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_displayname",
+          "type": "text",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050013,
+            "text": "Name of the security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_register_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"boring-joliot-r22dzzchb3.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"BEkVOcfdSgq-f4wEUYfpFA\"},\"challenge\":\"JSC-I9Ic6rPh0Zz6xWzMrQzkeN2kUD0wi0kfK-NIBuY\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"boring-joliot-r22dzzchb3.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"BEkVOcfdSgq-f4wEUYfpFA\"},\"challenge\":\"JSC-I9Ic6rPh0Zz6xWzMrQzkeN2kUD0wi0kfK-NIBuY\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclickTrigger": "oryWebAuthnRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040004,
+            "text": "Sign up with security key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://boring-joliot-r22dzzchb3.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "4bb2b19f-c27d-4586-99b4-5467e861ad7f",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register_trigger",
+          "type": "button",
+          "disabled": false,
+          "onclick": "window.oryPasskeyRegistration()",
+          "onclickTrigger": "oryPasskeyRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040007,
+            "text": "Sign up with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_create_data",
+          "type": "hidden",
+          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"boring-joliot-r22dzzchb3.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-0DHU5xGt3eZDGaEl-2-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"WnlTYnVTbTdjWmo2S3FESk1VTmpJNEQ3cGJZSVEyMFFrZFFybVdlYW5EVkNZM0k5b0ZCZG9sNW9GRUVYSE4xWg\"},\"challenge\":\"utklC4xbr7STFdMn5riROEAH_2fLHZ88WiJ_-3NurWU\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "profile",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040006,
+            "text": "Send sign up code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "new-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
           "disabled": false,
           "node_type": "input"
         },

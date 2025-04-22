@@ -1,12 +1,12 @@
 {
-  "id": "5d53f0c4-f59f-4803-aac0-d4dcc80fa8d1",
+  "id": "839bffb4-2fcc-4985-89a5-b285593320a4",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:49.520354588Z",
-  "issued_at": "2025-04-22T08:43:49.520354588Z",
-  "request_url": "https://interesting-shtern-c4qesmosm2.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:49.957166755Z",
+  "issued_at": "2025-04-22T08:50:49.957166755Z",
+  "request_url": "https://silly-ganguly-cjbaisrytt.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://interesting-shtern-c4qesmosm2.projects.oryapis:8080/self-service/login?flow=5d53f0c4-f59f-4803-aac0-d4dcc80fa8d1",
+    "action": "https://silly-ganguly-cjbaisrytt.projects.oryapis:8080/self-service/login?flow=839bffb4-2fcc-4985-89a5-b285593320a4",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "oI7Ix4v43hEXIxNQshMSzhRi+oVNaSAw37R8MmD70ol51f0MxBXHOj75o/qoUI3+Ym4Jc21KmRB/LTEaqSnaJw==",
+          "value": "MKIqnDh5XnqnbuhLJb4TaeMWZ3hSwJDq7gsZhpIiJ6FgpqwrUIie1q0IbdRXLCbMLREyPxQDADccQ2LbbCNbdA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:49.521649Z",
-  "updated_at": "2025-04-22T08:43:49.521649Z",
+  "created_at": "2025-04-22T08:50:49.958423Z",
+  "updated_at": "2025-04-22T08:50:49.958423Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "2305341b-b52f-4e28-8019-069b4be68dc7",
+  "id": "410afde0-c46d-468e-88a3-60ee3f334e1c",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:09.35515Z",
-  "issued_at": "2025-04-22T08:44:09.35515Z",
-  "request_url": "https://infallible-proskuriakova-kxx6mnotv2.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:51:09.577633Z",
+  "issued_at": "2025-04-22T08:51:09.577633Z",
+  "request_url": "https://jovial-margulis-mn4zy0uk1w.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://infallible-proskuriakova-kxx6mnotv2.projects.oryapis:8080/self-service/login?flow=2305341b-b52f-4e28-8019-069b4be68dc7",
+    "action": "https://jovial-margulis-mn4zy0uk1w.projects.oryapis:8080/self-service/login?flow=410afde0-c46d-468e-88a3-60ee3f334e1c",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "PlbFa5xp+Zvd/2H999Rr5bdCuvvwq4oZCarUkLwkGpcgrdMVWm19Acu6kaZ6mefcY5qKwbV02tlDOvXOHqsdmg==",
+          "value": "bo9bA1p0XbTxoxsKsJYK9mEJM3C4Vwp3syrAWw5sTeiEOQ/Pho13hY65m3GFBN6O2UlqlUt4OCXE/cS2dVQtYg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.1ha1vjzuzxl0.0wlo6e0i6ve@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.koowz0y3w0b0.gfb17io1tmb@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -40,14 +40,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://infallible-proskuriakova-kxx6mnotv2.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://jovial-margulis-mn4zy0uk1w.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "e2ee6e29-ec28-40f8-a579-773636bfe230",
+          "nonce": "ada2871c-c9e8-4c6c-909d-0827cf6d4c48",
           "node_type": "script"
         },
         "messages": [],
@@ -92,7 +92,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"iZGATZMJlILsgUqdm33ayXfTDaEMhEsNyW2zOSgUZr8\",\"timeout\":300000,\"rpId\":\"infallible-proskuriakova-kxx6mnotv2.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"bzFoJsuQCWnxC9txjZWvjgN8Y-5rccX5E-vZndEfZoQ\"}],\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"uUV62hdNUHTUNdyZv1GWxLNYkUOsq1E6Z2PclyxMo9M\",\"timeout\":300000,\"rpId\":\"jovial-margulis-mn4zy0uk1w.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"tL4ac7q0b5wxKErfWmrax8vKd9BLFB6hOqUpAtJ-9a0\"}],\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -111,8 +111,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:09.42112Z",
-  "updated_at": "2025-04-22T08:44:09.42112Z",
+  "created_at": "2025-04-22T08:51:09.595548Z",
+  "updated_at": "2025-04-22T08:51:09.595548Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

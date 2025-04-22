@@ -1,14 +1,37 @@
 {
-  "id": "c7f884c0-b92e-45e9-8043-3ce71572b4ed",
+  "id": "d2a849e5-8da7-4801-b339-a59a5fd89bf1",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:08.157081708Z",
-  "issued_at": "2025-04-22T08:51:08.157081708Z",
-  "request_url": "https://charming-robinson-sxlaz9aqwa.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T11:29:34.003426595Z",
+  "issued_at": "2025-04-22T10:29:34.003426595Z",
+  "request_url": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://charming-robinson-sxlaz9aqwa.projects.oryapis:8080/self-service/login?flow=c7f884c0-b92e-45e9-8043-3ce71572b4ed",
+    "action": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/self-service/login?flow=d2a849e5-8da7-4801-b339-a59a5fd89bf1",
     "method": "POST",
     "nodes": [
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace",
+              "provider_id": "gsuite"
+            }
+          }
+        }
+      },
       {
         "type": "input",
         "group": "identifier_first",
@@ -54,11 +77,57 @@
       },
       {
         "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub",
+              "provider_id": "github"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google",
+            "type": "info",
+            "context": {
+              "provider": "Google",
+              "provider_id": "google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "sdH/yjPFXKUl9/DLuTVfzgY4ObaoGJSZOJkuRffcFrlzff1jZbMwzdZLWhsV2SkA2761VR97NK1oC4SBkf8bMg==",
+          "value": "heVbQUUhIoWZNhzeJocyXITjo2PT0jqZPpSXruOrdjCRU1n/fSV4PydFxQLSUenIjGbaAu7IFlTkd4/8VpRGlg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -70,14 +139,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://charming-robinson-sxlaz9aqwa.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "f472c370-2535-4a99-9a0b-9d7892f20e8b",
+          "nonce": "f31c6d79-6774-4573-9a37-fea837b45826",
           "node_type": "script"
         },
         "messages": [],
@@ -103,7 +172,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"C9ALHvnn1WGezLlCAl7YrRFVzgrmet_ZR1kMV3MbjaY\",\"timeout\":300000,\"rpId\":\"charming-robinson-sxlaz9aqwa.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"WS9WaazHUEdl6MVBVtglDXk6pXh6riS4BttBJre-DY4\",\"timeout\":300000,\"rpId\":\"hopeful-euler-vszja71i9a.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -112,8 +181,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:51:08.159242Z",
-  "updated_at": "2025-04-22T08:51:08.159242Z",
+  "created_at": "2025-04-22T10:29:34.005706Z",
+  "updated_at": "2025-04-22T10:29:34.005706Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "d46a7039-0ad6-47f4-aede-8fbb4535e37d",
+  "id": "1234f123-9fb8-443a-8afc-abca77d92e68",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:02.128289594Z",
-  "issued_at": "2025-04-22T08:44:02.128289594Z",
-  "request_url": "https://charming-shockley-pcjv33c2xb.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:51:01.829250094Z",
+  "issued_at": "2025-04-22T08:51:01.829250094Z",
+  "request_url": "https://sleepy-galileo-uwdvzv5buv.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://charming-shockley-pcjv33c2xb.projects.oryapis:8080/self-service/login?flow=d46a7039-0ad6-47f4-aede-8fbb4535e37d",
+    "action": "https://sleepy-galileo-uwdvzv5buv.projects.oryapis:8080/self-service/login?flow=1234f123-9fb8-443a-8afc-abca77d92e68",
     "method": "POST",
     "nodes": [
       {
@@ -242,7 +242,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "77b+4etzhcZeF9G00ipsCavclCZMi5PhFDiMfX7/PfDUe06lY5pCubfM/rYAOODwOV/DFf3SZEtunGaDx/t5uQ==",
+          "value": "TTiL/8argKUW7et0D7olqFi5ZscNmbu7VtM20ox0KEy8zzHU+w3OzfVOwK78WfBJccG6YS5A0XTuYjlNnhbpLg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -252,8 +252,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:02.13078Z",
-  "updated_at": "2025-04-22T08:44:02.13078Z",
+  "created_at": "2025-04-22T08:51:01.831584Z",
+  "updated_at": "2025-04-22T08:51:01.831584Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

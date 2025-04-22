@@ -1,12 +1,12 @@
 {
-  "id": "2117a718-116f-495e-a668-7562de6ac49b",
+  "id": "202a2d0c-7c41-4370-89e9-ca55a2d74114",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:38.093468375Z",
-  "issued_at": "2025-04-22T08:43:38.093468375Z",
-  "request_url": "https://ecstatic-leakey-p1h0qfe4mr.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:50:38.341626625Z",
+  "issued_at": "2025-04-22T08:50:38.341626625Z",
+  "request_url": "https://naughty-pike-to9d3w7vi6.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://ecstatic-leakey-p1h0qfe4mr.projects.oryapis:8080/self-service/login?flow=2117a718-116f-495e-a668-7562de6ac49b",
+    "action": "https://naughty-pike-to9d3w7vi6.projects.oryapis:8080/self-service/login?flow=202a2d0c-7c41-4370-89e9-ca55a2d74114",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "vKK+6QhD1U6xIgaYgKv1SkoATZqwidP2XhgO26N+ENRbnk73DepEN7N8OdxvMNVJpl7A4UxwqVZqJmYmOatBXw==",
+          "value": "4BXzaloyMnYY0cH+wEVwKSxy87eugL4Pq0H0bTlPFAuI/NkUPkitmFgPz8HTF6S9Ty7YyCJK2Gn/kP4C5ibGtw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,8 +74,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:38.098916Z",
-  "updated_at": "2025-04-22T08:43:38.098916Z",
+  "created_at": "2025-04-22T08:50:38.347471Z",
+  "updated_at": "2025-04-22T08:50:38.347471Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

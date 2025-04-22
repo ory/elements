@@ -1,11 +1,11 @@
 {
-  "id": "a42e64ae-33f6-4c4e-8336-b7cde37a78a1",
+  "id": "79e634b9-4160-4a45-9663-4608c9e55486",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:47.167607Z",
-  "issued_at": "2025-04-22T08:43:47.167607Z",
-  "request_url": "https://infallible-colden-ty5gl50jly.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T10:19:57.680259Z",
+  "issued_at": "2025-04-22T09:19:57.680259Z",
+  "request_url": "https://distracted-lewin-6dw9recxdx.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://infallible-colden-ty5gl50jly.projects.oryapis:8080/self-service/registration?flow=a42e64ae-33f6-4c4e-8336-b7cde37a78a1",
+    "action": "https://distracted-lewin-6dw9recxdx.projects.oryapis:8080/self-service/registration?flow=79e634b9-4160-4a45-9663-4608c9e55486",
     "method": "POST",
     "nodes": [
       {
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "a2QGs728I+aHwgtasAiVZc1AXgp7Vbral4YdBPGBpMgnrU/oeNndUgTgnFGpeXcZ0erubwS3naY9uUmrE9zCBA==",
+          "value": "x+pB7dBmBuhjLRuHa5Fky9rli9KuEQxnARf+Y5kT2fWZbMbi/QpNE2JnNRAkgPoRM6WjZmwjpqrYbdRIdXxUzg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,7 +74,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.bun58tt0a250.9wbmzl2k9g@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.mw5g213gel0.p0iugnnjoy@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -193,9 +193,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"bedz1em0cdYrgwCP40dJNzY57c6rHcGizdDVVne62fg\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"infallible-colden-ty5gl50jly.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"d9AtWjf7RFCflmGsTGDWRw\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}}",
+          "value": "{\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"fH1Ek26Fz6J9PHcLP141xlQtHM7s7rHFt6KcVxXP-WY\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"distracted-lewin-6dw9recxdx.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"0PBMpPKJT-CN7F9jcHCTvA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"bedz1em0cdYrgwCP40dJNzY57c6rHcGizdDVVne62fg\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"infallible-colden-ty5gl50jly.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"d9AtWjf7RFCflmGsTGDWRw\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"fH1Ek26Fz6J9PHcLP141xlQtHM7s7rHFt6KcVxXP-WY\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"distracted-lewin-6dw9recxdx.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"0PBMpPKJT-CN7F9jcHCTvA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -212,14 +212,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://infallible-colden-ty5gl50jly.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://distracted-lewin-6dw9recxdx.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "5c9355a1-8a4e-4af4-8915-2c5adcf5b767",
+          "nonce": "dd929cc8-3159-4541-a3df-71bcaed83956",
           "node_type": "script"
         },
         "messages": [],
@@ -263,7 +263,7 @@
         "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
-          "value": "{\"credentialOptions\": {\"publicKey\": {\"authenticatorSelection\": {\"authenticatorAttachment\": \"platform\", \"requireResidentKey\": true, \"residentKey\": \"required\", \"userVerification\": \"preferred\"}, \"challenge\": \"XDBjO5rJZloESn_OsrSIW2aOwZIY2GuuYtmVEHPhXiw\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"infallible-colden-ty5gl50jly.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 300000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"RXJjT1ExeXBFZjdoUkVWYkI1SFV5N1RKUm03QWFKQ0VjVllBZ1NERGxuYURWR29tSnJOM2lIUUJNT3ZTbmFOMg\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-z7lypbVvU1ojWBZw-1-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}}, \"displayNameFieldName\": \"traits.email\"}",
+          "value": "{\"credentialOptions\": {\"publicKey\": {\"authenticatorSelection\": {\"authenticatorAttachment\": \"platform\", \"requireResidentKey\": true, \"residentKey\": \"required\", \"userVerification\": \"preferred\"}, \"challenge\": \"XF_3Grwa5eIJ22M5nG4Pd-qUj05PODg4VrhnOcDuBhM\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"distracted-lewin-6dw9recxdx.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}, \"timeout\": 300000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\", \"id\": \"V013UU9rb0JZbUJXQkpXcHlBVFUwckxPYjFqOE1kdlo1VUgwbkRiT2VlTmtFWm9kWEM2d0RUbUtTVkZxczVJMQ\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Ogdy3LtKOqlLmefD-3-tests/elements/everything.spec.ts>Generate all method API responses for Ory Elements Storybook>two-step>two step registration\"}}}, \"displayNameFieldName\": \"traits.email\"}",
           "disabled": false,
           "node_type": "input"
         },

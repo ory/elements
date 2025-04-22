@@ -1,12 +1,12 @@
 {
-  "id": "561d6de9-18e6-4506-b1bd-512100b7e6b1",
+  "id": "8ea32ae5-93bd-4c4b-9eef-c3dd07db6121",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:21.336418Z",
-  "issued_at": "2025-04-22T08:44:21.336418Z",
-  "request_url": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "2025-04-22T09:51:21.188643Z",
+  "issued_at": "2025-04-22T08:51:21.188643Z",
+  "request_url": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "ui": {
-    "action": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/login?flow=561d6de9-18e6-4506-b1bd-512100b7e6b1",
+    "action": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/self-service/login?flow=8ea32ae5-93bd-4c4b-9eef-c3dd07db6121",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "DqU8Oqb5gKhoLdOMG/ujAtChiyAiPDf/6KXdfm/P/IjpQdEq6ZdOtLNFsnevj9tpwSjhMnq3rQQn9xFgXg6QOA==",
+          "value": "x1cQWfVGB61PtIc3aDY/5Ko7uwOButGbmaXPs1rRjQB3g4TzcaW2Z1tEauDIxW7Hz95dWv2Bq88NJ9+6Rh1BMQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -70,8 +70,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:21.352492Z",
-  "updated_at": "2025-04-22T08:44:21.352492Z",
+  "created_at": "2025-04-22T08:51:21.203492Z",
+  "updated_at": "2025-04-22T08:51:21.203492Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "choose_method"

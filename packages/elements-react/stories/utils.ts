@@ -3,6 +3,7 @@
 
 import { OryClientConfiguration } from "@ory/elements-react"
 import { LoginFlow, LoginFlowFromJSON, UiNode } from "@ory/client-fetch"
+import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 export const config = {
   name: "Acme Inc.",
@@ -141,6 +142,12 @@ export interface GenericError {
   status?: string
 }
 
+/** Lists the available social login providers for a given flow.
+ *
+ * @param flow
+ * @param group
+ * @param providers
+ */
 export const listOnly = (
   flow: LoginFlow,
   group: "saml" | "oidc",
@@ -166,3 +173,17 @@ export const listOnly = (
     },
   })
 }
+
+/**
+ * Patches the active method of a login flow.
+ *
+ * @param flow
+ * @param method
+ */
+export const patchMethodActive = (
+  flow: LoginFlow,
+  method: LoginFlowActiveEnum,
+) => ({
+  ...flow,
+  active: method,
+})

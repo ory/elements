@@ -1,12 +1,12 @@
 {
-  "id": "cb57e6e0-2989-47dd-943f-b50f11fa7d2f",
+  "id": "81d8482c-c03e-45d1-b54f-e1ef4c03a95c",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:30.340508843Z",
-  "issued_at": "2025-04-22T08:44:30.340508843Z",
-  "request_url": "https://adoring-noyce-cqx92uwm4o.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:51:30.726476135Z",
+  "issued_at": "2025-04-22T08:51:30.726476135Z",
+  "request_url": "https://vibrant-sammet-bp2pok663s.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://adoring-noyce-cqx92uwm4o.projects.oryapis:8080/self-service/login?flow=cb57e6e0-2989-47dd-943f-b50f11fa7d2f",
+    "action": "https://vibrant-sammet-bp2pok663s.projects.oryapis:8080/self-service/login?flow=81d8482c-c03e-45d1-b54f-e1ef4c03a95c",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "lm72dwlHKA+fVUDUMYtnVJmfugNxmRUD/7b34o3sZ8kvy/ld0qxoc3zEbbvZua/imcs1L1CDn0BG626Sw1/0Zw==",
+          "value": "3SUHdBYLkyBwe3TWrl8vl3nRexO5aBd13iwzo7mgH79guEciWeLv88/f1rN3H0A01GsTg839S5/D8QFzCZeiag==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:30.342381Z",
-  "updated_at": "2025-04-22T08:44:30.342381Z",
+  "created_at": "2025-04-22T08:51:30.732486Z",
+  "updated_at": "2025-04-22T08:51:30.732486Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

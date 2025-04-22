@@ -1,12 +1,12 @@
 {
-  "id": "987af90c-7dee-452d-8d16-187483c0d694",
+  "id": "d1802d72-abef-49b9-a911-8290c38f8913",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:21.387997548Z",
-  "issued_at": "2025-04-22T08:44:21.387997548Z",
-  "request_url": "https://determined-mendel-re0owctnjj.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:51:21.924358298Z",
+  "issued_at": "2025-04-22T08:51:21.924358298Z",
+  "request_url": "https://elegant-mccarthy-jvf6fvxfej.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://determined-mendel-re0owctnjj.projects.oryapis:8080/self-service/login?flow=987af90c-7dee-452d-8d16-187483c0d694",
+    "action": "https://elegant-mccarthy-jvf6fvxfej.projects.oryapis:8080/self-service/login?flow=d1802d72-abef-49b9-a911-8290c38f8913",
     "method": "POST",
     "nodes": [
       {
@@ -153,7 +153,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "1ZCSXeZsKTp1yFitMOaq0QsHOEifbbmzgvkCnQZQswxGvAHXez1meSCw+8Hklb1sj3emDuXInl3wXAb98+xgRA==",
+          "value": "UO6SI3tJiKmYdoA+LfFYO1GrVgDuc0DGNo1AV9ZQfSNZQlCVq2vB6vH1dUVvqb4iQ099hvUjfwO5bg7l6ylcJQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -225,8 +225,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:21.390458Z",
-  "updated_at": "2025-04-22T08:44:21.390458Z",
+  "created_at": "2025-04-22T08:51:21.92739Z",
+  "updated_at": "2025-04-22T08:51:21.92739Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "46ad3473-8848-424d-abf7-f7343b4e92bb",
+  "id": "c9002fbc-85f6-4b9b-a46d-3ef4c943bac7",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:09.205458Z",
-  "issued_at": "2025-04-22T08:44:09.205458Z",
-  "request_url": "https://cool-nightingale-pvcsrai9l9.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:51:09.704995Z",
+  "issued_at": "2025-04-22T08:51:09.704995Z",
+  "request_url": "https://wizardly-saha-ns8vzi4uzq.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://cool-nightingale-pvcsrai9l9.projects.oryapis:8080/self-service/login?flow=46ad3473-8848-424d-abf7-f7343b4e92bb",
+    "action": "https://wizardly-saha-ns8vzi4uzq.projects.oryapis:8080/self-service/login?flow=c9002fbc-85f6-4b9b-a46d-3ef4c943bac7",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "o3XS0QJ7NBZP5ZbucnKO0so1ndrv88zwGCFnmw3DCl/B+zighBdZNwHumWpbTFIUUAyCzzrSrXnImT/5QfS4hw==",
+          "value": "X7+k/2zUhn0HYiSZpCXOKtgDg7E6Lm4TnCbQkvcHq533WyiqUg6tZm15ZfYD/LZEiEw6BCmmKqEkqhsoUeDShQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -105,8 +105,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:09.212163Z",
-  "updated_at": "2025-04-22T08:44:09.212163Z",
+  "created_at": "2025-04-22T08:51:09.707003Z",
+  "updated_at": "2025-04-22T08:51:09.707003Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

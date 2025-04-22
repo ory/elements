@@ -1,11 +1,11 @@
 {
-  "id": "59f23289-712f-4836-8075-3b883ed8571d",
+  "id": "34a17015-14a5-42dc-8917-d28545ab8427",
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:50.698823464Z",
-  "issued_at": "2025-04-22T08:43:50.698823464Z",
-  "request_url": "https://peaceful-dirac-fbn79sinee.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:50:50.968540131Z",
+  "issued_at": "2025-04-22T08:50:50.968540131Z",
+  "request_url": "https://distracted-goldberg-kcx13ysyg6.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://peaceful-dirac-fbn79sinee.projects.oryapis:8080/self-service/registration?flow=59f23289-712f-4836-8075-3b883ed8571d",
+    "action": "https://distracted-goldberg-kcx13ysyg6.projects.oryapis:8080/self-service/registration?flow=34a17015-14a5-42dc-8917-d28545ab8427",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "sQMmSaaGTQCU4Vem0C0v1aksDXEiLsA7MCnAnj1NzeI9+x9YYXmYKkc/Sy8zvUjxdnzqIoJocfQnUU/jgkpUjw==",
+          "value": "+3R3tSzcDCq0/4G6gJuRnWEBY4vfEG0572z83g4A1FEOy9PG3iAfTaiDpV7Dy7MNT/FhUNmR4p0t1qkrfxEx2Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"

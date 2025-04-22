@@ -1,12 +1,12 @@
 {
-  "id": "8964f8dd-ba40-4115-aa29-2e4ab71fde49",
+  "id": "aa088a50-99c9-4eb8-af71-9140c47c2ab3",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:08.670545875Z",
-  "issued_at": "2025-04-22T08:44:08.670545875Z",
-  "request_url": "https://unruffled-lovelace-a17ju8f1n0.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:51:08.438743708Z",
+  "issued_at": "2025-04-22T08:51:08.438743708Z",
+  "request_url": "https://brave-mayer-p9pzt6vx2j.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://unruffled-lovelace-a17ju8f1n0.projects.oryapis:8080/self-service/login?flow=8964f8dd-ba40-4115-aa29-2e4ab71fde49",
+    "action": "https://brave-mayer-p9pzt6vx2j.projects.oryapis:8080/self-service/login?flow=aa088a50-99c9-4eb8-af71-9140c47c2ab3",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "pXcI23/dfdmK4cZxWp7NwRKzNPDbCI834TQUSH9spj0QrHgGg6UMIZCo6vkq+vUWECR/zF/9zsjtowNI/5SnNw==",
+          "value": "4T1SHhVL0FUKRcvN5/mxJsFjc1m1w/vQtrcqCVAX+E8IgB+o1HfXDW2Iw1BEP85dYaWpq+G/bIX+++m79d3ivg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.s2ggsvfx7yg0.td7otuny4wb@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.q8wmkqjiri0.rr7oee7rtvj@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -40,14 +40,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://unruffled-lovelace-a17ju8f1n0.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://brave-mayer-p9pzt6vx2j.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "d849f630-ed54-4032-aed6-febb62a1324d",
+          "nonce": "6a8d54c1-d3dd-4453-adfa-3996ae7908cf",
           "node_type": "script"
         },
         "messages": [],
@@ -92,7 +92,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"1kjxwLkTNUMDsD3plJilmPFmRTvGaCayyrjcUPGMrqo\",\"timeout\":300000,\"rpId\":\"unruffled-lovelace-a17ju8f1n0.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"pat612kbJNahessj18dfQCgDgVcz6Sr0rPn2QvBPMFA\"}],\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"XAsNcYBtg8TXftJWqdx8s57ijbLytZo0gvPm_xmrfM4\",\"timeout\":300000,\"rpId\":\"brave-mayer-p9pzt6vx2j.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"d74ep4AnXgwW-w9kp4avkk6pXR8ou7sdRzPm8HnoQJA\"}],\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -108,8 +108,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:08.695173Z",
-  "updated_at": "2025-04-22T08:44:08.695173Z",
+  "created_at": "2025-04-22T08:51:08.499076Z",
+  "updated_at": "2025-04-22T08:51:08.499076Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,13 @@
 {
-  "id": "ca8ddf95-a5c4-42ef-8627-4c3448928125",
+  "id": "d2a849e5-8da7-4801-b339-a59a5fd89bf1",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:46.35167717Z",
-  "issued_at": "2025-04-22T08:43:46.35167717Z",
-  "request_url": "https://clever-jang-q9k98fr0vg.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T11:29:34.003426Z",
+  "issued_at": "2025-04-22T10:29:34.003426Z",
+  "request_url": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/self-service/login/browser",
+  "active": "identifier_first",
   "ui": {
-    "action": "https://clever-jang-q9k98fr0vg.projects.oryapis:8080/self-service/login?flow=ca8ddf95-a5c4-42ef-8627-4c3448928125",
+    "action": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/self-service/login?flow=d2a849e5-8da7-4801-b339-a59a5fd89bf1",
     "method": "POST",
     "nodes": [
       {
@@ -37,8 +38,8 @@
         "group": "identifier_first",
         "attributes": {
           "name": "identifier",
-          "type": "text",
-          "value": "",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.nbmgr8wy42j0.l10zciihe@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -53,25 +54,6 @@
             "context": {
               "title": "E-Mail"
             }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "identifier_first",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "identifier_first",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070009,
-            "text": "Continue",
-            "type": "info"
           }
         }
       },
@@ -127,7 +109,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Fg+SuvdF8SrxrexOfJaueCMNoyhyMowIywOcwZ6CXxetKZwQkhGCQgeayhFhKuC9Pqs7Hyz6v3gnMuXeb2dILA==",
+          "value": "QybAEp/GU9ButBs5JJhEn94lZlwazgBm1VKStDYDzz5XkMKsp8IJatDHwuXQTp8L1qAfPSfULKsPsYrmgzz/mA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -139,14 +121,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://clever-jang-q9k98fr0vg.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "e5fd964d-f3c6-4896-9a4d-9a6dc2bc29ff",
+          "nonce": "f31c6d79-6774-4573-9a37-fea837b45826",
           "node_type": "script"
         },
         "messages": [],
@@ -172,18 +154,117 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"1a8Dsc1OgwJ3HEjqZqRV0Izieg_Gg3bHdaa3AhPC2xE\",\"timeout\":300000,\"rpId\":\"clever-jang-q9k98fr0vg.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"WS9WaazHUEdl6MVBVtglDXk6pXh6riS4BttBJre-DY4\",\"timeout\":300000,\"rpId\":\"hopeful-euler-vszja71i9a.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:46.354294Z",
-  "updated_at": "2025-04-22T08:43:46.354294Z",
+  "created_at": "2025-04-22T10:29:34.005706Z",
+  "updated_at": "2025-04-22T10:29:34.005706Z",
   "refresh": false,
   "requested_aal": "aal1",
-  "state": "choose_method"
+  "state": "choose_method",
+  "transient_payload": {}
 }

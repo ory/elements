@@ -1,12 +1,12 @@
 {
-  "id": "4ce68218-9d8a-43d5-89bc-832758f15524",
+  "id": "2c526e5b-8f77-4cc5-ab49-d36e66d9f869",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:09.094243417Z",
-  "issued_at": "2025-04-22T08:44:09.094243417Z",
-  "request_url": "https://friendly-hodgkin-uwdjzrzwj7.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:51:08.579281916Z",
+  "issued_at": "2025-04-22T08:51:08.579281916Z",
+  "request_url": "https://elegant-haslett-k5csmodlfg.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://friendly-hodgkin-uwdjzrzwj7.projects.oryapis:8080/self-service/login?flow=4ce68218-9d8a-43d5-89bc-832758f15524",
+    "action": "https://elegant-haslett-k5csmodlfg.projects.oryapis:8080/self-service/login?flow=2c526e5b-8f77-4cc5-ab49-d36e66d9f869",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "QDX9+qnst4cATsmP1t3EOUG168jbpJueXTi/LR77iu+XqTFLjKuIRxPk0pxL+2O7G0RC/POrQr/9HRO1aW1KnA==",
+          "value": "poVWRS1K3gkko99WCxO/zLkFewyWEa3D88iWTiq3aJVZ3x8WxTyoFG0sHc8NhSqQFoBanZyopUhTHKS9LyGBSg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -51,14 +51,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://friendly-hodgkin-uwdjzrzwj7.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://elegant-haslett-k5csmodlfg.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "20add001-a675-412d-a6aa-f98c5e28d7d8",
+          "nonce": "61ab5dbd-a415-4e3a-938a-9ccd973cd342",
           "node_type": "script"
         },
         "messages": [],
@@ -105,7 +105,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"1TEImYrQprawOD0T4V95hclldJGU5VqHMIh8uUPvxaU\",\"timeout\":300000,\"rpId\":\"friendly-hodgkin-uwdjzrzwj7.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"3jStRQOI9WagIkKoDerH6DR4BBOcnSmgJOXMFoGwkmQ\",\"timeout\":300000,\"rpId\":\"elegant-haslett-k5csmodlfg.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -114,8 +114,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:44:09.096994Z",
-  "updated_at": "2025-04-22T08:44:09.096994Z",
+  "created_at": "2025-04-22T08:51:08.584066Z",
+  "updated_at": "2025-04-22T08:51:08.584066Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

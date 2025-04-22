@@ -1,13 +1,13 @@
 {
-  "id": "84a50194-9cad-4afe-9a8a-4e799c78ced0",
+  "id": "40144641-85d4-470b-8f61-8401d1bcf8c0",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:43:32.39702Z",
-  "issued_at": "2025-04-22T08:43:32.39702Z",
-  "request_url": "https://friendly-cohen-s3k1egmpla.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:50:32.375989Z",
+  "issued_at": "2025-04-22T08:50:32.375989Z",
+  "request_url": "https://loving-carver-vnp81g34z8.projects.oryapis:8080/self-service/login/browser",
   "active": "code",
   "ui": {
-    "action": "https://friendly-cohen-s3k1egmpla.projects.oryapis:8080/self-service/login?flow=84a50194-9cad-4afe-9a8a-4e799c78ced0",
+    "action": "https://loving-carver-vnp81g34z8.projects.oryapis:8080/self-service/login?flow=40144641-85d4-470b-8f61-8401d1bcf8c0",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.hppoia85nse0.ugq4dussg8m@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.t2yk31zrzgr0.rk47oa9oe29@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -110,7 +110,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "0APp/gXc4DdnwIkPvL3QCV1yGLPnjkR2lYO5fZzIr2nunbvs/wJpr+vRM8eLmU/rNzNAyiTnap2JgXrPR0Na9A==",
+          "value": "FogTna9LdJi2+34x6J2SR0GLn5z0W7YZEoU8gH5MSdjmWAe1PU7XRtjTDg5tfGE0BF9rW0r4Qg83oRUpsbOHAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -127,8 +127,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:43:32.398666Z",
-  "updated_at": "2025-04-22T08:43:32.398666Z",
+  "created_at": "2025-04-22T08:50:32.377744Z",
+  "updated_at": "2025-04-22T08:50:32.377744Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "sent_email",

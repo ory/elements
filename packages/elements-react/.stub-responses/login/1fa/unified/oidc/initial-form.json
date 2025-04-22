@@ -1,11 +1,11 @@
 {
-  "id": "84c7a016-5003-4af1-bc0f-9829d6cdda20",
+  "id": "d3b39519-0a66-40bd-a04f-2d2bd3dc2444",
   "type": "browser",
-  "expires_at": "2025-04-22T09:44:02.975945136Z",
-  "issued_at": "2025-04-22T08:44:02.975945136Z",
-  "request_url": "https://funny-ishizaka-c1ms625gca.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:51:03.279568053Z",
+  "issued_at": "2025-04-22T08:51:03.279568053Z",
+  "request_url": "https://epic-sanderson-pf9nu514hp.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://funny-ishizaka-c1ms625gca.projects.oryapis:8080/self-service/registration?flow=84c7a016-5003-4af1-bc0f-9829d6cdda20",
+    "action": "https://epic-sanderson-pf9nu514hp.projects.oryapis:8080/self-service/registration?flow=d3b39519-0a66-40bd-a04f-2d2bd3dc2444",
     "method": "POST",
     "nodes": [
       {
@@ -198,7 +198,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "8r4VKHVoS+A98cfAEsm3FmRG4EABckljYuLP6PyLdzh85bSCaIin2mjAUqMrxI/Wy3UBfqCBBmAeNPWnoMZORg==",
+          "value": "sawwWTjDIZugd38doS7k8+9PMYXhGIUe8CwZiulhfd5SyqdLuYCQYxfcoICERA2PCFOWRHrd+Hbtaf5jg+pNeA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
