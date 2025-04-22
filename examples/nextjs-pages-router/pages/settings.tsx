@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import config from "@/ory.config"
-import { getSettingsFlow, OryPageParams } from "@ory/nextjs/app"
-import { SessionProvider } from "../../../packages/elements-react/dist/client/session-provider"
 import { Settings } from "@ory/elements-react/theme"
 import { enhanceOryConfig } from "@ory/nextjs"
 import { useSettingsFlow } from "@ory/nextjs/pages"
+import { SessionProvider } from "../../../packages/elements-react/dist/client/session-provider"
 
 export default function SettingsPage() {
   const flow = useSettingsFlow()
