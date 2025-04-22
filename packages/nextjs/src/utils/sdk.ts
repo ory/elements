@@ -1,12 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-export function orySdkUrl() {
-  let baseUrl
+/**
+ * Gets environment variable, prioritizing the NEXT_PUBLIC_ prefixed version
+ */
+function getEnv(name: string): string | undefined {
+  return process.env[`NEXT_PUBLIC_${name}`] || process.env[name]
+}
 
-  if (process.env["NEXT_PUBLIC_ORY_SDK_URL"]) {
-    baseUrl = process.env["NEXT_PUBLIC_ORY_SDK_URL"]
-  }
+export function orySdkUrl() {
+  const baseUrl = getEnv("ORY_SDK_URL")
 
   if (!baseUrl) {
     throw new Error(
@@ -18,14 +21,8 @@ export function orySdkUrl() {
 }
 
 export function isProduction() {
-  return (
-    ["production", "prod"].indexOf(
-      process.env["NEXT_PUBLIC_VERCEL_ENV"] ||
-        process.env["VERCEL_ENV"] ||
-        process.env["NODE_ENV"] ||
-        "",
-    ) > -1
-  )
+  const env = getEnv("VERCEL_ENV") || getEnv("NODE_ENV") || ""
+  return ["production", "prod"].indexOf(env) > -1
 }
 
 export function guessPotentiallyProxiedOrySdkUrl(options?: {
@@ -36,35 +33,19 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
     return orySdkUrl()
   }
 
-  if (process.env["VERCEL_ENV"] || process.env["NEXT_PUBLIC_VERCEL_ENV"]) {
+  if (getEnv("VERCEL_ENV")) {
     // We are in vercel
 
-    // The domain name of the generated deployment URL. Example: *.vercel.app. The value does not include the protocol scheme https://.
-    //
+    // The domain name of the generated deployment URL. Example: *.vercel.app
     // This is only available for preview deployments on Vercel.
-    if (
-      !isProduction() &&
-      (process.env["VERCEL_URL"] || process.env["NEXT_PUBLIC_VERCEL_URL"])
-    ) {
-      return `https://${process.env["VERCEL_URL"] || process.env["NEXT_PUBLIC_VERCEL_URL"]}`.replace(
-        /\/$/,
-        "",
-      )
+    if (!isProduction() && getEnv("VERCEL_URL")) {
+      return `https://${getEnv("VERCEL_URL")}`.replace(/\/$/, "")
     }
 
-    if (
-      isProduction() &&
-      (
-        process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] ||
-        process.env["VERCEL_PROJECT_PRODUCTION_URL"] ||
-        ""
-      ).indexOf("vercel.app") > -1
-    ) {
+    const productionUrl = getEnv("VERCEL_PROJECT_PRODUCTION_URL") || ""
+    if (isProduction() && productionUrl.indexOf("vercel.app") > -1) {
       // This is a production deployment on Vercel. We are using the custom domain.
-      return `https://${process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] || process.env["VERCEL_PROJECT_PRODUCTION_URL"]}`.replace(
-        /\/$/,
-        "",
-      )
+      return `https://${productionUrl}`.replace(/\/$/, "")
     }
 
     // This is sometimes set by the render server.
@@ -73,8 +54,7 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
     }
   }
 
-  // Unable to figure out the SDK URL. Either because we are not using Vercel or because we are on a local machine.
-  // Let's try to use the window location.
+  // Try to use window location
   if (typeof window !== "undefined") {
     return window.location.origin
   }

@@ -12,6 +12,7 @@ import {
 describe("orySdkUrl", () => {
   beforeEach(() => {
     delete process.env["NEXT_PUBLIC_ORY_SDK_URL"]
+    delete process.env["ORY_SDK_URL"]
   })
 
   it("should return NEXT_PUBLIC_ORY_SDK_URL without trailing slash", () => {
@@ -19,7 +20,18 @@ describe("orySdkUrl", () => {
     expect(orySdkUrl()).toBe("https://example.com")
   })
 
-  it("should throw error when NEXT_PUBLIC_ORY_SDK_URL is not set", () => {
+  it("should prioritize NEXT_PUBLIC_ORY_SDK_URL over ORY_SDK_URL", () => {
+    process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://next-public.com/"
+    process.env["ORY_SDK_URL"] = "https://regular.com/"
+    expect(orySdkUrl()).toBe("https://next-public.com")
+  })
+
+  it("should use ORY_SDK_URL when NEXT_PUBLIC_ORY_SDK_URL is not set", () => {
+    process.env["ORY_SDK_URL"] = "https://regular.com/"
+    expect(orySdkUrl()).toBe("https://regular.com")
+  })
+
+  it("should throw error when neither NEXT_PUBLIC_ORY_SDK_URL nor ORY_SDK_URL is set", () => {
     expect(() => orySdkUrl()).toThrow(
       "You need to set environment variable `NEXT_PUBLIC_ORY_SDK_URL` to your Ory Network SDK URL.",
     )
@@ -28,8 +40,15 @@ describe("orySdkUrl", () => {
 
 describe("isProduction", () => {
   beforeEach(() => {
+    delete process.env["NEXT_PUBLIC_VERCEL_ENV"]
     delete process.env["VERCEL_ENV"]
+    delete process.env["NEXT_PUBLIC_NODE_ENV"]
     delete process.env["NODE_ENV"]
+  })
+
+  it("should return true when NEXT_PUBLIC_VERCEL_ENV is production", () => {
+    process.env["NEXT_PUBLIC_VERCEL_ENV"] = "production"
+    expect(isProduction()).toBe(true)
   })
 
   it("should return true when VERCEL_ENV is production", () => {
@@ -37,8 +56,18 @@ describe("isProduction", () => {
     expect(isProduction()).toBe(true)
   })
 
+  it("should return true when NEXT_PUBLIC_NODE_ENV is production", () => {
+    process.env["NEXT_PUBLIC_NODE_ENV"] = "production"
+    expect(isProduction()).toBe(true)
+  })
+
   it("should return true when NODE_ENV is production", () => {
     process.env["NODE_ENV"] = "production"
+    expect(isProduction()).toBe(true)
+  })
+
+  it("should return true when VERCEL_ENV is prod", () => {
+    process.env["VERCEL_ENV"] = "prod"
     expect(isProduction()).toBe(true)
   })
 
@@ -56,9 +85,15 @@ describe("isProduction", () => {
 describe("guessPotentiallyProxiedOrySdkUrl", () => {
   beforeEach(() => {
     delete process.env["NEXT_PUBLIC_ORY_SDK_URL"]
+    delete process.env["ORY_SDK_URL"]
+    delete process.env["NEXT_PUBLIC_VERCEL_ENV"]
     delete process.env["VERCEL_ENV"]
+    delete process.env["NEXT_PUBLIC_NODE_ENV"]
     delete process.env["NODE_ENV"]
+    delete process.env["NEXT_PUBLIC_VERCEL_URL"]
     delete process.env["VERCEL_URL"]
+    delete process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"]
+    delete process.env["VERCEL_PROJECT_PRODUCTION_URL"]
     delete process.env["__NEXT_PRIVATE_ORIGIN"]
   })
 
@@ -72,6 +107,34 @@ describe("guessPotentiallyProxiedOrySdkUrl", () => {
     process.env["VERCEL_ENV"] = "preview"
     process.env["VERCEL_URL"] = "myapp.vercel.app"
     expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://myapp.vercel.app")
+  })
+
+  it("should use NEXT_PUBLIC_VERCEL_URL when available", () => {
+    process.env["VERCEL_ENV"] = "preview"
+    process.env["NEXT_PUBLIC_VERCEL_URL"] = "public-myapp.vercel.app"
+    expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://public-myapp.vercel.app")
+  })
+
+  it("should use VERCEL_PROJECT_PRODUCTION_URL in production for vercel.app domains", () => {
+    process.env["VERCEL_ENV"] = "production"
+    process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://example.com/"
+    process.env["VERCEL_PROJECT_PRODUCTION_URL"] = "myapp.vercel.app"
+    expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://myapp.vercel.app")
+  })
+
+  it("should prioritize NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL", () => {
+    process.env["VERCEL_ENV"] = "production"
+    process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://example.com/"
+    process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] = "public-myapp.vercel.app"
+    process.env["VERCEL_PROJECT_PRODUCTION_URL"] = "myapp.vercel.app"
+    expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://public-myapp.vercel.app")
+  })
+
+  it("should ignore VERCEL_PROJECT_PRODUCTION_URL in production for non-vercel.app domains", () => {
+    process.env["VERCEL_ENV"] = "production"
+    process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://example.com/"
+    process.env["VERCEL_PROJECT_PRODUCTION_URL"] = "custom-domain.com"
+    expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://example.com")
   })
 
   it("should return __NEXT_PRIVATE_ORIGIN when __NEXT_PRIVATE_ORIGIN is set", () => {
