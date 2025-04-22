@@ -10,6 +10,12 @@ const init = {
   flowType: FlowType.Login,
   flow: { ui: { nodes: [] } },
 } as unknown as OryFlowContainer
+
+beforeEach(() => {
+  console.log = jest.fn()
+  console.warn = jest.fn()
+  console.error = jest.fn()
+})
 test('should initialize with "provide_identifier" state', () => {
   const { result } = renderHook(() => useFormStateReducer(init))
 

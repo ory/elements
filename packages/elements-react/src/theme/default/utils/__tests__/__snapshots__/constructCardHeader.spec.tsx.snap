@@ -31,6 +31,7 @@ exports[`constructCardHeaderText on 2fa login - webauthn 1`] = `
 exports[`constructCardHeaderText on account linking 1`] = `
 {
   "description": "You tried to sign in with "duplicateIdentifier", but that email is already used by another account. Sign in to your account with one of the options below to add your account "duplicateIdentifier" at "provider" as another way to sign in.",
+  "messageId": "1010016",
   "title": "Link account",
 }
 `;
@@ -241,6 +242,7 @@ exports[`flowType=login refresh=true combination=webauthn constructCardHeaderTex
 exports[`flowType=recovery refresh=false combination=code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1060003",
   "title": "Recover your account",
 }
 `;
@@ -248,6 +250,7 @@ exports[`flowType=recovery refresh=false combination=code constructCardHeaderTex
 exports[`flowType=recovery refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1060003",
   "title": "Recover your account",
 }
 `;
@@ -339,6 +342,7 @@ exports[`flowType=recovery refresh=false combination=webauthn constructCardHeade
 exports[`flowType=recovery refresh=true combination=code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1060003",
   "title": "Recover your account",
 }
 `;
@@ -346,6 +350,7 @@ exports[`flowType=recovery refresh=true combination=code constructCardHeaderText
 exports[`flowType=recovery refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a recovery code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1060003",
   "title": "Recover your account",
 }
 `;
@@ -829,6 +834,7 @@ exports[`flowType=settings refresh=true combination=webauthn constructCardHeader
 exports[`flowType=verification refresh=false combination=code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1080003",
   "title": "Verify your account",
 }
 `;
@@ -836,6 +842,7 @@ exports[`flowType=verification refresh=false combination=code constructCardHeade
 exports[`flowType=verification refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1080003",
   "title": "Verify your account",
 }
 `;
@@ -927,6 +934,7 @@ exports[`flowType=verification refresh=false combination=webauthn constructCardH
 exports[`flowType=verification refresh=true combination=code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1080003",
   "title": "Verify your account",
 }
 `;
@@ -934,6 +942,7 @@ exports[`flowType=verification refresh=true combination=code constructCardHeader
 exports[`flowType=verification refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
   "description": "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+  "messageId": "1080003",
   "title": "Verify your account",
 }
 `;
