@@ -20,7 +20,10 @@ export function orySdkUrl() {
 export function isProduction() {
   return (
     ["production", "prod"].indexOf(
-      process.env["NEXT_PUBLIC_VERCEL_ENV"] ||  process.env["VERCEL_ENV"] || process.env["NODE_ENV"] || "",
+      process.env["NEXT_PUBLIC_VERCEL_ENV"] ||
+        process.env["VERCEL_ENV"] ||
+        process.env["NODE_ENV"] ||
+        "",
     ) > -1
   )
 }
@@ -39,13 +42,29 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
     // The domain name of the generated deployment URL. Example: *.vercel.app. The value does not include the protocol scheme https://.
     //
     // This is only available for preview deployments on Vercel.
-    if (!isProduction() && (process.env["VERCEL_URL"] || process.env["NEXT_PUBLIC_VERCEL_URL"])) {
-      return `https://${process.env["VERCEL_URL"] || process.env["NEXT_PUBLIC_VERCEL_URL"]}`.replace(/\/$/, "")
+    if (
+      !isProduction() &&
+      (process.env["VERCEL_URL"] || process.env["NEXT_PUBLIC_VERCEL_URL"])
+    ) {
+      return `https://${process.env["VERCEL_URL"] || process.env["NEXT_PUBLIC_VERCEL_URL"]}`.replace(
+        /\/$/,
+        "",
+      )
     }
 
-    if (isProduction() && (process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] || process.env["VERCEL_PROJECT_PRODUCTION_URL"] || '').indexOf("vercel.app") > -1) {
+    if (
+      isProduction() &&
+      (
+        process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] ||
+        process.env["VERCEL_PROJECT_PRODUCTION_URL"] ||
+        ""
+      ).indexOf("vercel.app") > -1
+    ) {
       // This is a production deployment on Vercel. We are using the custom domain.
-      return `https://${process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] || process.env["VERCEL_PROJECT_PRODUCTION_URL"]}`.replace(/\/$/, "")
+      return `https://${process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] || process.env["VERCEL_PROJECT_PRODUCTION_URL"]}`.replace(
+        /\/$/,
+        "",
+      )
     }
 
     // This is sometimes set by the render server.
