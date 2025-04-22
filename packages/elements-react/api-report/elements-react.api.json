@@ -237,7 +237,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": ";\n    return_to?: string;\n}"
             },
             {
               "kind": "Content",

@@ -52,6 +52,7 @@ export type ConsentFlow = {
     ui: UiContainer;
     consent_request: OAuth2ConsentRequest;
     session: Session;
+    return_to?: string;
 };
 
 // Warning: (ae-forgotten-export) The symbol "OryFlow" needs to be exported by the entry point index.d.ts
