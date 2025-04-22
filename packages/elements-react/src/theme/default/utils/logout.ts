@@ -9,7 +9,15 @@ export function useClientLogout(config: { sdk: { url: string } }) {
   const [logoutFlow, setLogoutFlow] = useState<LogoutFlow | undefined>()
 
   const fetchLogoutFlow = useCallback(async () => {
-    const flow = await frontendClient(config.sdk.url).createBrowserLogoutFlow()
+    const flow = await frontendClient(config.sdk.url)
+      .createBrowserLogoutFlow()
+      .catch((err) => {
+        // We ignore errors that are thrown because the user is not signed in.
+        if (err.response?.status !== 401) {
+          throw err
+        }
+        return undefined
+      })
     setLogoutFlow(flow)
   }, [config.sdk.url])
 

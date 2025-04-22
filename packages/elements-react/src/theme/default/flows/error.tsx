@@ -201,7 +201,7 @@ function LoggedInActions({ config }: { config: OryClientConfiguration }) {
       href={logoutFlow?.logout_url}
       className="text-interface-foreground-default-primary underline"
     >
-      Logout
+      <FormattedMessage id="login.logout-button" />
     </a>
   )
 }

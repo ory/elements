@@ -12,6 +12,8 @@ import {
 } from "../../../../util/ui"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
+import { useLogoutFlow } from "@ory/nextjs/dist/pages"
+import { useClientLogout } from "../../utils/logout"
 
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
@@ -43,6 +45,7 @@ export function getReturnToQueryParam(flow: { return_to?: string }) {
 
 function LoginCardFooter() {
   const { config, formState, flow, flowType } = useOryFlow()
+  const logout = useClientLogout()
   const intl = useIntl()
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
@@ -121,11 +124,11 @@ function LoginCardFooter() {
             })}{" "}
             <a
               className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              href={returnTo}
+              href={logout ? logout?.logout_url : returnTo}
               data-testid={"ory/screen/login/mfa/action/cancel"}
             >
               {intl.formatMessage({
-                id: "login.2fa.go-back.link",
+                id: logout ? "login.logout-button" : "login.2fa.go-back.link",
               })}
             </a>
           </span>
