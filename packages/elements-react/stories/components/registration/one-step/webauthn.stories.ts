@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Registration } from "../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/One Step Registration/Methods/WebAuthn",
+  title: "Ory Elements/Registration/Unified/WebAuthn",
   component: Registration,
   parameters: {
     layout: "centered",

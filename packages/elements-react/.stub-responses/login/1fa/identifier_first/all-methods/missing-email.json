@@ -1,0 +1,126 @@
+{
+  "id": "ca8ddf95-a5c4-42ef-8627-4c3448928125",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-22T09:43:46.351677Z",
+  "issued_at": "2025-04-22T08:43:46.351677Z",
+  "request_url": "https://clever-jang-q9k98fr0vg.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://clever-jang-q9k98fr0vg.projects.oryapis:8080/self-service/login?flow=ca8ddf95-a5c4-42ef-8627-4c3448928125",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000037,
+            "text": "This account does not exist or has no login method configured.",
+            "type": "error"
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "6A2605UnM5VaP+xs9IbxejMpE3g7nyVeGp49FT5ZnsBTK7R58HNA/awIyjPpOr+/Lo+LT2VXFi72r0QKz7yJ+w==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://clever-jang-q9k98fr0vg.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "e5fd964d-f3c6-4896-9a4d-9a6dc2bc29ff",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"1a8Dsc1OgwJ3HEjqZqRV0Izieg_Gg3bHdaa3AhPC2xE\",\"timeout\":300000,\"rpId\":\"clever-jang-q9k98fr0vg.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-22T08:43:46.354294Z",
+  "updated_at": "2025-04-22T08:43:46.354294Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

@@ -1,0 +1,207 @@
+{
+  "id": "ef7af783-dc78-4464-9180-7fc4c15d83ef",
+  "type": "browser",
+  "expires_at": "2025-04-22T09:44:03.985801Z",
+  "issued_at": "2025-04-22T08:44:03.985801Z",
+  "request_url": "https://amazing-ptolemy-mx8y3s42ke.projects.oryapis:8080/self-service/registration/browser",
+  "ui": {
+    "action": "https://amazing-ptolemy-mx8y3s42ke.projects.oryapis:8080/self-service/registration?flow=ef7af783-dc78-4464-9180-7fc4c15d83ef",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "yt/eULK+2hcLGFlDWnX6J1X7X3Yf/n2Owuj3T0JdncHwGQ4Q9zEBVGtA3/lSFtKAZ3l2NVTDjKnOeR+1NPHBvg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.60nlqz63cjk0.fqxdschpeym@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://amazing-ptolemy-mx8y3s42ke.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "4f5d8265-eb12-4fee-8ab3-ee01e6e662d6",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register_trigger",
+          "type": "button",
+          "disabled": false,
+          "onclick": "window.oryPasskeyRegistration()",
+          "onclickTrigger": "oryPasskeyRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040007,
+            "text": "Sign up with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_create_data",
+          "type": "hidden",
+          "value": "{\"credentialOptions\": {\"publicKey\": {\"authenticatorSelection\": {\"authenticatorAttachment\": \"platform\", \"requireResidentKey\": true, \"residentKey\": \"required\", \"userVerification\": \"preferred\"}, \"challenge\": \"oARtTezPjGpq4P7T8dL3xbs-DSTcmBMmwiTJTJlphmk\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"amazing-ptolemy-mx8y3s42ke.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-eb9FHPMZwgGNkuGq-5-tests/elements/passkey.spec.ts>Generate passkey API responses for Ory Elements Storybook>registration>two step>registration\"}, \"timeout\": 300000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-eb9FHPMZwgGNkuGq-5-tests/elements/passkey.spec.ts>Generate passkey API responses for Ory Elements Storybook>registration>two step>registration\", \"id\": \"MVJoaVhTTGxCSFZwVVdhM1dsRzVIRGtmb3loc3ljTDdkbXcybUNtMEk5RzZ2bkRlbUViR0RWQXN0RW96bHBkbQ\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-eb9FHPMZwgGNkuGq-5-tests/elements/passkey.spec.ts>Generate passkey API responses for Ory Elements Storybook>registration>two step>registration\"}}}, \"displayNameFieldName\": \"traits.email\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "screen",
+          "type": "submit",
+          "value": "previous",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040008,
+            "text": "Back",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response: Parse error for Registration",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response: Parse error for Registration"
+        }
+      }
+    ]
+  },
+  "organization_id": null,
+  "state": "choose_method"
+}

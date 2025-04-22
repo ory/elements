@@ -1,11 +1,11 @@
 {
-  "id": "75750961-b7f9-4495-9287-348781b65e8d",
+  "id": "8d392f7d-953d-4bbc-9d5b-dd7624d0e66f",
   "type": "browser",
-  "expires_at": "2025-04-15T17:36:45.667592Z",
-  "issued_at": "2025-04-15T16:36:45.667592Z",
-  "request_url": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:05.684868Z",
+  "issued_at": "2025-04-22T08:44:05.684868Z",
+  "request_url": "https://mystifying-poitras-z7g01q1wi3.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration?flow=75750961-b7f9-4495-9287-348781b65e8d",
+    "action": "https://mystifying-poitras-z7g01q1wi3.projects.oryapis:8080/self-service/registration?flow=8d392f7d-953d-4bbc-9d5b-dd7624d0e66f",
     "method": "POST",
     "nodes": [
       {
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "DWIbfdhcGjGne/BVgE2iy8j51xYjaiLpLOqH7CekBnRTveJObreAyze7jlGg0b5XI/Vd3kgf8Z28K58pUOyVJg==",
+          "value": "hNRdEsYKoMWZ9c5/7veM0qeEk96+gLIzxXfC1Ai9cKViMlYVOTsmQfA1rD4k1qH/s5odwdfznFExqOajNxN90A==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,7 +74,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.lf9r6iy992i0.jv9pvzo250o@example.com",
+          "value": "dev+orycye2eda2f162daf6142dd0.oqmvexwxa0b0.0h722uqjly9c@example.com",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -183,7 +183,7 @@
       }
     ]
   },
-  "organization_id": "4ad8b9cc-bd4f-4a3d-83ea-2e3179afc1f6",
+  "organization_id": "13d8b6d9-6352-4a18-94f9-3db47c9b2926",
   "transient_payload": {},
   "state": "choose_method"
 }

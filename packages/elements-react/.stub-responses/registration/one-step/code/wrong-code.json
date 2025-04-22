@@ -1,12 +1,12 @@
 {
-  "id": "9b8d763a-7b3e-4ffd-b7af-4a3846ab0820",
+  "id": "df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
   "type": "browser",
-  "expires_at": "2025-04-19T15:13:13.705174Z",
-  "issued_at": "2025-04-19T14:13:13.705174Z",
-  "request_url": "https://happy-mclaren-0aue598cl4.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:32.119773Z",
+  "issued_at": "2025-04-22T08:43:32.119773Z",
+  "request_url": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://happy-mclaren-0aue598cl4.projects.oryapis:8080/self-service/registration?flow=9b8d763a-7b3e-4ffd-b7af-4a3846ab0820",
+    "action": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration?flow=df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "BzYSc1xpivogx9JjWPw6W8wZzCrOBfBpkDlhfqxvyPKonbG4ITBp2N4wjEV+fk0C7qGB7E1kaYoKsIbjo2atZw==",
+          "value": "vwn5UAzjiBymudEh5D/DBL73mqnxAoVcRULutuuYdsE1Z037XXBKlKMCB+pan+2V71UWBRpoKrhCIFnLXgDTAQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.s2lsm5s5gt0.aoim0aog02@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.ke8xzea7dpl0.l2l9ovjnla@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

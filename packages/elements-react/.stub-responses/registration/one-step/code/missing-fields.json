@@ -1,11 +1,11 @@
 {
-  "id": "9b8d763a-7b3e-4ffd-b7af-4a3846ab0820",
+  "id": "df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
   "type": "browser",
-  "expires_at": "2025-04-19T15:13:13.705174Z",
-  "issued_at": "2025-04-19T14:13:13.705174Z",
-  "request_url": "https://happy-mclaren-0aue598cl4.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:32.119773Z",
+  "issued_at": "2025-04-22T08:43:32.119773Z",
+  "request_url": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://happy-mclaren-0aue598cl4.projects.oryapis:8080/self-service/registration?flow=9b8d763a-7b3e-4ffd-b7af-4a3846ab0820",
+    "action": "https://sharp-brahmagupta-ncwihp55gq.projects.oryapis:8080/self-service/registration?flow=df6ffbdf-9f3b-48f8-8ebf-78713cb0099b",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Rexjt0BMeSZnOluV0aP59/J92UErSibTpmy17jhgAKfqR8B8PRWaBJnNBbP3IY6u0MWUh6grvzA85VJzN2llMg==",
+          "value": "fzQ9wMUm6efXbST+wDYoiHCsEAmSJsw6lZ5dNSrOmDX1WolrlLUrb9LW8jV+lgYZIQ6cpXlMY96S/OpIn1Y99Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"

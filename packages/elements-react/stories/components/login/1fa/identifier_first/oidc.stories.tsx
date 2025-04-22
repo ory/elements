@@ -46,7 +46,7 @@ const listOnly = (providers: string[]): LoginFlow => {
 }
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Identifier First/Social Sign In",
+  title: "Ory Elements/Login/First Factor/Identifier First/OIDC",
   component: Login,
   parameters: {
     layout: "centered",

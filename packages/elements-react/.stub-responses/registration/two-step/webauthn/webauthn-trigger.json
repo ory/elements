@@ -1,11 +1,11 @@
 {
-  "id": "8461d62f-bc4d-4d05-9c95-e56c17a6a9fe",
+  "id": "27680ac4-dbd4-4e2c-807a-63de9cb4ae29",
   "type": "browser",
-  "expires_at": "2025-04-21T14:28:07.830479Z",
-  "issued_at": "2025-04-21T13:28:07.830479Z",
-  "request_url": "https://ecstatic-ramanujan-tcw9d4majp.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:25.709361Z",
+  "issued_at": "2025-04-22T08:44:25.709361Z",
+  "request_url": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://ecstatic-ramanujan-tcw9d4majp.projects.oryapis:8080/self-service/registration?flow=8461d62f-bc4d-4d05-9c95-e56c17a6a9fe",
+    "action": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/self-service/registration?flow=27680ac4-dbd4-4e2c-807a-63de9cb4ae29",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "821ge5MRUO49WYssT5x5YtGmoJePokhHiH2KVZ4gcDCQcG6bKZSjv/+amp7wjyvITAeiWKOMflI47y292jjD4Q==",
+          "value": "mHSWrAeZjhYU2rfjYr/P53OVbbHYfnZgBtuw2xyk2l9EQROUB/pG4DVYjdhYjuIHUT8ZMKjHYV8nCsPGHIbTeg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.wevaymdeybb0.8gkycgu8rxt@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.z87tmr1va0.tm8zf39pcu@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -147,9 +147,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"8834yImgFiMqF1QbYDGK7ympwnYt-vbaSwjnk9P3wWc\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"ecstatic-ramanujan-tcw9d4majp.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hKdReIpRv01ulAbv-0-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hKdReIpRv01ulAbv-0-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\", \"id\": \"GiMX-m7iTPy15WLVX2oGMA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hKdReIpRv01ulAbv-0-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}}}",
+          "value": "{\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"QwAC3GPelJ7kCw0X7VP9VRnUNiwx9dLve3JRSgSxFKA\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"frosty-goldwasser-qbf5gkl7d7.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-9hT1EjQVJiv6jues-4-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-9hT1EjQVJiv6jues-4-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\", \"id\": \"-dWn-t23Se29JIzb7fboww\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-9hT1EjQVJiv6jues-4-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"8834yImgFiMqF1QbYDGK7ympwnYt-vbaSwjnk9P3wWc\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"ecstatic-ramanujan-tcw9d4majp.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hKdReIpRv01ulAbv-0-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hKdReIpRv01ulAbv-0-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\", \"id\": \"GiMX-m7iTPy15WLVX2oGMA\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hKdReIpRv01ulAbv-0-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\": {\"authenticatorSelection\": {\"userVerification\": \"discouraged\"}, \"challenge\": \"QwAC3GPelJ7kCw0X7VP9VRnUNiwx9dLve3JRSgSxFKA\", \"pubKeyCredParams\": [{\"alg\": -7, \"type\": \"public-key\"}, {\"alg\": -35, \"type\": \"public-key\"}, {\"alg\": -36, \"type\": \"public-key\"}, {\"alg\": -257, \"type\": \"public-key\"}, {\"alg\": -258, \"type\": \"public-key\"}, {\"alg\": -259, \"type\": \"public-key\"}, {\"alg\": -37, \"type\": \"public-key\"}, {\"alg\": -38, \"type\": \"public-key\"}, {\"alg\": -39, \"type\": \"public-key\"}, {\"alg\": -8, \"type\": \"public-key\"}], \"rp\": {\"id\": \"frosty-goldwasser-qbf5gkl7d7.projects.oryapis\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-9hT1EjQVJiv6jues-4-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}, \"timeout\": 120000, \"user\": {\"displayName\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-9hT1EjQVJiv6jues-4-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\", \"id\": \"-dWn-t23Se29JIzb7fboww\", \"name\": \"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-9hT1EjQVJiv6jues-4-tests/elements/webauthn.spec.ts>Generate webauthn API responses for Ory Elements Storybook>registration>two step>registration\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -166,14 +166,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://ecstatic-ramanujan-tcw9d4majp.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "1af558a5-5933-4e87-98c1-4a980baa550f",
+          "nonce": "6021a3b3-a34d-4c20-bc02-efd68a88dca7",
           "node_type": "script"
         },
         "messages": [],

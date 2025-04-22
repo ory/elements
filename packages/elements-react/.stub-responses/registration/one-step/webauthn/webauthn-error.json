@@ -1,11 +1,11 @@
 {
-  "id": "677424ee-935b-49bc-ac37-fe81856be026",
+  "id": "ccfeea40-c0ef-4d79-8daa-54162568d64c",
   "type": "browser",
-  "expires_at": "2025-04-21T14:28:08.022824Z",
-  "issued_at": "2025-04-21T13:28:08.022824Z",
-  "request_url": "https://optimistic-jennings-hmdz0iu2km.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:26.323279Z",
+  "issued_at": "2025-04-22T08:44:26.323279Z",
+  "request_url": "https://vibrant-raman-dnorr95d17.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://optimistic-jennings-hmdz0iu2km.projects.oryapis:8080/self-service/registration?flow=677424ee-935b-49bc-ac37-fe81856be026",
+    "action": "https://vibrant-raman-dnorr95d17.projects.oryapis:8080/self-service/registration?flow=ccfeea40-c0ef-4d79-8daa-54162568d64c",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "A4bCDDmOrdulBvo88p+Gigtl81mi7qokKxYT3klsmwLccDxgdNd2izx1Kmr8UupoXSWIA16Ncjx1gxrNFGWKhA==",
+          "value": "0yqRihRb83hG+QKqXhWj9+yBuTJYedbR+XIhSITQyllX7D7o58FyqSFIfFbILNpyK6/Ohi8itKsVHvSHNgG7Qw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.7cxpt84rstq0.6y09qo55jb4@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.z7pjuiv4j7g0.956rrwlppi7@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -111,27 +111,6 @@
       },
       {
         "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [
-          {
-            "id": 4000002,
-            "text": "Property identifier is missing.",
-            "type": "error",
-            "context": {
-              "property": "identifier"
-            }
-          }
-        ],
-        "meta": {}
-      },
-      {
-        "type": "input",
         "group": "webauthn",
         "attributes": {
           "name": "webauthn_register_displayname",
@@ -159,16 +138,7 @@
           "disabled": false,
           "node_type": "input"
         },
-        "messages": [
-          {
-            "id": 4000002,
-            "text": "Property webauthn_register is missing.",
-            "type": "error",
-            "context": {
-              "property": "webauthn_register"
-            }
-          }
-        ],
+        "messages": [],
         "meta": {}
       },
       {
@@ -177,9 +147,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-AD9hWfiTiyIwWaaq-1-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"optimistic-jennings-hmdz0iu2km.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-AD9hWfiTiyIwWaaq-1-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-AD9hWfiTiyIwWaaq-1-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"fkAJhdqWR2uqQiiOPk48Gw\"},\"challenge\":\"AScdIfzFCZjPvURnA7e7lM--xOaLtdN5Iu3-3Yhozcw\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-j19JHXZzLS9CtIlK-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"vibrant-raman-dnorr95d17.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-j19JHXZzLS9CtIlK-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-j19JHXZzLS9CtIlK-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"p8Qh4JpKSaSG5MXKJrGrgA\"},\"challenge\":\"QQU2xKqpYhAuH8G7GumXwAc_NF7b-zyEF0F6rJ8KSEM\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-AD9hWfiTiyIwWaaq-1-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"optimistic-jennings-hmdz0iu2km.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-AD9hWfiTiyIwWaaq-1-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-AD9hWfiTiyIwWaaq-1-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"fkAJhdqWR2uqQiiOPk48Gw\"},\"challenge\":\"AScdIfzFCZjPvURnA7e7lM--xOaLtdN5Iu3-3Yhozcw\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-j19JHXZzLS9CtIlK-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"vibrant-raman-dnorr95d17.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-j19JHXZzLS9CtIlK-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-j19JHXZzLS9CtIlK-5-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"p8Qh4JpKSaSG5MXKJrGrgA\"},\"challenge\":\"QQU2xKqpYhAuH8G7GumXwAc_NF7b-zyEF0F6rJ8KSEM\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -196,18 +166,28 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://optimistic-jennings-hmdz0iu2km.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://vibrant-raman-dnorr95d17.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "e2ce1205-715b-44fc-9a97-f850af0b1f22",
+          "nonce": "746a15f1-2194-4b6f-9b60-fbc28492a33b",
           "node_type": "script"
         },
         "messages": [],
         "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response: Parse error for Registration",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response: Parse error for Registration"
+        }
       }
     ]
   },

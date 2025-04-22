@@ -1,11 +1,11 @@
 {
-  "id": "6bd99aac-3ab6-4f4b-8fd8-2bc7e618366d",
+  "id": "d9568b83-c8f1-4e80-a055-cbea1b3caa2e",
   "type": "browser",
-  "expires_at": "2025-03-27T09:43:04.912529881Z",
-  "issued_at": "2025-03-27T08:43:04.912529881Z",
-  "request_url": "https://competent-jang-5m3cavlsl8.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:22.32477059Z",
+  "issued_at": "2025-04-22T08:44:22.32477059Z",
+  "request_url": "https://happy-hofstadter-qs7csdvw2k.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://competent-jang-5m3cavlsl8.projects.oryapis:8080/self-service/registration?flow=6bd99aac-3ab6-4f4b-8fd8-2bc7e618366d",
+    "action": "https://happy-hofstadter-qs7csdvw2k.projects.oryapis:8080/self-service/registration?flow=d9568b83-c8f1-4e80-a055-cbea1b3caa2e",
     "method": "POST",
     "nodes": [
       {
@@ -152,7 +152,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "yDE7NLoEZR05K2GNg08gdmOMkY5C615/tF0FI9osLmvhN9M18HzsA0eT+0v5cpIbFkQxfklt90kl/RlJSgDwdg==",
+          "value": "52Qlo6Wd9hO7cITbWf58VPvAQDueiuPWKMPNOWU39KQij5rUGHrrjJmSZY0o5WipomXHXwg/FfRmB7HBLjMU2w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -162,7 +162,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.email",
           "type": "email",
@@ -205,7 +205,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.tos",
           "type": "checkbox",
@@ -226,7 +226,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.phone",
           "type": "text",
@@ -247,7 +247,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.nested.name",
           "type": "text",

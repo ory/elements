@@ -1,12 +1,12 @@
 {
-  "id": "554ca811-5df3-47c0-9299-e081feca65ee",
+  "id": "8b62d5b5-316a-4192-b66c-39bb45337b90",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-21T12:35:36.257964377Z",
-  "issued_at": "2025-04-21T11:35:36.257964377Z",
-  "request_url": "https://distracted-roentgen-24cda4jveg.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:43:58.575640468Z",
+  "issued_at": "2025-04-22T08:43:58.575640468Z",
+  "request_url": "https://intelligent-wiles-4e9t7308hq.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://distracted-roentgen-24cda4jveg.projects.oryapis:8080/self-service/login?flow=554ca811-5df3-47c0-9299-e081feca65ee",
+    "action": "https://intelligent-wiles-4e9t7308hq.projects.oryapis:8080/self-service/login?flow=8b62d5b5-316a-4192-b66c-39bb45337b90",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "vY703z4O/Oyn8a1vfXiLJwwVEUYoiFmf753cx6ymb9WioETPuReQjAsN6IfP37eUxZQkrXy+KyNETxZ401wasg==",
+          "value": "sZaHNudYqcVV+XrNw5KQxrkKmcZuOLEnCOvuer6akzCOBgACueAZkCKaFXB3fQnVmeuFxZGsVPxtwBAMzsrM1g==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-21T11:35:36.259653Z",
-  "updated_at": "2025-04-21T11:35:36.259653Z",
+  "created_at": "2025-04-22T08:43:58.577638Z",
+  "updated_at": "2025-04-22T08:43:58.577638Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

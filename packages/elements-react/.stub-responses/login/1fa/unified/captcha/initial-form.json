@@ -1,12 +1,12 @@
 {
-  "id": "7eeea57c-3d88-4c7c-8fc4-bef738202dda",
+  "id": "a1567d2a-dcdf-4e01-b6c0-1b09c66cb2ae",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-20T14:37:45.984968055Z",
-  "issued_at": "2025-04-20T13:37:45.984968055Z",
-  "request_url": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:43:33.287782887Z",
+  "issued_at": "2025-04-22T08:43:33.287782887Z",
+  "request_url": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/self-service/login?flow=7eeea57c-3d88-4c7c-8fc4-bef738202dda",
+    "action": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/self-service/login?flow=a1567d2a-dcdf-4e01-b6c0-1b09c66cb2ae",
     "method": "POST",
     "nodes": [
       {
@@ -33,7 +33,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
+          "nonce": "877f711f-c228-484e-9338-90b7f7c28e48",
           "node_type": "script"
         },
         "messages": [],
@@ -65,7 +65,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
+          "nonce": "40318a5e-9315-439e-962c-cdcbc4114d39",
           "node_type": "script"
         },
         "messages": [],
@@ -90,7 +90,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "yY+Mit2x5HLlYCooXhfCvIQIBUSzFL+Dh1szkVLZEPNJjpEWEzi6WnQDDbzA+jEUgsNQm1p5ywj5vq8j3baqKA==",
+          "value": "m2PTdRibPcZTYnUjq38lffuZnttolDFPP2FYIKuMqgMu6cu2NBMveQw+HWV/Q4xG/Q68jSPpsRHikZ5Ll+gOlw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -126,14 +126,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://eloquent-swanson-b2iiwd2uyh.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "b9f4029d-d11e-45dc-8db4-092980569a9b",
+          "nonce": "a42b03ab-cd19-49a8-bcf2-623875cf0601",
           "node_type": "script"
         },
         "messages": [],
@@ -180,7 +180,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"QQ0lZRknbR_HlVRgjv6Ypp09qn3JSfaWRBZUhVtPLsM\",\"timeout\":300000,\"rpId\":\"eloquent-swanson-b2iiwd2uyh.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"gJRG_eGphzA1Ml2F52SgVrojD6WsfPIiZvk4EmGw8SQ\",\"timeout\":300000,\"rpId\":\"agitated-mendeleev-kx6gxznvun.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -228,8 +228,8 @@
       }
     ]
   },
-  "created_at": "2025-04-20T13:37:45.988686Z",
-  "updated_at": "2025-04-20T13:37:45.988686Z",
+  "created_at": "2025-04-22T08:43:33.290219Z",
+  "updated_at": "2025-04-22T08:43:33.290219Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

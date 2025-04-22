@@ -1,13 +1,27 @@
 {
-  "id": "1a220301-4c16-4b7f-9fd6-d39ab8f2f57c",
+  "id": "d86144a3-afc4-468d-89cf-a471ce0b6e04",
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:56.756946Z",
-  "issued_at": "2025-02-26T08:31:56.756946Z",
-  "request_url": "https://gracious-matsumoto-3r7dg84qzb.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:14.651762Z",
+  "issued_at": "2025-04-22T08:44:14.651762Z",
+  "request_url": "https://charming-ganguly-juzexlykui.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://gracious-matsumoto-3r7dg84qzb.projects.oryapis:8080/self-service/registration?flow=1a220301-4c16-4b7f-9fd6-d39ab8f2f57c",
+    "action": "https://charming-ganguly-juzexlykui.projects.oryapis:8080/self-service/registration?flow=d86144a3-afc4-468d-89cf-a471ce0b6e04",
     "method": "POST",
     "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "dGbSaaVItYN0q94rZ9IROsop0XIolanPPe9x9IufJDy+pJecDKZm1kKrum30epOuRh3NFrzungh8Gg/9v3pM8Q==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
       {
         "type": "input",
         "group": "default",
@@ -102,20 +116,6 @@
             }
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "Dmrw1KXnBvpTAQCCFQ7wAiHlrqyKJ5nfreQFnMvUH6jgpi5NSKqEpV2B401lGGDuOdF1yUMv0HuhNBidp8Cm1A==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
       },
       {
         "type": "input",

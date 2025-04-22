@@ -1,12 +1,12 @@
 {
-  "id": "0d9e3bf8-8974-4f68-91e9-12f94d734c11",
+  "id": "98b157aa-d132-47b7-bf52-c37252619700",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-20T15:22:00.794382173Z",
-  "issued_at": "2025-04-20T14:22:00.794382173Z",
-  "request_url": "https://hungry-buck-oeqwkjqf9f.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:43:33.864184637Z",
+  "issued_at": "2025-04-22T08:43:33.864184637Z",
+  "request_url": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://hungry-buck-oeqwkjqf9f.projects.oryapis:8080/self-service/login?flow=0d9e3bf8-8974-4f68-91e9-12f94d734c11",
+    "action": "https://agitated-mendeleev-kx6gxznvun.projects.oryapis:8080/self-service/login?flow=98b157aa-d132-47b7-bf52-c37252619700",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "vqkYr3bmYYmbvEh9lKBQ4yS8QmFrB29VRVZIPGCGmzv7VARFOzhAj4+3ybS6cT4PhPwNB9LprBOBVWx1YqInRA==",
+          "value": "KXWtYHuzBq8pvxlWkQSdC+EGDrhcRQNswinbn2TAOppGFd57NOZ6PcYOs88WlyS99BLMVF39Fa77lqO0fcxKmw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.6h2fbo898iy0.djfti8e9yj@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.vhr4r7p8wy90.48lx3rero3f@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-20T14:22:00.808475Z",
-  "updated_at": "2025-04-20T14:22:00.808475Z",
+  "created_at": "2025-04-22T08:43:33.881224Z",
+  "updated_at": "2025-04-22T08:43:33.881224Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

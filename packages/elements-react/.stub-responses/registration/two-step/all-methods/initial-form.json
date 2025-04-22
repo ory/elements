@@ -1,11 +1,11 @@
 {
-  "id": "86ea76d9-0046-467d-b615-30538d08d217",
+  "id": "163b2065-2260-4398-afd6-a9c184073a1a",
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:48.140020047Z",
-  "issued_at": "2025-02-26T08:31:48.140020047Z",
-  "request_url": "https://laughing-goldberg-ufqgx4sy48.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:46.997621712Z",
+  "issued_at": "2025-04-22T08:43:46.997621712Z",
+  "request_url": "https://infallible-colden-ty5gl50jly.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://laughing-goldberg-ufqgx4sy48.projects.oryapis:8080/self-service/registration?flow=86ea76d9-0046-467d-b615-30538d08d217",
+    "action": "https://infallible-colden-ty5gl50jly.projects.oryapis:8080/self-service/registration?flow=163b2065-2260-4398-afd6-a9c184073a1a",
     "method": "POST",
     "nodes": [
       {
@@ -53,6 +53,20 @@
             }
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "zsTciobSJYZ9begi6v0JEUKgGK2CZ1jdsjTObXX/ksuCDZXRQ7fbMv5PfynzjOttXgqoyP2Ff6EYC5rCl6L0Bw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
       },
       {
         "type": "input",
@@ -139,20 +153,6 @@
             }
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "8kQaav3jaIjvj7g7hMx9P4jqzwhg9s7k12SJeRV3o4ah8TPapdUa7jqOD59D/FK9CYrxX8YAD4QESaRu0Fc4uQ==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
       },
       {
         "type": "input",

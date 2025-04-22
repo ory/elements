@@ -1,13 +1,114 @@
 {
-  "id": "d7d0db40-c5a4-4427-8342-bf80104a1935",
+  "id": "59f23289-712f-4836-8075-3b883ed8571d",
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:46.81839863Z",
-  "issued_at": "2025-02-26T08:31:46.81839863Z",
-  "request_url": "https://determined-austin-fxmulcivvy.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:50.698823464Z",
+  "issued_at": "2025-04-22T08:43:50.698823464Z",
+  "request_url": "https://peaceful-dirac-fbn79sinee.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://determined-austin-fxmulcivvy.projects.oryapis:8080/self-service/registration?flow=d7d0db40-c5a4-4427-8342-bf80104a1935",
+    "action": "https://peaceful-dirac-fbn79sinee.projects.oryapis:8080/self-service/registration?flow=59f23289-712f-4836-8075-3b883ed8571d",
     "method": "POST",
-    "nodes": null
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "sQMmSaaGTQCU4Vem0C0v1aksDXEiLsA7MCnAnj1NzeI9+x9YYXmYKkc/Sy8zvUjxdnzqIoJocfQnUU/jgkpUjw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      }
+    ]
   },
   "organization_id": null,
   "state": "choose_method"

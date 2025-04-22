@@ -1,12 +1,12 @@
 {
-  "id": "016008b4-3049-4e0e-8d4f-5c4208e44612",
+  "id": "a9693bc9-b620-4928-8a31-9893ba3c8eff",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:47.055502Z",
-  "issued_at": "2025-02-26T08:31:47.055502Z",
-  "request_url": "https://mystifying-goldberg-xybn3ucb9j.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:43:46.354516128Z",
+  "issued_at": "2025-04-22T08:43:46.354516128Z",
+  "request_url": "https://exciting-chatterjee-mkfnkepf5z.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://mystifying-goldberg-xybn3ucb9j.projects.oryapis:8080/self-service/login?flow=016008b4-3049-4e0e-8d4f-5c4208e44612",
+    "action": "https://exciting-chatterjee-mkfnkepf5z.projects.oryapis:8080/self-service/login?flow=a9693bc9-b620-4928-8a31-9893ba3c8eff",
     "method": "POST",
     "nodes": [
       {
@@ -61,7 +61,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "jPsmCs8jTAzUFXQ8bdgcdtwoLclh16T/znScY9ErizefxnxMEXf5lAafoJ15ssJqpq0aNJfJztIfwEWDqG34Ng==",
+          "value": "nT3Usl7K6lZgwsBRx3A+2IDVlqPFZnhI3ilF+0dw0jviFDPFyY3e92UlKuCtrQh5CBQWO9GbFSPShxy0lgt56g==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -75,7 +75,7 @@
         "attributes": {
           "name": "identifier",
           "type": "text",
-          "value": "wrong-email@example.org",
+          "value": "",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -97,14 +97,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://mystifying-goldberg-xybn3ucb9j.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://exciting-chatterjee-mkfnkepf5z.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "de1ec7c0-01a5-4b79-a229-ee1667a940ab",
+          "nonce": "7600980b-b249-463e-8f07-58574e96b244",
           "node_type": "script"
         },
         "messages": [],
@@ -170,7 +170,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"2FqHYunJFg6GFca7mwfRcfOgQVR6BozCk8_pfHfPnwQ\",\"timeout\":300000,\"rpId\":\"mystifying-goldberg-xybn3ucb9j.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"RSqs03mFRFhHA79jav-PF-9dzeEYghvoeZuGsrZ07Yk\",\"timeout\":300000,\"rpId\":\"exciting-chatterjee-mkfnkepf5z.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -235,17 +235,10 @@
           }
         }
       }
-    ],
-    "messages": [
-      {
-        "id": 4000006,
-        "text": "The provided credentials are invalid, check for spelling mistakes in your password or username, email address, or phone number.",
-        "type": "error"
-      }
     ]
   },
-  "created_at": "2025-02-26T08:31:47.062203Z",
-  "updated_at": "2025-02-26T08:31:47.062203Z",
+  "created_at": "2025-04-22T08:43:46.357623Z",
+  "updated_at": "2025-04-22T08:43:46.357623Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

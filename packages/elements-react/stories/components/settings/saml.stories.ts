@@ -7,7 +7,7 @@ import { config } from "../../utils"
 import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
-  title: "Ory Elements/Settings/Methods/SAML",
+  title: "Ory Elements/Settings/SAML",
   component: Settings,
   parameters: {
     layout: "centered",

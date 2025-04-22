@@ -1,12 +1,12 @@
 {
-  "id": "75f47090-5237-4399-80ef-d8f84b102d67",
+  "id": "d46a7039-0ad6-47f4-aede-8fbb4535e37d",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-20T15:13:09.752148844Z",
-  "issued_at": "2025-04-20T14:13:09.752148844Z",
-  "request_url": "https://fervent-yonath-bwgfy2bdhi.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:44:02.128289594Z",
+  "issued_at": "2025-04-22T08:44:02.128289594Z",
+  "request_url": "https://charming-shockley-pcjv33c2xb.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://fervent-yonath-bwgfy2bdhi.projects.oryapis:8080/self-service/login?flow=75f47090-5237-4399-80ef-d8f84b102d67",
+    "action": "https://charming-shockley-pcjv33c2xb.projects.oryapis:8080/self-service/login?flow=d46a7039-0ad6-47f4-aede-8fbb4535e37d",
     "method": "POST",
     "nodes": [
       {
@@ -242,7 +242,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "LytyLeApakqiDeALYzCSqKe9Ph5fMxSdYMKQQiXrYZXyKrbd26fyJRm88QVxzU+UZmFlqx8oS4jlb9kRKvfzkg==",
+          "value": "77b+4etzhcZeF9G00ipsCavclCZMi5PhFDiMfX7/PfDUe06lY5pCubfM/rYAOODwOV/DFf3SZEtunGaDx/t5uQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -252,8 +252,8 @@
       }
     ]
   },
-  "created_at": "2025-04-20T14:13:09.754269Z",
-  "updated_at": "2025-04-20T14:13:09.754269Z",
+  "created_at": "2025-04-22T08:44:02.13078Z",
+  "updated_at": "2025-04-22T08:44:02.13078Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

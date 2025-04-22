@@ -1,12 +1,12 @@
 {
-  "id": "62499cf1-3868-4866-8eda-557c3b90dc37",
+  "id": "46ad3473-8848-424d-abf7-f7343b4e92bb",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-16T10:18:58.384942946Z",
-  "issued_at": "2025-04-16T09:18:58.384942946Z",
-  "request_url": "https://quirky-gates-g9exj643he.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:44:09.205458042Z",
+  "issued_at": "2025-04-22T08:44:09.205458042Z",
+  "request_url": "https://cool-nightingale-pvcsrai9l9.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://quirky-gates-g9exj643he.projects.oryapis:8080/self-service/login?flow=62499cf1-3868-4866-8eda-557c3b90dc37",
+    "action": "https://cool-nightingale-pvcsrai9l9.projects.oryapis:8080/self-service/login?flow=46ad3473-8848-424d-abf7-f7343b4e92bb",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "0P+Wr7blFPx9G6TPxIlWcdWfuckOfblb6qlcdHtc16Mnin4UtG8+JhU1gAdbP6C2HwOO9i9zil1idCeqcbz16g==",
+          "value": "7sxTbz24OcitMTR3LaeTn8vzEdvWyxIbWGK5GTJanRWMQrkeu9RU6eM6O/MEmU9ZUcoOzgPqc5KI2uF7fm0vzQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -87,8 +87,8 @@
       }
     ]
   },
-  "created_at": "2025-04-16T09:18:58.389923Z",
-  "updated_at": "2025-04-16T09:18:58.389923Z",
+  "created_at": "2025-04-22T08:44:09.212163Z",
+  "updated_at": "2025-04-22T08:44:09.212163Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

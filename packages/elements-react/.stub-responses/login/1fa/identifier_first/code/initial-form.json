@@ -1,12 +1,12 @@
 {
-  "id": "e36c646d-3731-4458-ae78-943ce2ee3d44",
+  "id": "badbd5c9-2bbd-48db-8924-0d284aa2c1be",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-19T15:13:13.452832639Z",
-  "issued_at": "2025-04-19T14:13:13.452832639Z",
-  "request_url": "https://quizzical-matsumoto-x0sgfloz3l.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:43:37.106344305Z",
+  "issued_at": "2025-04-22T08:43:37.106344305Z",
+  "request_url": "https://gallant-jepsen-rzfliakuzf.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://quizzical-matsumoto-x0sgfloz3l.projects.oryapis:8080/self-service/login?flow=e36c646d-3731-4458-ae78-943ce2ee3d44",
+    "action": "https://gallant-jepsen-rzfliakuzf.projects.oryapis:8080/self-service/login?flow=badbd5c9-2bbd-48db-8924-0d284aa2c1be",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Qaz29fAfv643I8sl/oo2qYce9aSZibNXndeSC1VYRNB3ozYrI31GY5x1eC5IocyW4ikrbrit6JIs54chFnGN5g==",
+          "value": "1h5KqlhnmdP7w49oN0jmKuS1vxa65+w04nncjmMdJHY3DsoYvQlJ77Dmq/Ts1JZrGv1bbIJkzkFDffRPPrq92Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-19T14:13:13.455677Z",
-  "updated_at": "2025-04-19T14:13:13.455677Z",
+  "created_at": "2025-04-22T08:43:37.113465Z",
+  "updated_at": "2025-04-22T08:43:37.113465Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

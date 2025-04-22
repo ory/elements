@@ -1,11 +1,11 @@
 {
-  "id": "75750961-b7f9-4495-9287-348781b65e8d",
+  "id": "8d392f7d-953d-4bbc-9d5b-dd7624d0e66f",
   "type": "browser",
-  "expires_at": "2025-04-15T17:36:45.667592255Z",
-  "issued_at": "2025-04-15T16:36:45.667592255Z",
-  "request_url": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:05.684868346Z",
+  "issued_at": "2025-04-22T08:44:05.684868346Z",
+  "request_url": "https://mystifying-poitras-z7g01q1wi3.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration?flow=75750961-b7f9-4495-9287-348781b65e8d",
+    "action": "https://mystifying-poitras-z7g01q1wi3.projects.oryapis:8080/self-service/registration?flow=8d392f7d-953d-4bbc-9d5b-dd7624d0e66f",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "LgSTBVDUmfx/OaFcWzdDhBrEMR0o8TRe0iNFmjzp7QZw22o25j8DBu/531h7q18Y8ci71UOE5ypC4l1fS6F+VA==",
+          "value": "MRSaKMfgJBOMmdUdbgbs77+LorjnkDrUR6gS1uoYy6vX8pEvONGil+VZt1ykJ8HCq5Usp47jFLazdzah1bbG3g==",
           "required": true,
           "disabled": false,
           "node_type": "input"

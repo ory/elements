@@ -11,8 +11,7 @@ const oidcNodes = LoginFlowFromJSON(
 )
 
 const meta = {
-  title:
-    "Ory Elements/First Factor Login/Identifier First Refresh/Social Sign In",
+  title: "Ory Elements/Login/First Factor Refresh/Identifier First/OIDC",
   component: Login,
   parameters: {
     layout: "centered",

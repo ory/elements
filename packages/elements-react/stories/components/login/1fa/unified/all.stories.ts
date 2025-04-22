@@ -7,7 +7,7 @@ import { config } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Everything",
+  title: "Ory Elements/Login/First Factor/Unified/Everything",
   component: Login,
   parameters: {
     layout: "centered",
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const ShowForm: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/all-methods/initial-form.json"),
+      require("$snapshots/login/1fa/unified/all-methods/initial-form.json"),
     ),
     config,
   },
@@ -30,7 +30,7 @@ export const ShowForm: Story = {
 export const RegistrationDisabled: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/all-methods/initial-form.json"),
+      require("$snapshots/login/1fa/unified/all-methods/initial-form.json"),
     ),
     config: {
       ...config,
@@ -45,7 +45,7 @@ export const RegistrationDisabled: Story = {
 export const ValidationMissingFields: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/all-methods/missing-email.json"),
+      require("$snapshots/login/1fa/unified/all-methods/missing-email.json"),
     ),
     config,
   },
@@ -54,7 +54,7 @@ export const ValidationMissingFields: Story = {
 export const ValidationIncorrectCredentials: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/all-methods/wrong-credentials.json"),
+      require("$snapshots/login/1fa/unified/all-methods/wrong-credentials.json"),
     ),
     config,
   },

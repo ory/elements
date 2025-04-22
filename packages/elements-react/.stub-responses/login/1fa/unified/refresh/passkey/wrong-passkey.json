@@ -1,12 +1,12 @@
 {
-  "id": "edd17dc6-ff63-4b87-baff-f8ba60f60f82",
+  "id": "2305341b-b52f-4e28-8019-069b4be68dc7",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-21T15:07:49.733276Z",
-  "issued_at": "2025-04-21T14:07:49.733276Z",
-  "request_url": "https://gallant-newton-mldon8wfuq.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:44:09.35515Z",
+  "issued_at": "2025-04-22T08:44:09.35515Z",
+  "request_url": "https://infallible-proskuriakova-kxx6mnotv2.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://gallant-newton-mldon8wfuq.projects.oryapis:8080/self-service/login?flow=edd17dc6-ff63-4b87-baff-f8ba60f60f82",
+    "action": "https://infallible-proskuriakova-kxx6mnotv2.projects.oryapis:8080/self-service/login?flow=2305341b-b52f-4e28-8019-069b4be68dc7",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6Np3yrGShYZg8+60QHSYv+ppmL29Rsj1HUtMTvUGi2zMCOnpsHzg+BcgZK22j2b1uR4xo/yXYjjgkyCTWgkM7A==",
+          "value": "PlbFa5xp+Zvd/2H999Rr5bdCuvvwq4oZCarUkLwkGpcgrdMVWm19Acu6kaZ6mefcY5qKwbV02tlDOvXOHqsdmg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.lvf3iiqi2q0.02fblr7wy8w@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.1ha1vjzuzxl0.0wlo6e0i6ve@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -40,14 +40,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://gallant-newton-mldon8wfuq.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://infallible-proskuriakova-kxx6mnotv2.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "7552bccc-fef7-40cc-8fe9-00196cab9ae5",
+          "nonce": "e2ee6e29-ec28-40f8-a579-773636bfe230",
           "node_type": "script"
         },
         "messages": [],
@@ -92,7 +92,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"QlpmE7StLq11YGDfnTxcl26qGQF-IWemP_UPWW9rJOI\",\"timeout\":300000,\"rpId\":\"gallant-newton-mldon8wfuq.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"mT8wxr5O_Kvf0wcRt0lECMaszc86_xFsyYKiJtJjXog\"}],\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"iZGATZMJlILsgUqdm33ayXfTDaEMhEsNyW2zOSgUZr8\",\"timeout\":300000,\"rpId\":\"infallible-proskuriakova-kxx6mnotv2.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"bzFoJsuQCWnxC9txjZWvjgN8Y-5rccX5E-vZndEfZoQ\"}],\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -111,8 +111,8 @@
       }
     ]
   },
-  "created_at": "2025-04-21T14:07:49.766351Z",
-  "updated_at": "2025-04-21T14:07:49.766351Z",
+  "created_at": "2025-04-22T08:44:09.42112Z",
+  "updated_at": "2025-04-22T08:44:09.42112Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

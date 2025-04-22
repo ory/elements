@@ -1,12 +1,12 @@
 {
-  "id": "bb49ff25-a8a6-44b4-a56c-a87f1eaa748d",
+  "id": "6e4d694d-0978-4b54-90c9-ba79804be0cd",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-19T15:13:14.648923Z",
-  "issued_at": "2025-04-19T14:13:14.648923Z",
-  "request_url": "https://goofy-dirac-uuk6wiejex.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:43:38.911256Z",
+  "issued_at": "2025-04-22T08:43:38.911256Z",
+  "request_url": "https://angry-bassi-d6t0asrgct.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://goofy-dirac-uuk6wiejex.projects.oryapis:8080/self-service/login?flow=bb49ff25-a8a6-44b4-a56c-a87f1eaa748d",
+    "action": "https://angry-bassi-d6t0asrgct.projects.oryapis:8080/self-service/login?flow=6e4d694d-0978-4b54-90c9-ba79804be0cd",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "4EMWKfZ5tZNkY+ew0vD5BHV05vcgImpF4RTzx0F3CgsbZ19lEjmHfDPFuVqBSUewbPQzZ2RrvqvUv6il4kMqyA==",
+          "value": "6QVCN1MHjlLjXFlX8VV+mex1BUjdbKMOYfnpvwwkyxsUathnD1tA3Ib5WxU0aD3CVTHaB/1Hxc0DCCIyoBw4BA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -76,8 +76,8 @@
       }
     ]
   },
-  "created_at": "2025-04-19T14:13:14.654687Z",
-  "updated_at": "2025-04-19T14:13:14.654687Z",
+  "created_at": "2025-04-22T08:43:38.917184Z",
+  "updated_at": "2025-04-22T08:43:38.917184Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

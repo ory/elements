@@ -1,11 +1,11 @@
 {
-  "id": "a3e69429-1781-4041-81f0-a438db331a10",
+  "id": "09951873-f6d0-4f1e-a7f3-1d29930ab17c",
   "type": "browser",
-  "expires_at": "2025-04-19T15:13:13.895112958Z",
-  "issued_at": "2025-04-19T14:13:13.895112958Z",
-  "request_url": "https://unruffled-hodgkin-rpcsy1833v.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:31.956930678Z",
+  "issued_at": "2025-04-22T08:43:31.956930678Z",
+  "request_url": "https://suspicious-cori-o5z22vfi35.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://unruffled-hodgkin-rpcsy1833v.projects.oryapis:8080/self-service/registration?flow=a3e69429-1781-4041-81f0-a438db331a10",
+    "action": "https://suspicious-cori-o5z22vfi35.projects.oryapis:8080/self-service/registration?flow=09951873-f6d0-4f1e-a7f3-1d29930ab17c",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "C5vad0FH+CQPzc8AFOM5adTpq7npiMjtfWUTaW+G0qDo12d/m1zBNISCtASh+CbcLrf4M2dSZJqIVHeYwVGSCQ==",
+          "value": "bHFnyKbcF0lwf970n12Z+hOuqThka4AZ5ITD5iuYHUeJxQKCTKkoIGetwzJfSpvvhUQSvnHpktvKW5LYf9Q77g==",
           "required": true,
           "disabled": false,
           "node_type": "input"

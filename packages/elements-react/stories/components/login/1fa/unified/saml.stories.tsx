@@ -20,7 +20,7 @@ const providers = [
 ]
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/SAML",
+  title: "Ory Elements/Login/First Factor/Unified/SAML",
   component: Login,
   parameters: {
     layout: "centered",
@@ -69,24 +69,6 @@ export const FiveSamlButtons: Story = {
 export const AllGenericButton: Story = {
   args: {
     flow: listOnly(samlNodes, "saml", providers),
-    config,
-  },
-}
-
-export const CredentialSelect: Story = {
-  args: {
-    flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/saml/credential-select.json"),
-    ),
-    config,
-  },
-}
-
-export const CredentialSelectWithMethodSelect: Story = {
-  args: {
-    flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/saml/credential-select-password.json"),
-    ),
     config,
   },
 }

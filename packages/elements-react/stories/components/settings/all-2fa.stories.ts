@@ -7,7 +7,7 @@ import { config } from "../../utils"
 import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
-  title: "Ory Elements/Settings/Methods/Everything 2FA",
+  title: "Ory Elements/Settings/Everything 2FA",
   component: Settings,
   parameters: {
     layout: "centered",

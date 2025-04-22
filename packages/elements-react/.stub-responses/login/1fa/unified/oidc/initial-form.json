@@ -1,11 +1,11 @@
 {
-  "id": "27102c3e-d9fd-45f9-b4e4-23f8ef26d85a",
+  "id": "84c7a016-5003-4af1-bc0f-9829d6cdda20",
   "type": "browser",
-  "expires_at": "2025-04-20T15:05:46.136254763Z",
-  "issued_at": "2025-04-20T14:05:46.136254763Z",
-  "request_url": "https://cranky-morse-nzjypgo7zc.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:02.975945136Z",
+  "issued_at": "2025-04-22T08:44:02.975945136Z",
+  "request_url": "https://funny-ishizaka-c1ms625gca.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://cranky-morse-nzjypgo7zc.projects.oryapis:8080/self-service/registration?flow=27102c3e-d9fd-45f9-b4e4-23f8ef26d85a",
+    "action": "https://funny-ishizaka-c1ms625gca.projects.oryapis:8080/self-service/registration?flow=84c7a016-5003-4af1-bc0f-9829d6cdda20",
     "method": "POST",
     "nodes": [
       {
@@ -198,7 +198,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "cBFsmNHTl1EA6j8C8qFI8InVCmLo3M+Xn0vMPs2iNqIIIHwZzJSPwlOSq6pmCb1Ek6SldPIdcxn6QubkJQSdwg==",
+          "value": "8r4VKHVoS+A98cfAEsm3FmRG4EABckljYuLP6PyLdzh85bSCaIin2mjAUqMrxI/Wy3UBfqCBBmAeNPWnoMZORg==",
           "required": true,
           "disabled": false,
           "node_type": "input"

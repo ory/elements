@@ -7,7 +7,7 @@ import { config } from "../../utils"
 import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
-  title: "Ory Elements/Settings/Methods/Passkey",
+  title: "Ory Elements/Settings/Passkey",
   component: Settings,
   parameters: {
     layout: "centered",

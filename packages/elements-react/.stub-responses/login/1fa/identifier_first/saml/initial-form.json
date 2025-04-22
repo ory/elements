@@ -1,12 +1,12 @@
 {
-  "id": "cbb2ac8c-0e9a-447b-bf34-f5f94ca31b9f",
+  "id": "8eb59ec1-e215-4afa-a85b-260ce3f2ae98",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-21T12:45:25.121030594Z",
-  "issued_at": "2025-04-21T11:45:25.121030594Z",
-  "request_url": "https://quirky-banzai-twokbvgyfk.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:44:20.657183589Z",
+  "issued_at": "2025-04-22T08:44:20.657183589Z",
+  "request_url": "https://eloquent-torvalds-lbs0dhivry.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://quirky-banzai-twokbvgyfk.projects.oryapis:8080/self-service/login?flow=cbb2ac8c-0e9a-447b-bf34-f5f94ca31b9f",
+    "action": "https://eloquent-torvalds-lbs0dhivry.projects.oryapis:8080/self-service/login?flow=8eb59ec1-e215-4afa-a85b-260ce3f2ae98",
     "method": "POST",
     "nodes": [
       {
@@ -196,7 +196,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "u+WILaYjx5fp9GRxn7fGowCdRD3x8bEKqFYVL1lTmO1O6gBSEfKUcT7/xKZCXHP6EpnyqLreSB1ACRuuKSJPfA==",
+          "value": "SwukPz6mII2SeFS+T8lz+1Tw/0OKI6yCW7dXAHnru7x+DmuCgHOK+5rBHHJzSDHf1W/O+My1mnPb9piIwNLQwQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -206,8 +206,8 @@
       }
     ]
   },
-  "created_at": "2025-04-21T11:45:25.122658Z",
-  "updated_at": "2025-04-21T11:45:25.122658Z",
+  "created_at": "2025-04-22T08:44:20.659429Z",
+  "updated_at": "2025-04-22T08:44:20.659429Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

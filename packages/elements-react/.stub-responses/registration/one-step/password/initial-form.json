@@ -1,11 +1,11 @@
 {
-  "id": "3aa3d4bb-5660-409c-95be-ac675e346f41",
+  "id": "0c5bc465-0f28-4164-b09b-792095e35ed2",
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:53.270408174Z",
-  "issued_at": "2025-02-26T08:31:53.270408174Z",
-  "request_url": "https://bold-euler-hml21m63p2.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:14.452494461Z",
+  "issued_at": "2025-04-22T08:44:14.452494461Z",
+  "request_url": "https://zealous-golick-0ubehzxd3r.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://bold-euler-hml21m63p2.projects.oryapis:8080/self-service/registration?flow=3aa3d4bb-5660-409c-95be-ac675e346f41",
+    "action": "https://zealous-golick-0ubehzxd3r.projects.oryapis:8080/self-service/registration?flow=0c5bc465-0f28-4164-b09b-792095e35ed2",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "9jKo3IetRo0OPgAk+BbHrLr7ObPatyFEIxc54VrdeaZsCRbHZx+gOSoH+lxhYZfF4p15b/z4frCwgVl/yefC/A==",
+          "value": "H3llUmslPlSEqhN7LYRtI5Xf8yjXhdXUJGEbiVQx9RV41vQ9zDs0/RxgSyNUlNIy2bAvPOPV5/iXP7QkS9PGAg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -24,7 +24,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.email",
           "type": "email",
@@ -47,27 +47,7 @@
       },
       {
         "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "new-password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070001,
-            "text": "Password",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.tos",
           "type": "checkbox",
@@ -88,7 +68,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.phone",
           "type": "text",
@@ -109,7 +89,7 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "default",
         "attributes": {
           "name": "traits.nested.name",
           "type": "text",
@@ -130,11 +110,11 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "profile",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "password",
+          "value": "profile",
           "disabled": false,
           "node_type": "input"
         },

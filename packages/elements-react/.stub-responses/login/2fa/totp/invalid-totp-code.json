@@ -1,12 +1,12 @@
 {
-  "id": "3d2e7410-d007-43c3-a31c-a3a145d7f385",
+  "id": "561d6de9-18e6-4506-b1bd-512100b7e6b1",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-03-01T14:53:20.378621Z",
-  "issued_at": "2025-03-01T13:53:20.378621Z",
-  "request_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "2025-04-22T09:44:21.336418Z",
+  "issued_at": "2025-04-22T08:44:21.336418Z",
+  "request_url": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "ui": {
-    "action": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/login?flow=3d2e7410-d007-43c3-a31c-a3a145d7f385",
+    "action": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/login?flow=561d6de9-18e6-4506-b1bd-512100b7e6b1",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "tW0RpYDFLoqSYIkrKui5+Np8iaUT/MTirJwN5CNXrtc7ybO7ufk9OiVedqUTQrH4BJiDKf9d9x3GMHu82HYfqw==",
+          "value": "DqU8Oqb5gKhoLdOMG/ujAtChiyAiPDf/6KXdfm/P/IjpQdEq6ZdOtLNFsnevj9tpwSjhMnq3rQQn9xFgXg6QOA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -70,8 +70,8 @@
       }
     ]
   },
-  "created_at": "2025-03-01T13:53:20.403696Z",
-  "updated_at": "2025-03-01T13:53:20.403696Z",
+  "created_at": "2025-04-22T08:44:21.352492Z",
+  "updated_at": "2025-04-22T08:44:21.352492Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "choose_method"

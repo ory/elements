@@ -7,7 +7,7 @@ import { Recovery } from "../../../src/theme/default"
 import { config } from "../../utils"
 
 const meta = {
-  title: "Ory Elements/Recovery/Methods/Code",
+  title: "Ory Elements/Recovery/Code",
   component: Recovery,
   parameters: {
     layout: "centered",

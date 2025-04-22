@@ -67,7 +67,7 @@ type Story = StoryObj<typeof meta>
 export const CustomSocialSignInButton: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/all-methods/initial-form.json"),
+      require("$snapshots/login/1fa/unified/all-methods/initial-form.json"),
     ),
     config,
   },

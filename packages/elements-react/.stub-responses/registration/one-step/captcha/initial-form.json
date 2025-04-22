@@ -1,11 +1,11 @@
 {
-  "id": "31955d89-28de-4528-9fa7-53ea27da765e",
+  "id": "1c62ce3e-faf2-441d-b189-42337c92937e",
   "type": "browser",
-  "expires_at": "2025-04-20T14:37:46.175549139Z",
-  "issued_at": "2025-04-20T13:37:46.175549139Z",
-  "request_url": "https://gracious-ardinghelli-d29sspsxvh.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:33.158948261Z",
+  "issued_at": "2025-04-22T08:43:33.158948261Z",
+  "request_url": "https://tender-darwin-eur3qq8jkx.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://gracious-ardinghelli-d29sspsxvh.projects.oryapis:8080/self-service/registration?flow=31955d89-28de-4528-9fa7-53ea27da765e",
+    "action": "https://tender-darwin-eur3qq8jkx.projects.oryapis:8080/self-service/registration?flow=1c62ce3e-faf2-441d-b189-42337c92937e",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6Nyb2rN4erW4DxIxikciNostZ7/PewnYvRMFCH+JCD81Mg8tniMMhlVRXobzjeJyuAgjaU+Agf8N+9DXNAkTbQ==",
+          "value": "JRUm6Ym+8TZelmVF2lqYLa/wUb223EBvu698fGZ/TzgqkoPXsB6KVvr93zvS37BZ3wNndTBGdKAMdeiz2IcN3w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -112,14 +112,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://gracious-ardinghelli-d29sspsxvh.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://tender-darwin-eur3qq8jkx.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "f1afe3c0-3790-4e7d-b8da-023a8db43d76",
+          "nonce": "77a85373-e5f9-4f3b-89ee-c0dca0ef3ce7",
           "node_type": "script"
         },
         "messages": [],
@@ -163,7 +163,7 @@
         "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
-          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hgDHHVJ6lZGeZTGT-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"id\":\"gracious-ardinghelli-d29sspsxvh.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hgDHHVJ6lZGeZTGT-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-hgDHHVJ6lZGeZTGT-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"id\":\"MkNoNU9jdGtJVjZvUHhNRFRKeXVTcm5VZ2NTeDljdDJZaHcxS3E1SGo4a2Z6dlBTMUtyamhoY0tXd2VVc2hVag\"},\"challenge\":\"ZwtWcyRYMmoeQ1nVKco0bJfg6-6Jcbzwm897kCnKhGg\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
+          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-DQKKXYfXtJgKx0jN-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"id\":\"tender-darwin-eur3qq8jkx.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-DQKKXYfXtJgKx0jN-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-DQKKXYfXtJgKx0jN-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"id\":\"dG9hV0hZUXJDbnVDZEJzaWhXMUtYbWs2cXY4REFoWDBBSmJZRmt3RXBXQlBuekVYRlM2VUNBaWI4bWtKUlVaSQ\"},\"challenge\":\"O3sVe0Eq_EW-vc0M4-NXLfWxzPe21KTGWaepIxUrZxE\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
           "disabled": false,
           "node_type": "input"
         },
@@ -233,7 +233,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
+          "nonce": "877f711f-c228-484e-9338-90b7f7c28e48",
           "node_type": "script"
         },
         "messages": [],
@@ -265,7 +265,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
+          "nonce": "40318a5e-9315-439e-962c-cdcbc4114d39",
           "node_type": "script"
         },
         "messages": [],

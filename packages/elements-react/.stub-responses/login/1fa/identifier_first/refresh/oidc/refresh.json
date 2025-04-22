@@ -1,12 +1,12 @@
 {
-  "id": "59f9468e-8b1a-48ee-91f5-21d55a057ef1",
+  "id": "48e214c6-baa7-4ed8-93d5-7fff222692a5",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-20T15:09:47.549655708Z",
-  "issued_at": "2025-04-20T14:09:47.549655708Z",
-  "request_url": "https://jolly-chebyshev-jhm7stmojh.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:43:59.213203635Z",
+  "issued_at": "2025-04-22T08:43:59.213203635Z",
+  "request_url": "https://strange-brahmagupta-0qso8y1nc8.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://jolly-chebyshev-jhm7stmojh.projects.oryapis:8080/self-service/login?flow=59f9468e-8b1a-48ee-91f5-21d55a057ef1",
+    "action": "https://strange-brahmagupta-0qso8y1nc8.projects.oryapis:8080/self-service/login?flow=48e214c6-baa7-4ed8-93d5-7fff222692a5",
     "method": "POST",
     "nodes": [
       {
@@ -23,10 +23,10 @@
         "meta": {
           "label": {
             "id": 1010002,
-            "text": "Sign in with Fake Google",
+            "text": "Sign in with Google",
             "type": "info",
             "context": {
-              "provider": "Fake Google",
+              "provider": "Google",
               "provider_id": "google"
             }
           }
@@ -38,7 +38,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "xJ/Gc3DvhJ3Qt7zK45O+gSpUizAf4o+M02saQM+Nzu/EssFZ66PF9iGfKmUMidnoE2En+5TPAQk+YUUm+xZGNg==",
+          "value": "4VQ1QKl+42HJemGApvFS1tWXmcDWfEaDVMftv24Yd0T75BqXOjXugkzHZniEDnb1ccmxKBlu5U39d43sJ3vFqw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,7 +52,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.sf9tb77nv880.ywkyq8yc02i@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.pzf6cui16ae0.6h72hexvfl@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -107,8 +107,8 @@
       }
     ]
   },
-  "created_at": "2025-04-20T14:09:47.562764Z",
-  "updated_at": "2025-04-20T14:09:47.562764Z",
+  "created_at": "2025-04-22T08:43:59.233083Z",
+  "updated_at": "2025-04-22T08:43:59.233083Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

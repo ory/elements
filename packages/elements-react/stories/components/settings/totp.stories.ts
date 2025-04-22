@@ -7,7 +7,7 @@ import { config } from "../../utils"
 import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
-  title: "Ory Elements/Settings/Methods/TOTP",
+  title: "Ory Elements/Settings/TOTP",
   component: Settings,
   parameters: {
     layout: "centered",

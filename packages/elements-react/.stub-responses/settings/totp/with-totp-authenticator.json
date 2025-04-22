@@ -1,11 +1,11 @@
 {
-  "id": "ce22dd87-9cb7-4a32-ab4e-3975cf4f41b2",
+  "id": "dec44509-9635-4eab-ae3f-49b8cd79011b",
   "type": "browser",
-  "expires_at": "2025-03-01T14:53:19.180349Z",
-  "issued_at": "2025-03-01T13:53:19.180349Z",
-  "request_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-04-22T09:44:20.13682Z",
+  "issued_at": "2025-04-22T08:44:20.13682Z",
+  "request_url": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/settings?flow=77ba84a8-e571-41d7-a1d3-370a1e42c4dd",
+    "action": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/self-service/settings?flow=f149841e-79fd-447f-9fa5-74cbc534ceee",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "E0taPFu4CbVaYFVar5mUdCDN1F2BOF/TMZYVU/p2ZsCdW2dAHm77Dod6XRgCX0JXM8z1CpCeUdDoVvWW8O9tmQ==",
+          "value": "WY/N1IFJz8Lx7YSvBLOHVgsL2IjXEAihQ2qBajvVClfBYaylSHFG8v0RnxjeJV/z5PPd3Z1X0Y7urTzIlX4pNQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -197,45 +197,45 @@
     ]
   },
   "identity": {
-    "id": "107ccd78-c273-43f2-9752-66d26003bd5a",
+    "id": "d6800d13-7b77-4332-9a44-e19450fba064",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-03-01T13:53:17.846967Z",
+    "state_changed_at": "2025-04-22T08:44:18.947146Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "7f11bb9d-c8fd-4a73-b0c2-f987eb5cd963",
-        "value": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+        "id": "fd3f33ca-1e61-4f97-ae79-3d8b48f1a2b2",
+        "value": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-03-01T13:53:17.850692Z",
-        "updated_at": "2025-03-01T13:53:17.850692Z"
+        "created_at": "2025-04-22T08:44:18.949415Z",
+        "updated_at": "2025-04-22T08:44:18.949415Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "f5459026-e35b-4bfb-9eb8-fa08bd7d8023",
-        "value": "dev+orycye2eda2f162daf6142dd0.da2pnk5sce0.yhuj1yqato@ory.dev",
+        "id": "70efaef9-29ff-4fb2-99d0-1b827ce4d72f",
+        "value": "dev+orycye2eda2f162daf6142dd0.9ul95841tw0.hoszaujlrzb@ory.dev",
         "via": "email",
-        "created_at": "2025-03-01T13:53:17.855799Z",
-        "updated_at": "2025-03-01T13:53:17.855799Z"
+        "created_at": "2025-04-22T08:44:18.952513Z",
+        "updated_at": "2025-04-22T08:44:18.952513Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-03-01T13:53:17.848223Z",
-    "updated_at": "2025-03-01T13:53:19.761813Z",
+    "created_at": "2025-04-22T08:44:18.94792Z",
+    "updated_at": "2025-04-22T08:44:20.724557Z",
     "organization_id": null
   },
   "state": "success",
   "continue_with": [
     {
       "action": "redirect_browser_to",
-      "redirect_browser_to": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/ui/settings?flow=ce22dd87-9cb7-4a32-ab4e-3975cf4f41b2"
+      "redirect_browser_to": "https://serene-tereshkova-fgdajgxsdj.projects.oryapis:8080/ui/settings?flow=dec44509-9635-4eab-ae3f-49b8cd79011b"
     }
   ]
 }

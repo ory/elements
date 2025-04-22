@@ -1,12 +1,12 @@
 {
-  "id": "56b0bb28-69e7-4f30-b284-28a212aa6b06",
+  "id": "97b6d1da-768e-4b8a-a49b-3b59697edcf8",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-20T15:22:00.600508589Z",
-  "issued_at": "2025-04-20T14:22:00.600508589Z",
-  "request_url": "https://jolly-wozniak-e3o4zkzomg.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-04-22T09:43:33.060059011Z",
+  "issued_at": "2025-04-22T08:43:33.060059011Z",
+  "request_url": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://jolly-wozniak-e3o4zkzomg.projects.oryapis:8080/self-service/login?flow=56b0bb28-69e7-4f30-b284-28a212aa6b06",
+    "action": "https://laughing-volhard-qih76wylx8.projects.oryapis:8080/self-service/login?flow=97b6d1da-768e-4b8a-a49b-3b59697edcf8",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "lK2Lc4zn9DZ+z3brmXI39JoedsOFl+VAbuw4NeGUM4Hjui2+vwR7vWEfEcDWNOiKPLSR7XROFxk1NoSeYOceHQ==",
+          "value": "mT0xdBKpT36gp0GuP+ErrtGx+7rvUcpAZWGQ1H1O5fzEdeLexFw1qc8gI2YFuDnJxkVNloMHbJd11lV5C9falw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.5iqsi39bl4a0.mw3n603khd@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.b5denncp8dw0.wsxe50rhsvm@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-20T14:22:00.620627Z",
-  "updated_at": "2025-04-20T14:22:00.620627Z",
+  "created_at": "2025-04-22T08:43:33.076052Z",
+  "updated_at": "2025-04-22T08:43:33.076052Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

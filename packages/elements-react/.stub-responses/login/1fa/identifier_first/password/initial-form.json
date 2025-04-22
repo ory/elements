@@ -1,12 +1,12 @@
 {
-  "id": "6ab41559-547b-40fc-bc6c-0426163b4910",
+  "id": "4e5b0f3f-9337-44e3-bf95-140c2a46dcca",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-19T13:47:59.171867132Z",
-  "issued_at": "2025-04-19T12:47:59.171867132Z",
-  "request_url": "https://exciting-dijkstra-zqk1u526mz.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:44:13.50350121Z",
+  "issued_at": "2025-04-22T08:44:13.50350121Z",
+  "request_url": "https://boring-villani-i92j7sg4h3.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://exciting-dijkstra-zqk1u526mz.projects.oryapis:8080/self-service/login?flow=6ab41559-547b-40fc-bc6c-0426163b4910",
+    "action": "https://boring-villani-i92j7sg4h3.projects.oryapis:8080/self-service/login?flow=4e5b0f3f-9337-44e3-bf95-140c2a46dcca",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "qqjm6DZYWy+CpUHLgOKvsShfHGdFDc3LVqstPQGaCm9rpNuZmcGokd4llh0JgsqBKSt0V78WqhxhppLvab6Tzg==",
+          "value": "J9100GFdP4TBw+tkAdOk6yPgZucpJEaGB2xCDjh7NbGBpPwbixea2GQ0nV7lyamUhOZgNHLdvtLY/mEhBm161g==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-19T12:47:59.173506Z",
-  "updated_at": "2025-04-19T12:47:59.173506Z",
+  "created_at": "2025-04-22T08:44:13.505485Z",
+  "updated_at": "2025-04-22T08:44:13.505485Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

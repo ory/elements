@@ -1,11 +1,11 @@
 {
-  "id": "8461d62f-bc4d-4d05-9c95-e56c17a6a9fe",
+  "id": "27680ac4-dbd4-4e2c-807a-63de9cb4ae29",
   "type": "browser",
-  "expires_at": "2025-04-21T14:28:07.830479674Z",
-  "issued_at": "2025-04-21T13:28:07.830479674Z",
-  "request_url": "https://ecstatic-ramanujan-tcw9d4majp.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:44:25.7093613Z",
+  "issued_at": "2025-04-22T08:44:25.7093613Z",
+  "request_url": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://ecstatic-ramanujan-tcw9d4majp.projects.oryapis:8080/self-service/registration?flow=8461d62f-bc4d-4d05-9c95-e56c17a6a9fe",
+    "action": "https://frosty-goldwasser-qbf5gkl7d7.projects.oryapis:8080/self-service/registration?flow=27680ac4-dbd4-4e2c-807a-63de9cb4ae29",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "JBAGcqrBInoCqmeaRfBHNDN/R1AHM8fZTT81bXLWvu5HDQiSEETRK8Bpdij64xWert5Fnysd8cz9rZKFNs4NPw==",
+          "value": "QRnC/eeD/jI9m2p8nXpQWM285VMWmuVYyMIgAHOrHFKdLEfF5+A2xBwZUEenS3247xaR0mYj8mfpE1Mdc4kVdw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

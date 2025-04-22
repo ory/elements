@@ -1,12 +1,12 @@
 {
-  "id": "4c03276f-4967-42d4-a2d2-02a562194ee9",
+  "id": "987af90c-7dee-452d-8d16-187483c0d694",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-16T10:19:08.829314559Z",
-  "issued_at": "2025-04-16T09:19:08.829314559Z",
-  "request_url": "https://nervous-wu-gom9z7q0cc.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-22T09:44:21.387997548Z",
+  "issued_at": "2025-04-22T08:44:21.387997548Z",
+  "request_url": "https://determined-mendel-re0owctnjj.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://nervous-wu-gom9z7q0cc.projects.oryapis:8080/self-service/login?flow=4c03276f-4967-42d4-a2d2-02a562194ee9",
+    "action": "https://determined-mendel-re0owctnjj.projects.oryapis:8080/self-service/login?flow=987af90c-7dee-452d-8d16-187483c0d694",
     "method": "POST",
     "nodes": [
       {
@@ -153,7 +153,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "KSCt+kRE6U0hKhEiDjsBOC5jev2w8gDuONuzYB5SIA4szxnPVs9kpc0oFlaMUxMObGqp471+2gV1cbjv5RRjXA==",
+          "value": "1ZCSXeZsKTp1yFitMOaq0QsHOEifbbmzgvkCnQZQswxGvAHXez1meSCw+8Hklb1sj3emDuXInl3wXAb98+xgRA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -225,8 +225,8 @@
       }
     ]
   },
-  "created_at": "2025-04-16T09:19:08.835894Z",
-  "updated_at": "2025-04-16T09:19:08.835894Z",
+  "created_at": "2025-04-22T08:44:21.390458Z",
+  "updated_at": "2025-04-22T08:44:21.390458Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

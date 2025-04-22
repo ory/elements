@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/First Factor Login/Unified/Captcha",
+  title: "Ory Elements/Login/First Factor/Unified/Captcha",
   component: Login,
   parameters: {
     layout: "centered",

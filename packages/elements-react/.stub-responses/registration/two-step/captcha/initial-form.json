@@ -1,11 +1,11 @@
 {
-  "id": "7937599d-1c1f-481f-ac7e-751fd6d6170b",
+  "id": "a45a40b0-8591-487f-bfed-f7aa4807c9b2",
   "type": "browser",
-  "expires_at": "2025-04-20T14:45:31.916106257Z",
-  "issued_at": "2025-04-20T13:45:31.916106257Z",
-  "request_url": "https://goofy-chaplygin-ddmrmhc8z2.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-22T09:43:32.79458972Z",
+  "issued_at": "2025-04-22T08:43:32.79458972Z",
+  "request_url": "https://great-faraday-rcdmo8kiy7.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://goofy-chaplygin-ddmrmhc8z2.projects.oryapis:8080/self-service/registration?flow=7937599d-1c1f-481f-ac7e-751fd6d6170b",
+    "action": "https://great-faraday-rcdmo8kiy7.projects.oryapis:8080/self-service/registration?flow=a45a40b0-8591-487f-bfed-f7aa4807c9b2",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "5MZH24z2F1Kut7GrD5vY6upEYKyjxFxps8iU7mJZwbHOE86Mjw+3XG72ZhGmVh1bQqsFTsxnSHnY2H4fqfqJBQ==",
+          "value": "KyZHxqc/bBnttlEbSybq4bgqrfRi/59/kRyfuNfIae4JPXf054dILWqnCs17dmxTqz8sMqyuNqUH6oA94YBeMg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -132,7 +132,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "748f3e00-c9a2-46e1-9b08-a06c45f3e143",
+          "nonce": "877f711f-c228-484e-9338-90b7f7c28e48",
           "node_type": "script"
         },
         "messages": [],
@@ -164,7 +164,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "82382e83-c51f-45c8-a477-2ca8e07f8b80",
+          "nonce": "40318a5e-9315-439e-962c-cdcbc4114d39",
           "node_type": "script"
         },
         "messages": [],

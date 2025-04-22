@@ -7,7 +7,7 @@ import { Verification } from "../../../src/theme/default"
 import { config } from "../../utils"
 
 const meta = {
-  title: "Ory Elements/Verification/Methods/Code",
+  title: "Ory Elements/Verification/Code",
   component: Verification,
   parameters: {
     layout: "centered",
