@@ -12,7 +12,6 @@ import {
 } from "../../../../util/ui"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
-import { useLogoutFlow } from "@ory/nextjs/dist/pages"
 import { useClientLogout } from "../../utils/logout"
 
 export function DefaultCardFooter() {
