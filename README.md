@@ -22,6 +22,11 @@ Ory Elements comes with several packages:
 > before, we recommend migrating to @ory/elements-react. The legacy code base is
 > in https://github.com/ory/elements-legacy.
 
+If you're not looking to implement custom UI components for login, registration,
+settings, verification, recovery, or consent, but rather want to integrate
+authentication without changing the UI, follow our
+[guide for Auth.js](https://www.ory.sh/docs/getting-started/integrate-auth/auth-js).
+
 ## Getting Started
 
 ### React
