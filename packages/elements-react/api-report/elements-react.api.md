@@ -121,7 +121,9 @@ export type IntlConfig = IntlContextProps;
 export type LoginFlowContainer = OryFlow<FlowType.Login, LoginFlow>;
 
 // @public
-export function messageTestId(message: UiText): {
+export function messageTestId(message: {
+    id: number | string;
+}): {
     "data-testid": string;
 };
 

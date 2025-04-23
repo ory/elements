@@ -14,12 +14,17 @@ export const metadata: Metadata = {
 
 export default async function RootLayout() {
   const session = await getServerSession()
+  const traits = session?.identity?.traits as {
+    email: string
+    username: string
+    phone: string
+  }
 
   return (
     <SessionProvider session={session}>
       <div className="flex items-center justify-center min-h-screen bg-gray-50">
         <div className="flex flex-col items-center gap-4">
-          <Image src={OryLogo} alt="Ory Logo" width={160} />
+          <Image src={OryLogo as string} alt="Ory Logo" width={160} />
           <h1 className="font-bold text-xl">Ory Next.js App Router Example</h1>
           {!session && (
             <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
@@ -46,11 +51,7 @@ export default async function RootLayout() {
           {session && (
             <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
               <h2 className="w-full">
-                Hi,{" "}
-                {session.identity?.traits.email ??
-                  session.identity?.traits.username ??
-                  session.identity?.traits.phone}
-                !
+                Hi, {traits.email ?? traits.username ?? traits.phone}!
               </h2>
               <Link className="underline block w-full" href="/settings">
                 Settings
