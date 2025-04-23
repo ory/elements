@@ -19,7 +19,7 @@ function HomeContent() {
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="flex flex-col items-center gap-4">
         <Image src={OryLogo as string} alt="Ory Logo" width={160} />
-        <h1 className="font-bold text-xl">Ory Next.js App Router Example</h1>
+        <h1 className="font-bold text-xl">Ory Next.js Pages Router Example</h1>
         {!session && (
           <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
             <Link className="underline block w-full" href="/auth/registration">
