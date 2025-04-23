@@ -13,12 +13,21 @@ export function rewriteUrls(
 ) {
   for (const [_, [matchPath, replaceWith]] of [
     // TODO load these dynamically from the project config
+
+    // Old AX routes
     ["/ui/recovery", config.override?.recoveryUiPath],
     ["/ui/registration", config.override?.registrationUiPath],
     ["/ui/login", config.override?.loginUiPath],
     ["/ui/verification", config.override?.verificationUiPath],
     ["/ui/settings", config.override?.settingsUiPath],
     ["/ui/welcome", config.override?.defaultRedirectUri],
+
+    // New AX routes
+    ["/recovery", config.override?.recoveryUiPath],
+    ["/registration", config.override?.registrationUiPath],
+    ["/login", config.override?.loginUiPath],
+    ["/verification", config.override?.verificationUiPath],
+    ["/settings", config.override?.settingsUiPath],
   ].entries()) {
     const match = joinUrlPaths(matchBaseUrl, matchPath || "")
     if (replaceWith && source.startsWith(match)) {
