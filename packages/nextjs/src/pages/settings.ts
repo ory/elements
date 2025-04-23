@@ -5,6 +5,12 @@ import { FlowType } from "@ory/client-fetch"
 import { createUseFlowFactory } from "./flow"
 import { clientSideFrontendClient } from "./client"
 
+/**
+ * A client side hook to create a settings flow.
+ *
+ * @returns A settings flow
+ * @public
+ */
 export const useSettingsFlow = createUseFlowFactory(
   FlowType.Settings,
   (params: URLSearchParams) => {

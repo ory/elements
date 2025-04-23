@@ -5,6 +5,12 @@ import { LogoutFlow } from "@ory/client-fetch"
 import { clientSideFrontendClient } from "./client"
 import { useEffect, useState } from "react"
 
+/**
+ * A client side hook to create a logout flow.
+ *
+ * @returns A logout flow
+ * @public
+ */
 export function useLogoutFlow() {
   const [flow, setFlow] = useState<LogoutFlow | undefined>(undefined)
 

@@ -5,6 +5,12 @@ import { clientSideFrontendClient } from "./client"
 import { createUseFlowFactory } from "./flow"
 import { FlowType } from "@ory/client-fetch"
 
+/**
+ * A client side hook to create a registration flow.
+ *
+ * @returns A registration flow
+ * @public
+ */
 export const useRegistrationFlow = createUseFlowFactory(
   FlowType.Registration,
   (params: URLSearchParams) => {

@@ -5,6 +5,12 @@ import { clientSideFrontendClient } from "./client"
 import { createUseFlowFactory } from "./flow"
 import { FlowType } from "@ory/client-fetch"
 
+/**
+ * A client side hook to create a verification flow.
+ *
+ * @returns A verification flow
+ * @public
+ */
 export const useVerificationFlow = createUseFlowFactory(
   FlowType.Verification,
   (params: URLSearchParams) => {
