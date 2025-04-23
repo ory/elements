@@ -28,11 +28,6 @@ export function isProduction() {
 export function guessPotentiallyProxiedOrySdkUrl(options?: {
   knownProxiedUrl?: string
 }) {
-  if (isProduction()) {
-    // In production, we use the production custom domain
-    return orySdkUrl()
-  }
-
   if (getEnv("VERCEL_ENV")) {
     // We are in vercel
 
@@ -44,7 +39,7 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
 
     const productionUrl = getEnv("VERCEL_PROJECT_PRODUCTION_URL") || ""
     if (isProduction() && productionUrl.indexOf("vercel.app") > -1) {
-      // This is a production deployment on Vercel. We are using the custom domain.
+      // This is a production deployment on Vercel without a custom domain, so we use the vercel app domain.
       return `https://${productionUrl}`.replace(/\/$/, "")
     }
 
@@ -52,6 +47,11 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
     if (process.env["__NEXT_PRIVATE_ORIGIN"]) {
       return process.env["__NEXT_PRIVATE_ORIGIN"].replace(/\/$/, "")
     }
+  }
+
+  if (isProduction()) {
+    // In production, we use the production custom domain
+    return orySdkUrl()
   }
 
   // Try to use window location

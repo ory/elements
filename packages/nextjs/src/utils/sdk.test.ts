@@ -112,7 +112,9 @@ describe("guessPotentiallyProxiedOrySdkUrl", () => {
   it("should use NEXT_PUBLIC_VERCEL_URL when available", () => {
     process.env["VERCEL_ENV"] = "preview"
     process.env["NEXT_PUBLIC_VERCEL_URL"] = "public-myapp.vercel.app"
-    expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://public-myapp.vercel.app")
+    expect(guessPotentiallyProxiedOrySdkUrl()).toBe(
+      "https://public-myapp.vercel.app",
+    )
   })
 
   it("should use VERCEL_PROJECT_PRODUCTION_URL in production for vercel.app domains", () => {
@@ -125,9 +127,12 @@ describe("guessPotentiallyProxiedOrySdkUrl", () => {
   it("should prioritize NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL", () => {
     process.env["VERCEL_ENV"] = "production"
     process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://example.com/"
-    process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] = "public-myapp.vercel.app"
+    process.env["NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL"] =
+      "public-myapp.vercel.app"
     process.env["VERCEL_PROJECT_PRODUCTION_URL"] = "myapp.vercel.app"
-    expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://public-myapp.vercel.app")
+    expect(guessPotentiallyProxiedOrySdkUrl()).toBe(
+      "https://public-myapp.vercel.app",
+    )
   })
 
   it("should ignore VERCEL_PROJECT_PRODUCTION_URL in production for non-vercel.app domains", () => {
