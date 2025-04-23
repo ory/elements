@@ -779,9 +779,8 @@
               "text": "declare function messageTestId(message: "
             },
             {
-              "kind": "Reference",
-              "text": "UiText",
-              "canonicalReference": "@ory/client-fetch!UiText:interface"
+              "kind": "Content",
+              "text": "{\n    id: number | string;\n}"
             },
             {
               "kind": "Content",
