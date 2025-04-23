@@ -67,7 +67,7 @@ export type CardHeaderTextOptions =
 export function useCardHeaderText(
   container: UiContainer,
   opts: CardHeaderTextOptions,
-): { title: string; description: string } {
+): { title: string; description: string; messageId?: string } {
   const nodes = container.nodes
   const intl = useIntl()
   switch (opts.flowType) {
@@ -85,6 +85,7 @@ export function useCardHeaderText(
           description: intl.formatMessage({
             id: "identities.messages.1060003",
           }),
+          messageId: "1060003",
         }
       }
       return {
@@ -118,6 +119,7 @@ export function useCardHeaderText(
           description: intl.formatMessage({
             id: "identities.messages.1080003",
           }),
+          messageId: "1080003",
         }
       }
       return {
@@ -144,6 +146,7 @@ export function useCardHeaderText(
             },
             accountLinkingMessage.context as Record<string, string>,
           ),
+          messageId: "1010016",
         }
       }
     }

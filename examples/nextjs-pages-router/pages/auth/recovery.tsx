@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 "use client"
-import { Recovery } from "@ory/elements-react/theme"
+import { DefaultCardLayout, Recovery } from "@ory/elements-react/theme"
 import { useRecoveryFlow } from "@ory/nextjs/pages"
 import { enhanceOryConfig } from "@ory/nextjs"
 import "@ory/elements-react/theme/styles.css"
@@ -16,7 +16,7 @@ export default function RecoveryPage() {
   }
 
   return (
-    <div className="pt-4">
+    <DefaultCardLayout>
       <Recovery
         flow={flow}
         config={enhanceOryConfig(config)}
@@ -24,6 +24,6 @@ export default function RecoveryPage() {
           Card: {},
         }}
       />
-    </div>
+    </DefaultCardLayout>
   )
 }
