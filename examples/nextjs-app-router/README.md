@@ -9,16 +9,29 @@ router.
    endpoints** URL
 4. Set `NEXT_PUBLIC_ORY_SDK_URL` in the `.env` file to your project's **API
    endpoints** URL
-5. Run `npm install`
-6. Run `npm run dev` and open navigate to http://localhost:3000
+5. Set `ORY_PROJECT_API_TOKEN` in the `.env` file to your project's **API
+   token**. You can create an
+   [API key in the Ory Console](https://www.ory.sh/docs/concepts/personal-access-token).
+6. Run `npm install`
+7. Run `npm run dev` and open navigate to http://localhost:3000
 
 <!-- prettier-ignore-start -->
 > [!WARNING]
-> For convenience Ory provides a default "playground" project, that
+> For convenience Ory provides a default "test" project, that
 > can be used to interact with Ory's APIs. It is a public project, that can be
 > used by anyone and data can be deleted at any time. Make sure to use a
 > dedicated project.
 <!-- prettier-ignore-end -->
+
+### Deploying to Vercel
+
+To successfully deploy to Vercel, you need to set the following environment
+variables in your Vercel project:
+
+- `NEXT_PUBLIC_ORY_SDK_URL` - The URL of your Ory project. This is the same URL
+  you set in your `.env` file.
+- `ORY_PROJECT_API_TOKEN` - The API token for your Ory project. This should be a
+  dedicated key for production.
 
 ## Features
 
