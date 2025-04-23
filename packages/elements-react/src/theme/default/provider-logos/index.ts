@@ -5,7 +5,6 @@ import apple from "./apple.svg"
 import auth0 from "./auth0.svg"
 import discord from "./discord.svg"
 import facebook from "./facebook.svg"
-import generic from "./generic.svg"
 import github from "./github.svg"
 import gitlab from "./gitlab.svg"
 import google from "./google.svg"
@@ -21,7 +20,6 @@ const logos: Record<string, typeof apple> = {
   auth0,
   discord,
   facebook,
-  generic,
   github,
   gitlab,
   google,
