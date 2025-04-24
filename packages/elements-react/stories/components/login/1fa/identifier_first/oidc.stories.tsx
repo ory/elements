@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Meta, StoryObj } from "@storybook/react"
-import { LoginFlowFromJSON, UiNodeGroupEnum } from "@ory/client-fetch"
+import { LoginFlowFromJSON } from "@ory/client-fetch"
 import { Login } from "../../../../../src/theme/default"
-import { config, listOnlyGroups, listOnlySsoProviders } from "../../../../utils"
+import { config, listOnlySsoProviders } from "../../../../utils"
 
 const meta = {
   title: "Ory Elements/Login/First Factor/Identifier First/OIDC",

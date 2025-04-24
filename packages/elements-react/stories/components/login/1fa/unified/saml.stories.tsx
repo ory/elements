@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { LoginFlow, LoginFlowFromJSON } from "@ory/client-fetch"
+import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 import { config, listOnlySsoProviders } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"

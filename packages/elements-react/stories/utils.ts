@@ -7,7 +7,6 @@ import {
   LoginFlowFromJSON,
   RegistrationFlow,
   SettingsFlow,
-  UiNode,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
 import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"

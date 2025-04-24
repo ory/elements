@@ -1,35 +1,14 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  LoginFlow,
-  LoginFlowFromJSON,
-  UiNodeGroupEnum,
-} from "@ory/client-fetch"
+import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { config, listOnlyGroups, listOnlySsoProviders } from "../../../../utils"
+import { config, listOnlySsoProviders } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const oidcNodes = LoginFlowFromJSON(
   require("$snapshots/login/1fa/unified/oidc/with-password/initial-form.json"),
 )
-
-const providers = [
-  "apple",
-  "auth0",
-  "discord",
-  "facebook",
-  "generic",
-  "github",
-  "gitlab",
-  "google",
-  "linkedin",
-  "microsoft",
-  "slack",
-  "spotify",
-  "yandex",
-  "x",
-]
 
 const meta = {
   title: "Ory Elements/Login/First Factor/Unified/OIDC",
