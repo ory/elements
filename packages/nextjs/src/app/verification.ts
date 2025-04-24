@@ -44,6 +44,7 @@ import { OryConfigForNextJS } from "../utils/config"
  *
  * @param config - The Ory configuration object.
  * @param params - The query parameters of the request.
+ * @public
  */
 export async function getVerificationFlow(
   config: OryConfigForNextJS,

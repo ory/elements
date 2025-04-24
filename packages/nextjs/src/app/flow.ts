@@ -23,6 +23,7 @@ import { rewriteJsonResponse } from "../utils/rewrite"
  * @param baseUrl - The base URL of the application.
  * @param route - The route of the application.
  * @param options - Additional options.
+ * @public
  */
 export async function getFlowFactory<T extends object>(
   params: QueryParams,

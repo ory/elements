@@ -5,6 +5,12 @@ import { clientSideFrontendClient } from "./client"
 import { createUseFlowFactory } from "./flow"
 import { FlowType } from "@ory/client-fetch"
 
+/**
+ * A client side hook to create a recovery flow.
+ *
+ * @returns A recovery flow
+ * @public
+ */
 export const useRecoveryFlow = createUseFlowFactory(
   FlowType.Recovery,
   (params: URLSearchParams) => {
