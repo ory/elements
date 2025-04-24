@@ -8,6 +8,7 @@ import { OryCard } from "./card"
 import { OryCardContent } from "./content"
 import { OryCardFooter } from "./footer"
 import { OryCardHeader } from "./header"
+import { getNodeId } from "@ory/client-fetch/src/contrib/ui"
 
 export function OryConsentCard() {
   const { Form, Card } = useComponents()
@@ -20,7 +21,7 @@ export function OryConsentCard() {
           <Card.Divider />
           <Form.Group>
             {flow.flow.ui.nodes.map((node, k) => (
-              <Node key={k} node={node} />
+              <Node key={getNodeId(node)} node={node} />
             ))}
           </Form.Group>
           <Card.Divider />
