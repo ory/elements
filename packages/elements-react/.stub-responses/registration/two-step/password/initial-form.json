@@ -1,11 +1,11 @@
 {
-  "id": "e28537fe-bb6f-47ef-8d87-34f20462a497",
+  "id": "2173b1eb-cfb4-40bb-8eed-8baa17d3e355",
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:14.531611503Z",
-  "issued_at": "2025-04-22T08:51:14.531611503Z",
-  "request_url": "https://practical-einstein-jmln62yip7.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:08:04.406359109Z",
+  "issued_at": "2025-04-24T15:08:04.406359109Z",
+  "request_url": "https://elated-heisenberg-bpzaggn687.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://practical-einstein-jmln62yip7.projects.oryapis:8080/self-service/registration?flow=e28537fe-bb6f-47ef-8d87-34f20462a497",
+    "action": "https://elated-heisenberg-bpzaggn687.projects.oryapis:8080/self-service/registration?flow=2173b1eb-cfb4-40bb-8eed-8baa17d3e355",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "jT7ShoKQ7LfD8/oKNRPVLF/LfDLoWz+3MarR9BE44kjgWHJy+gFPMmby1YdJ1JXzg3mm8/vXyM4qzLV/qhV77A==",
+          "value": "3g92LNDQHXzSNKRslH5FeTSB6rPRia8XDW9uY9wgE35zynZ0MeVgnKSn+vt1qZqwiz7obvb+BM8KjEZ0Tb5t4Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"

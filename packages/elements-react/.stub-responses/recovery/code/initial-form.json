@@ -1,12 +1,12 @@
 {
-  "id": "1d263110-501d-46e4-8917-8733d725a926",
+  "id": "2ddbd386-5738-4ea1-a2b1-2dc26199a3f7",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:37.970965722Z",
-  "issued_at": "2025-04-22T08:50:37.970965722Z",
-  "request_url": "https://suspicious-hellman-92bfcq4oex.projects.oryapis:8080/self-service/recovery/browser",
+  "expires_at": "2025-04-24T16:07:01.616434766Z",
+  "issued_at": "2025-04-24T15:07:01.616434766Z",
+  "request_url": "https://admiring-shamir-4crn8fvz1q.projects.oryapis:8080/self-service/recovery/browser",
   "active": "code",
   "ui": {
-    "action": "https://suspicious-hellman-92bfcq4oex.projects.oryapis:8080/self-service/recovery?flow=1d263110-501d-46e4-8917-8733d725a926",
+    "action": "https://admiring-shamir-4crn8fvz1q.projects.oryapis:8080/self-service/recovery?flow=2ddbd386-5738-4ea1-a2b1-2dc26199a3f7",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "HKJa7CEp4xIxH6q6kATiysVPbuiV+zlZpUlqgcExBIOkT3RvyLvSDvXBuTuRRZHf00ynHuQDB7IFzJJUWllNgw==",
+          "value": "ObWC8y4fg9MmjZbRZ3uUFl0SNkxzbXf38YXGye9m6kHJNDBKWVlBAEX5LrAXcWuKb+1LIUoNiNwLqPjtrficTQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

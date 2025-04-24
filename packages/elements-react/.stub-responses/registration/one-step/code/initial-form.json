@@ -1,11 +1,11 @@
 {
-  "id": "c7ddf611-c4ad-4e08-9bf2-e9a45f8d755e",
+  "id": "436bd866-5773-4eca-bd08-5d720eb10bcb",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:32.163357178Z",
-  "issued_at": "2025-04-22T08:50:32.163357178Z",
-  "request_url": "https://amazing-taussig-ynt7ptrcum.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:06:53.808488751Z",
+  "issued_at": "2025-04-24T15:06:53.808488751Z",
+  "request_url": "https://exciting-goldstine-ztcyzikos3.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://amazing-taussig-ynt7ptrcum.projects.oryapis:8080/self-service/registration?flow=c7ddf611-c4ad-4e08-9bf2-e9a45f8d755e",
+    "action": "https://exciting-goldstine-ztcyzikos3.projects.oryapis:8080/self-service/registration?flow=436bd866-5773-4eca-bd08-5d720eb10bcb",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "sGubZpQtjczgvgrwvPPw7AH4bTUcDpd9Si/OsY5QrhxHKUEG0Iz7P9BKVgtp51h2B4A82FWQ9WSsYIUPfKQEUQ==",
+          "value": "0yW54dFHSkBlPwboB2bWlZJNA02NmssQr+rw1hZa3W5rpoG/6J/zWqz2+mgDc04DQ8JQENf6ojcqqZTpsSkqBQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

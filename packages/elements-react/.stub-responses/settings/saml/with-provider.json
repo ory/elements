@@ -1,11 +1,11 @@
 {
-  "id": "e945159b-1093-4937-af1a-5277e10e29a3",
+  "id": "0907f6e0-ab67-4199-8262-ff7389e0133d",
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:25.653602175Z",
-  "issued_at": "2025-04-22T08:51:25.653602175Z",
-  "request_url": "https://heuristic-solomon-kyg1v9se68.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-04-24T16:08:20.887938657Z",
+  "issued_at": "2025-04-24T15:08:20.887938657Z",
+  "request_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://heuristic-solomon-kyg1v9se68.projects.oryapis:8080/self-service/settings?flow=e945159b-1093-4937-af1a-5277e10e29a3",
+    "action": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/settings?flow=0907f6e0-ab67-4199-8262-ff7389e0133d",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "z1HRrqo2NlMcrrf1MY4LEBADg1F4iSJnwhgEa9/iaEZQL/Lsz4F6T0mjvwyYcjfIpODSVxo5lPy3vUEkDvxT1g==",
+          "value": "4opGo8udqwLExzXylC6M7dQna4fyrBWB09LJM7xilKFfvOTr/ABvK8cjUlNXq8oTztgJ3IVFPvpj4F5kaSQi/Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.eywvle5ti50.39sabb4txnt@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -302,38 +302,38 @@
     ]
   },
   "identity": {
-    "id": "c2e74479-ddb0-4400-a3ec-55a0999422df",
+    "id": "bb0d16d1-6a72-435c-a6a6-34644ee4d273",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://heuristic-solomon-kyg1v9se68.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-22T08:51:25.071822Z",
+    "state_changed_at": "2025-04-24T15:08:19.699644Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.eywvle5ti50.39sabb4txnt@ory.dev"
+      "email": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "b60defcb-ae1f-4477-adfc-e3130c459432",
-        "value": "dev+orycye2eda2f162daf6142dd0.eywvle5ti50.39sabb4txnt@ory.dev",
+        "id": "93087418-2d04-4f58-a25a-1f3f32892bbf",
+        "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
         "verified": true,
         "via": "email",
         "status": "completed",
-        "verified_at": "2025-04-22T08:51:25.074173Z",
-        "created_at": "2025-04-22T08:51:25.074208Z",
-        "updated_at": "2025-04-22T08:51:25.074208Z"
+        "verified_at": "2025-04-24T15:08:19.712118Z",
+        "created_at": "2025-04-24T15:08:19.712192Z",
+        "updated_at": "2025-04-24T15:08:19.712192Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "34e55c66-e7ec-40b8-bf19-54ae2317cfa9",
-        "value": "dev+orycye2eda2f162daf6142dd0.eywvle5ti50.39sabb4txnt@ory.dev",
+        "id": "9277012f-abb0-4ac5-afcc-72f67f57e315",
+        "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
         "via": "email",
-        "created_at": "2025-04-22T08:51:25.07703Z",
-        "updated_at": "2025-04-22T08:51:25.07703Z"
+        "created_at": "2025-04-24T15:08:19.731748Z",
+        "updated_at": "2025-04-24T15:08:19.731748Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-22T08:51:25.072603Z",
-    "updated_at": "2025-04-22T08:51:25.072603Z",
+    "created_at": "2025-04-24T15:08:19.701872Z",
+    "updated_at": "2025-04-24T15:08:19.701872Z",
     "organization_id": null
   },
   "state": "show_form"

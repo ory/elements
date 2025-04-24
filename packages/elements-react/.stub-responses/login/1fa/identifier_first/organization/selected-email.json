@@ -1,13 +1,13 @@
 {
-  "id": "e106b572-097f-442a-9082-581ef8eb62cb",
-  "organization_id": "c256d562-e468-4b06-a3a8-6c39db5af2bc",
+  "id": "575d21b2-ca8d-4680-8d98-776253f8baa3",
+  "organization_id": "bd71bcf6-6de8-49a3-b678-7495b6cfeaab",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:59.310999Z",
-  "issued_at": "2025-04-22T08:50:59.310999Z",
-  "request_url": "https://laughing-haslett-pzxawhiyek.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:56.267954Z",
+  "issued_at": "2025-04-24T15:07:56.267954Z",
+  "request_url": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://laughing-haslett-pzxawhiyek.projects.oryapis:8080/self-service/login?flow=e106b572-097f-442a-9082-581ef8eb62cb",
+    "action": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login?flow=575d21b2-ca8d-4680-8d98-776253f8baa3",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.l3xv34q1x40.0v28n3g9sgee@example.com",
+          "value": "dev+orycye2eda2f162daf6142dd0.r6pjh0wrut0.ecs1475c7fn@example.com",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "7E3CXFlkLg1Nt46mAJfp5sPpvD2gSvb2SrBmtz4yysQ8Xv+BJFWQlvu2vjHW4Jzs3kvLZk1i0pR5co4rbQI8Jg==",
+          "value": "hdDdrUesbM2XIh86Xi5JEwuunYfPdLXhbw7wsHJeUWlHZEUx4n6qXbJLckWOSvJ5HbZUvI4TRJ1FqcUWTUChfg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -96,8 +96,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:59.312889Z",
-  "updated_at": "2025-04-22T08:50:59.312889Z",
+  "created_at": "2025-04-24T15:07:56.272645Z",
+  "updated_at": "2025-04-24T15:07:56.272645Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

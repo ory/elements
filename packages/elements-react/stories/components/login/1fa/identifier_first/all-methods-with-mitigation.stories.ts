@@ -11,7 +11,7 @@ import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 const meta = {
   title:
-    "Ory Elements/Login/First Factor/Identifier First/All Methods/Account Enumeration Mitigation/On",
+    "Ory Elements/Login/First Factor/Identifier First/All Methods/Account Enumeration Mitigation On",
   component: Login,
   parameters: {
     layout: "centered",

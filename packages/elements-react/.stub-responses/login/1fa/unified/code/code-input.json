@@ -1,13 +1,13 @@
 {
-  "id": "40144641-85d4-470b-8f61-8401d1bcf8c0",
+  "id": "ff9fd2de-9a15-4b1c-a434-aa52ca8338d2",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:32.375989Z",
-  "issued_at": "2025-04-22T08:50:32.375989Z",
-  "request_url": "https://loving-carver-vnp81g34z8.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:00.033955Z",
+  "issued_at": "2025-04-24T15:07:00.033955Z",
+  "request_url": "https://friendly-noyce-2wkhxxbhnq.projects.oryapis:8080/self-service/login/browser",
   "active": "code",
   "ui": {
-    "action": "https://loving-carver-vnp81g34z8.projects.oryapis:8080/self-service/login?flow=40144641-85d4-470b-8f61-8401d1bcf8c0",
+    "action": "https://friendly-noyce-2wkhxxbhnq.projects.oryapis:8080/self-service/login?flow=ff9fd2de-9a15-4b1c-a434-aa52ca8338d2",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.t2yk31zrzgr0.rk47oa9oe29@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.ijqv02nzr30.9bko5va3ehd@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -110,7 +110,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "FogTna9LdJi2+34x6J2SR0GLn5z0W7YZEoU8gH5MSdjmWAe1PU7XRtjTDg5tfGE0BF9rW0r4Qg83oRUpsbOHAA==",
+          "value": "Dno1hH0XfQ6Jgv55CsKKkfZ+WRnryCwBZfWp3Bu5Jm12KxgLgo2uD/W+hCNOuX3vkJ8a7LpRhoemrjHb2ppvYw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -127,8 +127,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:32.377744Z",
-  "updated_at": "2025-04-22T08:50:32.377744Z",
+  "created_at": "2025-04-24T15:07:00.038594Z",
+  "updated_at": "2025-04-24T15:07:00.038594Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "sent_email",

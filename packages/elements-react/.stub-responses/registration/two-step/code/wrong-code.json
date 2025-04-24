@@ -1,12 +1,12 @@
 {
-  "id": "ac4ac1bb-acb6-43e7-a9dd-05591e7886a5",
+  "id": "d7d7d01b-ee6f-41f7-89b1-bc1bd6bbf9fb",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:32.615423Z",
-  "issued_at": "2025-04-22T08:50:32.615423Z",
-  "request_url": "https://amazing-jennings-ijfucrk5zb.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:06:53.430883Z",
+  "issued_at": "2025-04-24T15:06:53.430883Z",
+  "request_url": "https://peaceful-merkle-yezuv0j4a8.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://amazing-jennings-ijfucrk5zb.projects.oryapis:8080/self-service/registration?flow=ac4ac1bb-acb6-43e7-a9dd-05591e7886a5",
+    "action": "https://peaceful-merkle-yezuv0j4a8.projects.oryapis:8080/self-service/registration?flow=d7d7d01b-ee6f-41f7-89b1-bc1bd6bbf9fb",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "I+i9fZo9NhFiUaoM1qa+EGD4S27H0RZbi0QY69lrAlpyCzDR/IOauE9wAq6tPiXt1eThAdPNnLXyT+JIGUYEsg==",
+          "value": "evL5qf5ZcoWXcLTYNr5PwY7mz2DaCDAkhP+uwYyv5U8dLKvwu/1iYVFH8JQgs4mtPZoMR621DzowGee7lB2Csw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.poq0pn6tkj0.wflaca7the@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.sf9zpa4b040.yylgfgx01od@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

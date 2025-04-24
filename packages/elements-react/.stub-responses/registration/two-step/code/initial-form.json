@@ -1,11 +1,11 @@
 {
-  "id": "ac4ac1bb-acb6-43e7-a9dd-05591e7886a5",
+  "id": "d7d7d01b-ee6f-41f7-89b1-bc1bd6bbf9fb",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:32.615423095Z",
-  "issued_at": "2025-04-22T08:50:32.615423095Z",
-  "request_url": "https://amazing-jennings-ijfucrk5zb.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:06:53.430883769Z",
+  "issued_at": "2025-04-24T15:06:53.430883769Z",
+  "request_url": "https://peaceful-merkle-yezuv0j4a8.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://amazing-jennings-ijfucrk5zb.projects.oryapis:8080/self-service/registration?flow=ac4ac1bb-acb6-43e7-a9dd-05591e7886a5",
+    "action": "https://peaceful-merkle-yezuv0j4a8.projects.oryapis:8080/self-service/registration?flow=d7d7d01b-ee6f-41f7-89b1-bc1bd6bbf9fb",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "HCOmH/3cgh9tMSomrmWbQGUh8xCKPTslesgK+JElmYJNwCuzm2IutkAQgoTV/QC90D1Zf54hscsDw/BbUQifag==",
+          "value": "3fxyGTvAHeQ1Mm9hDS3BEQupcWgLK/ND2KqJjLpFgEK6IiBAfmQNAPMFKy0bIAd9uNWyT3yWzF1sTMD2ovfnvg==",
           "required": true,
           "disabled": false,
           "node_type": "input"

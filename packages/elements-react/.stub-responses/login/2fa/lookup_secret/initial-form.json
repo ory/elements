@@ -1,12 +1,12 @@
 {
-  "id": "c2f762f8-9a40-4ea0-a2ea-bb4e7e455b01",
+  "id": "87641359-9446-447f-966c-a16cfd3b1ec3",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:47.996299713Z",
-  "issued_at": "2025-04-22T08:50:47.996299713Z",
-  "request_url": "https://agitated-volhard-9s9caqely0.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "2025-04-24T16:07:24.749972735Z",
+  "issued_at": "2025-04-24T15:07:24.749972735Z",
+  "request_url": "https://interesting-matsumoto-rtn24sywku.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "ui": {
-    "action": "https://agitated-volhard-9s9caqely0.projects.oryapis:8080/self-service/login?flow=c2f762f8-9a40-4ea0-a2ea-bb4e7e455b01",
+    "action": "https://interesting-matsumoto-rtn24sywku.projects.oryapis:8080/self-service/login?flow=87641359-9446-447f-966c-a16cfd3b1ec3",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "auO8LU+1z1GkK1J6wj1Wn6I9VmpjK8N/MXzMvVFnAOR9s/F/W+hVTuqDDb5r2UozNT2/nUUQjJgSDqVItI2lIw==",
+          "value": "7MVbhJoroWYTh/I+wqksuW9zN8LAygtWscgvIYJyykdkTbEk5/Bp/qw4mSUcM2g646/QvlhxBxJWoFlUtTMIWg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -71,8 +71,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:48.008485Z",
-  "updated_at": "2025-04-22T08:50:48.008485Z",
+  "created_at": "2025-04-24T15:07:24.815075Z",
+  "updated_at": "2025-04-24T15:07:24.815075Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "choose_method"

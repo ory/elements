@@ -1,12 +1,12 @@
 {
-  "id": "e09f0e6a-de36-4ad7-b812-a9f08e0e5c67",
+  "id": "a7a3ff89-75be-4296-814d-05faaca1e3af",
   "type": "browser",
-  "expires_at": "2025-04-22T10:19:57.555197Z",
-  "issued_at": "2025-04-22T09:19:57.555197Z",
-  "request_url": "https://distracted-lewin-6dw9recxdx.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:07:19.485411Z",
+  "issued_at": "2025-04-24T15:07:19.485411Z",
+  "request_url": "https://friendly-poitras-0nngd5ruob.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://distracted-lewin-6dw9recxdx.projects.oryapis:8080/self-service/registration?flow=e09f0e6a-de36-4ad7-b812-a9f08e0e5c67",
+    "action": "https://friendly-poitras-0nngd5ruob.projects.oryapis:8080/self-service/registration?flow=a7a3ff89-75be-4296-814d-05faaca1e3af",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "QuTOIlkoQ13yoJB4dB3cmMohAy8Xem38AEJrdOOhEYgcYkktdEQIpvPqvu87DEJCI2Erm9VIxzHZOEFfD86csw==",
+          "value": "oBHjuuO+s5U53FSTLeR6qG3BmAs+Mn2WXs58tutgR0V2eBsisMTyJmKA3tR0LqjRmCOWRRKfm57fafsKceHEcw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.vblkdljdwnn0.nf6dtqylyr@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.inkvcbyune0.ui8qzlgtebh@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

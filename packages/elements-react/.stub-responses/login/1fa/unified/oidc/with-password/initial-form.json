@@ -1,12 +1,12 @@
 {
-  "id": "6b063c89-8533-48e7-bae8-9e2e0fcbcb7f",
+  "id": "eb3601a6-2fa5-4c1d-b8b3-18f33428bd02",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T12:12:12.876881376Z",
-  "issued_at": "2025-04-22T11:12:12.876881376Z",
-  "request_url": "https://relaxed-hoover-mo81obqylb.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:45.847952332Z",
+  "issued_at": "2025-04-24T15:07:45.847952332Z",
+  "request_url": "https://dazzling-archimedes-acrfnu87jx.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://relaxed-hoover-mo81obqylb.projects.oryapis:8080/self-service/login?flow=6b063c89-8533-48e7-bae8-9e2e0fcbcb7f",
+    "action": "https://dazzling-archimedes-acrfnu87jx.projects.oryapis:8080/self-service/login?flow=eb3601a6-2fa5-4c1d-b8b3-18f33428bd02",
     "method": "POST",
     "nodes": [
       {
@@ -199,7 +199,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "AdkX1+0IHvBIxbQSEIkDzquP5CAOtAGXqHVLpKCT4c0iUMygXhpgtC3vn7nHox6zZD+68gFtcHmQ3LR7Ey9pZw==",
+          "value": "cRzd53izY4czhaWu7IKP0K7z9+j8pGOa8xFgKwD7xv5QAY7WP8QFjpshqhakr2PkSh8MP/RzEImV2PZ5ABmOPQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -271,8 +271,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T11:12:12.879176Z",
-  "updated_at": "2025-04-22T11:12:12.879176Z",
+  "created_at": "2025-04-24T15:07:45.854703Z",
+  "updated_at": "2025-04-24T15:07:45.854703Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

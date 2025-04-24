@@ -1,11 +1,11 @@
 {
-  "id": "34a17015-14a5-42dc-8917-d28545ab8427",
+  "id": "3b36cf69-8a1c-4c5d-92db-9e2474752c2a",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:50.968540131Z",
-  "issued_at": "2025-04-22T08:50:50.968540131Z",
-  "request_url": "https://distracted-goldberg-kcx13ysyg6.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:07:23.901046442Z",
+  "issued_at": "2025-04-24T15:07:23.901046442Z",
+  "request_url": "https://determined-feistel-jon0r4d6jf.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://distracted-goldberg-kcx13ysyg6.projects.oryapis:8080/self-service/registration?flow=34a17015-14a5-42dc-8917-d28545ab8427",
+    "action": "https://determined-feistel-jon0r4d6jf.projects.oryapis:8080/self-service/registration?flow=3b36cf69-8a1c-4c5d-92db-9e2474752c2a",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "+3R3tSzcDCq0/4G6gJuRnWEBY4vfEG0572z83g4A1FEOy9PG3iAfTaiDpV7Dy7MNT/FhUNmR4p0t1qkrfxEx2Q==",
+          "value": "7yG76E0fr7xA8kB/P4qlZpiFRZUcWWbY2H/0KOlSsgS+ZEy7s39WNmW+PfFkf+jUH5LGZLVC7twxGwrjkKKGJw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

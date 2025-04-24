@@ -1,12 +1,12 @@
 {
-  "id": "7c713c40-da4b-40c9-bdf0-d81ff3d47756",
+  "id": "8d3c0772-ec05-44f3-9309-fc66d6f11cd0",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:37.355567263Z",
-  "issued_at": "2025-04-22T08:50:37.355567263Z",
-  "request_url": "https://exciting-diffie-ogdytwrr3m.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:00.356183878Z",
+  "issued_at": "2025-04-24T15:07:00.356183878Z",
+  "request_url": "https://sad-bartik-barzr8dh86.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://exciting-diffie-ogdytwrr3m.projects.oryapis:8080/self-service/login?flow=7c713c40-da4b-40c9-bdf0-d81ff3d47756",
+    "action": "https://sad-bartik-barzr8dh86.projects.oryapis:8080/self-service/login?flow=8d3c0772-ec05-44f3-9309-fc66d6f11cd0",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Q6UCfBT3+bapGXAmCpxzpwE/3GOqAQFprrVhPi3sEenKkmCBY+M5ZJTlibBbrMT3jLIuDG8mGdgtmGPf0VSLLg==",
+          "value": "6c9bplRl4I2aQ9AptXEFO6Iaqv2QHJZ7Jcf8z5eN00yMqd14AczwCFhLmQuY5Jhn+OMRS8PARoIK3K6oHHimyA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:37.357475Z",
-  "updated_at": "2025-04-22T08:50:37.357475Z",
+  "created_at": "2025-04-24T15:07:00.360555Z",
+  "updated_at": "2025-04-24T15:07:00.360555Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

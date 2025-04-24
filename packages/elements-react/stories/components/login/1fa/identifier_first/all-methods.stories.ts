@@ -7,7 +7,7 @@ import { config } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
 const meta = {
-  title: "Ory Elements/Login/First Factor/Identifier First/All Methods/General",
+  title: "Ory Elements/Login/First Factor/Identifier First/All Methods",
   component: Login,
   parameters: {
     layout: "centered",

@@ -1,12 +1,12 @@
 {
-  "id": "e106b572-097f-442a-9082-581ef8eb62cb",
+  "id": "575d21b2-ca8d-4680-8d98-776253f8baa3",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:59.310999385Z",
-  "issued_at": "2025-04-22T08:50:59.310999385Z",
-  "request_url": "https://laughing-haslett-pzxawhiyek.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:56.267954852Z",
+  "issued_at": "2025-04-24T15:07:56.267954852Z",
+  "request_url": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://laughing-haslett-pzxawhiyek.projects.oryapis:8080/self-service/login?flow=e106b572-097f-442a-9082-581ef8eb62cb",
+    "action": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login?flow=575d21b2-ca8d-4680-8d98-776253f8baa3",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "vJ88nzOz0KXz46h29EGpi+2ISMrf0Fnxrwircyb52utsjAFCToJuPkXimOEiNtyB8Co/kTL4fZOcykPvdcksCQ==",
+          "value": "5dHptqdspQ48okm0sypn9azPjesfLq8hvm5XliZc1oAnZXEqAr5jnhnLJMtjTtyfutdE0F5JXl2UyWIwGUImlw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:59.312889Z",
-  "updated_at": "2025-04-22T08:50:59.312889Z",
+  "created_at": "2025-04-24T15:07:56.272645Z",
+  "updated_at": "2025-04-24T15:07:56.272645Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

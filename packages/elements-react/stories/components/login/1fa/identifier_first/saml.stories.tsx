@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { LoginFlow, LoginFlowFromJSON } from "@ory/client-fetch"
+import { LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 import { config, listOnlySsoProviders } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
@@ -66,7 +66,7 @@ export const FiveSamlButtons: Story = {
   },
 }
 
-export const AllGenericButton: Story = {
+export const AllButtons: Story = {
   args: {
     flow: samlNodes,
     config,
@@ -91,7 +91,7 @@ export const CredentialSelectWithMethodSelect: Story = {
   },
 }
 
-export const AllGenericButtonNoPassword: Story = {
+export const AllButtonsPasswordDisabled: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/login/1fa/identifier_first/saml/standalone/initial-form.json"),

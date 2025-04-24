@@ -97,7 +97,7 @@ export const SevenSocialButtons: Story = {
   },
 }
 
-export const AllGenericButton: Story = {
+export const AllButtons: Story = {
   args: {
     flow: LoginFlowFromJSON(oidcNodes),
     config,
@@ -122,7 +122,7 @@ export const CredentialSelectWithMethodSelect: Story = {
   },
 }
 
-export const AllGenericButtonNoPassword: Story = {
+export const AllButtonsPasswordDisabled: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/login/1fa/identifier_first/oidc/standalone/initial-form.json"),

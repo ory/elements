@@ -1,12 +1,12 @@
 {
-  "id": "fe1d184c-390b-4d72-81d7-f00a5e216e9d",
+  "id": "769685c1-238f-440a-8cbf-eefb95a42e58",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T12:18:24.301575257Z",
-  "issued_at": "2025-04-22T11:18:24.301575257Z",
-  "request_url": "https://focused-nobel-y5p3abagnq.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:08:14.617271678Z",
+  "issued_at": "2025-04-24T15:08:14.617271678Z",
+  "request_url": "https://recursing-aryabhata-pr1ddv2dld.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://focused-nobel-y5p3abagnq.projects.oryapis:8080/self-service/login?flow=fe1d184c-390b-4d72-81d7-f00a5e216e9d",
+    "action": "https://recursing-aryabhata-pr1ddv2dld.projects.oryapis:8080/self-service/login?flow=769685c1-238f-440a-8cbf-eefb95a42e58",
     "method": "POST",
     "nodes": [
       {
@@ -196,7 +196,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "DCCgHjX2tpDWZTDGpE1jKO7NQa31SUvGl34QC0h0daYr/rBV3+JKSwBOk9q+U6OpQY4Z4Ss1Ha8sKgx7nU3e5A==",
+          "value": "wFMLW6D00LxA2hPGMux0BCDCrOBbeoU1u8z6HP/rQ+krFDOg5Eu7roaqhRxEuCocq88tEh6eQYs7kLMHq2jhUA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -206,8 +206,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T11:18:24.304504Z",
-  "updated_at": "2025-04-22T11:18:24.304504Z",
+  "created_at": "2025-04-24T15:08:14.623971Z",
+  "updated_at": "2025-04-24T15:08:14.623971Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

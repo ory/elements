@@ -1,12 +1,12 @@
 {
-  "id": "dd120f10-f98f-4941-930b-b4503fd00363",
+  "id": "63aa5c94-0359-48ce-be81-0b61bcc51f6a",
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:38.026448472Z",
-  "issued_at": "2025-04-22T08:50:38.026448472Z",
-  "request_url": "https://frosty-mccarthy-t23ginr65a.projects.oryapis:8080/self-service/verification/browser",
+  "expires_at": "2025-04-24T16:07:01.892703888Z",
+  "issued_at": "2025-04-24T15:07:01.892703888Z",
+  "request_url": "https://festive-mendel-kt8mnsi1g0.projects.oryapis:8080/self-service/verification/browser",
   "active": "code",
   "ui": {
-    "action": "https://frosty-mccarthy-t23ginr65a.projects.oryapis:8080/self-service/verification?flow=dd120f10-f98f-4941-930b-b4503fd00363",
+    "action": "https://festive-mendel-kt8mnsi1g0.projects.oryapis:8080/self-service/verification?flow=63aa5c94-0359-48ce-be81-0b61bcc51f6a",
     "method": "POST",
     "nodes": [
       {
@@ -53,7 +53,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "rNcc0OC/KtH43kHvx/CReycwSn+9C1a/P8ZDFRmV7yz5rVKrwl/Y1UkxTCKdYu96fGX+lw5YiH2B5egYC2b5NA==",
+          "value": "rjYDLXYRa+W5acRgmqGhb4SMlq/A7Sx0QNOpEeSkx0a2ha0eT+n1PQrHRhLEyznh/l+eYzSL+ZSqBVtCno2cSg==",
           "required": true,
           "disabled": false,
           "node_type": "input"

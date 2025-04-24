@@ -1,12 +1,12 @@
 {
-  "id": "c9002fbc-85f6-4b9b-a46d-3ef4c943bac7",
+  "id": "a958165e-821a-4749-b98c-56e6df65cf17",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:09.704995209Z",
-  "issued_at": "2025-04-22T08:51:09.704995209Z",
-  "request_url": "https://wizardly-saha-ns8vzi4uzq.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:08:03.187779167Z",
+  "issued_at": "2025-04-24T15:08:03.187779167Z",
+  "request_url": "https://lucid-fermi-rqehcsehrn.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://wizardly-saha-ns8vzi4uzq.projects.oryapis:8080/self-service/login?flow=c9002fbc-85f6-4b9b-a46d-3ef4c943bac7",
+    "action": "https://lucid-fermi-rqehcsehrn.projects.oryapis:8080/self-service/login?flow=a958165e-821a-4749-b98c-56e6df65cf17",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "ajXvza9Xi53OS46ABDlPP3jwP4cOB6evYh7NaM9JoqnC0WOYkY2ghqRQz++j4DdRKL+GMh2P4x3akgbSaa7bsQ==",
+          "value": "6i9XROkSBDh7nvlqylT/+7554Q7R2w1GBZngOwMGuFcx4U6Xwen0lJQJsKKHXIwREYIS88Pkm88pe+nTSSHrsw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -87,8 +87,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:51:09.707003Z",
-  "updated_at": "2025-04-22T08:51:09.707003Z",
+  "created_at": "2025-04-24T15:08:03.192842Z",
+  "updated_at": "2025-04-24T15:08:03.192842Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

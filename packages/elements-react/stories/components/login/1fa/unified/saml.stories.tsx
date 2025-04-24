@@ -66,14 +66,14 @@ export const FiveSamlButtons: Story = {
   },
 }
 
-export const AllGenericButton: Story = {
+export const AllButtons: Story = {
   args: {
     flow: listOnlySsoProviders(samlNodes, "saml", providers),
     config,
   },
 }
 
-export const AllGenericButtonNoPassword: Story = {
+export const AllButtonsPasswordDisabled: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/login/1fa/unified/saml/standalone/initial-form.json"),

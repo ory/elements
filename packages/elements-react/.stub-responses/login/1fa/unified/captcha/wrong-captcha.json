@@ -1,12 +1,12 @@
 {
-  "id": "5cf2d5ca-3ea2-456f-9c32-a7d4df29240d",
+  "id": "327f63a8-7a0b-413a-9fdb-093e98918467",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:33.389107Z",
-  "issued_at": "2025-04-22T08:50:33.389107Z",
-  "request_url": "https://zen-wright-j15u7sbbty.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:06:55.436177Z",
+  "issued_at": "2025-04-24T15:06:55.436177Z",
+  "request_url": "https://magical-faraday-e3xhfh9djb.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://zen-wright-j15u7sbbty.projects.oryapis:8080/self-service/login?flow=5cf2d5ca-3ea2-456f-9c32-a7d4df29240d",
+    "action": "https://magical-faraday-e3xhfh9djb.projects.oryapis:8080/self-service/login?flow=327f63a8-7a0b-413a-9fdb-093e98918467",
     "method": "POST",
     "nodes": [
       {
@@ -33,7 +33,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "877f711f-c228-484e-9338-90b7f7c28e48",
+          "nonce": "5583e194-811f-4faf-906d-6382e4209b8d",
           "node_type": "script"
         },
         "messages": [],
@@ -65,7 +65,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "40318a5e-9315-439e-962c-cdcbc4114d39",
+          "nonce": "9d634c69-2e7e-460d-8a29-0213d8312957",
           "node_type": "script"
         },
         "messages": [],
@@ -90,7 +90,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "1cHqAhxP798XIpvQ9R6wNiDRtov5NUTFtxCEBo6ZCmrp+RfR4s9P+MW/PYHfL4K9VAQ7k4lyXsuuU4AkvQV/XQ==",
+          "value": "SS4yDZG2JdjpmLDPM/gO/1MierpTAqR+vFPVqqd4xAtBuR9XqWDAsJ1lzk+YrQI+SSmWTj03/0wgHj+K8I6GlQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -126,14 +126,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://zen-wright-j15u7sbbty.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://magical-faraday-e3xhfh9djb.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "d45ba8dd-7bbc-4cef-9baf-e6df3381d43a",
+          "nonce": "4f0fe22a-a69e-4ead-90b1-e0a7cf9206f9",
           "node_type": "script"
         },
         "messages": [],
@@ -180,7 +180,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"xL1A_PLoM7n5MbD2xkzjT1tWQB05kwRx_SZPgmW4P0g\",\"timeout\":300000,\"rpId\":\"zen-wright-j15u7sbbty.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"0eaidHa_qrO2XrvpCNGI8R2mdp7hwLD3498MImxGtmk\",\"timeout\":300000,\"rpId\":\"magical-faraday-e3xhfh9djb.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -235,8 +235,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:33.391674Z",
-  "updated_at": "2025-04-22T08:50:33.391674Z",
+  "created_at": "2025-04-24T15:06:55.444153Z",
+  "updated_at": "2025-04-24T15:06:55.444153Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

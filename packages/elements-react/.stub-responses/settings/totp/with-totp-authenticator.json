@@ -1,11 +1,11 @@
 {
-  "id": "896010cb-7c8d-45bf-8c79-20a94a909367",
+  "id": "5c6444c4-8b49-47eb-ad6e-058716a67fae",
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:19.993594Z",
-  "issued_at": "2025-04-22T08:51:19.993594Z",
-  "request_url": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-04-24T16:08:23.900334Z",
+  "issued_at": "2025-04-24T15:08:23.900334Z",
+  "request_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/self-service/settings?flow=cf7cbc1b-cf40-4dc9-87d5-898662d27a21",
+    "action": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/settings?flow=996ddc7f-c3f3-4bd1-b304-a405d489aaa0",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "dlVw1+VXIgEgcx2E06GpH7oypdhoaEFd0nICOfZ/YIjPdwGPth05oNb78FSdxDpT7UCPMZmgdA9RWY7PzEoBHA==",
+          "value": "oW4bXMH+bI+IODlwgVmkLb6ekTgjv4dybu2oUhdz6qWU8vkpaInKyDfeELSzLOuO/ZQEAtDVXeuNd9H5DKa92w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -197,45 +197,45 @@
     ]
   },
   "identity": {
-    "id": "ecaeb2fc-49b4-46b9-9f5e-269126eed34b",
+    "id": "99ebc729-6ee2-433f-92d2-31ba51c3a266",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-22T08:51:18.806093Z",
+    "state_changed_at": "2025-04-24T15:08:22.484094Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "83314ce7-1f13-4f49-a3c0-8b4e53ac8a74",
-        "value": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
+        "id": "c9549dee-c8a8-4c78-a92b-77c334cdfa67",
+        "value": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-04-22T08:51:18.808115Z",
-        "updated_at": "2025-04-22T08:51:18.808115Z"
+        "created_at": "2025-04-24T15:08:22.496947Z",
+        "updated_at": "2025-04-24T15:08:22.496947Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "0e984f34-9b66-496c-b835-d44d2b6ca702",
-        "value": "dev+orycye2eda2f162daf6142dd0.f5djxxk7fvt0.nbjje1sinr8@ory.dev",
+        "id": "f5f59980-f5fd-43fa-b9f8-c5442dd3b45c",
+        "value": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
         "via": "email",
-        "created_at": "2025-04-22T08:51:18.811472Z",
-        "updated_at": "2025-04-22T08:51:18.811472Z"
+        "created_at": "2025-04-24T15:08:22.5142Z",
+        "updated_at": "2025-04-24T15:08:22.5142Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-22T08:51:18.8068Z",
-    "updated_at": "2025-04-22T08:51:20.582323Z",
+    "created_at": "2025-04-24T15:08:22.486723Z",
+    "updated_at": "2025-04-24T15:08:24.646284Z",
     "organization_id": null
   },
   "state": "success",
   "continue_with": [
     {
       "action": "redirect_browser_to",
-      "redirect_browser_to": "https://charming-cerf-h910zai4ph.projects.oryapis:8080/ui/settings?flow=896010cb-7c8d-45bf-8c79-20a94a909367"
+      "redirect_browser_to": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/ui/settings?flow=5c6444c4-8b49-47eb-ad6e-058716a67fae"
     }
   ]
 }

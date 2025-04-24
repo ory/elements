@@ -1,11 +1,11 @@
 {
-  "id": "0f7e2d30-fc4d-4abf-ac7d-bef00d380510",
+  "id": "474667c1-357f-48e0-b19c-eb14d7709e61",
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:24.574199341Z",
-  "issued_at": "2025-04-22T08:51:24.574199341Z",
-  "request_url": "https://great-fermi-x6ys7849t7.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:08:19.265906089Z",
+  "issued_at": "2025-04-24T15:08:19.265906089Z",
+  "request_url": "https://intelligent-lovelace-emmun1w06r.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://great-fermi-x6ys7849t7.projects.oryapis:8080/self-service/registration?flow=0f7e2d30-fc4d-4abf-ac7d-bef00d380510",
+    "action": "https://intelligent-lovelace-emmun1w06r.projects.oryapis:8080/self-service/registration?flow=474667c1-357f-48e0-b19c-eb14d7709e61",
     "method": "POST",
     "nodes": [
       {
@@ -152,7 +152,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "xuYdHv3aD5f9BMhPyg5y/JCfYTKzTy/puKGo9KuexvtLhzqqmqwNI5/unvMaQUGwEHA2t8kb8BEaa6gKU2z7dw==",
+          "value": "Lu3sl/WNruUn6WffHmWFdFQRK/zEzKZoP9APxZXQoSU67pDl9THcdMxKWjVXuPUZl/LATk5kCois3UyEUitHoQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

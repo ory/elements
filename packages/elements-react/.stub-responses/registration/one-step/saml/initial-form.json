@@ -1,11 +1,11 @@
 {
-  "id": "a5ccc48f-bfa9-4743-81d7-9925495f5d7f",
+  "id": "5d9cd7db-20e2-43fd-a2fd-4504783a106e",
   "type": "browser",
-  "expires_at": "2025-04-22T09:51:23.814891299Z",
-  "issued_at": "2025-04-22T08:51:23.814891299Z",
-  "request_url": "https://epic-borg-u7isirg7ot.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:08:19.16533495Z",
+  "issued_at": "2025-04-24T15:08:19.16533495Z",
+  "request_url": "https://suspicious-hodgkin-o00pjrmcsn.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://epic-borg-u7isirg7ot.projects.oryapis:8080/self-service/registration?flow=a5ccc48f-bfa9-4743-81d7-9925495f5d7f",
+    "action": "https://suspicious-hodgkin-o00pjrmcsn.projects.oryapis:8080/self-service/registration?flow=5d9cd7db-20e2-43fd-a2fd-4504783a106e",
     "method": "POST",
     "nodes": [
       {
@@ -152,7 +152,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "lreHmj6ymHUjZ3pAiGWAzIhm+M2nq062KteJi18BiZ/Ekomw5+EbZPe4QWOAP75QF2g/ya83gJmGt6wbnSJP0A==",
+          "value": "jJ1jUsVubJUhZA1Mk0h5P3IVuXn1HdaqXU691osHVfz8b/Nj0qPyzS2giw7uu39gNEG4e21NscNGMmO80lrUtg==",
           "required": true,
           "disabled": false,
           "node_type": "input"

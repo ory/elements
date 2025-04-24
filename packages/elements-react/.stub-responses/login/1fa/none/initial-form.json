@@ -1,12 +1,12 @@
 {
-  "id": "839bffb4-2fcc-4985-89a5-b285593320a4",
+  "id": "ae5a362f-84c4-4a82-bd49-9e3c4314f7a9",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T09:50:49.957166755Z",
-  "issued_at": "2025-04-22T08:50:49.957166755Z",
-  "request_url": "https://silly-ganguly-cjbaisrytt.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:22.793972288Z",
+  "issued_at": "2025-04-24T15:07:22.793972288Z",
+  "request_url": "https://blissful-tereshkova-eyryaa520w.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://silly-ganguly-cjbaisrytt.projects.oryapis:8080/self-service/login?flow=839bffb4-2fcc-4985-89a5-b285593320a4",
+    "action": "https://blissful-tereshkova-eyryaa520w.projects.oryapis:8080/self-service/login?flow=ae5a362f-84c4-4a82-bd49-9e3c4314f7a9",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "MKIqnDh5XnqnbuhLJb4TaeMWZ3hSwJDq7gsZhpIiJ6FgpqwrUIie1q0IbdRXLCbMLREyPxQDADccQ2LbbCNbdA==",
+          "value": "Gk81HDQheMtoZHaFPebKeh/FK8iAyssIS///jqwmhY6Uu8xOh+ZrDFyjJajV1zHaQsOWhi4kITXE0ETCNHfEqA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T08:50:49.958423Z",
-  "updated_at": "2025-04-22T08:50:49.958423Z",
+  "created_at": "2025-04-24T15:07:22.797946Z",
+  "updated_at": "2025-04-24T15:07:22.797946Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "f86e3cd9-31c1-4dc3-9e35-a71fb779c6c5",
+  "id": "0b5cf55f-fdbc-4344-876a-0ffd0fd16461",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T12:12:12.650901501Z",
-  "issued_at": "2025-04-22T11:12:12.650901501Z",
-  "request_url": "https://amazing-poincare-c5khtbhhxo.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:45.566682717Z",
+  "issued_at": "2025-04-24T15:07:45.566682717Z",
+  "request_url": "https://cranky-austin-3alr2mh2jg.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://amazing-poincare-c5khtbhhxo.projects.oryapis:8080/self-service/login?flow=f86e3cd9-31c1-4dc3-9e35-a71fb779c6c5",
+    "action": "https://cranky-austin-3alr2mh2jg.projects.oryapis:8080/self-service/login?flow=0b5cf55f-fdbc-4344-876a-0ffd0fd16461",
     "method": "POST",
     "nodes": [
       {
@@ -242,7 +242,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "1CVWQhKLFhbQzR1FKCtPP5CDvRNy6RMvnjTcHMyaXoGnQzxJWGktsb0HoWfqZ8hjFGkpvpIUOhbkdSwGamcshw==",
+          "value": "xFRtlY0fdRLS6NyB+WGG8Pwi5oNaoveMpGUrghLF+k54e9TGm6VENkYRUlkJH05iIwxBh8KLRE4m2O4UhVpgGA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -252,8 +252,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T11:12:12.652955Z",
-  "updated_at": "2025-04-22T11:12:12.652955Z",
+  "created_at": "2025-04-24T15:07:45.573772Z",
+  "updated_at": "2025-04-24T15:07:45.573772Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

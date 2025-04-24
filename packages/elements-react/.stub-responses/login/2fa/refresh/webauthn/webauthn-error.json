@@ -1,0 +1,107 @@
+{
+  "id": "39bd0d19-39c3-4aff-bdac-6e70213dc4fe",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:31.238614Z",
+  "issued_at": "2025-04-24T15:08:31.238614Z",
+  "request_url": "https://laughing-bouman-483qyb4k3j.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "ui": {
+    "action": "https://laughing-bouman-483qyb4k3j.projects.oryapis:8080/self-service/login?flow=39bd0d19-39c3-4aff-bdac-6e70213dc4fe",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "kUubvgHnW3Vw3EURhUPiKuX1UZkl1aNABfO0PLkA9SFMdCjuoNU0px0L8g/aJrkrjIyKUoU/5/GiFDYo1ojJOQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.ao0ovpnnul40.r5bx3x4fubk@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://laughing-bouman-483qyb4k3j.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "b7e78752-46fc-44ee-acde-bf98090cd264",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"7pdnP3Xf3ydheCQGzObyYlqblTH9UgPTVbVPEzttdIc\",\"timeout\":120000,\"rpId\":\"laughing-bouman-483qyb4k3j.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"Q5w6HozN7arP8Dc3JOp54O9N9BXCVia3K9o69YJUHmw\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"7pdnP3Xf3ydheCQGzObyYlqblTH9UgPTVbVPEzttdIc\",\"timeout\":120000,\"rpId\":\"laughing-bouman-483qyb4k3j.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"Q5w6HozN7arP8Dc3JOp54O9N9BXCVia3K9o69YJUHmw\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response.",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response."
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:31.454693Z",
+  "updated_at": "2025-04-24T15:08:31.454693Z",
+  "refresh": true,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

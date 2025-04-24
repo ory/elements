@@ -1,12 +1,12 @@
 {
-  "id": "bfc90454-4587-418f-9135-f05745cde81b",
+  "id": "a506f6a4-78c4-4a1a-9316-511477413e7a",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T12:12:13.222534085Z",
-  "issued_at": "2025-04-22T11:12:13.222534085Z",
-  "request_url": "https://cool-brahmagupta-2cbc4kcmmk.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:47.555625346Z",
+  "issued_at": "2025-04-24T15:07:47.555625346Z",
+  "request_url": "https://trusting-mahavira-or1592ehv6.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://cool-brahmagupta-2cbc4kcmmk.projects.oryapis:8080/self-service/login?flow=bfc90454-4587-418f-9135-f05745cde81b",
+    "action": "https://trusting-mahavira-or1592ehv6.projects.oryapis:8080/self-service/login?flow=a506f6a4-78c4-4a1a-9316-511477413e7a",
     "method": "POST",
     "nodes": [
       {
@@ -199,7 +199,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "8NrlFPGOg7W2xIpUN47AJG+0p+5ODr3/iTJJuCe1RJ7vHQbMB1VgP6eAhTUlJvB+TcdgR70soTCSFiAqTv9VfQ==",
+          "value": "74X8s7MiWQrp5VXQPRk6lPfqznf2QdRXQmHXoAtZSNnHjPQzwf8vPL/gZ4VL4/4RmZLykojNtN9CbVSG6tU4mA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -209,8 +209,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T11:12:13.224218Z",
-  "updated_at": "2025-04-22T11:12:13.224218Z",
+  "created_at": "2025-04-24T15:07:47.56007Z",
+  "updated_at": "2025-04-24T15:07:47.56007Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

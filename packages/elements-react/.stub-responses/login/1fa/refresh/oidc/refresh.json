@@ -1,0 +1,115 @@
+{
+  "id": "1f6be807-6ca7-479c-848d-92ce3ec3b5e5",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:43.521076641Z",
+  "issued_at": "2025-04-24T15:07:43.521076641Z",
+  "request_url": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/self-service/login?flow=1f6be807-6ca7-479c-848d-92ce3ec3b5e5",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google",
+            "type": "info",
+            "context": {
+              "provider": "Google",
+              "provider_id": "google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "CDeck1USnTQKzUitrnw6s9w8Zk7SrIkeLw5/KAlBm1WJqY7Dfo3DkLQC/zkKkyB1ijoM4x87VHYJm2E/52RVEQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:43.714858Z",
+  "updated_at": "2025-04-24T15:07:43.714858Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

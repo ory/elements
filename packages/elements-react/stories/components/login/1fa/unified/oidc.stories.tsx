@@ -127,14 +127,14 @@ export const SevenSocialButtons: Story = {
   },
 }
 
-export const AllGenericButton: Story = {
+export const AllButtons: Story = {
   args: {
     flow: LoginFlowFromJSON(oidcNodes),
     config,
   },
 }
 
-export const AllGenericButtonNoPassword: Story = {
+export const AllButtonsPasswordDisabled: Story = {
   args: {
     flow: LoginFlowFromJSON(
       require("$snapshots/login/1fa/unified/oidc/standalone/initial-form.json"),

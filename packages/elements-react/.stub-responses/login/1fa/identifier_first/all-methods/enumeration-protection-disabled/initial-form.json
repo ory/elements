@@ -1,12 +1,12 @@
 {
-  "id": "ddc0bd36-0d8c-4b55-9ec3-4adc0ee21e63",
+  "id": "27198d06-dca9-4030-b265-e7e132fd7025",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T11:29:33.88620722Z",
-  "issued_at": "2025-04-22T10:29:33.88620722Z",
-  "request_url": "https://bold-agnesi-i24pb5kb9d.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:15.063218121Z",
+  "issued_at": "2025-04-24T15:07:15.063218121Z",
+  "request_url": "https://jolly-mayer-b0u3cfhl2m.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://bold-agnesi-i24pb5kb9d.projects.oryapis:8080/self-service/login?flow=ddc0bd36-0d8c-4b55-9ec3-4adc0ee21e63",
+    "action": "https://jolly-mayer-b0u3cfhl2m.projects.oryapis:8080/self-service/login?flow=27198d06-dca9-4030-b265-e7e132fd7025",
     "method": "POST",
     "nodes": [
       {
@@ -127,7 +127,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "h2Y1PQlTWTv/rMCS5o3nRar5BxCveH721pidU7bymPUTM+uKSvjaHtdK3O4W8SlTGwdtltAU3CGnH/LUnN0vrQ==",
+          "value": "8dEeLpx74qxP/s50efjuj6woyXe3bg1ly2fqFrDUWkyDA7MLHeVW+2utJKMJhTzoB1hqDFTXFA4hw+4YMJhLww==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -139,14 +139,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://bold-agnesi-i24pb5kb9d.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://jolly-mayer-b0u3cfhl2m.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "e8f36472-4123-41ba-b138-531abc0c4abc",
+          "nonce": "bb0933e3-7d0b-4843-ad8f-25edd1a407f3",
           "node_type": "script"
         },
         "messages": [],
@@ -172,7 +172,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"Z-73Coih6hEebDJ1PqvNFkptMbDC7pe3xDECdwGPU4M\",\"timeout\":300000,\"rpId\":\"bold-agnesi-i24pb5kb9d.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"_T8UR1aCxLcgptUG7_4CXFTlz0A7L0YXYcj4eLX6B_o\",\"timeout\":300000,\"rpId\":\"jolly-mayer-b0u3cfhl2m.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -181,8 +181,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T10:29:33.891057Z",
-  "updated_at": "2025-04-22T10:29:33.891057Z",
+  "created_at": "2025-04-24T15:07:15.069616Z",
+  "updated_at": "2025-04-24T15:07:15.069616Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

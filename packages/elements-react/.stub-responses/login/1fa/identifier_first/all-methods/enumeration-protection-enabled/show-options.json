@@ -1,13 +1,13 @@
 {
-  "id": "d2a849e5-8da7-4801-b339-a59a5fd89bf1",
+  "id": "806e7eb8-c856-498b-91df-0b0d878ff41e",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-22T11:29:34.003426Z",
-  "issued_at": "2025-04-22T10:29:34.003426Z",
-  "request_url": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:15.442213Z",
+  "issued_at": "2025-04-24T15:07:15.442213Z",
+  "request_url": "https://hardcore-pasteur-7586g4ual3.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/self-service/login?flow=d2a849e5-8da7-4801-b339-a59a5fd89bf1",
+    "action": "https://hardcore-pasteur-7586g4ual3.projects.oryapis:8080/self-service/login?flow=806e7eb8-c856-498b-91df-0b0d878ff41e",
     "method": "POST",
     "nodes": [
       {
@@ -39,7 +39,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.nbmgr8wy42j0.l10zciihe@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.gfimnnnjfov0.c7jjyekj9fn@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -109,7 +109,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "QybAEp/GU9ButBs5JJhEn94lZlwazgBm1VKStDYDzz5XkMKsp8IJatDHwuXQTp8L1qAfPSfULKsPsYrmgzz/mA==",
+          "value": "/q3p+X2CKn/s0jaj436s0V58K3y4iOzBvPLy+6FVuRCXzlzZ6QO4ux/WH5KpxT0zq2rWSrToc2lX1EVOJr0gRw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -121,14 +121,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://hopeful-euler-vszja71i9a.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://hardcore-pasteur-7586g4ual3.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "f31c6d79-6774-4573-9a37-fea837b45826",
+          "nonce": "04d0b55a-6e68-44eb-9a4a-9e64b85bd7b9",
           "node_type": "script"
         },
         "messages": [],
@@ -154,7 +154,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"WS9WaazHUEdl6MVBVtglDXk6pXh6riS4BttBJre-DY4\",\"timeout\":300000,\"rpId\":\"hopeful-euler-vszja71i9a.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"2-gc9xWlY-M3bm7P6fR2bBZU1boBpGlIa9uOUiwQ8uU\",\"timeout\":300000,\"rpId\":\"hardcore-pasteur-7586g4ual3.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -261,8 +261,8 @@
       }
     ]
   },
-  "created_at": "2025-04-22T10:29:34.005706Z",
-  "updated_at": "2025-04-22T10:29:34.005706Z",
+  "created_at": "2025-04-24T15:07:15.449809Z",
+  "updated_at": "2025-04-24T15:07:15.449809Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

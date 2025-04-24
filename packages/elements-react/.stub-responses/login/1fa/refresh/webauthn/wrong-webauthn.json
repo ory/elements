@@ -1,0 +1,107 @@
+{
+  "id": "b76ba0be-0c19-4e48-b575-4c613754cbca",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:31.023351Z",
+  "issued_at": "2025-04-24T15:08:31.023351Z",
+  "request_url": "https://lucid-ride-csihbbldbp.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://lucid-ride-csihbbldbp.projects.oryapis:8080/self-service/login?flow=b76ba0be-0c19-4e48-b575-4c613754cbca",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "8K1JRcFtmsEWwDkBF1LZIgoPfvG0SJVj5mb3VDBFqZl9UIOwwvXFSxoYG1ChCa99Bbdgoc++hLblG7QUDe8q3g==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.oqcptkoi1kj0.67ecd97unzk@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://lucid-ride-csihbbldbp.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "b31ced86-75ee-45fa-aba4-07781a3c0354",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"EonbMPrOGEpgUhNnu3qA08rZqopkO6OsezrJT_20aLE\",\"timeout\":120000,\"rpId\":\"lucid-ride-csihbbldbp.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"fhc3NhtSdlnVgjUAIiM6yL_oGQjUUGcsyEzZaaMq1X4\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"EonbMPrOGEpgUhNnu3qA08rZqopkO6OsezrJT_20aLE\",\"timeout\":120000,\"rpId\":\"lucid-ride-csihbbldbp.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"fhc3NhtSdlnVgjUAIiM6yL_oGQjUUGcsyEzZaaMq1X4\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response.",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response."
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:31.234304Z",
+  "updated_at": "2025-04-24T15:08:31.234304Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
