@@ -27,28 +27,10 @@ export const ShowForm: Story = {
   },
 }
 
-export const ConfirmedLookupSecrets: Story = {
+export const AllAvailable: Story = {
   args: {
     flow: SettingsFlowFromJSON(
-      require("$snapshots/settings/all-2fa-methods/confirmed_lookup_secrets.json"),
-    ),
-    config,
-  },
-}
-
-export const GeneratedLookupSecrets: Story = {
-  args: {
-    flow: SettingsFlowFromJSON(
-      require("$snapshots/settings/all-2fa-methods/generated_lookup_secrets.json"),
-    ),
-    config,
-  },
-}
-
-export const WithTotpAuthenticator: Story = {
-  args: {
-    flow: SettingsFlowFromJSON(
-      require("$snapshots/settings/all-2fa-methods/with-totp-authenticator.json"),
+      require("$snapshots/settings/all-2fa-methods/all-added.json"),
     ),
     config,
   },
