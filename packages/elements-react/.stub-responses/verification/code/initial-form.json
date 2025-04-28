@@ -1,12 +1,12 @@
 {
-  "id": "d619f1e8-06ac-4a4d-82f5-dc144b1e0fb1",
+  "id": "63aa5c94-0359-48ce-be81-0b61bcc51f6a",
   "type": "browser",
-  "expires_at": "2025-03-01T16:10:46.139606877Z",
-  "issued_at": "2025-03-01T15:10:46.139606877Z",
-  "request_url": "https://goofy-goldberg-1zy5he2oxu.projects.oryapis:8080/self-service/verification/browser",
+  "expires_at": "2025-04-24T16:07:01.892703888Z",
+  "issued_at": "2025-04-24T15:07:01.892703888Z",
+  "request_url": "https://festive-mendel-kt8mnsi1g0.projects.oryapis:8080/self-service/verification/browser",
   "active": "code",
   "ui": {
-    "action": "https://goofy-goldberg-1zy5he2oxu.projects.oryapis:8080/self-service/verification?flow=d619f1e8-06ac-4a4d-82f5-dc144b1e0fb1",
+    "action": "https://festive-mendel-kt8mnsi1g0.projects.oryapis:8080/self-service/verification?flow=63aa5c94-0359-48ce-be81-0b61bcc51f6a",
     "method": "POST",
     "nodes": [
       {
@@ -53,7 +53,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "81bG6bpe0qDIDjjaiFZUUu8GJHbvLUkErspy5Hx8T8mBfIS0GINGTsUagO0bFgAYRca1U3YNhueMyqewM2uzog==",
+          "value": "rjYDLXYRa+W5acRgmqGhb4SMlq/A7Sx0QNOpEeSkx0a2ha0eT+n1PQrHRhLEyznh/l+eYzSL+ZSqBVtCno2cSg==",
           "required": true,
           "disabled": false,
           "node_type": "input"

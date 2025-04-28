@@ -1,0 +1,136 @@
+{
+  "id": "ff9fd2de-9a15-4b1c-a434-aa52ca8338d2",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:00.033955Z",
+  "issued_at": "2025-04-24T15:07:00.033955Z",
+  "request_url": "https://friendly-noyce-2wkhxxbhnq.projects.oryapis:8080/self-service/login/browser",
+  "active": "code",
+  "ui": {
+    "action": "https://friendly-noyce-2wkhxxbhnq.projects.oryapis:8080/self-service/login?flow=ff9fd2de-9a15-4b1c-a434-aa52ca8338d2",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.ijqv02nzr30.9bko5va3ehd@ory.dev",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "hidden",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070013,
+            "text": "Login code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "resend",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "Dno1hH0XfQ6Jgv55CsKKkfZ+WRnryCwBZfWp3Bu5Jm12KxgLgo2uD/W+hCNOuX3vkJ8a7LpRhoemrjHb2ppvYw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010014,
+        "text": "A code has been sent to the address you provided. If you have not received an message, check the spelling of the address and retry the login.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:00.038594Z",
+  "updated_at": "2025-04-24T15:07:00.038594Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "sent_email",
+  "transient_payload": {}
+}

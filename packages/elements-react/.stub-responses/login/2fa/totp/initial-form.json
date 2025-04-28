@@ -1,12 +1,12 @@
 {
-  "id": "3d2e7410-d007-43c3-a31c-a3a145d7f385",
+  "id": "6c77da55-b4b2-4781-93fd-7e1a5d9104b3",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-03-01T14:53:20.378621671Z",
-  "issued_at": "2025-03-01T13:53:20.378621671Z",
-  "request_url": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "2025-04-24T16:08:26.256339751Z",
+  "issued_at": "2025-04-24T15:08:26.256339751Z",
+  "request_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "ui": {
-    "action": "https://gifted-shtern-xgmu9nj229.projects.oryapis:8080/self-service/login?flow=3d2e7410-d007-43c3-a31c-a3a145d7f385",
+    "action": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/login?flow=6c77da55-b4b2-4781-93fd-7e1a5d9104b3",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "N3ss27rG2bqHmf1RE6o3ZnjkaJEeTMyCkrJ9Dc84iWK5347Fg/rKCjCnAt8qAD9mpgBiHfLt/334HgtVNBk4Hg==",
+          "value": "C41LA2hCIxSpL05ej2o4HPmgH6ha8df9Y9dygwxC1t/Cr3MFBXnuHMdDmRf6mHNd8tWXmUBjSOJvgQhob6wxUg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -71,8 +71,8 @@
       }
     ]
   },
-  "created_at": "2025-03-01T13:53:20.403696Z",
-  "updated_at": "2025-03-01T13:53:20.403696Z",
+  "created_at": "2025-04-24T15:08:26.385757Z",
+  "updated_at": "2025-04-24T15:08:26.385757Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "choose_method"

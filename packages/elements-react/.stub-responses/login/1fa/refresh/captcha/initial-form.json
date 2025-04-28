@@ -1,0 +1,92 @@
+{
+  "id": "2198110e-31c3-4d79-8e56-66be11a1fe9e",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:06:55.711796221Z",
+  "issued_at": "2025-04-24T15:06:55.711796221Z",
+  "request_url": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/self-service/login?flow=2198110e-31c3-4d79-8e56-66be11a1fe9e",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "O1Lg2fVgciPOfsWr4zHyKzRojuikAWQgBxAq4ZEALE9RAHW5CjbY/dEeBdAG84/3PNHEPNpAI/NaFeAAOAE3og==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.8d507fgmbeo0.nm0zo952jzr@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:06:55.811603Z",
+  "updated_at": "2025-04-24T15:06:55.811603Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

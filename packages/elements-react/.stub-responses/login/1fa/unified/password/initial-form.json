@@ -1,0 +1,95 @@
+{
+  "id": "a958165e-821a-4749-b98c-56e6df65cf17",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:03.187779167Z",
+  "issued_at": "2025-04-24T15:08:03.187779167Z",
+  "request_url": "https://lucid-fermi-rqehcsehrn.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://lucid-fermi-rqehcsehrn.projects.oryapis:8080/self-service/login?flow=a958165e-821a-4749-b98c-56e6df65cf17",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "6i9XROkSBDh7nvlqylT/+7554Q7R2w1GBZngOwMGuFcx4U6Xwen0lJQJsKKHXIwREYIS88Pkm88pe+nTSSHrsw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:03.192842Z",
+  "updated_at": "2025-04-24T15:08:03.192842Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

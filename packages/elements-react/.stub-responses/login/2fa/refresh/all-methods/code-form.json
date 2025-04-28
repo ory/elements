@@ -1,0 +1,148 @@
+{
+  "id": "56de4cd4-19ad-4740-8e41-16b6ac4489f0",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:19.908133Z",
+  "issued_at": "2025-04-24T15:07:19.908133Z",
+  "request_url": "https://elastic-morse-c033dghiye.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "active": "code",
+  "ui": {
+    "action": "https://elastic-morse-c033dghiye.projects.oryapis:8080/self-service/login?flow=56de4cd4-19ad-4740-8e41-16b6ac4489f0",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010023,
+            "text": "Send code to dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+              "channel": "email"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "hidden",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070013,
+            "text": "Login code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "resend",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "A0ASb5RK+/czLN/H529i7jpUZS9fLsZaStKW1ICZP9qqTDhLWCMNvFQr1nqsu/dA/R0YnWDN+2w3wQJOkm/Rrg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010014,
+        "text": "A code has been sent to the address you provided. If you have not received an message, check the spelling of the address and retry the login.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:20.263159Z",
+  "updated_at": "2025-04-24T15:07:20.263159Z",
+  "refresh": true,
+  "requested_aal": "aal2",
+  "state": "sent_email",
+  "transient_payload": {}
+}

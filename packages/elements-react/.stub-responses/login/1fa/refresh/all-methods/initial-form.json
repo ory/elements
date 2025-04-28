@@ -1,0 +1,208 @@
+{
+  "id": "3ebbb850-842a-44f3-9c1a-7e0c35d2e0c6",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:21.968501639Z",
+  "issued_at": "2025-04-24T15:07:21.968501639Z",
+  "request_url": "https://strange-hofstadter-4pbbbzl8wa.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://strange-hofstadter-4pbbbzl8wa.projects.oryapis:8080/self-service/login?flow=3ebbb850-842a-44f3-9c1a-7e0c35d2e0c6",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "7tWxHOSunSTwB+NXfeXW0FFKFAPasGBmXC+eci4pIdU4riZWeJADIeAEPLeALI1Lc6HwMGdJggxPjdUt74ul9w==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.6qiwipt2zwn0.f51ctgvuyrn@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://strange-hofstadter-4pbbbzl8wa.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "4d162bf6-faae-4e2a-9cfc-ead2c3716730",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"Yw_bJW7MYpRdtUenZ3S9u1S0suMhpxPHRrmvMu_9dtE\",\"timeout\":120000,\"rpId\":\"strange-hofstadter-4pbbbzl8wa.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"f24Mbhb5CF_yRNwdwv4m9orqHGxJDEFe3Ydw9kSnRBA\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"Yw_bJW7MYpRdtUenZ3S9u1S0suMhpxPHRrmvMu_9dtE\",\"timeout\":120000,\"rpId\":\"strange-hofstadter-4pbbbzl8wa.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"f24Mbhb5CF_yRNwdwv4m9orqHGxJDEFe3Ydw9kSnRBA\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"VqZJkM6TrMTDVtZr2Alc81ZpqlK_LBPwtx57rxCPlRg\",\"timeout\":300000,\"rpId\":\"strange-hofstadter-4pbbbzl8wa.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"GtI8Fk70JpnWJm6HGc7-rkVSDq1U-M4c0VaehpXzv3o\"}],\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:22.500041Z",
+  "updated_at": "2025-04-24T15:07:22.500041Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

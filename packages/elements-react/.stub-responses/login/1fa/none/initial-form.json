@@ -1,12 +1,12 @@
 {
-  "id": "9d5402e7-41f3-4c54-87da-a3a8217bebb0",
+  "id": "ae5a362f-84c4-4a82-bd49-9e3c4314f7a9",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-02-26T09:31:46.503313004Z",
-  "issued_at": "2025-02-26T08:31:46.503313004Z",
-  "request_url": "https://tender-torvalds-jrb3d41eub.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-04-24T16:07:22.793972288Z",
+  "issued_at": "2025-04-24T15:07:22.793972288Z",
+  "request_url": "https://blissful-tereshkova-eyryaa520w.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://tender-torvalds-jrb3d41eub.projects.oryapis:8080/self-service/login?flow=9d5402e7-41f3-4c54-87da-a3a8217bebb0",
+    "action": "https://blissful-tereshkova-eyryaa520w.projects.oryapis:8080/self-service/login?flow=ae5a362f-84c4-4a82-bd49-9e3c4314f7a9",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Z+s6aq/AWWcEPlzbDkESs3x9a0hWFka3IG/71bD0Moba+giAMqi7ypCrnGDuM4NxNh/rphxVSJCiBF0B0AT29A==",
+          "value": "Gk81HDQheMtoZHaFPebKeh/FK8iAyssIS///jqwmhY6Uu8xOh+ZrDFyjJajV1zHaQsOWhi4kITXE0ETCNHfEqA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2025-02-26T08:31:46.50659Z",
-  "updated_at": "2025-02-26T08:31:46.50659Z",
+  "created_at": "2025-04-24T15:07:22.797946Z",
+  "updated_at": "2025-04-24T15:07:22.797946Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

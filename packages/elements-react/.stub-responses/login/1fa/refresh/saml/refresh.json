@@ -1,0 +1,115 @@
+{
+  "id": "8109339d-18cf-49a1-bd8c-6aa78adbc0f3",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:20.614588725Z",
+  "issued_at": "2025-04-24T15:08:20.614588725Z",
+  "request_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/login?flow=8109339d-18cf-49a1-bd8c-6aa78adbc0f3",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace",
+              "provider_id": "gsuite"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "pAl2Fyad1/o+Ie/esvAkVyarbXr8NE45UE8ZSMlApJ0ZP9RfEQAT0z3FiH9xdWKpPFQPIYvdZULgfY4fHAYSwQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:20.81379Z",
+  "updated_at": "2025-04-24T15:08:20.81379Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

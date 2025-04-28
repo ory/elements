@@ -1,11 +1,11 @@
 {
-  "id": "75750961-b7f9-4495-9287-348781b65e8d",
+  "id": "84f23809-5d96-4217-b946-e57a6bcba862",
   "type": "browser",
-  "expires_at": "2025-04-15T17:36:45.667592255Z",
-  "issued_at": "2025-04-15T16:36:45.667592255Z",
-  "request_url": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:07:56.424074141Z",
+  "issued_at": "2025-04-24T15:07:56.424074141Z",
+  "request_url": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://angry-edison-ll0b45jsel.projects.oryapis:8080/self-service/registration?flow=75750961-b7f9-4495-9287-348781b65e8d",
+    "action": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration?flow=84f23809-5d96-4217-b946-e57a6bcba862",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "LgSTBVDUmfx/OaFcWzdDhBrEMR0o8TRe0iNFmjzp7QZw22o25j8DBu/531h7q18Y8ci71UOE5ypC4l1fS6F+VA==",
+          "value": "rp6fsdAOe4C0eAMipJ2XCAld9GNSmUU4p9hNkRRMtc0MdD8MUfc8KTyHO4bvKzCXlUsKMYHm9pau2qnkjsOzyA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

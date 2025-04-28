@@ -1,0 +1,121 @@
+{
+  "id": "dd087074-5bce-438c-9a1f-87184f74c314",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:01.978306872Z",
+  "issued_at": "2025-04-24T15:07:01.978306872Z",
+  "request_url": "https://exciting-rubin-khqlb5fyiz.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://exciting-rubin-khqlb5fyiz.projects.oryapis:8080/self-service/login?flow=dd087074-5bce-438c-9a1f-87184f74c314",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "OjHywqdWIj0XBbJ7UQIhOgApMKE21aHnYRNORb63wvyidD40cS6jxMc0rlznBy705SJgUWlewgUxH5abp3eVDg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:02.093744Z",
+  "updated_at": "2025-04-24T15:07:02.093744Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

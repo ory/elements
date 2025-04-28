@@ -1,0 +1,217 @@
+{
+  "id": "a506f6a4-78c4-4a1a-9316-511477413e7a",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:47.555625346Z",
+  "issued_at": "2025-04-24T15:07:47.555625346Z",
+  "request_url": "https://trusting-mahavira-or1592ehv6.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://trusting-mahavira-or1592ehv6.projects.oryapis:8080/self-service/login?flow=a506f6a4-78c4-4a1a-9316-511477413e7a",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "apple",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Apple",
+            "type": "info",
+            "context": {
+              "provider": "Apple",
+              "provider_id": "apple"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "auth0",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with auth0",
+            "type": "info",
+            "context": {
+              "provider": "auth0",
+              "provider_id": "auth0"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "generic",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with FooBarLogo",
+            "type": "info",
+            "context": {
+              "provider": "FooBarLogo",
+              "provider_id": "generic"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub",
+              "provider_id": "github"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google",
+            "type": "info",
+            "context": {
+              "provider": "Google",
+              "provider_id": "google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "linkedin",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with LinkedIn",
+            "type": "info",
+            "context": {
+              "provider": "LinkedIn",
+              "provider_id": "linkedin"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "microsoft",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Microsoft",
+            "type": "info",
+            "context": {
+              "provider": "Microsoft",
+              "provider_id": "microsoft"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "x",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with x",
+            "type": "info",
+            "context": {
+              "provider": "x",
+              "provider_id": "x"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "74X8s7MiWQrp5VXQPRk6lPfqznf2QdRXQmHXoAtZSNnHjPQzwf8vPL/gZ4VL4/4RmZLykojNtN9CbVSG6tU4mA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:47.56007Z",
+  "updated_at": "2025-04-24T15:07:47.56007Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

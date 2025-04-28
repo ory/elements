@@ -1,0 +1,78 @@
+{
+  "id": "310f4dc0-4358-46ca-8db0-3884e38f1204",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:25.207793Z",
+  "issued_at": "2025-04-24T15:08:25.207793Z",
+  "request_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "ui": {
+    "action": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/login?flow=310f4dc0-4358-46ca-8db0-3884e38f1204",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "fXStQaDvLQJRnHH2JvNs69e1fCEcnYXNQbfYmYg4kaVI6E80CZiLRe56WDIUhiNIlL/pG+/3X1SiLaEyk+3G2w==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "totp_code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010006,
+            "text": "Authentication code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "totp",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010009,
+            "text": "Use Authenticator",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000008,
+        "text": "The provided authentication code is invalid, please try again.",
+        "type": "error"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:25.338997Z",
+  "updated_at": "2025-04-24T15:08:25.338997Z",
+  "refresh": true,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

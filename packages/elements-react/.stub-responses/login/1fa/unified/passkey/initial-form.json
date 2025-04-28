@@ -1,0 +1,122 @@
+{
+  "id": "cbe20075-21ab-45ff-9db1-5b490f012886",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:01.254895179Z",
+  "issued_at": "2025-04-24T15:08:01.254895179Z",
+  "request_url": "https://boring-jepsen-gglct0qi12.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://boring-jepsen-gglct0qi12.projects.oryapis:8080/self-service/login?flow=cbe20075-21ab-45ff-9db1-5b490f012886",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "z5Z3GTs0xkiAl1sAKlMs+SJEfgN0hr4DWaf57ZYGNvdMZGBHa4nLAI81p34YSYd8XW3lAELQMaJvlfsxazRyWw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://boring-jepsen-gglct0qi12.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "a17041e7-e93a-4e33-aafd-e826dd74a230",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"cc9jsJG44iM0g3vnh8wp2YYqn_uFK8gRe40P_xMbM-A\",\"timeout\":300000,\"rpId\":\"boring-jepsen-gglct0qi12.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:01.261798Z",
+  "updated_at": "2025-04-24T15:08:01.261798Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
