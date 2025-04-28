@@ -8,7 +8,7 @@ import { OryCard } from "./card"
 import { OryCardContent } from "./content"
 import { OryCardFooter } from "./footer"
 import { OryCardHeader } from "./header"
-import { getNodeId } from "@ory/client-fetch/src/contrib/ui"
+import { getNodeId } from "@ory/client-fetch"
 
 export function OryConsentCard() {
   const { Form, Card } = useComponents()

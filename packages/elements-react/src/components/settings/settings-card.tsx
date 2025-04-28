@@ -5,6 +5,7 @@ import {
   isUiNodeScriptAttributes,
   UiNode,
   UiNodeGroupEnum,
+  getNodeId,
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 import { useComponents, useOryFlow } from "../../context"
@@ -17,7 +18,6 @@ import { OrySettingsPasskey } from "./passkey-settings"
 import { OrySettingsRecoveryCodes } from "./recovery-codes-settings"
 import { OrySettingsTotp } from "./totp-settings"
 import { OrySettingsWebauthn } from "./webauthn-settings"
-import { getNodeId } from "@ory/client-fetch/src/contrib/ui"
 
 type SettingsSectionProps = {
   group: UiNodeGroupEnum
