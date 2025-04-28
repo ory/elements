@@ -20,7 +20,7 @@ export function OryConsentCard() {
         <OryForm>
           <Card.Divider />
           <Form.Group>
-            {flow.flow.ui.nodes.map((node, k) => (
+            {flow.flow.ui.nodes.map((node) => (
               <Node key={getNodeId(node)} node={node} />
             ))}
           </Form.Group>
