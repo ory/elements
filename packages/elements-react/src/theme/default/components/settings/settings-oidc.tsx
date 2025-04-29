@@ -9,8 +9,13 @@ import { useDebounceValue } from "usehooks-ts"
 import Trash from "../../assets/icons/trash.svg"
 import logos from "../../provider-logos"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import { DefaultButtonSocial, extractProvider } from "../form/social"
+import {
+  DefaultButtonSocial,
+  extractProvider,
+  GenericLogo,
+} from "../form/social"
 import { Spinner } from "../form/spinner"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 export function DefaultSettingsOidc({
   linkButtons,
@@ -75,16 +80,22 @@ function UnlinkRow({ button }: UnlinkRowProps) {
     }
   }, [isSubmitting, setClicked])
 
+  console.log(button.meta.label?.context)
+
   return (
     <div key={attrs.value} className="flex justify-between">
       <div className="flex items-center gap-6">
-        {Logo ? <Logo size={32} /> : <logos.generic size={32} />}
+        {Logo ? (
+          <Logo size={32} />
+        ) : (
+          <GenericLogo label={provider.slice(0, 1)} />
+        )}
         <p className="text-sm font-medium text-interface-foreground-default-secondary">
           {provider}
         </p>
       </div>
       <button
-        {...attrs}
+        {...omitInputAttributes(attrs)}
         type="submit"
         onClick={localOnClick}
         disabled={isSubmitting}
