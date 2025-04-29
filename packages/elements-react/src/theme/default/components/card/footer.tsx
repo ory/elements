@@ -63,7 +63,10 @@ function LoginCardFooter() {
         <a
           className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
           href={logout ? logout?.logout_url : returnTo}
-          data-testid={"ory/screen/login/mfa/action/cancel"}
+          data-testid={
+            // Only add the test-id when the logout link has loaded.
+            didLoadLogout ? "ory/screen/login/mfa/action/cancel" : undefined
+          }
         >
           {intl.formatMessage({
             id:
