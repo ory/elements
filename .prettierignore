@@ -13,3 +13,4 @@ docs
 # Generated files
 CHANGELOG.md
 **/api-report/*
+.changeset/
