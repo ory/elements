@@ -43,12 +43,12 @@ describe("Translations", () => {
   //   })
   // })
 
-  test("translations have no missing keys", () => {
-    const enKeys = Object.keys(supportedLanguages.en)
-    for (const [_language, translation] of Object.entries(supportedLanguages)) {
+  for (const [language, translation] of Object.entries(supportedLanguages)) {
+    test(`translations have no missing keys lang=${language}`, () => {
+      const enKeys = Object.keys(supportedLanguages.en)
       const translationKeys = Object.keys(translation)
       const missingKeys = enKeys.filter((key) => !translationKeys.includes(key))
       expect(missingKeys).toEqual([])
-    }
-  })
+    })
+  }
 })
