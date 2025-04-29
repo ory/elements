@@ -5,6 +5,7 @@ import {
   isUiNodeScriptAttributes,
   UiNode,
   UiNodeGroupEnum,
+  getNodeId,
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 import { useComponents, useOryFlow } from "../../context"
@@ -39,8 +40,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         data-testid="ory/screen/settings/group/totp"
       >
         <OrySettingsTotp nodes={groupedNodes.groups.totp ?? []} />
-        {groupedNodes.groups.default?.map((node, k) => (
-          <Node key={k} node={node} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
         ))}
       </OryFormSection>
     )
@@ -55,8 +56,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         <OrySettingsRecoveryCodes
           nodes={groupedNodes.groups.lookup_secret ?? []}
         />
-        {groupedNodes.groups.default?.map((node, k) => (
-          <Node key={k} node={node} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
         ))}
       </OryFormSection>
     )
@@ -69,8 +70,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         data-testid="ory/screen/settings/group/oidc"
       >
         <OrySettingsOidc nodes={groupedNodes.groups.oidc ?? []} />
-        {groupedNodes.groups.default?.map((node, k) => (
-          <Node key={k} node={node} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
         ))}
       </OryFormSection>
     )
@@ -83,8 +84,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         data-testid="ory/screen/settings/group/webauthn"
       >
         <OrySettingsWebauthn nodes={groupedNodes.groups.webauthn ?? []} />
-        {groupedNodes.groups.default?.map((node, k) => (
-          <Node key={k} node={node} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
         ))}
       </OryFormSection>
     )
@@ -97,8 +98,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         data-testid="ory/screen/settings/group/passkey"
       >
         <OrySettingsPasskey nodes={groupedNodes.groups.passkey ?? []} />
-        {groupedNodes.groups.default?.map((node, k) => (
-          <Node key={k} node={node} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
         ))}
       </OryFormSection>
     )
@@ -117,16 +118,16 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
           id: `settings.${group}.description`,
         })}
       >
-        {groupedNodes.groups.default?.map((node, k) => (
-          <Node key={k} node={node} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
         ))}
         {nodes
           .filter(
             (node) =>
               "type" in node.attributes && node.attributes.type !== "submit",
           )
-          .map((node, k) => (
-            <Node key={k} node={node} />
+          .map((node) => (
+            <Node key={getNodeId(node)} node={node} />
           ))}
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter>
@@ -135,8 +136,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
             (node) =>
               "type" in node.attributes && node.attributes.type === "submit",
           )
-          .map((node, k) => (
-            <Node key={k} node={node} />
+          .map((node) => (
+            <Node key={getNodeId(node)} node={node} />
           ))}
       </Card.SettingsSectionFooter>
     </OryFormSection>
@@ -161,7 +162,7 @@ export function OrySettingsCard() {
     <>
       <OryCardValidationMessages />
       {scriptNodes.map((n) => (
-        <Node node={n} />
+        <Node node={n} key={getNodeId(n)} />
       ))}
       {uniqueGroups.entries.map(([group, nodes]) => {
         if (group === UiNodeGroupEnum.Default) {
