@@ -211,7 +211,7 @@
   "card.header.description.registration": "Registrera dig med {identifierLabel}",
   "card.header.parts.code": "en kod skickad till dig",
   "card.header.parts.totp": "din autentiseringsapp",
-  "card.header.parts.lookup_secret": "en säkerhetskopieringskod"^,
+  "card.header.parts.lookup_secret": "en säkerhetskopieringskod",
   "card.header.parts.identifier-first": "din {identifierLabel}",
   "card.header.parts.oidc": "en social leverantör",
   "card.header.parts.passkey": "en Passkey",

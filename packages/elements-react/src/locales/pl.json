@@ -209,7 +209,6 @@
   "input.placeholder": "",
   "card.header.description.login": "",
   "card.header.description.registration": "",
-  "card.header.parts.code": "",
   "card.header.parts.identifier-first": "",
   "card.header.parts.oidc": "",
   "card.header.parts.passkey": "",
