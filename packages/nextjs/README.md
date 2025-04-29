@@ -1,32 +1,38 @@
 # `@ory/nextjs`
 
-This package contains the Next.js SDK for Ory. It is additive to the
-`@ory/elements-react` package and provides utility functions for the app and
-page router.
+This package contains the Next.js SDK for Ory. It provides a set of React
+components, server-side components, and hooks to interact with the Ory
+ecosystem. Supports both app and page routers.
 
-This middleware expects environment variable `NEXT_PUBLIC_ORY_SDK_URL` to be set
-to your Ory Network Project SDK URL. This is the URL that you would use to
-access the Ory API.
+> [!NOTE]  
+> This package's primary use case is for developing custom components for login,
+> registration, verification, settings, recovery, or consent. For integrating
+> authentication without changing the UI, follow our
+> [guide for Auth.js](https://www.ory.sh/docs/getting-started/integrate-auth/auth-js).
 
-If you have a custom domain for your Ory Network Project, you should use the
-custom domain for `NEXT_PUBLIC_ORY_SDK_URL`.
-
-## Installation
-
-Run `npm install @ory/nextjs` or `yarn add @ory/nextjs` to install the package.
-
-### Next.js middleware for local development and preview deployments
+## Use case
 
 This package includes a middleware for the app and page router that enables
-local development and preview environments to work with Ory's cookie security
-model. When using the `@ory/nextjs` middleware, Ory Tunnel is not needed for
-development.
+local development and preview environments to work with
+[Ory's cookie security model](https://www.ory.sh/docs/security-model). When
+using the `@ory/nextjs` middleware, Ory Tunnel is not needed for development.
 
 Check the
 [app router](https://github.com/ory/elements/blob/main/examples/nextjs-app-router/middleware.ts)
 and
 [page router](https://github.com/ory/elements/blob/main/examples/nextjs-pages-router/middleware.ts)
 middleware example for more details.
+
+## Installation
+
+Run `npm install @ory/nextjs` or `yarn add @ory/nextjs` to install the package.
+
+## Configuration
+
+This middleware expects environment variable `NEXT_PUBLIC_ORY_SDK_URL` to be set
+to your Ory Network Project SDK URL. This is the URL that you would use to
+access the Ory API. If you have a custom domain for your Ory Network Project,
+you should use the custom domain for `NEXT_PUBLIC_ORY_SDK_URL`.
 
 ## Learn by example
 

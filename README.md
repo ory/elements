@@ -12,7 +12,7 @@ account pages for Ory a breeze:
 - Dynamically adapts the user interface to your Ory identity schema, sign-in and
   flow configuration.
 
-Ory Elements comes with several packages:
+Ory Elements has several packages:
 
 - [`@ory/elements-react`](./packages/elements-react/README.md)
 - [`@ory/nextjs`](./packages/nextjs/README.md)
@@ -21,6 +21,12 @@ Ory Elements comes with several packages:
 > If you've used @ory/elements, @ory/elements-markup or @ory/elements-preact
 > before, we recommend migrating to @ory/elements-react. The legacy code base is
 > in https://github.com/ory/elements-legacy.
+
+Ory Elements is a set of components that you can use to build your own login,
+registration, settings, verification, recovery and consent user interface. To
+just integrate authentication into your Next.js application and use the default
+user interfaces, follow our
+[guide for Auth.js](https://www.ory.sh/docs/getting-started/integrate-auth/auth-js).
 
 ## Getting Started
 
