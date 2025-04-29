@@ -95,7 +95,6 @@ export function OryTwoStepCardStateSelectMethod() {
     type: "error",
   }
 
-
   return (
     <OryCard>
       <OryCardHeader />

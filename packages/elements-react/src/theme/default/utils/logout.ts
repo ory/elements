@@ -6,10 +6,9 @@ import { useCallback, useEffect, useState } from "react"
 import { frontendClient } from "../../../util/client"
 export function useClientLogout(config: { sdk: { url: string } }) {
   const [logoutFlow, setLogoutFlow] = useState<LogoutFlow | undefined>()
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const fetchLogoutFlow = useCallback(async () => {
-    setIsLoading(true)
     try {
       const flow = await frontendClient(config.sdk.url)
         .createBrowserLogoutFlow()
@@ -18,7 +17,7 @@ export function useClientLogout(config: { sdk: { url: string } }) {
           if (err.response?.status !== 401) {
             throw err
           }
-          return null
+          return undefined
         })
       setLogoutFlow(flow)
     } finally {
@@ -30,5 +29,5 @@ export function useClientLogout(config: { sdk: { url: string } }) {
     void fetchLogoutFlow()
   }, [fetchLogoutFlow])
 
-  return { logoutFlow, isLoading }
+  return { logoutFlow, didLoad: !isLoading }
 }

@@ -34,7 +34,7 @@ export function DefaultCardFooter() {
 
 function LoginCardFooter() {
   const { config, formState, flow, flowType } = useOryFlow()
-  const { logoutFlow: logout } = useClientLogout(config)
+  const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
   const intl = useIntl()
 
   if (flowType !== FlowType.Login) {
@@ -51,6 +51,28 @@ function LoginCardFooter() {
     returnTo = restartFlowUrl(
       flow,
       `${config.sdk.url}/self-service/${flowType}/browser`,
+    )
+  }
+
+  if (flow.refresh || flow.requested_aal === "aal2") {
+    return (
+      <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+        {intl.formatMessage({
+          id: "login.2fa.go-back",
+        })}{" "}
+        <a
+          className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+          href={logout ? logout?.logout_url : returnTo}
+          data-testid={"ory/screen/login/mfa/action/cancel"}
+        >
+          {intl.formatMessage({
+            id:
+              !didLoadLogout || logout
+                ? "login.logout-button"
+                : "login.2fa.go-back.link",
+          })}
+        </a>
+      </span>
     )
   }
 
@@ -104,22 +126,6 @@ function LoginCardFooter() {
             </a>
           </span>
         )}
-      {flow.requested_aal === "aal2" && (
-        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-          {intl.formatMessage({
-            id: "login.2fa.go-back",
-          })}{" "}
-          <a
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href={logout ? logout?.logout_url : returnTo}
-            data-testid={"ory/screen/login/mfa/action/cancel"}
-          >
-            {intl.formatMessage({
-              id: logout ? "login.logout-button" : "login.2fa.go-back.link",
-            })}
-          </a>
-        </span>
-      )}
     </>
   )
 }
