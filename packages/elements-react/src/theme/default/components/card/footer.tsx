@@ -34,17 +34,17 @@ export function DefaultCardFooter() {
 
 function LoginCardFooter() {
   const { config, formState, flow, flowType } = useOryFlow()
-  const logout = useClientLogout(config)
+  const { logoutFlow: logout } = useClientLogout(config)
   const intl = useIntl()
 
-  const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
-
-  if (flowType === FlowType.Login && flow.refresh) {
+  if (flowType !== FlowType.Login) {
     return null
   }
 
+  const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
+
   let returnTo = config.project.default_redirect_url
-  if (flowType === FlowType.Login && flow.return_to) {
+  if (flow.return_to) {
     returnTo = flow.return_to
   }
   if (!returnTo) {
@@ -104,24 +104,22 @@ function LoginCardFooter() {
             </a>
           </span>
         )}
-      {flowType === FlowType.Login &&
-        flow.requested_aal === "aal2" &&
-        (formState.current === "select_method" || authMethods.length === 0) && (
-          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+      {flow.requested_aal === "aal2" && (
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          {intl.formatMessage({
+            id: "login.2fa.go-back",
+          })}{" "}
+          <a
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            href={logout ? logout?.logout_url : returnTo}
+            data-testid={"ory/screen/login/mfa/action/cancel"}
+          >
             {intl.formatMessage({
-              id: "login.2fa.go-back",
-            })}{" "}
-            <a
-              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              href={logout ? logout?.logout_url : returnTo}
-              data-testid={"ory/screen/login/mfa/action/cancel"}
-            >
-              {intl.formatMessage({
-                id: logout ? "login.logout-button" : "login.2fa.go-back.link",
-              })}
-            </a>
-          </span>
-        )}
+              id: logout ? "login.logout-button" : "login.2fa.go-back.link",
+            })}
+          </a>
+        </span>
+      )}
     </>
   )
 }

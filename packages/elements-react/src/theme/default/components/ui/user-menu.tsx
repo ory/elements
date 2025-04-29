@@ -24,7 +24,7 @@ type UserMenuProps = {
 export const UserMenu = ({ session }: UserMenuProps) => {
   const { config } = useOryFlow()
   const initials = getUserInitials(session)
-  const logoutFlow = useClientLogout(config)
+  const { logoutFlow } = useClientLogout(config)
 
   return (
     <DropdownMenu>

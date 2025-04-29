@@ -194,7 +194,7 @@ ${parsed.reason ? `Message: ${parsed.reason}` : ""}
 }
 
 function LoggedInActions({ config }: { config: OryClientConfiguration }) {
-  const logoutFlow = useClientLogout(config)
+  const { logoutFlow } = useClientLogout(config)
 
   return (
     <a
