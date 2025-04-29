@@ -211,10 +211,17 @@ export type OryFlowComponents = {
      * The Message component is rendered whenever a message is encountered.
      */
     Content: ComponentType<OryMessageContentProps>
+
+    Toast: ComponentType<OryToastProps>
   }
   Page: {
     Header: ComponentType<OryPageHeaderProps>
   }
+}
+
+export type OryToastProps = {
+  id: string | number
+  message: UiText
 }
 
 type DeepPartialTwoLevels<T> = {

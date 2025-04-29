@@ -6,10 +6,12 @@ import {
   PropsWithChildren,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from "react"
 import { OryFlowContainer } from "../util/flowContainer"
 import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
+import { FlowType } from "@ory/client-fetch"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
