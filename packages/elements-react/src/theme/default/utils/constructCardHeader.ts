@@ -188,6 +188,14 @@ export function useCardHeaderText(
     parts.push(intl.formatMessage({ id: "card.header.parts.code" }))
   }
 
+  if (nodes.find((node) => node.group === "totp")) {
+    parts.push(intl.formatMessage({ id: "card.header.parts.totp" }))
+  }
+
+  if (nodes.find((node) => node.group === "lookup_secret")) {
+    parts.push(intl.formatMessage({ id: "card.header.parts.lookup_secret" }))
+  }
+
   if (nodes.find((node) => node.group === "passkey")) {
     parts.push(intl.formatMessage({ id: "card.header.parts.passkey" }))
   }
