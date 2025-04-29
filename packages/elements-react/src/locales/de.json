@@ -196,7 +196,7 @@
   "identities.messages.4010009": "Die Authentifizierungsmethode stimmt nicht mit der vorherigen Authentifizierungsmethode überein. Bitte versuchen Sie es erneut.",
   "identities.messages.4010010": "Die eingegebene Adresse stimmt nicht mit der Adresse überein, die Sie bei der Registrierung angegeben haben. Bitte versuchen Sie es erneut.",
   "input.placeholder": "{placeholder} eingeben",
-  "card.header.parts.code": "ein an dich gesendeter Code",
+  "card.header.parts.code": "ein an Sie gesendeter Code",
   "card.header.parts.identifier-first": "Ihr {identifierLabel}",
   "card.header.parts.oidc": "ein sozialer Anbieter",
   "card.header.parts.passkey": "ein Passkey",
