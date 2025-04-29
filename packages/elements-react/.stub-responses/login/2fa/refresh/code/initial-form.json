@@ -1,0 +1,68 @@
+{
+  "id": "1840e819-af64-4742-96f1-15b9d31e7854",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:06:54.920082758Z",
+  "issued_at": "2025-04-24T15:06:54.920082758Z",
+  "request_url": "https://objective-black-jcvlhmd94e.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "ui": {
+    "action": "https://objective-black-jcvlhmd94e.projects.oryapis:8080/self-service/login?flow=1840e819-af64-4742-96f1-15b9d31e7854",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "tt9Hi68rpjCgPgrb1QXeApf8B5cpRduofFtFlNhKKka/W8rXhhQh1cDYG8wRbzYLccR53RpgaZMmNZJmEp2EAQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "address",
+          "type": "submit",
+          "value": "dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010023,
+            "text": "Send code to dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+              "channel": "email"
+            }
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      },
+      {
+        "id": 1010004,
+        "text": "Please complete the second authentication challenge.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:06:55.00187Z",
+  "updated_at": "2025-04-24T15:06:55.00187Z",
+  "refresh": true,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

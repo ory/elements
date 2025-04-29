@@ -4,6 +4,7 @@
 import { useComponents } from "../../context"
 import { useOryFlow } from "../../context"
 import {
+  getNodeId,
   UiNode,
   UiNodeGroupEnum,
   UiNodeInputAttributes,
@@ -44,10 +45,10 @@ export function OryFormOidcButtons() {
 
   return (
     <Form.OidcRoot nodes={filteredNodes}>
-      {filteredNodes.map((node, k) => (
+      {filteredNodes.map((node) => (
         <Node.OidcButton
           node={node}
-          key={k}
+          key={getNodeId(node)}
           attributes={node.attributes as UiNodeInputAttributes}
           onClick={() => {
             setValue(

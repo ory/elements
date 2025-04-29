@@ -27,6 +27,7 @@ import { getPublicUrl } from "./utils"
  * ```
  *
  * @param params - The query parameters of the request.
+ * @public
  */
 export async function getLogoutFlow({
   returnTo,

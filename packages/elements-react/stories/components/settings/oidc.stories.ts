@@ -7,7 +7,7 @@ import { config } from "../../utils"
 import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
-  title: "Ory Elements/Settings/Methods/OIDC",
+  title: "Ory Elements/Settings/OIDC",
   component: Settings,
   parameters: {
     layout: "centered",

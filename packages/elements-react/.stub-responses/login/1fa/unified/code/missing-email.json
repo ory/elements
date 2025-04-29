@@ -1,0 +1,85 @@
+{
+  "id": "ff9fd2de-9a15-4b1c-a434-aa52ca8338d2",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:00.033955Z",
+  "issued_at": "2025-04-24T15:07:00.033955Z",
+  "request_url": "https://friendly-noyce-2wkhxxbhnq.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://friendly-noyce-2wkhxxbhnq.projects.oryapis:8080/self-service/login?flow=ff9fd2de-9a15-4b1c-a434-aa52ca8338d2",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "j3kWdTi8EN3HhLVVNmIH3G+4JNtSVyBZ6tGquJtRMk33KDv6xybD3Lu4zw9yGfCiCVlnLgPOit8pijK/WnJ7Qw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:00.038594Z",
+  "updated_at": "2025-04-24T15:07:00.038594Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

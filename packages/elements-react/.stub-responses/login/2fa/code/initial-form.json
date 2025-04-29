@@ -1,0 +1,63 @@
+{
+  "id": "08ed1ba3-8ff2-4789-9c80-ce89074a461a",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:06:55.920103004Z",
+  "issued_at": "2025-04-24T15:06:55.920103004Z",
+  "request_url": "https://objective-black-jcvlhmd94e.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "ui": {
+    "action": "https://objective-black-jcvlhmd94e.projects.oryapis:8080/self-service/login?flow=08ed1ba3-8ff2-4789-9c80-ce89074a461a",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "cFEVTKYDJyTUpweolsHhYnvr7jXE/nyPYr+z7yKbLlwkFoE8TIKEWN4kljzdCOI6sWzR+7cfVKdcyrudxZ2HLw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "address",
+          "type": "submit",
+          "value": "dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010023,
+            "text": "Send code to dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+              "channel": "email"
+            }
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010004,
+        "text": "Please complete the second authentication challenge.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:06:55.990026Z",
+  "updated_at": "2025-04-24T15:06:55.990026Z",
+  "refresh": false,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

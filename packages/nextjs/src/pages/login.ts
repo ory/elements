@@ -5,6 +5,12 @@ import { clientSideFrontendClient } from "./client"
 import { createUseFlowFactory } from "./flow"
 import { FlowType } from "@ory/client-fetch"
 
+/**
+ * A client side hook to create a login flow.
+ *
+ * @returns A login flow
+ * @public
+ */
 export const useLoginFlow = createUseFlowFactory(
   FlowType.Login,
   (params: URLSearchParams) => {

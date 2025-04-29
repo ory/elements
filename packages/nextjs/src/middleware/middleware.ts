@@ -138,6 +138,16 @@ export async function proxyRequest(request: NextRequest, options: OryConfig) {
   })
 }
 
+/**
+ * Creates a Next.js middleware function that proxies requests to the Ory SDK.
+ *
+ * This middleware function intercepts requests to the Ory SDK and rewrites the URLs if
+ * in development mode or on vercel.com domains.
+ *
+ * @param options - The Ory configuration to use for the middleware.
+ * @returns The Ory Next.js middleware function
+ * @public
+ */
 export function createOryMiddleware(options: OryConfig) {
   return (r: NextRequest) => {
     return proxyRequest(r, options)

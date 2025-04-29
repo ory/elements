@@ -4,3 +4,5 @@ jest.config.ts
 tsconfig*.json
 !dist/
 src/
+api-report/
+config/

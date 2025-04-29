@@ -3,7 +3,7 @@
 
 import { useComponents, useNodeSorter } from "../../context"
 import { useOryFlow } from "../../context"
-import { UiNodeGroupEnum } from "@ory/client-fetch"
+import { getNodeId, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { Node } from "./nodes/node"
 
@@ -26,8 +26,8 @@ export function OryFormGroups({ groups }: OryFormGroupsProps) {
 
   return (
     <Form.Group>
-      {nodes.map((node, k) => {
-        return <Node node={node} key={k} />
+      {nodes.map((node) => {
+        return <Node node={node} key={getNodeId(node)} />
       })}
     </Form.Group>
   )

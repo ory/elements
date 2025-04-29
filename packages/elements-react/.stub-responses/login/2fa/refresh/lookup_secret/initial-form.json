@@ -1,0 +1,79 @@
+{
+  "id": "c868461a-ead8-42f2-9f35-e89afa2ef8c9",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:24.055134727Z",
+  "issued_at": "2025-04-24T15:07:24.055134727Z",
+  "request_url": "https://interesting-matsumoto-rtn24sywku.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "ui": {
+    "action": "https://interesting-matsumoto-rtn24sywku.projects.oryapis:8080/self-service/login?flow=c868461a-ead8-42f2-9f35-e89afa2ef8c9",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "UNjv39/DhCh72IuUCwkwPgGzn44CAXyokdE0s/pv/PYchlZwsnsTj828nL3vHhpefHClzQrsKfRbZ+YPJo57dQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "lookup_secret",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010007,
+            "text": "Backup recovery code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "lookup_secret",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010010,
+            "text": "Use backup recovery code",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:24.129595Z",
+  "updated_at": "2025-04-24T15:07:24.129595Z",
+  "refresh": true,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

@@ -1,6 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+/**
+ * The type of the Ory configuration object. This type is used to configure the Ory SDK in a Next.js application.
+ *
+ * @public
+ */
 export interface OryConfig {
   /**
    * Sets the base path for proxying requests to Ory during development and previews. Is unset per default for best

@@ -1,11 +1,11 @@
 {
-  "id": "65a42721-8d7a-4f10-aa01-95177cf609bf",
+  "id": "73b3f6d2-420a-424b-a669-e2bd2e07220e",
   "type": "browser",
-  "expires_at": "2025-02-26T16:16:48.111518595Z",
-  "issued_at": "2025-02-26T15:16:48.111518595Z",
-  "request_url": "https://quirky-aryabhata-dun2x0jy1x.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-04-24T16:07:43.797053544Z",
+  "issued_at": "2025-04-24T15:07:43.797053544Z",
+  "request_url": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://quirky-aryabhata-dun2x0jy1x.projects.oryapis:8080/self-service/settings?flow=65a42721-8d7a-4f10-aa01-95177cf609bf",
+    "action": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/self-service/settings?flow=73b3f6d2-420a-424b-a669-e2bd2e07220e",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "dMrjS98hQSamki1kvXxBKIZ6yTF87D95LFgGfAdx5UuOyo/FGjduG3Jdxzz63FvcB4///6HsuxUp/HArn0BaFw==",
+          "value": "rYkwr6UA9gcL+FvoD3wglxh1jemkhZ9Jw+HAtD5DkH0sFyL/jp+oo7U37HyrkzpRTnPnRGkSQiHldN6j0GZeOQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -171,6 +171,50 @@
         "type": "input",
         "group": "oidc",
         "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "generic",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link FooBarLogo",
+            "type": "info",
+            "context": {
+              "provider": "FooBarLogo"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
           "name": "unlink",
           "type": "submit",
           "value": "google",
@@ -181,10 +225,10 @@
         "meta": {
           "label": {
             "id": 1050003,
-            "text": "Unlink Fake Google",
+            "text": "Unlink Google",
             "type": "info",
             "context": {
-              "provider": "Fake Google"
+              "provider": "Google"
             }
           }
         }
@@ -192,37 +236,38 @@
     ]
   },
   "identity": {
-    "id": "47512fc1-0184-456d-89e9-18b820d9f84c",
+    "id": "fbdd40c9-f37e-44bb-a173-321fa295d4de",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://quirky-aryabhata-dun2x0jy1x.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-02-26T15:16:46.390223Z",
+    "state_changed_at": "2025-04-24T15:07:42.46277Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev"
+      "email": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "83f9dbe4-ef1b-4ef5-9dd7-5b13d09d240b",
-        "value": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev",
-        "verified": false,
+        "id": "a698de1f-6531-4026-b86e-cb141f9fbee3",
+        "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
+        "verified": true,
         "via": "email",
-        "status": "pending",
-        "created_at": "2025-02-26T15:16:46.416457Z",
-        "updated_at": "2025-02-26T15:16:46.416457Z"
+        "status": "completed",
+        "verified_at": "2025-04-24T15:07:42.480612Z",
+        "created_at": "2025-04-24T15:07:42.480693Z",
+        "updated_at": "2025-04-24T15:07:42.480693Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "a62bb4dc-99ab-4761-88ad-04e2a8faf90b",
-        "value": "dev+orycye2eda2f162daf6142dd0.dvq4dp8kaew0.k5ns94pnof@ory.dev",
+        "id": "9d298158-52da-4e7e-9cba-4aad3f6aca01",
+        "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
         "via": "email",
-        "created_at": "2025-02-26T15:16:46.444693Z",
-        "updated_at": "2025-02-26T15:16:46.444693Z"
+        "created_at": "2025-04-24T15:07:42.496525Z",
+        "updated_at": "2025-04-24T15:07:42.496525Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-02-26T15:16:46.405032Z",
-    "updated_at": "2025-02-26T15:16:46.405032Z",
+    "created_at": "2025-04-24T15:07:42.46585Z",
+    "updated_at": "2025-04-24T15:07:42.46585Z",
     "organization_id": null
   },
   "state": "show_form"

@@ -25,6 +25,25 @@
         "coverage": true,
         "coverageReporters": ["text", "cobertura"]
       }
+    },
+
+    "api-extractor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/nextjs",
+        "commands": ["api-extractor run --verbose -c config/api-extractor.json"]
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor-refresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/nextjs",
+        "commands": [
+          "api-extractor run --local --verbose -c config/api-extractor.json"
+        ]
+      },
+      "dependsOn": ["build"]
     }
   }
 }

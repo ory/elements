@@ -18,6 +18,7 @@ import { isProduction } from "./sdk"
  *
  * @param config - The Ory config to enhance
  * @param forceSdkUrl - An optional URL to override the SDK URL. If not provided, the SDK URL is determined as described above.
+ * @public
  */
 export function enhanceOryConfig(
   config: Partial<OryConfig>,

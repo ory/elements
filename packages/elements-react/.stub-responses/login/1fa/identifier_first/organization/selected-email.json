@@ -1,0 +1,105 @@
+{
+  "id": "575d21b2-ca8d-4680-8d98-776253f8baa3",
+  "organization_id": "bd71bcf6-6de8-49a3-b678-7495b6cfeaab",
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:56.267954Z",
+  "issued_at": "2025-04-24T15:07:56.267954Z",
+  "request_url": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login/browser",
+  "active": "identifier_first",
+  "ui": {
+    "action": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login?flow=575d21b2-ca8d-4680-8d98-776253f8baa3",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.r6pjh0wrut0.ecs1475c7fn@example.com",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "hdDdrUesbM2XIh86Xi5JEwuunYfPdLXhbw7wsHJeUWlHZEUx4n6qXbJLckWOSvJ5HbZUvI4TRJ1FqcUWTUChfg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "mycorp-saml-sso",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with mycorpSAML SSO",
+            "type": "info",
+            "context": {
+              "provider": "mycorpSAML SSO",
+              "provider_id": "mycorp-saml-sso"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "mycorp-oidc-sso",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with mycorpOIDC SSO",
+            "type": "info",
+            "context": {
+              "provider": "mycorpOIDC SSO",
+              "provider_id": "mycorp-oidc-sso"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:56.272645Z",
+  "updated_at": "2025-04-24T15:07:56.272645Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}

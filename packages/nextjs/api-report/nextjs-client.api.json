@@ -1,0 +1,1468 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.52.4",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/nextjs!",
+  "docComment": "",
+  "name": "@ory/nextjs",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/nextjs!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!createOryMiddleware:function(1)",
+          "docComment": "/**\n * Creates a Next.js middleware function that proxies requests to the Ory SDK.\n *\n * This middleware function intercepts requests to the Ory SDK and rewrites the URLs if in development mode or on vercel.com domains.\n *\n * @param options - The Ory configuration to use for the middleware.\n *\n * @returns The Ory Next.js middleware function\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function createOryMiddleware(options: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfig",
+              "canonicalReference": "@ory/nextjs!~OryConfig_2:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(r: "
+            },
+            {
+              "kind": "Reference",
+              "text": "NextRequest",
+              "canonicalReference": "next!NextRequest:class"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NextResponse",
+              "canonicalReference": "next!NextResponse:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/middleware/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "createOryMiddleware"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!enhanceOryConfig:function(1)",
+          "docComment": "/**\n * Enhances the Ory config with defaults and SDK URL. The SDK URL is determined as follows:\n *\n * 1. If `forceSdkUrl` is provided, it is used. 2. If `forceSdkUrl` is not provided, the following environment variables are checked: - `NEXT_PUBLIC_ORY_SDK_URL` - `ORY_SDK_URL` - `__NEXT_PRIVATE_ORIGIN` (if not in production) - `VERCEL_URL` (if not in production) - `window.location.origin` (if not in production) - If none of the above are set, an error is thrown.\n *\n * @param config - The Ory config to enhance\n *\n * @param forceSdkUrl - An optional URL to override the SDK URL. If not provided, the SDK URL is determined as described above.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function enhanceOryConfig(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfig",
+              "canonicalReference": "@ory/nextjs!OryConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ", forceSdkUrl?: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfigForNextJS",
+              "canonicalReference": "@ory/nextjs!~OryConfigForNextJS_2:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "forceSdkUrl",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 7
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "enhanceOryConfig"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getFlowFactory:function(1)",
+          "docComment": "/**\n * A function that creates a flow fetcher. The flow fetcher can be used to fetch a login, registration, recovery, settings, or verification flow from the SDK.\n *\n * Unless you are building something very custom, you will not need this method. Use it with care and expect potential breaking changes.\n *\n * @param params - The query parameters of the request.\n *\n * @param fetchFlowRaw - A function that fetches the flow from the SDK.\n *\n * @param flowType - The type of the flow.\n *\n * @param baseUrl - The base URL of the application.\n *\n * @param route - The route of the application.\n *\n * @param options - Additional options.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getFlowFactory<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "object"
+            },
+            {
+              "kind": "Content",
+              "text": ">(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", fetchFlowRaw: "
+            },
+            {
+              "kind": "Content",
+              "text": "() => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiResponse",
+              "canonicalReference": "@ory/client-fetch!ApiResponse:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ", flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", baseUrl: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", route: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    disableRewrite?: boolean;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<T | null | void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 19,
+            "endIndex": 21
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "fetchFlowRaw",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 10
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "flowType",
+              "parameterTypeTokenRange": {
+                "startIndex": 11,
+                "endIndex": 12
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "baseUrl",
+              "parameterTypeTokenRange": {
+                "startIndex": 13,
+                "endIndex": 14
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "route",
+              "parameterTypeTokenRange": {
+                "startIndex": 15,
+                "endIndex": 16
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 17,
+                "endIndex": 18
+              },
+              "isOptional": true
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "getFlowFactory"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getLoginFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n * import CardHeader from \"@/app/auth/login/card-header\"\n *\n * import baseConfig from \"@/ory.config\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getLoginFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Login\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getLoginFlow(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfigForNextJS",
+              "canonicalReference": "@ory/nextjs!~OryConfigForNextJS:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getLoginFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getLogoutFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to create a new logout flow. This method works with server-side rendering.\n * ```\n * import { getLogoutFlow } from \"@ory/nextjs/app\"\n *\n * async function LogoutLink() {\n *   const flow = await getLogoutFlow()\n *\n *   return (\n *     <a href={flow.logout_url}>\n *       Logout\n *     </a>\n *   )\n * }\n *\n * ```\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getLogoutFlow({ returnTo, }?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    returnTo?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LogoutFlow",
+              "canonicalReference": "@ory/client-fetch!LogoutFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ returnTo, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getLogoutFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getRecoveryFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing recovery flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Recovery } from \"@ory/elements-react/theme\"\n * import { getRecoveryFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/recovery/card-header\"\n *\n * export default async function RecoveryPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getRecoveryFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Recovery\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getRecoveryFlow(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfigForNextJS",
+              "canonicalReference": "@ory/nextjs!~OryConfigForNextJS:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getRecoveryFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getRegistrationFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing registration flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Registration } from \"@ory/elements-react/theme\"\n * import { getRegistrationFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/registration/card-header\"\n *\n * export default async function RegistrationPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getRegistrationFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Registration\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getRegistrationFlow(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfigForNextJS",
+              "canonicalReference": "@ory/nextjs!~OryConfigForNextJS:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getRegistrationFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getServerSession:function(1)",
+          "docComment": "/**\n * A helper to fetch the session on the server side. This method works with server-side rendering.\n * ```ts\n * import { getServerSession } from \"@ory/nextjs/app\"\n *\n * async function MyComponent() {\n *  const session = await getServerSession()\n *\n *  if (!session) {\n *    return <p>No session found</p>\n *  }\n *\n * }\n * ```\n *\n * @returns The session object or null if no session is found.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getServerSession(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "getServerSession"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getSettingsFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/login/card-header\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getLoginFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Login\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getSettingsFlow(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfigForNextJS",
+              "canonicalReference": "@ory/nextjs!~OryConfigForNextJS:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getSettingsFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getVerificationFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing verification flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Verification } from \"@ory/elements-react/theme\"\n * import { getVerificationFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/verification/card-header\"\n *\n * export default async function VerificationPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getVerificationFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Verification\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getVerificationFlow(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConfigForNextJS",
+              "canonicalReference": "@ory/nextjs!~OryConfigForNextJS:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getVerificationFlow"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/nextjs!OryConfig:interface",
+          "docComment": "/**\n * The type of the Ory configuration object. This type is used to configure the Ory SDK in a Next.js application.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface OryConfig "
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryConfig",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/nextjs!OryConfig#forceCookieDomain:member",
+              "docComment": "/**\n * Per default, this handler will strip the cookie domain from the Set-Cookie instruction which is recommended for most set ups.\n *\n * If you are running this app on a subdomain and you want the session and CSRF cookies to be valid for the whole TLD, you can use this setting to force a cookie domain.\n *\n * Please be aware that his method disables the `dontUseTldForCookieDomain` option.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "forceCookieDomain?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "forceCookieDomain",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/nextjs!OryConfig#forwardAdditionalHeaders:member",
+              "docComment": "/**\n * Per default headers are filtered to forward only a fixed list.\n *\n * If you need to forward additional headers you can use this setting to define them.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "forwardAdditionalHeaders?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "forwardAdditionalHeaders",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/nextjs!OryConfig#override:member",
+              "docComment": "/**\n * Override the default UI for login, registration, recovery, verification, and settings flows with a page in your project. This is useful if you want to customize the UI for these flows.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "override?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        applicationName?: string;\n        loginUiPath?: string;\n        registrationUiPath?: string;\n        recoveryUiPath?: string;\n        verificationUiPath?: string;\n        settingsUiPath?: string;\n        defaultRedirectUri?: string;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "override",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/nextjs!OryConfig#proxyBasePath:member",
+              "docComment": "/**\n * Sets the base path for proxying requests to Ory during development and previews. Is unset per default for best compatibility.\n *\n * For example, Ory's `/self-service/login/browser` API will be proxied in your application at `/self-service/login/browser`. This proxying is only enabled in development and preview deployments and disabled in production.\n *\n * If you want to proxy Ory's `/self-service/login/browser` API at `/api/self-service/login/browser`, you can set this option to `/api`.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "proxyBasePath?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "proxyBasePath",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/nextjs!OryPageParams:interface",
+          "docComment": "/**\n * A utility type that represents the query parameters of a request.\n *\n * This is needed because Next.js does not expose the query parameters as a tye.\n * ```ts\n * import { OryPageParams } from \"@ory/nextjs/app\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   // props.searchParams is a Promise that resolves to an object with the query parameters\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface OryPageParams "
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryPageParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/nextjs!OryPageParams#searchParams:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "searchParams: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n        [key: string]: string | string[] | undefined;\n    }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "searchParams",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useLoginFlow:function(1)",
+          "docComment": "/**\n * A client side hook to create a login flow.\n *\n * @returns A login flow\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useLoginFlow: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "_ory_client_fetch.LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useLoginFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useLogoutFlow:function(1)",
+          "docComment": "/**\n * A client side hook to create a logout flow.\n *\n * @returns A logout flow\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useLogoutFlow(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "LogoutFlow",
+              "canonicalReference": "@ory/client-fetch!LogoutFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useLogoutFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useRecoveryFlow:function(1)",
+          "docComment": "/**\n * A client side hook to create a recovery flow.\n *\n * @returns A recovery flow\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useRecoveryFlow: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "_ory_client_fetch.RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useRecoveryFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useRegistrationFlow:function(1)",
+          "docComment": "/**\n * A client side hook to create a registration flow.\n *\n * @returns A registration flow\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useRegistrationFlow: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "_ory_client_fetch.RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useRegistrationFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useSettingsFlow:function(1)",
+          "docComment": "/**\n * A client side hook to create a settings flow.\n *\n * @returns A settings flow\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useSettingsFlow: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "_ory_client_fetch.SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useSettingsFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useVerificationFlow:function(1)",
+          "docComment": "/**\n * A client side hook to create a verification flow.\n *\n * @returns A verification flow\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useVerificationFlow: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "_ory_client_fetch.VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useVerificationFlow"
+        }
+      ]
+    }
+  ]
+}

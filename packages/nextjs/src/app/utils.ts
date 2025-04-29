@@ -7,7 +7,6 @@ import { QueryParams } from "../types"
 import { ParsedUrlQuery } from "querystring"
 
 export async function getCookieHeader() {
-  // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?
   const h = await headers()
   return h.get("cookie") ?? undefined
 }
@@ -16,6 +15,9 @@ export const onRedirect: OnRedirectHandler = (url) => {
   redirect(url)
 }
 
+/**
+ * @internal
+ */
 export async function toGetFlowParameter(
   params: Promise<QueryParams> | QueryParams,
 ) {
@@ -26,13 +28,27 @@ export async function toGetFlowParameter(
 }
 
 export async function getPublicUrl() {
-  // eslint-disable-next-line @typescript-eslint/await-thenable -- types in the next SDK are wrong?
   const h = await headers()
   const host = h.get("host")
   const protocol = h.get("x-forwarded-proto") || "http"
   return `${protocol}://${host}`
 }
 
+/**
+ * A utility type that represents the query parameters of a request.
+ *
+ * This is needed because Next.js does not expose the query parameters as a tye.
+ *
+ * ```ts
+ * import { OryPageParams } from "@ory/nextjs/app"
+ *
+ * export default async function LoginPage(props: OryPageParams) {
+ *   // props.searchParams is a Promise that resolves to an object with the query parameters
+ * }
+ * ```
+ *
+ * @public
+ */
 export interface OryPageParams {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }

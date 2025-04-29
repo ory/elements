@@ -1,0 +1,120 @@
+{
+  "id": "0959c2ed-e341-4f9a-9945-dfce5f7f14a7",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:57.270329396Z",
+  "issued_at": "2025-04-24T15:07:57.270329396Z",
+  "request_url": "https://cranky-williamson-0767u4bggl.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://cranky-williamson-0767u4bggl.projects.oryapis:8080/self-service/login?flow=0959c2ed-e341-4f9a-9945-dfce5f7f14a7",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "sH/CLeGtBYk+ynKlEnoVmdpz3cf8prgFa+tUHI6YeQRp1Iu/65ww+negCLZpWFZ74FA/icVuJarOnlHN/UgKPA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://cranky-williamson-0767u4bggl.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "a5346a77-61fa-4a67-a95d-b6750aa62ef5",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"Cq88ITA-rO6HGtO4G5_nwat4eVo8HZEmU-LC97jHAk4\",\"timeout\":300000,\"rpId\":\"cranky-williamson-0767u4bggl.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:57.276939Z",
+  "updated_at": "2025-04-24T15:07:57.276939Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

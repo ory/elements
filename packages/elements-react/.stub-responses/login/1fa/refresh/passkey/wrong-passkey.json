@@ -1,0 +1,119 @@
+{
+  "id": "3e06ca5b-e174-4bcb-ad99-136b57251560",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:57.749173Z",
+  "issued_at": "2025-04-24T15:07:57.749173Z",
+  "request_url": "https://flamboyant-ritchie-skhr38k38y.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://flamboyant-ritchie-skhr38k38y.projects.oryapis:8080/self-service/login?flow=3e06ca5b-e174-4bcb-ad99-136b57251560",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "CZQXFJ5ap0hy7m9xKgd7wBiInENwQ6ZGjMKihD0CJTFcgEcVuQWNBw9jd34YlKhqJ9xSr9pvbsgdS0kuyUbyVg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.wt1boboeuu0.t7lfgn5ih0d@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://flamboyant-ritchie-skhr38k38y.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "b50d81ff-3867-41e1-93b4-31e2eeba288b",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"qkCz4w8P4r6q784SBD5GTmgk2pVvOcKTQD_R38g5KFc\",\"timeout\":300000,\"rpId\":\"flamboyant-ritchie-skhr38k38y.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"wS0VYFKb5B1ecTt8XiF3J9PM5u3KFZYE2Vnyk82HX5Y\"}],\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000001,
+        "text": "Unable to parse WebAuthn response.",
+        "type": "error",
+        "context": {
+          "reason": "Unable to parse WebAuthn response."
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:57.955597Z",
+  "updated_at": "2025-04-24T15:07:57.955597Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

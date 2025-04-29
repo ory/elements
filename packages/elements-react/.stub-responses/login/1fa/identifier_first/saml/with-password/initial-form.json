@@ -1,0 +1,214 @@
+{
+  "id": "769685c1-238f-440a-8cbf-eefb95a42e58",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:14.617271678Z",
+  "issued_at": "2025-04-24T15:08:14.617271678Z",
+  "request_url": "https://recursing-aryabhata-pr1ddv2dld.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://recursing-aryabhata-pr1ddv2dld.projects.oryapis:8080/self-service/login?flow=769685c1-238f-440a-8cbf-eefb95a42e58",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "auth0",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Auth0",
+            "type": "info",
+            "context": {
+              "provider": "Auth0",
+              "provider_id": "auth0"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "azure",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Azure AD",
+            "type": "info",
+            "context": {
+              "provider": "Azure AD",
+              "provider_id": "azure"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace",
+              "provider_id": "gsuite"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "okta",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Okta",
+            "type": "info",
+            "context": {
+              "provider": "Okta",
+              "provider_id": "okta"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "onelogin",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with OneLogin",
+            "type": "info",
+            "context": {
+              "provider": "OneLogin",
+              "provider_id": "onelogin"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "pingfederate",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with PingFederate",
+            "type": "info",
+            "context": {
+              "provider": "PingFederate",
+              "provider_id": "pingfederate"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "wFMLW6D00LxA2hPGMux0BCDCrOBbeoU1u8z6HP/rQ+krFDOg5Eu7roaqhRxEuCocq88tEh6eQYs7kLMHq2jhUA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:14.623971Z",
+  "updated_at": "2025-04-24T15:08:14.623971Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

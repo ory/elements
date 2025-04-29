@@ -7,7 +7,7 @@ import { config } from "../../utils"
 import { SpacedSettings as Settings } from "./settings"
 
 const meta = {
-  title: "Ory Elements/Settings/Methods/Webauthn",
+  title: "Ory Elements/Settings/Webauthn",
   component: Settings,
   parameters: {
     layout: "centered",
@@ -22,6 +22,15 @@ export const ShowForm: Story = {
   args: {
     flow: SettingsFlowFromJSON(
       require("$snapshots/settings/webauthn/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+export const FormError: Story = {
+  args: {
+    flow: SettingsFlowFromJSON(
+      require("$snapshots/settings/webauthn/wrong-credentials.json"),
     ),
     config,
   },

@@ -1,82 +1,21 @@
 {
-  "id": "1e0f648d-20b3-4cdd-86ee-a3add8259bf0",
+  "id": "495c3dcf-5c4d-4a57-8915-6a67aca041bc",
   "type": "browser",
-  "expires_at": "2025-03-05T10:47:26.080955Z",
-  "issued_at": "2025-03-05T09:47:26.080955Z",
-  "request_url": "https://nifty-clarke-m4i6vwepf0.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:06:55.097439Z",
+  "issued_at": "2025-04-24T15:06:55.097439Z",
+  "request_url": "https://hopeful-nobel-gpefxntxc5.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://nifty-clarke-m4i6vwepf0.projects.oryapis:8080/self-service/registration?flow=1e0f648d-20b3-4cdd-86ee-a3add8259bf0",
+    "action": "https://hopeful-nobel-gpefxntxc5.projects.oryapis:8080/self-service/registration?flow=495c3dcf-5c4d-4a57-8915-6a67aca041bc",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
-        "group": "captcha",
+        "group": "default",
         "attributes": {
-          "name": "transient_payload.captcha_turnstile_response",
+          "name": "csrf_token",
           "type": "hidden",
-          "value": "",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "script",
-        "group": "captcha",
-        "attributes": {
-          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
-          "async": true,
-          "referrerpolicy": "no-referrer",
-          "crossorigin": "anonymous",
-          "integrity": "",
-          "type": "text/javascript",
-          "id": "captcha_trigger_script",
-          "nonce": "7b41d916-706f-487d-97ed-589544e043fb",
-          "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "text",
-        "group": "captcha",
-        "attributes": {
-          "text": {
-            "id": 1070015,
-            "text": "Please complete the captcha challenge to continue.",
-            "type": "info"
-          },
-          "id": "captcha_turnstile_inject",
-          "node_type": "text"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "script",
-        "group": "captcha",
-        "attributes": {
-          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
-          "async": true,
-          "referrerpolicy": "no-referrer",
-          "crossorigin": "anonymous",
-          "integrity": "",
-          "type": "text/javascript",
-          "id": "captcha_script",
-          "nonce": "bd976f46-cd20-45e3-8108-22d20b06b4bc",
-          "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "captcha",
-        "attributes": {
-          "name": "captcha_turnstile_options",
-          "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "value": "DrtjR3YiNog//x7U/BtehyhZD2RpdzuBC9+zKaFvOWoV8rqfKeyGdm6XcId7DC9o819++zcIeiTOlXostRKRDg==",
+          "required": true,
           "disabled": false,
           "node_type": "input"
         },
@@ -171,12 +110,73 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "captcha",
         "attributes": {
-          "name": "csrf_token",
+          "name": "transient_payload.captcha_turnstile_response",
           "type": "hidden",
-          "value": "5G4xtGr/0nxecBsdzB06wul5YNhFquu3YNo+6Lc3UEYvyDr203lBWP1y9XixvQjls55988eb/rwzmzUnnCD/CQ==",
-          "required": true,
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_trigger_script",
+          "nonce": "5583e194-811f-4faf-906d-6382e4209b8d",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "text",
+        "group": "captcha",
+        "attributes": {
+          "text": {
+            "id": 1070015,
+            "text": "Please complete the captcha challenge to continue.",
+            "type": "info"
+          },
+          "id": "captcha_turnstile_inject",
+          "node_type": "text"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_script",
+          "nonce": "9d634c69-2e7e-460d-8a29-0213d8312957",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "captcha_turnstile_options",
+          "type": "hidden",
+          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
           "disabled": false,
           "node_type": "input"
         },

@@ -2,6 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { OryClientConfiguration } from "@ory/elements-react"
+import {
+  LoginFlow,
+  LoginFlowFromJSON,
+  RegistrationFlow,
+  SettingsFlow,
+  UiNodeGroupEnum,
+} from "@ory/client-fetch"
+import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 export const config = {
   sdk: {
@@ -27,6 +35,7 @@ export const config = {
 // This is a temporary solution to make the SDKs work with the new error types.
 
 /** Error parsing polyfils */
+
 /* eslint-disable */
 /**
  * The standard Ory JSON API error format.
@@ -141,3 +150,69 @@ export interface GenericError {
    */
   status?: string
 }
+
+/** Lists only the given groups for a given flow.
+ *
+ * @param flow
+ * @param groups
+ */
+export const listOnlyGroups = (
+  flow: LoginFlow | RegistrationFlow | SettingsFlow,
+  groups: UiNodeGroupEnum[],
+): LoginFlow => {
+  return LoginFlowFromJSON({
+    ...flow,
+    ui: {
+      ...flow.ui,
+      nodes: flow.ui.nodes.filter((node) => {
+        return groups.includes(node.group)
+      }),
+    },
+  })
+}
+
+/** Lists the available social login providers for a given flow.
+ *
+ * @param flow
+ * @param group
+ * @param providers
+ */
+export const listOnlySsoProviders = (
+  flow: LoginFlow,
+  group: "saml" | "oidc",
+  providers: string[],
+): LoginFlow => {
+  return LoginFlowFromJSON({
+    ...flow,
+    ui: {
+      ...flow.ui,
+      nodes: flow.ui.nodes.filter((node) => {
+        if (
+          node.group !== group ||
+          node.attributes.node_type !== "input" ||
+          node.attributes.name !== "provider"
+        ) {
+          return true
+        }
+
+        return providers.includes(
+          (node.attributes.value as string).toLowerCase(),
+        )
+      }),
+    },
+  })
+}
+
+/**
+ * Patches the active method of a login flow.
+ *
+ * @param flow
+ * @param method
+ */
+export const patchMethodActive = (
+  flow: LoginFlow,
+  method: LoginFlowActiveEnum,
+) => ({
+  ...flow,
+  active: method,
+})

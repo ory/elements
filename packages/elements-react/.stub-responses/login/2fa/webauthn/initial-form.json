@@ -1,0 +1,104 @@
+{
+  "id": "639d8746-319d-45ba-8671-d595036a4e67",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:32.311177325Z",
+  "issued_at": "2025-04-24T15:08:32.311177325Z",
+  "request_url": "https://laughing-bouman-483qyb4k3j.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "ui": {
+    "action": "https://laughing-bouman-483qyb4k3j.projects.oryapis:8080/self-service/login?flow=639d8746-319d-45ba-8671-d595036a4e67",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "mjD6XxVzoeCVPzZ8J5lR4+mgFlYXt4l6bwBySIhfW2kctNYv7O4wQa2hSnHxWkiECkMb6xZT5PPvBjVqC9YT1w==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.ao0ovpnnul40.r5bx3x4fubk@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://laughing-bouman-483qyb4k3j.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "29cac456-e906-4840-b0c0-14c33e6f0adf",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"nqA0JRATJPxpZ_-debC_RPNE3ndtiIEW29u5iMA1ngc\",\"timeout\":120000,\"rpId\":\"laughing-bouman-483qyb4k3j.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"Q5w6HozN7arP8Dc3JOp54O9N9BXCVia3K9o69YJUHmw\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"nqA0JRATJPxpZ_-debC_RPNE3ndtiIEW29u5iMA1ngc\",\"timeout\":120000,\"rpId\":\"laughing-bouman-483qyb4k3j.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"Q5w6HozN7arP8Dc3JOp54O9N9BXCVia3K9o69YJUHmw\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010004,
+        "text": "Please complete the second authentication challenge.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:32.390211Z",
+  "updated_at": "2025-04-24T15:08:32.390211Z",
+  "refresh": false,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}

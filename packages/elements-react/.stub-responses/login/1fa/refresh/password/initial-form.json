@@ -1,0 +1,92 @@
+{
+  "id": "3f501e62-8bb0-4598-9242-bf6e8e5f529a",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:08:04.491071296Z",
+  "issued_at": "2025-04-24T15:08:04.491071296Z",
+  "request_url": "https://stoic-boyd-xl02yiy363.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://stoic-boyd-xl02yiy363.projects.oryapis:8080/self-service/login?flow=3f501e62-8bb0-4598-9242-bf6e8e5f529a",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "oQHIPOSvKe74q72TRNroyz+ezPzuv1ulvWaP2v6crJCw5VxdRhwbAOxqS+9GCSSC2iJW9PgpKJlpnKKJZiCT/g==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.wobktlvbxsk0.eqvf27eljuo@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:08:04.594958Z",
+  "updated_at": "2025-04-24T15:08:04.594958Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

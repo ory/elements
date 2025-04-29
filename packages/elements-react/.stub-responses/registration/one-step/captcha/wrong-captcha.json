@@ -1,82 +1,21 @@
 {
-  "id": "add85010-1273-4f30-8773-cb8890b3762f",
+  "id": "9b8f1306-90c7-4932-b979-1c6c50c03c2c",
   "type": "browser",
-  "expires_at": "2025-03-05T10:47:26.538567Z",
-  "issued_at": "2025-03-05T09:47:26.538567Z",
-  "request_url": "https://nervous-wing-azaq9phy7x.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-04-24T16:06:54.459851Z",
+  "issued_at": "2025-04-24T15:06:54.459851Z",
+  "request_url": "https://flamboyant-golick-t0cvn6ofqf.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://nervous-wing-azaq9phy7x.projects.oryapis:8080/self-service/registration?flow=add85010-1273-4f30-8773-cb8890b3762f",
+    "action": "https://flamboyant-golick-t0cvn6ofqf.projects.oryapis:8080/self-service/registration?flow=9b8f1306-90c7-4932-b979-1c6c50c03c2c",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
-        "group": "captcha",
+        "group": "default",
         "attributes": {
-          "name": "transient_payload.captcha_turnstile_response",
+          "name": "csrf_token",
           "type": "hidden",
-          "value": "",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "script",
-        "group": "captcha",
-        "attributes": {
-          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
-          "async": true,
-          "referrerpolicy": "no-referrer",
-          "crossorigin": "anonymous",
-          "integrity": "",
-          "type": "text/javascript",
-          "id": "captcha_trigger_script",
-          "nonce": "7b41d916-706f-487d-97ed-589544e043fb",
-          "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "text",
-        "group": "captcha",
-        "attributes": {
-          "text": {
-            "id": 1070015,
-            "text": "Please complete the captcha challenge to continue.",
-            "type": "info"
-          },
-          "id": "captcha_turnstile_inject",
-          "node_type": "text"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "script",
-        "group": "captcha",
-        "attributes": {
-          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
-          "async": true,
-          "referrerpolicy": "no-referrer",
-          "crossorigin": "anonymous",
-          "integrity": "",
-          "type": "text/javascript",
-          "id": "captcha_script",
-          "nonce": "bd976f46-cd20-45e3-8108-22d20b06b4bc",
-          "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "captcha",
-        "attributes": {
-          "name": "captcha_turnstile_options",
-          "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "value": "4gIIFjnDAYEqbcJTzCrcoLmqIONYwsu+7vEb52N3MLIt1lIYrkYNifU5LotfY4xDVRW46P7Ndcw8MCiy1gXYRg==",
+          "required": true,
           "disabled": false,
           "node_type": "input"
         },
@@ -170,44 +109,18 @@
         }
       },
       {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "sw+CVxC2HGW4yY+WyLL6MIiHB+qF0bQbiLMwZjGA6v86Orh93YisnXBSAYuchm31SIcV11NZ8N+S/9vJPTmiXA==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://nervous-wing-azaq9phy7x.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://flamboyant-golick-t0cvn6ofqf.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "5f7fdbc2-c4c7-4927-9a3f-e22be704756c",
+          "nonce": "64843529-6135-441f-af5f-e27cdc187119",
           "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_register",
-          "type": "hidden",
-          "disabled": false,
-          "node_type": "input"
         },
         "messages": [],
         "meta": {}
@@ -236,9 +149,21 @@
         "type": "input",
         "group": "passkey",
         "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
-          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-YpErSitL2tLZ4178-0-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eone-step\\u003eregistration\",\"id\":\"nervous-wing-azaq9phy7x.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-YpErSitL2tLZ4178-0-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eone-step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-YpErSitL2tLZ4178-0-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eone-step\\u003eregistration\",\"id\":\"UTNFODN0Uk1BRjJGUWhJRkNhUDhReWpEREh2R2ZRUjdvbGl4WFh0S1M0WkcxU2VaYlVWWFVXRk1XWHU3RHNuTQ\"},\"challenge\":\"6D-qa1YUh36MYFOoMN0fx6-k3baBhHk0C0TUDFE8pwA\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
+          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-b7CYfUD8RyhMCjY9-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"id\":\"flamboyant-golick-t0cvn6ofqf.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-b7CYfUD8RyhMCjY9-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-b7CYfUD8RyhMCjY9-2-tests/elements/captcha.spec.ts\\u003eGenerate captcha API responses for Ory Elements Storybook\\u003eregistration\\u003eone-step\\u003eregistration\",\"id\":\"TE9IdFBRWVlMMnVEYWtMRFpiV0J6d1psaHRVV29zZGNaM0pxOElneFBXVzRuRGg4UW5FOUpDQlVmcXRNeG00Mg\"},\"challenge\":\"4yL4cRHnxba8dyhjVoQ6ndBn2ipapRmmhiuQpwEebCA\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
           "disabled": false,
           "node_type": "input"
         },
@@ -283,6 +208,81 @@
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "transient_payload.captcha_turnstile_response",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_trigger_script",
+          "nonce": "5583e194-811f-4faf-906d-6382e4209b8d",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "text",
+        "group": "captcha",
+        "attributes": {
+          "text": {
+            "id": 1070015,
+            "text": "Please complete the captcha challenge to continue.",
+            "type": "info"
+          },
+          "id": "captcha_turnstile_inject",
+          "node_type": "text"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_script",
+          "nonce": "9d634c69-2e7e-460d-8a29-0213d8312957",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "captcha_turnstile_options",
+          "type": "hidden",
+          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
       }
     ],
     "messages": [

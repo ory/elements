@@ -108,9 +108,7 @@ export function DefaultButtonSocial({
           Logo ? (
             <Logo size={20} />
           ) : (
-            <span className="flex aspect-square items-center justify-center rounded-[999px] border text-xs">
-              {provider.slice(0, 2)}
-            </span>
+            <GenericLogo label={provider.slice(0, 1)} />
           )
         ) : (
           <Spinner className="size-5" />
@@ -154,5 +152,13 @@ export function DefaultSocialButtonContainer({
     >
       {children}
     </div>
+  )
+}
+
+export function GenericLogo({ label }: { label: string }) {
+  return (
+    <span className="flex rounded-buttons bg-button-social-background-generic-provider text-button-social-foreground-generic-provider border-button-social-border-generic-provider text-xs size-full items-center justify-center">
+      {label}
+    </span>
   )
 }

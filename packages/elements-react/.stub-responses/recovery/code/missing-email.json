@@ -1,12 +1,12 @@
 {
-  "id": "56834271-bf33-4a90-986e-f7b043b5abd2",
+  "id": "2ddbd386-5738-4ea1-a2b1-2dc26199a3f7",
   "type": "browser",
-  "expires_at": "2025-03-01T16:04:47.858098Z",
-  "issued_at": "2025-03-01T15:04:47.858098Z",
-  "request_url": "https://upbeat-montalcini-585o41d7jz.projects.oryapis:8080/self-service/recovery/browser",
+  "expires_at": "2025-04-24T16:07:01.616434Z",
+  "issued_at": "2025-04-24T15:07:01.616434Z",
+  "request_url": "https://admiring-shamir-4crn8fvz1q.projects.oryapis:8080/self-service/recovery/browser",
   "active": "code",
   "ui": {
-    "action": "https://upbeat-montalcini-585o41d7jz.projects.oryapis:8080/self-service/recovery?flow=56834271-bf33-4a90-986e-f7b043b5abd2",
+    "action": "https://admiring-shamir-4crn8fvz1q.projects.oryapis:8080/self-service/recovery?flow=2ddbd386-5738-4ea1-a2b1-2dc26199a3f7",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "wpgAwE6TD9hwKV78KVHCex+CUZc+eMPa2I9mun4tYBh6Whq4rS2VajI5a62gK+P8cr8DiueI75y9U6I92RArWQ==",
+          "value": "ObWC8y4fg9MmjZbRZ3uUFl0SNkxzbXf38YXGye9m6kHJNDBKWVlBAEX5LrAXcWuKb+1LIUoNiNwLqPjtrficTQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

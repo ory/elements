@@ -1,0 +1,206 @@
+{
+  "id": "c18ef3d3-a0a6-4589-bb58-96212c2c4ad6",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-04-24T16:07:20.464683Z",
+  "issued_at": "2025-04-24T15:07:20.464683Z",
+  "request_url": "https://elastic-morse-c033dghiye.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "ui": {
+    "action": "https://elastic-morse-c033dghiye.projects.oryapis:8080/self-service/login?flow=c18ef3d3-a0a6-4589-bb58-96212c2c4ad6",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "YAMeV9ighsgTo7GAFsXpMHtffkPw8Y28BUMjHuH2gYTJDzRzFMlwg3SkuD1dEXyevBYD8c8SsIp4ULeE8wBv8A==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://elastic-morse-c033dghiye.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "5fd7bb22-526a-4c3a-92d9-3ba8b4c6fabc",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"2hqxioz5lRQ6Wnay6J-UW8maq8y1KAk95FNj-10_fkY\",\"timeout\":120000,\"rpId\":\"elastic-morse-c033dghiye.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"FhSi2H6E_6XQ2M5UmTur-aB7vlkBlHlK39MmyTEEFmc\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"2hqxioz5lRQ6Wnay6J-UW8maq8y1KAk95FNj-10_fkY\",\"timeout\":120000,\"rpId\":\"elastic-morse-c033dghiye.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"FhSi2H6E_6XQ2M5UmTur-aB7vlkBlHlK39MmyTEEFmc\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "address",
+          "type": "submit",
+          "value": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010023,
+            "text": "Send code to dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+              "channel": "email"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "totp_code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property totp_code is missing.",
+            "type": "error",
+            "context": {
+              "property": "totp_code"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1010006,
+            "text": "Authentication code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "totp",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "totp",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010009,
+            "text": "Use Authenticator",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "lookup_secret",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010007,
+            "text": "Backup recovery code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "lookup_secret",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "lookup_secret",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010010,
+            "text": "Use backup recovery code",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-04-24T15:07:20.74773Z",
+  "updated_at": "2025-04-24T15:07:20.74773Z",
+  "refresh": true,
+  "requested_aal": "aal2",
+  "state": "choose_method"
+}
