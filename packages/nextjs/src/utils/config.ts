@@ -1,5 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
+import { AccountExperienceConfiguration } from "@ory/client-fetch"
 import { OryConfig } from "../types"
 import { isProduction } from "./sdk"
 
@@ -60,23 +61,21 @@ export function enhanceOryConfig(
         config.override?.verificationUiPath ?? "/ui/verification",
       login_ui_url: config.override?.loginUiPath ?? "/ui/login",
       settings_ui_url: config.override?.settingsUiPath ?? "/ui/settings",
+      default_redirect_url:
+        config.override?.defaultRedirectUri ?? "/ui/welcome",
+      error_ui_url: config.override?.errorUiPath ?? "/ui/error",
+      name: config.override?.applicationName ?? "Default name",
     },
   }
 }
 
 export interface OryConfigForNextJS {
+  /**
+   * @deprecated use project.name instead
+   */
   name: string
   sdk: {
     url: string
   }
-  project: {
-    registration_enabled: boolean
-    verification_enabled: boolean
-    recovery_enabled: boolean
-    recovery_ui_url: string
-    registration_ui_url: string
-    verification_ui_url: string
-    login_ui_url: string
-    settings_ui_url: string
-  }
+  project: AccountExperienceConfiguration
 }

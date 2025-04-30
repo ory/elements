@@ -2,7 +2,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, handleFlowError } from "@ory/client-fetch"
+import {
+  AccountExperienceConfiguration,
+  FlowType,
+  handleFlowError,
+} from "@ory/client-fetch"
 import { redirect } from "next/navigation"
 import {
   getLoginFlow,
@@ -62,7 +66,12 @@ const config = {
     verification_ui_url: "string",
     login_ui_url: "string",
     settings_ui_url: "string",
-  },
+    default_redirect_url: "string",
+    logo_light_url: "string",
+    logo_dark_url: "string",
+    error_ui_url: "string",
+    name: "string",
+  } satisfies AccountExperienceConfiguration,
 }
 
 beforeEach(() => {

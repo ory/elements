@@ -12,11 +12,11 @@ import {
 import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 export const config = {
-  name: "Acme Inc.",
   sdk: {
     url: "https://example.com",
   },
   project: {
+    name: "Acme Inc.",
     registration_enabled: true,
     verification_enabled: true,
     recovery_enabled: true,
@@ -25,6 +25,8 @@ export const config = {
     registration_ui_url: "",
     verification_ui_url: "",
     default_redirect_url: "https://ory.sh",
+    error_ui_url: "",
+    settings_ui_url: "",
   },
 } satisfies OryClientConfiguration
 

@@ -222,13 +222,26 @@ function GoBackButton({ config }: { config: OryClientConfiguration }) {
 }
 
 function ErrorLogo({ config }: { config: OryClientConfiguration }) {
+  if (config.project.logo_light_url) {
+    return (
+      <img
+        src={config.project.logo_light_url}
+        width={100}
+        height={36}
+        alt="Logo"
+      />
+    )
+  }
+
+  // TODO(jonas): remove this after next release
   if (config.logoUrl) {
     return <img src={config.logoUrl} width={100} height={36} alt="Logo" />
   }
 
   return (
     <h1 className="text-xl font-semibold leading-normal text-interface-foreground-default-primary">
-      {config.name}
+      {/* TODO(jonas): remove this after next release */}
+      {config.project.name ?? config.name}
     </h1>
   )
 }
