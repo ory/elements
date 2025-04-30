@@ -4,13 +4,10 @@
 import {
   ContinueWith,
   FlowType,
-  GenericError,
-  handleContinueWith,
-  handleFlowError,
   instanceOfContinueWithRecoveryUi,
+  GenericError,
   OnRedirectHandler,
   RecoveryFlow,
-  recoveryUrl,
   UpdateRecoveryFlowBody,
 } from "@ory/client-fetch"
 import { frontendClient } from "./client"
@@ -18,6 +15,7 @@ import { OryClientConfiguration } from "./clientConfiguration"
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { replaceWindowFlowId } from "./internal"
+import { handleFlowError, handleContinueWith, recoveryUrl } from "../sdk"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
@@ -87,6 +85,7 @@ export async function onSubmitRecovery(
           }
         },
         onRedirect,
+        config,
       }),
     )
 }

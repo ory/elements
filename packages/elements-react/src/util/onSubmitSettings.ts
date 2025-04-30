@@ -3,10 +3,6 @@
 
 import {
   FlowType,
-  handleContinueWith,
-  handleFlowError,
-  isResponseError,
-  loginUrl,
   SettingsFlow,
   settingsUrl,
   UpdateSettingsFlowBody,
@@ -16,6 +12,12 @@ import { OnSubmitHandlerProps } from "./submitHandler"
 import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
 
+import {
+  handleContinueWith,
+  handleFlowError,
+  isResponseError,
+  loginUrl,
+} from "../sdk"
 /**
  * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.
  *
@@ -79,6 +81,7 @@ export async function onSubmitSettings(
             config,
           })
         },
+        config,
         onRedirect,
       }),
     )

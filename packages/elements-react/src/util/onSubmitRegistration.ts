@@ -3,16 +3,14 @@
 
 import {
   FlowType,
-  handleContinueWith,
-  handleFlowError,
   RegistrationFlow,
-  registrationUrl,
   UpdateRegistrationFlowBody,
 } from "@ory/client-fetch"
 import { OryFlowContainer } from "./flowContainer"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
+import { handleContinueWith, handleFlowError, registrationUrl } from "../sdk"
 
 /**
  * Use this method to submit a registration flow. This method is used in the `onSubmit` handler of the registration form.
@@ -76,6 +74,7 @@ export async function onSubmitRegistration(
           })
         },
         onRedirect,
+        config,
       }),
     )
 }
