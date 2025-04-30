@@ -46,7 +46,7 @@ describe("defaultNodeSorter", () => {
       )
       const firstSubmitIndex = sortedNodes.indexOf(submitButtons[0])
 
-      // This test should fail until the node sorter is fixed
+      // This test should now pass with the fixed node sorter
       expect(lastCaptchaIndex).toBeLessThan(firstSubmitIndex)
     }
   })
