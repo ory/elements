@@ -3,7 +3,11 @@
 
 import { UiNode, isUiNodeInputAttributes } from "@ory/client-fetch"
 import { defaultNodeSorter } from "./component"
+
 import captchaFormData from "../../.stub-responses/login/1fa/identifier_first/captcha/initial-form.json"
+import passwordFormData from "../../.stub-responses/login/1fa/unified/password/initial-form.json"
+import registrationData from "../../.stub-responses/registration/one-step/captcha/initial-form.json"
+import registrationDataTwoStep from "../../.stub-responses/registration/two-step/captcha/initial-form.json"
 
 describe("defaultNodeSorter", () => {
   it("correctly sorts nodes from captcha form response", () => {
@@ -49,7 +53,6 @@ describe("defaultNodeSorter", () => {
 
   it("correctly sorts nodes from unified password form response", () => {
     // Load test data from stub file
-    const passwordFormData = require("../../.stub-responses/login/1fa/unified/password/initial-form.json")
     const nodes: UiNode[] = passwordFormData.ui.nodes as UiNode[]
 
     // Sort the nodes
@@ -91,7 +94,6 @@ describe("defaultNodeSorter", () => {
 
   it("correctly sorts nodes from one-step registration with captcha", () => {
     // Load test data from stub file
-    const registrationData = require("../../.stub-responses/registration/one-step/captcha/initial-form.json")
     const nodes: UiNode[] = registrationData.ui.nodes as UiNode[]
 
     // Sort the nodes
@@ -134,8 +136,7 @@ describe("defaultNodeSorter", () => {
 
   it("correctly sorts nodes from two-step registration with captcha", () => {
     // Load test data from stub file
-    const registrationData = require("../../.stub-responses/registration/two-step/captcha/initial-form.json")
-    const nodes: UiNode[] = registrationData.ui.nodes as UiNode[]
+    const nodes: UiNode[] = registrationDataTwoStep.ui.nodes as UiNode[]
 
     // Sort the nodes
     const sortedNodes = [...nodes].sort(defaultNodeSorter)
