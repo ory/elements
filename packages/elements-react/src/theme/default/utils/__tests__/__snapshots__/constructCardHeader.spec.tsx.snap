@@ -45,14 +45,14 @@ exports[`constructCardHeaderText on consent screen 1`] = `
 
 exports[`flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Sign in with a code sent to your email",
+  "description": "Sign in with a code sent to you",
   "title": "Sign in",
 }
 `;
 
 exports[`flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Sign in with a code sent to your email",
+  "description": "Sign in with a code sent to you",
   "title": "Sign in",
 }
 `;
@@ -143,14 +143,14 @@ exports[`flowType=login refresh=false combination=webauthn constructCardHeaderTe
 
 exports[`flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Confirm your identity with a code sent to your email",
+  "description": "Confirm your identity with a code sent to you",
   "title": "Reauthenticate",
 }
 `;
 
 exports[`flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Confirm your identity with a code sent to your email",
+  "description": "Confirm your identity with a code sent to you",
   "title": "Reauthenticate",
 }
 `;
@@ -441,14 +441,14 @@ exports[`flowType=recovery refresh=true combination=webauthn constructCardHeader
 
 exports[`flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to your email",
+  "description": "Sign up with a code sent to you",
   "title": "Register an account",
 }
 `;
 
 exports[`flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to your email",
+  "description": "Sign up with a code sent to you",
   "title": "Register an account",
 }
 `;
@@ -539,14 +539,14 @@ exports[`flowType=registration refresh=false combination=webauthn constructCardH
 
 exports[`flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to your email",
+  "description": "Sign up with a code sent to you",
   "title": "Register an account",
 }
 `;
 
 exports[`flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to your email",
+  "description": "Sign up with a code sent to you",
   "title": "Register an account",
 }
 `;

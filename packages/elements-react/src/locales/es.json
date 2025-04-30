@@ -256,6 +256,8 @@
   "card.header.parts.code": "un código enviado a tu correo electrónico",
   "card.header.parts.passkey": "una clave de acceso",
   "card.header.parts.webauthn": "una clave de seguridad",
+  "card.header.parts.totp": "su aplicación de autenticación",
+  "card.header.parts.lookup_secret": "un código de recuperación de copia de seguridad",
   "card.header.parts.identifier-first": "tu {identifierLabel}",
   "card.header.description.login": "Iniciar sesión con {identifierLabel}",
   "card.header.description.registration": "Registrarse con {identifierLabel}",
