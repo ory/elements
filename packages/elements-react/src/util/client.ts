@@ -14,6 +14,7 @@ export function frontendClient(
   const config = new Configuration({
     ...opts,
     basePath: sdkUrl,
+    credentials: "include",
     headers: {
       Accept: "application/json",
       ...opts.headers,
