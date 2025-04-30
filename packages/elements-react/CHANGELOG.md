@@ -1,3 +1,35 @@
+## 1.0.0-rc.2 (2025-04-30)
+
+### 🚀 Features
+
+- method translation for totp, code, webauthn ([#500](https://github.com/ory/elements/pull/500))
+- add all missing stories ([#480](https://github.com/ory/elements/pull/480))
+- preview deployments for example apps ([#488](https://github.com/ory/elements/pull/488))
+- add back button to settings page ([#464](https://github.com/ory/elements/pull/464))
+
+### 🩹 Fixes
+
+- ⚠️  align configuration types to Ory Network APIs ([#423](https://github.com/ory/elements/pull/423))
+- sort captcha before submit button ([#507](https://github.com/ory/elements/pull/507))
+- cors credentials in default client ([#508](https://github.com/ory/elements/pull/508))
+- back button should return to application ([#465](https://github.com/ory/elements/pull/465))
+- adjust design of generic OIDC provider ([#492](https://github.com/ory/elements/pull/492))
+- use proper id for react element arrays ([#495](https://github.com/ory/elements/pull/495))
+- add test id to header messages ([#489](https://github.com/ory/elements/pull/489))
+- re-add missing error message when no methods provided ([#460](https://github.com/ory/elements/pull/460))
+- resend not working for registration ([#468](https://github.com/ory/elements/pull/468))
+- add missing color class to registration footer ([#473](https://github.com/ory/elements/pull/473))
+- resend not working for registration ([#467](https://github.com/ory/elements/pull/467))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  align configuration types to Ory Network APIs ([#423](https://github.com/ory/elements/pull/423))
+
+### ❤️ Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-rc.1 (2025-04-21)
 
 ### 🩹 Fixes
