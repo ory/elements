@@ -60,29 +60,30 @@ const defaultNodeOrder = [
   "webauthn",
 ]
 
-function defaultNodeSorter(
+export function defaultNodeSorter(
   a: UiNode,
   b: UiNode,
   // ctx: { flowType: string },
 ): number {
+  // First handle the special case: captcha vs submit button
+  const aIsCaptcha = a.group === "captcha"
+  const bIsCaptcha = b.group === "captcha"
+  const aIsSubmit =
+    isUiNodeInputAttributes(a.attributes) && a.attributes.type === "submit"
+  const bIsSubmit =
+    isUiNodeInputAttributes(b.attributes) && b.attributes.type === "submit"
+
+  // If comparing captcha and submit, always put captcha first
+  if (aIsCaptcha && bIsSubmit) {
+    return -1 // a (captcha) comes before b (submit)
+  }
+  if (bIsCaptcha && aIsSubmit) {
+    return 1 // b (captcha) comes before a (submit)
+  }
+
+  // For all other cases, use the standard group ordering
   const aGroupWeight = defaultNodeOrder.indexOf(a.group) ?? 999
   const bGroupWeight = defaultNodeOrder.indexOf(b.group) ?? 999
-
-  if (
-    b.group === "captcha" &&
-    isUiNodeInputAttributes(a.attributes) &&
-    a.attributes.type === "submit"
-  ) {
-    // If the current node is a submit button and the next node is CAPTCHA; we sort the captcha before the submit button.
-    return aGroupWeight - (bGroupWeight - 2)
-  } else if (
-    a.group === "captcha" &&
-    isUiNodeInputAttributes(b.attributes) &&
-    b.attributes.type === "submit"
-  ) {
-    // If one node is a submit button and the other is CAPTCHA, we sort the captcha before the submit button.
-    return aGroupWeight - 2 - bGroupWeight
-  }
 
   return aGroupWeight - bGroupWeight
 }
