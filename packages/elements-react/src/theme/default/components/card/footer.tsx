@@ -12,6 +12,7 @@ import {
 } from "../../../../util/ui"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
+import { useClientLogout } from "../../utils/logout"
 
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
@@ -31,24 +32,51 @@ export function DefaultCardFooter() {
   }
 }
 
-export function getReturnToQueryParam(flow: { return_to?: string }) {
-  if (flow.return_to) {
-    return flow.return_to
-  }
-  if (typeof window !== "undefined") {
-    const searchParams = new URLSearchParams(window.location.search)
-    return searchParams.get("return_to")
-  }
-}
-
 function LoginCardFooter() {
   const { config, formState, flow, flowType } = useOryFlow()
+  const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
   const intl = useIntl()
+
+  if (flowType !== FlowType.Login) {
+    return null
+  }
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
 
-  if (flowType === FlowType.Login && flow.refresh) {
-    return null
+  let returnTo = config.project.default_redirect_url
+  if (flow.return_to) {
+    returnTo = flow.return_to
+  }
+  if (!returnTo) {
+    returnTo = restartFlowUrl(
+      flow,
+      `${config.sdk.url}/self-service/${flowType}/browser`,
+    )
+  }
+
+  if (flow.refresh || flow.requested_aal === "aal2") {
+    return (
+      <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+        {intl.formatMessage({
+          id: "login.2fa.go-back",
+        })}{" "}
+        <a
+          className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+          href={logout ? logout?.logout_url : returnTo}
+          data-testid={
+            // Only add the test-id when the logout link has loaded.
+            didLoadLogout ? "ory/screen/login/mfa/action/cancel" : undefined
+          }
+        >
+          {intl.formatMessage({
+            id:
+              !didLoadLogout || logout
+                ? "login.logout-button"
+                : "login.2fa.go-back.link",
+          })}
+        </a>
+      </span>
+    )
   }
 
   return (
@@ -92,32 +120,8 @@ function LoginCardFooter() {
           <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
             <a
               className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              href={restartFlowUrl(
-                flow,
-                `${config.sdk.url}/self-service/${flowType}/browser`,
-              )}
-              data-testid={"ory/screen/login/mfa/action/reauthenticate"}
-            >
-              {intl.formatMessage({
-                id: "login.2fa.go-back.link",
-              })}
-            </a>
-          </span>
-        )}
-      {flowType === FlowType.Login &&
-        flow.requested_aal === "aal2" &&
-        (formState.current === "select_method" || authMethods.length === 0) && (
-          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-            {intl.formatMessage({
-              id: "login.2fa.go-back",
-            })}{" "}
-            <a
-              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              href={restartFlowUrl(
-                flow,
-                `${config.sdk.url}/self-service/${flowType}/browser`,
-              )}
-              data-testid={"ory/screen/login/mfa/action/reauthenticate"}
+              href={returnTo}
+              data-testid={"ory/screen/login/mfa/action/cancel"}
             >
               {intl.formatMessage({
                 id: "login.2fa.go-back.link",

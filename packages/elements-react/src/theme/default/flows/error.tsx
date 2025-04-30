@@ -194,14 +194,14 @@ ${parsed.reason ? `Message: ${parsed.reason}` : ""}
 }
 
 function LoggedInActions({ config }: { config: OryClientConfiguration }) {
-  const logoutFlow = useClientLogout(config)
+  const { logoutFlow } = useClientLogout(config)
 
   return (
     <a
       href={logoutFlow?.logout_url}
       className="text-interface-foreground-default-primary underline"
     >
-      Logout
+      <FormattedMessage id="login.logout-button" />
     </a>
   )
 }
