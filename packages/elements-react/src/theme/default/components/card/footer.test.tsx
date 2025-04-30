@@ -210,7 +210,7 @@ describe("DefaultCardFooter", () => {
       renderWithIntl(<DefaultCardFooter />)
       // Updated to match the actual data-testid
       expect(
-        screen.getByTestId("ory/screen/login/mfa/action/cancel"),
+        screen.getByTestId("ory/screen/login/action/cancel"),
       ).toBeInTheDocument()
     })
   })
