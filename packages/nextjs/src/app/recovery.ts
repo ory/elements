@@ -1,7 +1,6 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 import { FlowType, RecoveryFlow } from "@ory/client-fetch"
-
 import { initOverrides, QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
 import { getFlowFactory } from "./flow"

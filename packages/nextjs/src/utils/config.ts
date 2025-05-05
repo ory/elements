@@ -4,6 +4,22 @@ import { AccountExperienceConfiguration } from "@ory/client-fetch"
 import { OryConfig } from "../types"
 import { isProduction } from "./sdk"
 
+const defaultConfig: AccountExperienceConfiguration = {
+  name: "Default name",
+  registration_enabled: true,
+  verification_enabled: true,
+  recovery_enabled: true,
+  recovery_ui_url: "/ui/recovery",
+  registration_ui_url: "/ui/registration",
+  verification_ui_url: "/ui/verification",
+  login_ui_url: "/ui/login",
+  settings_ui_url: "/ui/settings",
+  default_redirect_url: "/ui/welcome",
+  error_ui_url: "/ui/error",
+  default_locale: "en",
+  locale_behavior: "force_default",
+}
+
 /**
  * Enhances the Ory config with defaults and SDK URL. The SDK URL is determined as follows:
  *
@@ -45,35 +61,62 @@ export function enhanceOryConfig(
     )
   }
 
+  if ("override" in config) {
+    console.warn(
+      "enhanceOryConfig: `override` is deprecated. Use the top level properties instead.",
+    )
+
+    return {
+      sdk: {
+        url: sdkUrl,
+      },
+      project: {
+        ...defaultConfig,
+        name: config.override?.applicationName ?? "Default name",
+        registration_enabled: true,
+        verification_enabled: true,
+        recovery_enabled: true,
+        recovery_ui_url: config.override?.recoveryUiPath ?? "/ui/recovery",
+        registration_ui_url:
+          config.override?.registrationUiPath ?? "/ui/registration",
+        verification_ui_url:
+          config.override?.verificationUiPath ?? "/ui/verification",
+        login_ui_url: config.override?.loginUiPath ?? "/ui/login",
+        settings_ui_url: config.override?.settingsUiPath ?? "/ui/settings",
+        default_redirect_url:
+          config.override?.defaultRedirectUri ?? "/ui/welcome",
+        error_ui_url: config.override?.errorUiPath ?? "/ui/error",
+        default_locale: "en",
+        locale_behavior: "force_default",
+      },
+    }
+  }
+
   return {
-    name: config.override?.applicationName ?? "Default name",
     sdk: {
       url: sdkUrl,
     },
-    project: {
-      registration_enabled: true,
-      verification_enabled: true,
-      recovery_enabled: true,
-      recovery_ui_url: config.override?.recoveryUiPath ?? "/ui/recovery",
-      registration_ui_url:
-        config.override?.registrationUiPath ?? "/ui/registration",
-      verification_ui_url:
-        config.override?.verificationUiPath ?? "/ui/verification",
-      login_ui_url: config.override?.loginUiPath ?? "/ui/login",
-      settings_ui_url: config.override?.settingsUiPath ?? "/ui/settings",
-      default_redirect_url:
-        config.override?.defaultRedirectUri ?? "/ui/welcome",
-      error_ui_url: config.override?.errorUiPath ?? "/ui/error",
-      name: config.override?.applicationName ?? "Default name",
-    },
+    project: mergeWithDefaults(config.project ?? {}, defaultConfig),
   }
 }
 
+function mergeWithDefaults<T extends AccountExperienceConfiguration>(
+  overrides: Partial<T>,
+  defaults: T,
+): T {
+  const result = { ...defaults }
+
+  for (const key in overrides) {
+    const value = overrides[key]
+    if (value !== undefined && value !== null) {
+      result[key] = value
+    }
+  }
+
+  return result
+}
+
 export interface OryConfigForNextJS {
-  /**
-   * @deprecated use project.name instead
-   */
-  name: string
   sdk: {
     url: string
   }
