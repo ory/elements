@@ -55,6 +55,25 @@ function LoginCardFooter() {
   }
 
   if (flow.refresh || flow.requested_aal === "aal2") {
+    if (authMethods.length > 2 && formState.current === "method_active") {
+      return (
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          {intl.formatMessage({
+            id: "login.2fa.go-back",
+          })}{" "}
+          <a
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            href=""
+            data-testid={"ory/screen/login/mfa/action/selectMethod"}
+          >
+            {intl.formatMessage({
+              id: "login.2fa.go-back.link",
+            })}
+          </a>
+        </span>
+      )
+    }
+
     return (
       <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
         {intl.formatMessage({
