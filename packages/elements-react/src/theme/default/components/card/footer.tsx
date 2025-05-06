@@ -150,7 +150,10 @@ function RegistrationCardFooter() {
         <span className="font-normal leading-normal antialiased">
           <a
             className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
+            // This works, because it essentially reloads the page.
+            // TODO: this should not do a full reload, but rather just update the state.....
             href=""
+            data-testid={"ory/screen/registration/action/selectMethod"}
           >
             {intl.formatMessage({
               id: "card.footer.select-another-method",
