@@ -55,7 +55,7 @@ function LoginCardFooter() {
   }
 
   if (flow.refresh || flow.requested_aal === "aal2") {
-    if (authMethods.length > 2 && formState.current === "method_active") {
+    if (authMethods.length > 1 && formState.current === "method_active") {
       return (
         <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
           {intl.formatMessage({
