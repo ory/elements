@@ -54,8 +54,9 @@ export function DefaultCurrentIdentifierButton() {
 
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
   if (screenSelectionNode) {
-    // Kill me. Without this, the form will lose the user input data. Therefore, we need to hack around
-    // adding this data here.
+    // This is bad and needs refactoring. Instead of a custom form, it should use react-hook-form
+    // to submit the values so we don't have to creat a fake form with fake submit values. It
+    // also hard-reloads the flow and we need the ugly captcha workaround.
     return (
       <form action={flow.ui.action} method={flow.ui.method}>
         {flow.ui.nodes
@@ -69,7 +70,8 @@ export function DefaultCurrentIdentifierButton() {
             const attrs = n.attributes as UiNodeInputAttributes
             let value = getValues(attrs.name) || attrs.value
 
-            // 😭
+            // Of course turnstile works a bit differently because it uses transient_payload
+            // to carry over information. So yeah, we need a special decode here.
             if (
               attrs.name === "transient_payload.captcha_turnstile_response" &&
               turnstileResponse
