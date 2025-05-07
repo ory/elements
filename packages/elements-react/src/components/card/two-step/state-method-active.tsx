@@ -16,7 +16,6 @@ import { OryFormSocialButtonsForm } from "../../form/social"
 import { getFinalNodes, handleAfterFormSubmit } from "./utils"
 import { OryCardHeader } from "../header"
 import { FormStateMethodActive } from "../../../context/form-state"
-import { DefaultCurrentIdentifierButton } from "../../../theme/default"
 
 export function OryTwoStepCardStateMethodActive({
   formState,

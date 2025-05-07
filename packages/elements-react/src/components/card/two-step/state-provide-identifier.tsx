@@ -11,7 +11,6 @@ import { Node } from "../../form/nodes/node"
 import { OryFormSocialButtonsForm } from "../../form/social"
 import { handleAfterFormSubmit } from "./utils"
 import { OryCardHeader } from "../header"
-import { DefaultCurrentIdentifierButton } from "../../../theme/default"
 
 export function OryTwoStepCardStateProvideIdentifier() {
   const { Form, Card } = useComponents()
