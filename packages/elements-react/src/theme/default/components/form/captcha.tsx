@@ -45,7 +45,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
   }
 
   if (node.attributes.name === "transient_payload.captcha_turnstile_response") {
-    // THis is the hidden field that gets populated.
+    // This is the hidden field that gets populated.
     return <DefaultInput key={1} node={node} attributes={node.attributes} />
   } else if (node.attributes.name === "captcha_turnstile_options") {
     // This is the actual widget

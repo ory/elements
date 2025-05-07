@@ -23,9 +23,10 @@ export function DefaultCurrentIdentifierButton() {
   >()
   const ui = flow.ui
 
-  // 😭 without this the screen/back button doesn't work. I also don't know why we can't access this value via
-  // `transient_payload.captcha_turnstile_response` in the form context, but I guess it has something to do with react
-  // hook form internals.
+  // This workaround ensures that the screen/back button functions correctly. Without it, the button does not work as expected.
+  // The `captcha_turnstile_response` value cannot be accessed directly via `transient_payload.captcha_turnstile_response`
+  // in the form context, likely due to the way React Hook Form manages its internal state and transient payloads.
+  // By using the `watch` function, we can observe changes to the `transient_payload` and retrieve the captcha response value.
   const captchaVerificationValue = watch("transient_payload")
     ?.captcha_turnstile_response as string | undefined
   useEffect(() => {
