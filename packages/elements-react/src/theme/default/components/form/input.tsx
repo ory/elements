@@ -51,7 +51,7 @@ export const DefaultInput = ({
   if (rest.type === "hidden") {
     return (
       <input
-        {...rest}
+        {...omitInputAttributes(rest)}
         onClick={onClick}
         maxLength={maxlength}
         autoComplete={autocomplete}

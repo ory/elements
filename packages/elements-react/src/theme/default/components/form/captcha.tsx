@@ -3,7 +3,7 @@
 
 import { isUiNodeInputAttributes } from "@ory/client-fetch"
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile"
-import { ReactElement, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useFormContext } from "react-hook-form"
 import { DefaultInput } from "./input"
 import { OryNodeCaptchaProps } from "@ory/elements-react"
@@ -16,31 +16,42 @@ type Config = {
 }
 
 export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
-  const { setValue } = useFormContext()
+  const { setValue, formState } = useFormContext()
   const ref = useRef<TurnstileInstance>()
   // In this node, we only care about the `captcha-turnstile-options` node as that contains
   // all required information to render the captcha.
-  const nodes: ReactElement[] = []
 
-  // Special case for CAPTCHA handling as we need to render a different component
-  if (isUiNodeInputAttributes(node.attributes)) {
+  const prevSubmitCount = useRef(formState.submitCount)
+
+  // Reset widget whenever submitCount changes (this covers both successful submissions and validation errors)
+  useEffect(() => {
     if (
-      node.attributes.name === "transient_payload.captcha_turnstile_response"
+      formState.submitCount > prevSubmitCount.current &&
+      formState.isSubmitSuccessful
     ) {
-      nodes.push(
-        <DefaultInput key={1} node={node} attributes={node.attributes} />,
-      )
+      prevSubmitCount.current = formState.submitCount
+
+      // Adding a small timeout to ensure the form submission process has completed
+      setTimeout(() => {
+        if (ref.current) {
+          ref.current.reset()
+        }
+      }, 100)
     }
+  }, [formState.submitCount, formState.isSubmitSuccessful])
+
+  if (!isUiNodeInputAttributes(node.attributes)) {
+    return null
   }
 
-  if (
-    isUiNodeInputAttributes(node.attributes) &&
-    node.attributes.name === "captcha_turnstile_options"
-  ) {
+  if (node.attributes.name === "transient_payload.captcha_turnstile_response") {
+    // THis is the hidden field that gets populated.
+    return <DefaultInput key={1} node={node} attributes={node.attributes} />
+  } else if (node.attributes.name === "captcha_turnstile_options") {
+    // This is the actual widget
     const options: Config = JSON.parse(node.attributes.value as string)
-    nodes.push(
+    return (
       <Turnstile
-        key={2}
         ref={ref}
         siteKey={options.sitekey}
         options={{
@@ -54,9 +65,9 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
         onSuccess={(token) => {
           setValue(options.response_field_name, token)
         }}
-      />,
+      />
     )
   }
 
-  return nodes
+  return null
 }

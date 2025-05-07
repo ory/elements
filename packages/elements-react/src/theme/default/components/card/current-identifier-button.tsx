@@ -9,15 +9,30 @@ import {
 } from "@ory/client-fetch"
 import { useOryFlow } from "@ory/elements-react"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
-import { omit } from "../../utils/attributes"
 import { restartFlowUrl } from "../../utils/url"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import { useFormContext } from "react-hook-form"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
+import { useEffect, useState } from "react"
 
 export function DefaultCurrentIdentifierButton() {
   const { flow, flowType, config, formState } = useOryFlow()
-  const { setValue } = useFormContext()
+  const { setValue, getValues, watch } = useFormContext()
+  const [turnstileResponse, setTurnstileResponse] = useState<
+    string | undefined
+  >()
   const ui = flow.ui
+
+  // 😭 without this the screen/back button doesn't work. I also don't know why we can't access this value via
+  // `transient_payload.captcha_turnstile_response` in the form context, but I guess it has something to do with react
+  // hook form internals.
+  const captchaVerificationValue = watch("transient_payload")
+    ?.captcha_turnstile_response as string | undefined
+  useEffect(() => {
+    if (captchaVerificationValue) {
+      setTurnstileResponse(captchaVerificationValue)
+    }
+  }, [captchaVerificationValue])
 
   if (formState.current === "provide_identifier") {
     return null
@@ -37,12 +52,6 @@ export function DefaultCurrentIdentifierButton() {
     `${config.sdk.url}/self-service/${flowType}/browser`,
   )
 
-  const attributes = omit(nodeBackButton, [
-    "autocomplete",
-    "node_type",
-    "maxlength",
-  ])
-
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
   if (screenSelectionNode) {
     // Kill me. Without this, the form will lose the user input data. Therefore, we need to hack around
@@ -58,12 +67,22 @@ export function DefaultCurrentIdentifierButton() {
           })
           .map((n: UiNode) => {
             const attrs = n.attributes as UiNodeInputAttributes
+            let value = getValues(attrs.name) || attrs.value
+
+            // 😭
+            if (
+              attrs.name === "transient_payload.captcha_turnstile_response" &&
+              turnstileResponse
+            ) {
+              value = turnstileResponse
+            }
+
             return (
               <input
                 key={attrs.name}
                 type="hidden"
                 name={attrs.name}
-                value={attrs.value}
+                value={value}
               />
             )
           })}
@@ -72,7 +91,7 @@ export function DefaultCurrentIdentifierButton() {
             "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border px-[11px] py-[5px] transition-colors " +
             "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
           }
-          {...attributes}
+          {...omitInputAttributes(nodeBackButton)}
           type={"submit"}
           onClick={() => {
             setValue(
@@ -107,7 +126,7 @@ export function DefaultCurrentIdentifierButton() {
         "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border px-[11px] py-[5px] transition-colors " +
         "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
       }
-      {...attributes}
+      {...omitInputAttributes(nodeBackButton)}
       href={initFlowUrl}
       title={`Adjust ${nodeBackButton?.value}`}
       data-testid={`ory/screen/${flowType}/action/restart`}
