@@ -82,7 +82,7 @@ function getSDKUrl() {
     // We aren't in node, and we don't have a window location.
     // This is probably a test environment, so we can't guess the SDK URL.
     throw new Error(
-      "Unable to determine SDK URL. Please set NEXT_PUBLIC_ORY_SDK_URL and/or ORY_SDK_URL or supply .",
+      "Unable to determine SDK URL. Please set NEXT_PUBLIC_ORY_SDK_URL and/or ORY_SDK_URL or supply the sdk.url parameter in the Ory configuration.",
     )
   }
   // process is available, let's try some environment variables
