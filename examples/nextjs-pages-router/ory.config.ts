@@ -7,7 +7,7 @@ const config: OryClientConfiguration = {
   project: {
     default_locale: "en",
     default_redirect_url: "/",
-    error_ui_url: "/auth/error",
+    error_ui_url: "/error",
     locale_behavior: "force_default",
     name: "Ory Next.js App Router Example",
     registration_enabled: true,
@@ -17,7 +17,7 @@ const config: OryClientConfiguration = {
     verification_ui_url: "/auth/verification",
     recovery_ui_url: "/auth/recovery",
     login_ui_url: "/auth/login",
-    settings_ui_url: "/auth/settings",
+    settings_ui_url: "/settings",
   },
 }
 
