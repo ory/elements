@@ -55,6 +55,7 @@ export const DefaultCheckbox = ({
             "peer size-4 border appearance-none rounded-forms bg-checkbox-background-default border-checkbox-border-checkbox-border-default checked:bg-checkbox-background-checked checked:border-checkbox-border-checkbox-border-checked",
             hasError && "border-interface-border-validation-danger",
           )}
+          data-testid={`ory/form/node/input/${name}`}
           {...register(name)}
         />
         <CheckboxSVG />
