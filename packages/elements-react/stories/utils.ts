@@ -11,7 +11,7 @@ import {
 } from "@ory/client-fetch"
 import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
-export const config = {
+export const config: OryClientConfiguration = {
   sdk: {
     url: "https://example.com",
   },
@@ -27,6 +27,8 @@ export const config = {
     default_redirect_url: "https://ory.sh",
     error_ui_url: "",
     settings_ui_url: "",
+    default_locale: "en",
+    locale_behavior: "respect_accept_language",
   },
 } satisfies OryClientConfiguration
 

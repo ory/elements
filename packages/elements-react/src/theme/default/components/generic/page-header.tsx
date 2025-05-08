@@ -4,6 +4,7 @@
 import {
   OryPageHeaderProps,
   useComponents,
+  useOryElementsConfiguration,
   useOryFlow,
 } from "@ory/elements-react"
 import { UserMenu } from "../ui/user-menu"
@@ -15,7 +16,8 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
   const { Card } = useComponents()
   const { session } = useSession()
   const intl = useIntl()
-  const { config, flow } = useOryFlow()
+  const { flow } = useOryFlow()
+  const config = useOryElementsConfiguration()
 
   const returnUrl = flow.return_to ?? config.project.default_redirect_url
 

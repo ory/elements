@@ -24,6 +24,7 @@ import {
   FormStateMethodActive,
   FormStateProvideIdentifier,
 } from "@ory/elements-react"
+import { defaultConfiguration } from "../../../../tests/jest/test-utils"
 
 // Define interfaces for our mock options and returns
 interface MockOptions {
@@ -48,6 +49,7 @@ interface MockOptions {
 jest.mock("@ory/elements-react", (): unknown => ({
   ...jest.requireActual("@ory/elements-react"),
   useOryFlow: jest.fn(),
+  useOryElementsConfiguration: jest.fn(),
   useComponents: jest.fn(
     (): {
       Node: {
@@ -93,6 +95,17 @@ describe("DefaultCardFooter", () => {
         didLoadLogout = false,
       } = options
 
+      jest.spyOn(oryFlow, "useOryElementsConfiguration").mockReturnValue({
+        project: {
+          ...defaultConfiguration.project,
+          registration_enabled: registrationEnabled,
+        },
+        sdk: {
+          url: "https://example.com",
+          frontend: {} as any,
+        },
+      })
+
       jest.spyOn(oryFlow, "useOryFlow").mockReturnValue({
         flowType,
         flow: {
@@ -106,23 +119,7 @@ describe("DefaultCardFooter", () => {
           return_to: returnTo,
         } as LoginFlow,
         formState: formState,
-        config: {
-          name: "Project Name", // Add missing required property
-          project: {
-            registration_enabled: registrationEnabled,
-            verification_enabled: true,
-            recovery_enabled: true,
-            recovery_ui_url: "https://example.com/recovery",
-            registration_ui_url: "https://example.com/registration",
-            verification_ui_url: "https://example.com/verification",
-            login_ui_url: "https://example.com/login",
-            default_redirect_url: "https://default.com",
-          },
-          sdk: {
-            url: "https://api.example.com",
-          },
-        },
-      } as unknown as FlowContextValue)
+      } as FlowContextValue)
 
       jest.spyOn(logout, "useClientLogout").mockReturnValue({
         logoutFlow: hasLogout
