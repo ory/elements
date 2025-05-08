@@ -1,3 +1,6 @@
+// Copyright © 2025 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { createContext, useContext, useRef } from "react"
 import { isProduction } from "../client/config"
 import { OryClientConfiguration } from "../util"
