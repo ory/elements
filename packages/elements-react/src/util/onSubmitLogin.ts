@@ -1,17 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  FlowType,
-  handleFlowError,
-  LoginFlow,
-  loginUrl,
-  UpdateLoginFlowBody,
-} from "@ory/client-fetch"
+import { FlowType, LoginFlow, UpdateLoginFlowBody } from "@ory/client-fetch"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { LoginFlowContainer } from "./flowContainer"
 import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
+import { handleFlowError, loginUrl } from "../sdk"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.
@@ -65,6 +60,7 @@ export async function onSubmitLogin(
           })
         },
         onRedirect,
+        config,
       }),
     )
 }
