@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { LogoutFlow, Session } from "@ory/client-fetch"
-import { useOryFlow } from "@ory/elements-react"
+import { useOryElementsConfiguration } from "@ory/elements-react"
 import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu"
 import IconLogout from "../../assets/icons/logout.svg"
 import IconSettings from "../../assets/icons/settings.svg"
@@ -22,7 +22,7 @@ type UserMenuProps = {
 }
 
 export const UserMenu = ({ session }: UserMenuProps) => {
-  const { config } = useOryFlow()
+  const config = useOryElementsConfiguration()
   const initials = getUserInitials(session)
   const { logoutFlow } = useClientLogout(config)
 
