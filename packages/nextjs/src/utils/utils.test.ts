@@ -3,6 +3,7 @@
 
 // utils.test.ts
 
+import { OryMiddlewareOptions } from "src/middleware/middleware"
 import {
   onValidationError,
   toFlowParams,
@@ -10,7 +11,8 @@ import {
   filterRequestHeaders,
   joinUrlPaths,
 } from "./utils"
-import { OryConfig, QueryParams } from "../types"
+
+type QueryParams = { [key: string]: string | string[] | undefined }
 
 describe("onValidationError", () => {
   it("should return the same value passed to it", () => {
@@ -105,7 +107,7 @@ describe("processSetCookieHeaders", () => {
       forceCookieDomain?: string
     }) => {
       test(name, () => {
-        const options: OryConfig = {
+        const options: OryMiddlewareOptions = {
           forceCookieDomain,
         }
         const requestHeaders = new Headers()

@@ -13,7 +13,6 @@ import {
   UiContainer,
   VerificationFlow,
 } from "@ory/client-fetch"
-import { OryClientConfiguration } from "./clientConfiguration"
 
 /**
  * A generic flow container, containing a flowType, the flow itself and the config object
@@ -23,7 +22,6 @@ import { OryClientConfiguration } from "./clientConfiguration"
 type OryFlow<TFlowType extends FlowType, TFlow> = {
   flowType: TFlowType
   flow: TFlow
-  config: OryClientConfiguration
 }
 
 /**

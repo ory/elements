@@ -14,6 +14,7 @@ import { Dispatch } from 'react';
 import { FlowError } from '@ory/client-fetch';
 import { FlowType } from '@ory/client-fetch';
 import { FormEventHandler } from 'react';
+import { FrontendApi } from '@ory/client-fetch';
 import { HTMLAttributes } from 'react';
 import { IntlShape } from 'react-intl';
 import { LoginFlow } from '@ory/client-fetch';
@@ -186,24 +187,22 @@ export function OryCardValidationMessages({ ...props }: OryMessageRootProps): re
 
 // @public
 export type OryClientConfiguration = {
-    logoUrl?: string;
-    sdk: {
-        url: string;
+    sdk?: {
+        url?: string;
         options?: Partial<ConfigurationParameters>;
     };
     intl?: IntlConfig;
-} & ({
-    name: string;
-    project: Omit<AccountExperienceConfiguration, "name"> & {
-        name?: string;
-    };
-} | {
-    name?: string;
     project: AccountExperienceConfiguration;
-});
+};
 
 // @public (undocumented)
 export function OryConsentCard(): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
+export type OryElementsConfiguration = {
+    sdk: OrySDK;
+    project: AccountExperienceConfiguration;
+};
 
 // Warning: (ae-forgotten-export) The symbol "DeepPartialTwoLevels" needs to be exported by the entry point index.d.ts
 //
@@ -396,12 +395,25 @@ export type OryNodeTextProps = {
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public (undocumented)
-export function OryProvider({ children, components: Components, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
+export function OryProjectProvider({ children, project, }: {
+    children: React.ReactNode;
+    project?: AccountExperienceConfiguration;
+}): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
+export function OryProvider({ children, components: Components, config, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type OryProviderProps = {
     components: OryFlowComponents;
+    config: OryClientConfiguration;
 } & OryFlowContainer & PropsWithChildren;
+
+// @public (undocumented)
+export function OrySDKProvider({ children, config: initialConfig, }: {
+    children: React.ReactNode;
+    config?: Partial<OryClientConfiguration["sdk"]>;
+}): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
@@ -478,11 +490,18 @@ export function useNodeSorter(): (a: UiNode, b: UiNode, ctx: {
     flowType: string;
 }) => number;
 
+// @public (undocumented)
+export function useOryElementsConfiguration(): OryElementsConfiguration;
+
 // @public
 export function useOryFlow(): FlowContextValue;
 
 // @public
 export type VerificationFlowContainer = OryFlow<FlowType.Verification, VerificationFlow>;
+
+// Warnings were encountered during analysis:
+//
+// dist/index.d.ts:652:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

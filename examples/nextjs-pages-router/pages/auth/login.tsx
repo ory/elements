@@ -3,7 +3,6 @@
 "use client"
 import { DefaultCardLayout, Login } from "@ory/elements-react/theme"
 import { useLoginFlow } from "@ory/nextjs/pages"
-import { enhanceOryConfig } from "@ory/nextjs"
 import "@ory/elements-react/theme/styles.css"
 
 import config from "@/ory.config"
@@ -19,7 +18,7 @@ export default function LoginPage() {
     <DefaultCardLayout>
       <Login
         flow={flow}
-        config={enhanceOryConfig(config)}
+        config={config}
         components={{
           Card: {},
         }}

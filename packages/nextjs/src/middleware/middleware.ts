@@ -3,11 +3,11 @@
 
 import { NextResponse, type NextRequest } from "next/server"
 
-import { rewriteUrls } from "../utils/rewrite"
-import { filterRequestHeaders, processSetCookieHeaders } from "../utils/utils"
-import { OryConfig } from "../types"
+import { AccountExperienceConfiguration } from "@ory/client-fetch"
 import { defaultOmitHeaders } from "../utils/headers"
+import { rewriteUrls } from "../utils/rewrite"
 import { orySdkUrl } from "../utils/sdk"
+import { filterRequestHeaders, processSetCookieHeaders } from "../utils/utils"
 
 export function getProjectApiKey() {
   let baseUrl = ""
@@ -19,7 +19,24 @@ export function getProjectApiKey() {
   return baseUrl.replace(/\/$/, "")
 }
 
-export async function proxyRequest(request: NextRequest, options: OryConfig) {
+/**
+ *
+ */
+export type OryMiddlewareOptions = {
+  /**
+   * Per default headers are filtered to forward only a fixed list.
+   *
+   * If you need to forward additional headers you can use this setting to define them.
+   */
+  forwardAdditionalHeaders?: string[]
+  forceCookieDomain?: string
+  project?: Partial<AccountExperienceConfiguration>
+}
+
+export async function proxyRequest(
+  request: NextRequest,
+  options: OryMiddlewareOptions,
+) {
   const match = [
     "/self-service",
     "/sessions/whoami",
@@ -148,7 +165,7 @@ export async function proxyRequest(request: NextRequest, options: OryConfig) {
  * @returns The Ory Next.js middleware function
  * @public
  */
-export function createOryMiddleware(options: OryConfig) {
+export function createOryMiddleware(options: OryMiddlewareOptions) {
   return (r: NextRequest) => {
     return proxyRequest(r, options)
   }

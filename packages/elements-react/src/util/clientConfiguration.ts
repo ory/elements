@@ -21,17 +21,11 @@ export type IntlConfig = IntlContextProps
  */
 export type OryClientConfiguration = {
   /**
-   * An optional logo URL to display in the UI instead of the name.
-   * @deprecated Use `project.logo_light_url` instead.
-   */
-  logoUrl?: string
-
-  /**
    * The SDK configuration.
    * This configuration is used to set the URL of the Ory SDK and any additional options used for the SDK client.
    */
-  sdk: {
-    url: string
+  sdk?: {
+    url?: string
     options?: Partial<ConfigurationParameters>
   }
 
@@ -42,27 +36,9 @@ export type OryClientConfiguration = {
    * The default locale is "en".
    */
   intl?: IntlConfig
-} & (
-  | {
-      /**
-       * The name of the application the user is logging in to.
-       * @deprecated Use `project.name` instead.
-       */
-      name: string
-      /**
-       * The configuration for the project.
-       */
-      project: Omit<AccountExperienceConfiguration, "name"> & { name?: string }
-    }
-  | {
-      /**
-       * The name of the application the user is logging in to.
-       * @deprecated Use `project.name` instead.
-       */
-      name?: string
-      /**
-       * The configuration for the project.
-       */
-      project: AccountExperienceConfiguration
-    }
-)
+
+  /**
+   * The configuration for the project.
+   */
+  project: AccountExperienceConfiguration
+}

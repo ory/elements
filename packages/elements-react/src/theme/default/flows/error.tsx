@@ -12,13 +12,15 @@ import {
 import {
   OryClientConfiguration,
   OryFlowComponentOverrides,
+  OrySDKProvider,
+  useOryElementsConfiguration,
 } from "@ory/elements-react"
 import { PropsWithChildren, useMemo } from "react"
+import { FormattedMessage } from "react-intl"
+import { IntlProvider } from "../../../context/intl-context"
 import { DefaultCard } from "../components"
 import { DefaultHorizontalDivider } from "../components/form/horizontal-divider"
 import { useClientLogout } from "../utils/logout"
-import { IntlProvider } from "../../../context/intl-context"
-import { FormattedMessage } from "react-intl"
 
 /**
  * A union type of all possible errors that can be returned by the Ory SDK.
@@ -111,89 +113,92 @@ export function Error({
   const description = errorDescriptions[Math.floor(parsed.code / 100)]
 
   return (
-    <IntlProvider
-      locale={config.intl?.locale ?? "en"}
-      customTranslations={config.intl?.customTranslations}
-    >
-      <Card>
-        <div
-          className="flex flex-col gap-6 antialiased"
-          data-testid={"ory/screen/error"}
-        >
-          <header className="flex flex-col gap-8 antialiased">
-            <ErrorLogo config={config} />
+    <OrySDKProvider>
+      <IntlProvider
+        locale={config.intl?.locale ?? "en"}
+        customTranslations={config.intl?.customTranslations}
+      >
+        <Card>
+          <div
+            className="flex flex-col gap-6 antialiased"
+            data-testid={"ory/screen/error"}
+          >
+            <header className="flex flex-col gap-8 antialiased">
+              <ErrorLogo />
+              <div className="flex flex-col gap-2">
+                <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
+                  <FormattedMessage id="error.title.what-happened" />
+                </h2>
+                <p className="leading-normal text-interface-foreground-default-secondary">
+                  {parsed.message ?? description}
+                </p>
+                {parsed.reason && (
+                  <p className="leading-normal text-interface-foreground-default-secondary">
+                    {parsed.reason}
+                  </p>
+                )}
+              </div>
+            </header>
+            <Divider />
+
             <div className="flex flex-col gap-2">
               <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
-                <FormattedMessage id="error.title.what-happened" />
+                <FormattedMessage id="error.title.what-can-i-do" />
               </h2>
               <p className="leading-normal text-interface-foreground-default-secondary">
-                {parsed.message ?? description}
+                <FormattedMessage id="error.instructions" />
               </p>
-              {parsed.reason && (
-                <p className="leading-normal text-interface-foreground-default-secondary">
-                  {parsed.reason}
+              <div>
+                {session ? (
+                  <LoggedInActions />
+                ) : (
+                  <GoBackButton config={config} />
+                )}
+              </div>
+            </div>
+
+            <Divider />
+            <div className="font-normal leading-normal antialiased gap-2 flex flex-col">
+              <span className="text-interface-foreground-default-primary text-sm">
+                <FormattedMessage id="error.footer.text" />
+              </span>
+
+              {parsed.id && (
+                <p className="text-interface-foreground-default-secondary text-sm">
+                  ID: <code>{parsed.id}</code>
                 </p>
               )}
-            </div>
-          </header>
-          <Divider />
-
-          <div className="flex flex-col gap-2">
-            <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
-              <FormattedMessage id="error.title.what-can-i-do" />
-            </h2>
-            <p className="leading-normal text-interface-foreground-default-secondary">
-              <FormattedMessage id="error.instructions" />
-            </p>
-            <div>
-              {session ? (
-                <LoggedInActions config={config} />
-              ) : (
-                <GoBackButton config={config} />
-              )}
-            </div>
-          </div>
-
-          <Divider />
-          <div className="font-normal leading-normal antialiased gap-2 flex flex-col">
-            <span className="text-interface-foreground-default-primary text-sm">
-              <FormattedMessage id="error.footer.text" />
-            </span>
-
-            {parsed.id && (
               <p className="text-interface-foreground-default-secondary text-sm">
-                ID: <code>{parsed.id}</code>
+                Time: <code>{parsed.timestamp?.toUTCString()}</code>
               </p>
-            )}
-            <p className="text-interface-foreground-default-secondary text-sm">
-              Time: <code>{parsed.timestamp?.toUTCString()}</code>
-            </p>
-            <p className="text-interface-foreground-default-secondary text-sm">
-              Message: <code>{parsed.reason}</code>
-            </p>
+              <p className="text-interface-foreground-default-secondary text-sm">
+                Message: <code>{parsed.reason}</code>
+              </p>
 
-            <div>
-              <button
-                className="text-interface-foreground-default-primary underline"
-                onClick={() => {
-                  const text = `${parsed.id ? `ID: ${parsed.id}` : ""}
+              <div>
+                <button
+                  className="text-interface-foreground-default-primary underline"
+                  onClick={() => {
+                    const text = `${parsed.id ? `ID: ${parsed.id}` : ""}
 Time: ${parsed.timestamp?.toUTCString()}
 ${parsed.reason ? `Message: ${parsed.reason}` : ""}
 `
-                  void navigator.clipboard.writeText(text)
-                }}
-              >
-                <FormattedMessage id="error.footer.copy" />
-              </button>
+                    void navigator.clipboard.writeText(text)
+                  }}
+                >
+                  <FormattedMessage id="error.footer.copy" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </Card>
-    </IntlProvider>
+        </Card>
+      </IntlProvider>
+    </OrySDKProvider>
   )
 }
 
-function LoggedInActions({ config }: { config: OryClientConfiguration }) {
+function LoggedInActions() {
+  const config = useOryElementsConfiguration()
   const { logoutFlow } = useClientLogout(config)
 
   return (
@@ -221,27 +226,17 @@ function GoBackButton({ config }: { config: OryClientConfiguration }) {
   return null
 }
 
-function ErrorLogo({ config }: { config: OryClientConfiguration }) {
-  if (config.project.logo_light_url) {
+function ErrorLogo() {
+  const { project } = useOryElementsConfiguration()
+  if (project.logo_light_url) {
     return (
-      <img
-        src={config.project.logo_light_url}
-        width={100}
-        height={36}
-        alt="Logo"
-      />
+      <img src={project.logo_light_url} width={100} height={36} alt="Logo" />
     )
-  }
-
-  // TODO(jonas): remove this after next release
-  if (config.logoUrl) {
-    return <img src={config.logoUrl} width={100} height={36} alt="Logo" />
   }
 
   return (
     <h1 className="text-xl font-semibold leading-normal text-interface-foreground-default-primary">
-      {/* TODO(jonas): remove this after next release */}
-      {config.project.name ?? config.name}
+      {project.name}
     </h1>
   )
 }

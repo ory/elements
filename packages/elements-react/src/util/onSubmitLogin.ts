@@ -12,6 +12,7 @@ import { OnSubmitHandlerProps } from "./submitHandler"
 import { LoginFlowContainer } from "./flowContainer"
 import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
+import { OryElementsConfiguration } from "../context"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.
@@ -23,7 +24,8 @@ import { replaceWindowFlowId } from "./internal"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitLogin(
-  { config, flow }: LoginFlowContainer,
+  { flow }: LoginFlowContainer,
+  config: OryElementsConfiguration,
   {
     setFlowContainer,
     body,
@@ -59,7 +61,6 @@ export async function onSubmitLogin(
         },
         onValidationError: (body: LoginFlow) => {
           setFlowContainer({
-            config,
             flow: body,
             flowType: FlowType.Login,
           })

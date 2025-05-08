@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.4",
+    "toolVersion": "7.52.5",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -1392,7 +1392,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    logoUrl?: string;\n    sdk: {\n        url: string;\n        options?: "
+              "text": "{\n    sdk?: {\n        url?: string;\n        options?: "
             },
             {
               "kind": "Reference",
@@ -1419,16 +1419,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} & ({\n    name: string;\n    project: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Omit",
-              "canonicalReference": "!Omit:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
+              "text": ";\n    project: "
             },
             {
               "kind": "Reference",
@@ -1437,16 +1428,7 @@
             },
             {
               "kind": "Content",
-              "text": ", \"name\"> & {\n        name?: string;\n    };\n} | {\n    name?: string;\n    project: "
-            },
-            {
-              "kind": "Reference",
-              "text": "AccountExperienceConfiguration",
-              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n})"
+              "text": ";\n}"
             },
             {
               "kind": "Content",
@@ -1458,7 +1440,7 @@
           "name": "OryClientConfiguration",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 14
+            "endIndex": 10
           }
         },
         {
@@ -1489,6 +1471,50 @@
           "overloadIndex": 1,
           "parameters": [],
           "name": "OryConsentCard"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryElementsConfiguration:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryElementsConfiguration = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdk: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySDK",
+              "canonicalReference": "@ory/elements-react!~OrySDK:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    project: "
+            },
+            {
+              "kind": "Reference",
+              "text": "AccountExperienceConfiguration",
+              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryElementsConfiguration",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
         },
         {
           "kind": "TypeAlias",
@@ -3356,6 +3382,70 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OryProjectProvider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OryProjectProvider({ children, project, }: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    children: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    project?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "AccountExperienceConfiguration",
+              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, project, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OryProjectProvider"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!OryProvider:function(1)",
           "docComment": "",
           "excerptTokens": [
@@ -3370,7 +3460,7 @@
             },
             {
               "kind": "Content",
-              "text": ": Components, ...oryFlowProps }: "
+              "text": ": Components, config, ...oryFlowProps }: "
             },
             {
               "kind": "Reference",
@@ -3400,7 +3490,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, components: Components, ...oryFlowProps }",
+              "parameterName": "{ children, components: Components, config, ...oryFlowProps }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -3430,6 +3520,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryClientConfiguration",
+              "canonicalReference": "@ory/elements-react!OryClientConfiguration:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n} & "
             },
             {
@@ -3456,8 +3555,90 @@
           "name": "OryProviderProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 7
+            "endIndex": 9
           }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!OrySDKProvider:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function OrySDKProvider({ children, "
+            },
+            {
+              "kind": "Reference",
+              "text": "config",
+              "canonicalReference": "@ory/elements-react!~__type#config"
+            },
+            {
+              "kind": "Content",
+              "text": ": initialConfig, }: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    children: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    config?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryClientConfiguration",
+              "canonicalReference": "@ory/elements-react!OryClientConfiguration:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[\"sdk\"]>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 11,
+            "endIndex": 12
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{ children, config: initialConfig, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 10
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "OrySDKProvider"
         },
         {
           "kind": "Function",
@@ -4057,6 +4238,35 @@
           "overloadIndex": 1,
           "parameters": [],
           "name": "useNodeSorter"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!useOryElementsConfiguration:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useOryElementsConfiguration(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryElementsConfiguration",
+              "canonicalReference": "@ory/elements-react!OryElementsConfiguration:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useOryElementsConfiguration"
         },
         {
           "kind": "Function",
