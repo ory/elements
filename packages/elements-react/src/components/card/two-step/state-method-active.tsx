@@ -51,7 +51,6 @@ export function OryTwoStepCardStateMethodActive({
               .filter(
                 (n) =>
                   isUiNodeScriptAttributes(n.attributes) ||
-                  n.group === UiNodeGroupEnum.Captcha ||
                   n.group === UiNodeGroupEnum.Default ||
                   n.group === UiNodeGroupEnum.Profile,
               )
