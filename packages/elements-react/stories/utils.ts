@@ -13,7 +13,7 @@ import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 export const config: OryClientConfiguration = {
   sdk: {
-    url: "https://example.com",
+    url: "http://localhost:0000",
   },
   project: {
     name: "Acme Inc.",
