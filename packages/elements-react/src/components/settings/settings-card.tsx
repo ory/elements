@@ -160,7 +160,6 @@ export function OrySettingsCard() {
 
   return (
     <>
-      <OryCardValidationMessages />
       {scriptNodes.map((n) => (
         <Node node={n} key={getNodeId(n)} />
       ))}
