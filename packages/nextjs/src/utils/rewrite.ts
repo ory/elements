@@ -1,33 +1,33 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryConfig } from "../types"
-import { joinUrlPaths } from "./utils"
+import { OryMiddlewareOptions } from "src/middleware/middleware"
 import { orySdkUrl } from "./sdk"
+import { joinUrlPaths } from "./utils"
 
 export function rewriteUrls(
   source: string,
   matchBaseUrl: string,
   selfUrl: string,
-  config: OryConfig,
+  config: OryMiddlewareOptions,
 ) {
   for (const [_, [matchPath, replaceWith]] of [
     // TODO load these dynamically from the project config
 
     // Old AX routes
-    ["/ui/recovery", config.override?.recoveryUiPath],
-    ["/ui/registration", config.override?.registrationUiPath],
-    ["/ui/login", config.override?.loginUiPath],
-    ["/ui/verification", config.override?.verificationUiPath],
-    ["/ui/settings", config.override?.settingsUiPath],
-    ["/ui/welcome", config.override?.defaultRedirectUri],
+    ["/ui/recovery", config.project?.recovery_ui_url],
+    ["/ui/registration", config.project?.registration_ui_url],
+    ["/ui/login", config.project?.login_ui_url],
+    ["/ui/verification", config.project?.verification_ui_url],
+    ["/ui/settings", config.project?.settings_ui_url],
+    ["/ui/welcome", config.project?.default_redirect_url],
 
     // New AX routes
-    ["/recovery", config.override?.recoveryUiPath],
-    ["/registration", config.override?.registrationUiPath],
-    ["/login", config.override?.loginUiPath],
-    ["/verification", config.override?.verificationUiPath],
-    ["/settings", config.override?.settingsUiPath],
+    ["/recovery", config.project?.recovery_ui_url],
+    ["/registration", config.project?.registration_ui_url],
+    ["/login", config.project?.login_ui_url],
+    ["/verification", config.project?.verification_ui_url],
+    ["/settings", config.project?.settings_ui_url],
   ].entries()) {
     const match = joinUrlPaths(matchBaseUrl, matchPath || "")
     if (replaceWith && source.startsWith(match)) {

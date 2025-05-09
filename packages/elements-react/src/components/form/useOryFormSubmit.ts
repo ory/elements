@@ -12,7 +12,7 @@ import {
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
 import { SubmitHandler, useFormContext } from "react-hook-form"
-import { useOryFlow } from "../../context"
+import { useOryConfiguration, useOryFlow } from "../../context"
 import { FormValues } from "../../types"
 import { OryFlowContainer } from "../../util"
 import { onSubmitLogin } from "../../util/onSubmitLogin"
@@ -33,6 +33,7 @@ export function useOryFormSubmit(
 ) {
   const flowContainer = useOryFlow()
   const methods = useFormContext()
+  const config = useOryConfiguration()
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)
@@ -53,7 +54,7 @@ export function useOryFormSubmit(
           submitData.resend = ""
         }
 
-        await onSubmitLogin(flowContainer, {
+        await onSubmitLogin(flowContainer, config, {
           onRedirect,
           setFlowContainer: handleSuccess,
           body: submitData,
@@ -69,7 +70,7 @@ export function useOryFormSubmit(
           submitData.resend = ""
         }
 
-        await onSubmitRegistration(flowContainer, {
+        await onSubmitRegistration(flowContainer, config, {
           onRedirect,
           setFlowContainer: handleSuccess,
           body: submitData,
@@ -77,7 +78,7 @@ export function useOryFormSubmit(
         break
       }
       case FlowType.Verification:
-        await onSubmitVerification(flowContainer, {
+        await onSubmitVerification(flowContainer, config, {
           onRedirect,
           setFlowContainer: handleSuccess,
           body: data as unknown as UpdateVerificationFlowBody,
@@ -91,7 +92,7 @@ export function useOryFormSubmit(
         if (data.code) {
           submitData.email = ""
         }
-        await onSubmitRecovery(flowContainer, {
+        await onSubmitRecovery(flowContainer, config, {
           onRedirect,
           setFlowContainer: handleSuccess,
           body: submitData,
@@ -137,7 +138,7 @@ export function useOryFormSubmit(
           submitData.method = "passkey"
         }
 
-        await onSubmitSettings(flowContainer, {
+        await onSubmitSettings(flowContainer, config, {
           onRedirect,
           setFlowContainer: handleSuccess,
           body: submitData,

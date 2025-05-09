@@ -11,10 +11,10 @@ import {
   settingsUrl,
   UpdateSettingsFlowBody,
 } from "@ory/client-fetch"
+import { OryElementsConfiguration } from "../context"
 import { OryFlowContainer } from "./flowContainer"
-import { OnSubmitHandlerProps } from "./submitHandler"
-import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
+import { OnSubmitHandlerProps } from "./submitHandler"
 
 /**
  * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.
@@ -26,21 +26,15 @@ import { replaceWindowFlowId } from "./internal"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitSettings(
-  { config, flow }: OryFlowContainer,
+  { flow }: OryFlowContainer,
+  config: OryElementsConfiguration,
   {
     setFlowContainer,
     body,
     onRedirect,
   }: OnSubmitHandlerProps<UpdateSettingsFlowBody>,
 ) {
-  if (!config.sdk.url) {
-    throw new Error(
-      `Please supply your Ory Network SDK url to the Ory Elements configuration.`,
-    )
-  }
-
-  const client = frontendClient(config.sdk.url, config.sdk.options ?? {})
-  await client
+  await config.sdk.frontend
     .updateSettingsFlowRaw({
       flow: flow.id,
       updateSettingsFlowBody: body,
@@ -60,7 +54,6 @@ export async function onSubmitSettings(
       setFlowContainer({
         flow: body,
         flowType: FlowType.Settings,
-        config,
       })
     })
     .catch(
@@ -76,7 +69,6 @@ export async function onSubmitSettings(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Settings,
-            config,
           })
         },
         onRedirect,

@@ -3,14 +3,12 @@
 
 import { Settings } from "@ory/elements-react/theme"
 import { SessionProvider } from "@ory/elements-react/client"
-import { enhanceOryConfig } from "@ory/nextjs"
 import { getSettingsFlow, OryPageParams } from "@ory/nextjs/app"
 import "@ory/elements-react/theme/styles.css"
 
-import baseConfig from "@/ory.config"
+import config from "@/ory.config"
 
 export default async function SettingsPage(props: OryPageParams) {
-  const config = enhanceOryConfig(baseConfig)
   const flow = await getSettingsFlow(config, props.searchParams)
 
   if (!flow) {

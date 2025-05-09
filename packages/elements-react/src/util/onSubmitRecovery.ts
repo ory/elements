@@ -13,11 +13,10 @@ import {
   recoveryUrl,
   UpdateRecoveryFlowBody,
 } from "@ory/client-fetch"
-import { frontendClient } from "./client"
-import { OryClientConfiguration } from "./clientConfiguration"
+import { OryElementsConfiguration } from "../context"
 import { OryFlowContainer } from "./flowContainer"
-import { OnSubmitHandlerProps } from "./submitHandler"
 import { replaceWindowFlowId } from "./internal"
+import { OnSubmitHandlerProps } from "./submitHandler"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
@@ -29,20 +28,15 @@ import { replaceWindowFlowId } from "./internal"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitRecovery(
-  { config, flow }: OryFlowContainer,
+  { flow }: OryFlowContainer,
+  config: OryElementsConfiguration,
   {
     setFlowContainer,
     body,
     onRedirect,
   }: OnSubmitHandlerProps<UpdateRecoveryFlowBody>,
 ) {
-  if (!config.sdk.url) {
-    throw new Error(
-      `Please supply your Ory Network SDK url to the Ory Elements configuration.`,
-    )
-  }
-
-  await frontendClient(config.sdk.url, config.sdk.options ?? {})
+  await config.sdk.frontend
     .updateRecoveryFlowRaw({
       flow: flow.id,
       updateRecoveryFlowBody: body,
@@ -62,7 +56,6 @@ export async function onSubmitRecovery(
       setFlowContainer({
         flow,
         flowType: FlowType.Recovery,
-        config,
       })
     })
     .catch(
@@ -82,7 +75,6 @@ export async function onSubmitRecovery(
             setFlowContainer({
               flow: body,
               flowType: FlowType.Recovery,
-              config,
             })
           }
         },
@@ -93,7 +85,7 @@ export async function onSubmitRecovery(
 
 function handleContinueWithRecoveryUIError(
   error: GenericError,
-  config: OryClientConfiguration,
+  config: OryElementsConfiguration,
   onRedirect: OnRedirectHandler,
 ) {
   if (

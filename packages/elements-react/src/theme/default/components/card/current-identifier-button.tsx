@@ -7,20 +7,21 @@ import {
   UiNode,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { useOryFlow } from "@ory/elements-react"
+import { useOryConfiguration, useOryFlow } from "@ory/elements-react"
+import { useEffect, useState } from "react"
+import { useFormContext } from "react-hook-form"
+import { findScreenSelectionButton } from "../../../../util/nodes"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 import { restartFlowUrl } from "../../utils/url"
-import { findScreenSelectionButton } from "../../../../util/nodes"
-import { useFormContext } from "react-hook-form"
-import { omitInputAttributes } from "../../../../util/omitAttributes"
-import { useEffect, useState } from "react"
 
 export function DefaultCurrentIdentifierButton() {
-  const { flow, flowType, config, formState } = useOryFlow()
+  const { flow, flowType, formState } = useOryFlow()
   const { setValue, getValues, watch } = useFormContext()
   const [turnstileResponse, setTurnstileResponse] = useState<
     string | undefined
   >()
+  const config = useOryConfiguration()
   const ui = flow.ui
 
   // This workaround ensures that the screen/back button functions correctly. Without it, the button does not work as expected.
