@@ -31,6 +31,6 @@
     "tsup.config.ts",
     "jest.config.ts",
     "tailwind.config.ts",
-    ".storybook/**/*.ts"
+    ".storybook/**/*.{ts,tsx}"
   ]
 }

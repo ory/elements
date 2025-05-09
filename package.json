@@ -84,6 +84,7 @@
     "react-dom": "18.3.1",
     "react-intl": "6.8.9",
     "storybook": "8.6.12",
+    "storybook-addon-mock": "5.0.0",
     "storybook-mock-date-decorator": "2.0.6",
     "tailwindcss": "3.4.17",
     "ts-jest": "29.3.2",
