@@ -5,7 +5,7 @@ import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
 import {
   ConsentFlow,
   useComponents,
-  useOryElementsConfiguration,
+  useOryConfiguration,
   useOryFlow,
 } from "@ory/elements-react"
 import { useIntl } from "react-intl"
@@ -39,7 +39,7 @@ export function DefaultCardFooter() {
 
 function LoginCardFooter() {
   const { formState, flow, flowType } = useOryFlow()
-  const config = useOryElementsConfiguration()
+  const config = useOryConfiguration()
   const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
   const intl = useIntl()
 
@@ -142,7 +142,7 @@ function LoginCardFooter() {
 function RegistrationCardFooter() {
   const intl = useIntl()
   const { flow, formState } = useOryFlow()
-  const config = useOryElementsConfiguration()
+  const config = useOryConfiguration()
   const visibleGroups = useNodeGroupsWithVisibleNodes(flow.ui.nodes)
   const authMethodBlocks = toAuthMethodPickerOptions(visibleGroups)
 

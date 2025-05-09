@@ -12,7 +12,7 @@ import {
   OryNodeLabelProps,
   uiTextToFormattedMessage,
   useComponents,
-  useOryElementsConfiguration,
+  useOryConfiguration,
   useOryFlow,
 } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
@@ -38,7 +38,7 @@ export function DefaultLabel({
   const label = getNodeLabel(node)
   const { Message } = useComponents()
   const { flowType, flow } = useOryFlow()
-  const config = useOryElementsConfiguration()
+  const config = useOryConfiguration()
   const { setValue, formState } = useFormContext()
 
   const isPassword = attributes.type === "password"

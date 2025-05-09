@@ -1,10 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { useOryElementsConfiguration } from "@ory/elements-react"
+import { useOryConfiguration } from "@ory/elements-react"
 
 export function DefaultCardLogo() {
-  const config = useOryElementsConfiguration()
+  const config = useOryConfiguration()
 
   if (config.project.logo_light_url) {
     return (

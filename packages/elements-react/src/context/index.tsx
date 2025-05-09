@@ -17,5 +17,8 @@ export type {
   FormStateAction,
 } from "./form-state"
 
-export { OrySDKProvider } from "./sdk"
-export { OryProjectProvider } from "./project"
+export {
+  useOryConfiguration,
+  OryConfigurationProvider,
+  type OryElementsConfiguration,
+} from "./config"

@@ -196,6 +196,12 @@ export type OryClientConfiguration = {
 };
 
 // @public (undocumented)
+export function OryConfigurationProvider({ children, sdk: initialConfig, project, }: PropsWithChildren<{
+    sdk?: Partial<OryClientConfiguration["sdk"]>;
+    project?: Partial<AccountExperienceConfiguration>;
+}>): react_jsx_runtime.JSX.Element;
+
+// @public (undocumented)
 export function OryConsentCard(): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
@@ -395,12 +401,6 @@ export type OryNodeTextProps = {
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public (undocumented)
-export function OryProjectProvider({ children, project, }: {
-    children: React.ReactNode;
-    project?: AccountExperienceConfiguration;
-}): react_jsx_runtime.JSX.Element;
-
-// @public (undocumented)
 export function OryProvider({ children, components: Components, config, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
@@ -408,12 +408,6 @@ export type OryProviderProps = {
     components: OryFlowComponents;
     config: OryClientConfiguration;
 } & OryFlowContainer & PropsWithChildren;
-
-// @public (undocumented)
-export function OrySDKProvider({ children, config: initialConfig, }: {
-    children: React.ReactNode;
-    config?: Partial<OryClientConfiguration["sdk"]>;
-}): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
@@ -491,7 +485,7 @@ export function useNodeSorter(): (a: UiNode, b: UiNode, ctx: {
 }) => number;
 
 // @public (undocumented)
-export function useOryElementsConfiguration(): OryElementsConfiguration;
+export function useOryConfiguration(): OryElementsConfiguration;
 
 // @public
 export function useOryFlow(): FlowContextValue;
@@ -501,7 +495,7 @@ export type VerificationFlowContainer = OryFlow<FlowType.Verification, Verificat
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:652:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:633:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

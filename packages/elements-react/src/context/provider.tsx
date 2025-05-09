@@ -5,14 +5,12 @@
 import { PropsWithChildren } from "react"
 
 import { OryFlowComponents } from "../components"
+import { OryClientConfiguration } from "../util"
 import { OryFlowContainer } from "../util/flowContainer"
 import { OryComponentProvider } from "./component"
+import { OryConfigurationProvider } from "./config"
 import { OryFlowProvider } from "./flow-context"
 import { IntlProvider } from "./intl-context"
-import { OrySDK, OrySDKProvider, useOrySDK } from "./sdk"
-import { OryClientConfiguration } from "../util"
-import { OryProjectProvider, useOryProject } from "./project"
-import { AccountExperienceConfiguration } from "@ory/client-fetch"
 
 export type OryProviderProps = {
   components: OryFlowComponents
@@ -27,31 +25,17 @@ export function OryProvider({
   ...oryFlowProps
 }: OryProviderProps) {
   return (
-    <OrySDKProvider config={config.sdk}>
-      <OryProjectProvider project={config.project}>
-        <IntlProvider
-          locale={config.intl?.locale ?? "en"}
-          customTranslations={config.intl?.customTranslations}
-        >
-          <OryFlowProvider {...oryFlowProps}>
-            <OryComponentProvider components={Components}>
-              {children}
-            </OryComponentProvider>
-          </OryFlowProvider>
-        </IntlProvider>
-      </OryProjectProvider>
-    </OrySDKProvider>
+    <OryConfigurationProvider sdk={config.sdk} project={config.project}>
+      <IntlProvider
+        locale={config.intl?.locale ?? "en"}
+        customTranslations={config.intl?.customTranslations}
+      >
+        <OryFlowProvider {...oryFlowProps}>
+          <OryComponentProvider components={Components}>
+            {children}
+          </OryComponentProvider>
+        </OryFlowProvider>
+      </IntlProvider>
+    </OryConfigurationProvider>
   )
-}
-
-export type OryElementsConfiguration = {
-  sdk: OrySDK
-  project: AccountExperienceConfiguration
-}
-
-export function useOryElementsConfiguration(): OryElementsConfiguration {
-  return {
-    sdk: useOrySDK(),
-    project: useOryProject(),
-  }
 }

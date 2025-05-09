@@ -49,7 +49,7 @@ interface MockOptions {
 jest.mock("@ory/elements-react", (): unknown => ({
   ...jest.requireActual("@ory/elements-react"),
   useOryFlow: jest.fn(),
-  useOryElementsConfiguration: jest.fn(),
+  useOryConfiguration: jest.fn(),
   useComponents: jest.fn(
     (): {
       Node: {
@@ -95,7 +95,7 @@ describe("DefaultCardFooter", () => {
         didLoadLogout = false,
       } = options
 
-      jest.spyOn(oryFlow, "useOryElementsConfiguration").mockReturnValue({
+      jest.spyOn(oryFlow, "useOryConfiguration").mockReturnValue({
         project: {
           ...defaultConfiguration.project,
           registration_enabled: registrationEnabled,

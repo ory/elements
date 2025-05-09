@@ -12,7 +12,7 @@ import {
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
 import { SubmitHandler, useFormContext } from "react-hook-form"
-import { useOryElementsConfiguration, useOryFlow } from "../../context"
+import { useOryConfiguration, useOryFlow } from "../../context"
 import { FormValues } from "../../types"
 import { OryFlowContainer } from "../../util"
 import { onSubmitLogin } from "../../util/onSubmitLogin"
@@ -33,7 +33,7 @@ export function useOryFormSubmit(
 ) {
   const flowContainer = useOryFlow()
   const methods = useFormContext()
-  const config = useOryElementsConfiguration()
+  const config = useOryConfiguration()
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)

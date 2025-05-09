@@ -7,7 +7,7 @@ import {
   UiNode,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { useOryElementsConfiguration, useOryFlow } from "@ory/elements-react"
+import { useOryConfiguration, useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
@@ -16,7 +16,7 @@ import { restartFlowUrl } from "../../utils/url"
 
 export function DefaultCurrentIdentifierButton() {
   const { flow, flowType, formState } = useOryFlow()
-  const config = useOryElementsConfiguration()
+  const config = useOryConfiguration()
   const { setValue } = useFormContext()
   const ui = flow.ui
 
