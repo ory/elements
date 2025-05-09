@@ -4,6 +4,7 @@
 
 ```ts
 
+import { AccountExperienceConfiguration } from '@ory/client-fetch';
 import { ApiResponse } from '@ory/client-fetch';
 import { FlowType } from '@ory/client-fetch';
 import { LoginFlow } from '@ory/client-fetch';
@@ -17,15 +18,10 @@ import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
-// Warning: (ae-forgotten-export) The symbol "OryConfig_2" needs to be exported by the entry point api-extractor-type-index.d.ts
+// Warning: (ae-forgotten-export) The symbol "OryMiddlewareOptions" needs to be exported by the entry point api-extractor-type-index.d.ts
 //
 // @public
-export function createOryMiddleware(options: OryConfig_2): (r: NextRequest) => Promise<NextResponse<unknown>>;
-
-// Warning: (ae-forgotten-export) The symbol "OryConfigForNextJS_2" needs to be exported by the entry point api-extractor-type-index.d.ts
-//
-// @public
-export function enhanceOryConfig(config: Partial<OryConfig>, forceSdkUrl?: string): OryConfigForNextJS_2;
+export function createOryMiddleware(options: OryMiddlewareOptions): (r: NextRequest) => Promise<NextResponse<unknown>>;
 
 // Warning: (ae-forgotten-export) The symbol "QueryParams" needs to be exported by the entry point api-extractor-type-index.d.ts
 //
@@ -34,10 +30,12 @@ export function getFlowFactory<T extends object>(params: QueryParams, fetchFlowR
     disableRewrite?: boolean;
 }): Promise<T | null | void>;
 
-// Warning: (ae-forgotten-export) The symbol "OryConfigForNextJS" needs to be exported by the entry point api-extractor-type-index.d.ts
-//
 // @public
-export function getLoginFlow(config: OryConfigForNextJS, params: QueryParams | Promise<QueryParams>): Promise<LoginFlow | null | void>;
+export function getLoginFlow(config: {
+    project: {
+        login_ui_url: string;
+    };
+}, params: QueryParams | Promise<QueryParams>): Promise<LoginFlow | null | void>;
 
 // @public
 export function getLogoutFlow({ returnTo, }?: {
@@ -45,35 +43,35 @@ export function getLogoutFlow({ returnTo, }?: {
 }): Promise<LogoutFlow>;
 
 // @public
-export function getRecoveryFlow(config: OryConfigForNextJS, params: QueryParams | Promise<QueryParams>): Promise<RecoveryFlow | null | void>;
+export function getRecoveryFlow(config: {
+    project: {
+        recovery_ui_url: string;
+    };
+}, params: QueryParams | Promise<QueryParams>): Promise<RecoveryFlow | null | void>;
 
 // @public
-export function getRegistrationFlow(config: OryConfigForNextJS, params: QueryParams | Promise<QueryParams>): Promise<RegistrationFlow | null | void>;
+export function getRegistrationFlow(config: {
+    project: {
+        registration_ui_url: string;
+    };
+}, params: QueryParams | Promise<QueryParams>): Promise<RegistrationFlow | null | void>;
 
 // @public
 export function getServerSession(): Promise<Session | null>;
 
 // @public
-export function getSettingsFlow(config: OryConfigForNextJS, params: QueryParams | Promise<QueryParams>): Promise<SettingsFlow | null | void>;
-
-// @public
-export function getVerificationFlow(config: OryConfigForNextJS, params: QueryParams | Promise<QueryParams>): Promise<VerificationFlow | null | void>;
-
-// @public
-export interface OryConfig {
-    forceCookieDomain?: string;
-    forwardAdditionalHeaders?: string[];
-    override?: {
-        applicationName?: string;
-        loginUiPath?: string;
-        registrationUiPath?: string;
-        recoveryUiPath?: string;
-        verificationUiPath?: string;
-        settingsUiPath?: string;
-        defaultRedirectUri?: string;
+export function getSettingsFlow(config: {
+    project: {
+        settings_ui_url: string;
     };
-    proxyBasePath?: string;
-}
+}, params: QueryParams | Promise<QueryParams>): Promise<SettingsFlow | null | void>;
+
+// @public
+export function getVerificationFlow(config: {
+    project: {
+        verification_ui_url: string;
+    };
+}, params: QueryParams | Promise<QueryParams>): Promise<VerificationFlow | null | void>;
 
 // @public
 export interface OryPageParams {

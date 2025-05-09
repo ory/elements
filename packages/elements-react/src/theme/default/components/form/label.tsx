@@ -8,10 +8,11 @@ import {
   UiNode,
 } from "@ory/client-fetch"
 import {
-  OryNodeLabelProps,
   messageTestId,
+  OryNodeLabelProps,
   uiTextToFormattedMessage,
   useComponents,
+  useOryConfiguration,
   useOryFlow,
 } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
@@ -36,7 +37,8 @@ export function DefaultLabel({
   const intl = useIntl()
   const label = getNodeLabel(node)
   const { Message } = useComponents()
-  const { config, flowType, flow } = useOryFlow()
+  const { flowType, flow } = useOryFlow()
+  const config = useOryConfiguration()
   const { setValue, formState } = useFormContext()
 
   const isPassword = attributes.type === "password"

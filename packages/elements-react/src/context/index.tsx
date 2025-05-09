@@ -16,3 +16,9 @@ export type {
   FormState,
   FormStateAction,
 } from "./form-state"
+
+export {
+  useOryConfiguration,
+  OryConfigurationProvider,
+  type OryElementsConfiguration,
+} from "./config"

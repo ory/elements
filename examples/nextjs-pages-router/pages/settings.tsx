@@ -3,7 +3,6 @@
 
 import config from "@/ory.config"
 import { Settings } from "@ory/elements-react/theme"
-import { enhanceOryConfig } from "@ory/nextjs"
 import { useSettingsFlow } from "@ory/nextjs/pages"
 import { SessionProvider } from "../../../packages/elements-react/dist/client/session-provider"
 
@@ -19,7 +18,7 @@ export default function SettingsPage() {
       <SessionProvider>
         <Settings
           flow={flow}
-          config={enhanceOryConfig(config)}
+          config={config}
           components={{
             Card: {},
           }}

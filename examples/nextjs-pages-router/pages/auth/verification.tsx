@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 "use client"
 import { DefaultCardLayout, Verification } from "@ory/elements-react/theme"
-import { useVerificationFlow } from "@ory/nextjs/pages"
-import { enhanceOryConfig } from "@ory/nextjs"
 import "@ory/elements-react/theme/styles.css"
+import { useVerificationFlow } from "@ory/nextjs/pages"
 
 import config from "@/ory.config"
 
@@ -19,7 +18,7 @@ export default function VerificationPage() {
     <DefaultCardLayout>
       <Verification
         flow={flow}
-        config={enhanceOryConfig(config)}
+        config={config}
         components={{
           Card: {},
         }}

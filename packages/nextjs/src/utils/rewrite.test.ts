@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { OryMiddlewareOptions } from "src/middleware/middleware"
 import { rewriteUrls, rewriteJsonResponse } from "./rewrite"
-import { OryConfig } from "../types"
 import { orySdkUrl } from "./sdk"
 
 jest.mock("./sdk", () => ({
@@ -10,13 +10,21 @@ jest.mock("./sdk", () => ({
 }))
 
 describe("rewriteUrls", () => {
-  const config: OryConfig = {
-    override: {
-      recoveryUiPath: "/custom/recovery",
-      registrationUiPath: "/custom/registration",
-      loginUiPath: "/custom/login",
-      verificationUiPath: "/custom/verification",
-      settingsUiPath: "/custom/settings",
+  const config: OryMiddlewareOptions = {
+    project: {
+      recovery_ui_url: "/custom/recovery",
+      registration_ui_url: "/custom/registration",
+      login_ui_url: "/custom/login",
+      verification_ui_url: "/custom/verification",
+      settings_ui_url: "/custom/settings",
+      error_ui_url: "/custom/error",
+      default_locale: "en",
+      default_redirect_url: "/",
+      locale_behavior: "force_default",
+      name: "Ory Next.js App Router Example",
+      registration_enabled: true,
+      verification_enabled: true,
+      recovery_enabled: true,
     },
   }
 

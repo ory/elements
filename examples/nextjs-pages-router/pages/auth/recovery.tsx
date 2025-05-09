@@ -3,7 +3,6 @@
 "use client"
 import { DefaultCardLayout, Recovery } from "@ory/elements-react/theme"
 import { useRecoveryFlow } from "@ory/nextjs/pages"
-import { enhanceOryConfig } from "@ory/nextjs"
 import "@ory/elements-react/theme/styles.css"
 
 import config from "@/ory.config"
@@ -19,7 +18,7 @@ export default function RecoveryPage() {
     <DefaultCardLayout>
       <Recovery
         flow={flow}
-        config={enhanceOryConfig(config)}
+        config={config}
         components={{
           Card: {},
         }}

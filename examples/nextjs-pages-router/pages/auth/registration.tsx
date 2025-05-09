@@ -3,7 +3,6 @@
 "use client"
 import { DefaultCardLayout, Registration } from "@ory/elements-react/theme"
 import { useRegistrationFlow } from "@ory/nextjs/pages"
-import { enhanceOryConfig } from "@ory/nextjs"
 import "@ory/elements-react/theme/styles.css"
 
 import config from "@/ory.config"
@@ -19,7 +18,7 @@ export default function RegistrationPage() {
     <DefaultCardLayout>
       <Registration
         flow={flow}
-        config={enhanceOryConfig(config)}
+        config={config}
         components={{
           Card: {},
         }}

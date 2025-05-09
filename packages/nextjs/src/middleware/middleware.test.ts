@@ -1,9 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { proxyRequest } from "./middleware"
+import { OryMiddlewareOptions, proxyRequest } from "./middleware"
 import { NextRequest, NextResponse } from "next/server"
-import { OryConfig } from "../types"
 
 function stringToReadableStream(input: string): ReadableStream<Uint8Array> {
   return new Blob([input]).stream()
@@ -52,11 +51,22 @@ const mockFetch = (responseInit: Partial<Response>) => {
   )
 }
 
-const createOptions = (): OryConfig => ({
+const createOptions = (): OryMiddlewareOptions => ({
   forwardAdditionalHeaders: ["x-custom-header"],
-  override: {
-    loginUiPath: "/custom-login",
-    defaultRedirectUri: "/custom-redirect",
+  project: {
+    default_locale: "en",
+    default_redirect_url: "/custom-redirect",
+    error_ui_url: "/auth/error",
+    locale_behavior: "force_default",
+    name: "Ory Next.js App Router Example",
+    registration_enabled: true,
+    verification_enabled: true,
+    recovery_enabled: true,
+    registration_ui_url: "/auth/registration",
+    verification_ui_url: "/auth/verification",
+    recovery_ui_url: "/auth/recovery",
+    login_ui_url: "/custom-login",
+    settings_ui_url: "/auth/settings",
   },
 })
 
@@ -199,8 +209,8 @@ describe("proxyRequest", () => {
     part: "login" | "registration" | "recovery" | "verification" | "settings",
   ) => ({
     path: `/ui/${part}`,
-    override: {
-      [`${part}UiPath`]: `/custom/${part}`,
+    project: {
+      [`${part}_ui_url`]: `/custom/${part}`,
     },
     expect: `/custom/${part}`,
   })
@@ -213,7 +223,7 @@ describe("proxyRequest", () => {
     createTestCase("settings"),
   ])(
     "modifies location header for redirects with custom ory elements page overrides $path",
-    async ({ override, path, expect: expectUrl }) => {
+    async ({ project, path, expect: expectUrl }) => {
       const request = createMockLoginRequest()
       const upstreamResponseHeaders = new Headers({
         location: "https://playground.projects.oryapis.com" + path,
@@ -225,7 +235,7 @@ describe("proxyRequest", () => {
       })
 
       const response = await proxyRequest(request, {
-        override,
+        project,
       })
 
       expect(response?.headers.get("location")).toBe(

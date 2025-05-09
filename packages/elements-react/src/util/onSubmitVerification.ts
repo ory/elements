@@ -8,10 +8,10 @@ import {
   VerificationFlow,
   verificationUrl,
 } from "@ory/client-fetch"
+import { OryElementsConfiguration } from "../context"
 import { OryFlowContainer } from "./flowContainer"
-import { OnSubmitHandlerProps } from "./submitHandler"
-import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
+import { OnSubmitHandlerProps } from "./submitHandler"
 
 /**
  * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.
@@ -23,20 +23,15 @@ import { replaceWindowFlowId } from "./internal"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitVerification(
-  { config, flow }: OryFlowContainer,
+  { flow }: OryFlowContainer,
+  config: OryElementsConfiguration,
   {
     setFlowContainer,
     body,
     onRedirect,
   }: OnSubmitHandlerProps<UpdateVerificationFlowBody>,
 ) {
-  if (!config.sdk.url) {
-    throw new Error(
-      `Please supply your Ory Network SDK URL to the Ory Elements configuration.`,
-    )
-  }
-
-  await frontendClient(config.sdk.url, config.sdk.options ?? {})
+  await config.sdk.frontend
     .updateVerificationFlowRaw({
       flow: flow.id,
       updateVerificationFlowBody: body,
@@ -45,7 +40,6 @@ export async function onSubmitVerification(
       setFlowContainer({
         flow: await res.value(),
         flowType: FlowType.Verification,
-        config,
       }),
     )
     .catch(
@@ -61,7 +55,6 @@ export async function onSubmitVerification(
           setFlowContainer({
             flow: body,
             flowType: FlowType.Verification,
-            config,
           })
         },
         onRedirect,

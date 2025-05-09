@@ -2,17 +2,22 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
-import { ConsentFlow, useComponents, useOryFlow } from "@ory/elements-react"
+import {
+  ConsentFlow,
+  useComponents,
+  useOryConfiguration,
+  useOryFlow,
+} from "@ory/elements-react"
 import { useIntl } from "react-intl"
-import { initFlowUrl, restartFlowUrl } from "../../utils/url"
+import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
+import { findScreenSelectionButton } from "../../../../util/nodes"
 import {
   findNode,
   nodesToAuthMethodGroups,
   useNodeGroupsWithVisibleNodes,
 } from "../../../../util/ui"
-import { findScreenSelectionButton } from "../../../../util/nodes"
-import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
 import { useClientLogout } from "../../utils/logout"
+import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
@@ -33,7 +38,8 @@ export function DefaultCardFooter() {
 }
 
 function LoginCardFooter() {
-  const { config, formState, flow, flowType } = useOryFlow()
+  const { formState, flow, flowType } = useOryFlow()
+  const config = useOryConfiguration()
   const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
   const intl = useIntl()
 
@@ -135,7 +141,8 @@ function LoginCardFooter() {
 
 function RegistrationCardFooter() {
   const intl = useIntl()
-  const { config, flow, formState } = useOryFlow()
+  const { flow, formState } = useOryFlow()
+  const config = useOryConfiguration()
   const visibleGroups = useNodeGroupsWithVisibleNodes(flow.ui.nodes)
   const authMethodBlocks = toAuthMethodPickerOptions(visibleGroups)
 

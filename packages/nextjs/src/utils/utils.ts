@@ -1,12 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-import { parse, splitCookiesString } from "set-cookie-parser"
 import { serialize, SerializeOptions } from "cookie"
+import { parse, splitCookiesString } from "set-cookie-parser"
 
-import { FlowParams, OryConfig, QueryParams } from "../types"
+import { ApiResponse } from "@ory/client-fetch"
+import { OryMiddlewareOptions } from "src/middleware/middleware"
+import { FlowParams, QueryParams } from "../types"
 import { guessCookieDomain } from "./cookie"
 import { defaultForwardedHeaders } from "./headers"
-import { ApiResponse } from "@ory/client-fetch"
 import { rewriteJsonResponse } from "./rewrite"
 
 export function onValidationError<T>(value: T): T {
@@ -26,7 +27,7 @@ export async function toFlowParams(
 export function processSetCookieHeaders(
   protocol: string,
   fetchResponse: Response,
-  options: OryConfig,
+  options: OryMiddlewareOptions,
   requestHeaders: Headers,
 ) {
   const isTls =
@@ -34,7 +35,10 @@ export function processSetCookieHeaders(
 
   const forwarded = requestHeaders.get("x-forwarded-host")
   const host = forwarded ? forwarded : requestHeaders.get("host")
-  const domain = guessCookieDomain(host ?? "", options)
+  const domain =
+    host && !options.forceCookieDomain
+      ? guessCookieDomain(host ?? "")
+      : options.forceCookieDomain
 
   return parse(
     splitCookiesString(fetchResponse.headers.get("set-cookie") || ""),
