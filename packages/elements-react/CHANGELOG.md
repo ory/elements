@@ -1,3 +1,20 @@
+## 1.0.0-rc.3 (2025-05-09)
+
+### 🩹 Fixes
+
+- captcha reloading and duplication ([#518](https://github.com/ory/elements/pull/518))
+- ⚠️  rework configuration management ([#515](https://github.com/ory/elements/pull/515))
+- add missing testids to method selector and checkbox ([#517](https://github.com/ory/elements/pull/517))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  rework configuration management ([#515](https://github.com/ory/elements/pull/515))
+
+### ❤️ Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-rc.2 (2025-04-30)
 
 ### 🚀 Features
