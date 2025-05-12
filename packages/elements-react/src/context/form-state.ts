@@ -30,6 +30,9 @@ export type FormStateAction =
       type: "action_select_method"
       method: UiNodeGroupEnum
     }
+  | {
+      type: "action_method_selector"
+    }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
   return nodes
@@ -111,6 +114,11 @@ export function useFormStateReducer(flow: OryFlowContainer) {
       case "action_select_method": {
         setSelectedMethod(action.method)
         return { current: "method_active", method: action.method }
+      }
+      case "action_method_selector": {
+        return {
+          current: "select_method",
+        }
       }
     }
     return state
