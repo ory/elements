@@ -9,9 +9,11 @@ import {
   OryFlowComponentOverrides,
   OryProvider,
   OrySettingsCard,
+  OryToastProps,
 } from "@ory/elements-react"
-import { PropsWithChildren } from "react"
+import { ComponentType, PropsWithChildren } from "react"
 import { getOryComponents } from "../components"
+import { Toaster } from "../components/generic/toaster"
 
 export type SettingsFlowContextProps = {
   flow: SettingsFlow
@@ -25,21 +27,33 @@ export function Settings({
   children,
   components: flowOverrideComponents,
 }: PropsWithChildren<SettingsFlowContextProps>) {
-  const components = getOryComponents(flowOverrideComponents)
+  const Components = getOryComponents(flowOverrideComponents)
 
   return (
     <OryProvider
       config={config}
       flow={flow}
       flowType={FlowType.Settings}
-      components={components}
+      components={Components}
     >
-      {children ?? (
-        <>
-          <HeadlessPageHeader />
-          <OrySettingsCard />
-        </>
-      )}
+      {children ?? <InnerSettings components={Components.Message} />}
     </OryProvider>
+  )
+}
+
+function InnerSettings({
+  components,
+}: {
+  components: {
+    Toast: ComponentType<OryToastProps>
+  }
+}) {
+  // const intl = useIntl()
+  return (
+    <>
+      <HeadlessPageHeader />
+      <Toaster title={"asd"} components={components} />
+      <OrySettingsCard />
+    </>
   )
 }
