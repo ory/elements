@@ -9,6 +9,7 @@ import { default as nl } from "./nl.json"
 import { default as pl } from "./pl.json"
 import { default as pt } from "./pt.json"
 import { default as sv } from "./sv.json"
+import { default as ko } from "./ko.json"
 
 // export type TranslationFile = {
 //   [K in keyof typeof en]: string
@@ -28,4 +29,5 @@ export const OryLocales: LocaleMap = {
   pl,
   pt,
   sv,
+  ko,
 }
