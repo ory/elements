@@ -1,0 +1,142 @@
+{
+  "id": "16b8cc99-dcfa-4520-a8a0-05e660c29ebf",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-13T19:10:23.633389Z",
+  "issued_at": "2025-05-13T18:10:23.633389Z",
+  "request_url": "https://priceless-khayyam-rnfsa0n1no.projects.oryapis:8080/self-service/login/browser?aal=&refresh=&return_to=&organization=&via=",
+  "active": "oidc",
+  "ui": {
+    "action": "https://priceless-khayyam-rnfsa0n1no.projects.oryapis:8080/self-service/login?flow=16b8cc99-dcfa-4520-a8a0-05e660c29ebf",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "fake-apple",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010002,
+            "text": "Sign in with Fake Apple",
+            "type": "info",
+            "context": {
+              "provider": "Fake Apple",
+              "provider_id": "fake-apple"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "obCiqcz65p/D4+o+srA9F1p1ArQaFwYrifGS0WM3uqxA8RTdfsku9DtdsCNZXWBQLDj6n4d44LIGWJXJTGOmow==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property phone is missing.",
+            "type": "error",
+            "context": {
+              "property": "phone"
+            }
+          }
+        ],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property tos is missing.",
+            "type": "error",
+            "context": {
+              "property": "tos"
+            }
+          }
+        ],
+        "meta": {}
+      }
+    ]
+  },
+  "created_at": "2025-05-13T18:10:23.636478Z",
+  "updated_at": "2025-05-13T18:10:23.636478Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

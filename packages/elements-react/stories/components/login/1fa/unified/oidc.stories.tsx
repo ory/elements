@@ -121,3 +121,21 @@ export const AllButtonsPasswordDisabled: Story = {
     config,
   },
 }
+
+export const MissingFields: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/oidc/with-password/missing-fields.json"),
+    ),
+    config,
+  },
+}
+
+export const MissingFieldsPasswordDisabled: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/oidc/standalone/missing-fields.json"),
+    ),
+    config,
+  },
+}
