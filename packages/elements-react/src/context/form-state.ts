@@ -31,7 +31,7 @@ export type FormStateAction =
       method: UiNodeGroupEnum
     }
   | {
-      type: "action_method_selector"
+      type: "action_clear_active_method"
     }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
@@ -107,15 +107,16 @@ export function useFormStateReducer(flow: OryFlowContainer) {
   ): FormState => {
     switch (action.type) {
       case "action_flow_update": {
-        if (selectedMethod)
+        if (selectedMethod) {
           return { current: "method_active", method: selectedMethod }
+        }
         return parseStateFromFlow(action.flow)
       }
       case "action_select_method": {
         setSelectedMethod(action.method)
         return { current: "method_active", method: action.method }
       }
-      case "action_method_selector": {
+      case "action_clear_active_method": {
         return {
           current: "select_method",
         }
