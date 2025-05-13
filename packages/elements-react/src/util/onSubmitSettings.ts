@@ -4,7 +4,6 @@
 import {
   FlowType,
   handleContinueWith,
-  handleFlowError,
   isResponseError,
   loginUrl,
   SettingsFlow,
@@ -15,6 +14,7 @@ import { OryElementsConfiguration } from "../context"
 import { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { handleFlowError } from "./sdk-helpers"
 
 /**
  * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.

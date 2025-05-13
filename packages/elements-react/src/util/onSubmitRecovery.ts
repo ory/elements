@@ -6,7 +6,6 @@ import {
   FlowType,
   GenericError,
   handleContinueWith,
-  handleFlowError,
   instanceOfContinueWithRecoveryUi,
   OnRedirectHandler,
   RecoveryFlow,
@@ -17,6 +16,7 @@ import { OryElementsConfiguration } from "../context"
 import { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { handleFlowError } from "./sdk-helpers"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
