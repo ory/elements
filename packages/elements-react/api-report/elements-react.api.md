@@ -89,6 +89,8 @@ export type FormStateAction = {
 } | {
     type: "action_select_method";
     method: UiNodeGroupEnum;
+} | {
+    type: "action_clear_active_method";
 };
 
 // @public (undocumented)
@@ -495,7 +497,7 @@ export type VerificationFlowContainer = OryFlow<FlowType.Verification, Verificat
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:633:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:635:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
