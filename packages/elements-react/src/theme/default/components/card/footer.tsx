@@ -1,9 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
+import { FlowType, LoginFlow, UiNodeInputAttributes } from "@ory/client-fetch"
 import {
   ConsentFlow,
+  FormState,
   useComponents,
   useOryConfiguration,
   useOryFlow,
@@ -37,10 +38,43 @@ export function DefaultCardFooter() {
   }
 }
 
+function shouldShowLogoutButton(
+  flow: LoginFlow,
+  formState: FormState,
+  authMethods: string[],
+) {
+  // Always for refresh flows, as we know there is a session
+  if (flow.refresh) {
+    return true
+  }
+
+  // In aal2 flows we sometimes show the logout button
+  if (flow.requested_aal === "aal2") {
+    // Always on the "method selector" screen
+    if (formState.current === "select_method") {
+      return true
+    }
+    // On the "method active" screen, if it's a code method
+    // If the method is any other than code, we want to show a "Choose another method" button
+    // This is handled below.
+    // TODO: refactor this, to not have this logic in two places
+    if (formState.current === "method_active" && flow.active === "code") {
+      return true
+    }
+    // If there are no other methods, we want to show the logout button
+    // This is the case when the user only has one method (e.g. code or totp), set up
+    // and the user is on the "method active" screen
+    // In that case there is no "select_method" state, so going back to that screen wouldn't work
+    if (formState.current === "method_active" && authMethods.length === 1) {
+      return true
+    }
+  }
+  return false
+}
+
 function LoginCardFooter() {
-  const { formState, flow, flowType } = useOryFlow()
+  const { formState, flow, flowType, dispatchFormState } = useOryFlow()
   const config = useOryConfiguration()
-  const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
   const intl = useIntl()
 
   if (flowType !== FlowType.Login) {
@@ -60,29 +94,8 @@ function LoginCardFooter() {
     )
   }
 
-  if (flow.refresh || flow.requested_aal === "aal2") {
-    return (
-      <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-        {intl.formatMessage({
-          id: "login.2fa.go-back",
-        })}{" "}
-        <a
-          className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-          href={logout ? logout?.logout_url : returnTo}
-          data-testid={
-            // Only add the test-id when the logout link has loaded.
-            didLoadLogout ? "ory/screen/login/action/logout" : undefined
-          }
-        >
-          {intl.formatMessage({
-            id:
-              !didLoadLogout || logout
-                ? "login.logout-button"
-                : "login.2fa.go-back.link",
-          })}
-        </a>
-      </span>
-    )
+  if (shouldShowLogoutButton(flow, formState, authMethods)) {
+    return <LogoutButton returnTo={returnTo} />
   }
 
   return (
@@ -108,18 +121,21 @@ function LoginCardFooter() {
         )}
       {authMethods.length > 1 && formState.current === "method_active" && (
         <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-          <a
+          <button
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href=""
+            onClick={() => {
+              dispatchFormState({
+                type: "action_method_selector",
+              })
+            }}
             data-testid={"ory/screen/login/mfa/action/selectMethod"}
           >
             {intl.formatMessage({
               id: "login.2fa.method.go-back",
             })}
-          </a>
+          </button>
         </span>
       )}
-      {/* special case for code auth method */}
       {authMethods.length === 1 &&
         authMethods[0] === "code" &&
         formState.current === "method_active" && (
@@ -136,6 +152,39 @@ function LoginCardFooter() {
           </span>
         )}
     </>
+  )
+}
+
+type LogoutButtonProps = {
+  returnTo?: string
+}
+
+function LogoutButton({ returnTo }: LogoutButtonProps) {
+  const config = useOryConfiguration()
+  const intl = useIntl()
+  const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
+
+  return (
+    <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+      {intl.formatMessage({
+        id: "login.2fa.go-back",
+      })}{" "}
+      <a
+        className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+        href={logout ? logout?.logout_url : returnTo}
+        data-testid={
+          // Only add the test-id when the logout link has loaded.
+          didLoadLogout ? "ory/screen/login/action/logout" : undefined
+        }
+      >
+        {intl.formatMessage({
+          id:
+            !didLoadLogout || logout
+              ? "login.logout-button"
+              : "login.2fa.go-back.link",
+        })}
+      </a>
+    </span>
   )
 }
 
