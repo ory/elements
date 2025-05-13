@@ -79,6 +79,7 @@ export async function onSubmitRecovery(
           }
         },
         onRedirect,
+        config,
       }),
     )
 }

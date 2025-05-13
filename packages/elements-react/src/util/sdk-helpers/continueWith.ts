@@ -8,7 +8,7 @@ import {
   ContinueWithSettingsUi,
   ContinueWithVerificationUi,
   ContinueWithRedirectBrowserTo,
-} from "../"
+} from "@ory/client-fetch"
 
 export type OnRedirectHandler = (url: string, external: boolean) => void
 

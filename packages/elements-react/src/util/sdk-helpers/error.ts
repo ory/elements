@@ -8,7 +8,11 @@ import {
   NeedsPrivilegedSessionError,
   ResponseError,
   SelfServiceFlowExpiredError,
-} from "../"
+  FetchError,
+  ErrorGeneric,
+  ContinueWith,
+} from "@ory/client-fetch"
+import type { GenericErrorContent } from "@ory/client-fetch/src/models/GenericErrorContent"
 
 export function isGenericErrorResponse(
   response: unknown,
@@ -112,9 +116,13 @@ export function isSessionAlreadyAvailable(
  *
  * @param response - The response to check.
  */
-export function isAddressNotVerified(
-  response: unknown,
-): response is GenericError {
+export function isAddressNotVerified(response: unknown): response is {
+  error: GenericErrorContent & {
+    details?: {
+      continue_with?: [ContinueWith]
+    }
+  }
+} {
   return (
     isGenericErrorResponse(response) &&
     response.error.id === "session_verified_address_required"
@@ -142,7 +150,7 @@ export function isAalAlreadyFulfilled(
  */
 export function isSessionAal1Required(
   response: unknown,
-): response is GenericError {
+): response is ErrorGeneric {
   return (
     isGenericErrorResponse(response) &&
     response.error.id === "session_aal1_required"
@@ -173,6 +181,7 @@ export function isNoActiveSession(response: unknown): response is GenericError {
     isGenericErrorResponse(response) && response.error.id === "session_inactive"
   )
 }
+
 /**
  * Checks if the response is a GenericError due to a CSRF violation.
  *
@@ -224,4 +233,8 @@ export const isResponseError = (err: unknown): err is ResponseError => {
     "name" in err &&
     err.name === "ResponseError"
   )
+}
+
+export const isFetchError = (err: unknown): err is FetchError => {
+  return err instanceof FetchError
 }

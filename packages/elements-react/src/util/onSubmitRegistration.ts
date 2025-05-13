@@ -69,6 +69,7 @@ export async function onSubmitRegistration(
           })
         },
         onRedirect,
+        config,
       }),
     )
 }

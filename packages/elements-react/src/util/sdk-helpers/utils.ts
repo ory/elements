@@ -1,15 +1,18 @@
-// Copyright © 2024 Ory Corp
+// Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FetchError, RequiredError, ResponseError } from "../"
+import { FetchError, ResponseError } from "@ory/client-fetch"
 import { OnRedirectHandler } from "./continueWith"
 import {
+  isAddressNotVerified,
   isBrowserLocationChangeRequired,
   isCsrfError,
+  isFetchError,
   isNeedsPrivilegedSessionError,
   isResponseError,
   isSelfServiceFlowExpiredError,
 } from "./error"
+import { verificationUrl } from "./urlHelpers"
 
 export type ValidationErrorHandler<T> = (body: T) => void
 
@@ -35,6 +38,11 @@ type FlowErrorHandlerProps<T> = {
    * This method is used to redirect the user to a different page.
    */
   onRedirect: OnRedirectHandler
+
+  /**
+   * The configuration object.
+   */
+  config: { sdk: { url: string } }
 }
 
 /**
@@ -46,78 +54,129 @@ type FlowErrorHandlerProps<T> = {
 export const handleFlowError =
   <T>(opts: FlowErrorHandlerProps<T>) =>
   async (err: unknown): Promise<void | T> => {
-    if (isResponseError(err)) {
+    if (!isResponseError(err)) {
+      if (isFetchError(err)) {
+        throw new FetchError(
+          err,
+          "Unable to call the API endpoint. Ensure that CORS is set up correctly and that you have provided a valid SDK URL to Ory Elements.",
+        )
+      }
+      throw err
+    }
+
+    // First we handle any known errors in case we receive a JSON response.
+    const contentType = err.response.headers.get("content-type") || ""
+    if (contentType.includes("application/json")) {
+      // Handle JSON content
+      const body = await toBody(err.response)
+      if (isSelfServiceFlowExpiredError(body)) {
+        opts.onRestartFlow(body.use_flow_id)
+        return
+      } else if (isAddressNotVerified(body)) {
+        for (const continueWith of body.error.details?.continue_with || []) {
+          if (
+            continueWith.action === "show_verification_ui" &&
+            continueWith.flow.url
+          ) {
+            opts.onRedirect(continueWith.flow.url, true)
+            return
+          }
+        }
+
+        opts.onRedirect(verificationUrl(opts.config), true)
+        return
+      } else if (
+        isBrowserLocationChangeRequired(body) &&
+        body.redirect_browser_to
+      ) {
+        opts.onRedirect(body.redirect_browser_to, true)
+        return
+      } else if (isNeedsPrivilegedSessionError(body)) {
+        opts.onRedirect(body.redirect_browser_to, true)
+        return
+      } else if (isCsrfError(body)) {
+        opts.onRestartFlow()
+        return
+      }
+
+      // None of the above worked, but we have a JSON response and a status code. Let's do the best we can.
       switch (err.response.status) {
         case 404: // Does not exist
           opts.onRestartFlow()
           return
         case 410: // Expired
-          const body = await toBody(err.response)
-          if (isSelfServiceFlowExpiredError(body)) {
-            opts.onRestartFlow(body.use_flow_id)
-            return
-          }
           // Re-initialize the flow
           opts.onRestartFlow()
           return
         case 400:
           return opts.onValidationError(
-            // TODO: maybe we can do actual type checking here?
             (await err.response.json()) as unknown as T,
           )
         case 403: // This typically happens with CSRF violations.
+          opts.onRestartFlow()
+          return
         case 422: {
-          const body = await toBody(err.response)
-          if (
-            isBrowserLocationChangeRequired(body) &&
-            body.redirect_browser_to
-          ) {
-            opts.onRedirect(body.redirect_browser_to, true)
-            return
-          } else if (isSelfServiceFlowExpiredError(body)) {
-            opts.onRestartFlow(body.use_flow_id)
-            return
-          } else if (isNeedsPrivilegedSessionError(body)) {
-            opts.onRedirect(body.redirect_browser_to, true)
-            return
-          } else if (isCsrfError(body)) {
-            opts.onRestartFlow()
-            return
-          }
-
           throw new ResponseError(
             err.response,
-            "The Ory API endpoint returned a response code the SDK does not know how to handle. Please check the network tab for more information:" +
-              JSON.stringify(body),
+            "The API returned an error code indicating a required redirect, but the SDK is outdated and does not know how to handle the action. Received response: " +
+              (await err.response.json()),
           )
         }
-
-        default:
-          throw new ResponseError(
-            err.response,
-            "The Ory API endpoint returned a response code the SDK does not know how to handle. Please check the network tab for more information.",
-          )
       }
-    } else if (err instanceof FetchError) {
-      throw new FetchError(
-        err,
-        "Unable to call the API endpoint. Ensure that CORS is set up correctly and that you have provided a valid SDK URL to Ory Elements.",
+
+      throw new ResponseError(
+        err.response,
+        "The Ory API endpoint returned a response code the SDK does not know how to handle. Please check the network tab for more information. Received response: " +
+          (await err.response.json()),
       )
-    } else if (err instanceof RequiredError) {
-      // TODO (@aeneasr) Happens on submit usually. Not sure how to handle yet.
+    } else if (
+      // Not a JSON response? If it's a text response we will return an error informing the user that the response is not JSON.
+      contentType.includes("text/") ||
+      contentType.includes("html") ||
+      contentType.includes("xml")
+    ) {
+      // Handle human-readable content
+      await logResponseError(err.response, true)
+      throw new ResponseError(
+        err.response,
+        `The Ory API endpoint returned an unexpected HTML or text response. Check your console output for details.`,
+      )
     }
 
-    throw err
+    // Not sure what the error is. So we just return some error.
+    await logResponseError(err.response, false)
+    // Handle binary/unknown content
+    throw new ResponseError(
+      err.response,
+      "The Ory API endpoint returned unexpected content type `" +
+        contentType +
+        "`.  Check your console output for details.",
+    )
   }
 
 export async function toBody(response: Response): Promise<unknown> {
   try {
-    return (await response.clone().json()) as unknown
-  } catch (e) {
+    return await response.clone().json()
+  } catch (e: unknown) {
+    await logResponseError(response, true, [e])
     throw new ResponseError(
       response,
-      "The Ory API endpoint returned a response the SDK does not know how to handle:" +
-        (await response.text()),
+      "Unable to decode API response using JSON.",
     )
   }
+}
+
+async function logResponseError(
+  response: Response,
+  printBody: boolean,
+  wrap?: unknown[],
+) {
+  console.error("Unable to decode API response", {
+    response: {
+      status: response.status,
+      headers: Object.fromEntries(response.headers.entries()),
+      body: printBody ? await response.clone().text() : undefined,
+    },
+    errors: wrap,
+  })
 }

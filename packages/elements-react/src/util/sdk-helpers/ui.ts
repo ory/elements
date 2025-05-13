@@ -10,7 +10,7 @@ import {
   UiNodeTextAttributes,
   UiNodeDivisionAttributes,
   UiText,
-} from "../"
+} from "@ory/client-fetch"
 
 /**
  * Returns the node's label.

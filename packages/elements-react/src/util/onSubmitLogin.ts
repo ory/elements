@@ -66,6 +66,7 @@ export async function onSubmitLogin(
           })
         },
         onRedirect,
+        config,
       }),
     )
 }

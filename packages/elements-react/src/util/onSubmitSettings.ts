@@ -72,6 +72,7 @@ export async function onSubmitSettings(
           })
         },
         onRedirect,
+        config,
       }),
     )
     .catch((err) => {
