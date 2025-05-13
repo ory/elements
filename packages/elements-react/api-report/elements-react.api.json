@@ -535,7 +535,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": ";\n} | {\n    type: \"action_clear_active_method\";\n}"
             },
             {
               "kind": "Content",
