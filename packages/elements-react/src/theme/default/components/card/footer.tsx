@@ -125,7 +125,7 @@ function LoginCardFooter() {
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
             onClick={() => {
               dispatchFormState({
-                type: "action_method_selector",
+                type: "action_clear_active_method",
               })
             }}
             data-testid={"ory/screen/login/mfa/action/selectMethod"}
