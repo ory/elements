@@ -158,7 +158,10 @@ describe("Error identification utilities", () => {
 
   describe("Response and Fetch error identification", () => {
     it("should identify ResponseError instances", () => {
-      const responseError = new ResponseError(new Response(), "Response error")
+      const responseError = new ResponseError(
+        {} as unknown as Response,
+        "Response error",
+      )
       expect(isResponseError(responseError)).toBe(true)
 
       const responseErrorLike = {
