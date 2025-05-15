@@ -17,7 +17,7 @@ import {
   isNodeVisible,
   useNodeGroupsWithVisibleNodes,
 } from ".."
-import { UiNodeInputAttributesTypeEnum } from "@ory/client-fetch/src/models/UiNodeInputAttributes"
+import { UiNodeInputAttributesTypeEnum } from "@ory/client-fetch"
 
 describe("useFunctionalNodes", () => {
   test("returns only functional nodes", () => {
