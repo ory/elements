@@ -91,7 +91,10 @@ export const handleFlowError =
       ) {
         opts.onRedirect(body.redirect_browser_to, true)
         return
-      } else if (isNeedsPrivilegedSessionError(body)) {
+      } else if (
+        isNeedsPrivilegedSessionError(body) &&
+        body.redirect_browser_to
+      ) {
         opts.onRedirect(body.redirect_browser_to, true)
         return
       } else if (isCsrfError(body)) {
