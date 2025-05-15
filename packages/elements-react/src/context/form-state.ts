@@ -51,6 +51,9 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         return { current: "method_active", method: "code" }
       } else if (methodWithMessage) {
         return { current: "method_active", method: methodWithMessage.group }
+      } else if (flow.flow.ui.messages?.some((m) => m.id === 1010016)) {
+        // Account linking edge case
+        return { current: "select_method" }
       } else if (
         flow.flow.active &&
         !["default", "identifier_first"].includes(flow.flow.active)
@@ -64,9 +67,6 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
           // TODO: https://github.com/ory/kratos/issues/4271 - once this is fixed in Kratos, we can remove the check for "code"
           return { current: "method_active", method: authMethods[0] }
         }
-        return { current: "select_method" }
-      } else if (flow.flow.ui.messages?.some((m) => m.id === 1010016)) {
-        // Account linking edge case
         return { current: "select_method" }
       }
       return { current: "provide_identifier" }
