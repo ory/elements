@@ -94,7 +94,8 @@
     "typescript-eslint": "8.32.1",
     "vite": "6.3.5",
     "vite-plugin-require": "1.2.14",
-    "vite-plugin-svgr": "4.3.0"
+    "vite-plugin-svgr": "4.3.0",
+    "zx": "8.5.3"
   },
   "files": [
     "dist/*"

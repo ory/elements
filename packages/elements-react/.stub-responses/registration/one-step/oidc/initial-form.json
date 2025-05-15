@@ -1,57 +1,13 @@
 {
-  "id": "31bf60a3-2271-4b9f-a23a-3c0446d7b5e0",
-  "organization_id": null,
+  "id": "ac82d9dd-59e5-496b-a87e-8e9cda0757a7",
   "type": "browser",
-  "expires_at": "2025-05-15T16:34:49.593606802Z",
-  "issued_at": "2025-05-15T15:34:49.593606802Z",
-  "request_url": "https://stupefied-williams-5prpi2wiw0.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-15T16:36:38.735740756Z",
+  "issued_at": "2025-05-15T15:36:38.735740756Z",
+  "request_url": "https://stoic-ardinghelli-hb7fh9ky24.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://stupefied-williams-5prpi2wiw0.projects.oryapis:8080/self-service/login?flow=31bf60a3-2271-4b9f-a23a-3c0446d7b5e0",
+    "action": "https://stoic-ardinghelli-hb7fh9ky24.projects.oryapis:8080/self-service/registration?flow=ac82d9dd-59e5-496b-a87e-8e9cda0757a7",
     "method": "POST",
     "nodes": [
-      {
-        "type": "input",
-        "group": "identifier_first",
-        "attributes": {
-          "name": "identifier",
-          "type": "text",
-          "value": "",
-          "required": true,
-          "autocomplete": "username webauthn",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "title": "E-Mail"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "identifier_first",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "identifier_first",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070009,
-            "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
       {
         "type": "input",
         "group": "oidc",
@@ -65,8 +21,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with Apple",
+            "id": 1040002,
+            "text": "Sign up with Apple",
             "type": "info",
             "context": {
               "provider": "Apple",
@@ -88,8 +44,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with auth0",
+            "id": 1040002,
+            "text": "Sign up with auth0",
             "type": "info",
             "context": {
               "provider": "auth0",
@@ -111,8 +67,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with FooBarLogo",
+            "id": 1040002,
+            "text": "Sign up with FooBarLogo",
             "type": "info",
             "context": {
               "provider": "FooBarLogo",
@@ -134,8 +90,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with GitHub",
+            "id": 1040002,
+            "text": "Sign up with GitHub",
             "type": "info",
             "context": {
               "provider": "GitHub",
@@ -157,8 +113,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with Google",
+            "id": 1040002,
+            "text": "Sign up with Google",
             "type": "info",
             "context": {
               "provider": "Google",
@@ -180,8 +136,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with LinkedIn",
+            "id": 1040002,
+            "text": "Sign up with LinkedIn",
             "type": "info",
             "context": {
               "provider": "LinkedIn",
@@ -203,8 +159,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with Microsoft",
+            "id": 1040002,
+            "text": "Sign up with Microsoft",
             "type": "info",
             "context": {
               "provider": "Microsoft",
@@ -226,8 +182,8 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010002,
-            "text": "Sign in with x",
+            "id": 1040002,
+            "text": "Sign up with x",
             "type": "info",
             "context": {
               "provider": "x",
@@ -242,19 +198,121 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "INdBlboXgSsMrGbUamyrg1PZxJH6Al1eO1XttPtjTX/T5eJJYQYg17xSMCwhkuXD0Sp2D3cXhrRBSEUDKHnukQ==",
+          "value": "uI2OCF54SWsonXH5bFSVsyGtEE2e+jUMXdb0Uhe6QfILXiIqcvRaLhRJ1/jQgcoVLg9C20AoBg/PwbKDESxdvw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.tos",
+          "type": "checkbox",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Accept the terms of service",
+            "type": "info",
+            "context": {
+              "title": "Accept the terms of service"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.phone",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Phone Number",
+            "type": "info",
+            "context": {
+              "title": "Phone Number"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "traits.nested.name",
+          "type": "text",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Name",
+            "type": "info",
+            "context": {
+              "title": "Name"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
       }
     ]
   },
-  "created_at": "2025-05-15T15:34:49.598012Z",
-  "updated_at": "2025-05-15T15:34:49.598012Z",
-  "refresh": false,
-  "requested_aal": "aal1",
+  "organization_id": null,
   "state": "choose_method"
 }

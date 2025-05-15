@@ -1,11 +1,11 @@
 {
-  "id": "73b3f6d2-420a-424b-a669-e2bd2e07220e",
+  "id": "d630ad66-c97c-4496-9d2f-e1cadda21052",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:43.797053544Z",
-  "issued_at": "2025-04-24T15:07:43.797053544Z",
-  "request_url": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-05-15T16:36:55.901154305Z",
+  "issued_at": "2025-05-15T15:36:55.901154305Z",
+  "request_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/self-service/settings?flow=73b3f6d2-420a-424b-a669-e2bd2e07220e",
+    "action": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/settings?flow=d630ad66-c97c-4496-9d2f-e1cadda21052",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "rYkwr6UA9gcL+FvoD3wglxh1jemkhZ9Jw+HAtD5DkH0sFyL/jp+oo7U37HyrkzpRTnPnRGkSQiHldN6j0GZeOQ==",
+          "value": "TNsUKKvsA342jeuCrnktxPbDY7FEFJ9ImJHtQWQ7+aGlHfBY3HldqS/2bGtwFTCOk1LnJPWome2/SPJ8bQ46TA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -236,38 +236,38 @@
     ]
   },
   "identity": {
-    "id": "fbdd40c9-f37e-44bb-a173-321fa295d4de",
+    "id": "67a85070-e0ef-436c-9356-15e9b84021a4",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://sad-wozniak-30bjhuidxw.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-24T15:07:42.46277Z",
+    "state_changed_at": "2025-05-15T15:36:55.159295Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev"
+      "email": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "a698de1f-6531-4026-b86e-cb141f9fbee3",
-        "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
+        "id": "7671506b-7615-447c-beb1-63962b1040b0",
+        "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
         "verified": true,
         "via": "email",
         "status": "completed",
-        "verified_at": "2025-04-24T15:07:42.480612Z",
-        "created_at": "2025-04-24T15:07:42.480693Z",
-        "updated_at": "2025-04-24T15:07:42.480693Z"
+        "verified_at": "2025-05-15T15:36:55.163837Z",
+        "created_at": "2025-05-15T15:36:55.163901Z",
+        "updated_at": "2025-05-15T15:36:55.163901Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "9d298158-52da-4e7e-9cba-4aad3f6aca01",
-        "value": "dev+orycye2eda2f162daf6142dd0.jbt0avkoh6g0.h87i7pyiot6@ory.dev",
+        "id": "0ebe1239-9faa-4ee6-bb23-ddbf08a43e66",
+        "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
         "via": "email",
-        "created_at": "2025-04-24T15:07:42.496525Z",
-        "updated_at": "2025-04-24T15:07:42.496525Z"
+        "created_at": "2025-05-15T15:36:55.169163Z",
+        "updated_at": "2025-05-15T15:36:55.169163Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-24T15:07:42.46585Z",
-    "updated_at": "2025-04-24T15:07:42.46585Z",
+    "created_at": "2025-05-15T15:36:55.160612Z",
+    "updated_at": "2025-05-15T15:36:55.160612Z",
     "organization_id": null
   },
   "state": "show_form"

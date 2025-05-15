@@ -1,53 +1,14 @@
 {
-  "id": "852541af-122c-4242-b562-98076d47e5f0",
+  "id": "9277f4bd-a3b2-479f-8503-da432bafa951",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-15T16:36:55.210852Z",
-  "issued_at": "2025-05-15T15:36:55.210852Z",
-  "request_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/login/browser",
-  "active": "identifier_first",
+  "expires_at": "2025-05-15T16:36:55.841483972Z",
+  "issued_at": "2025-05-15T15:36:55.841483972Z",
+  "request_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/login?flow=852541af-122c-4242-b562-98076d47e5f0",
+    "action": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/login?flow=9277f4bd-a3b2-479f-8503-da432bafa951",
     "method": "POST",
     "nodes": [
-      {
-        "type": "input",
-        "group": "identifier_first",
-        "attributes": {
-          "name": "identifier",
-          "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
-          "required": true,
-          "autocomplete": "username webauthn",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "title": "E-Mail"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "tFYu475Xs3G9wn/ua76PgkwmxYJ9xPBOp7gpGGanTWerbiCNld+Tj84/iAeH2zvPoSksPXH625yFfXxXqUEKvA==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
       {
         "type": "input",
         "group": "oidc",
@@ -70,6 +31,33 @@
             }
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "hXjp3iMV9DiBXOw+A5IQIr9/8CwcYSALUsVn7gxCaJhsvg2uVICq75gna9fd/g1o2u50ua3dJq51HHjTBXerdQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
       },
       {
         "type": "input",
@@ -104,18 +92,24 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010022,
-            "text": "Sign in with password",
+            "id": 1010001,
+            "text": "Sign in",
             "type": "info"
           }
         }
       }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
     ]
   },
-  "created_at": "2025-05-15T15:36:55.215169Z",
-  "updated_at": "2025-05-15T15:36:55.215169Z",
-  "refresh": false,
+  "created_at": "2025-05-15T15:36:55.877442Z",
+  "updated_at": "2025-05-15T15:36:55.877442Z",
+  "refresh": true,
   "requested_aal": "aal1",
-  "state": "choose_method",
-  "transient_payload": {}
+  "state": "choose_method"
 }
