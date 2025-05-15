@@ -1,11 +1,11 @@
 {
-  "id": "51dee8ce-ee00-4a85-871f-5340e251ddae",
+  "id": "c00e712d-dbc6-4ec7-b90f-ac58e834e4af",
   "type": "browser",
-  "expires_at": "2025-05-13T19:05:30.614432302Z",
-  "issued_at": "2025-05-13T18:05:30.614432302Z",
-  "request_url": "https://pensive-kilby-yhh0oxdxnw.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-15T16:36:17.249947468Z",
+  "issued_at": "2025-05-15T15:36:17.249947468Z",
+  "request_url": "https://naughty-meitner-a1u72qutqg.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://pensive-kilby-yhh0oxdxnw.projects.oryapis:8080/self-service/registration?flow=51dee8ce-ee00-4a85-871f-5340e251ddae",
+    "action": "https://naughty-meitner-a1u72qutqg.projects.oryapis:8080/self-service/registration?flow=c00e712d-dbc6-4ec7-b90f-ac58e834e4af",
     "method": "POST",
     "nodes": [
       {
@@ -198,7 +198,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "W1ab6D7oEz3xek029Lfygytd2TSAYMgJ6DuGA6K6GSKpio24m8WLU0+UfxTXp3e1ozxRZOEczngo458W+ctnEg==",
+          "value": "uXjVi56VKbKskOKqN8Lu42yKeELm+oIEQ1NNDZUK9lY+t/0HEvnKu+nYT402sS77tzSWctuKyseI4JQ64cUHfw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

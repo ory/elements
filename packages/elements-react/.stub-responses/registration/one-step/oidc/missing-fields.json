@@ -1,21 +1,54 @@
 {
-  "id": "50b06045-b58a-4660-b6c4-5e785dd3b82f",
+  "id": "ee2a3009-91ca-4a5e-a81b-f2890a940d71",
   "type": "browser",
-  "expires_at": "2025-05-13T19:08:12.647921Z",
-  "issued_at": "2025-05-13T18:08:12.647921Z",
-  "request_url": "https://blissful-torvalds-kii3158h3d.projects.oryapis:8080/self-service/registration/browser?",
+  "expires_at": "2025-05-15T16:36:45.133335Z",
+  "issued_at": "2025-05-15T15:36:45.133335Z",
+  "request_url": "https://eloquent-taussig-6ydqnc6xk6.projects.oryapis:8080/self-service/registration/browser?",
   "active": "oidc",
   "ui": {
-    "action": "https://blissful-torvalds-kii3158h3d.projects.oryapis:8080/self-service/registration?flow=50b06045-b58a-4660-b6c4-5e785dd3b82f",
+    "action": "https://eloquent-taussig-6ydqnc6xk6.projects.oryapis:8080/self-service/registration?flow=ee2a3009-91ca-4a5e-a81b-f2890a940d71",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
         "group": "oidc",
         "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google-fake",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040003,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "GB0CG87kglixpCFs4ajRasQ3/DaLtnG7llolN+MTgjwDun1bbB3dX77Q58iLpzdcNlp0es7yPy5sTGBSSaOTng==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.zablzldhxno0.reh74h4a1s@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.bxbc6hc18f0.jnepf9t9wwj@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -35,7 +68,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.tos",
           "type": "checkbox",
@@ -58,7 +91,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.phone",
           "type": "text",
@@ -89,7 +122,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.nested.name",
           "type": "text",
@@ -107,39 +140,6 @@
             }
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "fake-google",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040003,
-            "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "KG5ea9HLdWxcoB8IFwCEc1++lDkb6JyXc1LlmS10qcpmUewvYKUXHKDfJvo02xCl6Q1GgDv5/zGCdFTHoMhlug==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
       }
     ]
   },

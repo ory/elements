@@ -1,11 +1,11 @@
 {
-  "id": "dc49bf7d-d798-48e2-b445-3a8e71b299a8",
+  "id": "ac82d9dd-59e5-496b-a87e-8e9cda0757a7",
   "type": "browser",
-  "expires_at": "2025-05-13T19:05:44.693554503Z",
-  "issued_at": "2025-05-13T18:05:44.693554503Z",
-  "request_url": "https://cool-roentgen-tvxxnt6jhf.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-15T16:36:38.735740756Z",
+  "issued_at": "2025-05-15T15:36:38.735740756Z",
+  "request_url": "https://stoic-ardinghelli-hb7fh9ky24.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://cool-roentgen-tvxxnt6jhf.projects.oryapis:8080/self-service/registration?flow=dc49bf7d-d798-48e2-b445-3a8e71b299a8",
+    "action": "https://stoic-ardinghelli-hb7fh9ky24.projects.oryapis:8080/self-service/registration?flow=ac82d9dd-59e5-496b-a87e-8e9cda0757a7",
     "method": "POST",
     "nodes": [
       {
@@ -198,7 +198,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "STLhy751rWEyrrpT62ljVaAf6JyZjt4ZHI9me7EQ24cvzGzDRehjNMrWuDUusXJjIKhkZX3RweIwPFQOIWJqeQ==",
+          "value": "uI2OCF54SWsonXH5bFSVsyGtEE2e+jUMXdb0Uhe6QfILXiIqcvRaLhRJ1/jQgcoVLg9C20AoBg/PwbKDESxdvw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

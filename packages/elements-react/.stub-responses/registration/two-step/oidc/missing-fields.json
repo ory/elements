@@ -1,21 +1,54 @@
 {
-  "id": "074a0799-69ea-4a6c-b970-91c9a7eab8b5",
+  "id": "c6bf4572-f5e3-4e19-bc47-67d047941b5a",
   "type": "browser",
-  "expires_at": "2025-05-13T19:08:02.627902Z",
-  "issued_at": "2025-05-13T18:08:02.627902Z",
-  "request_url": "https://kind-khayyam-u8d1szy4sp.projects.oryapis:8080/self-service/registration/browser?",
+  "expires_at": "2025-05-15T16:36:23.753856Z",
+  "issued_at": "2025-05-15T15:36:23.753856Z",
+  "request_url": "https://quizzical-cray-lecri66t32.projects.oryapis:8080/self-service/registration/browser?",
   "active": "oidc",
   "ui": {
-    "action": "https://kind-khayyam-u8d1szy4sp.projects.oryapis:8080/self-service/registration?flow=074a0799-69ea-4a6c-b970-91c9a7eab8b5",
+    "action": "https://quizzical-cray-lecri66t32.projects.oryapis:8080/self-service/registration?flow=c6bf4572-f5e3-4e19-bc47-67d047941b5a",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
         "group": "oidc",
         "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google-fake",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040003,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "GqB611UH+sDSWXdlhwwVYDXd6MzepweA2+np5D6kU1fZKr1fKMw5Q7ucnNy1MZ6NyrL/WB0JPsKJeJ0hVy9joQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.dnn2xht9xzl0.cehgraqgpd@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.o1r5cb1l7pm0.cbhhx234yj6@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -35,7 +68,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.tos",
           "type": "checkbox",
@@ -58,7 +91,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.phone",
           "type": "text",
@@ -89,7 +122,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.nested.name",
           "type": "text",
@@ -107,39 +140,6 @@
             }
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "fake-google",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040003,
-            "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "T4YhKaYx3C1va+PJHHR884as8HBDSFP+Nqf2ZkNkMmCaEPt8Q3i2HVRTz07UO1B4ZwvgfxmX6CcDwIW6wETVMg==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
       }
     ]
   },

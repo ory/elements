@@ -1,12 +1,12 @@
 {
-  "id": "eb3601a6-2fa5-4c1d-b8b3-18f33428bd02",
+  "id": "8799fdda-7727-445e-b59b-78881884c778",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:45.847952332Z",
-  "issued_at": "2025-04-24T15:07:45.847952332Z",
-  "request_url": "https://dazzling-archimedes-acrfnu87jx.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-15T16:35:12.791348216Z",
+  "issued_at": "2025-05-15T15:35:12.791348216Z",
+  "request_url": "https://modest-mclean-4jtqdb7v6k.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://dazzling-archimedes-acrfnu87jx.projects.oryapis:8080/self-service/login?flow=eb3601a6-2fa5-4c1d-b8b3-18f33428bd02",
+    "action": "https://modest-mclean-4jtqdb7v6k.projects.oryapis:8080/self-service/login?flow=8799fdda-7727-445e-b59b-78881884c778",
     "method": "POST",
     "nodes": [
       {
@@ -199,7 +199,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "cRzd53izY4czhaWu7IKP0K7z9+j8pGOa8xFgKwD7xv5QAY7WP8QFjpshqhakr2PkSh8MP/RzEImV2PZ5ABmOPQ==",
+          "value": "V3Vy2tKq1pOPC2gfPFdZWs34ZCAehagQYHMovxuRx3eDaMapuhc5kQIFehzGKVqdaY/pU6xrECi/pvb7N3+GRg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -271,8 +271,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:45.854703Z",
-  "updated_at": "2025-04-24T15:07:45.854703Z",
+  "created_at": "2025-05-15T15:35:12.79606Z",
+  "updated_at": "2025-05-15T15:35:12.79606Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"
