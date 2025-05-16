@@ -4,10 +4,11 @@
 
 ```ts
 
+import { PropsWithChildren } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import { Session } from '@ory/client-fetch';
 
-// @public (undocumented)
+// @public
 export type SessionContextData = {
     isLoading: boolean;
     initialized: boolean;
@@ -23,7 +24,7 @@ export function SessionProvider({ session: initialSession, children, baseUrl, }:
 export type SessionProviderProps = {
     session?: Session | null;
     baseUrl?: string;
-} & React.PropsWithChildren;
+} & PropsWithChildren;
 
 // @public
 export function useSession(): SessionContextData;
