@@ -73,7 +73,8 @@ Usage:
 ```bash
 ./scripts/release.sh <project> <tag>
 
-./scripts/release.sh @ory/elements-react next
+./scripts/release.sh @ory/elements-react next # next release preview (-next.X)
+./scripts/release.sh @ory/elements-react rc # release candidate (-rc.X)
 ```
 
 The script asks the user before executing each steps. Please double check
