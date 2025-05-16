@@ -1,3 +1,13 @@
+## 1.0.0-rc.5 (2025-05-16)
+
+### 🩹 Fixes
+
+- properly detect OIDC account linking ([#538](https://github.com/ory/elements/pull/538))
+
+### ❤️ Thank You
+
+- Jonas Hungershausen
+
 ## 1.0.0-rc.4 (2025-05-15)
 
 ### 🩹 Fixes
