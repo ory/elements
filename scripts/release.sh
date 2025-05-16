@@ -15,8 +15,8 @@ else
   exit 1
 fi
 
-if [ "$preid" != "next" ] && [ "$preid" != "pr" ]; then
-  echo "Invalid preid. Please provide 'next' or 'pr' "
+if [ "$preid" != "next" ] && [ "$preid" != "pr" ] && [ "$preid" != "rc" ]; then
+  echo "Invalid preid. Please provide 'next' or 'pr' or 'rc' "
   exit 1
 fi
 
@@ -25,8 +25,10 @@ npx nx build $project --skip-nx-cache
 # nx is configured to generate a new -next.X version, in nx.json
 if [ $preid == "next" ]; then
   npx nx release version --verbose -p $project --preid=$preid --specifier prerelease
-else
+elif [ $preid == "pr" ]; then
   npx nx release version --verbose -p $project --preid=$preid --specifier 0.0.0-pr.$(git rev-parse --short HEAD)
+elif [ $preid == "rc" ]; then
+  npx nx release version --verbose -p $project --preid=$preid --specifier prerelease
 fi
 
 # the version nx came up with
