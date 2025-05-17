@@ -48,7 +48,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "input-otp": "1.4.2",
-    "react-hook-form": "7.56.3",
+    "react-hook-form": "7.56.4",
     "react-intl": "7.1.10",
     "tailwind-merge": "3.3.0",
     "usehooks-ts": "3.1.1",
@@ -70,7 +70,7 @@
     "eslint-plugin-react": "7.37.5",
     "postcss": "8.4.47",
     "tailwindcss-animate": "1.0.7",
-    "tsup": "8.4.0"
+    "tsup": "8.5.0"
   },
   "keywords": [
     "ory",
