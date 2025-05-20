@@ -1,0 +1,131 @@
+{
+  "id": "b183b977-2d4a-4307-ba47-92d2c73565cd",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-19T20:57:14.497104Z",
+  "issued_at": "2025-05-19T19:57:14.497104Z",
+  "request_url": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/self-service/login/browser?",
+  "active": "oidc",
+  "ui": {
+    "action": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/self-service/login?flow=b183b977-2d4a-4307-ba47-92d2c73565cd",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "e/Q4iL8CNCIrvqk5fosHJMUsaxfwZec9zyrciehZrQ8Fzzs37WwPeHPWq9n/2gZFNXgBsbgfW/ZnV16czWR7Mw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010022,
+            "text": "Sign in with password",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010016,
+        "text": "You tried to sign in with \"dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev\", but that email is already used by another account. Sign in to your account with one of the options below to add your account \"dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev\" at \"Fake Google\" as another way to sign in.",
+        "type": "info",
+        "context": {
+          "available_credential_types": ["code", "password"],
+          "available_providers": [],
+          "duplicateIdentifier": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
+          "duplicate_identifier": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
+          "newLoginUrl": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/login",
+          "new_login_url": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/login",
+          "provider": "Fake Google"
+        }
+      }
+    ]
+  },
+  "created_at": "2025-05-19T19:57:14.501212Z",
+  "updated_at": "2025-05-19T19:57:14.501212Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}
