@@ -176,6 +176,7 @@
   "two-step.code.description": "Een verificatiecode wordt naar uw e-mail gestuurd",
   "two-step.code.title": "E-mailcode",
   "two-step.passkey.description": "Gebruik de vingerafdruk- of gezichtsherkenning van uw apparaat",
+  "two-step.passkey.description.error": "De benodigde bibliotheken om uw Passkey te gebruiken konden niet worden geladen. Probeer het later opnieuw.",
   "two-step.passkey.title": "Toegangscode (aanbevolen)",
   "two-step.password.description": "Voer uw wachtwoord in dat is gekoppeld aan uw account",
   "two-step.password.title": "Wachtwoord",

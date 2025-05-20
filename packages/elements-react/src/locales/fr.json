@@ -177,6 +177,7 @@
   "two-step.code.title": "Code de courrier électronique",
   "two-step.passkey.description": "Utilisez l'appareil pour la reconnaissance d'empreintes digitales ou de visage",
   "two-step.passkey.title": "Clé de passe (recommandée)",
+  "two-step.passkey.description.error": "Impossible de charger les bibliothèques nécessaires pour utiliser votre Passkey. Veuillez réessayer plus tard.",
   "two-step.password.description": "Entrez votre mot de passe associé à votre compte",
   "two-step.password.title": "Mot de passe",
   "two-step.webauthn.title": "Clé de Sécurité",

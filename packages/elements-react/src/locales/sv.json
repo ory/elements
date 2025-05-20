@@ -195,6 +195,7 @@
   "two-step.code.title": "E-postkod",
   "two-step.passkey.description": "Använd din enhets fingeravtryck eller ansiktsigenkänning",
   "two-step.passkey.title": "Passerkod (rekommenderad)",
+  "two-step.passkey.description.error": "Det gick inte att ladda de nödvändiga biblioteken för att använda din Passkey. Försök igen senare.",
   "two-step.password.description": "Ange ditt lösenord kopplat till ditt konto",
   "two-step.password.title": "Lösenord",
   "two-step.webauthn.title": "Säkerhetsnyckel",

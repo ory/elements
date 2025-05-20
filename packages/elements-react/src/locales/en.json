@@ -222,6 +222,7 @@
   "two-step.webauthn.description": "Use your security key to authenticate",
   "two-step.passkey.title": "Passkey (recommended)",
   "two-step.passkey.description": "Use your device's for fingerprint or face recognition",
+  "two-step.passkey.description.error": "Could not load the necessary libraries to use your Passkey. Please try again later.",
   "two-step.totp.title": "Use your Authenticator App (TOTP)",
   "two-step.totp.description": "Use a 6-digit one-time code from your authenticator app",
   "two-step.lookup_secret.title": "Backup recovery code",
