@@ -112,10 +112,7 @@
         "text": "You tried to sign in with \"dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev\", but that email is already used by another account. Sign in to your account with one of the options below to add your account \"dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev\" at \"Fake Google\" as another way to sign in.",
         "type": "info",
         "context": {
-          "available_credential_types": [
-            "code",
-            "password"
-          ],
+          "available_credential_types": ["code", "password"],
           "available_providers": [],
           "duplicateIdentifier": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
           "duplicate_identifier": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
