@@ -176,6 +176,7 @@
   "two-step.code.description": "Kod weryfikacyjny zostanie wysłany na Twój adres email.",
   "two-step.code.title": "Kod email",
   "two-step.passkey.description": "Użyj swojego urządzenia lub funkcji rozpoznawania twarzy na swoim urządzeniu.",
+  "two-step.passkey.description.error": "Nie udało się załadować niezbędnych bibliotek do użycia Passkey. Spróbuj ponownie później.",
   "two-step.passkey.title": "Klucz dostępu (zalecany)",
   "two-step.password.description": "Wprowadź hasło powiązane z twoim kontem",
   "two-step.password.title": "Hasło",

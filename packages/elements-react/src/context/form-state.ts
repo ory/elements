@@ -63,7 +63,10 @@ function parseStateFromFlow(flow: OryFlowContainer): FormState {
         // Login has a special case where we only have one method. Here, we
         // do not want to display the chooser.
         const authMethods = nodesToAuthMethodGroups(flow.flow.ui.nodes)
-        if (authMethods.length === 1 && authMethods[0] !== "code") {
+        if (
+          authMethods.length === 1 &&
+          !["code", "passkey"].includes(authMethods[0])
+        ) {
           // TODO: https://github.com/ory/kratos/issues/4271 - once this is fixed in Kratos, we can remove the check for "code"
           return { current: "method_active", method: authMethods[0] }
         }
