@@ -178,6 +178,26 @@ const identifierFirstPhone: UiNode = {
   },
 }
 
+const profileSubmit: UiNode = {
+  type: "input",
+  group: "profile",
+  attributes: {
+    name: "method",
+    type: "submit",
+    value: "profile",
+    disabled: false,
+    node_type: "input",
+  },
+  messages: [],
+  meta: {
+    label: {
+      id: 1040001,
+      text: "Sign up",
+      type: "info",
+    },
+  },
+}
+
 const combinations = {
   oidc,
   code,
@@ -193,6 +213,7 @@ const combinations = {
   default_and_passkeys: [defaultGroup, passkey],
   default_and_webauthn: [defaultGroup, aal2Nodes.webauthn],
   idenfier_first_and_oidc: [identifierFirst, oidc],
+  profile_first_registration: [defaultGroup, profileSubmit],
 }
 
 const wrapper = ({ children }: PropsWithChildren) => (
