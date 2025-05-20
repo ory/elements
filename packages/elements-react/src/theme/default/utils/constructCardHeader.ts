@@ -246,7 +246,6 @@ export function useCardHeaderText(
         ),
       )
     }
-    console.log("profile", identifier)
   }
 
   switch (opts.flowType) {
