@@ -230,7 +230,7 @@
   "settings.totp.info.linked": "Sie haben derzeit eine Authentifikator-App verbunden.",
   "settings.totp.info.not-linked": "Um dies zu ermöglichen, scannen Sie den QR-Code mit Ihrer Authentifikator-App und geben Sie den Code ein.",
   "settings.totp.title": "Authentifikator-App",
-  "settings.totp.description": "Fügen Sie eine Authentifikator-App zu Ihrem Konto hinzu, um die Sicherheit Ihres Kontos zu verbessern. Beliebte Authentifikator-App sind LastPass und Google Authenticator.",
+  "settings.totp.description": "Fügen Sie eine Authentifikator-App zu Ihrem Konto hinzu, um die Sicherheit Ihres Kontos zu verbessern. Beliebte Authentifikator-Apps sind LastPass und Google Authenticator.",
   "settings.lookup_secret.description": "Verwalten Sie Ihre 2FA-Backup-Wiederherstellungscodes",
   "settings.lookup_secret.title": "Wiederherstellungscodes",
   "settings.oidc.description": "Verwalten Sie Ihre Einstellungen für den Social-Login",
