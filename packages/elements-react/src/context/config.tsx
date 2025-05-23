@@ -97,7 +97,6 @@ export function OryConfigurationProvider({
 
 function computeSdkConfig(config?: OryClientConfiguration["sdk"]): SDKConfig {
   if (config?.url && typeof config.url === "string") {
-    console.debug("Using sdk url from config")
     return {
       url: config.url.replace(/\/$/, ""),
       options: config.options || {},
