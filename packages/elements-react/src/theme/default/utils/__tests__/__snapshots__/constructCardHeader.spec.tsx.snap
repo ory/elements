@@ -134,6 +134,13 @@ exports[`flowType=login refresh=false combination=password constructCardHeaderTe
 }
 `;
 
+exports[`flowType=login refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Sign in with your Email",
+  "title": "Sign in",
+}
+`;
+
 exports[`flowType=login refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Sign in with a security key",
@@ -232,6 +239,13 @@ exports[`flowType=login refresh=true combination=password constructCardHeaderTex
 }
 `;
 
+exports[`flowType=login refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Confirm your identity with your Email",
+  "title": "Reauthenticate",
+}
+`;
+
 exports[`flowType=login refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Confirm your identity with a security key",
@@ -326,6 +340,13 @@ exports[`flowType=recovery refresh=false combination=passkey constructCardHeader
 `;
 
 exports[`flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
+exports[`flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
   "description": "Enter the email address associated with your account to receive a one-time access code",
   "title": "Recover your account",
@@ -432,6 +453,13 @@ exports[`flowType=recovery refresh=true combination=password constructCardHeader
 }
 `;
 
+exports[`flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "title": "Recover your account",
+}
+`;
+
 exports[`flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Enter the email address associated with your account to receive a one-time access code",
@@ -526,6 +554,13 @@ exports[`flowType=registration refresh=false combination=passkey constructCardHe
 exports[`flowType=registration refresh=false combination=password constructCardHeaderText 1`] = `
 {
   "description": "Sign up with your email and a password",
+  "title": "Register an account",
+}
+`;
+
+exports[`flowType=registration refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your Email",
   "title": "Register an account",
 }
 `;
@@ -628,6 +663,13 @@ exports[`flowType=registration refresh=true combination=password constructCardHe
 }
 `;
 
+exports[`flowType=registration refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Sign up with your Email",
+  "title": "Register an account",
+}
+`;
+
 exports[`flowType=registration refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Sign up with a security key",
@@ -726,6 +768,13 @@ exports[`flowType=settings refresh=false combination=password constructCardHeade
 }
 `;
 
+exports[`flowType=settings refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Account Settings",
+}
+`;
+
 exports[`flowType=settings refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
@@ -818,6 +867,13 @@ exports[`flowType=settings refresh=true combination=passkey constructCardHeaderT
 `;
 
 exports[`flowType=settings refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Update your account settings",
+  "title": "Account Settings",
+}
+`;
+
+exports[`flowType=settings refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
   "description": "Update your account settings",
   "title": "Account Settings",
@@ -924,6 +980,13 @@ exports[`flowType=verification refresh=false combination=password constructCardH
 }
 `;
 
+exports[`flowType=verification refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
 exports[`flowType=verification refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
   "description": "Enter the email address associated with your account to verify it",
@@ -1018,6 +1081,13 @@ exports[`flowType=verification refresh=true combination=passkey constructCardHea
 `;
 
 exports[`flowType=verification refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Enter the email address associated with your account to verify it",
+  "title": "Verify your account",
+}
+`;
+
+exports[`flowType=verification refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
   "description": "Enter the email address associated with your account to verify it",
   "title": "Verify your account",
