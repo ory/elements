@@ -43,7 +43,7 @@ const InputOTPSlot = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "rounded-forms border border-solid bg-input-background-default py-[15px] text-center focus-visible:outline-none w-full",
+        "rounded-forms border border-solid bg-input-background-default text-input-foreground-primary py-[15px] text-center focus-visible:outline-none w-full",
         "relative flex items-center justify-center transition-all leading-none",
         isActive ? "border-input-border-focus" : "border-input-border-default",
         className,

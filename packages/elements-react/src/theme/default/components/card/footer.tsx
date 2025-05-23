@@ -300,8 +300,8 @@ function ConsentCardFooter({ flow }: ConsentFlowProps) {
       <p className="text-sm">
         <span className="text-interface-foreground-default-tertiary">
           Authorizing will redirect to{" "}
+          {flow.consent_request.client?.client_name}
         </span>
-        {flow.consent_request.client?.client_name}
       </p>
     </div>
   )

@@ -8,12 +8,7 @@ export function DefaultCardLogo() {
 
   if (config.project.logo_light_url) {
     return (
-      <img
-        src={config.project.logo_light_url}
-        width={100}
-        height={36}
-        alt="Logo"
-      />
+      <img src={config.project.logo_light_url} className="h-full" alt="Logo" />
     )
   }
 
