@@ -1,12 +1,12 @@
 {
-  "id": "8d3c0772-ec05-44f3-9309-fc66d6f11cd0",
+  "id": "4cc24ef3-344b-4aa3-955b-95ce7e62d4f8",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:00.356183878Z",
-  "issued_at": "2025-04-24T15:07:00.356183878Z",
-  "request_url": "https://sad-bartik-barzr8dh86.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:18:31.552659094Z",
+  "issued_at": "2025-05-27T08:18:31.552659094Z",
+  "request_url": "https://determined-blackburn-8ayuajjekl.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://sad-bartik-barzr8dh86.projects.oryapis:8080/self-service/login?flow=8d3c0772-ec05-44f3-9309-fc66d6f11cd0",
+    "action": "https://determined-blackburn-8ayuajjekl.projects.oryapis:8080/self-service/login?flow=4cc24ef3-344b-4aa3-955b-95ce7e62d4f8",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6c9bplRl4I2aQ9AptXEFO6Iaqv2QHJZ7Jcf8z5eN00yMqd14AczwCFhLmQuY5Jhn+OMRS8PARoIK3K6oHHimyA==",
+          "value": "GKSlIbIOM8qt2Txl3k6pytckeQwi0mUMUYRQxHCOzwvsTGLjkTxghp3MlVxx40mZEpw/CoCAL5aDY0N4qQXTZA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:00.360555Z",
-  "updated_at": "2025-04-24T15:07:00.360555Z",
+  "created_at": "2025-05-27T08:18:31.558469Z",
+  "updated_at": "2025-05-27T08:18:31.558469Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

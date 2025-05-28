@@ -1,12 +1,12 @@
 {
-  "id": "854a0383-d1e0-4299-8a7f-ad71c3f5cc5c",
+  "id": "7a433e76-06be-4593-89a0-bee87a8fb367",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:35.469514012Z",
-  "issued_at": "2025-04-24T15:08:35.469514012Z",
-  "request_url": "https://festive-greider-rkfoogh19c.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:31.573628928Z",
+  "issued_at": "2025-05-27T08:19:31.573628928Z",
+  "request_url": "https://nifty-kapitsa-tcpdjfj9ye.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://festive-greider-rkfoogh19c.projects.oryapis:8080/self-service/login?flow=854a0383-d1e0-4299-8a7f-ad71c3f5cc5c",
+    "action": "https://nifty-kapitsa-tcpdjfj9ye.projects.oryapis:8080/self-service/login?flow=7a433e76-06be-4593-89a0-bee87a8fb367",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "UgtXBk1wjeWvLFjq7/nQULzu87cBCVsQwnRL0u6SdRIex+sbCVwuoUnpByQoUtfO/ZnXcdoXLZN8qpS8d01ePw==",
+          "value": "Gd4ngkjCvN5PrGDsIsPbVIUqJ5lkTFp6BVekgOe40rJT0uORt9RS54TJkifUPhnS6ZaoM4onwOBO9F3+02meig==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:35.475464Z",
-  "updated_at": "2025-04-24T15:08:35.475464Z",
+  "created_at": "2025-05-27T08:19:31.578011Z",
+  "updated_at": "2025-05-27T08:19:31.578011Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,0 +1,92 @@
+{
+  "id": "dde4e76a-2f47-4702-a5e4-7e830f14fd87",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-27T09:18:28.075846218Z",
+  "issued_at": "2025-05-27T08:18:28.075846218Z",
+  "request_url": "https://busy-gates-ck76v5b0u5.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://busy-gates-ck76v5b0u5.projects.oryapis:8080/self-service/login?flow=dde4e76a-2f47-4702-a5e4-7e830f14fd87",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "lgnGj7qQjHmW5I7r4To+4VORZsnfFBU6qfpSXt1RiG9rsU8+4O9JOR2IUH3k9dFPZcjUGv9xW0gcyV5j58BNbw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.v8nttt6rzc0.owro7b5w57k@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-05-27T08:18:28.103775Z",
+  "updated_at": "2025-05-27T08:18:28.103775Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

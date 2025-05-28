@@ -1,11 +1,11 @@
 {
-  "id": "3b36cf69-8a1c-4c5d-92db-9e2474752c2a",
+  "id": "0238b2ec-c3ac-4e22-bee3-94566a39a1a8",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:23.901046442Z",
-  "issued_at": "2025-04-24T15:07:23.901046442Z",
-  "request_url": "https://determined-feistel-jon0r4d6jf.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:18:44.732133128Z",
+  "issued_at": "2025-05-27T08:18:44.732133128Z",
+  "request_url": "https://vibrant-hawking-jcir54zelv.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://determined-feistel-jon0r4d6jf.projects.oryapis:8080/self-service/registration?flow=3b36cf69-8a1c-4c5d-92db-9e2474752c2a",
+    "action": "https://vibrant-hawking-jcir54zelv.projects.oryapis:8080/self-service/registration?flow=0238b2ec-c3ac-4e22-bee3-94566a39a1a8",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "7yG76E0fr7xA8kB/P4qlZpiFRZUcWWbY2H/0KOlSsgS+ZEy7s39WNmW+PfFkf+jUH5LGZLVC7twxGwrjkKKGJw==",
+          "value": "+tcVe+Ebxezg9YWuORgGayzVpFCHbFQPq4tmvXJM9xUQaRD/YGvfBrLEdrD6YUNNzrbolyHeOS+0E4Qg4ER3pA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

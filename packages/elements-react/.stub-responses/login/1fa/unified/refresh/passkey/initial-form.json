@@ -1,0 +1,116 @@
+{
+  "id": "24592d25-b890-408f-bf4f-dbed4cbfd1b2",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-27T09:19:08.048284458Z",
+  "issued_at": "2025-05-27T08:19:08.048284458Z",
+  "request_url": "https://nervous-rosalind-kweoxj9hbl.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://nervous-rosalind-kweoxj9hbl.projects.oryapis:8080/self-service/login?flow=24592d25-b890-408f-bf4f-dbed4cbfd1b2",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "ZAM0879xfNx3jUBouZWStCC2ybAh2f6jQrid/pgwL8JMXinErYxihqoAZFOlCqLBJfvytZMGREKkQSYNbxKNDw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.w5paxhy7gkc0.c9t6zjvmuj@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://nervous-rosalind-kweoxj9hbl.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "e54274f6-9a31-4fc4-a345-dbeb9aa48061",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeyLogin()",
+          "onclickTrigger": "oryPasskeyLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010021,
+            "text": "Sign in with passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{\"publicKey\":{\"challenge\":\"luA-GCvOJk07wpnMWIC6liTwqINN9kdHQ3kWFxLZbqk\",\"timeout\":300000,\"rpId\":\"nervous-rosalind-kweoxj9hbl.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"2ZbY9v__GlImAz23i9O_N3XIm2px00mK_1PYaBrUJ10\"}],\"userVerification\":\"preferred\"}}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-05-27T08:19:08.096901Z",
+  "updated_at": "2025-05-27T08:19:08.096901Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

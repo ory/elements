@@ -1,0 +1,84 @@
+{
+  "id": "00fa2a2f-36a2-41dc-9789-bd8f07da1701",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-27T09:18:32.490473Z",
+  "issued_at": "2025-05-27T08:18:32.490473Z",
+  "request_url": "https://nice-villani-t5gnjb7gqq.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://nice-villani-t5gnjb7gqq.projects.oryapis:8080/self-service/login?flow=00fa2a2f-36a2-41dc-9789-bd8f07da1701",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "KKkXS5n9l+0D/QjfeNZHDrC0MlhDRIgYirN9QHzjdsSPmv0CERolAdQBkU4DPp22TfycrmFGXDJYqZ40D6APjg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-05-27T08:18:32.502781Z",
+  "updated_at": "2025-05-27T08:18:32.502781Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

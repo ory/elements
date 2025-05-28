@@ -1,11 +1,11 @@
 {
-  "id": "2173b1eb-cfb4-40bb-8eed-8baa17d3e355",
+  "id": "8dfb548f-320a-4bfb-ab53-0590dd2766af",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:04.406359Z",
-  "issued_at": "2025-04-24T15:08:04.406359Z",
-  "request_url": "https://elated-heisenberg-bpzaggn687.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:19:12.953843Z",
+  "issued_at": "2025-05-27T08:19:12.953843Z",
+  "request_url": "https://musing-mclaren-pybjhp1ti6.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://elated-heisenberg-bpzaggn687.projects.oryapis:8080/self-service/registration?flow=2173b1eb-cfb4-40bb-8eed-8baa17d3e355",
+    "action": "https://musing-mclaren-pybjhp1ti6.projects.oryapis:8080/self-service/registration?flow=8dfb548f-320a-4bfb-ab53-0590dd2766af",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "2fRClhZKp9+Wfv75CIDSkljccl3kETWKc7+tSU/6RWd0MULO93/aP+DtoG7pVw1b52NwgMNmnlJ0XIVe3mQ7+A==",
+          "value": "rx0D5v7IxD3cHiufR6Mui2A8mGzwg9tW3Edt7eOmdEVZpZ31vt3sWz6EleMBqRNj3jm1TicK9tsW+1IsfkpSQw==",
           "required": true,
           "disabled": false,
           "node_type": "input"

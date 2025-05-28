@@ -1,11 +1,11 @@
 {
-  "id": "305546b1-3267-470c-bce9-c8bf4507a4e1",
+  "id": "4f5eef72-83a2-412c-aa1c-1f6c510e636e",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:29.099496957Z",
-  "issued_at": "2025-04-24T15:07:29.099496957Z",
-  "request_url": "https://hopeful-vaughan-6efx3koeua.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-05-27T09:18:44.187980878Z",
+  "issued_at": "2025-05-27T08:18:44.187980878Z",
+  "request_url": "https://thirsty-goldberg-67r1h8bsnc.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://hopeful-vaughan-6efx3koeua.projects.oryapis:8080/self-service/settings?flow=305546b1-3267-470c-bce9-c8bf4507a4e1",
+    "action": "https://thirsty-goldberg-67r1h8bsnc.projects.oryapis:8080/self-service/settings?flow=4f5eef72-83a2-412c-aa1c-1f6c510e636e",
     "method": "POST",
     "nodes": [
       {
@@ -47,7 +47,7 @@
         "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"hopeful-vaughan-6efx3koeua.projects.oryapis\"},\"user\":{\"name\":\"dev+orycye2eda2f162daf6142dd0.vkmxbwvft70.dm2vs2asb8@ory.dev\",\"displayName\":\"dev+orycye2eda2f162daf6142dd0.vkmxbwvft70.dm2vs2asb8@ory.dev\",\"id\":\"OVRkb0lndFZPTkM5S1dxcExXRFJYa3FaZ3lTR1g1WnZIZzE4WDlpaG93bUZKTHhCREpnWWxaNEdIZmNYMzZySQ\"},\"challenge\":\"3xnaUO0CDNg-vcoy7mixxXZKlMDlNyF3UqDIZqGbyzQ\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"thirsty-goldberg-67r1h8bsnc.projects.oryapis\"},\"user\":{\"name\":\"dev+orycye2eda2f162daf6142dd0.5ps324rc4840.jalrn23e97q@ory.dev\",\"displayName\":\"dev+orycye2eda2f162daf6142dd0.5ps324rc4840.jalrn23e97q@ory.dev\",\"id\":\"c24xSWlZS0dZcFIzRnJ6QXVzdURvaHBqQU5mc0VlcDVxdFNHZ3FMUDlmcmVIaWY1NEtsRGd6M3JYYW9yV1BDNA\"},\"challenge\":\"VA3xxEY9i9SWZ9jSp7c69-ReBigCDR_AX6i24mfgVGU\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "L5EttgmQzXgJeNo0KKTYVjgQsORi/u/Lo0NtxMPt1z3WjKJwv1o9t1gqBdeqhnzmixZik/QCqFrP/fUHbBoN6A==",
+          "value": "Sq3/or9L5cvNT25l0NiULcqdErOXW48lmz4odOgHjEguBLgznjCvVTzZpjP9BPI5VGa9E55Njy8VB2iuK1aeWg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,7 +74,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.vkmxbwvft70.dm2vs2asb8@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.5ps324rc4840.jalrn23e97q@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -215,6 +215,50 @@
       },
       {
         "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "github",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link GitHub",
+            "type": "info",
+            "context": {
+              "provider": "GitHub"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "oidc",
+        "attributes": {
+          "name": "link",
+          "type": "submit",
+          "value": "google",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050002,
+            "text": "Link Google",
+            "type": "info",
+            "context": {
+              "provider": "Google"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
         "group": "webauthn",
         "attributes": {
           "name": "webauthn_register_displayname",
@@ -251,9 +295,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"hopeful-vaughan-6efx3koeua.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"Yj4Q-Z0ITFm428AVtfNQzA\"},\"challenge\":\"rwU65FErFD0BAqhL-syXgxFah8utHjVzi0xarHcubgI\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"thirsty-goldberg-67r1h8bsnc.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"RZfljVDrSjqmpoDfVGMw_A\"},\"challenge\":\"aa5aSHCkRl-9MvUG8VhBxhvVzciCBawqYb3-yl3qUGQ\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"hopeful-vaughan-6efx3koeua.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-7RYRtfWD6vRG1N8V-1-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"Yj4Q-Z0ITFm428AVtfNQzA\"},\"challenge\":\"rwU65FErFD0BAqhL-syXgxFah8utHjVzi0xarHcubgI\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"thirsty-goldberg-67r1h8bsnc.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Fow47lHHzUX36NIP-4-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"RZfljVDrSjqmpoDfVGMw_A\"},\"challenge\":\"aa5aSHCkRl-9MvUG8VhBxhvVzciCBawqYb3-yl3qUGQ\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -270,14 +314,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://hopeful-vaughan-6efx3koeua.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://thirsty-goldberg-67r1h8bsnc.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "b35cfec8-58e5-46d8-8ab2-be21da9873e9",
+          "nonce": "21599e7d-335c-4a7c-bf91-069ed95010ef",
           "node_type": "script"
         },
         "messages": [],
@@ -286,38 +330,38 @@
     ]
   },
   "identity": {
-    "id": "623e10f9-9d08-4c59-b8db-c015b5f350cc",
+    "id": "4597e58d-50eb-4a3a-a6a6-80df546330fc",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://hopeful-vaughan-6efx3koeua.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://thirsty-goldberg-67r1h8bsnc.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-24T15:07:27.698964Z",
+    "state_changed_at": "2025-05-27T08:18:43.016607Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.vkmxbwvft70.dm2vs2asb8@ory.dev",
+      "email": "dev+orycye2eda2f162daf6142dd0.5ps324rc4840.jalrn23e97q@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "a5533fb1-f2f3-43dc-a69e-37f9185e2b11",
-        "value": "dev+orycye2eda2f162daf6142dd0.vkmxbwvft70.dm2vs2asb8@ory.dev",
+        "id": "60c9dfcf-481f-4253-a8a4-148fac9ca708",
+        "value": "dev+orycye2eda2f162daf6142dd0.5ps324rc4840.jalrn23e97q@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-04-24T15:07:27.708589Z",
-        "updated_at": "2025-04-24T15:07:27.708589Z"
+        "created_at": "2025-05-27T08:18:43.019814Z",
+        "updated_at": "2025-05-27T08:18:43.019814Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "6146472d-2059-459e-aaf1-63a75a2ea1b9",
-        "value": "dev+orycye2eda2f162daf6142dd0.vkmxbwvft70.dm2vs2asb8@ory.dev",
+        "id": "9247316d-f564-4d3f-9a48-c029aee206d0",
+        "value": "dev+orycye2eda2f162daf6142dd0.5ps324rc4840.jalrn23e97q@ory.dev",
         "via": "email",
-        "created_at": "2025-04-24T15:07:27.722107Z",
-        "updated_at": "2025-04-24T15:07:27.722107Z"
+        "created_at": "2025-05-27T08:18:43.024039Z",
+        "updated_at": "2025-05-27T08:18:43.024039Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-24T15:07:27.701279Z",
-    "updated_at": "2025-04-24T15:07:27.701279Z",
+    "created_at": "2025-05-27T08:18:43.017713Z",
+    "updated_at": "2025-05-27T08:18:43.017713Z",
     "organization_id": null
   },
   "state": "show_form"

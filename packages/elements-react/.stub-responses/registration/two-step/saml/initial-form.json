@@ -1,11 +1,11 @@
 {
-  "id": "474667c1-357f-48e0-b19c-eb14d7709e61",
+  "id": "5a19a8e0-3be2-436a-8a89-0e810b08ec16",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:19.265906089Z",
-  "issued_at": "2025-04-24T15:08:19.265906089Z",
-  "request_url": "https://intelligent-lovelace-emmun1w06r.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:19:23.536630132Z",
+  "issued_at": "2025-05-27T08:19:23.536630132Z",
+  "request_url": "https://beautiful-clarke-s6bmajwgtr.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://intelligent-lovelace-emmun1w06r.projects.oryapis:8080/self-service/registration?flow=474667c1-357f-48e0-b19c-eb14d7709e61",
+    "action": "https://beautiful-clarke-s6bmajwgtr.projects.oryapis:8080/self-service/registration?flow=5a19a8e0-3be2-436a-8a89-0e810b08ec16",
     "method": "POST",
     "nodes": [
       {
@@ -152,7 +152,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Lu3sl/WNruUn6WffHmWFdFQRK/zEzKZoP9APxZXQoSU67pDl9THcdMxKWjVXuPUZl/LATk5kCois3UyEUitHoQ==",
+          "value": "vZLI++As58t8HwkRorYnK5u5OWSEfMoObS4RX6k+i4eKRiCFn2W5FtzkvMg6D07SLJP52PmhyTCgW+A0c1WJbA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
