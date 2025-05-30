@@ -58,7 +58,7 @@ export const DefaultButton = ({
   const intl = useIntl()
   const label = getNodeLabel(node)
   const {
-    formState: { isSubmitting },
+    formState: { isSubmitting, isReady },
     setValue,
   } = useFormContext()
 
@@ -92,7 +92,7 @@ export const DefaultButton = ({
       className={buttonStyles({
         intent: isPrimary ? "primary" : "secondary",
       })}
-      disabled={rest.disabled ?? isSubmitting}
+      disabled={!isReady && (rest.disabled ?? isSubmitting)}
       data-loading={clicked}
     >
       {clicked ? <Spinner /> : null}
