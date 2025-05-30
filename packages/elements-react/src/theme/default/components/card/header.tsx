@@ -17,9 +17,7 @@ function InnerCardHeader({
   const { Card } = useComponents()
   return (
     <header className="flex flex-col gap-8 antialiased">
-      <div className="max-h-9 self-start">
-        <Card.Logo />
-      </div>
+      <Card.Logo />
       <div className="flex flex-col gap-2">
         <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
           {title}

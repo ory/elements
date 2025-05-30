@@ -52,10 +52,6 @@ export const DefaultInput = ({
     return (
       <input
         {...omitInputAttributes(rest)}
-        onClick={onClick}
-        maxLength={maxlength}
-        autoComplete={autocomplete}
-        placeholder={formattedLabel}
         data-testid={`ory/form/node/input/${name}`}
         {...register(name, { value })}
       />
