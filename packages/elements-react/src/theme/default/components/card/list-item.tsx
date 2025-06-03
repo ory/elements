@@ -10,7 +10,6 @@ type ListItemProps<T extends React.ElementType = "div"> = {
   as?: T
   title: string
   description: string
-  right?: React.ReactNode
 }
 
 export function ListItem<T extends React.ElementType = "div">({
@@ -29,6 +28,7 @@ export function ListItem<T extends React.ElementType = "div">({
       {...props}
       className={cn(
         "flex cursor-pointer gap-3 text-left items-start w-full rounded-buttons p-2 hover:bg-interface-background-default-primary-hover",
+        "disabled:hover:bg-ui-transparent disabled:cursor-default disabled:opacity-50",
         className as string,
       )}
     >

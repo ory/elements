@@ -11,26 +11,43 @@ import { GroupedNodes, isUiNodeGroupEnum } from "../../../util/ui"
 import { Dispatch } from "react"
 import { FormStateAction } from "@ory/elements-react"
 
+function isScreenSelectionNode(node: UiNode) {
+  if (
+    "name" in node.attributes &&
+    node.attributes.name === "screen" &&
+    "value" in node.attributes &&
+    node.attributes.value === "previous"
+  ) {
+    return true
+  }
+  if (
+    node.group === UiNodeGroupEnum.IdentifierFirst &&
+    "name" in node.attributes &&
+    node.attributes.name === "identifier" &&
+    node.attributes.type === "hidden"
+  ) {
+    return true
+  }
+  return false
+}
+
 export function isChoosingMethod(
   flow: LoginFlowContainer | RegistrationFlowContainer,
 ): boolean {
-  return (
-    flow.flow.ui.nodes.some(
-      (node) =>
-        "name" in node.attributes &&
-        node.attributes.name === "screen" &&
-        "value" in node.attributes &&
-        node.attributes.value === "previous",
-    ) ||
-    flow.flow.ui.nodes.some(
-      (node) =>
-        node.group === UiNodeGroupEnum.IdentifierFirst &&
-        "name" in node.attributes &&
-        node.attributes.name === "identifier" &&
-        node.attributes.type === "hidden",
-    ) ||
-    (flow.flowType === FlowType.Login && flow.flow.requested_aal === "aal2")
-  )
+  if (flow.flowType === FlowType.Login) {
+    if (flow.flow.requested_aal === "aal2") {
+      return true
+    }
+    if (
+      flow.flow.refresh &&
+      // TODO: Once https://github.com/ory/kratos/issues/4194 is fixed, this can be removed
+      // Without this, we show the method chooser, and an email input, which looks weird
+      !flow.flow.ui.nodes.some((n) => n.group === "code")
+    ) {
+      return true
+    }
+  }
+  return flow.flow.ui.nodes.some(isScreenSelectionNode)
 }
 
 export function getFinalNodes(
