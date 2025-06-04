@@ -1,13 +1,13 @@
 {
-  "id": "0959c2ed-e341-4f9a-9945-dfce5f7f14a7",
+  "id": "0e6ff3c4-d65d-4be2-b6aa-7789937e9b32",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:57.270329Z",
-  "issued_at": "2025-04-24T15:07:57.270329Z",
-  "request_url": "https://cranky-williamson-0767u4bggl.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:06.623645Z",
+  "issued_at": "2025-05-27T08:19:06.623645Z",
+  "request_url": "https://vigorous-thompson-azadipuxn4.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://cranky-williamson-0767u4bggl.projects.oryapis:8080/self-service/login?flow=0959c2ed-e341-4f9a-9945-dfce5f7f14a7",
+    "action": "https://vigorous-thompson-azadipuxn4.projects.oryapis:8080/self-service/login?flow=0e6ff3c4-d65d-4be2-b6aa-7789937e9b32",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.i1ryozajzd0.fsesvnunrx8@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.qlc2uy8quxd0.d359iuv2ga@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "RQBDRj7govJExEMTTE7jYlZ4pNOLbnchK/1kBvRunbGcqwrUNNGXgQ2uOQA3bKCAbFtGnbKm6o6OiGHXh77uiQ==",
+          "value": "0am3lMBP/fe5qEGUzKKVryBkjjhG86lagiO+XWWwToSoNrV4Fsp29eNteLvfU3XRnwZIbZlxeaXkuHEC7ik6LA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,14 +52,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://cranky-williamson-0767u4bggl.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://vigorous-thompson-azadipuxn4.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "a5346a77-61fa-4a67-a95d-b6750aa62ef5",
+          "nonce": "ba51cc52-a707-4547-ad12-75043caed972",
           "node_type": "script"
         },
         "messages": [],
@@ -106,7 +106,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"Cq88ITA-rO6HGtO4G5_nwat4eVo8HZEmU-LC97jHAk4\",\"timeout\":300000,\"rpId\":\"cranky-williamson-0767u4bggl.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"6iy2wx-d-t7Lh6yWkHJkeWCT8mkdIM-ABcJ-fIf1NMg\",\"timeout\":300000,\"rpId\":\"vigorous-thompson-azadipuxn4.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -125,8 +125,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:57.276939Z",
-  "updated_at": "2025-04-24T15:07:57.276939Z",
+  "created_at": "2025-05-27T08:19:06.636772Z",
+  "updated_at": "2025-05-27T08:19:06.636772Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

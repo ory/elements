@@ -1,11 +1,11 @@
 {
-  "id": "9c8cb2fb-256d-4bb5-ab74-0c8d265fc8a4",
+  "id": "a48ea2a5-9103-4f3a-ab6f-8ebf1a6489d7",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:52.102093Z",
-  "issued_at": "2025-04-24T15:07:52.102093Z",
-  "request_url": "https://strange-bohr-j1dw9ug4cf.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:19:00.426962Z",
+  "issued_at": "2025-05-27T08:19:00.426962Z",
+  "request_url": "https://romantic-cerf-ju46r21mt7.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://strange-bohr-j1dw9ug4cf.projects.oryapis:8080/self-service/registration?flow=9c8cb2fb-256d-4bb5-ab74-0c8d265fc8a4",
+    "action": "https://romantic-cerf-ju46r21mt7.projects.oryapis:8080/self-service/registration?flow=a48ea2a5-9103-4f3a-ab6f-8ebf1a6489d7",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Vq9MCJIYHPRXGOxO4BdZgbilONzd03GZfKhBcpQYVDCSWBnzsSJzjSJ0yaSmcQ9dVCCyIbX5O77eIUkLyKPQBw==",
+          "value": "K0kAJJ5D0SDUKsxLd3wJuJtHfrXTcG9kwO0tudMJsbP2/hyzsbKNvMxYLXGI+bEb96CfcEh6nreCe7j07Qq90w==",
           "required": true,
           "disabled": false,
           "node_type": "input"

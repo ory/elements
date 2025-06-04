@@ -190,7 +190,7 @@ function LogoutButton({ returnTo }: LogoutButtonProps) {
 
 function RegistrationCardFooter() {
   const intl = useIntl()
-  const { flow, formState } = useOryFlow()
+  const { flow, formState, dispatchFormState } = useOryFlow()
   const config = useOryConfiguration()
   const visibleGroups = useNodeGroupsWithVisibleNodes(flow.ui.nodes)
   const authMethodBlocks = toAuthMethodPickerOptions(visibleGroups)
@@ -203,19 +203,22 @@ function RegistrationCardFooter() {
       }
 
       return (
-        <span className="font-normal leading-normal antialiased">
-          <a
-            className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
-            // This works, because it essentially reloads the page.
-            // TODO: this should not do a full reload, but rather just update the state.....
-            href=""
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          <button
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            onClick={() => {
+              dispatchFormState({
+                type: "action_clear_active_method",
+              })
+            }}
             data-testid={"ory/screen/registration/action/selectMethod"}
+            type="button"
           >
             {intl.formatMessage({
               id: "card.footer.select-another-method",
               defaultMessage: "Select another method",
             })}
-          </a>
+          </button>
         </span>
       )
     case "select_method":
@@ -300,8 +303,8 @@ function ConsentCardFooter({ flow }: ConsentFlowProps) {
       <p className="text-sm">
         <span className="text-interface-foreground-default-tertiary">
           Authorizing will redirect to{" "}
+          {flow.consent_request.client?.client_name}
         </span>
-        {flow.consent_request.client?.client_name}
       </p>
     </div>
   )

@@ -1,11 +1,11 @@
 {
-  "id": "5adaf302-3391-4a27-8c39-f12cad319e55",
+  "id": "7948a56f-7522-49a1-9cfc-70970065ce8d",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:24.690640889Z",
-  "issued_at": "2025-04-24T15:08:24.690640889Z",
-  "request_url": "https://vigorous-kilby-73qebrztli.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:19:24.9349288Z",
+  "issued_at": "2025-05-27T08:19:24.9349288Z",
+  "request_url": "https://optimistic-ishizaka-hnr48za0yi.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://vigorous-kilby-73qebrztli.projects.oryapis:8080/self-service/registration?flow=5adaf302-3391-4a27-8c39-f12cad319e55",
+    "action": "https://optimistic-ishizaka-hnr48za0yi.projects.oryapis:8080/self-service/registration?flow=7948a56f-7522-49a1-9cfc-70970065ce8d",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "n5npNmE10ODD7Cx4qJOtXbSXHtdFsDiw1CMY1KY/Ta0djZvAAAB+A4PzVpoYcgm/SzaSBwn/805t47tk8cYmiw==",
+          "value": "ipNZnLMNAJqyt5g9m/22EVcayf9RvqEkeOyjuX6UUPnvMORhATfqMmCDfUMtGHRZpxb/FgZus5tG6maLo2N7uQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

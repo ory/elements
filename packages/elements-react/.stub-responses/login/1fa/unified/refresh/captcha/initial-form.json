@@ -1,0 +1,92 @@
+{
+  "id": "52d0d35d-baa5-46a5-ac7f-72cb4bdee159",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-27T09:18:28.039960634Z",
+  "issued_at": "2025-05-27T08:18:28.039960634Z",
+  "request_url": "https://jolly-gagarin-0zrj6i2drl.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://jolly-gagarin-0zrj6i2drl.projects.oryapis:8080/self-service/login?flow=52d0d35d-baa5-46a5-ac7f-72cb4bdee159",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "suc64Fq3jLYUfY3MbtZqW8/NYJBdaOB06s9sdafERksp4YF0fEzJWZr7sJnSNvEnpMK0G28HVyKznC+CeclQrg==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.ma8ext10pj0.ht31802gajk@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "password",
+          "type": "password",
+          "required": true,
+          "autocomplete": "current-password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070001,
+            "text": "Password",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "password",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "password",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010001,
+            "text": "Sign in",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-05-27T08:18:28.0687Z",
+  "updated_at": "2025-05-27T08:18:28.0687Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

@@ -1,12 +1,12 @@
 {
-  "id": "d7d7d01b-ee6f-41f7-89b1-bc1bd6bbf9fb",
+  "id": "5dfe2966-f936-45e2-9015-e936609c008b",
   "type": "browser",
-  "expires_at": "2025-04-24T16:06:53.430883Z",
-  "issued_at": "2025-04-24T15:06:53.430883Z",
-  "request_url": "https://peaceful-merkle-yezuv0j4a8.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:18:25.893165Z",
+  "issued_at": "2025-05-27T08:18:25.893165Z",
+  "request_url": "https://angry-chatterjee-io5is850eo.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://peaceful-merkle-yezuv0j4a8.projects.oryapis:8080/self-service/registration?flow=d7d7d01b-ee6f-41f7-89b1-bc1bd6bbf9fb",
+    "action": "https://angry-chatterjee-io5is850eo.projects.oryapis:8080/self-service/registration?flow=5dfe2966-f936-45e2-9015-e936609c008b",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "evL5qf5ZcoWXcLTYNr5PwY7mz2DaCDAkhP+uwYyv5U8dLKvwu/1iYVFH8JQgs4mtPZoMR621DzowGee7lB2Csw==",
+          "value": "X7K7TLiZ205BM2eKbEEAT/OnvBBhHm+E2r4zXbAYqbzJ+5+lb2yuRdk9a8t+7GSCErk6J707KIE9EG5SakCO6Q==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.sf9zpa4b040.yylgfgx01od@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.oijcw8ti3f0.gf3zsw0jfej@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

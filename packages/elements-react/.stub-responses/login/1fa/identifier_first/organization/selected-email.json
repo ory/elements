@@ -1,13 +1,13 @@
 {
-  "id": "575d21b2-ca8d-4680-8d98-776253f8baa3",
-  "organization_id": "bd71bcf6-6de8-49a3-b678-7495b6cfeaab",
+  "id": "99c6d139-3f2a-48a3-ac89-3f33dd7baf98",
+  "organization_id": "5db4f83b-cb57-4659-b056-7964cd946dbd",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:56.267954Z",
-  "issued_at": "2025-04-24T15:07:56.267954Z",
-  "request_url": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:03.121848Z",
+  "issued_at": "2025-05-27T08:19:03.121848Z",
+  "request_url": "https://clever-kare-5ijj5e48a7.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login?flow=575d21b2-ca8d-4680-8d98-776253f8baa3",
+    "action": "https://clever-kare-5ijj5e48a7.projects.oryapis:8080/self-service/login?flow=99c6d139-3f2a-48a3-ac89-3f33dd7baf98",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.r6pjh0wrut0.ecs1475c7fn@example.com",
+          "value": "dev+orycye2eda2f162daf6142dd0.25t3nvveuhs0.lmwo6xjn1o@example.com",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "hdDdrUesbM2XIh86Xi5JEwuunYfPdLXhbw7wsHJeUWlHZEUx4n6qXbJLckWOSvJ5HbZUvI4TRJ1FqcUWTUChfg==",
+          "value": "230TokxebFgA0D3qykLmmaVS7eED7cFJ4DHrp/WJI1htB0VL1UVwggQDvEPJVXIDo56gscWzahW7mHEmopIwLg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -96,8 +96,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:56.272645Z",
-  "updated_at": "2025-04-24T15:07:56.272645Z",
+  "created_at": "2025-05-27T08:19:03.124966Z",
+  "updated_at": "2025-05-27T08:19:03.124966Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

@@ -1,12 +1,12 @@
 {
-  "id": "ae5a362f-84c4-4a82-bd49-9e3c4314f7a9",
+  "id": "4b5460d3-c780-41db-81f7-bfe0a7def6d1",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:22.793972288Z",
-  "issued_at": "2025-04-24T15:07:22.793972288Z",
-  "request_url": "https://blissful-tereshkova-eyryaa520w.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:18:44.252145003Z",
+  "issued_at": "2025-05-27T08:18:44.252145003Z",
+  "request_url": "https://relaxed-morse-tei0azbgv8.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://blissful-tereshkova-eyryaa520w.projects.oryapis:8080/self-service/login?flow=ae5a362f-84c4-4a82-bd49-9e3c4314f7a9",
+    "action": "https://relaxed-morse-tei0azbgv8.projects.oryapis:8080/self-service/login?flow=4b5460d3-c780-41db-81f7-bfe0a7def6d1",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Gk81HDQheMtoZHaFPebKeh/FK8iAyssIS///jqwmhY6Uu8xOh+ZrDFyjJajV1zHaQsOWhi4kITXE0ETCNHfEqA==",
+          "value": "8ehB09ytrAib2kSWVJq7YNDQdV2yobTD9O43wkCIiebTkwVTqCu5DA17Fepal8jzADpmvCIQ4rGqgOfGrEMQgg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -25,8 +25,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:22.797946Z",
-  "updated_at": "2025-04-24T15:07:22.797946Z",
+  "created_at": "2025-05-27T08:18:44.254159Z",
+  "updated_at": "2025-05-27T08:18:44.254159Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

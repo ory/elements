@@ -25,7 +25,9 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
     <div className="mt-16 flex max-w-screen-sm w-full md:max-w-[712px] lg:max-w-[802px] xl:max-w-[896px] flex-col gap-3 px-4">
       <div className="flex flex-col gap-12">
         <div className="flex max-h-10 flex-1 justify-between gap-2 items-center">
-          <Card.Logo />
+          <div className="h-9">
+            <Card.Logo />
+          </div>
           <UserMenu session={session} />
         </div>
 

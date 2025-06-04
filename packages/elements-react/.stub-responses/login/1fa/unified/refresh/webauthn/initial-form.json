@@ -1,0 +1,104 @@
+{
+  "id": "822c0f33-96b9-41c8-b5ab-c805c591feb1",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-27T09:19:31.687312011Z",
+  "issued_at": "2025-05-27T08:19:31.687312011Z",
+  "request_url": "https://cranky-banach-ewg5e8bboe.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://cranky-banach-ewg5e8bboe.projects.oryapis:8080/self-service/login?flow=822c0f33-96b9-41c8-b5ab-c805c591feb1",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "+ULx4IsimquUvsSP/HAFkFzt4ml3wkkLhm0vrdeYI8+4gijLV+v06zYJippVxcSG4nt58pmL+XgEiqRQYLKaRw==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev+orycye2eda2f162daf6142dd0.xr7254aapx0.dqr3m0ylmuv@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://cranky-banach-ewg5e8bboe.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "a4deaaf0-fba7-4624-a3f0-9dfbbd64db93",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "webauthn",
+        "attributes": {
+          "name": "webauthn_login_trigger",
+          "type": "button",
+          "value": "{\"publicKey\":{\"challenge\":\"fZHnY4ZVM-jxxJCbhsdIlLUnYa3C0csvYHnsBL53kHA\",\"timeout\":120000,\"rpId\":\"cranky-banach-ewg5e8bboe.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"fuOMeOTLY6aD6c4Eh1PCiJuJaHaIK_fT5h4t5zuFk9I\"}],\"userVerification\":\"discouraged\"}}",
+          "disabled": false,
+          "onclick": "window.oryWebAuthnLogin({\"publicKey\":{\"challenge\":\"fZHnY4ZVM-jxxJCbhsdIlLUnYa3C0csvYHnsBL53kHA\",\"timeout\":120000,\"rpId\":\"cranky-banach-ewg5e8bboe.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"fuOMeOTLY6aD6c4Eh1PCiJuJaHaIK_fT5h4t5zuFk9I\"}],\"userVerification\":\"discouraged\"}})",
+          "onclickTrigger": "oryWebAuthnLogin",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010008,
+            "text": "Sign in with hardware key",
+            "type": "info"
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010003,
+        "text": "Please confirm this action by verifying that it is you.",
+        "type": "info"
+      }
+    ]
+  },
+  "created_at": "2025-05-27T08:19:31.737721Z",
+  "updated_at": "2025-05-27T08:19:31.737721Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

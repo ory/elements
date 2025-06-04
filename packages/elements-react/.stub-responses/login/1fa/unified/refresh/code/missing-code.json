@@ -1,0 +1,84 @@
+{
+  "id": "8885ab8a-9d71-4647-9ec9-fd5e9a6b88cf",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "2025-05-27T09:18:32.697066Z",
+  "issued_at": "2025-05-27T08:18:32.697066Z",
+  "request_url": "https://xenodochial-sutherland-1ed27ckdsk.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "ui": {
+    "action": "https://xenodochial-sutherland-1ed27ckdsk.projects.oryapis:8080/self-service/login?flow=8885ab8a-9d71-4647-9ec9-fd5e9a6b88cf",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "OQgXED5KAqqWwPvP2AFL3AIUzInl15teJvET/2acDFgABtRGrl/f95A7R0AB6uJ4KDBOK/mgAxL790Cp0J95YQ==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [
+          {
+            "id": 4000002,
+            "text": "Property identifier is missing.",
+            "type": "error",
+            "context": {
+              "property": "identifier"
+            }
+          }
+        ],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010015,
+            "text": "Send sign in code",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "created_at": "2025-05-27T08:18:32.707237Z",
+  "updated_at": "2025-05-27T08:18:32.707237Z",
+  "refresh": true,
+  "requested_aal": "aal1",
+  "state": "choose_method"
+}

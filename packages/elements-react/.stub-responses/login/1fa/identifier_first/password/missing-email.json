@@ -1,12 +1,12 @@
 {
-  "id": "2b1e8bf6-c418-4f51-b753-5953b4f06392",
+  "id": "e26f280d-9fc3-4eed-a4ca-0ab961811115",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:04.345992Z",
-  "issued_at": "2025-04-24T15:08:04.345992Z",
-  "request_url": "https://infallible-robinson-zw07atgcvi.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:12.619528Z",
+  "issued_at": "2025-05-27T08:19:12.619528Z",
+  "request_url": "https://serene-sinoussi-xojmtpdv1t.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://infallible-robinson-zw07atgcvi.projects.oryapis:8080/self-service/login?flow=2b1e8bf6-c418-4f51-b753-5953b4f06392",
+    "action": "https://serene-sinoussi-xojmtpdv1t.projects.oryapis:8080/self-service/login?flow=e26f280d-9fc3-4eed-a4ca-0ab961811115",
     "method": "POST",
     "nodes": [
       {
@@ -64,7 +64,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "W0JiwH0XyJreuv0FQqpNarZhkSwQVxOQzJ59xgas7UMI9BWKE9HCuEuefqiLemul9hpXQKV77ZgOZqAgoxtkPA==",
+          "value": "TpukRlerNGj9BwCT27n1IUo3Zjhbm2M2Jj5sqbsyR1xvLeqasT1/L1IRLV3ZudZOthdgVCQxD8qdtUNGfsUpfQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,8 +74,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:04.350946Z",
-  "updated_at": "2025-04-24T15:08:04.350946Z",
+  "created_at": "2025-05-27T08:19:12.621963Z",
+  "updated_at": "2025-05-27T08:19:12.621963Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

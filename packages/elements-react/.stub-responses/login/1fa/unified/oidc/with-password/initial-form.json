@@ -1,12 +1,12 @@
 {
-  "id": "8799fdda-7727-445e-b59b-78881884c778",
+  "id": "b57051fa-57de-4d3a-8b86-2729d437d0c0",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-15T16:35:12.791348216Z",
-  "issued_at": "2025-05-15T15:35:12.791348216Z",
-  "request_url": "https://modest-mclean-4jtqdb7v6k.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:18:53.834536841Z",
+  "issued_at": "2025-05-27T08:18:53.834536841Z",
+  "request_url": "https://interesting-burnell-qbg1t8m1iw.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://modest-mclean-4jtqdb7v6k.projects.oryapis:8080/self-service/login?flow=8799fdda-7727-445e-b59b-78881884c778",
+    "action": "https://interesting-burnell-qbg1t8m1iw.projects.oryapis:8080/self-service/login?flow=b57051fa-57de-4d3a-8b86-2729d437d0c0",
     "method": "POST",
     "nodes": [
       {
@@ -199,7 +199,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "V3Vy2tKq1pOPC2gfPFdZWs34ZCAehagQYHMovxuRx3eDaMapuhc5kQIFehzGKVqdaY/pU6xrECi/pvb7N3+GRg==",
+          "value": "osEUTzt+zpChX4Xv+L0Kg5laMFMAsyXZiIfgPD0qRY3gKboANMQdIvSt5nOAynqLi1akxRHHJCiPh4LUduKRyw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -271,8 +271,8 @@
       }
     ]
   },
-  "created_at": "2025-05-15T15:35:12.79606Z",
-  "updated_at": "2025-05-15T15:35:12.79606Z",
+  "created_at": "2025-05-27T08:18:53.83906Z",
+  "updated_at": "2025-05-27T08:18:53.83906Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -13,6 +13,7 @@ import lookup_secret from "../../assets/icons/code-asterix.svg"
 import logos from "../../provider-logos"
 import { isGroupImmediateSubmit } from "../../utils/form"
 import { ListItem } from "./list-item"
+import { useFormContext } from "react-hook-form"
 
 const iconsMap: Record<string, typeof code> = {
   code,
@@ -33,6 +34,8 @@ export function DefaultAuthMethodListItem({
   const intl = useIntl()
   const Icon = iconsMap[group] || null
 
+  const { formState } = useFormContext()
+
   return (
     <ListItem
       as="button"
@@ -47,6 +50,7 @@ export function DefaultAuthMethodListItem({
       onClick={onClick}
       type={isGroupImmediateSubmit(group) ? "submit" : "button"}
       data-testid={`ory/form/auth-picker/${group}`}
+      disabled={!formState.isReady}
     />
   )
 }

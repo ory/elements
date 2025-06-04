@@ -47,7 +47,6 @@ export function handleContinueWith(
   if (isSetOrySessionToken(action)) {
     throw new Error("Ory Elements does not support API flows yet.")
   } else if (isRedirectBrowserTo(action) && action.redirect_browser_to) {
-    // console.log("Redirecting to", action.redirect_browser_to)
     onRedirect(action.redirect_browser_to, true)
     return true
   } else if (isShowVerificationUi(action)) {

@@ -1,11 +1,11 @@
 {
-  "id": "ac82d9dd-59e5-496b-a87e-8e9cda0757a7",
+  "id": "2f856814-7702-4c2d-bc61-7156676a5716",
   "type": "browser",
-  "expires_at": "2025-05-15T16:36:38.735740756Z",
-  "issued_at": "2025-05-15T15:36:38.735740756Z",
-  "request_url": "https://stoic-ardinghelli-hb7fh9ky24.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:18:55.350131841Z",
+  "issued_at": "2025-05-27T08:18:55.350131841Z",
+  "request_url": "https://nifty-kapitsa-xtb6zhbprf.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://stoic-ardinghelli-hb7fh9ky24.projects.oryapis:8080/self-service/registration?flow=ac82d9dd-59e5-496b-a87e-8e9cda0757a7",
+    "action": "https://nifty-kapitsa-xtb6zhbprf.projects.oryapis:8080/self-service/registration?flow=2f856814-7702-4c2d-bc61-7156676a5716",
     "method": "POST",
     "nodes": [
       {
@@ -198,7 +198,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "uI2OCF54SWsonXH5bFSVsyGtEE2e+jUMXdb0Uhe6QfILXiIqcvRaLhRJ1/jQgcoVLg9C20AoBg/PwbKDESxdvw==",
+          "value": "ltNt1ZrI8x/Z7vqxPUm0jDPFmjPUYmSWrKhAVPHAdYUemLjMd0wmz64vl6yAU4E9y0GAwNqt6H87kfrVBO51hQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

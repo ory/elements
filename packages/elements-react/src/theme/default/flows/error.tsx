@@ -124,7 +124,9 @@ export function Error({
             data-testid={"ory/screen/error"}
           >
             <header className="flex flex-col gap-8 antialiased">
-              <ErrorLogo />
+              <div className="max-h-9 self-start">
+                <ErrorLogo />
+              </div>
               <div className="flex flex-col gap-2">
                 <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
                   <FormattedMessage id="error.title.what-happened" />
@@ -224,9 +226,7 @@ function GoBackButton() {
 function ErrorLogo() {
   const { project } = useOryConfiguration()
   if (project.logo_light_url) {
-    return (
-      <img src={project.logo_light_url} width={100} height={36} alt="Logo" />
-    )
+    return <img src={project.logo_light_url} className="h-full" alt="Logo" />
   }
 
   return (

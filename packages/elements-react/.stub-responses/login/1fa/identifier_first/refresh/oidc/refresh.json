@@ -1,12 +1,12 @@
 {
-  "id": "9277f4bd-a3b2-479f-8503-da432bafa951",
+  "id": "4645a551-d723-46d3-b363-4ec1464a745b",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-15T16:36:55.841483972Z",
-  "issued_at": "2025-05-15T15:36:55.841483972Z",
-  "request_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "2025-05-27T09:19:00.709744219Z",
+  "issued_at": "2025-05-27T08:19:00.709744219Z",
+  "request_url": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/login?flow=9277f4bd-a3b2-479f-8503-da432bafa951",
+    "action": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/self-service/login?flow=4645a551-d723-46d3-b363-4ec1464a745b",
     "method": "POST",
     "nodes": [
       {
@@ -38,7 +38,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "hXjp3iMV9DiBXOw+A5IQIr9/8CwcYSALUsVn7gxCaJhsvg2uVICq75gna9fd/g1o2u50ua3dJq51HHjTBXerdQ==",
+          "value": "tvKTFS2EY72XSLDp9xzwALiFggLFdaL/YKl51PMWJXYwNUdq1I4qmhKEahE/xL4FdBW61mbQ421aJG3mNi6M+w==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,7 +52,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.qs68d6afhgs0.f8f15s99sid@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -107,8 +107,8 @@
       }
     ]
   },
-  "created_at": "2025-05-15T15:36:55.877442Z",
-  "updated_at": "2025-05-15T15:36:55.877442Z",
+  "created_at": "2025-05-27T08:19:00.738028Z",
+  "updated_at": "2025-05-27T08:19:00.738028Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"
