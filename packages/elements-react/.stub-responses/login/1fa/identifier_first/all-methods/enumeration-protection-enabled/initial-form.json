@@ -1,12 +1,12 @@
 {
-  "id": "806e7eb8-c856-498b-91df-0b0d878ff41e",
+  "id": "963216d1-739f-4c0f-bf88-e8066d96b782",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:15.442213433Z",
-  "issued_at": "2025-04-24T15:07:15.442213433Z",
-  "request_url": "https://hardcore-pasteur-7586g4ual3.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:18:40.167684584Z",
+  "issued_at": "2025-05-27T08:18:40.167684584Z",
+  "request_url": "https://funny-thompson-79n3vc5lyf.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://hardcore-pasteur-7586g4ual3.projects.oryapis:8080/self-service/login?flow=806e7eb8-c856-498b-91df-0b0d878ff41e",
+    "action": "https://funny-thompson-79n3vc5lyf.projects.oryapis:8080/self-service/login?flow=963216d1-739f-4c0f-bf88-e8066d96b782",
     "method": "POST",
     "nodes": [
       {
@@ -127,7 +127,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "NrjSam8OGsS0pLEtbHB/aEf5os4zc+Y7Cq7vme5wa1Jf22dK+4+IAEegmBwmy+6Ksu9f+D8TeZPhiFgsaZjyBQ==",
+          "value": "FyAVRAZbhYg60Zmj0RgfFT3WFLQtJEa9NqnbrCgFV0+Rq3q07icj40fSsc/hYduylnrtydlQR84ATuf3BmUVRg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -139,14 +139,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://hardcore-pasteur-7586g4ual3.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://funny-thompson-79n3vc5lyf.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "04d0b55a-6e68-44eb-9a4a-9e64b85bd7b9",
+          "nonce": "cea0a336-5fc2-4dc9-bb6a-2ee24c4b010c",
           "node_type": "script"
         },
         "messages": [],
@@ -172,7 +172,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"2-gc9xWlY-M3bm7P6fR2bBZU1boBpGlIa9uOUiwQ8uU\",\"timeout\":300000,\"rpId\":\"hardcore-pasteur-7586g4ual3.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{\"publicKey\":{\"challenge\":\"oSxoY3j_CWOqNYeHi9H1we3Gfj4oDq0fgHcwOy53H_o\",\"timeout\":300000,\"rpId\":\"funny-thompson-79n3vc5lyf.projects.oryapis\",\"userVerification\":\"preferred\"}}",
           "disabled": false,
           "node_type": "input"
         },
@@ -181,8 +181,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:15.449809Z",
-  "updated_at": "2025-04-24T15:07:15.449809Z",
+  "created_at": "2025-05-27T08:18:40.172385Z",
+  "updated_at": "2025-05-27T08:18:40.172385Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,11 +1,11 @@
 {
-  "id": "d630ad66-c97c-4496-9d2f-e1cadda21052",
+  "id": "35d6d685-17aa-42ae-ab42-7d0da4a8415b",
   "type": "browser",
-  "expires_at": "2025-05-15T16:36:55.901154305Z",
-  "issued_at": "2025-05-15T15:36:55.901154305Z",
-  "request_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-05-27T09:19:00.759732594Z",
+  "issued_at": "2025-05-27T08:19:00.759732594Z",
+  "request_url": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/self-service/settings?flow=d630ad66-c97c-4496-9d2f-e1cadda21052",
+    "action": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/self-service/settings?flow=35d6d685-17aa-42ae-ab42-7d0da4a8415b",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "TNsUKKvsA342jeuCrnktxPbDY7FEFJ9ImJHtQWQ7+aGlHfBY3HldqS/2bGtwFTCOk1LnJPWome2/SPJ8bQ46TA==",
+          "value": "DcoL24RBG0fWx5nUKWIh2vydjcRdO9BHnpYteSizdsqLDd+kfUtSYFMLQyzhum/fMA21EP6ekdWkGzlL7YvfRw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.qs68d6afhgs0.f8f15s99sid@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -236,38 +236,38 @@
     ]
   },
   "identity": {
-    "id": "67a85070-e0ef-436c-9356-15e9b84021a4",
+    "id": "9a3e6a0c-dcbb-4175-b8ea-39ed7a7373a5",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://determined-shaw-ae9gfhdfmx.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-05-15T15:36:55.159295Z",
+    "state_changed_at": "2025-05-27T08:19:00.089911Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev"
+      "email": "dev+orycye2eda2f162daf6142dd0.qs68d6afhgs0.f8f15s99sid@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "7671506b-7615-447c-beb1-63962b1040b0",
-        "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
+        "id": "603b939a-3e9b-4e7b-91e5-f14e246e2836",
+        "value": "dev+orycye2eda2f162daf6142dd0.qs68d6afhgs0.f8f15s99sid@ory.dev",
         "verified": true,
         "via": "email",
         "status": "completed",
-        "verified_at": "2025-05-15T15:36:55.163837Z",
-        "created_at": "2025-05-15T15:36:55.163901Z",
-        "updated_at": "2025-05-15T15:36:55.163901Z"
+        "verified_at": "2025-05-27T08:19:00.093576Z",
+        "created_at": "2025-05-27T08:19:00.093649Z",
+        "updated_at": "2025-05-27T08:19:00.093649Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "0ebe1239-9faa-4ee6-bb23-ddbf08a43e66",
-        "value": "dev+orycye2eda2f162daf6142dd0.donkoc8nxba0.aywldfqp4cl@ory.dev",
+        "id": "b597be1b-c7a7-4017-abbb-aff246396ba2",
+        "value": "dev+orycye2eda2f162daf6142dd0.qs68d6afhgs0.f8f15s99sid@ory.dev",
         "via": "email",
-        "created_at": "2025-05-15T15:36:55.169163Z",
-        "updated_at": "2025-05-15T15:36:55.169163Z"
+        "created_at": "2025-05-27T08:19:00.097586Z",
+        "updated_at": "2025-05-27T08:19:00.097586Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-05-15T15:36:55.160612Z",
-    "updated_at": "2025-05-15T15:36:55.160612Z",
+    "created_at": "2025-05-27T08:19:00.091288Z",
+    "updated_at": "2025-05-27T08:19:00.091288Z",
     "organization_id": null
   },
   "state": "show_form"

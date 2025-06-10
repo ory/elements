@@ -1,11 +1,11 @@
 {
-  "id": "84f23809-5d96-4217-b946-e57a6bcba862",
+  "id": "84548b9b-267b-4288-8247-5cbbb9eed4b2",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:56.424074141Z",
-  "issued_at": "2025-04-24T15:07:56.424074141Z",
-  "request_url": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:19:02.598741011Z",
+  "issued_at": "2025-05-27T08:19:02.598741011Z",
+  "request_url": "https://hopeful-matsumoto-mlmukbbiyh.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration?flow=84f23809-5d96-4217-b946-e57a6bcba862",
+    "action": "https://hopeful-matsumoto-mlmukbbiyh.projects.oryapis:8080/self-service/registration?flow=84548b9b-267b-4288-8247-5cbbb9eed4b2",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "rp6fsdAOe4C0eAMipJ2XCAld9GNSmUU4p9hNkRRMtc0MdD8MUfc8KTyHO4bvKzCXlUsKMYHm9pau2qnkjsOzyA==",
+          "value": "mCtSdqf1US9U6L/I/rXnI2xA8Y/ft1h0ElAddO4gntU9YQW3TDA1M101DhidRRt8v1RnKW7rZEke2iFrjABrnQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

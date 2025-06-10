@@ -1,12 +1,12 @@
 {
-  "id": "a958165e-821a-4749-b98c-56e6df65cf17",
+  "id": "cbc21991-e672-4c1e-95d7-1e11a92ef6bc",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:03.187779Z",
-  "issued_at": "2025-04-24T15:08:03.187779Z",
-  "request_url": "https://lucid-fermi-rqehcsehrn.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:07.702238Z",
+  "issued_at": "2025-05-27T08:19:07.702238Z",
+  "request_url": "https://flamboyant-rubin-pvzzcnbx5l.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://lucid-fermi-rqehcsehrn.projects.oryapis:8080/self-service/login?flow=a958165e-821a-4749-b98c-56e6df65cf17",
+    "action": "https://flamboyant-rubin-pvzzcnbx5l.projects.oryapis:8080/self-service/login?flow=cbc21991-e672-4c1e-95d7-1e11a92ef6bc",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "wBoY1f1wxBdULF+DYn+TNGcP6Z0ofmi+LksG84qo2i8b1AEG1Ys0u7u7Fksvd+DeyPQaYDpB/jcCqQ8bwI+Jyw==",
+          "value": "grvr/FO0/Iewhx5iaD1RQ+/JFtyBnpp4QVqXhJJzhizUO9wEZkD0Diwjk70s18NHBLHlTrOKApl8PQ6u3u1vyA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -105,8 +105,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:03.192842Z",
-  "updated_at": "2025-04-24T15:08:03.192842Z",
+  "created_at": "2025-05-27T08:19:07.705848Z",
+  "updated_at": "2025-05-27T08:19:07.705848Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

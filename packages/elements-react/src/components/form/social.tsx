@@ -66,9 +66,7 @@ export function OryFormOidcButtons() {
 export function OryFormSocialButtonsForm() {
   const {
     flow: { ui },
-    formState,
   } = useOryFlow()
-  console.log(formState)
 
   // Only get the oidc nodes.
   const filteredNodes = ui.nodes.filter(

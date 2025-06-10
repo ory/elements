@@ -53,7 +53,7 @@ export function triggerToWindowCall(
   return
 }
 
-function triggerToFunction(
+export function triggerToFunction(
   trigger:
     | UiNodeInputAttributesOnclickTriggerEnum
     | UiNodeInputAttributesOnloadTriggerEnum,

@@ -1,11 +1,11 @@
 {
-  "id": "0907f6e0-ab67-4199-8262-ff7389e0133d",
+  "id": "8b879774-5be5-4271-a8c1-dfd961374418",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:20.887938657Z",
-  "issued_at": "2025-04-24T15:08:20.887938657Z",
-  "request_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "2025-05-27T09:19:25.153012133Z",
+  "issued_at": "2025-05-27T08:19:25.153012133Z",
+  "request_url": "https://gallant-sammet-bpc3izvn18.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/settings?flow=0907f6e0-ab67-4199-8262-ff7389e0133d",
+    "action": "https://gallant-sammet-bpc3izvn18.projects.oryapis:8080/self-service/settings?flow=8b879774-5be5-4271-a8c1-dfd961374418",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "4opGo8udqwLExzXylC6M7dQna4fyrBWB09LJM7xilKFfvOTr/ABvK8cjUlNXq8oTztgJ3IVFPvpj4F5kaSQi/Q==",
+          "value": "JUlDrNcm/yP+MbWLlAQPjx4wz5GWy3aFUCr42jSqeJX87FldctuPVmUnzm0diI0JDaiF0tn+RQSF6m4KnUtWWA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.rmluejqgakr0.y4otagl93ip@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -166,174 +166,42 @@
             "type": "info"
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "auth0",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link Auth0",
-            "type": "info",
-            "context": {
-              "provider": "Auth0"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "azure",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link Azure AD",
-            "type": "info",
-            "context": {
-              "provider": "Azure AD"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "unlink",
-          "type": "submit",
-          "value": "gsuite",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050003,
-            "text": "Unlink Google Workspace",
-            "type": "info",
-            "context": {
-              "provider": "Google Workspace"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "okta",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link Okta",
-            "type": "info",
-            "context": {
-              "provider": "Okta"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "onelogin",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link OneLogin",
-            "type": "info",
-            "context": {
-              "provider": "OneLogin"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "pingfederate",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link PingFederate",
-            "type": "info",
-            "context": {
-              "provider": "PingFederate"
-            }
-          }
-        }
       }
     ]
   },
   "identity": {
-    "id": "bb0d16d1-6a72-435c-a6a6-34644ee4d273",
+    "id": "2a6e4c3c-725a-45e2-be35-3d4dfe7c3877",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://gallant-sammet-bpc3izvn18.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-24T15:08:19.699644Z",
+    "state_changed_at": "2025-05-27T08:19:24.41395Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev"
+      "email": "dev+orycye2eda2f162daf6142dd0.rmluejqgakr0.y4otagl93ip@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "93087418-2d04-4f58-a25a-1f3f32892bbf",
-        "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+        "id": "5606a41c-9d2f-45ab-91be-1309d7b1a42e",
+        "value": "dev+orycye2eda2f162daf6142dd0.rmluejqgakr0.y4otagl93ip@ory.dev",
         "verified": true,
         "via": "email",
         "status": "completed",
-        "verified_at": "2025-04-24T15:08:19.712118Z",
-        "created_at": "2025-04-24T15:08:19.712192Z",
-        "updated_at": "2025-04-24T15:08:19.712192Z"
+        "verified_at": "2025-05-27T08:19:24.416799Z",
+        "created_at": "2025-05-27T08:19:24.416839Z",
+        "updated_at": "2025-05-27T08:19:24.416839Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "9277012f-abb0-4ac5-afcc-72f67f57e315",
-        "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+        "id": "004aefd0-ebd6-43de-a65d-ea6836fabc12",
+        "value": "dev+orycye2eda2f162daf6142dd0.rmluejqgakr0.y4otagl93ip@ory.dev",
         "via": "email",
-        "created_at": "2025-04-24T15:08:19.731748Z",
-        "updated_at": "2025-04-24T15:08:19.731748Z"
+        "created_at": "2025-05-27T08:19:24.420858Z",
+        "updated_at": "2025-05-27T08:19:24.420858Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-24T15:08:19.701872Z",
-    "updated_at": "2025-04-24T15:08:19.701872Z",
+    "created_at": "2025-05-27T08:19:24.414917Z",
+    "updated_at": "2025-05-27T08:19:24.414917Z",
     "organization_id": null
   },
   "state": "show_form"

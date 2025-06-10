@@ -52,10 +52,6 @@ export const DefaultInput = ({
     return (
       <input
         {...omitInputAttributes(rest)}
-        onClick={onClick}
-        maxLength={maxlength}
-        autoComplete={autocomplete}
-        placeholder={formattedLabel}
         data-testid={`ory/form/node/input/${name}`}
         {...register(name, { value })}
       />
@@ -108,7 +104,7 @@ function PasswordToggle({
   return (
     <button
       onClick={handleClick}
-      className="absolute right-0 h-full w-12 flex items-center justify-center"
+      className="absolute right-0 h-full w-12 flex items-center justify-center text-input-foreground-primary"
       type="button"
       aria-label="Toggle password visibility"
     >

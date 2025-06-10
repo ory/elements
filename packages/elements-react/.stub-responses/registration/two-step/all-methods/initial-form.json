@@ -1,66 +1,20 @@
 {
-  "id": "8cbc1d1b-a335-475a-abf8-de05264b0927",
+  "id": "6266dee7-ca55-44a8-ae9b-74f576fe7b24",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:18.796798601Z",
-  "issued_at": "2025-04-24T15:07:18.796798601Z",
-  "request_url": "https://friendly-poitras-0nngd5ruob.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "2025-05-27T09:18:39.342035584Z",
+  "issued_at": "2025-05-27T08:18:39.342035584Z",
+  "request_url": "https://intelligent-blackburn-0100o57asm.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://friendly-poitras-0nngd5ruob.projects.oryapis:8080/self-service/registration?flow=8cbc1d1b-a335-475a-abf8-de05264b0927",
+    "action": "https://intelligent-blackburn-0100o57asm.projects.oryapis:8080/self-service/registration?flow=6266dee7-ca55-44a8-ae9b-74f576fe7b24",
     "method": "POST",
     "nodes": [
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "github",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040002,
-            "text": "Sign up with GitHub",
-            "type": "info",
-            "context": {
-              "provider": "GitHub",
-              "provider_id": "github"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "google",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040002,
-            "text": "Sign up with Google",
-            "type": "info",
-            "context": {
-              "provider": "Google",
-              "provider_id": "google"
-            }
-          }
-        }
-      },
       {
         "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "VaZGEnYStJgELvgbfpCWJ/WZ6ZdJQFY45wnK0+IS2+yDz76KJWj1K19yclwnWkReAHvn2WXtsDBmrk1veJNY2g==",
+          "value": "foNaqWEAVkUMTnC8y3bh3rDKfn7mSLBTCc5e5UlkEJ4UTNOyvir4nncgh7E2K42fIv9d77mLsiv7q1iRGAXZkA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

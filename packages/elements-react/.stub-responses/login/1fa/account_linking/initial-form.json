@@ -1,13 +1,13 @@
 {
-  "id": "b183b977-2d4a-4307-ba47-92d2c73565cd",
+  "id": "86539fb0-df81-4ce2-99dc-b21740246d14",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-19T20:57:14.497104Z",
-  "issued_at": "2025-05-19T19:57:14.497104Z",
-  "request_url": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/self-service/login/browser?",
+  "expires_at": "2025-05-27T09:19:01.618472Z",
+  "issued_at": "2025-05-27T08:19:01.618472Z",
+  "request_url": "https://keen-spence-lqeaziemc6.projects.oryapis:8080/self-service/login/browser?",
   "active": "oidc",
   "ui": {
-    "action": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/self-service/login?flow=b183b977-2d4a-4307-ba47-92d2c73565cd",
+    "action": "https://keen-spence-lqeaziemc6.projects.oryapis:8080/self-service/login?flow=86539fb0-df81-4ce2-99dc-b21740246d14",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "e/Q4iL8CNCIrvqk5fosHJMUsaxfwZec9zyrciehZrQ8Fzzs37WwPeHPWq9n/2gZFNXgBsbgfW/ZnV16czWR7Mw==",
+          "value": "ONVjjjgcNcnpcy+o9dZ5iElZdDoXa6oo/drrvhT3m8BXDcEzm+oWCr4Ed9R2wqIIy3Od1N7QHoL378hjz77tDw==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -30,7 +30,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd0.m27cxzmh5170.j5gxr95gvxa@ory.dev",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -109,22 +109,25 @@
     "messages": [
       {
         "id": 1010016,
-        "text": "You tried to sign in with \"dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev\", but that email is already used by another account. Sign in to your account with one of the options below to add your account \"dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev\" at \"Fake Google\" as another way to sign in.",
+        "text": "You tried to sign in with \"dev+orycye2eda2f162daf6142dd0.m27cxzmh5170.j5gxr95gvxa@ory.dev\", but that email is already used by another account. Sign in to your account with one of the options below to add your account \"dev+orycye2eda2f162daf6142dd0.m27cxzmh5170.j5gxr95gvxa@ory.dev\" at \"Fake Google\" as another way to sign in.",
         "type": "info",
         "context": {
-          "available_credential_types": ["code", "password"],
+          "available_credential_types": [
+            "code",
+            "password"
+          ],
           "available_providers": [],
-          "duplicateIdentifier": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
-          "duplicate_identifier": "dev+orycye2eda2f162daf6142dd0.nlevrlc6rfe0.ydwbbbytpn@ory.dev",
-          "newLoginUrl": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/login",
-          "new_login_url": "https://naughty-thompson-swmsrd2eyo.projects.oryapis:8080/login",
+          "duplicateIdentifier": "dev+orycye2eda2f162daf6142dd0.m27cxzmh5170.j5gxr95gvxa@ory.dev",
+          "duplicate_identifier": "dev+orycye2eda2f162daf6142dd0.m27cxzmh5170.j5gxr95gvxa@ory.dev",
+          "newLoginUrl": "https://keen-spence-lqeaziemc6.projects.oryapis:8080/login",
+          "new_login_url": "https://keen-spence-lqeaziemc6.projects.oryapis:8080/login",
           "provider": "Fake Google"
         }
       }
     ]
   },
-  "created_at": "2025-05-19T19:57:14.501212Z",
-  "updated_at": "2025-05-19T19:57:14.501212Z",
+  "created_at": "2025-05-27T08:19:01.622372Z",
+  "updated_at": "2025-05-27T08:19:01.622372Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

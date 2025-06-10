@@ -1,12 +1,12 @@
 {
-  "id": "2ddbd386-5738-4ea1-a2b1-2dc26199a3f7",
+  "id": "2ba74855-31da-41ee-8b38-76239bcade02",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:01.616434Z",
-  "issued_at": "2025-04-24T15:07:01.616434Z",
-  "request_url": "https://admiring-shamir-4crn8fvz1q.projects.oryapis:8080/self-service/recovery/browser",
+  "expires_at": "2025-05-27T09:18:32.065097Z",
+  "issued_at": "2025-05-27T08:18:32.065097Z",
+  "request_url": "https://angry-kepler-vyvkid2kkr.projects.oryapis:8080/self-service/recovery/browser",
   "active": "code",
   "ui": {
-    "action": "https://admiring-shamir-4crn8fvz1q.projects.oryapis:8080/self-service/recovery?flow=2ddbd386-5738-4ea1-a2b1-2dc26199a3f7",
+    "action": "https://angry-kepler-vyvkid2kkr.projects.oryapis:8080/self-service/recovery?flow=2ba74855-31da-41ee-8b38-76239bcade02",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "ObWC8y4fg9MmjZbRZ3uUFl0SNkxzbXf38YXGye9m6kHJNDBKWVlBAEX5LrAXcWuKb+1LIUoNiNwLqPjtrficTQ==",
+          "value": "I1YDgv3vMzTlIEIx1/VMtZiWyEde0lAtIU5zJZ/wI1I0JjBH1Ubi7mXA1yID+8/HmtJzH1/hgoQRvgGtbX+VtQ==",
           "required": true,
           "disabled": false,
           "node_type": "input"

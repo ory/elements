@@ -1,12 +1,12 @@
 {
-  "id": "575d21b2-ca8d-4680-8d98-776253f8baa3",
+  "id": "99c6d139-3f2a-48a3-ac89-3f33dd7baf98",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:56.267954852Z",
-  "issued_at": "2025-04-24T15:07:56.267954852Z",
-  "request_url": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:03.121848512Z",
+  "issued_at": "2025-05-27T08:19:03.121848512Z",
+  "request_url": "https://clever-kare-5ijj5e48a7.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://upbeat-tharp-l97z969rop.projects.oryapis:8080/self-service/login?flow=575d21b2-ca8d-4680-8d98-776253f8baa3",
+    "action": "https://clever-kare-5ijj5e48a7.projects.oryapis:8080/self-service/login?flow=99c6d139-3f2a-48a3-ac89-3f33dd7baf98",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "5dHptqdspQ48okm0sypn9azPjesfLq8hvm5XliZc1oAnZXEqAr5jnhnLJMtjTtyfutdE0F5JXl2UyWIwGUImlw==",
+          "value": "/vG+0FVxBvHClulnTeBU4Qv/2v/hWxlE3xwMyIs6i/ZIi+g5zGoaK8ZFaM5O98B7DTOXrycFshiEtZZJ3CGYgA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:56.272645Z",
-  "updated_at": "2025-04-24T15:07:56.272645Z",
+  "created_at": "2025-05-27T08:19:03.124966Z",
+  "updated_at": "2025-05-27T08:19:03.124966Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

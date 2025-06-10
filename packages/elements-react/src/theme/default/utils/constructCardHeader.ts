@@ -226,6 +226,28 @@ export function useCardHeaderText(
     }
   }
 
+  if (nodes.some((node) => node.group === "profile")) {
+    const identifier = nodes.find(
+      (node) =>
+        isUiNodeInputAttributes(node.attributes) &&
+        node.attributes.name.startsWith("traits.") &&
+        node.attributes.type !== "hidden",
+    )
+
+    if (identifier) {
+      parts.push(
+        intl.formatMessage(
+          {
+            id: "card.header.parts.identifier-first",
+          },
+          {
+            identifierLabel: identifier.meta.label?.text,
+          },
+        ),
+      )
+    }
+  }
+
   switch (opts.flowType) {
     case FlowType.Login:
       if (opts.flow.refresh) {

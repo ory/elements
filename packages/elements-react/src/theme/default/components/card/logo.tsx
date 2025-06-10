@@ -10,8 +10,7 @@ export function DefaultCardLogo() {
     return (
       <img
         src={config.project.logo_light_url}
-        width={100}
-        height={36}
+        className="h-full max-h-9 self-start"
         alt="Logo"
       />
     )

@@ -40,7 +40,10 @@ export function DefaultCurrentIdentifierButton() {
     return null
   }
 
-  if (flowType === FlowType.Login && flow.requested_aal === "aal2") {
+  if (
+    flowType === FlowType.Login &&
+    (flow.requested_aal === "aal2" || flow.refresh)
+  ) {
     return null
   }
 
@@ -64,7 +67,10 @@ export function DefaultCurrentIdentifierButton() {
         {flow.ui.nodes
           .filter((n) => {
             if (isUiNodeInputAttributes(n.attributes)) {
-              return n.attributes.type === "hidden"
+              return (
+                n.attributes.type === "hidden" &&
+                ["default", "captcha"].includes(n.group)
+              )
             }
             return false
           })

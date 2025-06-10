@@ -1,12 +1,12 @@
 {
-  "id": "82c0b959-8c39-4151-9cea-59898927edd9",
+  "id": "94e30058-5f68-44ac-abef-0e0ea381c9b2",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:18.746061803Z",
-  "issued_at": "2025-04-24T15:08:18.746061803Z",
-  "request_url": "https://amazing-ganguly-7koqd6xfqz.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "2025-05-27T09:19:23.420973299Z",
+  "issued_at": "2025-05-27T08:19:23.420973299Z",
+  "request_url": "https://nifty-cartwright-liw2dd3rr3.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://amazing-ganguly-7koqd6xfqz.projects.oryapis:8080/self-service/login?flow=82c0b959-8c39-4151-9cea-59898927edd9",
+    "action": "https://nifty-cartwright-liw2dd3rr3.projects.oryapis:8080/self-service/login?flow=94e30058-5f68-44ac-abef-0e0ea381c9b2",
     "method": "POST",
     "nodes": [
       {
@@ -153,7 +153,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "9ki1u4Kd5zae65Gw06CmiVhdWxR0ngJb+T7SHjqEP7bV7RGIbStd2Kerdvqme88cnwN3MyWuyn+0uqBhAWr3KA==",
+          "value": "1GXAdHQezLIm0i1KcdKYLENlAZuCFka6RGW8W886e5k22kKVhAC2sCch1yCQFmlGdSg7Z1zO263rL3OPeuKTwg==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -163,8 +163,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:18.75117Z",
-  "updated_at": "2025-04-24T15:08:18.75117Z",
+  "created_at": "2025-05-27T08:19:23.424047Z",
+  "updated_at": "2025-05-27T08:19:23.424047Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

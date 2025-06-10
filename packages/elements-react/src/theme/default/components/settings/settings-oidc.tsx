@@ -80,8 +80,6 @@ function UnlinkRow({ button }: UnlinkRowProps) {
     }
   }, [isSubmitting, setClicked])
 
-  console.log(button.meta.label?.context)
-
   return (
     <div key={attrs.value} className="flex justify-between">
       <div className="flex items-center gap-6">
