@@ -6,6 +6,12 @@ exports[`intl-context can override individual strings 1`] = `
 </div>
 `;
 
+exports[`intl-context doesn't override if an IntlContext is already present 1`] = `
+<div>
+  original navigation title
+</div>
+`;
+
 exports[`intl-context uses default messages 1`] = `
 <div>
   Account Settings

@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { render } from "@testing-library/react"
+import { IntlProvider as OriginalIntlProvider, useIntl } from "react-intl"
 import { IntlProvider } from "./intl-context"
-import { useIntl } from "react-intl"
 
 function Render({ messageId }: { messageId: string }) {
   const intl = useIntl()
@@ -40,6 +40,22 @@ describe("intl-context", () => {
       <IntlProvider locale="de">
         <Render messageId="settings.navigation.title" />
       </IntlProvider>,
+    )
+    expect(container).toMatchSnapshot()
+  })
+
+  test("doesn't override if an IntlContext is already present", () => {
+    const { container } = render(
+      <OriginalIntlProvider
+        locale="de"
+        messages={{
+          "settings.navigation.title": "original navigation title",
+        }}
+      >
+        <IntlProvider locale="en">
+          <Render messageId="settings.navigation.title" />
+        </IntlProvider>
+      </OriginalIntlProvider>,
     )
     expect(container).toMatchSnapshot()
   })
