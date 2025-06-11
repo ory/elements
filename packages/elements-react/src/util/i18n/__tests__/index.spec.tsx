@@ -23,7 +23,7 @@ describe("IntlProvider", () => {
 
     expect(
       screen.getByText(
-        "Dies sind Ihre Backup-Wiederherstellungscode. Bewahren Sie sie an einem sicheren Ort auf!",
+        "Dies sind Ihre Backup-Wiederherstellungscodes. Bewahren Sie diese an einem sicheren Ort auf!",
       ),
     ).toBeTruthy()
   })
