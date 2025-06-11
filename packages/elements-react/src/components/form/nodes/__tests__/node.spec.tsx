@@ -137,7 +137,7 @@ test("Text nodes are translated to german", () => {
 
   expect(
     screen.getByText(
-      "Dies sind Ihre Backup-Wiederherstellungscode. Bewahren Sie sie an einem sicheren Ort auf!",
+      "Dies sind Ihre Backup-Wiederherstellungscodes. Bewahren Sie diese an einem sicheren Ort auf!",
     ),
   ).toBeTruthy()
   expect(screen.getByText("te45pbc0")).toBeTruthy()
