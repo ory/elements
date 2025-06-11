@@ -220,7 +220,7 @@
   "two-step.code.description": "En verifiseringskode vil bli sendt til din e-post",
   "two-step.webauthn.title": "Sikkerhetsnøkkel",
   "two-step.webauthn.description": "Bruk sikkerhetsnøkkelen din for å autentisere",
-  "two-step.passkey.title": "Passnøkkel (anbefalt)",
+  "two-step.passkey.title": "Passkey (anbefalt)",
   "two-step.passkey.description": "Bruk enheten din for fingeravtrykk eller ansiktsgjenkjenning",
   "two-step.totp.title": "Bruk autentiseringsapp (TOTP)",
   "two-step.totp.description": "Bruk en 6-sifret engangskode fra autentiseringsappen din",
