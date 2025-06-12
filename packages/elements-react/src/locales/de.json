@@ -255,6 +255,8 @@
   "settings.title-totp": "Verwalten Sie die Authentifikator-App",
   "settings.title-webauthn": "Hardware-Token verwalten",
   "settings.webauthn.info": "Hardware-Tokens werden für die Zweitfaktor-Authentifizierung oder als Erstfaktor-Authentifizierung mit Passkeys verwendet",
+  "settings.messages.toast-title.success": "Einstellungen aktualisiert",
+  "settings.messages.toast-title.error": "Fehler beim Aktualisieren der Einstellungen",
   "card.footer.select-another-method": "Eine andere Methode verwenden",
   "account-linking.title": "Account verbinden",
   "property.email": "E-Mail",

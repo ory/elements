@@ -258,6 +258,7 @@ export type OryFlowComponents = {
     Message: {
         Root: ComponentType<OryMessageRootProps>;
         Content: ComponentType<OryMessageContentProps>;
+        Toast: ComponentType<OryToastProps>;
     };
     Page: {
         Header: ComponentType<OryPageHeaderProps>;
@@ -464,6 +465,12 @@ export type OrySettingsWebauthnProps = {
 };
 
 // @public (undocumented)
+export type OryToastProps = {
+    message: UiText;
+    id: string | number;
+};
+
+// @public (undocumented)
 export function OryTwoStepCard(): react_jsx_runtime.JSX.Element;
 
 // @public
@@ -497,7 +504,7 @@ export type VerificationFlowContainer = OryFlow<FlowType.Verification, Verificat
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:635:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:645:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -202,6 +202,8 @@
   "settings.profile.title": "Configuración de Perfil",
   "settings.webauthn.description": "Administra la configuración de tu token de hardware",
   "settings.webauthn.title": "Gestionar Tokens de Hardware",
+  "settings.messages.toast-title.success": "Configuración actualizada con éxito",
+  "settings.messages.toast-title.error": "Error al actualizar la configuración",
   "consent.title": "Autorizar {party}",
   "consent.subtitle": "Una aplicación de terceros quiere acceder a la información asociada a su cuenta {identifier}.",
   "consent.scope.openid.title": "Identidad",

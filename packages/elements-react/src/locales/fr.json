@@ -244,6 +244,8 @@
   "settings.profile.description": "Mettre à jour les informations de votre profil",
   "settings.webauthn.title": "Gérer les jetons matériels",
   "settings.webauthn.description": "Gérer les paramètres de votre jeton matériel",
+  "settings.messages.toast-title.success": "Paramètres mis à jour avec succès",
+  "settings.messages.toast-title.error": "Échec de la mise à jour des paramètres",
   "verification.subtitle": "Saisissez l'adresse e-mail associée à votre compte pour la vérifier",
   "input.placeholder": "Saisissez votre {placeholder}",
   "card.header.parts.oidc": "un fournisseur de réseaux sociaux",

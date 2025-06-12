@@ -255,6 +255,8 @@
   "settings.webauthn.description": "",
   "settings.webauthn.info": "",
   "settings.webauthn.title": "",
+  "settings.messages.toast-title.success": "Instellingen bijgewerkt",
+  "settings.messages.toast-title.error": "Fout bij het bijwerken van instellingen",
   "card.footer.select-another-method": "",
   "account-linking.title": "",
   "property.code": "",

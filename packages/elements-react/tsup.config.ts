@@ -25,6 +25,7 @@ export default defineConfig([
       "@ory/client-helpers",
       "@ory/client-fetch",
       "react-intl",
+      "sonner",
     ],
   },
   {
@@ -47,6 +48,7 @@ export default defineConfig([
       "@ory/client-fetch",
       "@ory/elements-react",
       "react-intl",
+      "sonner",
     ],
 
     esbuildPlugins: [

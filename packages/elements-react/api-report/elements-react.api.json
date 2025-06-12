@@ -2239,6 +2239,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        Toast: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryToastProps",
+              "canonicalReference": "@ory/elements-react!OryToastProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n    };\n    Page: {\n        Header: "
             },
             {
@@ -2269,7 +2287,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 134
+            "endIndex": 138
           }
         },
         {
@@ -3864,6 +3882,41 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryToastProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryToastProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    message: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    id: string | number;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryToastProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
           }
         },
         {
