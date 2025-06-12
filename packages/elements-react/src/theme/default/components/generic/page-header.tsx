@@ -36,7 +36,7 @@ export const DefaultPageHeader = (_props: OryPageHeaderProps) => {
             <a
               data-testid={"ory/screen/settings/back-button"}
               href={returnUrl}
-              className="inline-flex gap-2 items-center"
+              className="inline-flex gap-2 items-center text-button-link-default-primary hover:text-button-link-default-primary-hover"
             >
               <ArrowLeft />{" "}
               {intl.formatMessage({
