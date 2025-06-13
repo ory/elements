@@ -1,12 +1,12 @@
 {
-  "id": "4cc24ef3-344b-4aa3-955b-95ce7e62d4f8",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:31.552659Z",
-  "issued_at": "2025-05-27T08:18:31.552659Z",
-  "request_url": "https://determined-blackburn-8ayuajjekl.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://determined-blackburn-8ayuajjekl.projects.oryapis:8080/self-service/login?flow=4cc24ef3-344b-4aa3-955b-95ce7e62d4f8",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -64,7 +64,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Zh0V/XaX5OIHyK2hCj/UEzuw4XUU/chSFoteqaxY9/yS9dI/VaW3rjfdBJilkjRA/ginc7avgsjEbE0VddPrkw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,8 +74,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:31.558469Z",
-  "updated_at": "2025-05-27T08:18:31.558469Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

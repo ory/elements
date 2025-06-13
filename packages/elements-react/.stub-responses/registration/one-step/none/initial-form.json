@@ -1,11 +1,11 @@
 {
-  "id": "0238b2ec-c3ac-4e22-bee3-94566a39a1a8",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:44.732133128Z",
-  "issued_at": "2025-05-27T08:18:44.732133128Z",
-  "request_url": "https://vibrant-hawking-jcir54zelv.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://vibrant-hawking-jcir54zelv.projects.oryapis:8080/self-service/registration?flow=0238b2ec-c3ac-4e22-bee3-94566a39a1a8",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "+tcVe+Ebxezg9YWuORgGayzVpFCHbFQPq4tmvXJM9xUQaRD/YGvfBrLEdrD6YUNNzrbolyHeOS+0E4Qg4ER3pA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

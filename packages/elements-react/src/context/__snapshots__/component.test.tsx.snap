@@ -30,7 +30,7 @@ exports[`defaultNodeSorter correctly sorts nodes from captcha form response: cap
     "group": "captcha",
     "inputType": undefined,
     "name": undefined,
-    "type": "text",
+    "type": "div",
   },
   {
     "group": "captcha",
@@ -125,7 +125,7 @@ exports[`defaultNodeSorter correctly sorts nodes from one-step registration with
     "group": "captcha",
     "inputType": undefined,
     "name": undefined,
-    "type": "text",
+    "type": "div",
   },
   {
     "group": "captcha",
@@ -220,7 +220,7 @@ exports[`defaultNodeSorter correctly sorts nodes from two-step registration with
     "group": "captcha",
     "inputType": undefined,
     "name": undefined,
-    "type": "text",
+    "type": "div",
   },
   {
     "group": "captcha",

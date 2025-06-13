@@ -1,11 +1,11 @@
 {
-  "id": "c29718b1-eeb3-41e9-a99f-273d1f5916d2",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:27.001582Z",
-  "issued_at": "2025-05-27T08:18:27.001582Z",
-  "request_url": "https://determined-jackson-7egsa27cuv.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://determined-jackson-7egsa27cuv.projects.oryapis:8080/self-service/registration?flow=c29718b1-eeb3-41e9-a99f-273d1f5916d2",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Hp8eQ+sXwhFAsbOtz2CihV7uHWb0mhuNzIoAWOgquGCSNhXwCcEoBVj0ZBi8v/hs78OzkhTgqjcovPJzH40o+A==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -132,23 +132,18 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "96c6553e-5dbf-47fe-9fb1-4ff4fb1c9b26",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
         "meta": {}
       },
       {
-        "type": "text",
+        "type": "div",
         "group": "captcha",
         "attributes": {
-          "text": {
-            "id": 1070015,
-            "text": "Please complete the captcha challenge to continue.",
-            "type": "info"
-          },
           "id": "captcha_turnstile_inject",
-          "node_type": "text"
+          "node_type": "div"
         },
         "messages": [],
         "meta": {}
@@ -164,7 +159,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "7fbdf644-eced-42c7-9bb0-da098469b6cb",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],

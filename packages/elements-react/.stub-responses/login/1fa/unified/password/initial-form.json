@@ -1,12 +1,12 @@
 {
-  "id": "cbc21991-e672-4c1e-95d7-1e11a92ef6bc",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:07.702238541Z",
-  "issued_at": "2025-05-27T08:19:07.702238541Z",
-  "request_url": "https://flamboyant-rubin-pvzzcnbx5l.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://flamboyant-rubin-pvzzcnbx5l.projects.oryapis:8080/self-service/login?flow=cbc21991-e672-4c1e-95d7-1e11a92ef6bc",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "7NLilJ9b3Wr40wuWWk1zHWivKjAnA1vI1y7gz2gVeEK6UtVsqq/V42R3hkkep+EZg9fZohUXwynqSXnlJIuRpg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -87,8 +87,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:07.705848Z",
-  "updated_at": "2025-05-27T08:19:07.705848Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

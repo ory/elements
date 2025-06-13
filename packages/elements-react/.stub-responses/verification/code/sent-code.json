@@ -1,12 +1,12 @@
 {
-  "id": "37386c70-1faf-43ad-9024-c9b4d6ad1e12",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:32.277981Z",
-  "issued_at": "2025-05-27T08:18:32.277981Z",
-  "request_url": "https://funny-maxwell-uowceanva7.projects.oryapis:8080/self-service/verification/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/verification/browser",
   "active": "code",
   "ui": {
-    "action": "https://funny-maxwell-uowceanva7.projects.oryapis:8080/self-service/verification?flow=37386c70-1faf-43ad-9024-c9b4d6ad1e12",
+    "action": "https://slug.projects.oryapis:8080/self-service/verification?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -66,7 +66,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "8ZChdmvpCDUyOVKdyAXT3EQwCA5CaBT1Cp9+9j579bdNFLgpEqdH5ktb4eplZ+QmZVR04Ibr/uYirF8m47SkHw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -80,7 +80,7 @@
         "attributes": {
           "name": "email",
           "type": "submit",
-          "value": "dev+orycye2eda2f162daf6142dd0.igjtkr5ioh0.5tnw8sjkoh4@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },

@@ -1,12 +1,12 @@
 {
-  "id": "94e30058-5f68-44ac-abef-0e0ea381c9b2",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:23.420973299Z",
-  "issued_at": "2025-05-27T08:19:23.420973299Z",
-  "request_url": "https://nifty-cartwright-liw2dd3rr3.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://nifty-cartwright-liw2dd3rr3.projects.oryapis:8080/self-service/login?flow=94e30058-5f68-44ac-abef-0e0ea381c9b2",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -153,7 +153,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "1GXAdHQezLIm0i1KcdKYLENlAZuCFka6RGW8W886e5k22kKVhAC2sCch1yCQFmlGdSg7Z1zO263rL3OPeuKTwg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -163,8 +163,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:23.424047Z",
-  "updated_at": "2025-05-27T08:19:23.424047Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

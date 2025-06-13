@@ -1,12 +1,12 @@
 {
-  "id": "2ba74855-31da-41ee-8b38-76239bcade02",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:32.065097Z",
-  "issued_at": "2025-05-27T08:18:32.065097Z",
-  "request_url": "https://angry-kepler-vyvkid2kkr.projects.oryapis:8080/self-service/recovery/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/recovery/browser",
   "active": "code",
   "ui": {
-    "action": "https://angry-kepler-vyvkid2kkr.projects.oryapis:8080/self-service/recovery?flow=2ba74855-31da-41ee-8b38-76239bcade02",
+    "action": "https://slug.projects.oryapis:8080/self-service/recovery?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "I1YDgv3vMzTlIEIx1/VMtZiWyEde0lAtIU5zJZ/wI1I0JjBH1Ubi7mXA1yID+8/HmtJzH1/hgoQRvgGtbX+VtQ==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

@@ -1,12 +1,12 @@
 {
-  "id": "8885ab8a-9d71-4647-9ec9-fd5e9a6b88cf",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:32.697066678Z",
-  "issued_at": "2025-05-27T08:18:32.697066678Z",
-  "request_url": "https://xenodochial-sutherland-1ed27ckdsk.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://xenodochial-sutherland-1ed27ckdsk.projects.oryapis:8080/self-service/login?flow=8885ab8a-9d71-4647-9ec9-fd5e9a6b88cf",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "bbiYLqnwkzXeiqGjVkqS1A/1kkawrLH5GXmCEMlbLk5Utlt4OeVOaNhxHSyPoTtwJdEQ5KzbKbXEf9FGf1hbdw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,8 +74,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:32.707237Z",
-  "updated_at": "2025-05-27T08:18:32.707237Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

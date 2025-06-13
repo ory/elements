@@ -1,12 +1,12 @@
 {
-  "id": "063af2e6-9f2f-4152-8548-9bc3fc347ca6",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:54.474028258Z",
-  "issued_at": "2025-05-27T08:18:54.474028258Z",
-  "request_url": "https://epic-snyder-448vm4hnp9.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://epic-snyder-448vm4hnp9.projects.oryapis:8080/self-service/login?flow=063af2e6-9f2f-4152-8548-9bc3fc347ca6",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -199,7 +199,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "L/f61YeBbPKkQyzYP6s7WvfOtA1QqfEZAG1jjHgJ014QK8I6ZzAcK0WVaeGyd2t0ac9muiHfbgZWJi/1+f8yVg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -209,8 +209,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:54.477405Z",
-  "updated_at": "2025-05-27T08:18:54.477405Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

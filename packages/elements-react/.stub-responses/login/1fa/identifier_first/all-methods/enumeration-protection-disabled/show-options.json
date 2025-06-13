@@ -1,13 +1,13 @@
 {
-  "id": "89653df0-cba9-47a2-888f-a983e93637e5",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:40.216613Z",
-  "issued_at": "2025-05-27T08:18:40.216613Z",
-  "request_url": "https://affectionate-shtern-ebq5sz47jw.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://affectionate-shtern-ebq5sz47jw.projects.oryapis:8080/self-service/login?flow=89653df0-cba9-47a2-888f-a983e93637e5",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.areka67hs1b0.libp2fqocmc@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "tp8BpeD1Vs0fMrT3AGCzqHf/4JiRoMFFj5AHSjSSznQehSjJuWKxvhHqgLdnEe3Xda6kdLLa0wNvdClsVOEpEg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,14 +52,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://affectionate-shtern-ebq5sz47jw.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "8e0213f3-aa30-42b2-aea5-2a13d74cb774",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -85,7 +85,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"iek19tI8gGW4yluP77iH4i559DoeEue6hr1jiPM0Vhk\",\"timeout\":300000,\"rpId\":\"affectionate-shtern-ebq5sz47jw.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -198,8 +198,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:40.221009Z",
-  "updated_at": "2025-05-27T08:18:40.221009Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

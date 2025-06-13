@@ -1,12 +1,12 @@
 {
-  "id": "fae9629b-ebb7-4464-a060-59a423438c81",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:25.97533Z",
-  "issued_at": "2025-05-27T08:18:25.97533Z",
-  "request_url": "https://cool-carson-6o3dfo13ur.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "active": "code",
   "ui": {
-    "action": "https://cool-carson-6o3dfo13ur.projects.oryapis:8080/self-service/registration?flow=fae9629b-ebb7-4464-a060-59a423438c81",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "gu9D/CwjYApxHcOPIM8CPJYWgcxv9ZsgS5R6BZGGalEfxfAhC4mIKb7yP7ftFeCC45Y7ob7xYTGJnf0joYa7Ig==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.c8ldevzz19b0.x7vh94c3b5@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

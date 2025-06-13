@@ -1,90 +1,20 @@
 {
-  "id": "3d505da4-f774-4d99-a10a-ced688771eb2",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:08.3076455Z",
-  "issued_at": "2025-05-27T08:19:08.3076455Z",
-  "request_url": "https://friendly-lamport-n1puh262n4.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://friendly-lamport-n1puh262n4.projects.oryapis:8080/self-service/settings?flow=3d505da4-f774-4d99-a10a-ced688771eb2",
+    "action": "https://slug.projects.oryapis:8080/self-service/settings?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_register_trigger",
-          "type": "button",
-          "value": "",
-          "disabled": false,
-          "onclick": "window.oryPasskeySettingsRegistration()",
-          "onclickTrigger": "oryPasskeySettingsRegistration",
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050019,
-            "text": "Add passkey",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_settings_register",
-          "type": "hidden",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_remove",
-          "type": "submit",
-          "value": "b32504944c92436247b9f05a0babc2eae9cc0883be419667b90c3ed9541b2310",
-          "disabled": true,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050020,
-            "text": "Remove passkey \"unnamed\"",
-            "type": "info",
-            "context": {
-              "added_at": "2025-05-27T08:19:07Z",
-              "added_at_unix": 1748333947,
-              "display_name": "unnamed"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_create_data",
-          "type": "hidden",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-vdk8p3laqAHoeKsa-1-tests/elements/passkey.spec.ts\\u003eGenerate passkey API responses for Ory Elements Storybook\\u003esettings\\u003esettings\",\"id\":\"friendly-lamport-n1puh262n4.projects.oryapis\"},\"user\":{\"name\":\"dev+orycye2eda2f162daf6142dd0.13m6k98s4dm0.u7j5o218fvn@ory.dev\",\"displayName\":\"dev+orycye2eda2f162daf6142dd0.13m6k98s4dm0.u7j5o218fvn@ory.dev\",\"id\":\"N1BpdnAyMlQwTnlGSmVGcWlTYXBLZHNTYzlQQ2RLOEJvcmMyTkNqMDE4M3ZBdnI3TndCNTM5Ynp4RWpSZkxFWg\"},\"challenge\":\"V-kyx2ehAOATvO2iwSp1T8bzBqdFBlDowGlPP-TdMZ4\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}}",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
       {
         "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "CbtAb4PeYk1KVCbBI14RkQbCNgO35UVEoOd4A1w3/8eCtDumf7QDaTPIbtykG0Jy22gzjjOb0S/4TLeFMWqpmA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -98,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.13m6k98s4dm0.u7j5o218fvn@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -202,15 +132,85 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://friendly-lamport-n1puh262n4.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "20bb35b6-92fb-4f74-ac87-a982fb0fa1a6",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_remove",
+          "type": "submit",
+          "value": "XXXXX",
+          "disabled": true,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050020,
+            "text": "Remove passkey \"unnamed\"",
+            "type": "info",
+            "context": {
+              "added_at": "0001-01-01T00:00:00Z",
+              "added_at_unix": 0,
+              "display_name": "unnamed"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register_trigger",
+          "type": "button",
+          "value": "",
+          "disabled": false,
+          "onclick": "window.oryPasskeySettingsRegistration()",
+          "onclickTrigger": "oryPasskeySettingsRegistration",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1050019,
+            "text": "Add passkey",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_settings_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_create_data",
+          "type": "hidden",
+          "value": "{}",
+          "disabled": false,
+          "node_type": "input"
         },
         "messages": [],
         "meta": {}
@@ -218,38 +218,38 @@
     ]
   },
   "identity": {
-    "id": "edb0bf5f-170a-4322-adcd-aabd7438a577",
+    "id": "00000000-0000-0000-0000-000000000000",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://friendly-lamport-n1puh262n4.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://slug.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-05-27T08:19:07.536941Z",
+    "state_changed_at": "0001-01-01T00:00:00Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.13m6k98s4dm0.u7j5o218fvn@ory.dev",
+      "email": "dev@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "726b2e35-5b93-45f8-af6a-8d7bdfcf5c97",
-        "value": "dev+orycye2eda2f162daf6142dd0.13m6k98s4dm0.u7j5o218fvn@ory.dev",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "value": "dev@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-05-27T08:19:07.547453Z",
-        "updated_at": "2025-05-27T08:19:07.547453Z"
+        "created_at": "0001-01-01T00:00:00Z",
+        "updated_at": "0001-01-01T00:00:00Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "9ba5184c-2f74-4766-9b7a-1a10656b1f45",
-        "value": "dev+orycye2eda2f162daf6142dd0.13m6k98s4dm0.u7j5o218fvn@ory.dev",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "value": "dev@ory.dev",
         "via": "email",
-        "created_at": "2025-05-27T08:19:07.555689Z",
-        "updated_at": "2025-05-27T08:19:07.555689Z"
+        "created_at": "0001-01-01T00:00:00Z",
+        "updated_at": "0001-01-01T00:00:00Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-05-27T08:19:07.538468Z",
-    "updated_at": "2025-05-27T08:19:07.538468Z",
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
     "organization_id": null
   },
   "state": "show_form"

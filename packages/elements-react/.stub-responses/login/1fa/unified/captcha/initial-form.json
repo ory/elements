@@ -1,12 +1,12 @@
 {
-  "id": "a3b11cfe-9673-4a54-82c2-a5439d3b3d07",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:27.385008967Z",
-  "issued_at": "2025-05-27T08:18:27.385008967Z",
-  "request_url": "https://jolly-gagarin-0zrj6i2drl.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://jolly-gagarin-0zrj6i2drl.projects.oryapis:8080/self-service/login?flow=a3b11cfe-9673-4a54-82c2-a5439d3b3d07",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -33,23 +33,18 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "96c6553e-5dbf-47fe-9fb1-4ff4fb1c9b26",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
         "meta": {}
       },
       {
-        "type": "text",
+        "type": "div",
         "group": "captcha",
         "attributes": {
-          "text": {
-            "id": 1070015,
-            "text": "Please complete the captcha challenge to continue.",
-            "type": "info"
-          },
           "id": "captcha_turnstile_inject",
-          "node_type": "text"
+          "node_type": "div"
         },
         "messages": [],
         "meta": {}
@@ -65,7 +60,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "7fbdf644-eced-42c7-9bb0-da098469b6cb",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -90,7 +85,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "KLxtLyC7A5LM8bjHRkfOXVsqfUaXm13YO9bho86XDa9LQkWZny3Oy6Br9YXTzVFpDIDOj/ovu/EucGsSRx+C5Q==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -126,14 +121,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://jolly-gagarin-0zrj6i2drl.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "f8e4ca9a-1c0e-4fae-9c74-118b2e3793df",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -180,7 +175,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"K5F_KaOzGqU3cInToCy6-3uSYhuUR5M62P4pXw1-g_Q\",\"timeout\":300000,\"rpId\":\"jolly-gagarin-0zrj6i2drl.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -228,8 +223,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:27.389208Z",
-  "updated_at": "2025-05-27T08:18:27.389208Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

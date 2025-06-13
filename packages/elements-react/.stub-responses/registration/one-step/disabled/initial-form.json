@@ -3,7 +3,7 @@
     "id": "self_service_flow_disabled",
     "code": 400,
     "status": "Bad Request",
-    "request": "04ba503f-2ab0-9bef-8c47-f6963b414db0",
+    "request": "00000000-0000-0000-0000-000000000000",
     "reason": "Registration is not allowed because it was disabled.",
     "message": "registration flow disabled"
   }

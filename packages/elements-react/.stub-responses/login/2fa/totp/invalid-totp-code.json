@@ -1,12 +1,12 @@
 {
-  "id": "a6315dfe-5670-455e-8829-f7cb98ce641d",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:25.911811Z",
-  "issued_at": "2025-05-27T08:19:25.911811Z",
-  "request_url": "https://stoic-boyd-d63spvl41a.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "ui": {
-    "action": "https://stoic-boyd-d63spvl41a.projects.oryapis:8080/self-service/login?flow=a6315dfe-5670-455e-8829-f7cb98ce641d",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6anEE47OQUxBH0Lij2ROsr1Ne0EHAqiZNLi75a72vzCRfxysTu6Y7zdjX8RBhTo/j3P8+J3lMA+btv1/3bZorw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -70,8 +70,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:25.928436Z",
-  "updated_at": "2025-05-27T08:19:25.928436Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "choose_method"

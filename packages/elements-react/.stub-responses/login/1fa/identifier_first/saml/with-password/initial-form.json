@@ -1,12 +1,12 @@
 {
-  "id": "10211393-2773-4ba9-8d60-33f7eb61dd98",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:18.715168422Z",
-  "issued_at": "2025-05-27T08:19:18.715168422Z",
-  "request_url": "https://kind-euler-68laspivev.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://kind-euler-68laspivev.projects.oryapis:8080/self-service/login?flow=10211393-2773-4ba9-8d60-33f7eb61dd98",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -196,7 +196,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "OoeBzRxqgqvX0R2IsWuHcZT/uiMrHExBsmyIvkTYYru2+0RDlLToKmi7LDckerO1RT/UqgIU1r3omc5/yb1euA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -206,8 +206,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:18.718745Z",
-  "updated_at": "2025-05-27T08:19:18.718745Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"
