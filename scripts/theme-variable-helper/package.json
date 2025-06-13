@@ -10,6 +10,9 @@
   "description": "",
   "devDependencies": {
     "@types/node": "22.10.2",
-    "tsx": "4.19.2"
+    "tsx": "4.20.2"
+  },
+  "dependencies": {
+    "tsup": "8.5.0"
   }
 }
