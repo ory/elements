@@ -48,8 +48,11 @@ export async function proxyRequest(
     return NextResponse.next()
   }
 
+  const appBaseHost = request.headers.get("host")
+
   const matchBaseUrl = new URL(orySdkUrl())
-  const selfUrl = request.nextUrl.protocol + "//" + request.nextUrl.host
+  const selfUrl =
+    request.nextUrl.protocol + "//" + (appBaseHost || request.nextUrl.host)
 
   const upstreamUrl = request.nextUrl.clone()
   upstreamUrl.hostname = matchBaseUrl.hostname

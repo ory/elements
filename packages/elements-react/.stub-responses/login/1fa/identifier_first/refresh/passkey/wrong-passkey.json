@@ -1,12 +1,12 @@
 {
-  "id": "9a466604-4d98-453c-9e7b-a55eae07e3e1",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:07.347173Z",
-  "issued_at": "2025-05-27T08:19:07.347173Z",
-  "request_url": "https://adoring-shockley-ddbcekdqzr.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://adoring-shockley-ddbcekdqzr.projects.oryapis:8080/self-service/login?flow=9a466604-4d98-453c-9e7b-a55eae07e3e1",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "d/73/xOMHLQfCJHF7FGv3EC6YYieFOy67Q4nIAkQhFZjOyDPeLTbcVzJLRnkRR+R6DFGKObMy0igrxZXa5LxYA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.f3ftuui99x0.n9j6wdpv2im@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -40,14 +40,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://adoring-shockley-ddbcekdqzr.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "002c31d0-826b-42dc-a4f7-71c4825a0869",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -92,7 +92,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"J9hJ--IZT1OdOVzo1r6TKdzw57T2rvrF77tLE7PU6sQ\",\"timeout\":300000,\"rpId\":\"adoring-shockley-ddbcekdqzr.projects.oryapis\",\"allowCredentials\":[{\"type\":\"public-key\",\"id\":\"WM4OKMxVIlQ-ZTftiv4W3FT-CEB4ULS5NqByrBTJ0nQ\"}],\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -111,8 +111,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:07.530154Z",
-  "updated_at": "2025-05-27T08:19:07.530154Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

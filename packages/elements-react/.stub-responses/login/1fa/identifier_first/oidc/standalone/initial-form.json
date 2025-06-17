@@ -1,12 +1,12 @@
 {
-  "id": "3e593c9f-e3bc-45cc-81e0-95c793ae2e2f",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:53.24647209Z",
-  "issued_at": "2025-05-27T08:18:53.24647209Z",
-  "request_url": "https://gallant-mcnulty-356kh4rftw.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://gallant-mcnulty-356kh4rftw.projects.oryapis:8080/self-service/login?flow=3e593c9f-e3bc-45cc-81e0-95c793ae2e2f",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -242,7 +242,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "f+5xIfe0XYYyyxgMMX0tlgkz4AufWQMX5bnvdvc91TFyRUfk5upMVGRpixlw6EF/XuA7U9tB74B0zyyL+p2unA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -252,8 +252,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:53.250286Z",
-  "updated_at": "2025-05-27T08:18:53.250286Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

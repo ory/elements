@@ -1,13 +1,13 @@
 {
-  "id": "99c6d139-3f2a-48a3-ac89-3f33dd7baf98",
-  "organization_id": "5db4f83b-cb57-4659-b056-7964cd946dbd",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "organization_id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:03.121848Z",
-  "issued_at": "2025-05-27T08:19:03.121848Z",
-  "request_url": "https://clever-kare-5ijj5e48a7.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://clever-kare-5ijj5e48a7.projects.oryapis:8080/self-service/login?flow=99c6d139-3f2a-48a3-ac89-3f33dd7baf98",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.25t3nvveuhs0.lmwo6xjn1o@example.com",
+          "value": "dev@example.com",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "230TokxebFgA0D3qykLmmaVS7eED7cFJ4DHrp/WJI1htB0VL1UVwggQDvEPJVXIDo56gscWzahW7mHEmopIwLg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -96,8 +96,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:03.124966Z",
-  "updated_at": "2025-05-27T08:19:03.124966Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

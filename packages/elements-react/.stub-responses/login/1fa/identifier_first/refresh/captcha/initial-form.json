@@ -1,12 +1,12 @@
 {
-  "id": "dde4e76a-2f47-4702-a5e4-7e830f14fd87",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:28.075846218Z",
-  "issued_at": "2025-05-27T08:18:28.075846218Z",
-  "request_url": "https://busy-gates-ck76v5b0u5.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://busy-gates-ck76v5b0u5.projects.oryapis:8080/self-service/login?flow=dde4e76a-2f47-4702-a5e4-7e830f14fd87",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "lgnGj7qQjHmW5I7r4To+4VORZsnfFBU6qfpSXt1RiG9rsU8+4O9JOR2IUH3k9dFPZcjUGv9xW0gcyV5j58BNbw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.v8nttt6rzc0.owro7b5w57k@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:28.103775Z",
-  "updated_at": "2025-05-27T08:18:28.103775Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

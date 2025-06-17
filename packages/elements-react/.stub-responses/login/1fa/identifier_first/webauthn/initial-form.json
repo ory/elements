@@ -1,12 +1,12 @@
 {
-  "id": "93e9e39a-a66f-481f-8d4d-b78de865fa5d",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:30.147510135Z",
-  "issued_at": "2025-05-27T08:19:30.147510135Z",
-  "request_url": "https://busy-visvesvaraya-846z65i9pv.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://busy-visvesvaraya-846z65i9pv.projects.oryapis:8080/self-service/login?flow=93e9e39a-a66f-481f-8d4d-b78de865fa5d",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "wxl+tGYe96huFRvuN1ioQZ3s7+WoRqu/Oghp9Ye7QqEitH8tL+GFWnZT4xOd9ZefPlJxK3ogBJOhmKoL3SXQ6w==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:30.15132Z",
-  "updated_at": "2025-05-27T08:19:30.15132Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

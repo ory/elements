@@ -1,12 +1,12 @@
 {
-  "id": "908fc0ec-c1d1-4d6d-a9cd-1ca91f8e024d",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:07.460092791Z",
-  "issued_at": "2025-05-27T08:19:07.460092791Z",
-  "request_url": "https://interesting-morse-ztdt94phjv.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://interesting-morse-ztdt94phjv.projects.oryapis:8080/self-service/login?flow=908fc0ec-c1d1-4d6d-a9cd-1ca91f8e024d",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "+YknjnRtAcqSqgAa66PDlBdPAq1Kcs9sXkzdKFYh/AhvUAhJrU3I0F1BsKYJuwDxgeGUXV8IN6bxjTurTZQApA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -51,14 +51,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://interesting-morse-ztdt94phjv.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "0e44d693-1ebf-48f6-987d-e1a79406e976",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -105,7 +105,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"AU_CiT3VHfTlS2BA0dvOWUbO_C178W_Na9COLKs98GQ\",\"timeout\":300000,\"rpId\":\"interesting-morse-ztdt94phjv.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -114,8 +114,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:07.467541Z",
-  "updated_at": "2025-05-27T08:19:07.467541Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

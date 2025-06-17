@@ -209,6 +209,8 @@
   "settings.profile.description": "Update your profile information",
   "settings.webauthn.title": "Manage Hardware Tokens",
   "settings.webauthn.description": "Manage your hardware token settings",
+  "settings.messages.toast-title.success": "Settings updated",
+  "settings.messages.toast-title.error": "Could not update settings",
   "verification.registration-button": "Sign up",
   "verification.registration-label": "Don't have an account?",
   "verification.title": "Verify your account",

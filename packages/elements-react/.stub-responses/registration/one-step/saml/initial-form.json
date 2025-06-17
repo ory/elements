@@ -1,11 +1,11 @@
 {
-  "id": "df9671f1-662f-4842-a8ae-eac4bce635c6",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:23.376697257Z",
-  "issued_at": "2025-05-27T08:19:23.376697257Z",
-  "request_url": "https://loving-galois-0s7aprhnai.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://loving-galois-0s7aprhnai.projects.oryapis:8080/self-service/registration?flow=df9671f1-662f-4842-a8ae-eac4bce635c6",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -152,7 +152,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "/LfrL+lzIMY98VN2T/KEuWNA7rknU1f0/rSVAiOUxWoPBfnspCeDjuDqfAFPNS+d/iseULlQ3RkHw8DsMYIIJw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

@@ -1,12 +1,12 @@
 {
-  "id": "5c7ab750-0623-4fe4-b546-259dd43c4649",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:50.43135Z",
-  "issued_at": "2025-05-27T08:18:50.43135Z",
-  "request_url": "https://goofy-borg-hmetwiznc1.projects.oryapis:8080/self-service/registration/browser?",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser?",
   "active": "oidc",
   "ui": {
-    "action": "https://goofy-borg-hmetwiznc1.projects.oryapis:8080/self-service/registration?flow=5c7ab750-0623-4fe4-b546-259dd43c4649",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.6rsdbtewtnb0.4l9p8p2vtxc@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -133,7 +133,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "LhxY79GpGphqIPG2GN7J2c1GVkEtmEP4rpEs4kaFoEYyMfYIhu4BhTFdIiZPYkh3Eu0BHMshrpMkHLXoetZU5A==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

@@ -1,11 +1,11 @@
 {
-  "id": "f07eeca9-207a-4fc2-96de-70e92c994014",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:28.393561218Z",
-  "issued_at": "2025-05-27T08:19:28.393561218Z",
-  "request_url": "https://mystifying-archimedes-cyo9045qhx.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://mystifying-archimedes-cyo9045qhx.projects.oryapis:8080/self-service/registration?flow=f07eeca9-207a-4fc2-96de-70e92c994014",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "iO1NNBfhVenkpbhf/yrPXg9i+2jwB4kfO9HafXR7iREbQ8PJ+w4gZ+iHRNOjNsrpaM2SNq9QxwxhYNFEpoFWdg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -146,9 +146,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Pw46Hh9nRRw4Moha-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"mystifying-archimedes-cyo9045qhx.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Pw46Hh9nRRw4Moha-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Pw46Hh9nRRw4Moha-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"20EAIOFAQ_CVqAN5TjM2zA\"},\"challenge\":\"9zkrBtV0OaPkG3VVlr9R-IspUzxL3gpeUbxQE74f_w4\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "value": "{}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Pw46Hh9nRRw4Moha-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"mystifying-archimedes-cyo9045qhx.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Pw46Hh9nRRw4Moha-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-Pw46Hh9nRRw4Moha-0-tests/elements/webauthn.spec.ts\\u003eGenerate webauthn API responses for Ory Elements Storybook\\u003eregistration\\u003eone step\\u003eregistration\",\"id\":\"20EAIOFAQ_CVqAN5TjM2zA\"},\"challenge\":\"9zkrBtV0OaPkG3VVlr9R-IspUzxL3gpeUbxQE74f_w4\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclick": "{}",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -165,14 +165,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://mystifying-archimedes-cyo9045qhx.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "75c25563-8edc-4e45-a01b-67849106430e",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],

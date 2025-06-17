@@ -1,13 +1,13 @@
 {
-  "id": "0e6ff3c4-d65d-4be2-b6aa-7789937e9b32",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:06.623645Z",
-  "issued_at": "2025-05-27T08:19:06.623645Z",
-  "request_url": "https://vigorous-thompson-azadipuxn4.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "active": "identifier_first",
   "ui": {
-    "action": "https://vigorous-thompson-azadipuxn4.projects.oryapis:8080/self-service/login?flow=0e6ff3c4-d65d-4be2-b6aa-7789937e9b32",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.qlc2uy8quxd0.d359iuv2ga@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -40,7 +40,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "0am3lMBP/fe5qEGUzKKVryBkjjhG86lagiO+XWWwToSoNrV4Fsp29eNteLvfU3XRnwZIbZlxeaXkuHEC7ik6LA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,14 +52,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://vigorous-thompson-azadipuxn4.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "ba51cc52-a707-4547-ad12-75043caed972",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -106,7 +106,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"6iy2wx-d-t7Lh6yWkHJkeWCT8mkdIM-ABcJ-fIf1NMg\",\"timeout\":300000,\"rpId\":\"vigorous-thompson-azadipuxn4.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -125,8 +125,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:06.636772Z",
-  "updated_at": "2025-05-27T08:19:06.636772Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

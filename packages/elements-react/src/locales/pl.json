@@ -255,6 +255,8 @@
   "settings.webauthn.description": "",
   "settings.webauthn.info": "",
   "settings.webauthn.title": "",
+  "settings.messages.toast-title.success": "Ustawienia zaktualizowane pomyślnie",
+  "settings.messages.toast-title.error": "Wystąpił błąd podczas aktualizacji ustawień",
   "card.footer.select-another-method": "",
   "account-linking.title": "",
   "property.code": "",

@@ -2,15 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
+  getNodeId,
   isUiNodeScriptAttributes,
   UiNode,
   UiNodeGroupEnum,
-  getNodeId,
 } from "@ory/client-fetch"
+import { useEffect } from "react"
 import { useIntl } from "react-intl"
+import { Toaster } from "sonner"
 import { useComponents, useOryFlow } from "../../context"
+import { showToast } from "../../util/showToast"
 import { useNodesGroups } from "../../util/ui"
-import { OryCardValidationMessages } from "../form"
 import { Node } from "../form/nodes/node"
 import { OryFormSection } from "../form/section"
 import { OrySettingsOidc } from "./oidc-settings"
@@ -160,7 +162,6 @@ export function OrySettingsCard() {
 
   return (
     <>
-      <OryCardValidationMessages />
       {scriptNodes.map((n) => (
         <Node node={n} key={getNodeId(n)} />
       ))}
@@ -173,6 +174,28 @@ export function OrySettingsCard() {
           <SettingsSectionContent key={group} group={group} nodes={nodes} />
         )
       })}
+      <SettingsMessageToaster />
     </>
   )
+}
+
+function SettingsMessageToaster() {
+  const { flow } = useOryFlow()
+  const { Message } = useComponents()
+
+  useEffect(() => {
+    if (!flow.ui.messages) {
+      return
+    }
+    flow.ui.messages.forEach((message) => {
+      showToast(
+        {
+          message,
+        },
+        Message.Toast,
+      )
+    })
+  }, [flow.ui.messages, Message.Toast])
+
+  return <Toaster />
 }

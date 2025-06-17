@@ -1,12 +1,12 @@
 {
-  "id": "5d3bc668-7b47-4d23-a0fd-88f9c5c40fdb",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:26.567381Z",
-  "issued_at": "2025-05-27T08:18:26.567381Z",
-  "request_url": "https://nostalgic-tesla-najctqpayv.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://nostalgic-tesla-najctqpayv.projects.oryapis:8080/self-service/login?flow=5d3bc668-7b47-4d23-a0fd-88f9c5c40fdb",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "v8Rc+D99DCcvnmGnKJoDx0j2kFKm2LBDCakHWtz95LDlAmc4/4vdmo+I8GM75WhwOuQwxCITllpJAn25X8RhGg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -75,8 +75,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:18:26.570045Z",
-  "updated_at": "2025-05-27T08:18:26.570045Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

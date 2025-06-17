@@ -1,11 +1,11 @@
 {
-  "id": "a174a1a9-fb8c-4763-9f09-7f63925ffea6",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-05-27T09:18:39.823191709Z",
-  "issued_at": "2025-05-27T08:18:39.823191709Z",
-  "request_url": "https://jovial-allen-35s3rfgr9f.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://jovial-allen-35s3rfgr9f.projects.oryapis:8080/self-service/registration?flow=a174a1a9-fb8c-4763-9f09-7f63925ffea6",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6TdfNAngnAYlvOSJT3JFsEYx1TO+pYVzbMvzh80bY3XboE0kqnJH26vp0hZJaTPw+jKjL/dcoPTpbYqAnVp8zA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -192,9 +192,9 @@
         "attributes": {
           "name": "webauthn_register_trigger",
           "type": "button",
-          "value": "{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"jovial-allen-35s3rfgr9f.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"6cmfGX1TQPKZAfy0BsRdrw\"},\"challenge\":\"obxuCdiGW4KHhGN5g0f7r9Aj0zD1drc0rL40DWyLCQc\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}}",
+          "value": "{}",
           "disabled": false,
-          "onclick": "window.oryWebAuthnRegistration({\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"jovial-allen-35s3rfgr9f.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"6cmfGX1TQPKZAfy0BsRdrw\"},\"challenge\":\"obxuCdiGW4KHhGN5g0f7r9Aj0zD1drc0rL40DWyLCQc\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":120000,\"authenticatorSelection\":{\"userVerification\":\"discouraged\"}}})",
+          "onclick": "{}",
           "onclickTrigger": "oryWebAuthnRegistration",
           "node_type": "input"
         },
@@ -211,14 +211,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://jovial-allen-35s3rfgr9f.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
           "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "4cff954d-b93a-4e2d-8766-7a077f4768bf",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -262,7 +262,7 @@
         "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
-          "value": "{\"credentialOptions\":{\"publicKey\":{\"rp\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"jovial-allen-35s3rfgr9f.projects.oryapis\"},\"user\":{\"name\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"displayName\":\"ory-cy-e2e-da2f162d-af61-42dd-90dc-e3fcfa7c84a0-ONSODllmN3UYF94R-0-tests/elements/everything.spec.ts\\u003eGenerate all method API responses for Ory Elements Storybook\\u003eone-step\\u003eone step registration\",\"id\":\"cjFKYXNWcHBzaFZzT3pQQUlHcHFWbE5BMzZMUHM0V3BIRW1yUHBZcnJsem5hNFhCZzYxcGhBbjVyZ3M1VlNmMQ\"},\"challenge\":\"fX9Kd6OFH2q2DhiQkRKVLr5BX6Nk8lRosCH99Iu5jIk\",\"pubKeyCredParams\":[{\"type\":\"public-key\",\"alg\":-7},{\"type\":\"public-key\",\"alg\":-35},{\"type\":\"public-key\",\"alg\":-36},{\"type\":\"public-key\",\"alg\":-257},{\"type\":\"public-key\",\"alg\":-258},{\"type\":\"public-key\",\"alg\":-259},{\"type\":\"public-key\",\"alg\":-37},{\"type\":\"public-key\",\"alg\":-38},{\"type\":\"public-key\",\"alg\":-39},{\"type\":\"public-key\",\"alg\":-8}],\"timeout\":300000,\"authenticatorSelection\":{\"authenticatorAttachment\":\"platform\",\"requireResidentKey\":true,\"residentKey\":\"required\",\"userVerification\":\"preferred\"}}},\"displayNameFieldName\":\"traits.email\"}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },

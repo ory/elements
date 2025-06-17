@@ -1,12 +1,12 @@
 {
-  "id": "4645a551-d723-46d3-b363-4ec1464a745b",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-05-27T09:19:00.709744219Z",
-  "issued_at": "2025-05-27T08:19:00.709744219Z",
-  "request_url": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://elegant-clarke-ydex8quvtl.projects.oryapis:8080/self-service/login?flow=4645a551-d723-46d3-b363-4ec1464a745b",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -38,7 +38,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "tvKTFS2EY72XSLDp9xzwALiFggLFdaL/YKl51PMWJXYwNUdq1I4qmhKEahE/xL4FdBW61mbQ421aJG3mNi6M+w==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,7 +52,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.qs68d6afhgs0.f8f15s99sid@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -107,8 +107,8 @@
       }
     ]
   },
-  "created_at": "2025-05-27T08:19:00.738028Z",
-  "updated_at": "2025-05-27T08:19:00.738028Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

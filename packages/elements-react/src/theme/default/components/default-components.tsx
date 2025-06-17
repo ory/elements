@@ -46,6 +46,7 @@ import { DefaultSettingsWebauthn } from "./settings/settings-webauthn"
 import { DefaultAuthMethodListContainer } from "./card/auth-method-list-container"
 import { DefaultCaptcha } from "./form/captcha"
 import { DefaultConsentScopeCheckbox } from "./form/consent-scope-checkbox"
+import { DefaultToast } from "./generic/toast"
 
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
@@ -101,6 +102,7 @@ export function getOryComponents(
     Message: {
       Root: overrides?.Message?.Root ?? DefaultMessageContainer,
       Content: overrides?.Message?.Content ?? DefaultMessage,
+      Toast: overrides?.Message?.Toast ?? DefaultToast,
     },
     Page: {
       Header: overrides?.Page?.Header ?? DefaultPageHeader,
