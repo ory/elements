@@ -175,7 +175,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!SessionContextData:type",
-          "docComment": "",
+          "docComment": "/**\n * Holds the session context data. This context is used to provide the session data to the children of the provider. It is used by the {@link useSession} hook to access the session data.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -305,7 +305,7 @@
             },
             {
               "kind": "Reference",
-              "text": "React.PropsWithChildren",
+              "text": "PropsWithChildren",
               "canonicalReference": "@types/react!React.PropsWithChildren:type"
             },
             {
