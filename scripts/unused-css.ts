@@ -1,3 +1,6 @@
+// Copyright © 2025 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 // usage: `tsx scripts/unused-css.ts`
 // make sure to run `nx build elements-react` first to generate the CSS file
 import fs from "fs"

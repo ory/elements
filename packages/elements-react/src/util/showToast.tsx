@@ -1,3 +1,6 @@
+// Copyright © 2025 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { toast as sonnerToast } from "sonner"
 import { OryToastProps } from "../components"
 
