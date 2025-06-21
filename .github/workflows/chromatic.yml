@@ -22,7 +22,7 @@ jobs:
         run: npm ci
       - run: npx nx run-many --all -t build-storybook -- --stats-json
 
-      - uses: chromaui/action@v11
+      - uses: chromaui/action@v13
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_ELEMENTS_REACT }}
           exitOnceUploaded: true
