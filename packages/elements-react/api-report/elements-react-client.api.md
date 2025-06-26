@@ -7,7 +7,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import { Session } from '@ory/client-fetch';
 
-// @public (undocumented)
+// @public
 export type SessionContextData = {
     isLoading: boolean;
     initialized: boolean;

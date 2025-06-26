@@ -15,6 +15,15 @@ import { omitInputAttributes } from "../../../../util/omitAttributes"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 import { restartFlowUrl } from "../../utils/url"
 
+/**
+ * The `DefaultCurrentIdentifierButton` component renders a button that displays the current identifier
+ *
+ * The button can be used to restart the flow with the current identifier if appropriate.
+ *
+ * @returns
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultCurrentIdentifierButton() {
   const { flow, flowType, formState } = useOryFlow()
   const { setValue, getValues, watch } = useFormContext()

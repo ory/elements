@@ -15,9 +15,9 @@ describe("DefaultComponent", () => {
   })
   test("can override form component", () => {
     const result = getOryComponents({
-      Form: { OidcSettings: CustomComponent },
+      Form: { SsoSettings: CustomComponent },
     })
-    expect(result.Form.OidcSettings).toBe(CustomComponent)
+    expect(result.Form.SsoSettings).toBe(CustomComponent)
     expect(result.Form.Root).toBeDefined()
   })
   test("can override message component", () => {

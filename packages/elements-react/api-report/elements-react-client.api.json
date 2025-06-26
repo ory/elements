@@ -115,48 +115,237 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@betaDocumentation",
-          "syntaxKind": "modifier"
-        },
-        {
-          "tagName": "@internalRemarks",
+          "tagName": "@author",
           "syntaxKind": "block"
         },
         {
-          "tagName": "@preapproved",
+          "tagName": "@module",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@mergeModuleWith",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@type",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@typedef",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@callback",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@prop",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@property",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@group",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@groupDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@disableGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@category",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@categoryDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@hidden",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@ignore",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@class",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@abstract",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@document",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@default",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@extends",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@augments",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@return",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@yields",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@enum",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@event",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@expand",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventExpand",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@expandType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inline",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventInline",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inlineType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@primaryExport",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@template",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkcode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkplain",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@include",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@includeCode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@private",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@protected",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@satisfies",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@since",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@license",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@import",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@overload",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@namespace",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@interface",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@function",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideconstructor",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@summary",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
         }
       ],
-      "supportForTags": {
-        "@alpha": true,
-        "@beta": true,
-        "@defaultValue": true,
-        "@decorator": true,
-        "@deprecated": true,
-        "@eventProperty": true,
-        "@example": true,
-        "@experimental": true,
-        "@inheritDoc": true,
-        "@internal": true,
-        "@label": true,
-        "@link": true,
-        "@override": true,
-        "@packageDocumentation": true,
-        "@param": true,
-        "@privateRemarks": true,
-        "@public": true,
-        "@readonly": true,
-        "@remarks": true,
-        "@returns": true,
-        "@sealed": true,
-        "@see": true,
-        "@throws": true,
-        "@typeParam": true,
-        "@virtual": true,
-        "@betaDocumentation": true,
-        "@internalRemarks": true,
-        "@preapproved": true
-      },
       "reportUnsupportedHtmlElements": false
     }
   },
@@ -175,7 +364,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!SessionContextData:type",
-          "docComment": "",
+          "docComment": "/**\n * Holds the session context data. This context is used to provide the session data to the children of the provider. It is used by the {@link useSession} hook to access the session data.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

@@ -52,7 +52,6 @@ export default defineConfig([
     ],
 
     esbuildPlugins: [
-      // @ts-expect-error - types seems to be wrong but it works
       svgr({
         plugins: ["@svgr/plugin-svgo"],
         svgProps: {

@@ -95,7 +95,7 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.Button:
       if (isSocial) {
         return (
-          <Node.OidcButton
+          <Node.SsoButton
             node={node}
             attributes={attrs}
             onClick={() => {

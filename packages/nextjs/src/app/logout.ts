@@ -11,7 +11,8 @@ import { getPublicUrl } from "./utils"
 /**
  * Use this method in an app router page to create a new logout flow. This method works with server-side rendering.
  *
- * ```
+ * @example
+ * ```tsx
  * import { getLogoutFlow } from "@ory/nextjs/app"
  *
  * async function LogoutLink() {

@@ -13,39 +13,60 @@ import { OryFormProvider } from "./form-provider"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 import { useOryFlow } from "../../context"
 
-type OryFormProps = Omit<
+/**
+ * Props for the OrySettingsFormSection component.
+ * This type extends the form element props but omits the `action`, `method`, and `onSubmit` properties.
+ */
+export type OrySettingsFormProps = Omit<
   ComponentPropsWithoutRef<"form">,
   "action" | "method" | "onSubmit"
 >
 
-export type OryFormSectionProps = PropsWithChildren<
-  OryFormProps & {
-    nodes?: UiNode[]
-  }
->
+/**
+ * Props for the OrySettingsFormSection component.
+ *
+ * @inline
+ * @hidden
+ */
+export interface OryFormSectionProps
+  extends PropsWithChildren,
+    OrySettingsFormProps {
+  nodes?: UiNode[]
+}
 
-export type OryCardSettingsSectionProps = PropsWithChildren & {
+export interface OryCardSettingsSectionProps extends PropsWithChildren {
   action: string
   method: string
   onSubmit: FormEventHandler<HTMLFormElement>
 }
 
-export function OryFormSection({
+/**
+ * OrySettingsFormSection is a component that provides a form section for Ory settings.
+ *
+ * Can be used independently to render a form section with Ory nodes.
+ *
+ * @param props - The properties for the OrySettingsFormSection component.
+ * @returns
+ * @group Components
+ */
+export function OrySettingsFormSection({
   children,
   nodes,
   ...rest
 }: OryFormSectionProps) {
   return (
     <OryFormProvider nodes={nodes}>
-      <OryFormSectionInner {...rest}>{children}</OryFormSectionInner>
+      <OrySettingsFormSectionInner {...rest}>
+        {children}
+      </OrySettingsFormSectionInner>
     </OryFormProvider>
   )
 }
 
-function OryFormSectionInner({
+function OrySettingsFormSectionInner({
   children,
   ...rest
-}: PropsWithChildren<OryFormProps>) {
+}: PropsWithChildren<OrySettingsFormProps>) {
   const { Card } = useComponents()
   const flowContainer = useOryFlow()
   const onSubmit = useOryFormSubmit()

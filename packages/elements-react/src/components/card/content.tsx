@@ -19,6 +19,7 @@ export type OryCardContentProps = PropsWithChildren
  *
  * @param props - pass children to render instead of the default Ory Card components
  * @returns
+ * @group Components
  */
 export function OryCardContent({ children }: OryCardContentProps) {
   const { Card } = useComponents()

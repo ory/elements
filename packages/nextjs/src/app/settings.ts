@@ -11,16 +11,15 @@ import { getPublicUrl, toGetFlowParameter } from "./utils"
 /**
  * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.
  *
- * ```
+ * @example
+ * ```tsx
  * import { Login } from "@ory/elements-react/theme"
  * import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
- * import { enhanceConfig } from "@ory/nextjs"
  *
  * import config from "@/ory.config"
  * import CardHeader from "@/app/auth/login/card-header"
  *
  * export default async function LoginPage(props: OryPageParams) {
- *   const config = enhanceConfig(baseConfig)
  *   const flow = await getLoginFlow(config, props.searchParams)
  *
  *   if (!flow) {

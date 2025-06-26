@@ -71,6 +71,8 @@ const config = {
     logo_dark_url: "string",
     error_ui_url: "string",
     name: "string",
+    default_locale: "en",
+    locale_behavior: "force_default",
   } satisfies AccountExperienceConfiguration,
 }
 

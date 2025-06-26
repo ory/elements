@@ -115,48 +115,237 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@betaDocumentation",
-          "syntaxKind": "modifier"
-        },
-        {
-          "tagName": "@internalRemarks",
+          "tagName": "@author",
           "syntaxKind": "block"
         },
         {
-          "tagName": "@preapproved",
+          "tagName": "@module",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@mergeModuleWith",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@type",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@typedef",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@callback",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@prop",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@property",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@group",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@groupDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@disableGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@category",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@categoryDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@hidden",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@ignore",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@class",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@abstract",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@document",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@default",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@extends",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@augments",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@return",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@yields",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@enum",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@event",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@expand",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventExpand",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@expandType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inline",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventInline",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inlineType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@primaryExport",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@template",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkcode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkplain",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@include",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@includeCode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@private",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@protected",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@satisfies",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@since",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@license",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@import",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@overload",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@namespace",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@interface",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@function",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideconstructor",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@summary",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
         }
       ],
-      "supportForTags": {
-        "@alpha": true,
-        "@beta": true,
-        "@defaultValue": true,
-        "@decorator": true,
-        "@deprecated": true,
-        "@eventProperty": true,
-        "@example": true,
-        "@experimental": true,
-        "@inheritDoc": true,
-        "@internal": true,
-        "@label": true,
-        "@link": true,
-        "@override": true,
-        "@packageDocumentation": true,
-        "@param": true,
-        "@privateRemarks": true,
-        "@public": true,
-        "@readonly": true,
-        "@remarks": true,
-        "@returns": true,
-        "@sealed": true,
-        "@see": true,
-        "@throws": true,
-        "@typeParam": true,
-        "@virtual": true,
-        "@betaDocumentation": true,
-        "@internalRemarks": true,
-        "@preapproved": true
-      },
       "reportUnsupportedHtmlElements": false
     }
   },
@@ -175,7 +364,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!createOryMiddleware:function(1)",
-          "docComment": "/**\n * Creates a Next.js middleware function that proxies requests to the Ory SDK.\n *\n * This middleware function intercepts requests to the Ory SDK and rewrites the URLs if in development mode or on vercel.com domains.\n *\n * @param options - The Ory configuration to use for the middleware.\n *\n * @returns The Ory Next.js middleware function\n *\n * @public\n */\n",
+          "docComment": "/**\n * Creates a Next.js middleware function that proxies requests to the Ory SDK.\n *\n * This middleware function intercepts requests to the Ory SDK and rewrites the URLs if in development mode or on vercel.com domains.\n *\n * @param options - The Ory configuration to use for the middleware.\n *\n * @returns The Ory Next.js middleware function\n *\n * @example\n * ```ts title=\"middleware.ts\"\n * import { createOryMiddleware } from \"@ory/elements/nextjs\";\n *\n * export default createOryMiddleware({\n *   forwardAdditionalHeaders: [\"authorization\", \"x-custom-header\"],\n *   forceCookieDomain: \"example.com\",\n *   project: {\n *     name: \"my-project\",\n *   },\n * });\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -184,7 +373,7 @@
             {
               "kind": "Reference",
               "text": "OryMiddlewareOptions",
-              "canonicalReference": "@ory/nextjs!~OryMiddlewareOptions:type"
+              "canonicalReference": "@ory/nextjs!OryMiddlewareOptions:type"
             },
             {
               "kind": "Content",
@@ -419,7 +608,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getLoginFlow:function(1)",
-          "docComment": "/**\n * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n * import CardHeader from \"@/app/auth/login/card-header\"\n *\n * import baseConfig from \"@/ory.config\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getLoginFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Login\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @example\n * ```tsx\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import CardHeader from \"@/app/auth/login/card-header\"\n *\n * import config from \"@/ory.config\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   const flow = await getLoginFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Login\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -517,7 +706,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getLogoutFlow:function(1)",
-          "docComment": "/**\n * Use this method in an app router page to create a new logout flow. This method works with server-side rendering.\n * ```\n * import { getLogoutFlow } from \"@ory/nextjs/app\"\n *\n * async function LogoutLink() {\n *   const flow = await getLogoutFlow()\n *\n *   return (\n *     <a href={flow.logout_url}>\n *       Logout\n *     </a>\n *   )\n * }\n *\n * ```\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Use this method in an app router page to create a new logout flow. This method works with server-side rendering.\n *\n * @param params - The query parameters of the request.\n *\n * @example\n * ```tsx\n * import { getLogoutFlow } from \"@ory/nextjs/app\"\n *\n * async function LogoutLink() {\n *   const flow = await getLogoutFlow()\n *\n *   return (\n *     <a href={flow.logout_url}>\n *       Logout\n *     </a>\n *   )\n * }\n *\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -576,7 +765,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getRecoveryFlow:function(1)",
-          "docComment": "/**\n * Use this method in an app router page to fetch an existing recovery flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Recovery } from \"@ory/elements-react/theme\"\n * import { getRecoveryFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/recovery/card-header\"\n *\n * export default async function RecoveryPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getRecoveryFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Recovery\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing recovery flow or to create a new one. This method works with server-side rendering.\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @example\n * ```tsx\n * import { Recovery } from \"@ory/elements-react/theme\"\n * import { getRecoveryFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/recovery/card-header\"\n *\n * export default async function RecoveryPage(props: OryPageParams) {\n *   const flow = await getRecoveryFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Recovery\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -674,7 +863,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getRegistrationFlow:function(1)",
-          "docComment": "/**\n * Use this method in an app router page to fetch an existing registration flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Registration } from \"@ory/elements-react/theme\"\n * import { getRegistrationFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/registration/card-header\"\n *\n * export default async function RegistrationPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getRegistrationFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Registration\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing registration flow or to create a new one. This method works with server-side rendering.\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @example\n * ```tsx\n * import { Registration } from \"@ory/elements-react/theme\"\n * import { getRegistrationFlow, OryPageParams } from \"@ory/nextjs/app\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/registration/card-header\"\n *\n * export default async function RegistrationPage(props: OryPageParams) {\n *   const flow = await getRegistrationFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Registration\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -772,7 +961,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getServerSession:function(1)",
-          "docComment": "/**\n * A helper to fetch the session on the server side. This method works with server-side rendering.\n * ```ts\n * import { getServerSession } from \"@ory/nextjs/app\"\n *\n * async function MyComponent() {\n *  const session = await getServerSession()\n *\n *  if (!session) {\n *    return <p>No session found</p>\n *  }\n *\n * }\n * ```\n *\n * @returns The session object or null if no session is found.\n *\n * @public\n */\n",
+          "docComment": "/**\n * A helper to fetch the session on the server side. This method works with server-side rendering.\n *\n * @returns The session object or null if no session is found.\n *\n * @example\n * ```tsx\n * import { getServerSession } from \"@ory/nextjs/app\"\n *\n * async function MyComponent() {\n *  const session = await getServerSession()\n *\n *  if (!session) {\n *    return <p>No session found</p>\n *  }\n *\n * }\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -814,7 +1003,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getSettingsFlow:function(1)",
-          "docComment": "/**\n * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/login/card-header\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getLoginFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Login\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing login flow or to create a new one. This method works with server-side rendering.\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @example\n * ```tsx\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow, OryPageParams } from \"@ory/nextjs/app\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/login/card-header\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   const flow = await getLoginFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Login\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -912,7 +1101,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getVerificationFlow:function(1)",
-          "docComment": "/**\n * Use this method in an app router page to fetch an existing verification flow or to create a new one. This method works with server-side rendering.\n * ```\n * import { Verification } from \"@ory/elements-react/theme\"\n * import { getVerificationFlow, OryPageParams } from \"@ory/nextjs/app\"\n * import { enhanceConfig } from \"@ory/nextjs\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/verification/card-header\"\n *\n * export default async function VerificationPage(props: OryPageParams) {\n *   const config = enhanceConfig(baseConfig)\n *   const flow = await getVerificationFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Verification\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Use this method in an app router page to fetch an existing verification flow or to create a new one. This method works with server-side rendering.\n *\n * @param config - The Ory configuration object.\n *\n * @param params - The query parameters of the request.\n *\n * @example\n * ```tsx\n * import { Verification } from \"@ory/elements-react/theme\"\n * import { getVerificationFlow, OryPageParams } from \"@ory/nextjs/app\"\n *\n * import config from \"@/ory.config\"\n * import CardHeader from \"@/app/auth/verification/card-header\"\n *\n * export default async function VerificationPage(props: OryPageParams) {\n *   const flow = await getVerificationFlow(config, props.searchParams)\n *\n *   if (!flow) {\n *     return null\n *   }\n *\n *   return (\n *     <Verification\n *       flow={flow}\n *       config={config}\n *       components={{\n *         Card: {\n *           Header: CardHeader,\n *         },\n *       }}\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1008,6 +1197,50 @@
           "name": "getVerificationFlow"
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/nextjs!OryMiddlewareOptions:type",
+          "docComment": "/**\n * @hidden @inline @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryMiddlewareOptions = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    forwardAdditionalHeaders?: string[];\n    forceCookieDomain?: string;\n    project?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "AccountExperienceConfiguration",
+              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/middleware/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryMiddlewareOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "@ory/nextjs!OryPageParams:interface",
           "docComment": "/**\n * A utility type that represents the query parameters of a request.\n *\n * This is needed because Next.js does not expose the query parameters as a tye.\n * ```ts\n * import { OryPageParams } from \"@ory/nextjs/app\"\n *\n * export default async function LoginPage(props: OryPageParams) {\n *   // props.searchParams is a Promise that resolves to an object with the query parameters\n * }\n * ```\n *\n * @public\n */\n",
@@ -1060,7 +1293,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!useLoginFlow:function(1)",
-          "docComment": "/**\n * A client side hook to create a login flow.\n *\n * @returns A login flow\n *\n * @public\n */\n",
+          "docComment": "/**\n * A client side hook to create a login flow.\n *\n * @returns A login flow\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1093,7 +1326,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!useLogoutFlow:function(1)",
-          "docComment": "/**\n * A client side hook to create a logout flow.\n *\n * @returns A logout flow\n *\n * @public\n */\n",
+          "docComment": "/**\n * A client side hook to create a logout flow.\n *\n * @returns A logout flow\n *\n * @group\n *\n * Hooks\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1126,7 +1359,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!useRecoveryFlow:function(1)",
-          "docComment": "/**\n * A client side hook to create a recovery flow.\n *\n * @returns A recovery flow\n *\n * @public\n */\n",
+          "docComment": "/**\n * A client side hook to create a recovery flow.\n *\n * @returns A recovery flow\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1159,7 +1392,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!useRegistrationFlow:function(1)",
-          "docComment": "/**\n * A client side hook to create a registration flow.\n *\n * @returns A registration flow\n *\n * @public\n */\n",
+          "docComment": "/**\n * A client side hook to create a registration flow.\n *\n * @returns A registration flow\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1192,7 +1425,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!useSettingsFlow:function(1)",
-          "docComment": "/**\n * A client side hook to create a settings flow.\n *\n * @returns A settings flow\n *\n * @public\n */\n",
+          "docComment": "/**\n * A client side hook to create a settings flow.\n *\n * @returns A settings flow\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1225,7 +1458,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!useVerificationFlow:function(1)",
-          "docComment": "/**\n * A client side hook to create a verification flow.\n *\n * @returns A verification flow\n *\n * @public\n */\n",
+          "docComment": "/**\n * A client side hook to create a verification flow.\n *\n * @returns A verification flow\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

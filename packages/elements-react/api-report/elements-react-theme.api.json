@@ -115,48 +115,237 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@betaDocumentation",
-          "syntaxKind": "modifier"
-        },
-        {
-          "tagName": "@internalRemarks",
+          "tagName": "@author",
           "syntaxKind": "block"
         },
         {
-          "tagName": "@preapproved",
+          "tagName": "@module",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@mergeModuleWith",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@type",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@typedef",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@callback",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@prop",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@property",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@group",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@groupDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@disableGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@category",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@categoryDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@hidden",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@ignore",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@class",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@abstract",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@document",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@default",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@extends",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@augments",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@return",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@yields",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@enum",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@event",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@expand",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventExpand",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@expandType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inline",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventInline",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inlineType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@primaryExport",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@template",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkcode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkplain",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@include",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@includeCode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@private",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@protected",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@satisfies",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@since",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@license",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@import",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@overload",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@namespace",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@interface",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@function",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideconstructor",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@summary",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
         }
       ],
-      "supportForTags": {
-        "@alpha": true,
-        "@beta": true,
-        "@defaultValue": true,
-        "@decorator": true,
-        "@deprecated": true,
-        "@eventProperty": true,
-        "@example": true,
-        "@experimental": true,
-        "@inheritDoc": true,
-        "@internal": true,
-        "@label": true,
-        "@link": true,
-        "@override": true,
-        "@packageDocumentation": true,
-        "@param": true,
-        "@privateRemarks": true,
-        "@public": true,
-        "@readonly": true,
-        "@remarks": true,
-        "@returns": true,
-        "@sealed": true,
-        "@see": true,
-        "@throws": true,
-        "@typeParam": true,
-        "@virtual": true,
-        "@betaDocumentation": true,
-        "@internalRemarks": true,
-        "@preapproved": true
-      },
       "reportUnsupportedHtmlElements": false
     }
   },
@@ -175,7 +364,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Consent:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The Consent component allows you to render the consent flow for Ory OAuth2.\n *\n * It is used to request user consent for accessing their data and resources. The component takes in the OAuth2 consent request object, the session object, the Ory client configuration, a CSRF token, and the URL to submit the consent form to.\n *\n * @param props - The props for the Consent component.\n *\n * @returns the Consent component.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -192,21 +381,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "ConsentFlowContextProps",
-              "canonicalReference": "@ory/elements-react!ConsentFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
+              "text": "ConsentFlowProps",
+              "canonicalReference": "@ory/elements-react!ConsentFlowProps:type"
             },
             {
               "kind": "Content",
@@ -224,8 +400,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -234,7 +410,7 @@
               "parameterName": "{ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -243,12 +419,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@ory/elements-react!ConsentFlowContextProps:type",
-          "docComment": "",
+          "canonicalReference": "@ory/elements-react!ConsentFlowProps:type",
+          "docComment": "/**\n * All the props that are passed to the Consent component.\n *\n * @hidden @inline\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type ConsentFlowContextProps = "
+              "text": "type ConsentFlowProps = "
             },
             {
               "kind": "Content",
@@ -275,16 +451,29 @@
             {
               "kind": "Reference",
               "text": "OryClientConfiguration",
-              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:interface"
             },
             {
               "kind": "Content",
-              "text": ";\n    csrfToken: string;\n    formActionUrl: string;\n} & "
+              "text": ";\n    csrfToken: string;\n    formActionUrl: string;\n    components?: "
             },
             {
               "kind": "Reference",
-              "text": "PropsWithComponents",
-              "canonicalReference": "@ory/elements-react!~PropsWithComponents:type"
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-react!~OryFlowComponentOverrides:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    children?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
             },
             {
               "kind": "Content",
@@ -293,16 +482,16 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "releaseTag": "Public",
-          "name": "ConsentFlowContextProps",
+          "name": "ConsentFlowProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 9
+            "endIndex": 12
           }
         },
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultButtonSocial:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The default implementation of a social button for Ory SSO. It renders a button with a logo and an optional label.\n *\n * @param props - The props for the DefaultButtonSocial component.\n *\n * @returns \n *\n * @category\n *\n * Default Components\n *\n * @group\n *\n * Components\n *\n * @inlineType\n *\n * OryNodeSsoButtonProps\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -311,7 +500,7 @@
             {
               "kind": "Reference",
               "text": "showLabel",
-              "canonicalReference": "@ory/elements-react!~__type#showLabel"
+              "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps#showLabel"
             },
             {
               "kind": "Content",
@@ -320,7 +509,7 @@
             {
               "kind": "Reference",
               "text": "logos",
-              "canonicalReference": "@ory/elements-react!~__type#logos"
+              "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps#logos"
             },
             {
               "kind": "Content",
@@ -329,7 +518,7 @@
             {
               "kind": "Reference",
               "text": "DefaultSocialButtonProps",
-              "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps:type"
+              "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps:interface"
             },
             {
               "kind": "Content",
@@ -417,7 +606,7 @@
                 {
                   "kind": "Reference",
                   "text": "DefaultSocialButtonProps",
-                  "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps:type"
+                  "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps:interface"
                 },
                 {
                   "kind": "Content",
@@ -452,7 +641,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCard:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The DefaultCard component is a styled container that serves as the main card layout for Ory Elements.\n *\n * @param props - The properties for the DefaultCard component.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -499,7 +688,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCardContent:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * Simply renders the children passed to it.\n *\n * @param props - pass children to render instead of the default Ory Card components\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -546,7 +735,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCardFooter:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * DefaultCardFooter renders the default footer for the card component based on the current flow type.\n *\n * @returns The default card footer component that renders the appropriate footer based on the current flow type.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -579,7 +768,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCardHeader:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * Renders the default card header component.\n *\n * This component is used to display the header of a card, including the logo, title, description, and current identifier button.\n *\n * @returns the default card header component\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -607,55 +796,8 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@ory/elements-react!DefaultCardLayout:function(1)",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "declare function DefaultCardLayout({ children }: "
-            },
-            {
-              "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
-            },
-            {
-              "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "dist/theme/default/index.d.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 4
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "{ children }",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isOptional": false
-            }
-          ],
-          "name": "DefaultCardLayout"
-        },
-        {
-          "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCardLogo:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The DefaultCardLogo component renders the logo from the {@link @ory/elements-react!OryProvider} or falls back to the project name.\n *\n * @returns the default logo for the Ory Card component.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n *\n * @see\n *\n * {@link @ory/elements-react!OryProvider}\n *\n * @see\n *\n * {@link @ory/elements-react!OryElementsConfiguration}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -684,7 +826,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultCurrentIdentifierButton:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The `DefaultCurrentIdentifierButton` component renders a button that displays the current identifier\n *\n * The button can be used to restart the flow with the current identifier if appropriate.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -717,11 +859,11 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultFormContainer:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The default form container for Ory Elements.\n *\n * @param props - The properties for the DefaultFormContainer component.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultFormContainer({ children, onSubmit, action, method, \"data-testid\": dataTestId, }: "
+              "text": "declare function DefaultFormContainer({ children, onSubmit, action, method, }: "
             },
             {
               "kind": "Reference",
@@ -764,7 +906,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, onSubmit, action, method, \"data-testid\": dataTestId, }",
+              "parameterName": "{ children, onSubmit, action, method, }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 5
@@ -777,7 +919,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultMessage:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The default message component for Ory Elements.\n *\n * @param props - The properties for the DefaultMessage component.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n *\n * @see\n *\n * {@link @ory/elements-react!uiTextToFormattedMessage}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -824,7 +966,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!DefaultMessageContainer:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The default message container for Ory Elements.\n *\n * @param props - The properties for the DefaultMessageContainer component.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Default Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -875,7 +1017,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Error_2:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The Error component is used to display an error message to the user.\n *\n * @param props - The props for the Error component.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -892,21 +1034,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "ErrorFlowContextProps",
               "canonicalReference": "@ory/elements-react!ErrorFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
             },
             {
               "kind": "Content",
@@ -924,8 +1053,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -934,7 +1063,7 @@
               "parameterName": "{ error, components: Components, config, session, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -944,7 +1073,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!ErrorFlowContextProps:type",
-          "docComment": "",
+          "docComment": "/**\n * Props for the Error component.\n *\n * @inline @hidden\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -975,7 +1104,7 @@
             {
               "kind": "Reference",
               "text": "OryClientConfiguration",
-              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:interface"
             },
             {
               "kind": "Content",
@@ -1006,7 +1135,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!getOryComponents:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * Merges the default Ory components with any provided overrides.\n *\n * The output of this function is a complete set of components that can be used in Ory flows.\n *\n * @param overrides - Optional overrides for the default components.\n *\n * @returns \n *\n * @category\n *\n * Utilities\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1053,7 +1182,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Login:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The `Login` component is used to render the login flow in Ory Elements.\n *\n * It provides the necessary context and components for the login flow, allowing you to customize the appearance and behavior of the login form.\n *\n * @param props - The props for the Login component.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1070,21 +1199,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "LoginFlowContextProps",
               "canonicalReference": "@ory/elements-react!LoginFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
             },
             {
               "kind": "Content",
@@ -1102,8 +1218,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1112,7 +1228,7 @@
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -1122,7 +1238,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!LoginFlowContextProps:type",
-          "docComment": "",
+          "docComment": "/**\n * Props for the Login component.\n *\n * @inline @hidden\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1153,7 +1269,16 @@
             {
               "kind": "Reference",
               "text": "OryClientConfiguration",
-              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    children?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
             },
             {
               "kind": "Content",
@@ -1169,13 +1294,13 @@
           "name": "LoginFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 10
           }
         },
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OAuth2Error:type",
-          "docComment": "/**\n * An OAuth2 error response.\n */\n",
+          "docComment": "/**\n * An OAuth2 error response.\n *\n * @hidden @inline\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1201,7 +1326,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryError:type",
-          "docComment": "/**\n * A union type of all possible errors that can be returned by the Ory SDK.\n */\n",
+          "docComment": "/**\n * A union type of all possible errors that can be returned by the Ory SDK.\n *\n * @hidden @inline\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1250,7 +1375,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Recovery:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The `Recovery` component is used to render the recovery flow in Ory Elements.\n *\n * @param props - The props for the Recovery component.\n *\n * @returns the recovery flow component.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1267,21 +1392,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "RecoveryFlowContextProps",
               "canonicalReference": "@ory/elements-react!RecoveryFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
             },
             {
               "kind": "Content",
@@ -1299,8 +1411,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1309,7 +1421,7 @@
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -1319,7 +1431,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!RecoveryFlowContextProps:type",
-          "docComment": "",
+          "docComment": "/**\n * Props for the Recovery component.\n *\n * @inline @hidden\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1350,7 +1462,16 @@
             {
               "kind": "Reference",
               "text": "OryClientConfiguration",
-              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    children?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
             },
             {
               "kind": "Content",
@@ -1366,13 +1487,13 @@
           "name": "RecoveryFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 10
           }
         },
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Registration:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The `Registration` component is used to render the registration flow in Ory Elements.\n *\n * @param props - The props for the Registration component.\n *\n * @returns \n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1389,21 +1510,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "RegistrationFlowContextProps",
               "canonicalReference": "@ory/elements-react!~RegistrationFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
             },
             {
               "kind": "Content",
@@ -1421,8 +1529,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1431,7 +1539,7 @@
               "parameterName": "{ flow, children, components: flowOverrideComponents, config, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -1441,7 +1549,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Settings:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The `Settings` component is used to render the settings flow in Ory Elements.\n *\n * It provides the necessary context and components for the settings flow, allowing you to customize the appearance and behavior of the settings form.\n *\n * @param props - The props for the Settings component.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1458,21 +1566,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "SettingsFlowContextProps",
               "canonicalReference": "@ory/elements-react!SettingsFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
             },
             {
               "kind": "Content",
@@ -1490,8 +1585,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1500,7 +1595,7 @@
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -1510,7 +1605,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!SettingsFlowContextProps:type",
-          "docComment": "",
+          "docComment": "/**\n * Props for the Settings component.\n *\n * @inline @hidden\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1541,7 +1636,16 @@
             {
               "kind": "Reference",
               "text": "OryClientConfiguration",
-              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    children?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
             },
             {
               "kind": "Content",
@@ -1557,13 +1661,13 @@
           "name": "SettingsFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 10
           }
         },
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!Verification:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * The `Verification` component is used to render the verification flow in Ory Elements.\n *\n * It provides the necessary context and components for the verification flow, allowing you to customize the appearance and behavior of the verification form.\n *\n * @param props - The props for the Verification component.\n *\n * @group\n *\n * Components\n *\n * @category\n *\n * Flows\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1580,21 +1684,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PropsWithChildren",
-              "canonicalReference": "@types/react!React.PropsWithChildren:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
               "text": "VerificationFlowContextProps",
               "canonicalReference": "@ory/elements-react!VerificationFlowContextProps:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
             },
             {
               "kind": "Content",
@@ -1612,8 +1703,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 9
+            "startIndex": 5,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1622,7 +1713,7 @@
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 4
               },
               "isOptional": false
             }
@@ -1632,7 +1723,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!VerificationFlowContextProps:type",
-          "docComment": "",
+          "docComment": "/**\n * Props for the Verification component.\n *\n * @inline @hidden\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1663,7 +1754,16 @@
             {
               "kind": "Reference",
               "text": "OryClientConfiguration",
-              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:type"
+              "canonicalReference": "@ory/elements-react!~OryClientConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    children?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
             },
             {
               "kind": "Content",
@@ -1679,7 +1779,7 @@
           "name": "VerificationFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 10
           }
         }
       ]

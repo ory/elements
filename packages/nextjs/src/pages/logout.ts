@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
  *
  * @returns A logout flow
  * @public
+ * @group Hooks
  */
 export function useLogoutFlow() {
   const [flow, setFlow] = useState<LogoutFlow | undefined>(undefined)

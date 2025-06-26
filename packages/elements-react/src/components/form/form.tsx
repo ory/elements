@@ -16,6 +16,7 @@ import { useComponents, useOryFlow } from "../../context"
 import {
   OryCardAuthMethodListItemProps,
   OryCardLogoProps,
+  OryFormGroupProps,
   OryFormRootProps,
   OryFormSectionContentProps,
   OryFormSectionFooterProps,
@@ -34,16 +35,15 @@ import { OryCardContentProps } from "../card/content"
 import { OryPageHeaderProps } from "../generic"
 import { OryCardDividerProps } from "../generic/divider"
 import {
-  OrySettingsOidcProps,
+  OrySettingsSsoProps,
   OrySettingsPasskeyProps,
   OrySettingsRecoveryCodesProps,
   OrySettingsTotpProps,
   OrySettingsWebauthnProps,
 } from "../settings"
-import { OryFormGroupProps } from "./groups"
 import { OryMessageContentProps, OryMessageRootProps } from "./messages"
-import { OryCardSettingsSectionProps } from "./section"
-import { OryFormOidcRootProps, OryNodeOidcButtonProps } from "./social"
+import { OryCardSettingsSectionProps } from "./settings-section"
+import { OryFormSsoRootProps, OryNodeSsoButtonProps } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 
 /**
@@ -56,11 +56,11 @@ export type OryFlowComponents = {
      */
     Button: ComponentType<OryNodeButtonProps>
     /**
-     * The SocialButton component is rendered whenever a button of group "oidc" node is encountered.
+     * The SsoButton component is rendered whenever a button of group "oidc" or "saml" node is encountered.
      *
      * It renders the "Login with Google", "Login with Facebook" etc. buttons.
      */
-    OidcButton: ComponentType<OryNodeOidcButtonProps>
+    SsoButton: ComponentType<OryNodeSsoButtonProps>
     /**
      * Anchor component, rendered whenever an "anchor" node is encountered
      */
@@ -169,7 +169,7 @@ export type OryFlowComponents = {
      *
      * You most likely don't want to override this component directly.
      */
-    OidcRoot: ComponentType<OryFormOidcRootProps>
+    SsoRoot: ComponentType<OryFormSsoRootProps>
 
     /**
      * The FormGroup is rendered around each group of nodes in the UI nodes.
@@ -179,7 +179,7 @@ export type OryFlowComponents = {
     /**
      * The section on the settings page, rendering the OIDC settings
      */
-    OidcSettings: ComponentType<OrySettingsOidcProps>
+    SsoSettings: ComponentType<OrySettingsSsoProps>
 
     /**
      * The section on the settings page, rendering the Webauthn settings
@@ -223,28 +223,47 @@ export type OryFlowComponents = {
     Header: ComponentType<OryPageHeaderProps>
   }
 }
-
 export type OryToastProps = {
   message: UiText
   id: string | number
 }
 
-type DeepPartialTwoLevels<T> = {
-  [P in keyof T]?: T[P] extends object ? { [K in keyof T[P]]?: T[P][K] } : T[P]
+/**
+ * Makes the components in OryFlowComponents optional, so that you can override only the components you want to change.
+ */
+export type OryFlowComponentOverrides = {
+  [P in keyof OryFlowComponents]?: OryFlowComponents[P] extends object
+    ? { [K in keyof OryFlowComponents[P]]?: OryFlowComponents[P][K] }
+    : OryFlowComponents[P]
 }
 
-export type OryFlowComponentOverrides = DeepPartialTwoLevels<OryFlowComponents>
-
-export type OryFormProps = PropsWithChildren<{
+/**
+ * The props for the OryForm component.
+ * @inline
+ * @hidden
+ */
+export interface OryFormProps extends PropsWithChildren {
+  /**
+   * A callback function that is called after the form is submitted.
+   *
+   * It is always called after the form is submitted, unless the form submission is prevented by client side
+   * validation or the API response dictated that the client should be redirected
+   *
+   * @param method - The method that was submitted.
+   */
   onAfterSubmit?: (method: string | number | boolean | undefined) => void
-  "data-testid"?: string
-}>
+}
 
-export function OryForm({
-  children,
-  onAfterSubmit,
-  "data-testid": dataTestId,
-}: OryFormProps) {
+/**
+ * The OryForm component is the main form container for Ory flows.
+ *
+ * It renders the form with the correct action and method, and handles the submission of the form.
+ *
+ * @param props - The props for the OryForm component.
+ * @returns
+ * @group Components
+ */
+export function OryForm({ children, onAfterSubmit }: OryFormProps) {
   const { Form } = useComponents()
   const flowContainer = useOryFlow()
   const methods = useFormContext()
@@ -283,11 +302,9 @@ export function OryForm({
     }
 
     return (
-      <div data-testid={dataTestId}>
-        <Message.Root>
-          <Message.Content key={m.id} message={m} />
-        </Message.Root>
-      </div>
+      <Message.Root>
+        <Message.Content key={m.id} message={m} />
+      </Message.Root>
     )
   }
 
@@ -303,7 +320,6 @@ export function OryForm({
 
   return (
     <Form.Root
-      data-testid={dataTestId}
       action={flowContainer.flow.ui.action}
       method={flowContainer.flow.ui.method}
       onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}

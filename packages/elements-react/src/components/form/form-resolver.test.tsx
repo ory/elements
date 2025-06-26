@@ -1,13 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { FlowType, LoginFlow } from "@ory/client-fetch"
 import { renderHook } from "@testing-library/react"
+import { PropsWithChildren } from "react"
+import { OryFlowProvider } from "../../context/flow-context"
 import { FormValues } from "../../types"
 import { useOryFormResolver } from "./form-resolver"
-import { OryFlowProvider } from "../../context/flow-context"
-import { defaultConfiguration } from "../../tests/jest/test-utils"
-import { PropsWithChildren } from "react"
-import { FlowType, LoginFlow } from "@ory/client-fetch"
 
 const testCases = [
   {
@@ -35,7 +34,6 @@ const testCases = [
 
 const wrapper = ({ children }: PropsWithChildren) => (
   <OryFlowProvider
-    config={defaultConfiguration}
     flow={
       {
         active: "code",

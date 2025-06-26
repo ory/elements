@@ -34,6 +34,15 @@ function InnerCardHeader({
   )
 }
 
+/**
+ * Renders the default card header component.
+ *
+ * This component is used to display the header of a card, including the logo, title, description, and current identifier button.
+ *
+ * @returns the default card header component
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultCardHeader() {
   const context = useOryFlow()
   const { title, description, messageId } = useCardHeaderText(

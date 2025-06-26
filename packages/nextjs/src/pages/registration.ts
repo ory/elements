@@ -10,6 +10,8 @@ import { FlowType } from "@ory/client-fetch"
  *
  * @returns A registration flow
  * @public
+ * @function
+ * @group Hooks
  */
 export const useRegistrationFlow = createUseFlowFactory(
   FlowType.Registration,
