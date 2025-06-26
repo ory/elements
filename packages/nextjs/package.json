@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/cookie": "^0.6.0",
     "@types/set-cookie-parser": "^2.4.10",
-    "babel-jest": "^29.7.0",
+    "babel-jest": "^30.0.0",
     "jest-esm-transformer": "^1.0.0",
     "tsup": "8.5.0"
   },
