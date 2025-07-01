@@ -281,5 +281,8 @@
   "error.instructions": "Vennligst prøv igjen om noen minutter eller kontakt nettstedets operatør.",
   "error.footer.text": "Når du rapporterer denne feilen, vennligst inkluder følgende informasjon:",
   "error.footer.copy": "Kopier",
-  "error.action.go-back": "Gå tilbake"
+  "error.action.go-back": "Gå tilbake",
+  "settings.messages.toast-title.error": "Kunne ikke oppdatere innstillinger",
+  "settings.messages.toast-title.success": "Innstillinger oppdatert",
+  "two-step.passkey.description.error": "Kunne ikke laste de nødvendige bibliotekene for å bruke passordet ditt. \nVennligst prøv igjen senere."
 }
