@@ -266,6 +266,7 @@
   "card.header.description.registration": "Registrarse con {identifierLabel}",
   "misc.or": "o",
   "forms.label.forgot-password": "¿Olvidaste tu contraseña?",
+  "forms.label.recover-account": "Recuperar cuenta",
   "settings.oidc.info": "Las cuentas conectadas de estos proveedores se pueden utilizar para iniciar sesión en tu cuenta",
   "settings.webauthn.info": "Los tokens de hardware se utilizan para la autenticación de segundo factor o como primer factor con las claves de acceso",
   "settings.passkey.info": "Administra la configuración de tus claves de acceso",

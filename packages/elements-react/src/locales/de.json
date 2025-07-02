@@ -215,6 +215,7 @@
   "misc.or": "oder",
   "registration.subtitle": "Registrieren Sie sich mit {parts}.",
   "forms.label.forgot-password": "Passwort vergessen?",
+  "forms.label.recover-account": "Konto wiederherstellen",
   "settings.title": "Kontoeinstellungen",
   "settings.navigation.title": "Kontoeinstellungen",
   "settings.subtitle": "Aktualisieren Sie Ihre Kontoeinstellungen",

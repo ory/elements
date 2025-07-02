@@ -220,6 +220,7 @@
   "card.header.parts.totp": "Twoja aplikacja uwierzytelniająca",
   "card.header.parts.lookup_secret": "kod odzyskiwania kopii zapasowej",
   "forms.label.forgot-password": "",
+  "forms.label.recover-account": "",
   "login.subtitle": "",
   "login.subtitle-refresh": "",
   "misc.or": "",
