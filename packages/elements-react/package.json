@@ -43,15 +43,15 @@
   "dependencies": {
     "@marsidev/react-turnstile": "^1.1.0",
     "@ory/client-fetch": "~1.20.0",
-    "@radix-ui/react-dropdown-menu": "2.1.14",
-    "@radix-ui/react-switch": "1.2.4",
+    "@radix-ui/react-dropdown-menu": "2.1.15",
+    "@radix-ui/react-switch": "1.2.5",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "input-otp": "1.4.2",
-    "react-hook-form": "7.56.4",
+    "react-hook-form": "7.59.0",
     "react-intl": "7.1.10",
     "sonner": "^2.0.0",
-    "tailwind-merge": "3.3.0",
+    "tailwind-merge": "3.3.1",
     "usehooks-ts": "3.1.1"
   },
   "peerDependencies": {
@@ -68,10 +68,10 @@
     "autoprefixer": "10.4.21",
     "esbuild-plugin-svgr": "3.1.1",
     "eslint-plugin-react": "7.37.5",
-    "postcss": "8.4.47",
+    "postcss": "8.5.6",
     "tailwindcss-animate": "1.0.7",
     "tsup": "8.4.0",
-    "typedoc": "0.28.5"
+    "typedoc": "0.28.7"
   },
   "keywords": [
     "ory",
