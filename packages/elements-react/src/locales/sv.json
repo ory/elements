@@ -220,6 +220,7 @@
   "card.header.parts.password.registration": "din {identifierLabel} och ett lösenord",
   "card.header.parts.webauthn": "en säkerhetsnyckel",
   "forms.label.forgot-password": "Glömt Lösenord?",
+  "forms.label.recover-account": "Återställ Konto",
   "login.subtitle": "Logga in med {parts}",
   "login.subtitle-refresh": "Bekräfta din identitet med {parts}",
   "misc.or": "eller",

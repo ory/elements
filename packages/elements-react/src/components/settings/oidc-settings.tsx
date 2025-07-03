@@ -50,7 +50,7 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
         title={intl.formatMessage({ id: "settings.oidc.title" })}
         description={intl.formatMessage({ id: "settings.oidc.description" })}
       >
-        <Form.OidcSettings
+        <Form.SsoSettings
           linkButtons={linkButtons}
           unlinkButtons={unlinkButtons}
         />

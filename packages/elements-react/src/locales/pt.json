@@ -220,6 +220,7 @@
   "card.header.parts.password.registration": "",
   "card.header.parts.webauthn": "",
   "forms.label.forgot-password": "",
+  "forms.label.recover-account": "",
   "login.subtitle": "",
   "login.subtitle-refresh": "",
   "misc.or": "",

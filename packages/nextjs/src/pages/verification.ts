@@ -10,6 +10,8 @@ import { FlowType } from "@ory/client-fetch"
  *
  * @returns A verification flow
  * @public
+ * @function
+ * @group Hooks
  */
 export const useVerificationFlow = createUseFlowFactory(
   FlowType.Verification,

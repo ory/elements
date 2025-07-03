@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  OryFormOidcRootProps,
-  OryNodeOidcButtonProps,
+  OryFormSsoRootProps,
+  OryNodeSsoButtonProps,
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
@@ -31,11 +31,35 @@ export function extractProvider(
   return undefined
 }
 
-type DefaultSocialButtonProps = OryNodeOidcButtonProps & {
+/**
+ * Props for the DefaultButtonSocial component.
+ *
+ * @inline
+ * @hidden
+ */
+interface DefaultSocialButtonProps extends OryNodeSsoButtonProps {
+  /**
+   * Whether to show the label next to the logo.
+   * If not provided, it will be determined based on the number of SSO nodes.
+   */
   showLabel?: boolean
+  /**
+   * Logos to use for the social buttons.
+   * If not provided, the default logos will be used.
+   */
   logos?: Record<string, ElementType>
 }
 
+/**
+ * The default implementation of a social button for Ory SSO.
+ * It renders a button with a logo and an optional label.
+ *
+ * @param props - The props for the DefaultButtonSocial component.
+ * @returns
+ * @category Default Components
+ * @group Components
+ * @inlineType OryNodeSsoButtonProps
+ */
 export function DefaultButtonSocial({
   attributes,
   node,
@@ -56,7 +80,7 @@ export function DefaultButtonSocial({
     formState: { isSubmitting },
   } = useFormContext()
 
-  const oidcNodeCount =
+  const ssoNodeCount =
     ui.nodes.filter(
       (node) =>
         node.group === UiNodeGroupEnum.Oidc ||
@@ -71,7 +95,7 @@ export function DefaultButtonSocial({
   const Logo = logos[(attributes.value as string).split("-")[0]]
 
   const showLabel =
-    _showLabel ?? (oidcNodeCount % 3 !== 0 && oidcNodeCount % 4 !== 0)
+    _showLabel ?? (ssoNodeCount % 3 !== 0 && ssoNodeCount % 4 !== 0)
 
   const provider = extractProvider(node.meta.label?.context) ?? ""
 
@@ -140,7 +164,7 @@ DefaultButtonSocial.WithLogos =
 export function DefaultSocialButtonContainer({
   children,
   nodes,
-}: OryFormOidcRootProps) {
+}: OryFormSsoRootProps) {
   return (
     <div
       className={cn("grid gap-3", {

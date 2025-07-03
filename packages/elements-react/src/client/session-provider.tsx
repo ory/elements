@@ -19,6 +19,11 @@ type SessionState =
       error: Error
     }
 
+/**
+ * Holds the session context data.
+ * This context is used to provide the session data to the children of the provider.
+ * It is used by the {@link useSession} hook to access the session data.
+ */
 export type SessionContextData = {
   /**
    * Whether the session is currently being loaded

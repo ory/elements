@@ -14,17 +14,26 @@ import { OryForm } from "./form"
 import { useFormContext } from "react-hook-form"
 import { OryFormProvider } from "./form-provider"
 
-export type OryFormOidcRootProps = PropsWithChildren<{
+export type OryFormSsoRootProps = PropsWithChildren<{
   nodes: UiNode[]
 }>
 
-export type OryNodeOidcButtonProps = {
+/**
+ * Props for the OryNodeSsoButton component.
+ */
+export type OryNodeSsoButtonProps = {
   node: UiNode
   attributes: UiNodeInputAttributes
   onClick?: () => void
 }
 
-export function OryFormOidcButtons() {
+/**
+ * Renders the flow's OIDC buttons.
+ *
+ * @returns a React component that renders the OIDC buttons.
+ * @group Components
+ */
+export function OryFormSsoButtons() {
   const {
     flow: { ui },
   } = useOryFlow()
@@ -44,9 +53,9 @@ export function OryFormOidcButtons() {
   }
 
   return (
-    <Form.OidcRoot nodes={filteredNodes}>
+    <Form.SsoRoot nodes={filteredNodes}>
       {filteredNodes.map((node) => (
-        <Node.OidcButton
+        <Node.SsoButton
           node={node}
           key={getNodeId(node)}
           attributes={node.attributes as UiNodeInputAttributes}
@@ -59,11 +68,19 @@ export function OryFormOidcButtons() {
           }}
         />
       ))}
-    </Form.OidcRoot>
+    </Form.SsoRoot>
   )
 }
 
-export function OryFormSocialButtonsForm() {
+/**
+ * The `OryFormSsoForm` component renders the Ory Form for SSO methods (OIDC and SAML).
+ *
+ * It needs to be its own form, as the OIDC buttons are form submits but are not related to the main form.
+ *
+ * @returns a React component that renders the Ory Form for SSO methods.
+ * @group Components
+ */
+export function OryFormSsoForm() {
   const {
     flow: { ui },
   } = useOryFlow()
@@ -82,7 +99,7 @@ export function OryFormSocialButtonsForm() {
   return (
     <OryFormProvider>
       <OryForm data-testid={`ory/form/methods/oidc-saml`}>
-        <OryFormOidcButtons />
+        <OryFormSsoButtons />
       </OryForm>
     </OryFormProvider>
   )

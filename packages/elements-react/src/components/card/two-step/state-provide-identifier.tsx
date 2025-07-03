@@ -8,11 +8,11 @@ import { isNodeVisible, withoutSingleSignOnNodes } from "../../../util/ui"
 import { OryForm } from "../../form/form"
 import { OryCardValidationMessages } from "../../form/messages"
 import { Node } from "../../form/nodes/node"
-import { OryFormSocialButtonsForm } from "../../form/social"
+import { OryFormSsoForm } from "../../form/social"
 import { handleAfterFormSubmit } from "./utils"
 import { OryCardHeader } from "../header"
 
-export function OryTwoStepCardStateProvideIdentifier() {
+export function ProvideIdentifierForm() {
   const { Form, Card } = useComponents()
   const { flowType, flow, dispatchFormState } = useOryFlow()
 
@@ -34,11 +34,8 @@ export function OryTwoStepCardStateProvideIdentifier() {
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        <OryFormSocialButtonsForm />
-        <OryForm
-          data-testid={`ory/form/methods/local`}
-          onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}
-        >
+        <OryFormSsoForm />
+        <OryForm onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}>
           <Form.Group>
             {showSsoDivider && <Card.Divider />}
             {nonSsoNodes.map((node, k) => (

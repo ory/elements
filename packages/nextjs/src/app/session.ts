@@ -8,7 +8,8 @@ import { getCookieHeader } from "./utils"
 /**
  * A helper to fetch the session on the server side. This method works with server-side rendering.
  *
- * ```ts
+ * @example
+ * ```tsx
  * import { getServerSession } from "@ory/nextjs/app"
  *
  * async function MyComponent() {

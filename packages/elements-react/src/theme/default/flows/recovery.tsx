@@ -7,23 +7,55 @@ import {
   OryClientConfiguration,
   OryFlowComponentOverrides,
   OryProvider,
-  OryTwoStepCard,
+  OrySelfServiceFlowCard,
 } from "@ory/elements-react"
-import { PropsWithChildren } from "react"
 import { getOryComponents } from "../components"
 
+/**
+ * Props for the Recovery component.
+ * @inline
+ * @hidden
+ */
 export type RecoveryFlowContextProps = {
+  /**
+   * The recovery flow object containing the state and data for the recovery process.
+   */
   flow: RecoveryFlow
+  /**
+   * Optional components to override the default ones.
+   *
+   * This allows you to customize the appearance and behavior of the recovery flow.
+   */
   components?: OryFlowComponentOverrides
+  /**
+   * The Ory client configuration object.
+   *
+   * This object contains the configuration for the Ory client, such as the base URL and other settings.
+   */
   config: OryClientConfiguration
+
+  /**
+   * Optional children to render
+   *
+   * If not provided, the default OrySelfServiceFlowCard will be rendered.
+   */
+  children?: React.ReactNode
 }
 
+/**
+ * The `Recovery` component is used to render the recovery flow in Ory Elements.
+ *
+ * @param props - The props for the Recovery component.
+ * @returns the recovery flow component.
+ * @group Components
+ * @category Flows
+ */
 export function Recovery({
   flow,
   config,
   children,
   components: flowOverrideComponents,
-}: PropsWithChildren<RecoveryFlowContextProps>) {
+}: RecoveryFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
   return (
     <OryProvider
@@ -32,7 +64,7 @@ export function Recovery({
       flowType={FlowType.Recovery}
       components={components}
     >
-      {children ?? <OryTwoStepCard />}
+      {children ?? <OrySelfServiceFlowCard />}
     </OryProvider>
   )
 }

@@ -2,25 +2,21 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
-import { OrySettingsOidcProps } from "@ory/elements-react"
+import { OrySettingsSsoProps } from "@ory/elements-react"
 import { useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
 import Trash from "../../assets/icons/trash.svg"
 import logos from "../../provider-logos"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import {
-  DefaultButtonSocial,
-  extractProvider,
-  GenericLogo,
-} from "../form/social"
+import { DefaultButtonSocial, extractProvider, GenericLogo } from "../form/sso"
 import { Spinner } from "../form/spinner"
 import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 export function DefaultSettingsOidc({
   linkButtons,
   unlinkButtons,
-}: OrySettingsOidcProps) {
+}: OrySettingsSsoProps) {
   const hasLinkButtons = linkButtons.length > 0
   const hasUnlinkButtons = unlinkButtons.length > 0
 

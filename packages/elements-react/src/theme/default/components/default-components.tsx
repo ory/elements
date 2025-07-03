@@ -32,10 +32,7 @@ import {
   DefaultFormSectionContent,
   DefaultFormSectionFooter,
 } from "./form/section"
-import {
-  DefaultButtonSocial,
-  DefaultSocialButtonContainer,
-} from "./form/social"
+import { DefaultButtonSocial, DefaultSocialButtonContainer } from "./form/sso"
 import { DefaultText } from "./form/text"
 import { DefaultPageHeader } from "./generic/page-header"
 import { DefaultSettingsOidc } from "./settings/settings-oidc"
@@ -48,6 +45,16 @@ import { DefaultCaptcha } from "./form/captcha"
 import { DefaultConsentScopeCheckbox } from "./form/consent-scope-checkbox"
 import { DefaultToast } from "./generic/toast"
 
+/**
+ * Merges the default Ory components with any provided overrides.
+ *
+ * The output of this function is a complete set of components that can be used in Ory flows.
+ *
+ * @param overrides - Optional overrides for the default components.
+ * @returns
+ *
+ * @category Utilities
+ */
 export function getOryComponents(
   overrides?: OryFlowComponentOverrides,
 ): OryFlowComponents {
@@ -74,7 +81,7 @@ export function getOryComponents(
     },
     Node: {
       Button: overrides?.Node?.Button ?? DefaultButton,
-      OidcButton: overrides?.Node?.OidcButton ?? DefaultButtonSocial,
+      SsoButton: overrides?.Node?.SsoButton ?? DefaultButtonSocial,
       Input: overrides?.Node?.Input ?? DefaultInput,
       CodeInput: overrides?.Node?.CodeInput ?? DefaultPinCodeInput,
       Image: overrides?.Node?.Image ?? DefaultImage,
@@ -89,11 +96,11 @@ export function getOryComponents(
     Form: {
       Root: overrides?.Form?.Root ?? DefaultFormContainer,
       Group: overrides?.Form?.Group ?? DefaultGroupContainer,
-      OidcRoot: overrides?.Form?.OidcRoot ?? DefaultSocialButtonContainer,
+      SsoRoot: overrides?.Form?.SsoRoot ?? DefaultSocialButtonContainer,
       RecoveryCodesSettings:
         overrides?.Form?.RecoveryCodesSettings ?? DefaultSettingsRecoveryCodes,
       TotpSettings: overrides?.Form?.TotpSettings ?? DefaultSettingsTotp,
-      OidcSettings: overrides?.Form?.OidcSettings ?? DefaultSettingsOidc,
+      SsoSettings: overrides?.Form?.SsoSettings ?? DefaultSettingsOidc,
       WebauthnSettings:
         overrides?.Form?.WebauthnSettings ?? DefaultSettingsWebauthn,
       PasskeySettings:

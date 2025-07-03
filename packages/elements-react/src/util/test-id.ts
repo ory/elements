@@ -6,6 +6,7 @@
  *
  * @param message - the UiText message to generate a test id for
  * @returns a unique, stable test id for the message
+ * @group Utilities
  */
 export function messageTestId(message: { id: number | string }): {
   "data-testid": string

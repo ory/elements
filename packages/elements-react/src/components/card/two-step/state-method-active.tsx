@@ -16,7 +16,7 @@ import { OryCardHeader } from "../header"
 import { OryCard, OryCardContent, OryCardFooter } from "./../"
 import { getFinalNodes, handleAfterFormSubmit } from "./utils"
 
-export function OryTwoStepCardStateMethodActive({
+export function MethodActiveForm({
   formState,
 }: {
   formState: FormStateMethodActive
@@ -35,10 +35,7 @@ export function OryTwoStepCardStateMethodActive({
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        <OryForm
-          data-testid={`ory/form/methods/local`}
-          onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}
-        >
+        <OryForm onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}>
           <Form.Group>
             {ui.nodes
               .filter(

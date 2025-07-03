@@ -10,41 +10,46 @@ import { IntlShape } from "react-intl"
  * The context is used to inject values into the message from Ory, e.g. a timestamp.
  * For example a UI Node from Ory might look like this:
  *
- * \{
+ * ```json
+ * {
  *  "type":"input",
  *  "group":"default",
- *  "attributes": \{
+ *  "attributes": {
  *      "name":"traits.email",
  *      "type":"email",
  *      "required":true,
  *      "autocomplete":"email",
  *      "disabled":false,
  *      "node_type":"input"
- *  \},
+ *  },
  *  "messages":[],
- *  "meta": \{
- *    "label": \{
+ *  "meta": {
+ *    "label": {
  *      "id":1070002,
  *      "text":"E-Mail",
  *      "type":"info",
- *      "context":\{
+ *      "context":{
  *        "title":"E-Mail"
- *      \},
- *    \}
- *  \}
- * \}
+ *      },
+ *    }
+ *  }
+ * }
+ * ```
  *
  * The context has the key "title" which matches the formatter template name "\{title\}"
  * An example translation file would look like this:
- * \{
- *  "identities.messages.1070002": "\{title\}"
- * \}
+ * ```json
+ * {
+ *  "identities.messages.1070002": "{title}"
+ * }
+ * ```
  *
  * The formatter would then take the meta.label.id and look for the translation with the key matching the id.
  * It would then replace the template "\{title\}" with the value from the context with the key "title".
  *
  * @param uiText - The UiText is part of the UiNode object sent by Kratos when performing a flow.
  * @param intl - The intl object from react-intl
+ * @group Utilities
  */
 export const uiTextToFormattedMessage = (
   { id, context = {}, text }: Omit<UiText, "type">,

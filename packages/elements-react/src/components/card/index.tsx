@@ -5,7 +5,7 @@ import { OryCardHeader, OryCardHeaderProps } from "./header"
 import { OryCard, OryCardRootProps } from "./card"
 import { OryCardFooter, OryCardFooterProps } from "./footer"
 import { OryCardContent, OryCardContentProps } from "./content"
-import { OryTwoStepCard } from "./card-two-step"
+import { OrySelfServiceFlowCard } from "./card-two-step"
 import { OryConsentCard } from "./card-consent"
 
 export {
@@ -13,7 +13,7 @@ export {
   OryCard,
   OryCardFooter,
   OryCardContent,
-  OryTwoStepCard,
+  OrySelfServiceFlowCard,
   OryConsentCard,
 }
 

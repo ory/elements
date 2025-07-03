@@ -8,12 +8,10 @@ import { AccountExperienceConfiguration } from '@ory/client-fetch';
 import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';
-import { DetailedHTMLProps } from 'react';
 import { ElementType } from 'react';
 import { FlowError } from '@ory/client-fetch';
 import { FormEventHandler } from 'react';
 import { GenericError } from '@ory/client-fetch';
-import { HTMLAttributes } from 'react';
 import { LoginFlow } from '@ory/client-fetch';
 import { MouseEventHandler } from 'react';
 import { OAuth2ConsentRequest } from '@ory/client-fetch';
@@ -33,23 +31,23 @@ import { UiText } from '@ory/client-fetch';
 import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
-// @public (undocumented)
-export function Consent({ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, }: PropsWithChildren<ConsentFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Consent({ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, }: ConsentFlowProps): react_jsx_runtime.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "PropsWithComponents" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type ConsentFlowContextProps = {
+// @public
+export type ConsentFlowProps = {
     consentChallenge: OAuth2ConsentRequest;
     session: Session;
     config: OryClientConfiguration;
     csrfToken: string;
     formActionUrl: string;
-} & PropsWithComponents;
+    components?: OryFlowComponentOverrides;
+    children?: React.ReactNode;
+};
 
 // Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export function DefaultButtonSocial({ attributes, node, onClick, showLabel: _showLabel, logos: providedLogos, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
@@ -60,47 +58,44 @@ export namespace DefaultButtonSocial {
 
 // Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export function DefaultCard({ children }: OryCardRootProps): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryCardContentProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export function DefaultCardContent({ children }: OryCardContentProps): react.ReactNode;
 
-// @public (undocumented)
+// @public
 export function DefaultCardFooter(): react_jsx_runtime.JSX.Element | null;
 
-// @public (undocumented)
+// @public
 export function DefaultCardHeader(): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
-export function DefaultCardLayout({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element;
-
-// @public (undocumented)
+// @public
 export function DefaultCardLogo(): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
+// @public
 export function DefaultCurrentIdentifierButton(): react_jsx_runtime.JSX.Element | null;
 
 // Warning: (ae-forgotten-export) The symbol "OryFormRootProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
-export function DefaultFormContainer({ children, onSubmit, action, method, "data-testid": dataTestId, }: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function DefaultFormContainer({ children, onSubmit, action, method, }: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryMessageContentProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export function DefaultMessage({ message }: OryMessageContentProps): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
+// @public
 export function DefaultMessageContainer({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element | null;
 
-// @public (undocumented)
-function Error_2({ error, components: Components, config, session, }: PropsWithChildren<ErrorFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+function Error_2({ error, components: Components, config, session, }: ErrorFlowContextProps): react_jsx_runtime.JSX.Element;
 export { Error_2 as Error }
 
-// @public (undocumented)
+// @public
 export type ErrorFlowContextProps = {
     error: OryError;
     components?: OryFlowComponentOverrides;
@@ -110,17 +105,18 @@ export type ErrorFlowContextProps = {
 
 // Warning: (ae-forgotten-export) The symbol "OryFlowComponents" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export function getOryComponents(overrides?: OryFlowComponentOverrides): OryFlowComponents;
 
-// @public (undocumented)
-export function Login({ flow, config, children, components: flowOverrideComponents, }: PropsWithChildren<LoginFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Login({ flow, config, children, components: flowOverrideComponents, }: LoginFlowContextProps): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
+// @public
 export type LoginFlowContextProps = {
     flow: LoginFlow;
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
+    children?: React.ReactNode;
 };
 
 // @public
@@ -134,45 +130,48 @@ export type OryError = FlowError | OAuth2Error | {
     error: GenericError;
 };
 
-// @public (undocumented)
-export function Recovery({ flow, config, children, components: flowOverrideComponents, }: PropsWithChildren<RecoveryFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Recovery({ flow, config, children, components: flowOverrideComponents, }: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
+// @public
 export type RecoveryFlowContextProps = {
     flow: RecoveryFlow;
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
+    children?: React.ReactNode;
 };
 
 // Warning: (ae-forgotten-export) The symbol "RegistrationFlowContextProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
-export function Registration({ flow, children, components: flowOverrideComponents, config, }: PropsWithChildren<RegistrationFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Registration({ flow, children, components: flowOverrideComponents, config, }: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
-export function Settings({ flow, config, children, components: flowOverrideComponents, }: PropsWithChildren<SettingsFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Settings({ flow, config, children, components: flowOverrideComponents, }: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
+// @public
 export type SettingsFlowContextProps = {
     flow: SettingsFlow;
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
+    children?: React.ReactNode;
 };
 
-// @public (undocumented)
-export function Verification({ flow, config, children, components: flowOverrideComponents, }: PropsWithChildren<VerificationFlowContextProps>): react_jsx_runtime.JSX.Element;
+// @public
+export function Verification({ flow, config, children, components: flowOverrideComponents, }: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;
 
-// @public (undocumented)
+// @public
 export type VerificationFlowContextProps = {
     flow: VerificationFlow;
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
+    children?: React.ReactNode;
 };
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:51:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:98:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:425:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:448:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

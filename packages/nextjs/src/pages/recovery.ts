@@ -10,6 +10,8 @@ import { FlowType } from "@ory/client-fetch"
  *
  * @returns A recovery flow
  * @public
+ * @function
+ * @group Hooks
  */
 export const useRecoveryFlow = createUseFlowFactory(
   FlowType.Recovery,

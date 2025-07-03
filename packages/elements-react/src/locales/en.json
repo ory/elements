@@ -244,6 +244,7 @@
   "card.header.description.registration": "Sign up with {identifierLabel}",
   "misc.or": "or",
   "forms.label.forgot-password": "Forgot Password?",
+  "forms.label.recover-account": "Recover Account",
   "settings.totp.title": "Authenticator App",
   "settings.totp.description": "Add a TOTP Authenticator App to your account to improve your account security. Popular Authenticator Apps are LastPass and Google Authenticator",
   "settings.totp.info.not-linked": "To enable scan the QR code with your authenticator and enter the code.",

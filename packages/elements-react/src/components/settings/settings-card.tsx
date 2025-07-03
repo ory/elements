@@ -14,7 +14,7 @@ import { useComponents, useOryFlow } from "../../context"
 import { showToast } from "../../util/showToast"
 import { useNodesGroups } from "../../util/ui"
 import { Node } from "../form/nodes/node"
-import { OryFormSection } from "../form/section"
+import { OrySettingsFormSection } from "../form/settings-section"
 import { OrySettingsOidc } from "./oidc-settings"
 import { OrySettingsPasskey } from "./passkey-settings"
 import { OrySettingsRecoveryCodes } from "./recovery-codes-settings"
@@ -37,7 +37,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
 
   if (group === UiNodeGroupEnum.Totp) {
     return (
-      <OryFormSection
+      <OrySettingsFormSection
         nodes={groupedNodes.groups.totp}
         data-testid="ory/screen/settings/group/totp"
       >
@@ -45,13 +45,13 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />
         ))}
-      </OryFormSection>
+      </OrySettingsFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.LookupSecret) {
     return (
-      <OryFormSection
+      <OrySettingsFormSection
         nodes={groupedNodes.groups.lookup_secret}
         data-testid="ory/screen/settings/group/lookup_secret"
       >
@@ -61,13 +61,13 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />
         ))}
-      </OryFormSection>
+      </OrySettingsFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.Oidc) {
     return (
-      <OryFormSection
+      <OrySettingsFormSection
         nodes={groupedNodes.groups.oidc}
         data-testid="ory/screen/settings/group/oidc"
       >
@@ -75,13 +75,13 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />
         ))}
-      </OryFormSection>
+      </OrySettingsFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.Webauthn) {
     return (
-      <OryFormSection
+      <OrySettingsFormSection
         nodes={groupedNodes.groups.webauthn}
         data-testid="ory/screen/settings/group/webauthn"
       >
@@ -89,13 +89,13 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />
         ))}
-      </OryFormSection>
+      </OrySettingsFormSection>
     )
   }
 
   if (group === UiNodeGroupEnum.Passkey) {
     return (
-      <OryFormSection
+      <OrySettingsFormSection
         nodes={groupedNodes.groups.passkey}
         data-testid="ory/screen/settings/group/passkey"
       >
@@ -103,12 +103,12 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />
         ))}
-      </OryFormSection>
+      </OrySettingsFormSection>
     )
   }
 
   return (
-    <OryFormSection
+    <OrySettingsFormSection
       nodes={nodes}
       data-testid={`ory/screen/settings/group/${group}`}
     >
@@ -142,7 +142,7 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
             <Node key={getNodeId(node)} node={node} />
           ))}
       </Card.SettingsSectionFooter>
-    </OryFormSection>
+    </OrySettingsFormSection>
   )
 }
 
@@ -153,6 +153,16 @@ const onlyScriptNodes = (nodes: UiNode[]): UiNode[] =>
       node.attributes.id === "webauthn_script",
   )
 
+/**
+ * Renders the Ory Settings Card component.
+ *
+ * This component is used to display the settings flow for the user.
+ * It utilizes the `useOryFlow` hook to access the current flow and renders the nodes with components
+ * provided by the Ory Elements context.
+ *
+ * @returns The Ory Settings Card component that renders the settings flow.
+ * @group Components
+ */
 export function OrySettingsCard() {
   const { flow } = useOryFlow()
 

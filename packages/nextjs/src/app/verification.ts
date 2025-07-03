@@ -11,16 +11,15 @@ import { getPublicUrl, toGetFlowParameter } from "./utils"
 /**
  * Use this method in an app router page to fetch an existing verification flow or to create a new one. This method works with server-side rendering.
  *
- * ```
+ * @example
+ * ```tsx
  * import { Verification } from "@ory/elements-react/theme"
  * import { getVerificationFlow, OryPageParams } from "@ory/nextjs/app"
- * import { enhanceConfig } from "@ory/nextjs"
  *
  * import config from "@/ory.config"
  * import CardHeader from "@/app/auth/verification/card-header"
  *
  * export default async function VerificationPage(props: OryPageParams) {
- *   const config = enhanceConfig(baseConfig)
  *   const flow = await getVerificationFlow(config, props.searchParams)
  *
  *   if (!flow) {

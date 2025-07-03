@@ -8,8 +8,15 @@ import { DefaultCardFooter } from "./footer"
 import { DefaultCardHeader } from "./header"
 import { DefaultCardLogo } from "./logo"
 import { DefaultCurrentIdentifierButton } from "./current-identifier-button"
-import { DefaultCardLayout } from "./layout"
 
+/**
+ * The DefaultCard component is a styled container that serves as the main card layout for Ory Elements.
+ *
+ * @param props - The properties for the DefaultCard component.
+ * @returns
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultCard({ children }: OryCardProps) {
   return (
     <div className="flex flex-1 sm:items-center justify-center font-sans items-start w-full sm:w-[480px] sm:max-w-[480px]">
@@ -26,6 +33,5 @@ export {
   DefaultCardFooter,
   DefaultCardHeader,
   DefaultCardLogo,
-  DefaultCardLayout,
   DefaultCurrentIdentifierButton,
 }

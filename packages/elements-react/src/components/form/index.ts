@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 export * from "./form"
-export * from "./groups"
 export * from "./messages"
 export * from "./social"
-export * from "./section"
+export * from "./settings-section"

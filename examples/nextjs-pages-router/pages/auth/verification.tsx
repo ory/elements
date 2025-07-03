@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 "use client"
-import { DefaultCardLayout, Verification } from "@ory/elements-react/theme"
+import { Verification } from "@ory/elements-react/theme"
 import "@ory/elements-react/theme/styles.css"
 import { useVerificationFlow } from "@ory/nextjs/pages"
 
@@ -15,7 +15,7 @@ export default function VerificationPage() {
   }
 
   return (
-    <DefaultCardLayout>
+    <main className="p-4 pb-8 flex items-center justify-center flex-col gap-8 min-h-screen">
       <Verification
         flow={flow}
         config={config}
@@ -23,6 +23,6 @@ export default function VerificationPage() {
           Card: {},
         }}
       />
-    </DefaultCardLayout>
+    </main>
   )
 }

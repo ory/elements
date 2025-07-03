@@ -44,6 +44,11 @@ export type OryNodeCaptchaProps = {
 }
 
 /**
+ * Props for the Form.Group component.
+ */
+export type OryFormGroupProps = PropsWithChildren
+
+/**
  * Props for the AuthMethodListItem component. This component is used
  * to render a single auth method in the AuthMethodList component.
  */
@@ -63,9 +68,11 @@ export type OryNodeImageProps = {
  */
 export type FormValues = Record<string, string | boolean | number | undefined>
 
+/**
+ * Props for the Form.Root component.
+ */
 export type OryFormRootProps = ComponentPropsWithoutRef<"form"> & {
   onSubmit: FormEventHandler<HTMLFormElement>
-  "data-testid"?: string
 }
 
 export type OryNodeInputProps = {

@@ -19,7 +19,7 @@ import {
 import { OryForm } from "../../form/form"
 import { OryCardValidationMessages } from "../../form/messages"
 import { Node } from "../../form/nodes/node"
-import { OryFormSocialButtonsForm } from "../../form/social"
+import { OryFormSsoForm } from "../../form/social"
 import { handleAfterFormSubmit } from "./utils"
 import { OryCardHeader } from "../header"
 import { useIntl } from "react-intl"
@@ -54,7 +54,7 @@ export function toAuthMethodPickerOptions(
   )
 }
 
-export function OryTwoStepCardStateSelectMethod() {
+export function SelectMethodForm() {
   const { Form, Card } = useComponents()
   const { flow, flowType, dispatchFormState } = useOryFlow()
   const { ui } = flow
@@ -101,12 +101,9 @@ export function OryTwoStepCardStateSelectMethod() {
       <OryCardHeader />
       <OryCardContent>
         <OryCardValidationMessages />
-        <OryFormSocialButtonsForm />
+        <OryFormSsoForm />
         {Object.entries(authMethodBlocks).length > 0 ? (
-          <OryForm
-            data-testid={`ory/form/methods/local`}
-            onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}
-          >
+          <OryForm onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}>
             <Form.Group>
               <Card.Divider />
               <AuthMethodList

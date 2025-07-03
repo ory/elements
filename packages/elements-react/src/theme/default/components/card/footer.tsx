@@ -20,11 +20,18 @@ import {
 import { useClientLogout } from "../../utils/logout"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 
+/**
+ * DefaultCardFooter renders the default footer for the card component based on the current flow type.
+ *
+ * @returns The default card footer component that renders the appropriate footer based on the current flow type.
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
   switch (oryFlow.flowType) {
     case FlowType.Login:
-      return <LoginCardFooter />
+      return <LoginCardFooter flow={oryFlow.flow} />
     case FlowType.Registration:
       return <RegistrationCardFooter />
     case FlowType.Recovery:
@@ -72,14 +79,14 @@ function shouldShowLogoutButton(
   return false
 }
 
-function LoginCardFooter() {
-  const { formState, flow, flowType, dispatchFormState } = useOryFlow()
+type LoginCardFooterProps = {
+  flow: LoginFlow
+}
+
+function LoginCardFooter({ flow }: LoginCardFooterProps) {
+  const { dispatchFormState, formState } = useOryFlow()
   const config = useOryConfiguration()
   const intl = useIntl()
-
-  if (flowType !== FlowType.Login) {
-    return null
-  }
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
 
@@ -90,7 +97,7 @@ function LoginCardFooter() {
   if (!returnTo) {
     returnTo = restartFlowUrl(
       flow,
-      `${config.sdk.url}/self-service/${flowType}/browser`,
+      `${config.sdk.url}/self-service/${FlowType.Login}/browser`,
     )
   }
 
@@ -252,11 +259,18 @@ function VerificationCardFooter() {
   return null
 }
 
-type ConsentFlowProps = {
+/**
+ * Props for the ConsentCardFooter component.
+ *
+ * @hidden
+ * @inline
+ */
+type ConsentCardFooterProps = {
+  /** The consent flow to render the footer for. */
   flow: ConsentFlow
 }
 
-function ConsentCardFooter({ flow }: ConsentFlowProps) {
+function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
   const { Node } = useComponents()
 
   const rememberNode = findNode(flow.ui.nodes, {
