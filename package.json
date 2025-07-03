@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/ory/elements/issues"
   },
+  "overrides": {
+    "koa": ">= 2.16.0"
+  },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@babel/core": "^7.22.20",
