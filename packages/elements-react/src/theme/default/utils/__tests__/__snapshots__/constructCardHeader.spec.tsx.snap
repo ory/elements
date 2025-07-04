@@ -5506,6 +5506,1107 @@ exports[`constructCardHeaderText language=nl flowType=verification refresh=true 
 }
 `;
 
+exports[`constructCardHeaderText language=no constructCardHeaderText on 2fa login - lookup_secret 1`] = `
+{
+  "description": "Vennligst skriv inn en av dine 8-sifrede backup gjenopprettingskoder",
+  "title": "Tofaktorautentisering",
+}
+`;
+
+exports[`constructCardHeaderText language=no constructCardHeaderText on 2fa login - multi 1`] = `
+{
+  "description": "Velg en måte å fullføre tofaktorautentisering",
+  "title": "Tofaktorautentisering",
+}
+`;
+
+exports[`constructCardHeaderText language=no constructCardHeaderText on 2fa login - totp 1`] = `
+{
+  "description": "Vennligst skriv inn koden generert av din autentiseringsapp",
+  "title": "Tofaktorautentisering",
+}
+`;
+
+exports[`constructCardHeaderText language=no constructCardHeaderText on 2fa login - webauthn 1`] = `
+{
+  "description": "Vennligst forbered din WebAuthN-enhet",
+  "title": "Tofaktorautentisering",
+}
+`;
+
+exports[`constructCardHeaderText language=no constructCardHeaderText on account linking 1`] = `
+{
+  "description": "Du prøvde å logge inn med "duplicateIdentifier", men den e-posten er allerede brukt av en annen konto. Logg inn på kontoen din med et av alternativene nedenfor for å legge til kontoen din "duplicateIdentifier" hos "provider" som en annen måte å logge inn på.",
+  "messageId": "1010016",
+  "title": "Koble konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no constructCardHeaderText on consent screen 1`] = `
+{
+  "description": "En tredjepartsapplikasjon ønsker å få tilgang til informasjon tilknyttet kontoen din .",
+  "title": "Autoriser Client Test",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en kode sendt til deg",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en kode sendt til deg",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en sosial leverandør",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en passkey",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med din email og passord",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en sikkerhetsnøkkel",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en sosial leverandør eller din Email",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med din Email",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med din Phone number",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en sosial leverandør",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en passkey",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med din email og passord",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med din Email",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Logg inn med en sikkerhetsnøkkel",
+  "title": "Logg inn",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en kode sendt til deg",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en kode sendt til deg",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en sosial leverandør",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en passkey",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med din email og passord",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en sikkerhetsnøkkel",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med .",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en sosial leverandør or din Email",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med din Email",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med din Phone number",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en sosial leverandør",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en passkey",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med din email og passord",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med din Email",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=login refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Bekreft din identitet med en sikkerhetsnøkkel",
+  "title": "Reautentiser",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en gjenopprettingskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1060003",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en gjenopprettingskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1060003",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en gjenopprettingskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1060003",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en gjenopprettingskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1060003",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "title": "Gjenopprett kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en kode sendt til deg",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en kode sendt til deg",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sosial leverandør",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en passkey",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din email og et passord",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sikkerhetsnøkkel",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sosial leverandør eller din Email",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din Email",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din Phone number",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sosial leverandør",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en passkey",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din email og et passord",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din Email",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sikkerhetsnøkkel",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en kode sendt til deg",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en kode sendt til deg",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sosial leverandør",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en passkey",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din email og et passord",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sikkerhetsnøkkel",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sosial leverandør eller din Email",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din Email",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din Phone number",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sosial leverandør",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en passkey",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din email og et passord",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med din Email",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Registrer deg med en sikkerhetsnøkkel",
+  "title": "Registrer en konto",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=settings refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Oppdater kontoinnstillingene dine",
+  "title": "Kontoinnstillinger",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en verifiseringskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1080003",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en verifiseringskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1080003",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=false combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en verifiseringskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1080003",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=default_and_code constructCardHeaderText 1`] = `
+{
+  "description": "En e-post med en verifiseringskode har blitt sendt til e-postadressen du oppga. Hvis du ikke har mottatt en e-post, sjekk stavemåten på adressen og sørg for å bruke adressen du registrerte deg med.",
+  "messageId": "1080003",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=default_and_password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=oidc constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=passkey constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=password constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
+exports[`constructCardHeaderText language=no flowType=verification refresh=true combination=webauthn constructCardHeaderText 1`] = `
+{
+  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å bekrefte den",
+  "title": "Bekreft kontoen din",
+}
+`;
+
 exports[`constructCardHeaderText language=pl constructCardHeaderText on 2fa login - lookup_secret 1`] = `
 {
   "description": "Proszę wprowadzić jeden z Twoich 8-cyfrowych kodów odzyskiwania zapasowego",
