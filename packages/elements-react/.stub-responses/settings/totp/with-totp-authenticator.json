@@ -1,11 +1,11 @@
 {
-  "id": "5c6444c4-8b49-47eb-ad6e-058716a67fae",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:23.900334Z",
-  "issued_at": "2025-04-24T15:08:23.900334Z",
-  "request_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/settings?flow=996ddc7f-c3f3-4bd1-b304-a405d489aaa0",
+    "action": "https://slug.projects.oryapis:8080/self-service/settings?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "oW4bXMH+bI+IODlwgVmkLb6ekTgjv4dybu2oUhdz6qWU8vkpaInKyDfeELSzLOuO/ZQEAtDVXeuNd9H5DKa92w==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -197,45 +197,45 @@
     ]
   },
   "identity": {
-    "id": "99ebc729-6ee2-433f-92d2-31ba51c3a266",
+    "id": "00000000-0000-0000-0000-000000000000",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://slug.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-24T15:08:22.484094Z",
+    "state_changed_at": "0001-01-01T00:00:00Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
+      "email": "dev@ory.dev",
       "nested": {}
     },
     "verifiable_addresses": [
       {
-        "id": "c9549dee-c8a8-4c78-a92b-77c334cdfa67",
-        "value": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "value": "dev@ory.dev",
         "verified": false,
         "via": "email",
         "status": "sent",
-        "created_at": "2025-04-24T15:08:22.496947Z",
-        "updated_at": "2025-04-24T15:08:22.496947Z"
+        "created_at": "0001-01-01T00:00:00Z",
+        "updated_at": "0001-01-01T00:00:00Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "f5f59980-f5fd-43fa-b9f8-c5442dd3b45c",
-        "value": "dev+orycye2eda2f162daf6142dd0.zw4xrpilzp0.e9mfjoru38@ory.dev",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "value": "dev@ory.dev",
         "via": "email",
-        "created_at": "2025-04-24T15:08:22.5142Z",
-        "updated_at": "2025-04-24T15:08:22.5142Z"
+        "created_at": "0001-01-01T00:00:00Z",
+        "updated_at": "0001-01-01T00:00:00Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-24T15:08:22.486723Z",
-    "updated_at": "2025-04-24T15:08:24.646284Z",
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
     "organization_id": null
   },
   "state": "success",
   "continue_with": [
     {
       "action": "redirect_browser_to",
-      "redirect_browser_to": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/ui/settings?flow=5c6444c4-8b49-47eb-ad6e-058716a67fae"
+      "redirect_browser_to": "https://slug.projects.oryapis:8080/ui/settings?flow=00000000-0000-0000-0000-000000000000"
     }
   ]
 }

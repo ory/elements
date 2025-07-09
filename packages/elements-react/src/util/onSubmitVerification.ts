@@ -3,7 +3,6 @@
 
 import {
   FlowType,
-  handleFlowError,
   UpdateVerificationFlowBody,
   VerificationFlow,
   verificationUrl,
@@ -12,6 +11,7 @@ import { OryElementsConfiguration } from "../context"
 import { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
+import { handleFlowError } from "./sdk-helpers"
 
 /**
  * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.
@@ -58,6 +58,7 @@ export async function onSubmitVerification(
           })
         },
         onRedirect,
+        config,
       }),
     )
 }

@@ -18,8 +18,6 @@ import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
-// Warning: (ae-forgotten-export) The symbol "OryMiddlewareOptions" needs to be exported by the entry point api-extractor-type-index.d.ts
-//
 // @public
 export function createOryMiddleware(options: OryMiddlewareOptions): (r: NextRequest) => Promise<NextResponse<unknown>>;
 
@@ -72,6 +70,13 @@ export function getVerificationFlow(config: {
         verification_ui_url: string;
     };
 }, params: QueryParams | Promise<QueryParams>): Promise<VerificationFlow | null | void>;
+
+// @public (undocumented)
+export type OryMiddlewareOptions = {
+    forwardAdditionalHeaders?: string[];
+    forceCookieDomain?: string;
+    project?: Partial<AccountExperienceConfiguration>;
+};
 
 // @public
 export interface OryPageParams {

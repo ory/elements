@@ -11,8 +11,21 @@ import {
   FrontendApi,
 } from "@ory/client-fetch"
 
+/**
+ * The Ory Elements configuration object.
+ *
+ * @interface
+ */
 export type OryElementsConfiguration = {
+  /**
+   * The Ory SDK configuration.
+   * This includes the URL and options for the Ory SDK.
+   */
   sdk: OrySDK
+  /**
+   * The project configuration.
+   * This includes the project name, URLs, and other settings for the Ory Elements project.
+   */
   project: AccountExperienceConfiguration
 }
 
@@ -32,6 +45,14 @@ const defaultProject: AccountExperienceConfiguration = {
   locale_behavior: "force_default",
 }
 
+/**
+ * The `useOryConfiguration` hook provides access to the Ory Elements configuration.
+ *
+ * This includes the SDK configuration and the project configuration. To customize the configuration, provide the `sdk` and `project` properties in the `OryConfigurationProvider`.
+ *
+ * @returns the Ory Elements configuration, which includes the SDK and project configuration.
+ * @group Hooks
+ */
 export function useOryConfiguration(): OryElementsConfiguration {
   const configCtx = useContext(OryConfigurationContext)
   return {
@@ -72,14 +93,39 @@ const OryConfigurationContext = createContext<OryElementsConfigContextType>({
   project: defaultProject,
 })
 
+/**
+ * Props for the `OryConfigurationProvider` component.
+ *
+ * @hidden
+ * @inline
+ */
+export interface OryConfigurationProviderProps extends PropsWithChildren {
+  /**
+   * The Ory SDK configuration to use.
+   * If not provided, the SDK URL will be determined automatically based on the environment.
+   *
+   * Always required for production environments.
+   */
+  sdk?: OryClientConfiguration["sdk"]
+
+  /**
+   * This configuration is used to customize the behavior and appearance of Ory Elements.
+   */
+  project?: Partial<AccountExperienceConfiguration>
+}
+
+/**
+ * The `OryConfigurationProvider` component provides the Ory Elements configuration to its children.
+ *
+ * @param props - The properties for the OryConfigurationProvider component.
+ * @returns
+ * @group Components
+ */
 export function OryConfigurationProvider({
   children,
   sdk: initialConfig,
   project,
-}: PropsWithChildren<{
-  sdk?: Partial<OryClientConfiguration["sdk"]>
-  project?: Partial<AccountExperienceConfiguration>
-}>) {
+}: OryConfigurationProviderProps) {
   const configRef = useRef({
     sdk: computeSdkConfig(initialConfig),
     project: {
@@ -97,7 +143,6 @@ export function OryConfigurationProvider({
 
 function computeSdkConfig(config?: OryClientConfiguration["sdk"]): SDKConfig {
   if (config?.url && typeof config.url === "string") {
-    console.debug("Using sdk url from config")
     return {
       url: config.url.replace(/\/$/, ""),
       options: config.options || {},

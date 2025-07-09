@@ -1,11 +1,11 @@
 {
-  "id": "2173b1eb-cfb4-40bb-8eed-8baa17d3e355",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:04.406359109Z",
-  "issued_at": "2025-04-24T15:08:04.406359109Z",
-  "request_url": "https://elated-heisenberg-bpzaggn687.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://elated-heisenberg-bpzaggn687.projects.oryapis:8080/self-service/registration?flow=2173b1eb-cfb4-40bb-8eed-8baa17d3e355",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "3g92LNDQHXzSNKRslH5FeTSB6rPRia8XDW9uY9wgE35zynZ0MeVgnKSn+vt1qZqwiz7obvb+BM8KjEZ0Tb5t4Q==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

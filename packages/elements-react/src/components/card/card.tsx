@@ -5,6 +5,9 @@ import { PropsWithChildren } from "react"
 import { useComponents } from "../../context"
 import { OryFormProvider } from "../form/form-provider"
 
+/**
+ * @interface
+ */
 export type OryCardRootProps = PropsWithChildren
 
 /**
@@ -16,6 +19,7 @@ export type OryCardRootProps = PropsWithChildren
  *
  * @param props - pass children to render instead of the default Ory Card components
  * @returns
+ * @group Components
  */
 export function OryCard({ children }: PropsWithChildren) {
   const { Card } = useComponents()

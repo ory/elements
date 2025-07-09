@@ -1,12 +1,12 @@
 {
-  "id": "3484432a-7798-4e4b-ad21-78289e4dd6e6",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:06:54.869063Z",
-  "issued_at": "2025-04-24T15:06:54.869063Z",
-  "request_url": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/self-service/login?flow=3484432a-7798-4e4b-ad21-78289e4dd6e6",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -33,23 +33,18 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_trigger_script",
-          "nonce": "5583e194-811f-4faf-906d-6382e4209b8d",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
         "meta": {}
       },
       {
-        "type": "text",
+        "type": "div",
         "group": "captcha",
         "attributes": {
-          "text": {
-            "id": 1070015,
-            "text": "Please complete the captcha challenge to continue.",
-            "type": "info"
-          },
           "id": "captcha_turnstile_inject",
-          "node_type": "text"
+          "node_type": "div"
         },
         "messages": [],
         "meta": {}
@@ -65,7 +60,7 @@
           "integrity": "",
           "type": "text/javascript",
           "id": "captcha_script",
-          "nonce": "9d634c69-2e7e-460d-8a29-0213d8312957",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -133,7 +128,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "vlv/4LHRDfHKxbRSn9nsgr9o4mZjGjIdXewNGdo0PnY7BtwwB4SBlpp7E34P8tzc8+aerHpTpje+nO0na1YVew==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -145,14 +140,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "c72d6554-af81-4a39-adfd-7f5c0d82f4e9",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -178,7 +173,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"oOUxiv8t950IMSFpwUqwbvbHNnOJXldmBL-AMok-GNc\",\"timeout\":300000,\"rpId\":\"vigorous-leavitt-9h90v8s9ko.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -194,8 +189,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:06:54.878794Z",
-  "updated_at": "2025-04-24T15:06:54.878794Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method",

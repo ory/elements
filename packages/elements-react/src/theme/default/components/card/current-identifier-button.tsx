@@ -15,6 +15,15 @@ import { omitInputAttributes } from "../../../../util/omitAttributes"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 import { restartFlowUrl } from "../../utils/url"
 
+/**
+ * The `DefaultCurrentIdentifierButton` component renders a button that displays the current identifier
+ *
+ * The button can be used to restart the flow with the current identifier if appropriate.
+ *
+ * @returns
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultCurrentIdentifierButton() {
   const { flow, flowType, formState } = useOryFlow()
   const { setValue, getValues, watch } = useFormContext()
@@ -40,7 +49,10 @@ export function DefaultCurrentIdentifierButton() {
     return null
   }
 
-  if (flowType === FlowType.Login && flow.requested_aal === "aal2") {
+  if (
+    flowType === FlowType.Login &&
+    (flow.requested_aal === "aal2" || flow.refresh)
+  ) {
     return null
   }
 
@@ -64,7 +76,10 @@ export function DefaultCurrentIdentifierButton() {
         {flow.ui.nodes
           .filter((n) => {
             if (isUiNodeInputAttributes(n.attributes)) {
-              return n.attributes.type === "hidden"
+              return (
+                n.attributes.type === "hidden" &&
+                ["default", "captcha"].includes(n.group)
+              )
             }
             return false
           })

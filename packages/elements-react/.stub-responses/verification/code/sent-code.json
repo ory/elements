@@ -1,12 +1,12 @@
 {
-  "id": "63aa5c94-0359-48ce-be81-0b61bcc51f6a",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:01.892703Z",
-  "issued_at": "2025-04-24T15:07:01.892703Z",
-  "request_url": "https://festive-mendel-kt8mnsi1g0.projects.oryapis:8080/self-service/verification/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/verification/browser",
   "active": "code",
   "ui": {
-    "action": "https://festive-mendel-kt8mnsi1g0.projects.oryapis:8080/self-service/verification?flow=63aa5c94-0359-48ce-be81-0b61bcc51f6a",
+    "action": "https://slug.projects.oryapis:8080/self-service/verification?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -66,7 +66,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "xkatnYzgwz3uSAf7hl+rP35/Fwnrxxhf1dj2RibIDcPe9QOutRhd5V3mhYnYNTOxBKwfxR+hzb8/DgQVXOFWzw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -80,7 +80,7 @@
         "attributes": {
           "name": "email",
           "type": "submit",
-          "value": "dev+orycye2eda2f162daf6142dd0.gx2hj9zfntk0.fvb8r5f6q3@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },

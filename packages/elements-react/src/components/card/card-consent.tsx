@@ -10,6 +10,12 @@ import { OryCardFooter } from "./footer"
 import { OryCardHeader } from "./header"
 import { getNodeId } from "@ory/client-fetch"
 
+/**
+ * The `OryConsentCard` component renders a card for displaying the OAuth2 consent flow.
+ *
+ * @returns The consent card component.
+ * @group Components
+ */
 export function OryConsentCard() {
   const { Form, Card } = useComponents()
   const flow = useOryFlow()

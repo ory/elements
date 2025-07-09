@@ -10,6 +10,8 @@ import { clientSideFrontendClient } from "./client"
  *
  * @returns A settings flow
  * @public
+ * @function
+ * @group Hooks
  */
 export const useSettingsFlow = createUseFlowFactory(
   FlowType.Settings,

@@ -1,3 +1,26 @@
+## 1.0.0-rc.5 (2025-05-16)
+
+### 🩹 Fixes
+
+- properly detect OIDC account linking ([#538](https://github.com/ory/elements/pull/538))
+
+### ❤️ Thank You
+
+- Jonas Hungershausen
+
+## 1.0.0-rc.4 (2025-05-15)
+
+### 🩹 Fixes
+
+- properly handle missing fields in OIDC registration ([#534](https://github.com/ory/elements/pull/534))
+- incorrect if branching in handle error ([#533](https://github.com/ory/elements/pull/533))
+- re-enable method chooser on mfa method active screens ([#530](https://github.com/ory/elements/pull/530))
+
+### ❤️ Thank You
+
+- hackerman @aeneasr
+- Jonas Hungershausen
+
 ## 1.0.0-rc.3 (2025-05-09)
 
 ### 🩹 Fixes

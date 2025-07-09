@@ -1,12 +1,12 @@
 {
-  "id": "46ba836a-404c-47c4-9766-37d867fffd79",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:16.087452779Z",
-  "issued_at": "2025-04-24T15:08:16.087452779Z",
-  "request_url": "https://funny-satoshi-wyc4adt865.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://funny-satoshi-wyc4adt865.projects.oryapis:8080/self-service/login?flow=46ba836a-404c-47c4-9766-37d867fffd79",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -196,7 +196,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "qMaDIQ52+p2j0fI5lrRsZ4baB6zwXXXE4hqFlnz9MBMjNZ4rRpG/1hhA4Ip6fE0sqoArexvYc5IJoYRaA8NVhw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -206,8 +206,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:16.09226Z",
-  "updated_at": "2025-04-24T15:08:16.09226Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

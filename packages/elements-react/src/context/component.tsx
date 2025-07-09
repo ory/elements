@@ -21,6 +21,14 @@ const ComponentContext = createContext<ComponentContextValue>({
   groupSorter: () => 0,
 })
 
+/**
+ * The `useComponents` hook provides access to the Ory Flow components provided in the `OryComponentProvider`.
+ *
+ * You can use this hook to access the components defined in the `components` prop of the `OryComponentProvider`.
+ *
+ * @returns the current component context value.
+ * @group Hooks
+ */
 export function useComponents() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {
@@ -29,6 +37,16 @@ export function useComponents() {
   return ctx.components
 }
 
+/**
+ * The `useNodeSorter` hook provides a way to access the node sorting function
+ *
+ * The node sorting function is used to determine the order of nodes in a flow based on their attributes and context.
+ *
+ * To customize the sorting behavior, you can provide a custom `nodeSorter` function to the `OryComponentProvider`.
+ *
+ * @returns a function that sorts nodes based on the provided context.
+ * @group Hooks
+ */
 export function useNodeSorter() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {

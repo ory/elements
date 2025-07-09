@@ -1,12 +1,12 @@
 {
-  "id": "769685c1-238f-440a-8cbf-eefb95a42e58",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:14.617271678Z",
-  "issued_at": "2025-04-24T15:08:14.617271678Z",
-  "request_url": "https://recursing-aryabhata-pr1ddv2dld.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://recursing-aryabhata-pr1ddv2dld.projects.oryapis:8080/self-service/login?flow=769685c1-238f-440a-8cbf-eefb95a42e58",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -196,7 +196,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "wFMLW6D00LxA2hPGMux0BCDCrOBbeoU1u8z6HP/rQ+krFDOg5Eu7roaqhRxEuCocq88tEh6eQYs7kLMHq2jhUA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -206,8 +206,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:14.623971Z",
-  "updated_at": "2025-04-24T15:08:14.623971Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -6,6 +6,7 @@ import {
   getNodeLabel,
   instanceOfUiText,
   UiNode,
+  UiNodeInputAttributes,
 } from "@ory/client-fetch"
 import {
   messageTestId,
@@ -18,6 +19,7 @@ import {
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { initFlowUrl } from "../../utils/url"
+import { useMemo } from "react"
 
 function findResendNode(nodes: UiNode[]) {
   return nodes.find(
@@ -37,11 +39,8 @@ export function DefaultLabel({
   const intl = useIntl()
   const label = getNodeLabel(node)
   const { Message } = useComponents()
-  const { flowType, flow } = useOryFlow()
-  const config = useOryConfiguration()
+  const { flow } = useOryFlow()
   const { setValue, formState } = useFormContext()
-
-  const isPassword = attributes.type === "password"
 
   const resendNode = findResendNode(flow.ui.nodes)
 
@@ -65,20 +64,7 @@ export function DefaultLabel({
           >
             {uiTextToFormattedMessage(label, intl)}
           </label>
-          {isPassword &&
-            config.project.recovery_enabled &&
-            flowType === FlowType.Login && (
-              // TODO: make it possible to override with a custom component
-              <a
-                href={initFlowUrl(config.sdk.url, "recovery", flow)}
-                className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-              >
-                {intl.formatMessage({
-                  id: "forms.label.forgot-password",
-                  defaultMessage: "Forgot password?",
-                })}
-              </a>
-            )}
+          <LabelAction attributes={attributes} />
           {resendNode?.attributes.node_type === "input" && (
             <button
               type="submit"
@@ -101,4 +87,55 @@ export function DefaultLabel({
       )}
     </div>
   )
+}
+
+type LabelActionProps = {
+  attributes: UiNodeInputAttributes
+}
+
+function LabelAction({ attributes }: LabelActionProps) {
+  const intl = useIntl()
+  const { flowType, flow, formState } = useOryFlow()
+  const config = useOryConfiguration()
+
+  const action = useMemo(() => {
+    if (flowType === FlowType.Login && config.project.recovery_enabled) {
+      if (formState.current === "provide_identifier" && !flow.refresh) {
+        if (attributes.name === "identifier") {
+          return {
+            message: intl.formatMessage({
+              id: "forms.label.recover-account",
+              defaultMessage: "Recover Account",
+            }),
+            href: initFlowUrl(config.sdk.url, "recovery", flow),
+          }
+        }
+      } else if (attributes.type === "password") {
+        return {
+          message: intl.formatMessage({
+            id: "forms.label.forgot-password",
+            defaultMessage: "Forgot password?",
+          }),
+          href: initFlowUrl(config.sdk.url, "recovery", flow),
+        }
+      }
+    }
+  }, [
+    attributes,
+    config.project.recovery_enabled,
+    flow,
+    flowType,
+    intl,
+    config.sdk.url,
+    formState,
+  ])
+
+  return action ? (
+    <a
+      href={action.href}
+      className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+    >
+      {action.message}
+    </a>
+  ) : null
 }

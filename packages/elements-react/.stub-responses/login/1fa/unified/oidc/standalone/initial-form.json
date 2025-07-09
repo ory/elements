@@ -1,12 +1,12 @@
 {
-  "id": "a506f6a4-78c4-4a1a-9316-511477413e7a",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:47.555625346Z",
-  "issued_at": "2025-04-24T15:07:47.555625346Z",
-  "request_url": "https://trusting-mahavira-or1592ehv6.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://trusting-mahavira-or1592ehv6.projects.oryapis:8080/self-service/login?flow=a506f6a4-78c4-4a1a-9316-511477413e7a",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -199,7 +199,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "74X8s7MiWQrp5VXQPRk6lPfqznf2QdRXQmHXoAtZSNnHjPQzwf8vPL/gZ4VL4/4RmZLykojNtN9CbVSG6tU4mA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -209,8 +209,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:47.56007Z",
-  "updated_at": "2025-04-24T15:07:47.56007Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

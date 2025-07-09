@@ -3,7 +3,6 @@
 
 import {
   FlowType,
-  handleFlowError,
   LoginFlow,
   loginUrl,
   UpdateLoginFlowBody,
@@ -13,6 +12,7 @@ import { LoginFlowContainer } from "./flowContainer"
 import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
 import { OryElementsConfiguration } from "../context"
+import { handleFlowError } from "./sdk-helpers"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.
@@ -66,6 +66,7 @@ export async function onSubmitLogin(
           })
         },
         onRedirect,
+        config,
       }),
     )
 }

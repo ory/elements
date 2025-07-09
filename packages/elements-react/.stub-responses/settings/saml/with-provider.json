@@ -1,11 +1,11 @@
 {
-  "id": "0907f6e0-ab67-4199-8262-ff7389e0133d",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:20.887938657Z",
-  "issued_at": "2025-04-24T15:08:20.887938657Z",
-  "request_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/settings/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/settings/browser",
   "ui": {
-    "action": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/settings?flow=0907f6e0-ab67-4199-8262-ff7389e0133d",
+    "action": "https://slug.projects.oryapis:8080/self-service/settings?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "4opGo8udqwLExzXylC6M7dQna4fyrBWB09LJM7xilKFfvOTr/ABvK8cjUlNXq8oTztgJ3IVFPvpj4F5kaSQi/Q==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -28,7 +28,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "email",
-          "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -166,174 +166,42 @@
             "type": "info"
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "auth0",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link Auth0",
-            "type": "info",
-            "context": {
-              "provider": "Auth0"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "azure",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link Azure AD",
-            "type": "info",
-            "context": {
-              "provider": "Azure AD"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "unlink",
-          "type": "submit",
-          "value": "gsuite",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050003,
-            "text": "Unlink Google Workspace",
-            "type": "info",
-            "context": {
-              "provider": "Google Workspace"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "okta",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link Okta",
-            "type": "info",
-            "context": {
-              "provider": "Okta"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "onelogin",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link OneLogin",
-            "type": "info",
-            "context": {
-              "provider": "OneLogin"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "link",
-          "type": "submit",
-          "value": "pingfederate",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1050002,
-            "text": "Link PingFederate",
-            "type": "info",
-            "context": {
-              "provider": "PingFederate"
-            }
-          }
-        }
       }
     ]
   },
   "identity": {
-    "id": "bb0d16d1-6a72-435c-a6a6-34644ee4d273",
+    "id": "00000000-0000-0000-0000-000000000000",
     "schema_id": "3295c9e92d19a78b10bfa45d7619eedcfb7d7ea4c2e8f163a21613da0ae6d4179f47fb58d1c23060f11126585f380ee9a9ce9a1d451f4b4de9ef33cc93ca763f",
-    "schema_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
+    "schema_url": "https://slug.projects.oryapis:8080/schemas/MzI5NWM5ZTkyZDE5YTc4YjEwYmZhNDVkNzYxOWVlZGNmYjdkN2VhNGMyZThmMTYzYTIxNjEzZGEwYWU2ZDQxNzlmNDdmYjU4ZDFjMjMwNjBmMTExMjY1ODVmMzgwZWU5YTljZTlhMWQ0NTFmNGI0ZGU5ZWYzM2NjOTNjYTc2M2Y",
     "state": "active",
-    "state_changed_at": "2025-04-24T15:08:19.699644Z",
+    "state_changed_at": "0001-01-01T00:00:00Z",
     "traits": {
-      "email": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev"
+      "email": "dev@ory.dev"
     },
     "verifiable_addresses": [
       {
-        "id": "93087418-2d04-4f58-a25a-1f3f32892bbf",
-        "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "value": "dev@ory.dev",
         "verified": true,
         "via": "email",
         "status": "completed",
-        "verified_at": "2025-04-24T15:08:19.712118Z",
-        "created_at": "2025-04-24T15:08:19.712192Z",
-        "updated_at": "2025-04-24T15:08:19.712192Z"
+        "verified_at": "0001-01-01T00:00:00Z",
+        "created_at": "0001-01-01T00:00:00Z",
+        "updated_at": "0001-01-01T00:00:00Z"
       }
     ],
     "recovery_addresses": [
       {
-        "id": "9277012f-abb0-4ac5-afcc-72f67f57e315",
-        "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "value": "dev@ory.dev",
         "via": "email",
-        "created_at": "2025-04-24T15:08:19.731748Z",
-        "updated_at": "2025-04-24T15:08:19.731748Z"
+        "created_at": "0001-01-01T00:00:00Z",
+        "updated_at": "0001-01-01T00:00:00Z"
       }
     ],
     "metadata_public": null,
-    "created_at": "2025-04-24T15:08:19.701872Z",
-    "updated_at": "2025-04-24T15:08:19.701872Z",
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
     "organization_id": null
   },
   "state": "show_form"

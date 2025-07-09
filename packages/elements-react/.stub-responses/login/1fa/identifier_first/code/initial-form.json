@@ -1,12 +1,12 @@
 {
-  "id": "8d3c0772-ec05-44f3-9309-fc66d6f11cd0",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:00.356183878Z",
-  "issued_at": "2025-04-24T15:07:00.356183878Z",
-  "request_url": "https://sad-bartik-barzr8dh86.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://sad-bartik-barzr8dh86.projects.oryapis:8080/self-service/login?flow=8d3c0772-ec05-44f3-9309-fc66d6f11cd0",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -58,7 +58,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6c9bplRl4I2aQ9AptXEFO6Iaqv2QHJZ7Jcf8z5eN00yMqd14AczwCFhLmQuY5Jhn+OMRS8PARoIK3K6oHHimyA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,8 +68,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:00.360555Z",
-  "updated_at": "2025-04-24T15:07:00.360555Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

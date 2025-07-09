@@ -94,7 +94,19 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.Submit:
     case UiNodeInputAttributesTypeEnum.Button:
       if (isSocial) {
-        return null
+        return (
+          <Node.SsoButton
+            node={node}
+            attributes={attrs}
+            onClick={() => {
+              setValue(
+                "provider",
+                (node.attributes as UiNodeInputAttributes).value,
+              )
+              setValue("method", node.group)
+            }}
+          />
+        )
       }
       if (isResendNode || isScreenSelectionNode) {
         return null

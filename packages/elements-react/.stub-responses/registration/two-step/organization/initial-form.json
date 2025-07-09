@@ -1,11 +1,11 @@
 {
-  "id": "84f23809-5d96-4217-b946-e57a6bcba862",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:56.424074141Z",
-  "issued_at": "2025-04-24T15:07:56.424074141Z",
-  "request_url": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration?flow=84f23809-5d96-4217-b946-e57a6bcba862",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "rp6fsdAOe4C0eAMipJ2XCAld9GNSmUU4p9hNkRRMtc0MdD8MUfc8KTyHO4bvKzCXlUsKMYHm9pau2qnkjsOzyA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

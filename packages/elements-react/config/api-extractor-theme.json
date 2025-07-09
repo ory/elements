@@ -429,8 +429,11 @@
       // have to tell it to ignore it.
       "ae-wrong-input-file-type": {
         "logLevel": "none"
+      },
+      "ae-unresolved-link": {
+        // See above
+        "logLevel": "none"
       }
-
       // "ae-extra-release-tag": {
       //   "logLevel": "warning",
       //   "addToApiReportFile": true
@@ -450,8 +453,14 @@
       "default": {
         "logLevel": "warning"
         // "addToApiReportFile": false
-      }
+      },
 
+      "tsdoc-reference-missing-hash": {
+        "logLevel": "none"
+      },
+      "tsdoc-reference-malformed-package-name": {
+        "logLevel": "none"
+      }
       // "tsdoc-link-tag-unescaped-text": {
       //   "logLevel": "warning",
       //   "addToApiReportFile": true

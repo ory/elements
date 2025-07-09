@@ -21,7 +21,7 @@ export type OrySettingsTotpProps = {
   onUnlink: () => void
 }
 
-export type OrySettingsOidcProps = {
+export type OrySettingsSsoProps = {
   linkButtons: (UiNode & { onClick: () => void })[]
   unlinkButtons: (UiNode & { onClick: () => void })[]
 }

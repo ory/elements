@@ -5,9 +5,27 @@ import {
   AccountExperienceConfiguration,
   ConfigurationParameters,
 } from "@ory/client-fetch"
-import { IntlContextProps } from "../context/intl-context"
+import { Locale } from "../context/intl-context"
+import { LocaleMap } from "../locales"
 
-export type IntlConfig = IntlContextProps
+/**
+ * The configuration for internationalization (i18n) in Ory Elements.
+ *
+ * This configuration is used to set the locale and can be used to provide custom translations.
+ * The locale is used to determine the language of the UI.
+ */
+export type IntlConfig = {
+  /**
+   * The locale to use for internationalization.
+   *
+   * @defaultValue "en"
+   */
+  locale: Locale
+  /**
+   * Provide custom translations for the UI.
+   */
+  customTranslations?: Partial<LocaleMap>
+}
 
 /**
  * The configuration for Ory Elements.
@@ -19,13 +37,21 @@ export type IntlConfig = IntlContextProps
  * You can also set the name of the application, the logo URL, and the SDK configuration.
  * By default, the name and logo are displayed in the card's header.
  */
-export type OryClientConfiguration = {
+export interface OryClientConfiguration {
   /**
    * The SDK configuration.
    * This configuration is used to set the URL of the Ory SDK and any additional options used for the SDK client.
    */
   sdk?: {
+    /**
+     * The URL the Ory SDK should connect to.
+     * This is typically the base URL of your Ory instance.
+     */
     url?: string
+    /**
+     * Additional parameters for the Ory SDK configuration.
+     * This can include options like headers, credentials, and other settings.
+     */
     options?: Partial<ConfigurationParameters>
   }
 

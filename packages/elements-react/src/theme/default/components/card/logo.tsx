@@ -3,6 +3,15 @@
 
 import { useOryConfiguration } from "@ory/elements-react"
 
+/**
+ * The DefaultCardLogo component renders the logo from the {@link @ory/elements-react!OryProvider} or falls back to the project name.
+ *
+ * @returns the default logo for the Ory Card component.
+ * @group Components
+ * @category Default Components
+ * @see {@link @ory/elements-react!OryProvider}
+ * @see {@link @ory/elements-react!OryElementsConfiguration}
+ */
 export function DefaultCardLogo() {
   const config = useOryConfiguration()
 
@@ -10,8 +19,7 @@ export function DefaultCardLogo() {
     return (
       <img
         src={config.project.logo_light_url}
-        width={100}
-        height={36}
+        className="h-full max-h-9 self-start"
         alt="Logo"
       />
     )

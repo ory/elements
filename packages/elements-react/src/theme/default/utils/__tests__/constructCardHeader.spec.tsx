@@ -14,6 +14,9 @@ import {
 import { renderHook } from "@testing-library/react"
 import { PropsWithChildren } from "react"
 import { IntlProvider } from "../../../../context/intl-context"
+import { OryLocales } from "../../../../locales"
+
+console.error = jest.fn()
 
 const password: UiNode = {
   group: "password",
@@ -178,6 +181,26 @@ const identifierFirstPhone: UiNode = {
   },
 }
 
+const profileSubmit: UiNode = {
+  type: "input",
+  group: "profile",
+  attributes: {
+    name: "method",
+    type: "submit",
+    value: "profile",
+    disabled: false,
+    node_type: "input",
+  },
+  messages: [],
+  meta: {
+    label: {
+      id: 1040001,
+      text: "Sign up",
+      type: "info",
+    },
+  },
+}
+
 const combinations = {
   oidc,
   code,
@@ -193,147 +216,160 @@ const combinations = {
   default_and_passkeys: [defaultGroup, passkey],
   default_and_webauthn: [defaultGroup, aal2Nodes.webauthn],
   idenfier_first_and_oidc: [identifierFirst, oidc],
+  profile_first_registration: [defaultGroup, profileSubmit],
 }
 
-const wrapper = ({ children }: PropsWithChildren) => (
-  <IntlProvider locale="en">{children}</IntlProvider>
-)
+const wrapper =
+  (lang: string) =>
+  ({ children }: PropsWithChildren) => (
+    <IntlProvider locale={lang}>{children}</IntlProvider>
+  )
 
-for (const flowType of [
-  FlowType.Login,
-  FlowType.Registration,
-  FlowType.Verification,
-  FlowType.Recovery,
-  FlowType.Settings,
-] as const) {
-  describe("flowType=" + flowType, () => {
-    for (const refresh of [true, false]) {
-      // Yes, it doesn't make sense to test other flows with refresh enabled, but it doesn't hurt, and typescript is dumb here.
-      describe("refresh=" + refresh, () => {
-        const opts = {
-          flowType,
-          flow: { refresh },
-        }
-        for (const [key, value] of Object.entries(combinations)) {
-          describe("combination=" + key, () => {
-            test("constructCardHeaderText", () => {
-              const res = renderHook(
-                () =>
-                  useCardHeaderText(
-                    {
-                      nodes: Array.isArray(value) ? value : [value],
-                      action: "",
-                      method: "",
-                    },
-                    opts as CardHeaderTextOptions,
-                  ),
-                { wrapper },
-              )
-              expect(res.result.current).toMatchSnapshot()
+describe("constructCardHeaderText", () => {
+  for (const lang of Object.keys(OryLocales)) {
+    describe("language=" + lang, () => {
+      for (const flowType of [
+        FlowType.Login,
+        FlowType.Registration,
+        FlowType.Verification,
+        FlowType.Recovery,
+        FlowType.Settings,
+      ] as const) {
+        describe("flowType=" + flowType, () => {
+          for (const refresh of [true, false]) {
+            // Yes, it doesn't make sense to test other flows with refresh enabled, but it doesn't hurt, and typescript is dumb here.
+            describe("refresh=" + refresh, () => {
+              const opts = {
+                flowType,
+                flow: { refresh },
+              }
+              for (const [key, value] of Object.entries(combinations)) {
+                describe("combination=" + key, () => {
+                  test("constructCardHeaderText", () => {
+                    const res = renderHook(
+                      () =>
+                        useCardHeaderText(
+                          {
+                            nodes: Array.isArray(value) ? value : [value],
+                            action: "",
+                            method: "",
+                          },
+                          opts as CardHeaderTextOptions,
+                        ),
+                      { wrapper: wrapper(lang) },
+                    )
+                    expect(res.result.current).toMatchSnapshot()
+                  })
+                })
+              }
             })
-          })
-        }
-      })
-    }
-  })
-}
+          }
+        })
+      }
 
-test("constructCardHeaderText on account linking", () => {
-  const res = renderHook(
-    () =>
-      useCardHeaderText(
-        {
-          nodes: [defaultGroup],
-          action: "",
-          method: "",
-          messages: [
-            {
-              id: 1010016,
-              text: "",
-              type: "error",
-              context: {
-                duplicateIdentifier: "duplicateIdentifier",
-                provider: "provider",
+      test("constructCardHeaderText on account linking", () => {
+        const res = renderHook(
+          () =>
+            useCardHeaderText(
+              {
+                nodes: [defaultGroup],
+                action: "",
+                method: "",
+                messages: [
+                  {
+                    id: 1010016,
+                    text: "",
+                    type: "error",
+                    context: {
+                      duplicateIdentifier: "duplicateIdentifier",
+                      provider: "provider",
+                    },
+                  },
+                ],
               },
-            },
-          ],
-        },
-        { flowType: FlowType.Login, flow: { refresh: false } },
-      ),
-    { wrapper },
-  )
-  expect(res.result.current).toMatchSnapshot()
-})
+              { flowType: FlowType.Login, flow: { refresh: false } },
+            ),
+          { wrapper: wrapper(lang) },
+        )
+        expect(res.result.current).toMatchSnapshot()
+      })
 
-test("constructCardHeaderText on 2fa login - multi", () => {
-  const res = renderHook(
-    () =>
-      useCardHeaderText(
-        {
-          nodes: Object.values(aal2Nodes),
-          action: "",
-          method: "POST",
-          messages: [{ id: 1010004, text: "", type: "info", context: {} }],
-        },
-        {
-          flowType: FlowType.Login,
-          flow: { refresh: false, requested_aal: "aal2" },
-          formState: { current: "select_method" },
-        },
-      ),
-    { wrapper },
-  )
-  expect(res.result.current).toMatchSnapshot()
-})
+      test("constructCardHeaderText on 2fa login - multi", () => {
+        const res = renderHook(
+          () =>
+            useCardHeaderText(
+              {
+                nodes: Object.values(aal2Nodes),
+                action: "",
+                method: "POST",
+                messages: [
+                  { id: 1010004, text: "", type: "info", context: {} },
+                ],
+              },
+              {
+                flowType: FlowType.Login,
+                flow: { refresh: false, requested_aal: "aal2" },
+                formState: { current: "select_method" },
+              },
+            ),
+          { wrapper: wrapper(lang) },
+        )
+        expect(res.result.current).toMatchSnapshot()
+      })
 
-for (const method of ["webauthn", "totp", "lookup_secret"]) {
-  test(`constructCardHeaderText on 2fa login - ${method}`, () => {
-    const res = renderHook(
-      () =>
-        useCardHeaderText(
-          {
-            nodes: [aal2Nodes[method]],
-            action: "",
-            method: "POST",
-            messages: [{ id: 1010004, text: "", type: "info", context: {} }],
-          },
-          {
-            flowType: FlowType.Login,
-            flow: { refresh: false, requested_aal: "aal2" },
-            formState: {
-              current: "method_active",
-              method: method as UiNodeGroupEnum,
-            },
-          },
-        ),
-      { wrapper },
-    )
-    expect(res.result.current).toMatchSnapshot()
-  })
-}
+      for (const method of ["webauthn", "totp", "lookup_secret"]) {
+        test(`constructCardHeaderText on 2fa login - ${method}`, () => {
+          const res = renderHook(
+            () =>
+              useCardHeaderText(
+                {
+                  nodes: [aal2Nodes[method]],
+                  action: "",
+                  method: "POST",
+                  messages: [
+                    { id: 1010004, text: "", type: "info", context: {} },
+                  ],
+                },
+                {
+                  flowType: FlowType.Login,
+                  flow: { refresh: false, requested_aal: "aal2" },
+                  formState: {
+                    current: "method_active",
+                    method: method as UiNodeGroupEnum,
+                  },
+                },
+              ),
+            { wrapper: wrapper(lang) },
+          )
+          expect(res.result.current).toMatchSnapshot()
+        })
+      }
 
-test("constructCardHeaderText on consent screen", () => {
-  const res = renderHook(
-    () =>
-      useCardHeaderText(
-        {
-          nodes: [],
-          action: "",
-          method: "",
-          messages: [],
-        },
-        {
-          flowType: FlowType.OAuth2Consent,
-          flow: {
-            consent_request: {
-              challenge: "consent-challenge",
-              client: { client_name: "Client Test" },
-            },
-            session: { id: "session-id" },
-          },
-        },
-      ),
-    { wrapper },
-  )
-  expect(res.result.current).toMatchSnapshot()
+      test("constructCardHeaderText on consent screen", () => {
+        const res = renderHook(
+          () =>
+            useCardHeaderText(
+              {
+                nodes: [],
+                action: "",
+                method: "",
+                messages: [],
+              },
+              {
+                flowType: FlowType.OAuth2Consent,
+                flow: {
+                  consent_request: {
+                    challenge: "consent-challenge",
+                    client: { client_name: "Client Test" },
+                  },
+                  session: { id: "session-id" },
+                },
+              },
+            ),
+          { wrapper: wrapper(lang) },
+        )
+        expect(res.result.current).toMatchSnapshot()
+      })
+    })
+  }
 })

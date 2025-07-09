@@ -11,16 +11,15 @@ import { getPublicUrl, toGetFlowParameter } from "./utils"
 /**
  * Use this method in an app router page to fetch an existing registration flow or to create a new one. This method works with server-side rendering.
  *
- * ```
+ * @example
+ * ```tsx
  * import { Registration } from "@ory/elements-react/theme"
  * import { getRegistrationFlow, OryPageParams } from "@ory/nextjs/app"
- * import { enhanceConfig } from "@ory/nextjs"
  *
  * import config from "@/ory.config"
  * import CardHeader from "@/app/auth/registration/card-header"
  *
  * export default async function RegistrationPage(props: OryPageParams) {
- *   const config = enhanceConfig(baseConfig)
  *   const flow = await getRegistrationFlow(config, props.searchParams)
  *
  *   if (!flow) {

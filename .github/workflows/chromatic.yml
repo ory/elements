@@ -2,6 +2,8 @@ name: Chromatic PR
 
 on:
   push:
+    branches-ignore:
+      - renovate/**
 
 jobs:
   build:

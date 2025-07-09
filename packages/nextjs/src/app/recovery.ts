@@ -10,16 +10,14 @@ import { getPublicUrl, toGetFlowParameter } from "./utils"
 /**
  * Use this method in an app router page to fetch an existing recovery flow or to create a new one. This method works with server-side rendering.
  *
- * ```
+ * @example
+ * ```tsx
  * import { Recovery } from "@ory/elements-react/theme"
  * import { getRecoveryFlow, OryPageParams } from "@ory/nextjs/app"
- * import { enhanceConfig } from "@ory/nextjs"
- *
  * import config from "@/ory.config"
  * import CardHeader from "@/app/auth/recovery/card-header"
  *
  * export default async function RecoveryPage(props: OryPageParams) {
- *   const config = enhanceConfig(baseConfig)
  *   const flow = await getRecoveryFlow(config, props.searchParams)
  *
  *   if (!flow) {

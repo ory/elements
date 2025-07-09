@@ -13,16 +13,22 @@ import {
 import { OryMessageContentProps } from "@ory/elements-react"
 import { FlowType } from "@ory/client-fetch"
 
+/**
+ * The default form container for Ory Elements.
+ *
+ * @param props - The properties for the DefaultFormContainer component.
+ * @returns
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultFormContainer({
   children,
   onSubmit,
   action,
   method,
-  "data-testid": dataTestId,
 }: PropsWithChildren<OryFormRootProps>) {
   return (
     <form
-      data-testid={dataTestId}
       onSubmit={onSubmit}
       noValidate
       action={action}
@@ -34,6 +40,14 @@ export function DefaultFormContainer({
   )
 }
 
+/**
+ * The default message container for Ory Elements.
+ *
+ * @param props - The properties for the DefaultMessageContainer component.
+ * @returns
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultMessageContainer({ children }: PropsWithChildren) {
   const { flowType } = useOryFlow()
   if (!children || (Array.isArray(children) && children.length === 0)) {
@@ -51,6 +65,15 @@ export function DefaultMessageContainer({ children }: PropsWithChildren) {
   )
 }
 
+/**
+ * The default message component for Ory Elements.
+ *
+ * @param props - The properties for the DefaultMessage component.
+ * @returns
+ * @group Components
+ * @category Default Components
+ * @see {@link @ory/elements-react!uiTextToFormattedMessage}
+ */
 export function DefaultMessage({ message }: OryMessageContentProps) {
   const intl = useIntl()
   return (
@@ -71,4 +94,4 @@ export function DefaultMessage({ message }: OryMessageContentProps) {
   )
 }
 
-export { DefaultButtonSocial } from "./social"
+export { DefaultButtonSocial } from "./sso"

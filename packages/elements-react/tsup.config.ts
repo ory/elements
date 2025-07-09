@@ -25,6 +25,7 @@ export default defineConfig([
       "@ory/client-helpers",
       "@ory/client-fetch",
       "react-intl",
+      "sonner",
     ],
   },
   {
@@ -47,10 +48,10 @@ export default defineConfig([
       "@ory/client-fetch",
       "@ory/elements-react",
       "react-intl",
+      "sonner",
     ],
 
     esbuildPlugins: [
-      // @ts-expect-error - types seems to be wrong but it works
       svgr({
         plugins: ["@svgr/plugin-svgo"],
         svgProps: {

@@ -1,11 +1,11 @@
 {
-  "id": "436bd866-5773-4eca-bd08-5d720eb10bcb",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:06:53.808488Z",
-  "issued_at": "2025-04-24T15:06:53.808488Z",
-  "request_url": "https://exciting-goldstine-ztcyzikos3.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://exciting-goldstine-ztcyzikos3.projects.oryapis:8080/self-service/registration?flow=436bd866-5773-4eca-bd08-5d720eb10bcb",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Cqf5jV6eiaiQ5MOe7QActWHGQnEXAx9zao5pRERxcEOyJMHTZ0YwslktPx7pFYQjsEkRLE1jdlTvzQ174wKHKA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

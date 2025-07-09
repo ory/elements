@@ -181,6 +181,10 @@ describe("DefaultCardFooter", () => {
         requestedAal: AuthenticatorAssuranceLevel.Aal2,
         hasLogout: true,
         didLoadLogout: true,
+        authMethods: ["totp", "code"],
+        formState: {
+          current: "select_method",
+        },
       })
       renderWithIntl(<DefaultCardFooter />)
       expect(
@@ -201,7 +205,10 @@ describe("DefaultCardFooter", () => {
 
     it("renders cancel link for code auth method", () => {
       setupMocks({
-        formState: { current: "method_active" } as FormStateMethodActive,
+        formState: {
+          current: "method_active",
+          method: "code",
+        } as FormStateMethodActive,
         authMethods: ["code"],
       })
       renderWithIntl(<DefaultCardFooter />)

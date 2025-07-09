@@ -80,7 +80,8 @@ const config = tseslint.config([
     },
 
     rules: {
-      "tsdoc/syntax": "warn",
+      // TODO: https://github.com/microsoft/tsdoc/issues/374 (and specifically https://github.com/microsoft/tsdoc/issues/374#issuecomment-2336536959)
+      "tsdoc/syntax": "off",
       "formatjs/no-offset": "error",
       "@typescript-eslint/no-floating-promises": "error",
       // The legacy elements is written with lots of any types

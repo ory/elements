@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { PropsWithChildren } from "react"
-import { IntlProvider as OriginalIntlProvider } from "react-intl"
+import { PropsWithChildren, useContext } from "react"
+import { IntlProvider as OriginalIntlProvider, IntlContext } from "react-intl"
 import { OryLocales } from ".."
 import { LocaleMap } from "../locales"
 
@@ -166,7 +166,15 @@ export const IntlProvider = ({
   locale,
   customTranslations,
 }: PropsWithChildren<IntlContextProps>) => {
+  const existingIntlContext = useContext(IntlContext)
   const messages = mergeTranslations(customTranslations ?? {})
+
+  if (existingIntlContext) {
+    // If the original context is available, we assume we're in a nested provider
+    // and we should not override the context.
+    // This is useful for cases where the parent component already provides an Intl context.
+    return children
+  }
 
   return (
     <OriginalIntlProvider

@@ -15,6 +15,7 @@ import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
  *
  * @returns The current flow container
+ * @group Hooks
  */
 export function useOryFlow() {
   const ctx = useContext(OryFlowContext)
@@ -27,6 +28,7 @@ export function useOryFlow() {
 
 /**
  * Function to set the flow container.
+ * @interface
  */
 export type FlowContainerSetter = Dispatch<OryFlowContainer>
 
@@ -54,8 +56,19 @@ export type FlowContextValue = OryFlowContainer & {
 // This is fine, because we don't export the context itself and guard from it being null in useOryFlow
 const OryFlowContext = createContext<FlowContextValue>(null!)
 
+/**
+ * Props type for the OryFlowProvider component.
+ *
+ * @hidden
+ * @inline
+ */
 export type OryFlowProviderProps = PropsWithChildren<OryFlowContainer>
 
+/**
+ *
+ * @param props - The properties for the OryFlowProvider component.
+ * @returns
+ */
 export function OryFlowProvider({
   children,
   ...container

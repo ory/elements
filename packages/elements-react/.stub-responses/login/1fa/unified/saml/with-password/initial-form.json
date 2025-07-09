@@ -1,12 +1,12 @@
 {
-  "id": "bdf310f0-d811-462d-9308-58665b7bad2a",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:17.493876741Z",
-  "issued_at": "2025-04-24T15:08:17.493876741Z",
-  "request_url": "https://crazy-jones-bwbh4nz1p7.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://crazy-jones-bwbh4nz1p7.projects.oryapis:8080/self-service/login?flow=bdf310f0-d811-462d-9308-58665b7bad2a",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -153,7 +153,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "VQY13Tu/uNohXx0Ui5YgIb4lS2B8gAh8AahSuklOFEu0uohV2hAsC1wuThDMSChE7Krkf6KKjQGcGf0QFXubCw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -225,8 +225,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:17.49968Z",
-  "updated_at": "2025-04-24T15:08:17.49968Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

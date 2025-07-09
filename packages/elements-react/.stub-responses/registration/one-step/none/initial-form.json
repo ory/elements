@@ -1,11 +1,11 @@
 {
-  "id": "3b36cf69-8a1c-4c5d-92db-9e2474752c2a",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:23.901046442Z",
-  "issued_at": "2025-04-24T15:07:23.901046442Z",
-  "request_url": "https://determined-feistel-jon0r4d6jf.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://determined-feistel-jon0r4d6jf.projects.oryapis:8080/self-service/registration?flow=3b36cf69-8a1c-4c5d-92db-9e2474752c2a",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "7yG76E0fr7xA8kB/P4qlZpiFRZUcWWbY2H/0KOlSsgS+ZEy7s39WNmW+PfFkf+jUH5LGZLVC7twxGwrjkKKGJw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"

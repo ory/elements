@@ -15,7 +15,7 @@ import {
   OryFlowComponentOverrides,
   useOryConfiguration,
 } from "@ory/elements-react"
-import { PropsWithChildren, useMemo } from "react"
+import { useMemo } from "react"
 import { FormattedMessage } from "react-intl"
 import { IntlProvider } from "../../../context/intl-context"
 import { DefaultCard } from "../components"
@@ -24,11 +24,15 @@ import { useClientLogout } from "../utils/logout"
 
 /**
  * A union type of all possible errors that can be returned by the Ory SDK.
+ * @hidden
+ * @inline
  */
 export type OryError = FlowError | OAuth2Error | { error: GenericError }
 
 /**
  * An OAuth2 error response.
+ * @hidden
+ * @inline
  */
 export type OAuth2Error = {
   error: string
@@ -44,10 +48,32 @@ function isOAuth2Error(error: unknown): error is OAuth2Error {
   )
 }
 
+/**
+ * Props for the Error component.
+ *
+ * @inline
+ * @hidden
+ */
 export type ErrorFlowContextProps = {
+  /**
+   * The error object returned by the Ory SDK.
+   * This can be a FlowError, OAuth2Error, or a GenericError.
+   */
   error: OryError
+  /**
+   * The components to override the default ones.
+   * This allows you to customize the appearance and behavior of the error flow.
+   */
   components?: OryFlowComponentOverrides
+  /**
+   * The Ory client configuration object.
+   * This object contains the configuration for the Ory client, such as the base URL and project information.
+   */
   config: OryClientConfiguration
+  /**
+   * The session object, if available.
+   * This is used to determine if the user is logged in and to provide appropriate actions.
+   */
   session?: Session
 }
 
@@ -100,12 +126,20 @@ function useStandardize(error: OryError): InternalStandardizedError {
   }, [error])
 }
 
+/**
+ * The Error component is used to display an error message to the user.
+ *
+ * @param props - The props for the Error component.
+ * @returns
+ * @group Components
+ * @category Flows
+ */
 export function Error({
   error,
   components: Components,
   config,
   session,
-}: PropsWithChildren<ErrorFlowContextProps>) {
+}: ErrorFlowContextProps) {
   const Card = Components?.Card?.Root ?? DefaultCard
   const Divider = Components?.Card?.Divider ?? DefaultHorizontalDivider
   const parsed = useStandardize(error)
@@ -124,7 +158,9 @@ export function Error({
             data-testid={"ory/screen/error"}
           >
             <header className="flex flex-col gap-8 antialiased">
-              <ErrorLogo />
+              <div className="max-h-9 self-start">
+                <ErrorLogo />
+              </div>
               <div className="flex flex-col gap-2">
                 <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
                   <FormattedMessage id="error.title.what-happened" />
@@ -224,9 +260,7 @@ function GoBackButton() {
 function ErrorLogo() {
   const { project } = useOryConfiguration()
   if (project.logo_light_url) {
-    return (
-      <img src={project.logo_light_url} width={100} height={36} alt="Logo" />
-    )
+    return <img src={project.logo_light_url} className="h-full" alt="Logo" />
   }
 
   return (

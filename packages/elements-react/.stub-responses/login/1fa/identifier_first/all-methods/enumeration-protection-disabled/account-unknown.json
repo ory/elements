@@ -1,12 +1,12 @@
 {
-  "id": "27198d06-dca9-4030-b265-e7e132fd7025",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:15.063218Z",
-  "issued_at": "2025-04-24T15:07:15.063218Z",
-  "request_url": "https://jolly-mayer-b0u3cfhl2m.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://jolly-mayer-b0u3cfhl2m.projects.oryapis:8080/self-service/login?flow=27198d06-dca9-4030-b265-e7e132fd7025",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -64,7 +64,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "kKf3J5o4crg8K9+glvz9S0+6x5EWtvha0j83l/psbkXidVoCG6bG7xh4NXfmgS8s5Mpk6vUP4TE4mzOZeiB/yg==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -76,14 +76,14 @@
         "type": "script",
         "group": "webauthn",
         "attributes": {
-          "src": "https://jolly-mayer-b0u3cfhl2m.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
           "async": true,
           "referrerpolicy": "no-referrer",
           "crossorigin": "anonymous",
-          "integrity": "sha512-GJndj+bkFBMHiun3qBMmFh5eeGodY/eSh8tg50xHcNEdOBCIKnlofYd2slaBTtVpyI4opfkMc/zw+nwBjGdAbw==",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
           "type": "text/javascript",
           "id": "webauthn_script",
-          "nonce": "bb0933e3-7d0b-4843-ad8f-25edd1a407f3",
+          "nonce": "00000000-0000-0000-0000-000000000000",
           "node_type": "script"
         },
         "messages": [],
@@ -109,7 +109,7 @@
         "attributes": {
           "name": "passkey_challenge",
           "type": "hidden",
-          "value": "{\"publicKey\":{\"challenge\":\"_T8UR1aCxLcgptUG7_4CXFTlz0A7L0YXYcj4eLX6B_o\",\"timeout\":300000,\"rpId\":\"jolly-mayer-b0u3cfhl2m.projects.oryapis\",\"userVerification\":\"preferred\"}}",
+          "value": "{}",
           "disabled": false,
           "node_type": "input"
         },
@@ -118,8 +118,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:15.069616Z",
-  "updated_at": "2025-04-24T15:07:15.069616Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

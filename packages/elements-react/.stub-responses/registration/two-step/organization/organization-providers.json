@@ -1,11 +1,11 @@
 {
-  "id": "84f23809-5d96-4217-b946-e57a6bcba862",
+  "id": "00000000-0000-0000-0000-000000000000",
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:56.424074Z",
-  "issued_at": "2025-04-24T15:07:56.424074Z",
-  "request_url": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/registration/browser",
   "ui": {
-    "action": "https://magical-raman-gpw6ulljrc.projects.oryapis:8080/self-service/registration?flow=84f23809-5d96-4217-b946-e57a6bcba862",
+    "action": "https://slug.projects.oryapis:8080/self-service/registration?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -60,7 +60,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "6V3G+NBYumaeDTfJe11p5TOdZF3OjV3gAixIjca7CvpLt2ZFUaH9zxbyD20w6856r4uaDx3y7k4LLqz4XDQM/w==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,7 +74,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.kli9ft6blxn0.4fv9eoanusx@example.com",
+          "value": "dev@example.com",
           "required": true,
           "autocomplete": "email",
           "disabled": false,
@@ -183,7 +183,7 @@
       }
     ]
   },
-  "organization_id": "f9151b98-1b3e-42e4-8237-dbf4939c2a53",
+  "organization_id": "00000000-0000-0000-0000-000000000000",
   "transient_payload": {},
   "state": "choose_method"
 }

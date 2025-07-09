@@ -1,9 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNodeInputAttributes } from "@ory/client-fetch"
+import { FlowType, LoginFlow, UiNodeInputAttributes } from "@ory/client-fetch"
 import {
   ConsentFlow,
+  FormState,
   useComponents,
   useOryConfiguration,
   useOryFlow,
@@ -19,11 +20,18 @@ import {
 import { useClientLogout } from "../../utils/logout"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 
+/**
+ * DefaultCardFooter renders the default footer for the card component based on the current flow type.
+ *
+ * @returns The default card footer component that renders the appropriate footer based on the current flow type.
+ * @group Components
+ * @category Default Components
+ */
 export function DefaultCardFooter() {
   const oryFlow = useOryFlow()
   switch (oryFlow.flowType) {
     case FlowType.Login:
-      return <LoginCardFooter />
+      return <LoginCardFooter flow={oryFlow.flow} />
     case FlowType.Registration:
       return <RegistrationCardFooter />
     case FlowType.Recovery:
@@ -37,15 +45,48 @@ export function DefaultCardFooter() {
   }
 }
 
-function LoginCardFooter() {
-  const { formState, flow, flowType } = useOryFlow()
-  const config = useOryConfiguration()
-  const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
-  const intl = useIntl()
-
-  if (flowType !== FlowType.Login) {
-    return null
+function shouldShowLogoutButton(
+  flow: LoginFlow,
+  formState: FormState,
+  authMethods: string[],
+) {
+  // Always for refresh flows, as we know there is a session
+  if (flow.refresh) {
+    return true
   }
+
+  // In aal2 flows we sometimes show the logout button
+  if (flow.requested_aal === "aal2") {
+    // Always on the "method selector" screen
+    if (formState.current === "select_method") {
+      return true
+    }
+    // On the "method active" screen, if it's a code method
+    // If the method is any other than code, we want to show a "Choose another method" button
+    // This is handled below.
+    // TODO: refactor this, to not have this logic in two places
+    if (formState.current === "method_active" && flow.active === "code") {
+      return true
+    }
+    // If there are no other methods, we want to show the logout button
+    // This is the case when the user only has one method (e.g. code or totp), set up
+    // and the user is on the "method active" screen
+    // In that case there is no "select_method" state, so going back to that screen wouldn't work
+    if (formState.current === "method_active" && authMethods.length === 1) {
+      return true
+    }
+  }
+  return false
+}
+
+type LoginCardFooterProps = {
+  flow: LoginFlow
+}
+
+function LoginCardFooter({ flow }: LoginCardFooterProps) {
+  const { dispatchFormState, formState } = useOryFlow()
+  const config = useOryConfiguration()
+  const intl = useIntl()
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
 
@@ -56,33 +97,12 @@ function LoginCardFooter() {
   if (!returnTo) {
     returnTo = restartFlowUrl(
       flow,
-      `${config.sdk.url}/self-service/${flowType}/browser`,
+      `${config.sdk.url}/self-service/${FlowType.Login}/browser`,
     )
   }
 
-  if (flow.refresh || flow.requested_aal === "aal2") {
-    return (
-      <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-        {intl.formatMessage({
-          id: "login.2fa.go-back",
-        })}{" "}
-        <a
-          className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-          href={logout ? logout?.logout_url : returnTo}
-          data-testid={
-            // Only add the test-id when the logout link has loaded.
-            didLoadLogout ? "ory/screen/login/action/logout" : undefined
-          }
-        >
-          {intl.formatMessage({
-            id:
-              !didLoadLogout || logout
-                ? "login.logout-button"
-                : "login.2fa.go-back.link",
-          })}
-        </a>
-      </span>
-    )
+  if (shouldShowLogoutButton(flow, formState, authMethods)) {
+    return <LogoutButton returnTo={returnTo} />
   }
 
   return (
@@ -108,18 +128,21 @@ function LoginCardFooter() {
         )}
       {authMethods.length > 1 && formState.current === "method_active" && (
         <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
-          <a
+          <button
             className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
-            href=""
+            onClick={() => {
+              dispatchFormState({
+                type: "action_clear_active_method",
+              })
+            }}
             data-testid={"ory/screen/login/mfa/action/selectMethod"}
           >
             {intl.formatMessage({
               id: "login.2fa.method.go-back",
             })}
-          </a>
+          </button>
         </span>
       )}
-      {/* special case for code auth method */}
       {authMethods.length === 1 &&
         authMethods[0] === "code" &&
         formState.current === "method_active" && (
@@ -139,9 +162,42 @@ function LoginCardFooter() {
   )
 }
 
+type LogoutButtonProps = {
+  returnTo?: string
+}
+
+function LogoutButton({ returnTo }: LogoutButtonProps) {
+  const config = useOryConfiguration()
+  const intl = useIntl()
+  const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
+
+  return (
+    <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+      {intl.formatMessage({
+        id: "login.2fa.go-back",
+      })}{" "}
+      <a
+        className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+        href={logout ? logout?.logout_url : returnTo}
+        data-testid={
+          // Only add the test-id when the logout link has loaded.
+          didLoadLogout ? "ory/screen/login/action/logout" : undefined
+        }
+      >
+        {intl.formatMessage({
+          id:
+            !didLoadLogout || logout
+              ? "login.logout-button"
+              : "login.2fa.go-back.link",
+        })}
+      </a>
+    </span>
+  )
+}
+
 function RegistrationCardFooter() {
   const intl = useIntl()
-  const { flow, formState } = useOryFlow()
+  const { flow, formState, dispatchFormState } = useOryFlow()
   const config = useOryConfiguration()
   const visibleGroups = useNodeGroupsWithVisibleNodes(flow.ui.nodes)
   const authMethodBlocks = toAuthMethodPickerOptions(visibleGroups)
@@ -154,19 +210,22 @@ function RegistrationCardFooter() {
       }
 
       return (
-        <span className="font-normal leading-normal antialiased">
-          <a
-            className="font-medium text-button-link-brand-brand hover:text-button-link-brand-brand-hover"
-            // This works, because it essentially reloads the page.
-            // TODO: this should not do a full reload, but rather just update the state.....
-            href=""
+        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          <button
+            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            onClick={() => {
+              dispatchFormState({
+                type: "action_clear_active_method",
+              })
+            }}
             data-testid={"ory/screen/registration/action/selectMethod"}
+            type="button"
           >
             {intl.formatMessage({
               id: "card.footer.select-another-method",
               defaultMessage: "Select another method",
             })}
-          </a>
+          </button>
         </span>
       )
     case "select_method":
@@ -200,11 +259,18 @@ function VerificationCardFooter() {
   return null
 }
 
-type ConsentFlowProps = {
+/**
+ * Props for the ConsentCardFooter component.
+ *
+ * @hidden
+ * @inline
+ */
+type ConsentCardFooterProps = {
+  /** The consent flow to render the footer for. */
   flow: ConsentFlow
 }
 
-function ConsentCardFooter({ flow }: ConsentFlowProps) {
+function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
   const { Node } = useComponents()
 
   const rememberNode = findNode(flow.ui.nodes, {
@@ -251,8 +317,8 @@ function ConsentCardFooter({ flow }: ConsentFlowProps) {
       <p className="text-sm">
         <span className="text-interface-foreground-default-tertiary">
           Authorizing will redirect to{" "}
+          {flow.consent_request.client?.client_name}
         </span>
-        {flow.consent_request.client?.client_name}
       </p>
     </div>
   )

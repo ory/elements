@@ -1,12 +1,12 @@
 {
-  "id": "2b1e8bf6-c418-4f51-b753-5953b4f06392",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:04.345992Z",
-  "issued_at": "2025-04-24T15:08:04.345992Z",
-  "request_url": "https://infallible-robinson-zw07atgcvi.projects.oryapis:8080/self-service/login/browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
   "ui": {
-    "action": "https://infallible-robinson-zw07atgcvi.projects.oryapis:8080/self-service/login?flow=2b1e8bf6-c418-4f51-b753-5953b4f06392",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -64,7 +64,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "W0JiwH0XyJreuv0FQqpNarZhkSwQVxOQzJ59xgas7UMI9BWKE9HCuEuefqiLemul9hpXQKV77ZgOZqAgoxtkPA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -74,8 +74,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:04.350946Z",
-  "updated_at": "2025-04-24T15:08:04.350946Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
   "state": "choose_method"

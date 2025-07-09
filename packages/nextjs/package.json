@@ -1,6 +1,6 @@
 {
   "name": "@ory/nextjs",
-  "version": "1.0.0-next.5",
+  "version": "1.0.0-rc.0",
   "license": "Apache License 2.0",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -18,7 +18,7 @@
     "@types/set-cookie-parser": "^2.4.10",
     "babel-jest": "^29.7.0",
     "jest-esm-transformer": "^1.0.0",
-    "tsup": "8.3.0"
+    "tsup": "8.5.0"
   },
   "keywords": [
     "ory",
