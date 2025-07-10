@@ -16,11 +16,29 @@
   "release": {
     "projectsRelationship": "independent",
     "releaseTagPattern": "release/{projectName}/{version}",
-    "projects": ["@ory/elements-react", "@ory/nextjs"],
+    "git": {
+      "commit": false,
+      "tag": true,
+      "push": true
+    },
     "changelog": {
-      "automaticFromRef": true,
-      "projectChangelogs": true,
-      "workspaceChangelog": false
+      "workspaceChangelog": false,
+      "projectChangelogs": {
+        "createRelease": "github",
+        "file": false
+      }
+    },
+    "groups": {
+      "elements": {
+        "projects": ["@ory/elements-react"],
+        "title": "Elements",
+        "releaseTagPattern": "release/{projectName}/{version}"
+      },
+      "nextjs": {
+        "projects": ["@ory/nextjs"],
+        "title": "Next.js",
+        "releaseTagPattern": "release/{projectName}/{version}"
+      }
     }
   },
   "affected": {
