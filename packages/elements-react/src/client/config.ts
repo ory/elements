@@ -12,7 +12,7 @@ export function orySdkUrl() {
   }
 
   if (process.env.ORY_SDK_URL) {
-    baseUrl = process.env._ORY_SDK_URL
+    baseUrl = process.env.ORY_SDK_URL
   }
 
   if (!baseUrl) {
