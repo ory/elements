@@ -40,7 +40,7 @@
     "@nx/storybook": "20.8.2",
     "@nx/vite": "20.8.2",
     "@nx/web": "20.8.2",
-    "@ory/client": "1.20.11",
+    "@ory/client": "1.21.0",
     "@preact/preset-vite": "2.10.1",
     "@storybook/addon-a11y": "8.6.14",
     "@storybook/addon-docs": "8.6.14",
