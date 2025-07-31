@@ -29,7 +29,7 @@
         "attributes": {
           "name": "address",
           "type": "submit",
-          "value": "dev@ory.dev",
+          "value": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -37,10 +37,10 @@
         "meta": {
           "label": {
             "id": 1010023,
-            "text": "Send code to dev@ory.dev",
+            "text": "Send code to dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
             "type": "info",
             "context": {
-              "address": "dev@ory.dev",
+              "address": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
               "channel": "email"
             }
           }
