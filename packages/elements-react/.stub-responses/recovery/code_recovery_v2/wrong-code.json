@@ -69,7 +69,7 @@
         "attributes": {
           "name": "recovery_confirm_address",
           "type": "submit",
-          "value": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -88,7 +88,7 @@
         "attributes": {
           "name": "recovery_address",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },

@@ -29,7 +29,7 @@
         "attributes": {
           "name": "traits.email",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "email",
           "disabled": false,

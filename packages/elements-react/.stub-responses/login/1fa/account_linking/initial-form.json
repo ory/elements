@@ -30,7 +30,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
+          "value": "dev@ory.dev",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -109,13 +109,13 @@
     "messages": [
       {
         "id": 1010016,
-        "text": "You tried to sign in with \"dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev\", but that email is already used by another account. Sign in to your account with one of the options below to add your account \"dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev\" at \"Fake Google\" as another way to sign in.",
+        "text": "You tried to sign in with \"dev@ory.dev\", but that email is already used by another account. Sign in to your account with one of the options below to add your account \"dev@ory.dev\" at \"Fake Google\" as another way to sign in.",
         "type": "info",
         "context": {
           "available_credential_types": ["code", "password"],
           "available_providers": [],
-          "duplicateIdentifier": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
-          "duplicate_identifier": "dev+orycye2eda2f162daf6142dd00000000-0000-0000-0000-000000000000@ory.dev",
+          "duplicateIdentifier": "dev@ory.dev",
+          "duplicate_identifier": "dev@ory.dev",
           "newLoginUrl": "https://slug.projects.oryapis:8080/login",
           "new_login_url": "https://slug.projects.oryapis:8080/login",
           "provider": "Fake Google"
