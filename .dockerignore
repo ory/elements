@@ -1,0 +1,14 @@
+**/node_modules
+.changeset
+.github
+.nx
+.reports
+examples
+.deps
+**/dist
+**/api-report
+**/.stub-responses
+**/.storybook
+**/.vscode
+
+packages/elements-react/stories
