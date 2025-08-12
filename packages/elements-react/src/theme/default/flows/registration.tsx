@@ -22,6 +22,7 @@ type RegistrationFlowContextProps = {
    * The registration flow object containing the state and data for the registration process.
    */
   flow: RegistrationFlow
+
   /**
    * Optional components to override the default ones.
    *
