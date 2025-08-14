@@ -4,8 +4,6 @@
 // useSession.test.tsx
 
 import { Session } from "@ory/client-fetch"
-import "@testing-library/jest-dom"
-import "@testing-library/jest-dom/jest-globals"
 import { act, render, screen, waitFor } from "@testing-library/react"
 import { useSession } from "./useSession"
 import { frontendClient } from "./frontendClient"

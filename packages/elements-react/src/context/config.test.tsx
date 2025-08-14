@@ -22,22 +22,6 @@ describe("test config provider", () => {
   })
 
   describe("browser env", () => {
-    let originalLocation: Location
-
-    beforeEach(() => {
-      originalLocation = window.location
-      Object.defineProperty(window, "location", {
-        value: new URL("https://location-from-window.ory.sh"),
-        configurable: true,
-      })
-    })
-
-    afterEach(() => {
-      Object.defineProperty(window, "location", {
-        value: originalLocation,
-        configurable: true,
-      })
-    })
     it("should guess browser env", () => {
       const { result } = renderHook(() => useOryConfiguration(), {
         wrapper: ({ children }) => (
@@ -47,7 +31,8 @@ describe("test config provider", () => {
         ),
       })
 
-      expect(result.current.sdk.url).toBe("https://location-from-window.ory.sh")
+      // Default jsdom url is http://localhost/
+      expect(result.current.sdk.url).toBe("http://localhost")
     })
   })
 
