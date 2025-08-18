@@ -7,10 +7,18 @@ export function restartFlowUrl(
     request_url?: string
     requested_aal?: string
     return_to?: string
+    identity_schema?: string
   },
   fallback: string,
 ) {
-  return flow.request_url || appendReturnTo(fallback, flow.return_to)
+  return (
+    flow.request_url ||
+    appendReturnToAndIdentitySchema(
+      fallback,
+      flow.return_to,
+      flow.identity_schema,
+    )
+  )
 }
 
 export function initFlowUrl(
@@ -20,6 +28,7 @@ export function initFlowUrl(
     id: string
     return_to?: string
     oauth2_login_challenge?: string
+    identity_schema?: string
   },
 ) {
   const result = `${sdkUrl}/self-service/${flowType}/browser`
@@ -27,6 +36,9 @@ export function initFlowUrl(
 
   if (flow.oauth2_login_challenge) {
     qs.set("login_challenge", flow.oauth2_login_challenge)
+  }
+  if (flow.identity_schema) {
+    qs.set("identity_schema", flow.identity_schema)
   }
   if (flow.return_to) {
     qs.set("return_to", flow.return_to)
@@ -44,12 +56,17 @@ export function initFlowUrl(
   return result + "?" + qs.toString()
 }
 
-function appendReturnTo(url: string, returnTo?: string) {
-  if (!returnTo) {
-    return url
-  }
-
+function appendReturnToAndIdentitySchema(
+  url: string,
+  returnTo?: string,
+  identitySchema?: string,
+) {
   const urlObj = new URL(url)
-  urlObj.searchParams.set("return_to", returnTo)
+  if (returnTo) {
+    urlObj.searchParams.set("return_to", returnTo)
+  }
+  if (identitySchema) {
+    urlObj.searchParams.set("identity_schema", identitySchema)
+  }
   return urlObj.toString()
 }
