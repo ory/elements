@@ -35,11 +35,11 @@ export const UserMenu = ({ session }: UserMenuProps) => {
         <DropdownMenuLabel className="flex gap-3 px-5 py-4.5">
           <UserAvatar disabled initials={initials} />
           <div className="flex flex-col justify-center text-sm leading-tight">
-            <div className="text-interface-foreground-default-primary leading-tight font-medium">
+            <div className="leading-tight font-medium text-interface-foreground-default-primary">
               {initials.primary}
             </div>
             {initials.secondary && (
-              <div className="text-interface-foreground-default-tertiary leading-tight">
+              <div className="leading-tight text-interface-foreground-default-tertiary">
                 {initials.secondary}
               </div>
             )}

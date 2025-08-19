@@ -1,0 +1,492 @@
+@theme {
+  --ui-100: #f1f5f9;
+  --ui-200: #e2e8f0;
+  --ui-300: #cbd5e1;
+  --ui-400: #94a3b8;
+  --ui-50: #f8fafc;
+  --ui-500: #64748b;
+  --ui-600: #475569;
+  --ui-700: #334155;
+  --ui-800: #1e293b;
+  --ui-900: #0f172a;
+  --ui-950: #020617;
+  --ui-black: #000000;
+  --ui-danger: #dc2626;
+  --ui-success: #22c55e;
+  --ui-transparent: #ffffff00;
+  --ui-warning: #eab308;
+  --ui-white: #ffffff;
+  --button-identifier-background-default: var(
+    --interface-background-brand-secondary
+  );
+  --button-identifier-background-hover: var(
+    --interface-background-brand-secondary-hover
+  );
+  --button-identifier-border-border-default: var(
+    --interface-border-brand-brand
+  );
+  --button-identifier-border-border-hover: var(--interface-border-brand-brand);
+  --button-identifier-foreground-default: var(
+    --interface-foreground-brand-on-secondary
+  );
+  --button-identifier-foreground-hover: var(
+    --interface-foreground-brand-on-secondary
+  );
+  --button-link-brand-brand: var(--interface-foreground-brand-primary);
+  --button-link-brand-brand-hover: var(--interface-foreground-default-primary);
+  --button-link-default-primary: var(--interface-foreground-default-primary);
+  --button-link-default-primary-hover: var(
+    --interface-foreground-brand-primary
+  );
+  --button-link-default-secondary: var(
+    --interface-foreground-default-secondary
+  );
+  --button-link-default-secondary-hover: var(
+    --interface-foreground-default-tertiary
+  );
+  --button-link-disabled-disabled: var(
+    --interface-foreground-disabled-disabled
+  );
+  --button-primary-background-default: var(
+    --interface-background-brand-primary
+  );
+  --button-primary-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-primary-background-hover: var(
+    --interface-background-brand-primary-hover
+  );
+  --button-primary-border-default: var(--interface-border-default-none);
+  --button-primary-border-disabled: var(--interface-border-disabled-disabled);
+  --button-primary-border-hover: var(--interface-border-default-none);
+  --button-primary-foreground-default: var(
+    --interface-foreground-brand-on-primary
+  );
+  --button-primary-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-primary-foreground-hover: var(
+    --interface-foreground-brand-on-primary
+  );
+  --button-secondary-background-default: var(
+    --interface-background-default-primary
+  );
+  --button-secondary-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-secondary-background-hover: var(
+    --interface-background-default-primary-hover
+  );
+  --button-secondary-border-default: var(--interface-border-default-primary);
+  --button-secondary-border-disabled: var(--interface-border-disabled-disabled);
+  --button-secondary-border-hover: var(--interface-border-default-primary);
+  --button-secondary-foreground-default: var(
+    --interface-foreground-default-primary
+  );
+  --button-secondary-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-secondary-foreground-hover: var(
+    --interface-foreground-default-secondary
+  );
+  --button-social-background-default: var(
+    --interface-background-default-primary
+  );
+  --button-social-background-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --button-social-background-generic-provider: var(
+    --interface-background-default-inverted
+  );
+  --button-social-background-hover: var(
+    --interface-background-default-primary-hover
+  );
+  --button-social-border-default: var(--interface-border-default-primary);
+  --button-social-border-disabled: var(--interface-border-disabled-disabled);
+  --button-social-border-generic-provider: var(--interface-border-default-none);
+  --button-social-border-hover: var(--interface-border-default-primary);
+  --button-social-foreground-default: var(
+    --interface-foreground-default-primary
+  );
+  --button-social-foreground-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --button-social-foreground-generic-provider: var(
+    --interface-foreground-default-inverted
+  );
+  --button-social-foreground-hover: var(
+    --interface-foreground-default-secondary
+  );
+  --checkbox-background-checked: var(--interface-background-brand-primary);
+  --checkbox-background-default: var(--interface-background-default-secondary);
+  --checkbox-border-checkbox-border-checked: var(
+    --interface-border-brand-brand
+  );
+  --checkbox-border-checkbox-border-default: var(
+    --interface-border-default-primary
+  );
+  --checkbox-foreground-checked: var(--interface-foreground-brand-on-primary);
+  --checkbox-foreground-default: var(--interface-foreground-default-primary);
+  --form-background-default: var(--interface-background-default-primary);
+  --form-border-default: var(--interface-border-default-primary);
+  --input-background-default: var(--interface-background-default-primary);
+  --input-background-disabled: var(--interface-background-disabled-disabled);
+  --input-background-hover: var(--interface-background-default-primary-hover);
+  --input-border-default: var(--interface-border-default-primary);
+  --input-border-disabled: var(--interface-border-disabled-disabled);
+  --input-border-focus: var(--interface-border-brand-brand);
+  --input-border-hover: var(--interface-border-default-primary);
+  --input-foreground-disabled: var(--interface-foreground-disabled-on-disabled);
+  --input-foreground-primary: var(--interface-foreground-default-primary);
+  --input-foreground-secondary: var(--interface-foreground-default-secondary);
+  --input-foreground-tertiary: var(--interface-foreground-default-tertiary);
+  --interface-background-brand-primary: var(--brand-500);
+  --interface-background-brand-primary-hover: var(--brand-400);
+  --interface-background-brand-secondary: var(--brand-50);
+  --interface-background-brand-secondary-hover: var(--brand-100);
+  --interface-background-default-inverted: var(--ui-900);
+  --interface-background-default-inverted-hover: var(--ui-800);
+  --interface-background-default-none: var(--ui-transparent);
+  --interface-background-default-primary: var(--ui-white);
+  --interface-background-default-primary-hover: var(--ui-50);
+  --interface-background-default-secondary: var(--ui-50);
+  --interface-background-default-secondary-hover: var(--ui-200);
+  --interface-background-default-tertiary: var(--ui-200);
+  --interface-background-default-tertiary-hover: var(--ui-300);
+  --interface-background-disabled-disabled: var(--ui-200);
+  --interface-background-validation-danger: var(--ui-danger);
+  --interface-background-validation-success: var(--ui-success);
+  --interface-background-validation-warning: var(--ui-warning);
+  --interface-border-brand-brand: var(--brand-500);
+  --interface-border-default-inverted: var(--ui-700);
+  --interface-border-default-none: var(--ui-transparent);
+  --interface-border-default-primary: var(--ui-300);
+  --interface-border-disabled-disabled: var(--ui-300);
+  --interface-border-validation-danger: var(--ui-danger);
+  --interface-border-validation-success: var(--ui-success);
+  --interface-border-validation-warning: var(--ui-warning);
+  --interface-foreground-brand-on-primary: var(--brand-50);
+  --interface-foreground-brand-on-secondary: var(--brand-950);
+  --interface-foreground-brand-primary: var(--brand-500);
+  --interface-foreground-brand-secondary: var(--brand-50);
+  --interface-foreground-default-inverted: var(--ui-white);
+  --interface-foreground-default-primary: var(--ui-900);
+  --interface-foreground-default-secondary: var(--ui-700);
+  --interface-foreground-default-tertiary: var(--ui-500);
+  --interface-foreground-disabled-disabled: var(--ui-300);
+  --interface-foreground-disabled-on-disabled: var(--ui-400);
+  --interface-foreground-validation-danger: var(--ui-danger);
+  --interface-foreground-validation-success: var(--ui-success);
+  --interface-foreground-validation-warning: var(--ui-warning);
+  --ory-background-default: var(--interface-background-default-primary);
+  --ory-border-default: var(--interface-border-default-primary);
+  --ory-foreground-default: var(--interface-foreground-default-primary);
+  --radio-background-checked: var(--interface-background-brand-primary);
+  --radio-background-default: var(--interface-background-default-secondary);
+  --radio-border-checked: var(--interface-border-brand-brand);
+  --radio-border-default: var(--interface-border-default-primary);
+  --radio-foreground-checked: var(--interface-foreground-brand-on-primary);
+  --radio-foreground-default: var(--interface-foreground-default-primary);
+  --toggle-background-checked: var(--interface-background-brand-primary);
+  --toggle-background-default: var(--interface-background-default-secondary);
+  --toggle-border-checked: var(--interface-border-default-none);
+  --toggle-border-default: var(--interface-border-default-primary);
+  --toggle-foreground-checked: var(--interface-foreground-brand-on-primary);
+  --toggle-foreground-default: var(--interface-foreground-brand-primary);
+  --brand-100: var(--ui-100);
+  --brand-200: var(--ui-300);
+  --brand-300: var(--ui-500);
+  --brand-400: var(--ui-700);
+  --brand-50: var(--ui-50);
+  --brand-500: var(--ui-900);
+  --brand-600: var(--ui-white);
+  --brand-700: var(--ui-200);
+  --brand-800: var(--ui-400);
+  --brand-900: var(--ui-600);
+  --brand-950: var(--ui-800);
+
+  --color-ui-100: var(--ui-100);
+  --color-ui-200: var(--ui-200);
+  --color-ui-300: var(--ui-300);
+  --color-ui-400: var(--ui-400);
+  --color-ui-50: var(--ui-50);
+  --color-ui-500: var(--ui-500);
+  --color-ui-600: var(--ui-600);
+  --color-ui-700: var(--ui-700);
+  --color-ui-800: var(--ui-800);
+  --color-ui-900: var(--ui-900);
+  --color-ui-950: var(--ui-950);
+  --color-ui-black: var(--ui-black);
+  --color-ui-danger: var(--ui-danger);
+  --color-ui-success: var(--ui-success);
+  --color-ui-transparent: var(--ui-transparent);
+  --color-ui-warning: var(--ui-warning);
+  --color-ui-white: var(--ui-white);
+  --color-button-identifier-background-default: var(
+    --button-identifier-background-default
+  );
+  --color-button-identifier-background-hover: var(
+    --button-identifier-background-hover
+  );
+  --color-button-identifier-border-border-default: var(
+    --button-identifier-border-border-default
+  );
+  --color-button-identifier-border-border-hover: var(
+    --button-identifier-border-border-hover
+  );
+  --color-button-identifier-foreground-default: var(
+    --button-identifier-foreground-default
+  );
+  --color-button-identifier-foreground-hover: var(
+    --button-identifier-foreground-hover
+  );
+  --color-button-link-brand-brand: var(--button-link-brand-brand);
+  --color-button-link-brand-brand-hover: var(--button-link-brand-brand-hover);
+  --color-button-link-default-primary: var(--button-link-default-primary);
+  --color-button-link-default-primary-hover: var(
+    --button-link-default-primary-hover
+  );
+  --color-button-link-default-secondary: var(--button-link-default-secondary);
+  --color-button-link-default-secondary-hover: var(
+    --button-link-default-secondary-hover
+  );
+  --color-button-link-disabled-disabled: var(--button-link-disabled-disabled);
+  --color-button-primary-background-default: var(
+    --button-primary-background-default
+  );
+  --color-button-primary-background-disabled: var(
+    --button-primary-background-disabled
+  );
+  --color-button-primary-background-hover: var(
+    --button-primary-background-hover
+  );
+  --color-button-primary-border-default: var(--button-primary-border-default);
+  --color-button-primary-border-disabled: var(--button-primary-border-disabled);
+  --color-button-primary-border-hover: var(--button-primary-border-hover);
+  --color-button-primary-foreground-default: var(
+    --button-primary-foreground-default
+  );
+  --color-button-primary-foreground-disabled: var(
+    --button-primary-foreground-disabled
+  );
+  --color-button-primary-foreground-hover: var(
+    --button-primary-foreground-hover
+  );
+  --color-button-secondary-background-default: var(
+    --button-secondary-background-default
+  );
+  --color-button-secondary-background-disabled: var(
+    --button-secondary-background-disabled
+  );
+  --color-button-secondary-background-hover: var(
+    --button-secondary-background-hover
+  );
+  --color-button-secondary-border-default: var(
+    --button-secondary-border-default
+  );
+  --color-button-secondary-border-disabled: var(
+    --button-secondary-border-disabled
+  );
+  --color-button-secondary-border-hover: var(--button-secondary-border-hover);
+  --color-button-secondary-foreground-default: var(
+    --button-secondary-foreground-default
+  );
+  --color-button-secondary-foreground-disabled: var(
+    --button-secondary-foreground-disabled
+  );
+  --color-button-secondary-foreground-hover: var(
+    --button-secondary-foreground-hover
+  );
+  --color-button-social-background-default: var(
+    --button-social-background-default
+  );
+  --color-button-social-background-disabled: var(
+    --button-social-background-disabled
+  );
+  --color-button-social-background-generic-provider: var(
+    --button-social-background-generic-provider
+  );
+  --color-button-social-background-hover: var(--button-social-background-hover);
+  --color-button-social-border-default: var(--button-social-border-default);
+  --color-button-social-border-disabled: var(--button-social-border-disabled);
+  --color-button-social-border-generic-provider: var(
+    --button-social-border-generic-provider
+  );
+  --color-button-social-border-hover: var(--button-social-border-hover);
+  --color-button-social-foreground-default: var(
+    --button-social-foreground-default
+  );
+  --color-button-social-foreground-disabled: var(
+    --button-social-foreground-disabled
+  );
+  --color-button-social-foreground-generic-provider: var(
+    --button-social-foreground-generic-provider
+  );
+  --color-button-social-foreground-hover: var(--button-social-foreground-hover);
+  --color-checkbox-background-checked: var(--checkbox-background-checked);
+  --color-checkbox-background-default: var(--checkbox-background-default);
+  --color-checkbox-border-checkbox-border-checked: var(
+    --checkbox-border-checkbox-border-checked
+  );
+  --color-checkbox-border-checkbox-border-default: var(
+    --checkbox-border-checkbox-border-default
+  );
+  --color-checkbox-foreground-checked: var(--checkbox-foreground-checked);
+  --color-checkbox-foreground-default: var(--checkbox-foreground-default);
+  --color-form-background-default: var(--form-background-default);
+  --color-form-border-default: var(--form-border-default);
+  --color-input-background-default: var(--input-background-default);
+  --color-input-background-disabled: var(--input-background-disabled);
+  --color-input-background-hover: var(--input-background-hover);
+  --color-input-border-default: var(--input-border-default);
+  --color-input-border-disabled: var(--input-border-disabled);
+  --color-input-border-focus: var(--input-border-focus);
+  --color-input-border-hover: var(--input-border-hover);
+  --color-input-foreground-disabled: var(--input-foreground-disabled);
+  --color-input-foreground-primary: var(--input-foreground-primary);
+  --color-input-foreground-secondary: var(--input-foreground-secondary);
+  --color-input-foreground-tertiary: var(--input-foreground-tertiary);
+  --color-interface-background-brand-primary: var(
+    --interface-background-brand-primary
+  );
+  --color-interface-background-brand-primary-hover: var(
+    --interface-background-brand-primary-hover
+  );
+  --color-interface-background-brand-secondary: var(
+    --interface-background-brand-secondary
+  );
+  --color-interface-background-brand-secondary-hover: var(
+    --interface-background-brand-secondary-hover
+  );
+  --color-interface-background-default-inverted: var(
+    --interface-background-default-inverted
+  );
+  --color-interface-background-default-inverted-hover: var(
+    --interface-background-default-inverted-hover
+  );
+  --color-interface-background-default-none: var(
+    --interface-background-default-none
+  );
+  --color-interface-background-default-primary: var(
+    --interface-background-default-primary
+  );
+  --color-interface-background-default-primary-hover: var(
+    --interface-background-default-primary-hover
+  );
+  --color-interface-background-default-secondary: var(
+    --interface-background-default-secondary
+  );
+  --color-interface-background-default-secondary-hover: var(
+    --interface-background-default-secondary-hover
+  );
+  --color-interface-background-default-tertiary: var(
+    --interface-background-default-tertiary
+  );
+  --color-interface-background-default-tertiary-hover: var(
+    --interface-background-default-tertiary-hover
+  );
+  --color-interface-background-disabled-disabled: var(
+    --interface-background-disabled-disabled
+  );
+  --color-interface-background-validation-danger: var(
+    --interface-background-validation-danger
+  );
+  --color-interface-background-validation-success: var(
+    --interface-background-validation-success
+  );
+  --color-interface-background-validation-warning: var(
+    --interface-background-validation-warning
+  );
+  --color-interface-border-brand-brand: var(--interface-border-brand-brand);
+  --color-interface-border-default-inverted: var(
+    --interface-border-default-inverted
+  );
+  --color-interface-border-default-none: var(--interface-border-default-none);
+  --color-interface-border-default-primary: var(
+    --interface-border-default-primary
+  );
+  --color-interface-border-disabled-disabled: var(
+    --interface-border-disabled-disabled
+  );
+  --color-interface-border-validation-danger: var(
+    --interface-border-validation-danger
+  );
+  --color-interface-border-validation-success: var(
+    --interface-border-validation-success
+  );
+  --color-interface-border-validation-warning: var(
+    --interface-border-validation-warning
+  );
+  --color-interface-foreground-brand-on-primary: var(
+    --interface-foreground-brand-on-primary
+  );
+  --color-interface-foreground-brand-on-secondary: var(
+    --interface-foreground-brand-on-secondary
+  );
+  --color-interface-foreground-brand-primary: var(
+    --interface-foreground-brand-primary
+  );
+  --color-interface-foreground-brand-secondary: var(
+    --interface-foreground-brand-secondary
+  );
+  --color-interface-foreground-default-inverted: var(
+    --interface-foreground-default-inverted
+  );
+  --color-interface-foreground-default-primary: var(
+    --interface-foreground-default-primary
+  );
+  --color-interface-foreground-default-secondary: var(
+    --interface-foreground-default-secondary
+  );
+  --color-interface-foreground-default-tertiary: var(
+    --interface-foreground-default-tertiary
+  );
+  --color-interface-foreground-disabled-disabled: var(
+    --interface-foreground-disabled-disabled
+  );
+  --color-interface-foreground-disabled-on-disabled: var(
+    --interface-foreground-disabled-on-disabled
+  );
+  --color-interface-foreground-validation-danger: var(
+    --interface-foreground-validation-danger
+  );
+  --color-interface-foreground-validation-success: var(
+    --interface-foreground-validation-success
+  );
+  --color-interface-foreground-validation-warning: var(
+    --interface-foreground-validation-warning
+  );
+  --color-ory-background-default: var(--ory-background-default);
+  --color-ory-border-default: var(--ory-border-default);
+  --color-ory-foreground-default: var(--ory-foreground-default);
+  --color-radio-background-checked: var(--radio-background-checked);
+  --color-radio-background-default: var(--radio-background-default);
+  --color-radio-border-checked: var(--radio-border-checked);
+  --color-radio-border-default: var(--radio-border-default);
+  --color-radio-foreground-checked: var(--radio-foreground-checked);
+  --color-radio-foreground-default: var(--radio-foreground-default);
+  --color-toggle-background-checked: var(--toggle-background-checked);
+  --color-toggle-background-default: var(--toggle-background-default);
+  --color-toggle-border-checked: var(--toggle-border-checked);
+  --color-toggle-border-default: var(--toggle-border-default);
+  --color-toggle-foreground-checked: var(--toggle-foreground-checked);
+  --color-toggle-foreground-default: var(--toggle-foreground-default);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-50: var(--brand-50);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+
+  --radius-buttons: 0.25rem;
+  --radius-forms: 0.25rem;
+  --radius-general: 0.25rem;
+  --radius-branding: 0.5rem;
+  --radius-cards: 0.75rem;
+  --radius-identifier: 62.4375rem;
+}

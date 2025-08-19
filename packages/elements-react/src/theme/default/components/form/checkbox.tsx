@@ -17,7 +17,7 @@ import { omitInputAttributes } from "../../../../util/omitAttributes"
 function CheckboxSVG() {
   return (
     <svg
-      className="absolute hidden size-4 peer-checked:block fill-checkbox-foreground-checked"
+      className="absolute hidden size-4 fill-checkbox-foreground-checked peer-checked:block"
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"
@@ -52,7 +52,7 @@ export const DefaultCheckbox = ({
           defaultChecked={Boolean(value)}
           type="checkbox"
           className={cn(
-            "peer size-4 border appearance-none rounded-forms bg-checkbox-background-default border-checkbox-border-checkbox-border-default checked:bg-checkbox-background-checked checked:border-checkbox-border-checkbox-border-checked",
+            "peer size-4 appearance-none rounded-forms border border-checkbox-border-checkbox-border-default bg-checkbox-background-default checked:border-checkbox-border-checkbox-border-checked checked:bg-checkbox-background-checked",
             hasError && "border-interface-border-validation-danger",
           )}
           data-testid={`ory/form/node/input/${name}`}
@@ -61,7 +61,7 @@ export const DefaultCheckbox = ({
         <CheckboxSVG />
       </span>
       <span className="flex flex-col">
-        <span className="font-normal leading-tight text-interface-foreground-default-primary">
+        <span className="leading-tight font-normal text-interface-foreground-default-primary">
           <CheckboxLabel label={label} />
         </span>
         {node.messages.map((message) => (

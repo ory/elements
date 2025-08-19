@@ -7,7 +7,7 @@ import { Settings, SettingsFlowContextProps } from "../../../src/theme/default"
 export const SpacedSettings = (
   props: PropsWithChildren<SettingsFlowContextProps>,
 ) => (
-  <div className="flex flex-col gap-8 justify-start items-center pb-12">
+  <div className="flex flex-col items-center justify-start gap-8 pb-12">
     <Settings {...props} />
   </div>
 )

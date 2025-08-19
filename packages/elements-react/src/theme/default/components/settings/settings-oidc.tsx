@@ -23,7 +23,7 @@ export function DefaultSettingsOidc({
   return (
     <div className="flex flex-col gap-8">
       {hasLinkButtons && (
-        <div className="grid items-start gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 md:grid-cols-3">
           {linkButtons.map((button) => {
             const attrs = button.attributes as UiNodeInputAttributes
 

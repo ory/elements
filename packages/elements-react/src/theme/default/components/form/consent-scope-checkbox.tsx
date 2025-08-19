@@ -39,13 +39,13 @@ export function DefaultConsentScopeCheckbox({
       data-testid="ory/screen/consent/scope-checkbox-label"
     >
       <Switch.Root
-        className="relative w-7 h-4 bg-toggle-background-default rounded-identifier border-toggle-border-default border p-[3px] data-[state=checked]:bg-toggle-background-checked transition-all data-[state=checked]:border-toggle-border-checked"
+        className="relative h-4 w-7 rounded-identifier border border-toggle-border-default bg-toggle-background-default p-[3px] transition-all data-[state=checked]:border-toggle-border-checked data-[state=checked]:bg-toggle-background-checked"
         data-testid={`ory/screen/consent/scope-checkbox`}
         value={attributes.value}
         onCheckedChange={onCheckedChange}
         defaultChecked={true}
       >
-        <Switch.Thumb className="size-2 block bg-toggle-foreground-default rounded-identifier data-[state=checked]:bg-toggle-foreground-checked transition-all data-[state=checked]:translate-x-3" />
+        <Switch.Thumb className="block size-2 rounded-identifier bg-toggle-foreground-default transition-all data-[state=checked]:translate-x-3 data-[state=checked]:bg-toggle-foreground-checked" />
       </Switch.Root>
     </ListItem>
   )

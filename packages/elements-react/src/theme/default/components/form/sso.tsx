@@ -116,7 +116,7 @@ export function DefaultButtonSocial({
 
   return (
     <button
-      className="gap-3 border border-button-social-border-default bg-button-social-background-default hover:bg-button-social-background-hover hover:border-button-social-border-hover transition-colors rounded-buttons flex items-center justify-center px-4 py-[13px] loading:bg-button-social-background-disabled loading:border-button-social-border-disabled loading:text-button-social-foreground-disabled hover:text-button-social-foreground-hover"
+      className="flex items-center justify-center gap-3 rounded-buttons border border-button-social-border-default bg-button-social-background-default px-4 py-[13px] transition-colors hover:border-button-social-border-hover hover:bg-button-social-background-hover hover:text-button-social-foreground-hover loading:border-button-social-border-disabled loading:bg-button-social-background-disabled loading:text-button-social-foreground-disabled"
       value={attributes.value}
       type="submit"
       name="provider"
@@ -127,7 +127,7 @@ export function DefaultButtonSocial({
       aria-label={label}
       {...omitInputAttributes(rest)}
     >
-      <span className="size-5 relative">
+      <span className="relative size-5">
         {!clicked ? (
           Logo ? (
             <Logo size={20} />
@@ -140,10 +140,10 @@ export function DefaultButtonSocial({
       </span>
       {showLabel && node.meta.label ? (
         <>
-          <span className="grow text-center font-medium leading-none text-button-social-foreground-default">
+          <span className="grow text-center leading-none font-medium text-button-social-foreground-default">
             {label}
           </span>
-          <span className="size-5 block"></span>
+          <span className="block size-5"></span>
         </>
       ) : null}
     </button>
@@ -181,7 +181,7 @@ export function DefaultSocialButtonContainer({
 
 export function GenericLogo({ label }: { label: string }) {
   return (
-    <span className="flex rounded-buttons bg-button-social-background-generic-provider text-button-social-foreground-generic-provider border-button-social-border-generic-provider text-xs size-full items-center justify-center">
+    <span className="flex size-full items-center justify-center rounded-buttons border-button-social-border-generic-provider bg-button-social-background-generic-provider text-xs text-button-social-foreground-generic-provider">
       {label}
     </span>
   )

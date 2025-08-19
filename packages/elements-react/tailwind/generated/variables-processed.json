@@ -151,11 +151,11 @@
     }
   },
   "borderRadius": {
-    "buttons": "var(--border-radius-buttons)",
-    "forms": "var(--border-radius-forms)",
-    "general": "var(--border-radius-general)",
-    "branding": "var(--border-radius-branding)",
-    "cards": "var(--border-radius-cards)",
-    "identifier": "var(--border-radius-identifier)"
+    "buttons": "var(--radius-buttons)",
+    "forms": "var(--radius-forms)",
+    "general": "var(--radius-general)",
+    "branding": "var(--radius-branding)",
+    "cards": "var(--radius-cards)",
+    "identifier": "var(--radius-identifier)"
   }
 }

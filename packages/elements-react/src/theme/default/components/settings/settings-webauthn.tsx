@@ -21,7 +21,7 @@ export function DefaultSettingsWebauthn({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex md:max-w-96 sm:items-end gap-3 flex-col sm:flex-row">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-end md:max-w-96">
         <div className="flex-1">
           <Node.Label
             node={nameInput}
@@ -61,17 +61,17 @@ export function DefaultSettingsWebauthn({
                   className="flex justify-between gap-6 md:items-center"
                   key={`webauthn-remove-button-${i}`}
                 >
-                  <div className="flex gap-2 items-center flex-1 truncate">
+                  <div className="flex flex-1 items-center gap-2 truncate">
                     <Key
                       size={32}
                       className="text-interface-foreground-default-primary"
                     />
-                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between gap-4 truncate">
+                    <div className="flex flex-1 flex-col gap-4 truncate md:flex-row md:items-center md:justify-between">
                       <div className="flex-1 flex-col truncate">
-                        <p className="text-sm font-medium text-interface-foreground-default-secondary truncate">
+                        <p className="truncate text-sm font-medium text-interface-foreground-default-secondary">
                           {displayName}
                         </p>
-                        <span className="text-sm text-interface-foreground-default-tertiary hidden sm:block truncate">
+                        <span className="hidden truncate text-sm text-interface-foreground-default-tertiary sm:block">
                           {keyId}
                         </span>
                       </div>

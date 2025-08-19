@@ -23,7 +23,7 @@ export function DefaultToast({
   const messageText = uiTextToFormattedMessage(message, intl)
   return (
     <div
-      className="rounded-cards bg-interface-background-default-inverted border border-interface-border-default-primary p-5 flex-col"
+      className="flex-col rounded-cards border border-interface-border-default-primary bg-interface-background-default-inverted p-5"
       {...messageTestId(message)}
     >
       <p

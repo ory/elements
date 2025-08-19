@@ -23,8 +23,8 @@ const DropdownMenuContent = forwardRef<
       sideOffset={sideOffset}
       align="end"
       className={cn(
-        "z-50 min-w-[19rem] overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        "border border-interface-border-default-primary bg-interface-background-default-primary rounded-cards",
+        "z-50 min-w-76 origin-top-right animate-drop-down-in overflow-hidden will-change-[opacity,transform] data-[state=closed]:animate-drop-down-out",
+        "rounded-cards border border-interface-border-default-primary bg-interface-background-default-primary",
         className,
       )}
       {...props}
@@ -42,12 +42,12 @@ const DropdownMenuItem = forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center outline-none transition-colors data-[disabled]:pointer-events-none",
-      "px-8 py-3 lg:py-4.5 text-sm gap-6",
-      "first:border-0 border-t border-button-secondary-border-default hover:border-button-social-border-hover",
-      "text-button-secondary-foreground-default bg-button-secondary-background-default",
-      "hover:text-button-secondary-foreground-hover hover:bg-button-secondary-background-hover",
-      "data-[disabled]:text-button-secondary-foreground-disabled data-[disabled]:bg-button-secondary-background-disabled",
+      "relative flex cursor-pointer items-center outline-hidden transition-colors select-none data-disabled:pointer-events-none",
+      "gap-6 px-8 py-3 text-sm lg:py-4.5",
+      "border-t border-button-secondary-border-default first:border-0 hover:border-button-social-border-hover",
+      "bg-button-secondary-background-default text-button-secondary-foreground-default",
+      "hover:bg-button-secondary-background-hover hover:text-button-secondary-foreground-hover",
+      "data-[disabled]:bg-button-secondary-background-disabled data-[disabled]:text-button-secondary-foreground-disabled",
       inset && "pl-8",
       className,
     )}

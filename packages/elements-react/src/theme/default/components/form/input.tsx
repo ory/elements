@@ -16,11 +16,11 @@ import { cn } from "../../utils/cn"
 import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 export const defaultInputClassName = cn(
-  "antialiased rounded-forms border leading-tight transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus-visible:outline-none focus:ring-0 w-full",
-  "bg-input-background-default border-input-border-default text-input-foreground-primary",
-  "disabled:bg-input-background-disabled disabled:border-input-border-disabled disabled:text-input-foreground-disabled",
+  "w-full rounded-forms border leading-tight antialiased transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:ring-0 focus-visible:outline-hidden",
+  "border-input-border-default bg-input-background-default text-input-foreground-primary",
+  "disabled:border-input-border-disabled disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
   "focus:border-input-border-focus focus-visible:border-input-border-focus",
-  "hover:bg-input-background-hover hover:border-input-border-hover",
+  "hover:border-input-border-hover hover:bg-input-background-hover",
   "px-4 py-[13px]",
 )
 
@@ -104,7 +104,7 @@ function PasswordToggle({
   return (
     <button
       onClick={handleClick}
-      className="absolute right-0 h-full w-12 flex items-center justify-center text-input-foreground-primary"
+      className="absolute right-0 flex h-full w-12 items-center justify-center text-input-foreground-primary"
       type="button"
       aria-label="Toggle password visibility"
     >

@@ -51,17 +51,17 @@ export function DefaultSettingsPasskey({
                   className="flex justify-between gap-6 md:items-center"
                   key={`passkey-remove-button-${i}`}
                 >
-                  <div className="flex gap-2 items-center flex-1 truncate">
+                  <div className="flex flex-1 items-center gap-2 truncate">
                     <Passkey
                       size={32}
                       className="text-interface-foreground-default-primary"
                     />
-                    <div className="flex-1 flex-col md:flex-row md:items-center flex md:justify-between gap-4 truncate">
+                    <div className="flex flex-1 flex-col gap-4 truncate md:flex-row md:items-center md:justify-between">
                       <div className="flex-1 flex-col truncate">
-                        <p className="text-sm font-medium text-interface-foreground-default-secondary truncate">
+                        <p className="truncate text-sm font-medium text-interface-foreground-default-secondary">
                           {displayName}
                         </p>
-                        <span className="text-sm text-interface-foreground-default-tertiary hidden sm:block truncate">
+                        <span className="hidden truncate text-sm text-interface-foreground-default-tertiary sm:block">
                           {keyId}
                         </span>
                       </div>

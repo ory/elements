@@ -29,7 +29,7 @@ export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
     >
       <InputOTPGroup
         className={cn(
-          "w-full flex gap-2 justify-stretch",
+          "flex w-full justify-stretch gap-2",
           // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
           flowType === FlowType.Settings && "max-w-[488px]",
         )}

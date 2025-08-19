@@ -71,7 +71,7 @@ export function DefaultLabel({
               name={resendNode.attributes.name}
               value={resendNode.attributes.value}
               onClick={handleResend}
-              className="cursor-pointer text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              className="cursor-pointer text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
             >
               {intl.formatMessage({ id: "identities.messages.1070008" })}
             </button>
@@ -133,7 +133,7 @@ function LabelAction({ attributes }: LabelActionProps) {
   return action ? (
     <a
       href={action.href}
-      className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+      className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
     >
       {action.message}
     </a>

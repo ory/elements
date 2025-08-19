@@ -35,7 +35,7 @@ export function DefaultSettingsRecoveryCodes({
   return (
     <div className="flex flex-col gap-8">
       {codes.length > 0 && <DefaultHorizontalDivider />}
-      <div className="flex gap-4 justify-between">
+      <div className="flex justify-between gap-4">
         <span className="text-interface-foreground-default-tertiary">
           {revealButton && "Reveal recovery codes"}
         </span>
@@ -88,9 +88,9 @@ export function DefaultSettingsRecoveryCodes({
         </div>
       </div>
       {hasCodes ? (
-        <div className="rounded-general p-6 bg-interface-background-default-secondary border-interface-border-default-primary">
+        <div className="rounded-general border-interface-border-default-primary bg-interface-background-default-secondary p-6">
           <div
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 flex-wrap gap-4 text-sm text-interface-foreground-default-primary"
+            className="grid grid-cols-2 flex-wrap gap-4 text-sm text-interface-foreground-default-primary sm:grid-cols-3 md:grid-cols-5"
             data-testid="ory/screen/settings/group/recovery_code/codes"
           >
             {codes.map((code) => (

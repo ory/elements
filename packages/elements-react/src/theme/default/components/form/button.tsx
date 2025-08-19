@@ -15,10 +15,10 @@ import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 const buttonStyles = cva(
   [
-    "relative flex justify-center gap-3 overflow-hidden rounded-buttons leading-none ring-1 ring-inset font-medium",
+    "relative flex justify-center gap-3 overflow-hidden rounded-buttons leading-none font-medium ring-1 ring-inset",
     "disabled:cursor-not-allowed loading:cursor-wait loading:before:pointer-events-none",
     "transition-colors duration-100 ease-linear",
-    "p-4 max-w-[488px]",
+    "max-w-[488px] p-4",
   ],
   {
     variants: {
@@ -38,9 +38,6 @@ const buttonStyles = cva(
           "loading:bg-button-secondary-background-default loading:text-button-secondary-foreground-default loading:ring-button-secondary-border-default",
           "loading:before:absolute loading:before:inset-0 loading:before:bg-button-secondary-background-default loading:before:opacity-80 loading:before:content-['']",
         ],
-      },
-      defaultVariants: {
-        intent: "primary",
       },
     },
   },

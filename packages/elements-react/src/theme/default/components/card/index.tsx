@@ -19,8 +19,8 @@ import { DefaultCurrentIdentifierButton } from "./current-identifier-button"
  */
 export function DefaultCard({ children }: OryCardProps) {
   return (
-    <div className="flex flex-1 sm:items-center justify-center font-sans items-start w-full sm:w-[480px] sm:max-w-[480px]">
-      <div className="relative grid grid-cols-1 gap-8 sm:rounded-cards sm:border border-form-border-default bg-form-background-default px-8 py-12 sm:px-12 sm:py-14 border-b w-full">
+    <div className="flex w-full flex-1 items-start justify-center font-sans-default sm:w-[480px] sm:max-w-[480px] sm:items-center">
+      <div className="relative grid w-full grid-cols-1 gap-8 border-b border-form-border-default bg-form-background-default px-8 py-12 sm:rounded-cards sm:border sm:px-12 sm:py-14">
         {children}
         <Badge />
       </div>

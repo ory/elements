@@ -107,8 +107,7 @@ export function DefaultCurrentIdentifierButton() {
           })}
         <button
           className={
-            "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border px-[11px] py-[5px] transition-colors " +
-            "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
+            "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border border-button-identifier-border-border-default bg-button-identifier-background-default px-[11px] py-[5px] transition-colors hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
           }
           {...omitInputAttributes(nodeBackButton)}
           type={"submit"}
@@ -130,7 +129,7 @@ export function DefaultCurrentIdentifierButton() {
               stroke="1"
               className="shrink-0 text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover"
             />
-            <span className="overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover">
+            <span className="overflow-hidden text-sm font-medium text-nowrap text-ellipsis text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover">
               {nodeBackButton?.value}
             </span>
           </span>
@@ -142,8 +141,7 @@ export function DefaultCurrentIdentifierButton() {
   return (
     <a
       className={
-        "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border px-[11px] py-[5px] transition-colors " +
-        "border-button-identifier-border-border-default bg-button-identifier-background-default hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
+        "group inline-flex max-w-full cursor-pointer items-center gap-1 self-start rounded-identifier border border-button-identifier-border-border-default bg-button-identifier-background-default px-[11px] py-[5px] transition-colors hover:border-button-identifier-border-border-hover hover:bg-button-identifier-background-hover"
       }
       {...omitInputAttributes(nodeBackButton)}
       href={initFlowUrl}
@@ -156,7 +154,7 @@ export function DefaultCurrentIdentifierButton() {
           stroke="1"
           className="shrink-0 text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover"
         />
-        <span className="overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover">
+        <span className="overflow-hidden text-sm font-medium text-nowrap text-ellipsis text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover">
           {nodeBackButton?.value}
         </span>
       </span>

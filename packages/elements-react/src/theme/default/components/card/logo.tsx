@@ -26,7 +26,7 @@ export function DefaultCardLogo() {
   }
 
   return (
-    <h1 className="text-xl font-semibold leading-normal text-interface-foreground-default-primary">
+    <h1 className="text-xl leading-normal font-semibold text-interface-foreground-default-primary">
       {config.project.name}
     </h1>
   )

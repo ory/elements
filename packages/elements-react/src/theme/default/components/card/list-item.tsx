@@ -27,8 +27,8 @@ export function ListItem<T extends React.ElementType = "div">({
     <Comp
       {...props}
       className={cn(
-        "flex cursor-pointer gap-3 text-left items-start w-full rounded-buttons p-2 hover:bg-interface-background-default-primary-hover",
-        "disabled:hover:bg-ui-transparent disabled:cursor-default disabled:opacity-50",
+        "flex w-full cursor-pointer items-start gap-3 rounded-buttons p-2 text-left hover:bg-interface-background-default-primary-hover",
+        "disabled:cursor-default disabled:opacity-50 disabled:hover:bg-ui-transparent",
         className as string,
       )}
     >
@@ -37,8 +37,8 @@ export function ListItem<T extends React.ElementType = "div">({
           <Icon size={16} className="text-interface-foreground-brand-primary" />
         )}
       </span>
-      <span className="flex-1 leading-normal inline-flex flex-col max-w-full min-w-1">
-        <span className="text-interface-foreground-default-primary break-words">
+      <span className="inline-flex max-w-full min-w-1 flex-1 flex-col leading-normal">
+        <span className="break-words text-interface-foreground-default-primary">
           {title}
         </span>
         <span className="text-interface-foreground-default-secondary">

@@ -162,7 +162,7 @@ export function Error({
                 <ErrorLogo />
               </div>
               <div className="flex flex-col gap-2">
-                <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
+                <h2 className="text-lg leading-normal font-semibold text-interface-foreground-default-primary">
                   <FormattedMessage id="error.title.what-happened" />
                 </h2>
                 <p className="leading-normal text-interface-foreground-default-secondary">
@@ -178,7 +178,7 @@ export function Error({
             <Divider />
 
             <div className="flex flex-col gap-2">
-              <h2 className="text-lg font-semibold leading-normal text-interface-foreground-default-primary">
+              <h2 className="text-lg leading-normal font-semibold text-interface-foreground-default-primary">
                 <FormattedMessage id="error.title.what-can-i-do" />
               </h2>
               <p className="leading-normal text-interface-foreground-default-secondary">
@@ -188,20 +188,20 @@ export function Error({
             </div>
 
             <Divider />
-            <div className="font-normal leading-normal antialiased gap-2 flex flex-col">
-              <span className="text-interface-foreground-default-primary text-sm">
+            <div className="flex flex-col gap-2 leading-normal font-normal antialiased">
+              <span className="text-sm text-interface-foreground-default-primary">
                 <FormattedMessage id="error.footer.text" />
               </span>
 
               {parsed.id && (
-                <p className="text-interface-foreground-default-secondary text-sm">
+                <p className="text-sm text-interface-foreground-default-secondary">
                   ID: <code>{parsed.id}</code>
                 </p>
               )}
-              <p className="text-interface-foreground-default-secondary text-sm">
+              <p className="text-sm text-interface-foreground-default-secondary">
                 Time: <code>{parsed.timestamp?.toUTCString()}</code>
               </p>
-              <p className="text-interface-foreground-default-secondary text-sm">
+              <p className="text-sm text-interface-foreground-default-secondary">
                 Message: <code>{parsed.reason}</code>
               </p>
 
@@ -264,7 +264,7 @@ function ErrorLogo() {
   }
 
   return (
-    <h1 className="text-xl font-semibold leading-normal text-interface-foreground-default-primary">
+    <h1 className="text-xl leading-normal font-semibold text-interface-foreground-default-primary">
       {project.name}
     </h1>
   )

@@ -66,13 +66,4 @@ export default defineConfig([
       }
     },
   },
-  {
-    dts: true,
-    minify: false,
-    sourcemap: true,
-    bundle: true,
-    format: ["cjs", "esm"],
-    entry: ["tailwind/defaults.ts"],
-    outDir: "dist/theme/default/tailwind",
-  },
 ])

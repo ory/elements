@@ -27,7 +27,7 @@ export default async function RootLayout() {
           <Image src={OryLogo as string} alt="Ory Logo" width={160} />
           <h1 className="font-bold text-xl">Ory Next.js App Router Example</h1>
           {!session && (
-            <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
+            <div className="flex items-center gap-2 bg-white rounded-sm border flex-col w-60 p-3">
               <Link
                 className="underline block w-full"
                 href="/auth/registration"
@@ -49,7 +49,7 @@ export default async function RootLayout() {
             </div>
           )}
           {session && (
-            <div className="flex items-center gap-2 bg-white rounded border flex-col w-60 p-3">
+            <div className="flex items-center gap-2 bg-white rounded-sm border flex-col w-60 p-3">
               <h2 className="w-full">
                 Hi, {traits.email ?? traits.username ?? traits.phone}!
               </h2>

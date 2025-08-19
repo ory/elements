@@ -15,7 +15,7 @@ const DefaultFormSection = ({
 }: OryFormSectionProps) => {
   return (
     <form
-      className="flex w-full max-w-screen-sm flex-col md:max-w-[712px] lg:max-w-[802px] xl:max-w-[896px] px-4"
+      className="flex w-full max-w-(--breakpoint-sm) flex-col px-4 md:max-w-[712px] lg:max-w-[802px] xl:max-w-[896px]"
       {...rest}
     >
       {children}

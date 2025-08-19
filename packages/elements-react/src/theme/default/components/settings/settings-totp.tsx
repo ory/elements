@@ -40,7 +40,7 @@ export function DefaultSettingsTotp({
           <Card.Divider />
         </div>
         <div className="col-span-full flex items-center gap-6">
-          <div className="aspect-square size-8 ">
+          <div className="aspect-square size-8">
             <QrCode size={32} />
           </div>
           <div className="mr-auto flex flex-col">
@@ -75,7 +75,7 @@ export function DefaultSettingsTotp({
           <DefaultHorizontalDivider />
         </div>
         <div className="flex justify-center rounded-cards bg-interface-background-default-secondary p-8">
-          <div className="aspect-square h-44 rounded bg-[white]">
+          <div className="aspect-square h-44 bg-[white]">
             <div className="-m-3 antialiased mix-blend-multiply">
               <Node.Image
                 node={totpImage}
@@ -91,7 +91,7 @@ export function DefaultSettingsTotp({
             node={totpSecret}
             attributes={totpSecret.attributes as UiNodeInputAttributes}
           >
-            <div className="relative flex justify-stretch max-w-[488px]">
+            <div className="relative flex max-w-[488px] justify-stretch">
               <input
                 disabled
                 name="totp_secret_key"

@@ -109,13 +109,13 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
     <>
       {formState.current === "provide_identifier" &&
         config.project.registration_enabled && (
-          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
             {intl.formatMessage({
               id: "login.registration-label",
               defaultMessage: "No account?",
             })}{" "}
             <a
-              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
               href={initFlowUrl(config.sdk.url, "registration", flow)}
               data-testid={"ory/screen/login/action/register"}
             >
@@ -127,9 +127,9 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
           </span>
         )}
       {authMethods.length > 1 && formState.current === "method_active" && (
-        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+        <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
           <button
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
             onClick={() => {
               dispatchFormState({
                 type: "action_clear_active_method",
@@ -146,9 +146,9 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
       {authMethods.length === 1 &&
         authMethods[0] === "code" &&
         formState.current === "method_active" && (
-          <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+          <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
             <a
-              className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+              className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
               href={returnTo}
               data-testid={"ory/screen/login/action/cancel"}
             >
@@ -172,12 +172,12 @@ function LogoutButton({ returnTo }: LogoutButtonProps) {
   const { logoutFlow: logout, didLoad: didLoadLogout } = useClientLogout(config)
 
   return (
-    <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+    <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
       {intl.formatMessage({
         id: "login.2fa.go-back",
       })}{" "}
       <a
-        className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+        className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
         href={logout ? logout?.logout_url : returnTo}
         data-testid={
           // Only add the test-id when the logout link has loaded.
@@ -210,9 +210,9 @@ function RegistrationCardFooter() {
       }
 
       return (
-        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+        <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
           <button
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
             onClick={() => {
               dispatchFormState({
                 type: "action_clear_active_method",
@@ -231,13 +231,13 @@ function RegistrationCardFooter() {
     case "select_method":
     default:
       return (
-        <span className="font-normal leading-normal antialiased text-interface-foreground-default-primary">
+        <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
           {intl.formatMessage({
             id: "registration.login-label",
             defaultMessage: "Already have an account?",
           })}{" "}
           <a
-            className="text-button-link-brand-brand transition-colors hover:text-button-link-brand-brand-hover underline"
+            className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
             href={initFlowUrl(config.sdk.url, "login", flow)}
             data-testid={"ory/screen/registration/action/login"}
           >
@@ -280,12 +280,12 @@ function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
   })
 
   return (
-    <div className="flex gap-8 flex-col">
+    <div className="flex flex-col gap-8">
       <div>
-        <p className="text-interface-foreground-default-secondary leading-normal font-medium">
+        <p className="leading-normal font-medium text-interface-foreground-default-secondary">
           Make sure you trust {flow.consent_request.client?.client_name}
         </p>
-        <p className="text-interface-foreground-default-secondary leading-normal">
+        <p className="leading-normal text-interface-foreground-default-secondary">
           You may be sharing sensitive information with this site or
           application.
         </p>
@@ -296,7 +296,7 @@ function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
           node={rememberNode}
         />
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {flow.ui.nodes
           .filter(
             (n) =>

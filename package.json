@@ -57,6 +57,7 @@
     "@swc-node/register": "~1.10.0",
     "@swc/core": "~1.11.0",
     "@swc/helpers": "~0.5.11",
+    "@tailwindcss/postcss": "4.1.12",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.7.0",
     "@testing-library/react": "16.3.0",
@@ -68,12 +69,12 @@
     "@typescript-eslint/parser": "8.32.1",
     "@vitejs/plugin-react": "4.4.1",
     "eslint": "9.27.0",
+    "eslint-plugin-better-tailwindcss": "3.7.4",
     "eslint-plugin-formatjs": "5.3.1",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "0.12.0",
-    "eslint-plugin-tailwindcss": "3.18.0",
     "eslint-plugin-tsdoc": "0.4.0",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
@@ -88,7 +89,7 @@
     "storybook": "8.6.14",
     "storybook-addon-mock": "5.0.0",
     "storybook-mock-date-decorator": "2.0.6",
-    "tailwindcss": "3.4.17",
+    "tailwindcss": "4.1.12",
     "ts-jest": "29.4.1",
     "ts-node": "10.9.2",
     "tsup": "8.5.0",
@@ -103,7 +104,7 @@
     "dist/*"
   ],
   "engines": {
-    "node": ">=20  <22.18.0",
+    "node": ">=22.18.0",
     "npm": ">=8.11.0"
   },
   "workspaces": [

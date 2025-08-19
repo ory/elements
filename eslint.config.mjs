@@ -5,10 +5,11 @@ import pluginPromise from "eslint-plugin-promise"
 import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import storybook from "eslint-plugin-storybook"
-import tailwind from "eslint-plugin-tailwindcss"
+import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss"
 import tsdoc from "eslint-plugin-tsdoc"
 import globals from "globals"
 import tseslint from "typescript-eslint"
+import path from "node:path"
 
 const config = tseslint.config([
   {
@@ -118,18 +119,30 @@ const config = tseslint.config([
   {
     name: "elements-react",
     files: ["packages/elements-react/**"],
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
+    },
     plugins: {
       "react-hooks": reactHooks,
+      'better-tailwindcss': eslintPluginBetterTailwindcss,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      // enable all recommended rules to report an error
+      ...eslintPluginBetterTailwindcss.configs["recommended-error"].rules,
+      "better-tailwindcss/enforce-consistent-line-wrapping": "off",
     },
-  },
-  {
-    files: ["packages/elements-react-stories/**"],
-    rules: {
-      // The stories need to be able to require the JSON files, at the moment
-      "@typescript-eslint/no-require-imports": "off",
+    settings: {
+      "better-tailwindcss": {
+        // // tailwindcss 4: the path to the entry file of the css based tailwind config (eg: `src/global.css`)
+        "entryPoint": "packages/elements-react/src/theme/default/global.css",
+        // tailwindcss 3: the path to the tailwind config file (eg: `tailwind.config.js`)
+        // "tailwindConfig": "/Users/jonas.hungershausen/Repositories/cloud/elements/packages/elements-react/tailwind.config.ts"
+      }
     },
   },
   {
@@ -138,34 +151,6 @@ const config = tseslint.config([
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unsafe-call": "off",
-    },
-  },
-  {
-    name: "tailwind",
-    files: ["packages/elements-react/**/*.{js,jsx,ts,tsx}"],
-    ...tailwind.configs["flat/recommended"][0],
-    ...tailwind.configs["flat/recommended"][1],
-    rules: {
-      ...tailwind.configs["flat/recommended"][1].rules,
-      "tailwindcss/classnames-order": "off",
-      "tailwindcss/no-custom-classname": [
-        "warn",
-        {
-          cssFiles: [
-            "packages/elements-react/**/*.css",
-            "!**/node_modules",
-            "!**/.*",
-            "!**/dist",
-            "!**/build",
-          ],
-        },
-      ],
-    },
-    settings: {
-      tailwindcss: {
-        config: "packages/elements-react/tailwind.config.ts",
-        callees: ["classnames", "clsx", "ctl", "cn", "cva"],
-      },
     },
   },
   {
