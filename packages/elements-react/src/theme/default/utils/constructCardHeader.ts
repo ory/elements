@@ -11,6 +11,7 @@ import {
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 import { FormState } from "../../../context"
+import { findNode } from "../../../util/ui"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
   if (list.length === 0) {
@@ -33,6 +34,10 @@ export type CardHeaderTextOptions =
       formState?: FormState
     }
   | {
+      flowType: FlowType.Registration
+      formState?: FormState
+    }
+  | {
       flowType: FlowType.OAuth2Consent
       flow: {
         consent_request: OAuth2ConsentRequest
@@ -42,7 +47,6 @@ export type CardHeaderTextOptions =
   | {
       flowType:
         | FlowType.Error
-        | FlowType.Registration
         | FlowType.Verification
         | FlowType.Recovery
         | FlowType.Settings
@@ -249,7 +253,17 @@ export function useCardHeaderText(
   }
 
   switch (opts.flowType) {
-    case FlowType.Login:
+    case FlowType.Login: {
+      const codeMethodNode = findNode(container.nodes, {
+        node_type: "input",
+        group: "code",
+        name: "code",
+        type: "text",
+      })
+      const codeSent =
+        codeMethodNode &&
+        opts.formState?.current === "method_active" &&
+        opts.formState?.method === "code"
       if (opts.flow.refresh) {
         return {
           title: intl.formatMessage({
@@ -257,7 +271,9 @@ export function useCardHeaderText(
           }),
           description: intl.formatMessage(
             {
-              id: "login.subtitle-refresh",
+              id: codeSent
+                ? "identities.messages.1010014"
+                : "login.subtitle-refresh",
             },
             {
               parts: joinWithCommaOr(parts),
@@ -270,8 +286,9 @@ export function useCardHeaderText(
             id: "login.title-aal2",
           }),
           description: intl.formatMessage({
-            id:
-              opts.formState?.current === "method_active"
+            id: codeSent
+              ? "identities.messages.1010014"
+              : opts.formState?.current === "method_active"
                 ? `login.${opts.formState.method}.subtitle`
                 : "login.subtitle-aal2",
           }),
@@ -285,7 +302,9 @@ export function useCardHeaderText(
           parts.length > 0
             ? intl.formatMessage(
                 {
-                  id: "login.subtitle",
+                  id: codeSent
+                    ? "identities.messages.1010014"
+                    : "login.subtitle",
                 },
                 {
                   parts: joinWithCommaOr(
@@ -296,13 +315,25 @@ export function useCardHeaderText(
               )
             : "",
       }
-    case FlowType.Registration:
+    }
+    case FlowType.Registration: {
+      const codeMethodNode = findNode(container.nodes, {
+        node_type: "input",
+        group: "code",
+        name: "code",
+        type: "text",
+      })
+      const codeSent =
+        codeMethodNode &&
+        opts.formState?.current === "method_active" &&
+        opts.formState?.method === "code"
       return {
         title: intl.formatMessage({
           id: "registration.title",
         }),
-        description:
-          parts.length > 0
+        description: codeSent
+          ? intl.formatMessage({ id: "identities.messages.1040005" })
+          : parts.length > 0
             ? intl.formatMessage(
                 {
                   id: "registration.subtitle",
@@ -316,6 +347,7 @@ export function useCardHeaderText(
               )
             : "",
       }
+    }
     case FlowType.OAuth2Consent:
       return {
         title: intl.formatMessage(

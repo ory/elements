@@ -210,7 +210,7 @@
   "input.placeholder": "",
   "card.header.description.login": "",
   "card.header.description.registration": "",
-  "card.header.parts.code": "een code die naar je is verzonden",
+  "card.header.parts.code": "een eenmalige code",
   "card.header.parts.totp": "je authenticator-app",
   "card.header.parts.lookup_secret": "een backup herstelcode",
   "card.header.parts.identifier-first": "",

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`constructCardHeaderText language=de constructCardHeaderText on 2fa login - lookup_secret 1`] = `
 {
@@ -46,14 +46,14 @@ exports[`constructCardHeaderText language=de constructCardHeaderText on consent 
 
 exports[`constructCardHeaderText language=de flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Melden Sie sich mit einem an Sie gesendeten Code an.",
+  "description": "Melden Sie sich mit ein einmaliger Code an.",
   "title": "Anmelden",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Melden Sie sich mit einem an Sie gesendeten Code an.",
+  "description": "Melden Sie sich mit ein einmaliger Code an.",
   "title": "Anmelden",
 }
 `;
@@ -151,14 +151,14 @@ exports[`constructCardHeaderText language=de flowType=login refresh=false combin
 
 exports[`constructCardHeaderText language=de flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Bestätigen Sie Ihre Identität mit einem an Sie gesendeten Code.",
+  "description": "Bestätigen Sie Ihre Identität mit ein einmaliger Code.",
   "title": "Bestätigen Sie, dass Sie es sind",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Bestätigen Sie Ihre Identität mit einem an Sie gesendeten Code.",
+  "description": "Bestätigen Sie Ihre Identität mit ein einmaliger Code.",
   "title": "Bestätigen Sie, dass Sie es sind",
 }
 `;
@@ -470,14 +470,14 @@ exports[`constructCardHeaderText language=de flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=de flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrieren Sie sich mit einem an Sie gesendeten Code.",
+  "description": "Registrieren Sie sich mit ein einmaliger Code.",
   "title": "Konto registrieren",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrieren Sie sich mit einem an Sie gesendeten Code.",
+  "description": "Registrieren Sie sich mit ein einmaliger Code.",
   "title": "Konto registrieren",
 }
 `;
@@ -575,14 +575,14 @@ exports[`constructCardHeaderText language=de flowType=registration refresh=false
 
 exports[`constructCardHeaderText language=de flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrieren Sie sich mit einem an Sie gesendeten Code.",
+  "description": "Registrieren Sie sich mit ein einmaliger Code.",
   "title": "Konto registrieren",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrieren Sie sich mit einem an Sie gesendeten Code.",
+  "description": "Registrieren Sie sich mit ein einmaliger Code.",
   "title": "Konto registrieren",
 }
 `;
@@ -1147,14 +1147,14 @@ exports[`constructCardHeaderText language=en constructCardHeaderText on consent 
 
 exports[`constructCardHeaderText language=en flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Sign in with a code sent to you",
+  "description": "Sign in with a one-time code",
   "title": "Sign in",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Sign in with a code sent to you",
+  "description": "Sign in with a one-time code",
   "title": "Sign in",
 }
 `;
@@ -1252,14 +1252,14 @@ exports[`constructCardHeaderText language=en flowType=login refresh=false combin
 
 exports[`constructCardHeaderText language=en flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Confirm your identity with a code sent to you",
+  "description": "Confirm your identity with a one-time code",
   "title": "Reauthenticate",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Confirm your identity with a code sent to you",
+  "description": "Confirm your identity with a one-time code",
   "title": "Reauthenticate",
 }
 `;
@@ -1571,14 +1571,14 @@ exports[`constructCardHeaderText language=en flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=en flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to you",
+  "description": "Sign up with a one-time code",
   "title": "Register an account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to you",
+  "description": "Sign up with a one-time code",
   "title": "Register an account",
 }
 `;
@@ -1676,14 +1676,14 @@ exports[`constructCardHeaderText language=en flowType=registration refresh=false
 
 exports[`constructCardHeaderText language=en flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to you",
+  "description": "Sign up with a one-time code",
   "title": "Register an account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Sign up with a code sent to you",
+  "description": "Sign up with a one-time code",
   "title": "Register an account",
 }
 `;
@@ -2248,14 +2248,14 @@ exports[`constructCardHeaderText language=es constructCardHeaderText on consent 
 
 exports[`constructCardHeaderText language=es flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Iniciar sesión con un código enviado a tu correo electrónico",
+  "description": "Iniciar sesión con un código de un solo uso",
   "title": "Iniciar sesión",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Iniciar sesión con un código enviado a tu correo electrónico",
+  "description": "Iniciar sesión con un código de un solo uso",
   "title": "Iniciar sesión",
 }
 `;
@@ -2353,14 +2353,14 @@ exports[`constructCardHeaderText language=es flowType=login refresh=false combin
 
 exports[`constructCardHeaderText language=es flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Confirma tu identidad con un código enviado a tu correo electrónico",
+  "description": "Confirma tu identidad con un código de un solo uso",
   "title": "Confirme que es usted",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Confirma tu identidad con un código enviado a tu correo electrónico",
+  "description": "Confirma tu identidad con un código de un solo uso",
   "title": "Confirme que es usted",
 }
 `;
@@ -2672,14 +2672,14 @@ exports[`constructCardHeaderText language=es flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=es flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrarse con un código enviado a tu correo electrónico",
+  "description": "Registrarse con un código de un solo uso",
   "title": "Registrar una cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrarse con un código enviado a tu correo electrónico",
+  "description": "Registrarse con un código de un solo uso",
   "title": "Registrar una cuenta",
 }
 `;
@@ -2777,14 +2777,14 @@ exports[`constructCardHeaderText language=es flowType=registration refresh=false
 
 exports[`constructCardHeaderText language=es flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrarse con un código enviado a tu correo electrónico",
+  "description": "Registrarse con un código de un solo uso",
   "title": "Registrar una cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrarse con un código enviado a tu correo electrónico",
+  "description": "Registrarse con un código de un solo uso",
   "title": "Registrar una cuenta",
 }
 `;
@@ -3349,14 +3349,14 @@ exports[`constructCardHeaderText language=fr constructCardHeaderText on consent 
 
 exports[`constructCardHeaderText language=fr flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Se connecter avec un code qui vous a été envoyé",
+  "description": "Se connecter avec un code à usage unique",
   "title": "Se connecter",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Se connecter avec un code qui vous a été envoyé",
+  "description": "Se connecter avec un code à usage unique",
   "title": "Se connecter",
 }
 `;
@@ -3454,14 +3454,14 @@ exports[`constructCardHeaderText language=fr flowType=login refresh=false combin
 
 exports[`constructCardHeaderText language=fr flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Confirmez votre identité avec un code qui vous a été envoyé",
+  "description": "Confirmez votre identité avec un code à usage unique",
   "title": "Confirmez que c'est bien vous",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Confirmez votre identité avec un code qui vous a été envoyé",
+  "description": "Confirmez votre identité avec un code à usage unique",
   "title": "Confirmez que c'est bien vous",
 }
 `;
@@ -3773,14 +3773,14 @@ exports[`constructCardHeaderText language=fr flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=fr flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "S'inscrire avec un code qui vous a été envoyé",
+  "description": "S'inscrire avec un code à usage unique",
   "title": "Créer un compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "S'inscrire avec un code qui vous a été envoyé",
+  "description": "S'inscrire avec un code à usage unique",
   "title": "Créer un compte",
 }
 `;
@@ -3878,14 +3878,14 @@ exports[`constructCardHeaderText language=fr flowType=registration refresh=false
 
 exports[`constructCardHeaderText language=fr flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "S'inscrire avec un code qui vous a été envoyé",
+  "description": "S'inscrire avec un code à usage unique",
   "title": "Créer un compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "S'inscrire avec un code qui vous a été envoyé",
+  "description": "S'inscrire avec un code à usage unique",
   "title": "Créer un compte",
 }
 `;
@@ -5551,14 +5551,14 @@ exports[`constructCardHeaderText language=no constructCardHeaderText on consent 
 
 exports[`constructCardHeaderText language=no flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Logg inn med en kode sendt til deg",
+  "description": "Logg inn med en engangskode",
   "title": "Logg inn",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Logg inn med en kode sendt til deg",
+  "description": "Logg inn med en engangskode",
   "title": "Logg inn",
 }
 `;
@@ -5656,14 +5656,14 @@ exports[`constructCardHeaderText language=no flowType=login refresh=false combin
 
 exports[`constructCardHeaderText language=no flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Bekreft din identitet med en kode sendt til deg",
+  "description": "Bekreft din identitet med en engangskode",
   "title": "Reautentiser",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Bekreft din identitet med en kode sendt til deg",
+  "description": "Bekreft din identitet med en engangskode",
   "title": "Reautentiser",
 }
 `;
@@ -5975,14 +5975,14 @@ exports[`constructCardHeaderText language=no flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrer deg med en kode sendt til deg",
+  "description": "Registrer deg med en engangskode",
   "title": "Registrer en konto",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrer deg med en kode sendt til deg",
+  "description": "Registrer deg med en engangskode",
   "title": "Registrer en konto",
 }
 `;
@@ -6080,14 +6080,14 @@ exports[`constructCardHeaderText language=no flowType=registration refresh=false
 
 exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrer deg med en kode sendt til deg",
+  "description": "Registrer deg med en engangskode",
   "title": "Registrer en konto",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrer deg med en kode sendt til deg",
+  "description": "Registrer deg med en engangskode",
   "title": "Registrer en konto",
 }
 `;
@@ -8854,14 +8854,14 @@ exports[`constructCardHeaderText language=sv constructCardHeaderText on consent 
 
 exports[`constructCardHeaderText language=sv flowType=login refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Logga in med en kod skickad till dig",
+  "description": "Logga in med en engångskod",
   "title": "Logga in",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=login refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Logga in med en kod skickad till dig",
+  "description": "Logga in med en engångskod",
   "title": "Logga in",
 }
 `;
@@ -8959,14 +8959,14 @@ exports[`constructCardHeaderText language=sv flowType=login refresh=false combin
 
 exports[`constructCardHeaderText language=sv flowType=login refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Bekräfta din identitet med en kod skickad till dig",
+  "description": "Bekräfta din identitet med en engångskod",
   "title": "Bekräfta att det är du",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=login refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Bekräfta din identitet med en kod skickad till dig",
+  "description": "Bekräfta din identitet med en engångskod",
   "title": "Bekräfta att det är du",
 }
 `;
@@ -9278,14 +9278,14 @@ exports[`constructCardHeaderText language=sv flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=sv flowType=registration refresh=false combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrera dig med en kod skickad till dig",
+  "description": "Registrera dig med en engångskod",
   "title": "Skapa ett konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=registration refresh=false combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrera dig med en kod skickad till dig",
+  "description": "Registrera dig med en engångskod",
   "title": "Skapa ett konto",
 }
 `;
@@ -9383,14 +9383,14 @@ exports[`constructCardHeaderText language=sv flowType=registration refresh=false
 
 exports[`constructCardHeaderText language=sv flowType=registration refresh=true combination=code constructCardHeaderText 1`] = `
 {
-  "description": "Registrera dig med en kod skickad till dig",
+  "description": "Registrera dig med en engångskod",
   "title": "Skapa ett konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=registration refresh=true combination=default_and_code constructCardHeaderText 1`] = `
 {
-  "description": "Registrera dig med en kod skickad till dig",
+  "description": "Registrera dig med en engångskod",
   "title": "Skapa ett konto",
 }
 `;

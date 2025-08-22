@@ -210,7 +210,7 @@
   "input.placeholder": "",
   "card.header.description.login": "",
   "card.header.description.registration": "",
-  "card.header.parts.code": "um código enviado para você",
+  "card.header.parts.code": "um código de uso único",
   "card.header.parts.totp": "seu aplicativo autenticador",
   "card.header.parts.lookup_secret": "um código de recuperação de backup",
   "card.header.parts.identifier-first": "",

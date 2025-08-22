@@ -205,6 +205,7 @@ export const findNode = <T extends UiNodeAttributes["node_type"]>(
     node_type: T
     group: UiNodeGroupEnum | RegExp
     name?: string | RegExp
+    type?: string | RegExp
   },
 ) =>
   nodes.find((n) => {
@@ -217,7 +218,12 @@ export const findNode = <T extends UiNodeAttributes["node_type"]>(
         ? opt.name instanceof RegExp
           ? n.attributes.name.match(opt.name)
           : n.attributes.name === opt.name
-        : !opt.name)
+        : !opt.name) &&
+      (opt.type && n.attributes.node_type === "input"
+        ? opt.type instanceof RegExp
+          ? n.attributes.type.match(opt.type)
+          : n.attributes.type === opt.type
+        : !opt.type)
     )
   }) as
     | (UiNode & { attributes: UiNodeAttributes & { node_type: T } })

@@ -210,7 +210,7 @@
   "input.placeholder": "Ange din {placeholder}",
   "card.header.description.login": "Logga in med {identifierLabel}",
   "card.header.description.registration": "Registrera dig med {identifierLabel}",
-  "card.header.parts.code": "en kod skickad till dig",
+  "card.header.parts.code": "en engångskod",
   "card.header.parts.totp": "din autentiseringsapp",
   "card.header.parts.lookup_secret": "en säkerhetskopieringskod",
   "card.header.parts.identifier-first": "din {identifierLabel}",

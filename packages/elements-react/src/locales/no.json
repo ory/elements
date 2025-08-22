@@ -231,7 +231,7 @@
   "card.header.parts.oidc": "en sosial leverandør",
   "card.header.parts.password.registration": "din {identifierLabel} og et passord",
   "card.header.parts.password.login": "din {identifierLabel} og passord",
-  "card.header.parts.code": "en kode sendt til deg",
+  "card.header.parts.code": "en engangskode",
   "card.header.parts.passkey": "en passkey",
   "card.header.parts.webauthn": "en sikkerhetsnøkkel",
   "card.header.parts.totp": "din autentiseringsapp",

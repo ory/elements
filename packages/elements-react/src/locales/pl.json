@@ -216,7 +216,7 @@
   "card.header.parts.password.login": "",
   "card.header.parts.password.registration": "",
   "card.header.parts.webauthn": "",
-  "card.header.parts.code": "kod wysłany do Ciebie",
+  "card.header.parts.code": "jednorazowy kod",
   "card.header.parts.totp": "Twoja aplikacja uwierzytelniająca",
   "card.header.parts.lookup_secret": "kod odzyskiwania kopii zapasowej",
   "forms.label.forgot-password": "",

@@ -256,7 +256,7 @@
   "card.header.parts.oidc": "un proveedor social",
   "card.header.parts.password.registration": "tu {identifierLabel} y una contraseña",
   "card.header.parts.password.login": "tu {identifierLabel} y contraseña",
-  "card.header.parts.code": "un código enviado a tu correo electrónico",
+  "card.header.parts.code": "un código de un solo uso",
   "card.header.parts.passkey": "una clave de acceso",
   "card.header.parts.webauthn": "una clave de seguridad",
   "card.header.parts.totp": "su aplicación de autenticación",
