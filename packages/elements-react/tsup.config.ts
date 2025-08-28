@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import svgr from "esbuild-plugin-svgr"
+import postCssPlugin from "@deanc/esbuild-plugin-postcss"
+import tailwindPlugin from "@tailwindcss/postcss"
+import postcssScope from "postcss-scope"
 import { defineConfig, type Options } from "tsup"
 
 const baseConfig: Options = {
@@ -36,6 +39,19 @@ export default defineConfig([
     format: ["cjs", "esm"],
     entry: ["src/client/**/*.{ts,tsx}", "!src/**/*.spec.{tsx,ts}"],
     outDir: "dist/client",
+  },
+  {
+    entry: ["src/theme/default/global.prefixed.css"],
+    outDir: "dist/theme/default",
+    esbuildPlugins: [
+      postCssPlugin({
+        plugins: [
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-require-imports
+          tailwindPlugin(),
+          postcssScope(".ory"),
+        ],
+      }),
+    ],
   },
   {
     ...baseConfig,
