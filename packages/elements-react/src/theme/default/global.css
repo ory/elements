@@ -1,49 +1,51 @@
 /* Copyright © 2024 Ory Corp */
 /* SPDX-License-Identifier: Apache-2.0 */
 
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-@import "tailwindcss/theme";
-
 @import "../../../tailwind/generated/variables.css";
 
-@theme {
-  --font-sans: initial;
-  --font-sans-default: var(--font-sans);
-  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
-  @keyframes caret-blink {
-    0%,
-    70%,
-    100% {
-      opacity: 1;
-    }
-    20%,
-    50% {
-      opacity: 0;
-    }
-  }
+.ory-elements {
+  @import "tailwindcss/preflight";
+  @import "tailwindcss/utilities";
+  @import "tailwindcss/theme";
 
-  --animate-drop-down-in: drop-down-in 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  @theme {
+    --font-sans: initial;
+    --font-sans-default: var(--font-sans);
+    --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+    @keyframes caret-blink {
+      0%,
+      70%,
+      100% {
+        opacity: 1;
+      }
+      20%,
+      50% {
+        opacity: 0;
+      }
+    }
 
-  @keyframes drop-down-in {
-    from {
-      opacity: 0;
-      transform: scale(0.75);
+    --animate-drop-down-in: drop-down-in 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    @keyframes drop-down-in {
+      from {
+        opacity: 0;
+        transform: scale(0.75);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  --animate-drop-down-out: drop-down-out 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  @keyframes drop-down-out {
-    from {
-      opacity: 1;
-      transform: scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: scale(0.96);
+    --animate-drop-down-out: drop-down-out 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    @keyframes drop-down-out {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.96);
+      }
     }
   }
 }

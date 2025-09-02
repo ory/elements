@@ -135,6 +135,7 @@ const config = tseslint.config([
       // enable all recommended rules to report an error
       ...eslintPluginBetterTailwindcss.configs["recommended-error"].rules,
       "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+      "better-tailwindcss/no-unregistered-classes": ["error", { ignore: ["ory-elements"] }]
     },
     settings: {
       "better-tailwindcss": {
