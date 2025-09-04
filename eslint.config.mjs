@@ -122,28 +122,31 @@ const config = tseslint.config([
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
-          jsx: true
-        }
-      }
+          jsx: true,
+        },
+      },
     },
     plugins: {
       "react-hooks": reactHooks,
-      'better-tailwindcss': eslintPluginBetterTailwindcss,
+      "better-tailwindcss": eslintPluginBetterTailwindcss,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
       // enable all recommended rules to report an error
       ...eslintPluginBetterTailwindcss.configs["recommended-error"].rules,
       "better-tailwindcss/enforce-consistent-line-wrapping": "off",
-      "better-tailwindcss/no-unregistered-classes": ["error", { ignore: ["ory-elements"] }],
+      "better-tailwindcss/no-unregistered-classes": [
+        "error",
+        { ignore: ["ory-elements"] },
+      ],
     },
     settings: {
       "better-tailwindcss": {
         // // tailwindcss 4: the path to the entry file of the css based tailwind config (eg: `src/global.css`)
-        "entryPoint": "packages/elements-react/src/theme/default/global.css",
+        entryPoint: "packages/elements-react/src/theme/default/global.css",
         // tailwindcss 3: the path to the tailwind config file (eg: `tailwind.config.js`)
         // "tailwindConfig": "/Users/jonas.hungershausen/Repositories/cloud/elements/packages/elements-react/tailwind.config.ts"
-      }
+      },
     },
   },
   {
