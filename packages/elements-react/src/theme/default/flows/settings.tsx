@@ -68,10 +68,10 @@ export function Settings({
       components={components}
     >
       {children ?? (
-        <>
+        <div className="ory-elements">
           <OryPageHeader />
           <OrySettingsCard />
-        </>
+        </div>
       )}
     </OryProvider>
   )

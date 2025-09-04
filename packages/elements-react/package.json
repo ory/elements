@@ -69,6 +69,7 @@
     "esbuild-plugin-svgr": "3.1.1",
     "eslint-plugin-react": "7.37.5",
     "postcss": "8.4.47",
+    "postcss-scope": "^1.7.4",
     "tailwindcss-animate": "1.0.7",
     "tsup": "8.4.0",
     "typedoc": "0.28.5"
