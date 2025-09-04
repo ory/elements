@@ -46,7 +46,7 @@ export const UserMenu = ({ session }: UserMenuProps) => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuItem asChild>
-          <a href="/settings">
+          <a href={config.project.settings_ui_url}>
             <IconSettings size={16} /> User settings
           </a>
         </DropdownMenuItem>
