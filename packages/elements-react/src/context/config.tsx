@@ -89,7 +89,7 @@ type OryElementsConfigContextType = {
 }
 
 const OryConfigurationContext = createContext<OryElementsConfigContextType>({
-  sdk: computeSdkConfig({}),
+  sdk: null!, // This is fine, because we always supply a proper default value for the SDK configuration in the provider
   project: defaultProject,
 })
 
@@ -156,11 +156,7 @@ function computeSdkConfig(config?: OryClientConfiguration["sdk"]): SDKConfig {
 }
 
 function getSDKUrl() {
-  if (
-    typeof process !== "undefined" &&
-    process.versions &&
-    process.versions.node
-  ) {
+  if (typeof process !== "undefined" && !!process.env) {
     // process is available, let's try some environment variables
     if (isProduction()) {
       const sdkUrl =
