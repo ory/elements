@@ -4,7 +4,7 @@
 import { SettingsFlowFromJSON } from "@ory/client-fetch"
 import { Meta, StoryObj } from "@storybook/react"
 import { config } from "../../utils"
-import { SpacedSettings as Settings } from "./settings"
+import { Settings } from "../../../src/theme/default"
 
 const meta = {
   title: "Ory Elements/Settings/Webauthn",

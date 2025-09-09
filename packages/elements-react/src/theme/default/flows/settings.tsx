@@ -10,7 +10,9 @@ import {
   OryProvider,
   OrySettingsCard,
 } from "@ory/elements-react"
+import { ComponentPropsWithoutRef } from "react"
 import { getOryComponents } from "../components"
+import { cn } from "../utils/cn"
 
 /**
  * Props for the Settings component.
@@ -41,7 +43,7 @@ export type SettingsFlowContextProps = {
    * If not provided, the default OrySettingsCard will be rendered.
    */
   children?: React.ReactNode
-}
+} & ComponentPropsWithoutRef<"div">
 
 /**
  * The `Settings` component is used to render the settings flow in Ory Elements.
@@ -57,6 +59,8 @@ export function Settings({
   config,
   children,
   components: flowOverrideComponents,
+  className,
+  ...rest
 }: SettingsFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
 
@@ -68,10 +72,12 @@ export function Settings({
       components={components}
     >
       {children ?? (
-        <>
-          <OryPageHeader />
-          <OrySettingsCard />
-        </>
+        <div className={cn("ory-elements", className)} {...rest}>
+          <div className="flex flex-col items-center justify-start gap-8 pb-12 font-sans-default">
+            <OryPageHeader />
+            <OrySettingsCard />
+          </div>
+        </div>
       )}
     </OryProvider>
   )

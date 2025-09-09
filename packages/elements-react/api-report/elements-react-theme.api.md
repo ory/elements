@@ -59,7 +59,7 @@ export namespace DefaultButtonSocial {
 // Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultCard({ children }: OryCardRootProps): react_jsx_runtime.JSX.Element;
+export function DefaultCard({ children, className, ...rest }: OryCardRootProps & ComponentPropsWithoutRef<"div">): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryCardContentProps" needs to be exported by the entry point index.d.ts
 //
@@ -147,7 +147,7 @@ export type RecoveryFlowContextProps = {
 export function Registration({ flow, children, components: flowOverrideComponents, config, }: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
-export function Settings({ flow, config, children, components: flowOverrideComponents, }: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Settings({ flow, config, children, components: flowOverrideComponents, className, ...rest }: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type SettingsFlowContextProps = {
@@ -155,7 +155,7 @@ export type SettingsFlowContextProps = {
     components?: OryFlowComponentOverrides;
     config: OryClientConfiguration;
     children?: React.ReactNode;
-};
+} & ComponentPropsWithoutRef<"div">;
 
 // @public
 export function Verification({ flow, config, children, components: flowOverrideComponents, }: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;

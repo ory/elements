@@ -645,12 +645,25 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultCard({ children }: "
+              "text": "declare function DefaultCard({ children, className, ...rest }: "
             },
             {
               "kind": "Reference",
               "text": "OryCardProps",
               "canonicalReference": "@ory/elements-react!~OryCardRootProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"div\">"
             },
             {
               "kind": "Content",
@@ -668,17 +681,17 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 4
+            "startIndex": 6,
+            "endIndex": 7
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children }",
+              "parameterName": "{ children, className, ...rest }",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 2
+                "endIndex": 5
               },
               "isOptional": false
             }
@@ -1562,7 +1575,7 @@
             },
             {
               "kind": "Content",
-              "text": ": flowOverrideComponents, }: "
+              "text": ": flowOverrideComponents, className, ...rest }: "
             },
             {
               "kind": "Reference",
@@ -1592,7 +1605,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ flow, config, children, components: flowOverrideComponents, }",
+              "parameterName": "{ flow, config, children, components: flowOverrideComponents, className, ...rest }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -1649,7 +1662,16 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}"
+              "text": ";\n} & "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentPropsWithoutRef",
+              "canonicalReference": "@types/react!React.ComponentPropsWithoutRef:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<\"div\">"
             },
             {
               "kind": "Content",
@@ -1661,7 +1683,7 @@
           "name": "SettingsFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 12
           }
         },
         {
