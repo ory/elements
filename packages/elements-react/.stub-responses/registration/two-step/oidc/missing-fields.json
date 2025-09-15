@@ -13,6 +13,39 @@
         "type": "input",
         "group": "oidc",
         "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "google-fake",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040003,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
           "name": "traits.email",
           "type": "email",
           "value": "dev@ory.dev",
@@ -35,7 +68,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.tos",
           "type": "checkbox",
@@ -58,7 +91,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.phone",
           "type": "text",
@@ -89,7 +122,7 @@
       },
       {
         "type": "input",
-        "group": "oidc",
+        "group": "default",
         "attributes": {
           "name": "traits.nested.name",
           "type": "text",
@@ -107,39 +140,6 @@
             }
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "google-fake",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040003,
-            "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
-          "required": true,
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
       }
     ]
   },
