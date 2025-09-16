@@ -26,7 +26,6 @@ export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
       onChange={handleInputChange}
       name={name}
       value={value}
-      data-testid={`ory/form/node/input/${name}`}
     >
       <InputOTPGroup
         className={cn(
