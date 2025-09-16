@@ -27,19 +27,36 @@
         "type": "input",
         "group": "code",
         "attributes": {
-          "name": "code",
-          "type": "text",
-          "required": true,
-          "pattern": "[0-9]+",
+          "name": "recovery_select_address",
+          "type": "submit",
+          "value": "dummy_value",
           "disabled": false,
-          "maxlength": 6,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070010,
-            "text": "Recovery code",
+            "id": 1070000,
+            "text": "de****@ory.dev",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "recovery_select_address",
+          "type": "submit",
+          "value": "dummy_value",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070000,
+            "text": "+33****00",
             "type": "info"
           }
         }
@@ -49,38 +66,13 @@
         "group": "code",
         "attributes": {
           "name": "method",
-          "type": "submit",
+          "type": "hidden",
           "value": "code",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070009,
-            "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "recovery_confirm_address",
-          "type": "submit",
-          "value": "dev@ory.dev",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070008,
-            "text": "Resend code",
-            "type": "info"
-          }
-        }
+        "meta": {}
       },
       {
         "type": "input",
@@ -94,38 +86,16 @@
         },
         "messages": [],
         "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "screen",
-          "type": "submit",
-          "value": "previous",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1060007,
-            "text": "Back",
-            "type": "info"
-          }
-        }
       }
     ],
     "messages": [
       {
-        "id": 1060004,
-        "text": "A recovery code has been sent to de****@ory.dev. If you have not received it, check the spelling of the address and make sure to use the address you registered with.",
-        "type": "info",
-        "context": {
-          "masked_address": "de****@ory.dev"
-        }
+        "id": 1060006,
+        "text": "How do you want to recover your account?",
+        "type": "info"
       }
     ]
   },
-  "state": "recovery_awaiting_code",
+  "state": "recovery_awaiting_address_choice",
   "transient_payload": {}
 }

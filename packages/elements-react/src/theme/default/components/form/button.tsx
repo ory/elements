@@ -89,7 +89,7 @@ export const DefaultButton = ({
       className={buttonStyles({
         intent: isPrimary ? "primary" : "secondary",
       })}
-      disabled={!isReady && (rest.disabled ?? isSubmitting)}
+      disabled={rest.disabled === true || !isReady || isSubmitting}
       data-loading={clicked}
     >
       {clicked ? <Spinner /> : null}

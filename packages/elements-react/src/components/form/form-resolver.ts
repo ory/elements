@@ -6,8 +6,8 @@ import { FormValues } from "../../types"
 import { isUiNodeInputAttributes } from "@ory/client-fetch"
 
 function isCodeResendRequest(data: FormValues) {
-  // There are two types of resend - one
-  return data.email ?? data.resend
+  // There are three types of resend
+  return data.email ?? data.resend ?? data.recovery_confirm_address
 }
 
 /**

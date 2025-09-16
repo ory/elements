@@ -25,7 +25,8 @@ function findResendNode(nodes: UiNode[]) {
   return nodes.find(
     (n) =>
       "name" in n.attributes &&
-      ((n.attributes.name === "email" && n.attributes.type === "submit") ||
+      ((["email", "recovery_confirm_address"].includes(n.attributes.name) &&
+        n.attributes.type === "submit") ||
         n.attributes.name === "resend"),
   )
 }

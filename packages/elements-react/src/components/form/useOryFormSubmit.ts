@@ -37,7 +37,7 @@ export function useOryFormSubmit(
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)
-    methods.reset(computeDefaultValues(flow.flow.ui.nodes))
+    methods.reset(computeDefaultValues(flow.flow))
   }
 
   const onRedirect: OnRedirectHandler = (url, _external) => {

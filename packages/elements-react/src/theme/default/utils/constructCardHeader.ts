@@ -11,6 +11,7 @@ import {
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 import { FormState } from "../../../context"
+import { uiTextToFormattedMessage } from "../../../util"
 import { findNode } from "../../../util/ui"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
@@ -75,8 +76,20 @@ export function useCardHeaderText(
   const nodes = container.nodes
   const intl = useIntl()
   switch (opts.flowType) {
-    case FlowType.Recovery:
-      if (
+    case FlowType.Recovery: {
+      const recoveryV2Message = container.messages?.find((m) =>
+        [1060006, 1060005, 1060004].includes(m.id),
+      )
+
+      if (recoveryV2Message) {
+        return {
+          title: intl.formatMessage({
+            id: "recovery.title",
+          }),
+          description: uiTextToFormattedMessage(recoveryV2Message, intl),
+          messageId: recoveryV2Message.id + "",
+        }
+      } else if (
         nodes.find(
           (node) =>
             "name" in node.attributes && node.attributes.name === "code",
@@ -100,6 +113,7 @@ export function useCardHeaderText(
           id: "recovery.subtitle",
         }),
       }
+    }
     case FlowType.Settings:
       return {
         title: intl.formatMessage({

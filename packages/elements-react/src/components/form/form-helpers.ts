@@ -4,8 +4,11 @@
 import { isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
 import { FormValues } from "../../types"
 
-export function computeDefaultValues(nodes: UiNode[]): FormValues {
-  return nodes.reduce<FormValues>((acc, node) => {
+export function computeDefaultValues(flow: {
+  active?: string
+  ui: { nodes: UiNode[] }
+}): FormValues {
+  const defaults = flow.ui.nodes.reduce<FormValues>((acc, node) => {
     const attrs = node.attributes
 
     if (isUiNodeInputAttributes(attrs)) {
@@ -52,6 +55,11 @@ export function computeDefaultValues(nodes: UiNode[]): FormValues {
 
     return acc
   }, {})
+
+  if (flow.active) {
+    defaults.method = flow.active
+  }
+  return defaults
 }
 
 export function unrollTrait<T extends string, V>(

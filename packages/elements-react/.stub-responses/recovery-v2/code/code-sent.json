@@ -67,6 +67,19 @@
         "type": "input",
         "group": "code",
         "attributes": {
+          "name": "method",
+          "type": "hidden",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
           "name": "recovery_confirm_address",
           "type": "submit",
           "value": "dev@ory.dev",
@@ -117,11 +130,15 @@
     ],
     "messages": [
       {
-        "id": 4060006,
-        "text": "The recovery code is invalid or has already been used. Please try again.",
-        "type": "error"
+        "id": 1060004,
+        "text": "A recovery code has been sent to de****@ory.dev. If you have not received it, check the spelling of the address and make sure to use the address you registered with.",
+        "type": "info",
+        "context": {
+          "masked_address": "de****@ory.dev"
+        }
       }
     ]
   },
-  "state": "recovery_awaiting_code"
+  "state": "recovery_awaiting_code",
+  "transient_payload": {}
 }

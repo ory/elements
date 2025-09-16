@@ -272,91 +272,91 @@ exports[`constructCardHeaderText language=de flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
@@ -379,91 +379,91 @@ exports[`constructCardHeaderText language=de flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
 
 exports[`constructCardHeaderText language=de flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein, um einen einmaligen Zugangscode zu erhalten",
+  "description": "Geben Sie den mit Ihrem Konto verknüpften Identifikator ein, um einen einmaligen Zugangscode zu erhalten",
   "title": "Ihr Konto wiederherstellen",
 }
 `;
@@ -1373,91 +1373,91 @@ exports[`constructCardHeaderText language=en flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
@@ -1480,91 +1480,91 @@ exports[`constructCardHeaderText language=en flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
 
 exports[`constructCardHeaderText language=en flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Enter the email address associated with your account to receive a one-time access code",
+  "description": "Enter the identifier associated with your account to receive a one-time access code",
   "title": "Recover your account",
 }
 `;
@@ -2474,91 +2474,91 @@ exports[`constructCardHeaderText language=es flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
@@ -2581,91 +2581,91 @@ exports[`constructCardHeaderText language=es flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
 
 exports[`constructCardHeaderText language=es flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ingresa la dirección de correo electrónico asociada con tu cuenta para recibir un código de acceso único",
+  "description": "Ingresa el identificador asociado con tu cuenta para recibir un código de acceso único",
   "title": "Recuperar su cuenta",
 }
 `;
@@ -3575,91 +3575,91 @@ exports[`constructCardHeaderText language=fr flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
@@ -3682,91 +3682,91 @@ exports[`constructCardHeaderText language=fr flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
 
 exports[`constructCardHeaderText language=fr flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Saisissez l'adresse e-mail associée à votre compte pour recevoir un code d'accès unique",
+  "description": "Saisissez l'identifiant associée à votre compte pour recevoir un code d'accès unique",
   "title": "Récupérer votre compte",
 }
 `;
@@ -4676,91 +4676,91 @@ exports[`constructCardHeaderText language=nl flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
@@ -4783,91 +4783,91 @@ exports[`constructCardHeaderText language=nl flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
 
 exports[`constructCardHeaderText language=nl flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Voer de identificatie in die aan uw account is gekoppeld om een eenmalige toegangscode te ontvangen",
   "title": "Herstel je account",
 }
 `;
@@ -5777,91 +5777,91 @@ exports[`constructCardHeaderText language=no flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
@@ -5884,91 +5884,91 @@ exports[`constructCardHeaderText language=no flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
 
 exports[`constructCardHeaderText language=no flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Skriv inn e-postadressen tilknyttet kontoen din for å motta en engangskode",
+  "description": "Skriv inn identifikatoren som er knyttet til kontoen din for å motta en engangskode",
   "title": "Gjenopprett kontoen din",
 }
 `;
@@ -6878,91 +6878,91 @@ exports[`constructCardHeaderText language=pl flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
@@ -6985,91 +6985,91 @@ exports[`constructCardHeaderText language=pl flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
 
 exports[`constructCardHeaderText language=pl flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Wprowadź identyfikator powiązany z Twoim kontem, aby otrzymać jednorazowy kod dostępu",
   "title": "Odzyskaj konto",
 }
 `;
@@ -7979,91 +7979,91 @@ exports[`constructCardHeaderText language=pt flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
@@ -8086,91 +8086,91 @@ exports[`constructCardHeaderText language=pt flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
 
 exports[`constructCardHeaderText language=pt flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "recovery.subtitle",
+  "description": "Digite o identificador associado à sua conta para receber um código de acesso único",
   "title": "Recuperar conta",
 }
 `;
@@ -9080,91 +9080,91 @@ exports[`constructCardHeaderText language=sv flowType=recovery refresh=false com
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=false combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
@@ -9187,91 +9187,91 @@ exports[`constructCardHeaderText language=sv flowType=recovery refresh=true comb
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=default_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=default_and_passkeys constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=default_and_password constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=default_and_webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=defaultGroup constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=identifierFirst constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=identifierFirstPhone constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=oidc constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=passkey constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=password constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=profile_first_registration constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;
 
 exports[`constructCardHeaderText language=sv flowType=recovery refresh=true combination=webauthn constructCardHeaderText 1`] = `
 {
-  "description": "Ange e-postadressen kopplad till ditt konto för att få en engångskod för åtkomst",
+  "description": "Ange identifieraren som är kopplad till ditt konto för att få en engångskod",
   "title": "Återställ ditt konto",
 }
 `;

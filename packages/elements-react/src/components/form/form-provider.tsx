@@ -21,7 +21,10 @@ export function OryFormProvider({
 
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
-    defaultValues: computeDefaultValues(defaultNodes),
+    defaultValues: computeDefaultValues({
+      active: flowContainer.flow.active,
+      ui: { nodes: defaultNodes },
+    }),
     resolver: useOryFormResolver(),
   })
 

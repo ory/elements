@@ -120,7 +120,9 @@ export function DefaultCurrentIdentifierButton() {
           }}
           name={screenSelectionNode.attributes.name}
           value={screenSelectionNode.attributes.value}
-          title={`Adjust ${nodeBackButton?.value}`}
+          title={
+            nodeBackButton.value ? `Adjust ${nodeBackButton.value}` : `Back`
+          }
           data-testid={`ory/screen/${flowType}/action/restart`}
         >
           <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
@@ -130,7 +132,7 @@ export function DefaultCurrentIdentifierButton() {
               className="shrink-0 text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover"
             />
             <span className="overflow-hidden text-sm font-medium text-nowrap text-ellipsis text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover">
-              {nodeBackButton?.value}
+              {nodeBackButton.value ? nodeBackButton.value : "Back"}
             </span>
           </span>
         </button>
@@ -180,6 +182,15 @@ export function getBackButtonNodeAttributes(
       nodeBackButtonAttributes = guessRegistrationBackButton(nodes)
       break
     case FlowType.Recovery:
+      nodeBackButtonAttributes = nodes.find(
+        (n) =>
+          isUiNodeInputAttributes(n.attributes) &&
+          !!n.attributes.value &&
+          ["email", "recovery_confirm_address", "recovery_address"].includes(
+            n.attributes.name,
+          ),
+      )?.attributes as UiNodeInputAttributes | undefined
+      break
     case FlowType.Verification:
       // Re-use the email node for displaying the email
       nodeBackButtonAttributes = nodes.find(
