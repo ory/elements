@@ -109,6 +109,7 @@ function LabelAction({ attributes }: LabelActionProps) {
               defaultMessage: "Recover Account",
             }),
             href: initFlowUrl(config.sdk.url, "recovery", flow),
+            testId: "recover-account",
           }
         }
       } else if (attributes.type === "password") {
@@ -118,6 +119,7 @@ function LabelAction({ attributes }: LabelActionProps) {
             defaultMessage: "Forgot password?",
           }),
           href: initFlowUrl(config.sdk.url, "recovery", flow),
+          testId: "forgot-password",
         }
       }
     }
@@ -135,6 +137,7 @@ function LabelAction({ attributes }: LabelActionProps) {
     <a
       href={action.href}
       className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
+      data-testid={`ory/screen/login/action/${action.testId}`}
     >
       {action.message}
     </a>

@@ -202,7 +202,10 @@ export function Error({
                 Time: <code>{parsed.timestamp?.toUTCString()}</code>
               </p>
               <p className="text-sm text-interface-foreground-default-secondary">
-                Message: <code>{parsed.reason}</code>
+                Message:{" "}
+                <code data-testid={"ory/screen/error/message"}>
+                  {parsed.reason}
+                </code>
               </p>
 
               <div>
