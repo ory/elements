@@ -179,6 +179,7 @@
             "text": "E-Mail",
             "type": "info",
             "context": {
+              "name": "traits.email",
               "title": "E-Mail"
             }
           }

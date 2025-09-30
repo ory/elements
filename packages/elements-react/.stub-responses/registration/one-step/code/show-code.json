@@ -42,6 +42,7 @@
             "text": "E-Mail",
             "type": "info",
             "context": {
+              "name": "traits.email",
               "title": "E-Mail"
             }
           }
@@ -63,6 +64,7 @@
             "text": "Accept the terms of service",
             "type": "info",
             "context": {
+              "name": "traits.tos",
               "title": "Accept the terms of service"
             }
           }
@@ -84,6 +86,7 @@
             "text": "Phone Number",
             "type": "info",
             "context": {
+              "name": "traits.phone",
               "title": "Phone Number"
             }
           }
@@ -105,6 +108,7 @@
             "text": "Name",
             "type": "info",
             "context": {
+              "name": "traits.nested.name",
               "title": "Name"
             }
           }
