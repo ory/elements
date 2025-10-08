@@ -46,7 +46,7 @@
   "identities.messages.1050011": "Confirmar códigos de recuperación de respaldo",
   "identities.messages.1050012": "Agregar llave de seguridad",
   "identities.messages.1050013": "Nombre de la llave de seguridad",
-  "identities.messages.1050014": "<del>Usado</del>",
+  "identities.messages.1050014": "El secreto se usó el {used_at, date, long}",
   "identities.messages.1050015": "{secrets_list}",
   "identities.messages.1050016": "Deshabilitar este método",
   "identities.messages.1050017": "Este es el secreto de su app autenticadora. Úselo si no puede escanear el código QR.",
