@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, getNodeLabel } from "@ory/client-fetch"
+import { FlowType, getNodeLabel, UiText } from "@ory/client-fetch"
 import {
   OryNodeInputProps,
   uiTextToFormattedMessage,
@@ -14,6 +14,7 @@ import EyeOff from "../../assets/icons/eye-off.svg"
 import Eye from "../../assets/icons/eye.svg"
 import { cn } from "../../utils/cn"
 import { omitInputAttributes } from "../../../../util/omitAttributes"
+import { isDynamicText } from "../../../../util/nodes"
 
 export const defaultInputClassName = cn(
   "w-full rounded-forms border leading-tight antialiased transition-colors placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:ring-0 focus-visible:outline-hidden",
@@ -23,6 +24,26 @@ export const defaultInputClassName = cn(
   "hover:border-input-border-hover hover:bg-input-background-hover",
   "px-4 py-[13px]",
 )
+
+function resolvePlaceholder(text: UiText, intl: ReturnType<typeof useIntl>) {
+  const fallback = intl.formatMessage(
+    {
+      id: "input.placeholder",
+      defaultMessage: "Enter your {placeholder}",
+    },
+    {
+      placeholder: uiTextToFormattedMessage(text, intl),
+    },
+  )
+  if (isDynamicText(text)) {
+    const field = text.context.name
+    return intl.formatMessage({
+      id: `forms.input.placeholder.${field}`,
+      defaultMessage: fallback,
+    })
+  }
+  return fallback
+}
 
 export const DefaultInput = ({
   node,
@@ -36,17 +57,7 @@ export const DefaultInput = ({
   const { flowType } = useOryFlow()
   const inputRef = useRef<HTMLInputElement | null>(null)
 
-  const formattedLabel = label
-    ? intl.formatMessage(
-        {
-          id: "input.placeholder",
-          defaultMessage: "Enter your {placeholder}",
-        },
-        {
-          placeholder: uiTextToFormattedMessage(label, intl),
-        },
-      )
-    : ""
+  const placeholder = label ? resolvePlaceholder(label, intl) : ""
 
   if (rest.type === "hidden") {
     return (
@@ -73,7 +84,7 @@ export const DefaultInput = ({
         onClick={onClick}
         maxLength={maxlength}
         autoComplete={autocomplete}
-        placeholder={formattedLabel}
+        placeholder={placeholder}
         data-testid={`ory/form/node/input/${name}`}
         className={defaultInputClassName}
         ref={(e) => {

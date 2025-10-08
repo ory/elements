@@ -94,7 +94,7 @@ import { default as zu } from "./zu.json"
 // A potential workaround is to have some code generation tool, that runs after the message extraction and produces a dts file containing all known keys.
 export type LocaleMap = Record<string, Record<string, string>>
 
-export const OryLocales: LocaleMap = {
+export const OryLocales: LocaleMap = Object.freeze({
   af,
   ak,
   am,
@@ -178,4 +178,4 @@ export const OryLocales: LocaleMap = {
   yo,
   zh,
   zu,
-}
+})

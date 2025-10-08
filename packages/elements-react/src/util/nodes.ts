@@ -1,7 +1,9 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
+import { UiNode, UiNodeInputAttributes, UiText } from "@ory/client-fetch"
+import { uiTextToFormattedMessage } from "./i18n"
+import { useIntl } from "react-intl"
 
 export function findScreenSelectionButton(
   nodes: UiNode[],
@@ -12,4 +14,26 @@ export function findScreenSelectionButton(
       node.attributes.type === "submit" &&
       node.attributes.name === "screen",
   ) as { attributes: UiNodeInputAttributes }
+}
+
+export function isDynamicText(
+  text: UiText,
+): text is UiText & { context: { name: string } } {
+  return (
+    text.id === 1070002 &&
+    !!text.context &&
+    "name" in text.context &&
+    typeof text.context["name"] === "string"
+  )
+}
+
+export function resolveLabel(text: UiText, intl: ReturnType<typeof useIntl>) {
+  if (isDynamicText(text)) {
+    const field = text.context.name
+    return intl.formatMessage({
+      id: `forms.label.${field}`,
+      defaultMessage: text.text,
+    })
+  }
+  return uiTextToFormattedMessage(text, intl)
 }

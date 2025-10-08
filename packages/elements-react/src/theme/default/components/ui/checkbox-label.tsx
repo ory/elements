@@ -3,7 +3,7 @@
 
 import { UiText } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
-import { uiTextToFormattedMessage } from "../../../../util"
+import { resolveLabel } from "../../../../util/nodes"
 
 type CheckboxLabelProps = {
   label?: UiText
@@ -61,7 +61,7 @@ export function CheckboxLabel({ label }: CheckboxLabelProps) {
     return null
   }
 
-  const labelText = uiTextToFormattedMessage(label, intl)
+  const labelText = resolveLabel(label, intl)
 
   return <>{computeLabelElements(labelText)}</>
 }

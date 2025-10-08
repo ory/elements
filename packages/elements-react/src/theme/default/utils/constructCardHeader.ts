@@ -12,6 +12,7 @@ import {
 import { useIntl } from "react-intl"
 import { FormState } from "../../../context"
 import { uiTextToFormattedMessage } from "../../../util"
+import { resolveLabel } from "../../../util/nodes"
 import { findNode } from "../../../util/ui"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
@@ -237,7 +238,9 @@ export function useCardHeaderText(
             id: "card.header.parts.identifier-first",
           },
           {
-            identifierLabel: identifier.meta.label?.text,
+            identifierLabel:
+              identifier.meta.label &&
+              resolveLabel(identifier.meta.label, intl),
           },
         ),
       )
@@ -259,7 +262,9 @@ export function useCardHeaderText(
             id: "card.header.parts.identifier-first",
           },
           {
-            identifierLabel: identifier.meta.label?.text,
+            identifierLabel:
+              identifier.meta.label &&
+              resolveLabel(identifier.meta.label, intl),
           },
         ),
       )

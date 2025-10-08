@@ -2,7 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { PropsWithChildren, useContext } from "react"
-import { IntlProvider as OriginalIntlProvider, IntlContext } from "react-intl"
+import {
+  RawIntlProvider,
+  IntlContext,
+  IntlShape,
+  createIntl,
+  IntlCache,
+  createIntlCache,
+} from "react-intl"
 import { OryLocales } from ".."
 import { LocaleMap } from "../locales"
 
@@ -154,11 +161,16 @@ export type IntlContextProps = {
   customTranslations?: Partial<LocaleMap>
 }
 
-function mergeTranslations(customTranslations: Partial<LocaleMap>) {
+function mergeTranslations(
+  locale: Locale,
+  customTranslations: Partial<Record<string, string>>,
+) {
   return Object.keys(customTranslations).reduce((acc, key) => {
-    acc[key] = { ...OryLocales[key], ...customTranslations[key] }
-    return acc
-  }, OryLocales)
+    return {
+      ...acc,
+      [key]: customTranslations[key] ?? OryLocales[locale][key],
+    }
+  }, OryLocales[locale])
 }
 
 export const IntlProvider = ({
@@ -167,7 +179,7 @@ export const IntlProvider = ({
   customTranslations,
 }: PropsWithChildren<IntlContextProps>) => {
   const existingIntlContext = useContext(IntlContext)
-  const messages = mergeTranslations(customTranslations ?? {})
+  const messages = mergeTranslations(locale, customTranslations?.[locale] ?? {})
 
   if (existingIntlContext) {
     // If the original context is available, we assume we're in a nested provider
@@ -176,17 +188,8 @@ export const IntlProvider = ({
     return children
   }
 
-  return (
-    <OriginalIntlProvider
-      onWarn={() => ({})}
-      defaultRichTextElements={{
-        del: (chunks) => <del>{chunks}</del>,
-      }}
-      locale={locale}
-      messages={messages[locale]}
-      defaultLocale="en"
-    >
-      {children}
-    </OriginalIntlProvider>
-  )
+  const cache: IntlCache = createIntlCache()
+  const intl: IntlShape = createIntl({ locale, messages: messages }, cache)
+
+  return <RawIntlProvider value={intl}>{children}</RawIntlProvider>
 }

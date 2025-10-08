@@ -11,15 +11,15 @@ import {
 import {
   messageTestId,
   OryNodeLabelProps,
-  uiTextToFormattedMessage,
   useComponents,
   useOryConfiguration,
   useOryFlow,
 } from "@ory/elements-react"
+import { useMemo } from "react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
+import { resolveLabel } from "../../../../util/nodes"
 import { initFlowUrl } from "../../utils/url"
-import { useMemo } from "react"
 
 function findResendNode(nodes: UiNode[]) {
   return nodes.find(
@@ -63,7 +63,7 @@ export function DefaultLabel({
             data-testid={`ory/form/node/input/label/${attributes.name}`}
             {...rest}
           >
-            {uiTextToFormattedMessage(label, intl)}
+            {resolveLabel(label, intl)}
           </label>
           <LabelAction attributes={attributes} />
           {resendNode?.attributes.node_type === "input" && (
