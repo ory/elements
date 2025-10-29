@@ -1,9 +1,11 @@
 /* Copyright © 2024 Ory Corp */
 /* SPDX-License-Identifier: Apache-2.0 */
 
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-@import "tailwindcss/theme";
+@layer ory-elements;
+
+@import "tailwindcss/preflight" layer(ory-elements);
+@import "tailwindcss/utilities" layer(ory-elements);
+@import "tailwindcss/theme" layer(ory-elements);
 
 @import "../../../tailwind/generated/variables.css";
 
