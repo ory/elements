@@ -5,7 +5,7 @@
   "expires_at": "0001-01-01T00:00:00Z",
   "issued_at": "0001-01-01T00:00:00Z",
   "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
-  "active": "identifier_first",
+  "active": "code",
   "ui": {
     "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
@@ -37,17 +37,35 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "code",
         "attributes": {
-          "name": "csrf_token",
+          "name": "method",
           "type": "hidden",
-          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
-          "required": true,
+          "value": "code",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "code",
+          "type": "text",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070013,
+            "text": "Login code",
+            "type": "info"
+          }
+        }
       },
       {
         "type": "input",
@@ -62,11 +80,51 @@
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010015,
-            "text": "Send sign in code",
+            "id": 1070009,
+            "text": "Continue",
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "resend",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010014,
+        "text": "A code was sent to the address you provided. If you didn't receive it, please check the spelling of the address and try again.",
+        "type": "info"
       }
     ]
   },
@@ -74,6 +132,6 @@
   "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
-  "state": "choose_method",
+  "state": "sent_email",
   "transient_payload": {}
 }

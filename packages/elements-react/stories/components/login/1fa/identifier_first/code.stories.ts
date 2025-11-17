@@ -54,15 +54,6 @@ export const SendEmailTrigger: Story = {
   },
 }
 
-export const CodeInput: Story = {
-  args: {
-    flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/code/show-code.json"),
-    ),
-    config,
-  },
-}
-
 export const WrongCode: Story = {
   args: {
     flow: LoginFlowFromJSON(
