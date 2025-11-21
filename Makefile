@@ -31,10 +31,10 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 	.bin/licenses
 
 .bin/licenses: Makefile
-	curl https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
+	curl --retry 7 --retry-connrefused https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
 
 .bin/ory: .deps/ory.version
-	curl https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory $(cat .deps/ory.version)
+	curl --retry 7 --retry-connrefused https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory $(cat .deps/ory.version)
 	touch .bin/ory
 
 node_modules: package-lock.json
