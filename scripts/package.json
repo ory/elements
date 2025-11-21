@@ -6,7 +6,7 @@
   "type": "module",
   "devDependencies": {
     "@formatjs/cli-lib": "6.1.3",
-    "glob": "10.3.3",
+    "glob": "10.5.0",
     "node-fetch": "3.3.2"
   }
 }
