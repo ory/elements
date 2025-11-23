@@ -98,7 +98,7 @@
     "vite": "6.4.1",
     "vite-plugin-require": "1.2.14",
     "vite-plugin-svgr": "4.3.0",
-    "zx": "8.5.4"
+    "zx": "8.8.5"
   },
   "files": [
     "dist/*"

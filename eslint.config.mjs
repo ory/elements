@@ -19,7 +19,6 @@ const config = tseslint.config([
       "**/dist/**",
       "**/storybook-static/**",
       "**/*.config.{js,mjs,cjs,ts}",
-      "examples/nextjs-spa/**", // This project is not maintained
       "**/jest.preset.{cjs,ts}",
       "**/tsup.config.{js,ts}",
       "**/.next/**",
