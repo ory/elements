@@ -10,6 +10,29 @@
     "nodes": [
       {
         "type": "input",
+        "group": "saml",
+        "attributes": {
+          "name": "provider",
+          "type": "submit",
+          "value": "gsuite",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040002,
+            "text": "Sign up with Google Workspace",
+            "type": "info",
+            "context": {
+              "provider": "Google Workspace",
+              "provider_id": "gsuite"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",
