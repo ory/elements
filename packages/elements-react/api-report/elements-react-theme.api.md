@@ -28,7 +28,6 @@ import { UiNodeImageAttributes } from '@ory/client-fetch';
 import { UiNodeInputAttributes } from '@ory/client-fetch';
 import { UiNodeTextAttributes } from '@ory/client-fetch';
 import { UiText } from '@ory/client-fetch';
-import { VariantProps } from 'class-variance-authority';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
@@ -48,7 +47,7 @@ export type ConsentFlowProps = {
 // Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultButtonSocial({ attributes, node, onClick, showLabel: _showLabel, logos: providedLogos, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
+export function DefaultButtonSocial({ node, logos: providedLogos, isSubmitting, buttonProps, provider, attributes, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export namespace DefaultButtonSocial {
@@ -170,8 +169,8 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:425:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:448:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:420:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:443:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

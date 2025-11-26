@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiText } from "@ory/client-fetch"
-import { IntlShape } from "react-intl"
+import { IntlShape, useIntl } from "react-intl"
+import { isDynamicText } from "../nodes"
 
 /**
  * Converts a UiText to a FormattedMessage.
@@ -110,4 +111,27 @@ export const uiTextToFormattedMessage = (
     },
     contextInjectedMessage,
   )
+}
+
+export function resolvePlaceholder(
+  text: UiText,
+  intl: ReturnType<typeof useIntl>,
+) {
+  const fallback = intl.formatMessage(
+    {
+      id: "input.placeholder",
+      defaultMessage: "Enter your {placeholder}",
+    },
+    {
+      placeholder: uiTextToFormattedMessage(text, intl),
+    },
+  )
+  if (isDynamicText(text)) {
+    const field = text.context.name
+    return intl.formatMessage({
+      id: `forms.input.placeholder.${field}`,
+      defaultMessage: fallback,
+    })
+  }
+  return fallback
 }

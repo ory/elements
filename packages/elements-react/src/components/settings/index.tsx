@@ -1,38 +1,57 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client-fetch"
+import { OryNodeButtonButtonProps } from "../../types"
+import {
+  UiNodeImage,
+  UiNodeInput,
+  UiNodeText,
+} from "../../util/utilFixSDKTypesHelper"
 
 export * from "./settings-card"
 
 export type OrySettingsRecoveryCodesProps = {
   codes: string[]
-  regnerateButton: UiNode | undefined
-  revealButton: UiNode | undefined
+  regenerateButton: UiNodeInput | undefined
+  revealButton: UiNodeInput | undefined
   onRegenerate: () => void
   onReveal: () => void
+  isSubmitting: boolean
 }
 
 export type OrySettingsTotpProps = {
-  totpImage: UiNode | undefined
-  totpSecret: UiNode | undefined
-  totpInput: UiNode | undefined
-  totpUnlink: UiNode | undefined
+  totpImage: UiNodeImage | undefined
+  totpSecret: UiNodeText | undefined
+  totpInput: UiNodeInput | undefined
+  totpUnlink: UiNodeInput | undefined
   onUnlink: () => void
+  isSubmitting: boolean
 }
 
+/**
+ * Props for a button used in the settings flow
+ */
+export type OryNodeSettingsButton = {
+  /** @deprecated - use buttonProps.onClick */
+  onClick: () => void
+  buttonProps: OryNodeButtonButtonProps
+} & UiNodeInput
+
 export type OrySettingsSsoProps = {
-  linkButtons: (UiNode & { onClick: () => void })[]
-  unlinkButtons: (UiNode & { onClick: () => void })[]
+  linkButtons: OryNodeSettingsButton[]
+  unlinkButtons: OryNodeSettingsButton[]
+  isSubmitting: boolean
 }
 
 export type OrySettingsWebauthnProps = {
-  nameInput: UiNode
-  triggerButton: UiNode & { onClick: () => void }
-  removeButtons: (UiNode & { onClick: () => void })[]
+  nameInput: UiNodeInput
+  triggerButton: OryNodeSettingsButton
+  removeButtons: OryNodeSettingsButton[]
+  isSubmitting: boolean
 }
 
 export type OrySettingsPasskeyProps = {
-  triggerButton: UiNode & { onClick: () => void }
-  removeButtons: (UiNode & { onClick: () => void })[]
+  triggerButton: OryNodeSettingsButton
+  removeButtons: OryNodeSettingsButton[]
+  isSubmitting: boolean
 }

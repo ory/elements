@@ -1,11 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, LoginFlow, UiNodeInputAttributes } from "@ory/client-fetch"
+import { FlowType, LoginFlow } from "@ory/client-fetch"
 import {
   ConsentFlow,
   FormState,
-  useComponents,
+  Node,
   useOryConfiguration,
   useOryFlow,
 } from "@ory/elements-react"
@@ -17,6 +17,10 @@ import {
   nodesToAuthMethodGroups,
   useNodeGroupsWithVisibleNodes,
 } from "../../../../util/ui"
+import {
+  isUiNodeInput,
+  UiNodeInput,
+} from "../../../../util/utilFixSDKTypesHelper"
 import { useClientLogout } from "../../utils/logout"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 
@@ -271,13 +275,11 @@ type ConsentCardFooterProps = {
 }
 
 function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
-  const { Node } = useComponents()
-
   const rememberNode = findNode(flow.ui.nodes, {
     group: "oauth2_consent",
     node_type: "input",
     name: "remember",
-  })
+  }) as UiNodeInput
 
   return (
     <div className="flex flex-col gap-8">
@@ -290,28 +292,17 @@ function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
           application.
         </p>
       </div>
-      {rememberNode && (
-        <Node.Checkbox
-          attributes={rememberNode.attributes}
-          node={rememberNode}
-        />
-      )}
+      {rememberNode && <Node.Checkbox node={rememberNode} />}
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {flow.ui.nodes
           .filter(
-            (n) =>
+            (n): n is UiNodeInput =>
               n.attributes.node_type === "input" &&
-              n.attributes.type === "submit",
+              n.attributes.type === "submit" &&
+              isUiNodeInput(n),
           )
           .map((n) => {
-            const attributes = n.attributes as UiNodeInputAttributes
-            return (
-              <Node.Button
-                key={attributes.value}
-                node={n}
-                attributes={attributes}
-              />
-            )
+            return <Node.Button key={n.attributes.value} node={n} />
           })}
       </div>
       <p className="text-sm">

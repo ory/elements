@@ -2,31 +2,28 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { useFormContext } from "react-hook-form"
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
-import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
 import { FlowType } from "@ory/client-fetch"
+import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
 import { cn } from "../../utils/cn"
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
 
-export const DefaultPinCodeInput = ({ attributes }: OryNodeInputProps) => {
-  const { setValue, watch } = useFormContext()
-  const { maxlength, name } = attributes
-  const elements = maxlength ?? 6
+export const DefaultPinCodeInput = ({
+  node,
+  inputProps,
+}: OryNodeInputProps) => {
   const { flowType } = useOryFlow()
 
-  const handleInputChange = (v: string) => {
-    setValue(name, v)
-  }
+  const { value, maxLength, ...restInputProps } = inputProps
+  const elements = maxLength ?? 6
 
-  const value = watch(name) as string
+  const valueCasted = value as string
 
   return (
     <InputOTP
-      maxLength={maxlength ?? 6}
-      onChange={handleInputChange}
-      name={name}
-      value={value}
-      data-testid={`ory/form/node/input/${name}`}
+      data-testid={`ory/form/node/input/${node.attributes.name}`}
+      {...restInputProps}
+      value={valueCasted}
+      maxLength={elements}
     >
       <InputOTPGroup
         className={cn(

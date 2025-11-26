@@ -1,31 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { useComponents } from "../../context"
-import { useOryFlow } from "../../context"
-import {
-  getNodeId,
-  UiNode,
-  UiNodeGroupEnum,
-  UiNodeInputAttributes,
-} from "@ory/client-fetch"
+import { getNodeId, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
+import { useComponents, useOryFlow } from "../../context"
 import { OryForm } from "./form"
-import { useFormContext } from "react-hook-form"
 import { OryFormProvider } from "./form-provider"
+import { Node } from "./nodes/node"
 
 export type OryFormSsoRootProps = PropsWithChildren<{
   nodes: UiNode[]
 }>
-
-/**
- * Props for the OryNodeSsoButton component.
- */
-export type OryNodeSsoButtonProps = {
-  node: UiNode
-  attributes: UiNodeInputAttributes
-  onClick?: () => void
-}
 
 /**
  * Renders the flow's OIDC buttons.
@@ -37,7 +22,6 @@ export function OryFormSsoButtons() {
   const {
     flow: { ui },
   } = useOryFlow()
-  const { setValue } = useFormContext()
 
   // Only get the oidc nodes.
   const filteredNodes = ui.nodes.filter(
@@ -46,7 +30,7 @@ export function OryFormSsoButtons() {
       node.group === UiNodeGroupEnum.Saml,
   )
 
-  const { Form, Node } = useComponents()
+  const { Form } = useComponents()
 
   if (filteredNodes.length === 0) {
     return null
@@ -55,18 +39,7 @@ export function OryFormSsoButtons() {
   return (
     <Form.SsoRoot nodes={filteredNodes}>
       {filteredNodes.map((node) => (
-        <Node.SsoButton
-          node={node}
-          key={getNodeId(node)}
-          attributes={node.attributes as UiNodeInputAttributes}
-          onClick={() => {
-            setValue(
-              "provider",
-              (node.attributes as UiNodeInputAttributes).value,
-            )
-            setValue("method", node.group)
-          }}
-        />
+        <Node node={node} key={getNodeId(node)} />
       ))}
     </Form.SsoRoot>
   )

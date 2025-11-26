@@ -20,6 +20,7 @@ const ScopeIcons: Record<string, typeof IconPersonal> = {
 export function DefaultConsentScopeCheckbox({
   attributes,
   onCheckedChange,
+  inputProps,
 }: OryNodeConsentScopeCheckboxProps) {
   const intl = useIntl()
   const Icon = ScopeIcons[attributes.value as string] ?? IconPersonal
@@ -41,7 +42,7 @@ export function DefaultConsentScopeCheckbox({
       <Switch.Root
         className="relative h-4 w-7 rounded-identifier border border-toggle-border-default bg-toggle-background-default p-[3px] transition-all data-[state=checked]:border-toggle-border-checked data-[state=checked]:bg-toggle-background-checked"
         data-testid={`ory/screen/consent/scope-checkbox`}
-        value={attributes.value}
+        {...inputProps}
         onCheckedChange={onCheckedChange}
         defaultChecked={true}
       >

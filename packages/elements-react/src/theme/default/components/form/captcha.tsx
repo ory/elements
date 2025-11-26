@@ -1,12 +1,12 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { isUiNodeInputAttributes } from "@ory/client-fetch"
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile"
-import { useEffect, useRef } from "react"
-import { useFormContext } from "react-hook-form"
-import { DefaultInput } from "./input"
+import { isUiNodeInputAttributes } from "@ory/client-fetch"
 import { OryNodeCaptchaProps } from "@ory/elements-react"
+import { useEffect, useRef } from "react"
+// eslint-disable-next-line no-restricted-imports
+import { useFormContext } from "react-hook-form"
 
 type Config = {
   sitekey: string
@@ -25,10 +25,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
 
   // Reset widget whenever submitCount changes (this covers both successful submissions and validation errors)
   useEffect(() => {
-    if (
-      formState.submitCount > prevSubmitCount.current &&
-      formState.isSubmitSuccessful
-    ) {
+    if (formState.submitCount > prevSubmitCount.current) {
       prevSubmitCount.current = formState.submitCount
 
       // Adding a small timeout to ensure the form submission process has completed
@@ -38,7 +35,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
         }
       }, 100)
     }
-  }, [formState.submitCount, formState.isSubmitSuccessful])
+  }, [formState.submitCount])
 
   if (!isUiNodeInputAttributes(node.attributes)) {
     return null
@@ -46,7 +43,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
 
   if (node.attributes.name === "transient_payload.captcha_turnstile_response") {
     // This is the hidden field that gets populated.
-    return <DefaultInput key={1} node={node} attributes={node.attributes} />
+    return null
   } else if (node.attributes.name === "captcha_turnstile_options") {
     // This is the actual widget
     const options: Config = JSON.parse(node.attributes.value as string)
@@ -58,7 +55,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
           action: options.action,
           size: "flexible",
           theme: options.theme,
-          responseField: false,
+          responseField: true,
           responseFieldName: options.response_field_name,
         }}
         onExpire={() => ref.current?.reset()}

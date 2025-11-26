@@ -9,6 +9,7 @@ import {
 } from "@ory/client-fetch"
 import { useOryConfiguration, useOryFlow } from "@ory/elements-react"
 import { useEffect, useState } from "react"
+// eslint-disable-next-line no-restricted-imports
 import { useFormContext } from "react-hook-form"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import { omitInputAttributes } from "../../../../util/omitAttributes"

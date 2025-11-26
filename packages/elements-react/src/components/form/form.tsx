@@ -23,10 +23,12 @@ import {
   OryNodeAnchorProps,
   OryNodeButtonProps,
   OryNodeCaptchaProps,
+  OryNodeCheckboxProps,
   OryNodeConsentScopeCheckboxProps,
   OryNodeImageProps,
   OryNodeInputProps,
   OryNodeLabelProps,
+  OryNodeSsoButtonProps,
   OryNodeTextProps,
 } from "../../types"
 import { OryCardFooterProps } from "../card"
@@ -43,7 +45,7 @@ import {
 } from "../settings"
 import { OryMessageContentProps, OryMessageRootProps } from "./messages"
 import { OryCardSettingsSectionProps } from "./settings-section"
-import { OryFormSsoRootProps, OryNodeSsoButtonProps } from "./social"
+import { OryFormSsoRootProps } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 
 /**
@@ -86,7 +88,7 @@ export type OryFlowComponents = {
     /**
      * The Checkbox component is rendered whenever an input node with of boolean type is encountered.
      */
-    Checkbox: ComponentType<OryNodeInputProps>
+    Checkbox: ComponentType<OryNodeCheckboxProps>
     /**
      * The Text component is rendered whenever a "text" node is encountered.
      */
@@ -322,7 +324,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
     <Form.Root
       action={flowContainer.flow.ui.action}
       method={flowContainer.flow.ui.method}
-      onSubmit={(e) => void methods.handleSubmit(onSubmit)(e)}
+      onSubmit={(e) => void methods.handleSubmit(onSubmit, console.error)(e)}
     >
       {children}
     </Form.Root>

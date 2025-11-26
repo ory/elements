@@ -6,7 +6,7 @@ import { omit } from "../theme/default/utils/attributes"
 
 export function omitInputAttributes({
   ...attrs
-}: Partial<UiNodeInputAttributes>) {
+}: Partial<Record<keyof UiNodeInputAttributes, unknown>>) {
   return omit(attrs, [
     "autocomplete",
     "label",

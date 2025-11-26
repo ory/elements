@@ -1,75 +1,57 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  UiNode,
-  UiNodeAttributes,
-  UiNodeInputAttributes,
-} from "@ory/client-fetch"
+import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../context"
 import { triggerToWindowCall } from "../../util/ui"
+import { UiNodeInput } from "../../util/utilFixSDKTypesHelper"
 import { Node } from "../form/nodes/node"
 
-const getInputNode = (nodes: UiNode[]): UiNode | undefined =>
+const getInputNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
     (node) =>
       "name" in node.attributes &&
       node.attributes.name === "webauthn_register_displayname",
-  )
+  ) as UiNodeInput | undefined
 
-const getTriggerNode = (nodes: UiNode[]): UiNode | undefined =>
+const getTriggerNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
     (node) =>
       "name" in node.attributes &&
       node.attributes.name === "webauthn_register_trigger",
-  )
+  ) as UiNodeInput | undefined
 
-const getRemoveButtons = (nodes: UiNode[]): UiNode[] =>
+const getRemoveButtons = (nodes: UiNode[]): UiNodeInput[] =>
   nodes.filter(
     (node) =>
       "name" in node.attributes && node.attributes.name === "webauthn_remove",
-  )
+  ) as UiNodeInput[]
 
-const getRegisterNode = (nodes: UiNode[]): UiNode | undefined =>
+const getRegisterNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
     (node) =>
       "name" in node.attributes && node.attributes.name === "webauthn_register",
-  )
+  ) as UiNodeInput | undefined
 
-interface HeadlessSettingsWebauthnProps {
+type HeadlessSettingsWebauthnProps = {
   nodes: UiNode[]
 }
 
 export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
-  const { Card, Form } = useComponents()
+  const { Card } = useComponents()
   const intl = useIntl()
-  const { setValue } = useFormContext()
-
   const triggerButton = getTriggerNode(nodes)
   const inputNode = getInputNode(nodes)
-  const removeButtons = getRemoveButtons(nodes)
   const registerNode = getRegisterNode(nodes)
 
-  if (!inputNode || !triggerButton) {
+  if (
+    !inputNode ||
+    !triggerButton ||
+    inputNode.attributes.node_type !== "input"
+  ) {
     return null
-  }
-
-  const {
-    onclick: _onClick,
-    onclickTrigger,
-    ...triggerAttributes
-  } = triggerButton.attributes as UiNodeInputAttributes
-
-  const onTriggerClick = () => {
-    triggerToWindowCall(onclickTrigger)
-  }
-  const removeWebauthnKeyHandler = (value: string) => {
-    return () => {
-      setValue("webauthn_remove", value)
-      setValue("method", "webauthn")
-    }
   }
 
   return (
@@ -80,20 +62,10 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
           id: "settings.webauthn.description",
         })}
       >
-        <Form.WebauthnSettings
-          nameInput={inputNode}
-          triggerButton={{
-            ...triggerButton,
-            attributes: triggerAttributes as UiNodeAttributes,
-            onClick: onTriggerClick,
-          }}
-          removeButtons={removeButtons.map((node) => ({
-            ...node,
-            onClick:
-              node.attributes.node_type === "input"
-                ? removeWebauthnKeyHandler(node.attributes.value as string)
-                : () => {},
-          }))}
+        <WebauthnForm
+          inputNode={inputNode}
+          nodes={nodes}
+          triggerButton={triggerButton}
         />
         {registerNode && <Node node={registerNode} />}
       </Card.SettingsSectionContent>
@@ -101,5 +73,64 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
         text={intl.formatMessage({ id: "settings.webauthn.info" })}
       ></Card.SettingsSectionFooter>
     </>
+  )
+}
+
+type WebauthnFormProps = {
+  inputNode: UiNodeInput
+  triggerButton: UiNodeInput
+  nodes: UiNode[]
+}
+
+function WebauthnForm({ inputNode, triggerButton, nodes }: WebauthnFormProps) {
+  const { Form } = useComponents()
+  const { setValue, formState } = useFormContext()
+  const removeButtons = getRemoveButtons(nodes)
+
+  const {
+    onclick: _onClick,
+    onclickTrigger,
+    ...triggerAttributes
+  } = triggerButton.attributes as UiNodeInputAttributes
+  const onTriggerClick = () => {
+    triggerToWindowCall(onclickTrigger)
+  }
+  const removeWebauthnKeyHandler = (value: string) => {
+    return () => {
+      setValue("webauthn_remove", value)
+      setValue("method", "webauthn")
+    }
+  }
+  return (
+    <Form.WebauthnSettings
+      isSubmitting={formState.isSubmitting}
+      nameInput={inputNode}
+      triggerButton={{
+        ...triggerButton,
+        onClick: onTriggerClick,
+        buttonProps: {
+          name: triggerAttributes.name,
+          value: triggerAttributes.value,
+          onClick: onTriggerClick,
+          type: "button",
+        },
+      }}
+      removeButtons={removeButtons.map((node) => ({
+        ...node,
+        onClick:
+          node.attributes.node_type === "input"
+            ? removeWebauthnKeyHandler(node.attributes.value as string)
+            : () => {},
+        buttonProps: {
+          name: node.attributes.name,
+          value: node.attributes.value,
+          onClick:
+            node.attributes.node_type === "input"
+              ? removeWebauthnKeyHandler(node.attributes.value as string)
+              : () => {},
+          type: "submit",
+        },
+      }))}
+    />
   )
 }

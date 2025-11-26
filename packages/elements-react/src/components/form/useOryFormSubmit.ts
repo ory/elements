@@ -20,6 +20,7 @@ import { onSubmitRecovery } from "../../util/onSubmitRecovery"
 import { onSubmitRegistration } from "../../util/onSubmitRegistration"
 import { onSubmitSettings } from "../../util/onSubmitSettings"
 import { onSubmitVerification } from "../../util/onSubmitVerification"
+import { removeEmptyStrings } from "../../util/removeFalsyValues"
 import { computeDefaultValues } from "./form-helpers"
 
 // The "select_account" prompt is supported by the following providers.
@@ -37,14 +38,21 @@ export function useOryFormSubmit(
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.setFlowContainer(flow)
-    methods.reset(computeDefaultValues(flow.flow))
+    const newValues = computeDefaultValues(flow.flow)
+    methods.reset(newValues, {
+      keepSubmitCount: true,
+    })
   }
 
   const onRedirect: OnRedirectHandler = (url, _external) => {
     window.location.assign(url)
   }
 
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+  const onSubmit: SubmitHandler<FormValues> = async (initialData) => {
+    // This is necessary to avoid sending empty strings to the backend, which can cause validation errors.
+    // TODO: Kratos could be improved to handle this better, and treat empty strings as missing values.
+    const data = removeEmptyStrings(initialData)
+    console.log("Submitting form data:", data)
     switch (flowContainer.flowType) {
       case FlowType.Login: {
         const submitData: UpdateLoginFlowBody = {

@@ -26,6 +26,8 @@ const config = tseslint.config([
       "**/examples/nextjs-app-router/next-env.d.ts",
       "**/examples/nextjs-pages-router/.next/**",
       "**/examples/nextjs-pages-router/next-env.d.ts",
+      "**/examples/nextjs-app-router-custom-components/.next/**",
+      "**/examples/nextjs-app-router-custom-components/next-env.d.ts",
     ],
   },
   eslint.configs.recommended,
@@ -147,8 +149,6 @@ const config = tseslint.config([
       "better-tailwindcss": {
         // // tailwindcss 4: the path to the entry file of the css based tailwind config (eg: `src/global.css`)
         entryPoint: "packages/elements-react/src/theme/default/global.css",
-        // tailwindcss 3: the path to the tailwind config file (eg: `tailwind.config.js`)
-        // "tailwindConfig": "/Users/jonas.hungershausen/Repositories/cloud/elements/packages/elements-react/tailwind.config.ts"
       },
     },
   },
@@ -166,6 +166,24 @@ const config = tseslint.config([
       "@typescript-eslint/no-require-imports": "off",
     },
   },
+  {
+    name: "no-react-hook-form-imports",
+    files: ["packages/elements-react/src/theme/default/**"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "react-hook-form",
+              message:
+                "Please do not use react-hook-form in the default theme. Use Ory's form context instead.",
+            },
+          ],
+        },
+      ],
+    }
+  }
 ])
 
 export default config

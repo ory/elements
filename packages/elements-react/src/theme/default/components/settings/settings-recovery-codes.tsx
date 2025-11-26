@@ -1,24 +1,21 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNodeInputAttributes } from "@ory/client-fetch"
 import { OrySettingsRecoveryCodesProps } from "@ory/elements-react"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 import Download from "../../assets/icons/download.svg"
 import Eye from "../../assets/icons/eye.svg"
 import Refresh from "../../assets/icons/refresh.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import { useFormContext } from "react-hook-form"
 
 export function DefaultSettingsRecoveryCodes({
   codes,
-  regnerateButton,
+  regenerateButton,
   revealButton,
   onRegenerate,
   onReveal,
+  isSubmitting,
 }: OrySettingsRecoveryCodesProps) {
-  const {
-    formState: { isSubmitting },
-  } = useFormContext()
   const onDownload = () => {
     const element = document.createElement("a")
     const file = new Blob([codes.join("\n")], {
@@ -40,9 +37,9 @@ export function DefaultSettingsRecoveryCodes({
           {revealButton && "Reveal recovery codes"}
         </span>
         <div className="flex gap-2">
-          {regnerateButton && codes.length > 0 && (
+          {regenerateButton && codes.length > 0 && (
             <button
-              {...(regnerateButton.attributes as UiNodeInputAttributes)}
+              {...omitInputAttributes(regenerateButton.attributes)}
               type="submit"
               className="ml-auto"
               onClick={onRegenerate}
@@ -58,7 +55,7 @@ export function DefaultSettingsRecoveryCodes({
           {revealButton && (
             <>
               <button
-                {...(revealButton.attributes as UiNodeInputAttributes)}
+                {...revealButton.attributes}
                 type="submit"
                 className="ml-auto"
                 onClick={onReveal}

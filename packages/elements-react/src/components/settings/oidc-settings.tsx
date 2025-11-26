@@ -2,19 +2,25 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode } from "@ory/client-fetch"
-import { useComponents } from "../../context"
-import { useIntl } from "react-intl"
 import { useFormContext } from "react-hook-form"
+import { useIntl } from "react-intl"
+import { OryNodeSettingsButton } from "."
+import { useComponents } from "../../context"
+import { isUiNodeInput, UiNodeInput } from "../../util/utilFixSDKTypesHelper"
 
-const getLinkButtons = (nodes: UiNode[]): UiNode[] =>
-  nodes.filter(
-    (node) => "name" in node.attributes && node.attributes.name === "link",
-  )
+const getLinkButtons = (nodes: UiNode[]): UiNodeInput[] =>
+  nodes
+    .filter(
+      (node) => "name" in node.attributes && node.attributes.name === "link",
+    )
+    .filter(isUiNodeInput)
 
-const getUnlinkButtons = (nodes: UiNode[]): UiNode[] =>
-  nodes.filter(
-    (node) => "name" in node.attributes && node.attributes.name === "unlink",
-  )
+const getUnlinkButtons = (nodes: UiNode[]): UiNodeInput[] =>
+  nodes
+    .filter(
+      (node) => "name" in node.attributes && node.attributes.name === "unlink",
+    )
+    .filter(isUiNodeInput)
 
 export interface HeadlessSettingsOidcProps {
   nodes: UiNode[]
@@ -23,26 +29,49 @@ export interface HeadlessSettingsOidcProps {
 export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
   const { Card, Form } = useComponents()
   const intl = useIntl()
-  const { setValue } = useFormContext()
+  const { setValue, formState } = useFormContext()
 
-  const linkButtons = getLinkButtons(nodes).map((node) => ({
-    ...node,
-    onClick: () => {
-      if (node.attributes.node_type === "input") {
-        setValue("link", node.attributes.value)
-        setValue("method", node.group)
+  const linkButtons: OryNodeSettingsButton[] = getLinkButtons(nodes).map(
+    (node) => {
+      const clickHandler = function () {
+        if (node.attributes.node_type === "input") {
+          setValue("link", node.attributes.value)
+          setValue("method", node.group)
+        }
+      }
+      return {
+        ...node,
+        onClick: clickHandler,
+        buttonProps: {
+          name: node.attributes.name,
+          value: node.attributes.value,
+          onClick: clickHandler,
+          type: "submit",
+        },
       }
     },
-  }))
-  const unlinkButtons = getUnlinkButtons(nodes).map((node) => ({
-    ...node,
-    onClick: () => {
-      if (node.attributes.node_type === "input") {
-        setValue("unlink", node.attributes.value)
-        setValue("method", node.group)
+  )
+
+  const unlinkButtons: OryNodeSettingsButton[] = getUnlinkButtons(nodes).map(
+    (node) => {
+      const clickHandler = function () {
+        if (node.attributes.node_type === "input") {
+          setValue("unlink", node.attributes.value)
+          setValue("method", node.group)
+        }
+      }
+      return {
+        ...node,
+        onClick: clickHandler,
+        buttonProps: {
+          name: node.attributes.name,
+          value: node.attributes.value,
+          onClick: clickHandler,
+          type: "submit",
+        },
       }
     },
-  }))
+  )
 
   return (
     <>
@@ -53,6 +82,7 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
         <Form.SsoSettings
           linkButtons={linkButtons}
           unlinkButtons={unlinkButtons}
+          isSubmitting={formState.isSubmitting}
         />
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter

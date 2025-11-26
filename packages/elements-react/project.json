@@ -4,6 +4,14 @@
       "command": "eslint packages/elements-react",
       "dependsOn": ["build"]
     },
+    "typecheck": {
+      "command": "tsc -p packages/elements-react",
+      "dependsOn": ["build"]
+    },
+    "check": {
+      "command": "eslint packages/elements-react",
+      "dependsOn": ["lint", "typecheck"]
+    },
     "dev": {
       "command": "tsup --watch  --onSuccess 'tsup --dts-only'",
       "options": {

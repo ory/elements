@@ -4,11 +4,11 @@
 import { OryNodeImageProps } from "@ory/elements-react"
 import { omitInputAttributes } from "../../../../util/omitAttributes"
 
-export function DefaultImage({ attributes, node }: OryNodeImageProps) {
+export function DefaultImage({ node }: OryNodeImageProps) {
   return (
     <figure>
       <img
-        {...omitInputAttributes(attributes)}
+        {...omitInputAttributes(node.attributes)}
         alt={node.meta.label?.text || ""}
       />
     </figure>

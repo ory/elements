@@ -1,23 +1,22 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  UiNode,
-  UiNodeAttributes,
-  UiNodeInputAttributes,
-} from "@ory/client-fetch"
+import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../context"
 import { triggerToWindowCall } from "../../util/ui"
+import { isUiNodeInput, UiNodeInput } from "../../util/utilFixSDKTypesHelper"
 import { Node } from "../form/nodes/node"
 
-const getTriggerNode = (nodes: UiNode[]): UiNode | undefined =>
-  nodes.find(
-    (node) =>
-      "name" in node.attributes &&
-      node.attributes.name === "passkey_register_trigger",
-  )
+const getTriggerNode = (nodes: UiNode[]): UiNodeInput | undefined =>
+  nodes
+    .filter(isUiNodeInput)
+    .find(
+      (node) =>
+        "name" in node.attributes &&
+        node.attributes.name === "passkey_register_trigger",
+    )
 
 const getSettingsNodes = (nodes: UiNode[]): UiNode[] =>
   nodes.filter(
@@ -27,11 +26,13 @@ const getSettingsNodes = (nodes: UiNode[]): UiNode[] =>
         node.attributes.name === "passkey_create_data"),
   )
 
-const getRemoveNodes = (nodes: UiNode[]): UiNode[] =>
-  nodes.filter(
-    (node) =>
-      "name" in node.attributes && node.attributes.name === "passkey_remove",
-  )
+const getRemoveNodes = (nodes: UiNode[]): UiNodeInput[] =>
+  nodes
+    .filter(
+      (node) =>
+        "name" in node.attributes && node.attributes.name === "passkey_remove",
+    )
+    .filter(isUiNodeInput)
 
 interface HeadlessSettingsPasskeyProps {
   nodes: UiNode[]
@@ -40,7 +41,7 @@ interface HeadlessSettingsPasskeyProps {
 export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
   const { Card, Form } = useComponents()
   const intl = useIntl()
-  const { setValue } = useFormContext()
+  const { setValue, formState } = useFormContext()
 
   const triggerButton = getTriggerNode(nodes)
   const settingsNodes = getSettingsNodes(nodes)
@@ -79,10 +80,16 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
           <Node key={`passkey-settings-nodes-${i}`} node={node} />
         ))}
         <Form.PasskeySettings
+          isSubmitting={formState.isSubmitting}
           triggerButton={{
             ...triggerButton,
-            attributes: triggerAttributes as UiNodeAttributes,
             onClick: onTriggerClick,
+            buttonProps: {
+              name: triggerAttributes.name,
+              value: triggerAttributes.value,
+              onClick: onTriggerClick,
+              type: "button",
+            },
           }}
           removeButtons={removeNodes.map((node) => ({
             ...node,
@@ -90,6 +97,15 @@ export function OrySettingsPasskey({ nodes }: HeadlessSettingsPasskeyProps) {
               node.attributes.node_type === "input"
                 ? removePasskeyHandler(node.attributes.value as string)
                 : () => {},
+            buttonProps: {
+              name: node.attributes.name,
+              value: node.attributes.value,
+              onClick:
+                node.attributes.node_type === "input"
+                  ? removePasskeyHandler(node.attributes.value as string)
+                  : () => {},
+              type: "button",
+            },
           }))}
         />
       </Card.SettingsSectionContent>

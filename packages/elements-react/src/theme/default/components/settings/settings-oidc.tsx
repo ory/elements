@@ -1,39 +1,56 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
-import { OrySettingsSsoProps } from "@ory/elements-react"
+import {
+  OrySettingsSsoProps,
+  UiNodeInput,
+  useComponents,
+} from "@ory/elements-react"
 import { useEffect } from "react"
-import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 import Trash from "../../assets/icons/trash.svg"
 import logos from "../../provider-logos"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import { DefaultButtonSocial, extractProvider, GenericLogo } from "../form/sso"
 import { Spinner } from "../form/spinner"
-import { omitInputAttributes } from "../../../../util/omitAttributes"
+import { GenericLogo } from "../form/sso"
+
+export function extractProvider(
+  context: object | undefined,
+): string | undefined {
+  if (
+    context &&
+    typeof context === "object" &&
+    "provider" in context &&
+    typeof context.provider === "string"
+  ) {
+    return context.provider
+  }
+  return undefined
+}
 
 export function DefaultSettingsOidc({
   linkButtons,
   unlinkButtons,
+  isSubmitting,
 }: OrySettingsSsoProps) {
   const hasLinkButtons = linkButtons.length > 0
   const hasUnlinkButtons = unlinkButtons.length > 0
+  const { Node } = useComponents()
 
   return (
     <div className="flex flex-col gap-8">
       {hasLinkButtons && (
         <div className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 md:grid-cols-3">
           {linkButtons.map((button) => {
-            const attrs = button.attributes as UiNodeInputAttributes
-
             return (
-              <DefaultButtonSocial
-                showLabel
-                key={attrs.value}
+              <Node.SsoButton
+                key={button.attributes.value}
                 node={button}
-                attributes={attrs}
-                onClick={button.onClick}
+                buttonProps={button.buttonProps}
+                attributes={button.attributes}
+                isSubmitting={isSubmitting}
+                provider={(button.attributes.value + "").split("-")[0]}
               />
             )
           })}
@@ -44,26 +61,29 @@ export function DefaultSettingsOidc({
         if (button.attributes.node_type !== "input") {
           return null
         }
-        return <UnlinkRow key={button.attributes.value} button={button} />
+        return (
+          <UnlinkRow
+            key={button.attributes.value}
+            button={button}
+            isSubmitting={isSubmitting}
+          />
+        )
       })}
     </div>
   )
 }
 
 type UnlinkRowProps = {
-  button: UiNode & { onClick: () => void }
+  button: UiNodeInput & { onClick: () => void }
+  isSubmitting: boolean
 }
 
-function UnlinkRow({ button }: UnlinkRowProps) {
+function UnlinkRow({ button, isSubmitting }: UnlinkRowProps) {
   // Safari cancels form submission events, if we do a state update in the same tick
   // so we delay the state update by 100ms
   const [clicked, setClicked] = useDebounceValue(false, 100)
-  const {
-    formState: { isSubmitting },
-  } = useFormContext()
-  const attrs = button.attributes as UiNodeInputAttributes
   const provider = extractProvider(button.meta.label?.context) ?? ""
-  const Logo = logos[(attrs.value as string).split("-")[0]]
+  const Logo = logos[(button.attributes.value as string).split("-")[0]]
 
   const localOnClick = () => {
     button.onClick()
@@ -77,7 +97,7 @@ function UnlinkRow({ button }: UnlinkRowProps) {
   }, [isSubmitting, setClicked])
 
   return (
-    <div key={attrs.value} className="flex justify-between">
+    <div className="flex justify-between">
       <div className="flex items-center gap-6">
         {Logo ? (
           <Logo size={32} />
@@ -89,7 +109,7 @@ function UnlinkRow({ button }: UnlinkRowProps) {
         </p>
       </div>
       <button
-        {...omitInputAttributes(attrs)}
+        {...omitInputAttributes(button.attributes)}
         type="submit"
         onClick={localOnClick}
         disabled={isSubmitting}

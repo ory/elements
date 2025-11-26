@@ -24,7 +24,7 @@ export function AuthMethodList({
   setSelectedGroup,
 }: AuthMethodListProps) {
   const { Card } = useComponents()
-  const { setValue, getValues } = useFormContext()
+  const { setValue, getValues, formState } = useFormContext()
 
   if (Object.entries(options).length === 0) {
     return null
@@ -56,6 +56,7 @@ export function AuthMethodList({
           group={group}
           title={options.title}
           onClick={() => handleClick(group as UiNodeGroupEnum, options)}
+          disabled={!formState.isReady || formState.isSubmitting}
         />
       ))}
     </Card.AuthMethodListContainer>

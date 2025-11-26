@@ -1,51 +1,60 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiText } from "@ory/client-fetch"
-import { OryNodeTextProps, uiTextToFormattedMessage } from "@ory/elements-react"
+import {
+  OryNodeTextProps,
+  UiNodeInput,
+  uiTextToFormattedMessage,
+} from "@ory/elements-react"
 import { useIntl } from "react-intl"
+import { DefaultLabel } from "./label"
+import { DefaultInput } from "./input"
+import { UiNodeInputAttributes } from "@ory/client-fetch"
 
-export function DefaultText({ node, attributes }: OryNodeTextProps) {
+export function DefaultText({ node }: OryNodeTextProps) {
   const intl = useIntl()
 
-  // There is a special case where this node is the lookup secrets code node. In that case we need special formatting:
-  const lookup = (
-    attributes.text.context as {
-      secrets: UiText[]
-    }
-  )?.secrets
+  if (node.attributes.id === "totp_secret_key") {
+    // This node represents the TOTP secret key and needs special handling
 
-  if (lookup) {
     return (
-      <>
-        <p data-testid={`ory/form/node/text/${attributes.id}/label`}>
-          {node.meta.label
-            ? uiTextToFormattedMessage(node.meta.label, intl)
-            : ""}
-        </p>
-        {lookup.map((text: UiText, index) => (
-          <pre
-            data-testid={`ory/form/node/text/lookup_secret_codes/text`}
-            key={index}
-          >
-            <code>{text ? uiTextToFormattedMessage(text, intl) : ""}</code>
-          </pre>
-        ))}
-      </>
+      <DefaultLabel
+        // TODO(jonas): This is pretty ugly, the type is incorrect, because the label always expects input node, but we're rendering a text node here
+        node={node as unknown as UiNodeInput}
+        attributes={node.attributes as unknown as UiNodeInputAttributes}
+      >
+        <div className="relative flex max-w-[488px] justify-stretch">
+          <DefaultInput.TextInput
+            disabled
+            name="totp_secret_key"
+            type="text"
+            value={node.attributes.text.text}
+            data-testid={`ory/form/node/input/totp_secret_key`}
+          />
+        </div>
+      </DefaultLabel>
     )
   }
 
+  if (node.attributes.id === "lookup_secret_codes") {
+    // TODO (jonas): We might want to handle this more gracefully in the future
+    // This node is rendered by the settings directly, so we don't need to render it here.
+    // The problem is that it would cause an exception in the translation system, because
+    // this node has an array of nodes in its context.
+    throw new Error("node `lookup_secret_codes` cannot be rendered as text")
+  }
+
   return (
-    <>
-      <p
-        data-testid={`ory/form/node/text/${attributes.id}/label`}
-        id={attributes.id}
-      >
-        {node.meta.label ? (
-          <label>{uiTextToFormattedMessage(node.meta.label, intl)}</label>
-        ) : null}
-        {attributes.text ? uiTextToFormattedMessage(attributes.text, intl) : ""}
-      </p>
-    </>
+    <p
+      data-testid={`ory/form/node/text/${node.attributes.id}/label`}
+      id={node.attributes.id}
+    >
+      {node.meta.label ? (
+        <label>{uiTextToFormattedMessage(node.meta.label, intl)}</label>
+      ) : null}
+      {node.attributes.text
+        ? uiTextToFormattedMessage(node.attributes.text, intl)
+        : ""}
+    </p>
   )
 }

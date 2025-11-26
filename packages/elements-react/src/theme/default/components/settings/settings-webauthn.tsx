@@ -1,45 +1,32 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNodeInputAttributes } from "@ory/client-fetch"
-import { OrySettingsWebauthnProps, useComponents } from "@ory/elements-react"
+import {
+  Node,
+  OrySettingsWebauthnProps,
+  useComponents,
+} from "@ory/elements-react"
+import { omitInputAttributes } from "../../../../util/omitAttributes"
 import Key from "../../assets/icons/key.svg"
 import Trash from "../../assets/icons/trash.svg"
-import { useFormContext } from "react-hook-form"
 import { Spinner } from "../form/spinner"
 
 export function DefaultSettingsWebauthn({
   nameInput,
   triggerButton,
   removeButtons,
+  isSubmitting,
 }: OrySettingsWebauthnProps) {
-  const {
-    formState: { isSubmitting },
-  } = useFormContext()
-  const { Node, Card } = useComponents()
+  const { Card } = useComponents()
   const hasRemoveButtons = removeButtons.length > 0
 
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end md:max-w-96">
         <div className="flex-1">
-          <Node.Label
-            node={nameInput}
-            attributes={nameInput.attributes as UiNodeInputAttributes}
-          >
-            <Node.Input
-              node={nameInput}
-              attributes={nameInput.attributes as UiNodeInputAttributes}
-            />
-          </Node.Label>
+          <Node.Input node={nameInput} />
         </div>
-        {triggerButton ? (
-          <Node.Button
-            node={triggerButton}
-            attributes={triggerButton.attributes as UiNodeInputAttributes}
-            onClick={triggerButton.onClick}
-          />
-        ) : null}
+        {triggerButton ? <Node.Button node={triggerButton} /> : null}
       </div>
       {hasRemoveButtons ? (
         <div className="flex flex-col gap-8">
@@ -85,11 +72,11 @@ export function DefaultSettingsWebauthn({
                     </div>
                   </div>
                   <button
-                    {...(node.attributes as UiNodeInputAttributes)}
+                    {...omitInputAttributes(node.attributes)}
                     type="submit"
-                    onClick={node.onClick}
+                    onClick={node.buttonProps.onClick}
                     disabled={isSubmitting}
-                    className="relative"
+                    className="relative cursor-pointer"
                   >
                     {isSubmitting ? (
                       <Spinner className="relative" />

@@ -8,7 +8,10 @@ export default {
   preset: "../../jest.preset.cjs",
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      { tsconfig: __dirname + "/tsconfig.spec.json" },
+    ],
     ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
       "jest-transform-stub",
   },
@@ -23,4 +26,8 @@ export default {
   coverageDirectory: "../../coverage/packages/elements-react",
   coveragePathIgnorePatterns: ["/node_modules/", "/dist/", ".svg"],
   setupFilesAfterEnv: ["<rootDir>/src/tests/jest/setup.ts"],
+  moduleNameMapper: {
+    "^@ory\/elements-react": "<rootDir>/src/index.ts",
+    "^@ory\/elements-react/client": "<rootDir>/src/client/index.ts",
+  },
 } satisfies Config

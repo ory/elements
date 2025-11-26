@@ -3,133 +3,34 @@
 
 import { screen } from "@testing-library/dom"
 import { IntlProvider } from "../../../../context/intl-context"
-import { renderWithComponents } from "../../../../tests/jest/test-utils"
+import { renderWithOryElements } from "../../../../tests/jest/test-utils"
 import { Node } from "../node"
 
 test("Text nodes are translated to german", () => {
-  renderWithComponents(
+  renderWithOryElements(
     <IntlProvider locale="de">
       <Node
         node={{
-          type: "text",
-          group: "lookup_secret",
           attributes: {
-            text: {
-              id: 1050015,
-              text: "3r9noma8, tv14n5tu",
-              type: "info",
-              context: {
-                secrets: [
-                  {
-                    context: {
-                      secret: "3r9noma8",
-                    },
-                    id: 1050009,
-                    text: "3r9noma8",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "tv14n5tu",
-                    },
-                    id: 1050009,
-                    text: "tv14n5tu",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "te45pbc0",
-                    },
-                    id: 1050009,
-                    text: "te45pbc0",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "juuri7u3",
-                    },
-                    id: 1050009,
-                    text: "juuri7u3",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "zp8df6fe",
-                    },
-                    id: 1050009,
-                    text: "zp8df6fe",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "dhxbkfmv",
-                    },
-                    id: 1050009,
-                    text: "dhxbkfmv",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "rwu6svpj",
-                    },
-                    id: 1050009,
-                    text: "rwu6svpj",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "evv9pedj",
-                    },
-                    id: 1050009,
-                    text: "evv9pedj",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "v37k7nxv",
-                    },
-                    id: 1050009,
-                    text: "v37k7nxv",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "pqhtefs4",
-                    },
-                    id: 1050009,
-                    text: "pqhtefs4",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "mrwstrmp",
-                    },
-                    id: 1050009,
-                    text: "mrwstrmp",
-                    type: "info",
-                  },
-                  {
-                    context: {
-                      secret: "q3vvtd4i",
-                    },
-                    id: 1050009,
-                    text: "q3vvtd4i",
-                    type: "info",
-                  },
-                ],
-              },
-            },
-            id: "lookup_secret_codes",
+            id: "totp_secret_key",
             node_type: "text",
+            text: {
+              context: {},
+              id: 1050006,
+              type: "info",
+              text: "XXXXXX",
+            },
           },
+          group: "totp",
           messages: [],
           meta: {
             label: {
-              id: 1050010,
-              text: "These are your back up recovery codes. Please keep them in a safe place!",
+              id: 1050017,
+              text: "This is your authenticator app secret. Use it if you can not scan the QR code.",
               type: "info",
             },
           },
+          type: "text",
         }}
       />
     </IntlProvider>,
@@ -137,9 +38,42 @@ test("Text nodes are translated to german", () => {
 
   expect(
     screen.getByText(
-      "Dies sind Ihre Backup-Wiederherstellungscodes. Bewahren Sie diese an einem sicheren Ort auf!",
+      "Dies ist Ihr Authentifizierungs-App-Geheimnis. Verwenden Sie es, wenn Sie den QR-Code nicht scannen können.",
     ),
   ).toBeTruthy()
-  expect(screen.getByText("te45pbc0")).toBeTruthy()
-  expect(screen.getByText("q3vvtd4i")).toBeTruthy()
+  expect(
+    screen.getByTestId("ory/form/node/input/totp_secret_key"),
+  ).toBeVisible()
+  expect(screen.getByTestId("ory/form/node/input/totp_secret_key")).toHaveValue(
+    "XXXXXX",
+  )
+})
+
+test("Rendering lookup_secret_codes text node throws error", () => {
+  expect(() =>
+    renderWithOryElements(
+      <IntlProvider locale="de">
+        <Node
+          node={{
+            attributes: {
+              id: "lookup_secret_codes",
+              node_type: "text",
+              text: {
+                context: {
+                  secrets: [{ text: "code1" }, { text: "code2" }],
+                },
+                id: 1050020,
+                type: "info",
+                text: "These are your recovery codes. Store them safely!",
+              },
+            },
+            group: "lookup_secret",
+            messages: [],
+            meta: {},
+            type: "text",
+          }}
+        />
+      </IntlProvider>,
+    ),
+  ).toThrow("node `lookup_secret_codes` cannot be rendered as text")
 })

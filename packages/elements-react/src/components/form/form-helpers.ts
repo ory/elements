@@ -17,11 +17,7 @@ export function computeDefaultValues(flow: {
         attrs.value = false
       }
       // Skip the "method" field and "submit" button
-      if (
-        attrs.name === "method" ||
-        attrs.type === "submit" ||
-        typeof attrs.value === "undefined"
-      ) {
+      if (attrs.name === "method" || attrs.type === "submit") {
         return acc
       }
 
@@ -47,7 +43,7 @@ export function computeDefaultValues(flow: {
       return unrollTrait(
         {
           name: attrs.name,
-          value: attrs.value,
+          value: attrs.value ?? "",
         },
         acc,
       )

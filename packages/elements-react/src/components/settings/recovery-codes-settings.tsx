@@ -1,47 +1,56 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  UiNode,
-  UiNodeInputAttributes,
-  UiNodeTextAttributes,
-} from "@ory/client-fetch"
+import { UiNode } from "@ory/client-fetch"
+import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../context"
-import { useFormContext } from "react-hook-form"
+import {
+  isUiNodeInput,
+  isUiNodeText,
+  UiNodeInput,
+  UiNodeText,
+} from "../../util/utilFixSDKTypesHelper"
+import { Node } from "../form/nodes/node"
 
-const getRegenerateNode = (nodes: UiNode[]): UiNode | undefined =>
+const getRegenerateNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) =>
+    (node): node is UiNodeInput =>
       "name" in node.attributes &&
-      node.attributes.name === "lookup_secret_regenerate",
+      node.attributes.name === "lookup_secret_regenerate" &&
+      isUiNodeInput(node),
   )
 
-const getRevealNode = (nodes: UiNode[]): UiNode | undefined =>
+const getRevealNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) =>
+    (node): node is UiNodeInput =>
       "name" in node.attributes &&
-      node.attributes.name === "lookup_secret_reveal",
+      node.attributes.name === "lookup_secret_reveal" &&
+      isUiNodeInput(node),
   )
 
-const getRecoveryCodes = (nodes: UiNode[]): UiNode | undefined =>
+const getRecoveryCodes = (nodes: UiNode[]): UiNodeText | undefined =>
   nodes.find(
-    (node) =>
-      "id" in node.attributes && node.attributes.id === "lookup_secret_codes",
+    (node): node is UiNodeText =>
+      "id" in node.attributes &&
+      node.attributes.id === "lookup_secret_codes" &&
+      isUiNodeText(node),
   )
 
-const getDisableNode = (nodes: UiNode[]): UiNode | undefined =>
+const getDisableNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) =>
+    (node): node is UiNodeInput =>
       "name" in node.attributes &&
-      node.attributes.name === "lookup_secret_disable",
+      node.attributes.name === "lookup_secret_disable" &&
+      isUiNodeInput(node),
   )
 
-const getConfirmNode = (nodes: UiNode[]): UiNode | undefined =>
+const getConfirmNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) =>
+    (node): node is UiNodeInput =>
       "name" in node.attributes &&
-      node.attributes.name === "lookup_secret_confirm",
+      node.attributes.name === "lookup_secret_confirm" &&
+      isUiNodeInput(node),
   )
 
 interface HeadlessSettingsRecoveryCodesProps {
@@ -51,7 +60,7 @@ interface HeadlessSettingsRecoveryCodesProps {
 export function OrySettingsRecoveryCodes({
   nodes,
 }: HeadlessSettingsRecoveryCodesProps) {
-  const { Card, Form, Node } = useComponents()
+  const { Card, Form } = useComponents()
   const intl = useIntl()
 
   const codesNode = getRecoveryCodes(nodes)
@@ -59,10 +68,10 @@ export function OrySettingsRecoveryCodes({
   const regenerateNode = getRegenerateNode(nodes)
   const disableNode = getDisableNode(nodes)
   const confirmNode = getConfirmNode(nodes)
-  const { setValue } = useFormContext()
+  const { setValue, formState } = useFormContext()
 
   const codesContext =
-    ((codesNode?.attributes as UiNodeTextAttributes)?.text.context as {
+    (codesNode?.attributes?.text.context as {
       secrets?: { text: string }[]
     }) ?? {}
   const secrets = codesContext.secrets
@@ -96,18 +105,14 @@ export function OrySettingsRecoveryCodes({
         <Form.RecoveryCodesSettings
           codes={secrets}
           revealButton={revealNode}
-          regnerateButton={regenerateNode}
+          regenerateButton={regenerateNode}
           onRegenerate={onRegenerate}
           onReveal={onReveal}
+          isSubmitting={formState.isSubmitting}
         />
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter>
-        {footerNode && (
-          <Node.Button
-            node={footerNode}
-            attributes={footerNode.attributes as UiNodeInputAttributes}
-          />
-        )}
+        {footerNode && <Node node={footerNode} />}
       </Card.SettingsSectionFooter>
     </>
   )

@@ -1,30 +1,32 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { NodeProps } from "./node"
-import { useComponents } from "../../../context"
-import { triggerToWindowCall } from "../../../util/ui"
 import {
   UiNodeGroupEnum,
   UiNodeInputAttributes,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
-import { MouseEventHandler, ReactNode, useEffect, useRef } from "react"
+import { ReactNode, useEffect, useRef } from "react"
 import { useFormContext } from "react-hook-form"
+import { triggerToWindowCall } from "../../../util/ui"
+import { UiNodeInput } from "../../../util/utilFixSDKTypesHelper"
+import { ConsentCheckboxRenderer } from "./renderer/consent-checkbox-renderer"
+import { NodeButton } from "./node-button"
+import { CheckboxRenderer } from "./renderer/checkbox-renderer"
+import { HiddenInputRenderer } from "./renderer/hidden-input-renderer"
+import { InputRenderer } from "./renderer/input-renderer"
 
 export const NodeInput = ({
   node,
   attributes,
-}: NodeProps & {
+}: {
+  node: UiNodeInput
   attributes: UiNodeInputAttributes
-  onClick?: MouseEventHandler
 }): ReactNode => {
-  const { Node } = useComponents()
-  const { setValue, watch } = useFormContext()
+  const { setValue } = useFormContext()
 
   const {
-    onloadTrigger: onloadTrigger,
-    onclickTrigger,
+    onloadTrigger,
     // These properties do not exist on input fields so we remove them (as we already have handled them).
     onclick: _ignoredOnclick,
     onload: _ignoredOnload,
@@ -62,68 +64,11 @@ export const NodeInput = ({
     [],
   )
 
-  const handleClick: MouseEventHandler = () => {
-    setFormValue()
-    if (onclickTrigger) {
-      triggerToWindowCall(onclickTrigger)
-    }
-  }
-
-  const isSocial =
-    (attrs.name === "provider" || attrs.name === "link") &&
-    (node.group === UiNodeGroupEnum.Oidc || node.group === UiNodeGroupEnum.Saml)
-  const isPinCodeInput =
-    (attrs.name === "code" && node.group === "code") ||
-    (attrs.name === "totp_code" && node.group === "totp")
-
-  const handleScopeChange = (checked: boolean) => {
-    const scopes = watch("grant_scope")
-    if (Array.isArray(scopes)) {
-      if (checked) {
-        setValue("grant_scope", Array.from(new Set([...scopes, attrs.value])))
-      } else {
-        setValue(
-          "grant_scope",
-          scopes.filter((scope: string) => scope !== attrs.value),
-        )
-      }
-    }
-  }
-
   switch (attributes.type) {
     case UiNodeInputAttributesTypeEnum.Submit:
-    case UiNodeInputAttributesTypeEnum.Button:
-      if (isSocial) {
-        return (
-          <Node.SsoButton
-            node={node}
-            attributes={attrs}
-            onClick={() => {
-              setValue(
-                "provider",
-                (node.attributes as UiNodeInputAttributes).value,
-              )
-              setValue("method", node.group)
-            }}
-          />
-        )
-      }
-      if (isResendNode || isScreenSelectionNode) {
-        return null
-      }
-      if (node.group === "oauth2_consent") {
-        return null
-      }
-
-      return (
-        <Node.Label
-          // The label is rendered in the button component
-          attributes={{ ...attrs, label: undefined }}
-          node={{ ...node, meta: { ...node.meta, label: undefined } }}
-        >
-          <Node.Button attributes={attrs} node={node} onClick={handleClick} />
-        </Node.Label>
-      )
+    case UiNodeInputAttributesTypeEnum.Button: {
+      return <NodeButton node={node} />
+    }
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
       throw new Error("Not implemented")
     case UiNodeInputAttributesTypeEnum.Checkbox:
@@ -133,45 +78,15 @@ export const NodeInput = ({
       ) {
         switch (node.attributes.name) {
           case "grant_scope":
-            return (
-              <Node.ConsentScopeCheckbox
-                attributes={attrs}
-                node={node}
-                onCheckedChange={handleScopeChange}
-              />
-            )
+            return <ConsentCheckboxRenderer node={node} />
           default:
             return null
         }
       }
-      return (
-        <Node.Label
-          // The label is rendered in the checkbox component
-          attributes={{ ...attrs, label: undefined }}
-          node={{ ...node, meta: { ...node.meta, label: undefined } }}
-        >
-          <Node.Checkbox attributes={attrs} node={node} onClick={handleClick} />
-        </Node.Label>
-      )
+      return <CheckboxRenderer node={node} />
     case UiNodeInputAttributesTypeEnum.Hidden:
-      return <Node.Input attributes={attrs} node={node} onClick={handleClick} />
+      return <HiddenInputRenderer node={node} />
     default:
-      if (isPinCodeInput) {
-        return (
-          <Node.Label attributes={attrs} node={node}>
-            <Node.CodeInput
-              attributes={attrs}
-              node={node}
-              onClick={handleClick}
-            />
-          </Node.Label>
-        )
-      }
-
-      return (
-        <Node.Label attributes={attrs} node={node}>
-          <Node.Input attributes={attrs} node={node} onClick={handleClick} />
-        </Node.Label>
-      )
+      return <InputRenderer node={node} />
   }
 }

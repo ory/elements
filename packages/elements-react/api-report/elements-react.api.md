@@ -5,7 +5,6 @@
 ```ts
 
 import { AccountExperienceConfiguration } from '@ory/client-fetch';
-import * as class_variance_authority_types from 'class-variance-authority/types';
 import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';
@@ -21,6 +20,7 @@ import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import { OnRedirectHandler } from '@ory/client-fetch';
 import { PropsWithChildren } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
+import { ReactNode } from 'react';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
 import { Session } from '@ory/client-fetch';
@@ -28,9 +28,11 @@ import { SettingsFlow } from '@ory/client-fetch';
 import { UiContainer } from '@ory/client-fetch';
 import { UiNode } from '@ory/client-fetch';
 import { UiNodeAnchorAttributes } from '@ory/client-fetch';
+import { UiNodeDivisionAttributes } from '@ory/client-fetch';
 import { UiNodeGroupEnum } from '@ory/client-fetch';
 import { UiNodeImageAttributes } from '@ory/client-fetch';
 import { UiNodeInputAttributes } from '@ory/client-fetch';
+import { UiNodeScriptAttributes } from '@ory/client-fetch';
 import { UiNodeTextAttributes } from '@ory/client-fetch';
 import { UiText } from '@ory/client-fetch';
 import { UpdateLoginFlowBody } from '@ory/client-fetch';
@@ -38,7 +40,7 @@ import { UpdateRecoveryFlowBody } from '@ory/client-fetch';
 import { UpdateRegistrationFlowBody } from '@ory/client-fetch';
 import { UpdateSettingsFlowBody } from '@ory/client-fetch';
 import { UpdateVerificationFlowBody } from '@ory/client-fetch';
-import { VariantProps } from 'class-variance-authority';
+import { useIntl } from 'react-intl';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
@@ -120,6 +122,24 @@ export type IntlConfig = {
     customTranslations?: Partial<LocaleMap>;
 };
 
+// @public (undocumented)
+export function isUiNodeAnchor(node: UiNode): node is UiNodeAnchor;
+
+// @public (undocumented)
+export function isUiNodeDiv(node: UiNode): node is UiNodeDiv;
+
+// @public (undocumented)
+export function isUiNodeImage(node: UiNode): node is UiNodeImage;
+
+// @public (undocumented)
+export function isUiNodeInput(node: UiNode): node is UiNodeInput;
+
+// @public (undocumented)
+export function isUiNodeScript(node: UiNode): node is UiNodeScript;
+
+// @public (undocumented)
+export function isUiNodeText(node: UiNode): node is UiNodeText;
+
 // @public
 export type LoginFlowContainer = {
     flowType: FlowType.Login;
@@ -131,6 +151,23 @@ export function messageTestId(message: {
     id: number | string;
 }): {
     "data-testid": string;
+};
+
+// @public
+const Node_2: (({ node }: NodeProps) => ReactNode) & {
+    Button: typeof ButtonRenderer;
+    SsoButton: typeof SSOButtonRenderer;
+    ConsentCheckbox: typeof ConsentCheckboxRenderer;
+    Input: typeof InputRenderer;
+    Checkbox: typeof CheckboxRenderer;
+    Image: typeof ImageRenderer;
+    Text: typeof TextRenderer;
+};
+export { Node_2 as Node }
+
+// @public (undocumented)
+export type NodeProps = {
+    node: UiNode;
 };
 
 // @public
@@ -151,6 +188,7 @@ export type OryCardAuthMethodListItemProps = {
         id: string;
         values?: Record<string, string>;
     };
+    disabled?: boolean;
 };
 
 // @public
@@ -239,7 +277,7 @@ export type OryFlowComponents = {
         CodeInput: ComponentType<OryNodeInputProps>;
         Image: ComponentType<OryNodeImageProps>;
         Label: ComponentType<OryNodeLabelProps>;
-        Checkbox: ComponentType<OryNodeInputProps>;
+        Checkbox: ComponentType<OryNodeCheckboxProps>;
         Text: ComponentType<OryNodeTextProps>;
         Captcha: ComponentType<OryNodeCaptchaProps>;
         ConsentScopeCheckbox: ComponentType<OryNodeConsentScopeCheckboxProps>;
@@ -344,13 +382,22 @@ export type OryNodeAnchorProps = {
     node: UiNode;
 } & Omit<ComponentPropsWithoutRef<"a">, "children">;
 
-// Warning: (ae-forgotten-export) The symbol "ButtonVariants" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OryNodeButtonButtonProps = {
+    type: "button" | "submit" | "reset";
+    name: string;
+    value: string | number | readonly string[] | undefined;
+    onClick: (event: any) => void;
+    disabled?: boolean;
+};
+
 // @public (undocumented)
 export type OryNodeButtonProps = {
     attributes: UiNodeInputAttributes;
-    node: UiNode;
-} & Omit<ComponentPropsWithoutRef<"button">, "children"> & ButtonVariants;
+    node: UiNodeInput;
+    isSubmitting: boolean;
+    buttonProps: OryNodeButtonButtonProps;
+};
 
 // @public (undocumented)
 export type OryNodeCaptchaProps = {
@@ -358,42 +405,92 @@ export type OryNodeCaptchaProps = {
 };
 
 // @public (undocumented)
+export type OryNodeCheckboxInputProps = {
+    name: string;
+    onChange: (event: any) => void;
+    disabled?: boolean;
+    type: "checkbox";
+    checked: boolean;
+    value: string | number | readonly string[] | undefined;
+    ref: (instance: any) => void;
+};
+
+// @public (undocumented)
+export type OryNodeCheckboxProps = {
+    attributes: UiNodeInputAttributes;
+    node: UiNodeInput;
+    onClick: MouseEventHandler;
+    inputProps: OryNodeCheckboxInputProps;
+};
+
+// @public (undocumented)
 export type OryNodeConsentScopeCheckboxProps = {
     attributes: UiNodeInputAttributes;
     node: UiNode;
     onCheckedChange: (checked: boolean) => void;
+    inputProps: {
+        name: string;
+        disabled?: boolean;
+        checked: boolean;
+        value: string;
+    };
 };
 
 // @public (undocumented)
 export type OryNodeImageProps = {
     attributes: UiNodeImageAttributes;
-    node: UiNode;
+    node: UiNodeImage;
+};
+
+// @public (undocumented)
+export type OryNodeInputInputProps = {
+    name: string;
+    value: string | number | readonly string[] | undefined;
+    onClick: MouseEventHandler;
+    onChange: (event: any) => void;
+    onBlur: () => void;
+    ref: (instance: any) => void;
+    disabled?: boolean;
+    type: string;
+    autoComplete?: string;
+    maxLength?: number;
+    placeholder: string;
 };
 
 // @public (undocumented)
 export type OryNodeInputProps = {
     attributes: UiNodeInputAttributes;
-    node: UiNode;
+    node: UiNodeInput;
     onClick?: MouseEventHandler;
+    inputProps: OryNodeInputInputProps;
 };
 
 // @public (undocumented)
 export type OryNodeLabelProps = {
     attributes: UiNodeInputAttributes;
-    node: UiNode;
-} & ComponentPropsWithoutRef<"label">;
+    node: UiNodeInput;
+    fieldError?: object;
+} & PropsWithChildren;
+
+// @public
+export type OryNodeSettingsButton = {
+    onClick: () => void;
+    buttonProps: OryNodeButtonButtonProps;
+} & UiNodeInput;
 
 // @public
 export type OryNodeSsoButtonProps = {
-    node: UiNode;
+    node: UiNodeInput;
     attributes: UiNodeInputAttributes;
-    onClick?: () => void;
+    provider: string;
+    isSubmitting: boolean;
+    buttonProps: OryNodeButtonButtonProps;
 };
 
 // @public (undocumented)
 export type OryNodeTextProps = {
+    node: UiNodeText;
     attributes: UiNodeTextAttributes;
-    node: UiNode;
 };
 
 // @public
@@ -425,51 +522,44 @@ export function OrySettingsFormSection({ children, nodes, ...rest }: OryFormSect
 
 // @public (undocumented)
 export type OrySettingsPasskeyProps = {
-    triggerButton: UiNode & {
-        onClick: () => void;
-    };
-    removeButtons: (UiNode & {
-        onClick: () => void;
-    })[];
+    triggerButton: OryNodeSettingsButton;
+    removeButtons: OryNodeSettingsButton[];
+    isSubmitting: boolean;
 };
 
 // @public (undocumented)
 export type OrySettingsRecoveryCodesProps = {
     codes: string[];
-    regnerateButton: UiNode | undefined;
-    revealButton: UiNode | undefined;
+    regenerateButton: UiNodeInput | undefined;
+    revealButton: UiNodeInput | undefined;
     onRegenerate: () => void;
     onReveal: () => void;
+    isSubmitting: boolean;
 };
 
 // @public (undocumented)
 export type OrySettingsSsoProps = {
-    linkButtons: (UiNode & {
-        onClick: () => void;
-    })[];
-    unlinkButtons: (UiNode & {
-        onClick: () => void;
-    })[];
+    linkButtons: OryNodeSettingsButton[];
+    unlinkButtons: OryNodeSettingsButton[];
+    isSubmitting: boolean;
 };
 
 // @public (undocumented)
 export type OrySettingsTotpProps = {
-    totpImage: UiNode | undefined;
-    totpSecret: UiNode | undefined;
-    totpInput: UiNode | undefined;
-    totpUnlink: UiNode | undefined;
+    totpImage: UiNodeImage | undefined;
+    totpSecret: UiNodeText | undefined;
+    totpInput: UiNodeInput | undefined;
+    totpUnlink: UiNodeInput | undefined;
     onUnlink: () => void;
+    isSubmitting: boolean;
 };
 
 // @public (undocumented)
 export type OrySettingsWebauthnProps = {
-    nameInput: UiNode;
-    triggerButton: UiNode & {
-        onClick: () => void;
-    };
-    removeButtons: (UiNode & {
-        onClick: () => void;
-    })[];
+    nameInput: UiNodeInput;
+    triggerButton: OryNodeSettingsButton;
+    removeButtons: OryNodeSettingsButton[];
+    isSubmitting: boolean;
 };
 
 // @public (undocumented)
@@ -490,10 +580,52 @@ export type RegistrationFlowContainer = {
     flow: RegistrationFlow;
 };
 
+// @public (undocumented)
+export function resolvePlaceholder(text: UiText, intl: ReturnType<typeof useIntl>): string;
+
 // @public
 export type SettingsFlowContainer = {
     flowType: FlowType.Settings;
     flow: SettingsFlow;
+};
+
+// @public (undocumented)
+export type UiNodeAnchor = UiNode & {
+    type: "a";
+    attributes: UiNodeAnchorAttributes;
+};
+
+// @public (undocumented)
+export type UiNodeDiv = UiNode & {
+    type: "div";
+    attributes: UiNodeDivisionAttributes;
+};
+
+// @public (undocumented)
+export type UiNodeFixed = UiNodeInput | UiNodeImage | UiNodeAnchor | UiNodeText | UiNodeScript | UiNodeDiv;
+
+// @public (undocumented)
+export type UiNodeImage = UiNode & {
+    type: "img";
+    attributes: UiNodeImageAttributes;
+};
+
+// @public (undocumented)
+export type UiNodeInput = UiNode & {
+    type: "input";
+    attributes: UiNodeInputAttributes;
+};
+
+// @public (undocumented)
+export type UiNodeScript = UiNode & {
+    type: "script";
+    attributes: UiNodeScriptAttributes;
+};
+
+// @public (undocumented)
+export type UiNodeText = UiNode & {
+    type: "text";
+    attributes: UiNodeTextAttributes;
 };
 
 // @public
@@ -514,6 +646,12 @@ export function useOryConfiguration(): OryElementsConfiguration;
 export function useOryFlow(): FlowContextValue;
 
 // @public
+export function useResendCode(): {
+    resendCode: () => void;
+    resendCodeNode: UiNode | undefined;
+};
+
+// @public
 export type VerificationFlowContainer = {
     flowType: FlowType.Verification;
     flow: VerificationFlow;
@@ -521,9 +659,16 @@ export type VerificationFlowContainer = {
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:694:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:698:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1004:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:694:5 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:695:5 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:696:5 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:697:5 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:698:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:699:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:700:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:871:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:875:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1182:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

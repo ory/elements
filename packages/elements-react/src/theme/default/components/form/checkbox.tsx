@@ -5,14 +5,12 @@
 import { getNodeLabel } from "@ory/client-fetch"
 import {
   messageTestId,
-  OryNodeInputProps,
+  OryNodeCheckboxProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
-import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { cn } from "../../utils/cn"
 import { CheckboxLabel } from "../ui/checkbox-label"
-import { omitInputAttributes } from "../../../../util/omitAttributes"
 
 function CheckboxSVG() {
   return (
@@ -33,30 +31,21 @@ function CheckboxSVG() {
   )
 }
 
-export const DefaultCheckbox = ({
-  attributes: initialAttributes,
-  node,
-}: OryNodeInputProps) => {
-  const { value, name, ...attributes } = initialAttributes
-
+export const DefaultCheckbox = ({ node, inputProps }: OryNodeCheckboxProps) => {
   const intl = useIntl()
   const label = getNodeLabel(node)
-  const { register } = useFormContext()
   const hasError = node.messages.some((m) => m.type === "error")
 
   return (
-    <label className="flex items-start gap-3 self-stretch antialiased">
+    <label className="flex cursor-pointer items-start gap-3 self-stretch antialiased">
       <span className="flex h-5 items-center">
         <input
-          {...omitInputAttributes(attributes)}
-          defaultChecked={Boolean(value)}
-          type="checkbox"
+          {...inputProps}
           className={cn(
             "peer size-4 appearance-none rounded-forms border border-checkbox-border-checkbox-border-default bg-checkbox-background-default checked:border-checkbox-border-checkbox-border-checked checked:bg-checkbox-background-checked",
             hasError && "border-interface-border-validation-danger",
           )}
-          data-testid={`ory/form/node/input/${name}`}
-          {...register(name)}
+          data-testid={`ory/form/node/input/${node.attributes.name}`}
         />
         <CheckboxSVG />
       </span>

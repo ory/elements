@@ -6,16 +6,14 @@ import {
   OryNodeButtonProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
-import { cva, VariantProps } from "class-variance-authority"
-import { useFormContext } from "react-hook-form"
+import { cva } from "class-variance-authority"
 import { useIntl } from "react-intl"
 import { Spinner } from "./spinner"
-import { useEffect, useState } from "react"
-import { omitInputAttributes } from "../../../../util/omitAttributes"
+import { useMemo } from "react"
 
 const buttonStyles = cva(
   [
-    "relative flex justify-center gap-3 overflow-hidden rounded-buttons leading-none font-medium ring-1 ring-inset",
+    "relative flex cursor-pointer justify-center gap-3 overflow-hidden rounded-buttons leading-none font-medium ring-1 ring-inset",
     "disabled:cursor-not-allowed loading:cursor-wait loading:before:pointer-events-none",
     "transition-colors duration-100 ease-linear",
     "max-w-[488px] p-4",
@@ -43,56 +41,35 @@ const buttonStyles = cva(
   },
 )
 
-export type ButtonVariants = VariantProps<typeof buttonStyles>
-
 export const DefaultButton = ({
-  attributes,
   node,
-  onClick,
+  buttonProps,
+  isSubmitting,
 }: OryNodeButtonProps) => {
-  const { type, name, value, ...rest } = attributes
-  const [clicked, setClicked] = useState(false)
   const intl = useIntl()
   const label = getNodeLabel(node)
-  const {
-    formState: { isSubmitting, isReady },
-    setValue,
-  } = useFormContext()
 
-  useEffect(() => {
-    if (!isSubmitting) {
-      setClicked(false)
-    }
-  }, [isSubmitting])
-
-  const isPrimary =
-    attributes.name === "method" ||
-    attributes.name.includes("passkey") ||
-    attributes.name.includes("webauthn") ||
-    attributes.name.includes("lookup_secret") ||
-    (attributes.name.includes("action") && attributes.value === "accept")
+  const isPrimary = useMemo(() => {
+    return (
+      node.attributes.name === "method" ||
+      node.attributes.name.includes("passkey") ||
+      node.attributes.name.includes("webauthn") ||
+      node.attributes.name.includes("lookup_secret") ||
+      (node.attributes.name.includes("action") &&
+        node.attributes.value === "accept")
+    )
+  }, [node.attributes.name, node.attributes.value])
 
   return (
     <button
-      {...omitInputAttributes(rest)}
-      value={value}
-      name={name}
-      type={type === "button" ? "button" : "submit"} // TODO
-      onClick={(e) => {
-        onClick?.(e)
-        setClicked(true)
-
-        if (type !== "button") {
-          setValue(name, value)
-        }
-      }}
+      {...buttonProps}
+      data-testid={`ory/form/node/button/${node.attributes.name}`}
+      data-loading={isSubmitting}
       className={buttonStyles({
         intent: isPrimary ? "primary" : "secondary",
       })}
-      disabled={rest.disabled === true || !isReady || isSubmitting}
-      data-loading={clicked}
     >
-      {clicked ? <Spinner /> : null}
+      {isSubmitting ? <Spinner /> : null}
       {label ? <span>{uiTextToFormattedMessage(label, intl)}</span> : ""}
     </button>
   )

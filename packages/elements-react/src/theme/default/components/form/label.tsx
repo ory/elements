@@ -5,7 +5,6 @@ import {
   FlowType,
   getNodeLabel,
   instanceOfUiText,
-  UiNode,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
 import {
@@ -14,44 +13,24 @@ import {
   useComponents,
   useOryConfiguration,
   useOryFlow,
+  useResendCode,
 } from "@ory/elements-react"
 import { useMemo } from "react"
-import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { resolveLabel } from "../../../../util/nodes"
 import { initFlowUrl } from "../../utils/url"
-
-function findResendNode(nodes: UiNode[]) {
-  return nodes.find(
-    (n) =>
-      "name" in n.attributes &&
-      ((["email", "recovery_confirm_address"].includes(n.attributes.name) &&
-        n.attributes.type === "submit") ||
-        n.attributes.name === "resend"),
-  )
-}
 
 export function DefaultLabel({
   node,
   children,
   attributes,
-  ...rest
+  fieldError,
 }: OryNodeLabelProps) {
   const intl = useIntl()
   const label = getNodeLabel(node)
   const { Message } = useComponents()
-  const { flow } = useOryFlow()
-  const { setValue, formState } = useFormContext()
+  const { resendCode, resendCodeNode } = useResendCode()
 
-  const resendNode = findResendNode(flow.ui.nodes)
-
-  const handleResend = () => {
-    if (resendNode?.attributes && "name" in resendNode.attributes) {
-      setValue(resendNode.attributes.name, resendNode.attributes.value)
-    }
-  }
-
-  const fieldError = formState.errors[attributes.name]
   return (
     <div className="flex flex-col gap-1 antialiased">
       {label && (
@@ -61,17 +40,16 @@ export function DefaultLabel({
             className="leading-normal text-input-foreground-primary"
             htmlFor={attributes.name}
             data-testid={`ory/form/node/input/label/${attributes.name}`}
-            {...rest}
           >
             {resolveLabel(label, intl)}
           </label>
           <LabelAction attributes={attributes} />
-          {resendNode?.attributes.node_type === "input" && (
+          {resendCodeNode?.attributes.node_type === "input" && (
             <button
-              type="submit"
-              name={resendNode.attributes.name}
-              value={resendNode.attributes.value}
-              onClick={handleResend}
+              type="button"
+              name={resendCodeNode.attributes.name}
+              value={resendCodeNode.attributes.value}
+              onClick={resendCode}
               className="cursor-pointer text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
             >
               {intl.formatMessage({ id: "identities.messages.1070008" })}

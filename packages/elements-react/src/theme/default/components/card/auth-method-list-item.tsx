@@ -20,7 +20,6 @@ import webauthn from "../../assets/icons/webauthn.svg"
 import logos from "../../provider-logos"
 import { isGroupImmediateSubmit } from "../../utils/form"
 import { ListItem } from "./list-item"
-import { useFormContext } from "react-hook-form"
 
 const iconsMap: Record<string, typeof code> = {
   code,
@@ -37,11 +36,11 @@ export function DefaultAuthMethodListItem({
   onClick,
   group,
   title,
+  disabled,
 }: OryCardAuthMethodListItemProps) {
   const intl = useIntl()
   const Icon = iconsMap[group] || null
   const { flow } = useOryFlow()
-  const { formState } = useFormContext()
 
   if (group === "passkey") {
     const passkeyNode = findPasskeyNode(flow)
@@ -54,7 +53,12 @@ export function DefaultAuthMethodListItem({
     }
 
     return (
-      <PasskeyListItem passkeyNode={passkeyNode} group={group} title={title} />
+      <PasskeyListItem
+        passkeyNode={passkeyNode}
+        group={group}
+        title={title}
+        disabled={disabled}
+      />
     )
   }
 
@@ -72,7 +76,7 @@ export function DefaultAuthMethodListItem({
       onClick={onClick}
       type={isGroupImmediateSubmit(group) ? "submit" : "button"}
       data-testid={`ory/form/auth-picker/${group}`}
-      disabled={!formState.isReady}
+      disabled={disabled}
     />
   )
 }
@@ -99,12 +103,17 @@ type PasskeyListItemProps = {
   group: string
   title?: { id: string; values?: Record<string, string> }
   passkeyNode: { attributes: UiNodeInputAttributes }
+  disabled?: boolean
 }
 
-function PasskeyListItem({ group, title, passkeyNode }: PasskeyListItemProps) {
+function PasskeyListItem({
+  group,
+  title,
+  passkeyNode,
+  disabled,
+}: PasskeyListItemProps) {
   const intl = useIntl()
   const Icon = iconsMap[group] || null
-  const { formState } = useFormContext()
 
   const [isPasskeyScriptInitalized, setPasskeyScriptInitalized] =
     useState(false)
@@ -168,7 +177,7 @@ function PasskeyListItem({ group, title, passkeyNode }: PasskeyListItemProps) {
     <ListItem
       as="button"
       icon={Icon}
-      disabled={!isPasskeyScriptInitalized || !formState.isReady}
+      disabled={!isPasskeyScriptInitalized || disabled}
       name={passkeyNode.attributes.name}
       title={intl.formatMessage(
         { id: title?.id ?? `two-step.${group}.title` },

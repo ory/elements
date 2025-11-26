@@ -1,46 +1,68 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
+import { UiNode } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../context"
+import {
+  isUiNodeImage,
+  isUiNodeInput,
+  isUiNodeText,
+  UiNodeImage,
+  UiNodeInput,
+  UiNodeText,
+} from "../../util/utilFixSDKTypesHelper"
+import { Node } from "../form/nodes/node"
 
-const getQrCodeNode = (nodes: UiNode[]): UiNode | undefined =>
+const getQrCodeNode = (nodes: UiNode[]): UiNodeImage | undefined =>
   nodes.find(
-    (node) => "id" in node.attributes && node.attributes.id === "totp_qr",
+    (node): node is UiNodeImage =>
+      "id" in node.attributes &&
+      node.attributes.id === "totp_qr" &&
+      isUiNodeImage(node),
   )
 
-const getTotpSecretNode = (nodes: UiNode[]): UiNode | undefined =>
-  nodes.find(
-    (node) =>
-      "id" in node.attributes && node.attributes.id === "totp_secret_key",
+const getTotpSecretNode = (nodes: UiNode[]): UiNodeText | undefined =>
+  nodes.find<UiNodeText>(
+    (node): node is UiNodeText =>
+      "id" in node.attributes &&
+      node.attributes.id === "totp_secret_key" &&
+      isUiNodeText(node),
   )
 
-const getTotpInputNode = (nodes: UiNode[]): UiNode | undefined =>
+const getTotpInputNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) => "name" in node.attributes && node.attributes.name === "totp_code",
+    (node): node is UiNodeInput =>
+      "name" in node.attributes &&
+      node.attributes.name === "totp_code" &&
+      isUiNodeInput(node),
   )
 
-const getTotpUnlinkInput = (nodes: UiNode[]): UiNode | undefined =>
+const getTotpUnlinkInput = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) =>
-      "name" in node.attributes && node.attributes.name === "totp_unlink",
+    (node): node is UiNodeInput =>
+      "name" in node.attributes &&
+      node.attributes.name === "totp_unlink" &&
+      isUiNodeInput(node),
   )
 
-const getTotpLinkButton = (nodes: UiNode[]): UiNode | undefined =>
+const getTotpLinkButton = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
-    (node) => "name" in node.attributes && node.attributes.name === "method",
+    (node): node is UiNodeInput =>
+      "name" in node.attributes &&
+      node.attributes.name === "method" &&
+      isUiNodeInput(node),
   )
 
-interface HeadlessSettingsTotpProps {
+type HeadlessSettingsTotpProps = {
   nodes: UiNode[]
 }
 
 export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
-  const { Card, Form, Node } = useComponents()
+  const { Card, Form } = useComponents()
   const intl = useIntl()
-  const { setValue } = useFormContext()
+  const { setValue, formState } = useFormContext()
 
   const totpUnlink = getTotpUnlinkInput(nodes)
   const qrNode = getQrCodeNode(nodes)
@@ -61,13 +83,22 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
         title={intl.formatMessage({ id: "settings.totp.title" })}
         description={intl.formatMessage({ id: "settings.totp.description" })}
       >
-        <Form.TotpSettings
-          totpImage={qrNode}
-          totpSecret={secretNode}
-          totpInput={totpCodeNode}
-          totpUnlink={totpUnlink}
-          onUnlink={handleUnlink}
-        />
+        {qrNode && secretNode && totpCodeNode && !totpUnlink ? (
+          <TotpSettingsLink
+            totpImage={qrNode}
+            totpSecret={secretNode}
+            totpInput={totpCodeNode}
+          />
+        ) : (
+          <Form.TotpSettings
+            totpImage={qrNode}
+            totpSecret={secretNode}
+            totpInput={undefined}
+            totpUnlink={totpUnlink}
+            onUnlink={handleUnlink}
+            isSubmitting={formState.isSubmitting}
+          />
+        )}
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter
         text={
@@ -76,13 +107,33 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
             : intl.formatMessage({ id: "settings.totp.info.not-linked" })
         }
       >
-        {totpLinkButton && (
-          <Node.Button
-            node={totpLinkButton}
-            attributes={totpLinkButton.attributes as UiNodeInputAttributes}
-          />
-        )}
+        {totpLinkButton && <Node node={totpLinkButton} />}
       </Card.SettingsSectionFooter>
     </>
+  )
+}
+
+type TotpSettingsLinkProps = {
+  totpImage: UiNodeImage
+  totpSecret: UiNodeText
+  totpInput: UiNodeInput
+}
+
+function TotpSettingsLink({
+  totpImage,
+  totpSecret,
+  totpInput,
+}: TotpSettingsLinkProps) {
+  const { formState } = useFormContext()
+  const { Form } = useComponents()
+  return (
+    <Form.TotpSettings
+      totpImage={totpImage}
+      totpSecret={totpSecret}
+      totpInput={totpInput}
+      totpUnlink={undefined}
+      onUnlink={() => {}}
+      isSubmitting={formState.isSubmitting}
+    />
   )
 }

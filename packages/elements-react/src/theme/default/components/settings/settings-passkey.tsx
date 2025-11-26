@@ -1,21 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-
-import { UiNodeInputAttributes } from "@ory/client-fetch"
 import { OrySettingsPasskeyProps, useComponents } from "@ory/elements-react"
 import Passkey from "../../assets/icons/passkey.svg"
 import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
-import { useFormContext } from "react-hook-form"
 import { Spinner } from "../form/spinner"
 
 export function DefaultSettingsPasskey({
   triggerButton,
   removeButtons,
+  isSubmitting,
 }: OrySettingsPasskeyProps) {
-  const {
-    formState: { isSubmitting },
-  } = useFormContext()
   const { Node } = useComponents()
 
   const hasRemoveButtons = removeButtons.length > 0
@@ -26,8 +21,9 @@ export function DefaultSettingsPasskey({
         {triggerButton && (
           <Node.Button
             node={triggerButton}
-            attributes={triggerButton.attributes as UiNodeInputAttributes}
-            onClick={triggerButton.onClick}
+            attributes={triggerButton.attributes}
+            buttonProps={triggerButton.buttonProps}
+            isSubmitting={isSubmitting}
           />
         )}
       </div>
@@ -75,9 +71,9 @@ export function DefaultSettingsPasskey({
                     </div>
                   </div>
                   <button
-                    {...(node.attributes as UiNodeInputAttributes)}
+                    {...node.attributes}
                     type="submit"
-                    onClick={node.onClick}
+                    onClick={node.buttonProps.onClick}
                     disabled={isSubmitting}
                     className="relative"
                   >

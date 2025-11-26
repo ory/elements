@@ -1,12 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { FlowType, LoginFlowFromJSON } from "@ory/client-fetch"
 import { render, RenderOptions } from "@testing-library/react"
-import { ComponentProps, PropsWithChildren, ReactElement } from "react"
+import { PropsWithChildren, ReactElement } from "react"
+import dummyFlow from "../../../.stub-responses/login/1fa/none/initial-form.json"
 import { OryFlowComponentOverrides } from "../../components"
 import { OryComponentProvider } from "../../context/component"
+import { OryFlowProvider } from "../../context/flow-context"
 import { getOryComponents } from "../../theme/default"
-import { OryClientConfiguration } from "../../util"
+import { OryClientConfiguration, OryFlowContainer } from "../../util"
+import { OryConfigurationProvider } from "../../context"
 
 export const defaultConfiguration: OryClientConfiguration = {
   project: {
@@ -29,19 +33,31 @@ export const defaultConfiguration: OryClientConfiguration = {
   },
 }
 
-type ComponentOverrider = { components?: OryFlowComponentOverrides }
+type OryProviderProps = {
+  components?: OryFlowComponentOverrides
+  flow?: OryFlowContainer
+} & PropsWithChildren
 
-const ComponentProvider = ({
-  children,
-  components,
-}: PropsWithChildren<ComponentOverrider>) => (
-  <OryComponentProvider components={getOryComponents(components)}>
-    {children}
-  </OryComponentProvider>
+const OryProvider = ({ children, components, flow }: OryProviderProps) => (
+  <OryFlowProvider
+    {...(flow ?? {
+      flowType: FlowType.Login,
+      flow: LoginFlowFromJSON(dummyFlow),
+    })}
+  >
+    <OryComponentProvider components={getOryComponents(components)}>
+      <OryConfigurationProvider {...defaultConfiguration}>
+        {children}
+      </OryConfigurationProvider>
+    </OryComponentProvider>
+  </OryFlowProvider>
 )
 
-export const renderWithComponents = (
+export const renderWithOryElements = (
   ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper"> &
-    ComponentProps<typeof ComponentProvider>,
-) => render(ui, { wrapper: ComponentProvider, ...options })
+  options?: Omit<RenderOptions, "wrapper"> & OryProviderProps,
+) =>
+  render(ui, {
+    wrapper: OryProvider,
+    ...options,
+  })
