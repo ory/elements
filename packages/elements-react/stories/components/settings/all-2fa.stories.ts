@@ -10,7 +10,7 @@ const meta = {
   title: "Ory Elements/Settings/Everything 2FA",
   component: Settings,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof Settings>
 

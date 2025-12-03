@@ -10,7 +10,7 @@ const meta = {
   title: "Ory Elements/Settings/Webauthn",
   component: Settings,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof Settings>
 
