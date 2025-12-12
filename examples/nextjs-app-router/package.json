@@ -11,7 +11,7 @@
   "dependencies": {
     "@ory/nextjs": "*",
     "@ory/elements-react": "*",
-    "next": "15.5.7",
+    "next": "15.5.9",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -20,7 +20,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^9.25.0",
-    "eslint-config-next": "15.5.7",
+    "eslint-config-next": "15.5.9",
     "postcss": "^8",
     "typescript": "^5"
   }
