@@ -74,14 +74,10 @@ export const NodeInput = ({
     case UiNodeInputAttributesTypeEnum.Checkbox:
       if (
         node.group === "oauth2_consent" &&
-        node.attributes.node_type === "input"
+        node.attributes.node_type === "input" &&
+        node.attributes.name === "grant_scope"
       ) {
-        switch (node.attributes.name) {
-          case "grant_scope":
-            return <ConsentCheckboxRenderer node={node} />
-          default:
-            return null
-        }
+        return <ConsentCheckboxRenderer node={node} />
       }
       return <CheckboxRenderer node={node} />
     case UiNodeInputAttributesTypeEnum.Hidden:

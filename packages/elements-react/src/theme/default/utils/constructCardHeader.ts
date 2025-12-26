@@ -32,11 +32,23 @@ export type CardHeaderTextOptions =
       flow: {
         refresh?: boolean
         requested_aal?: AuthenticatorAssuranceLevel
+        oauth2_login_request?: {
+          client?: {
+            client_name?: string
+          }
+        }
       }
       formState?: FormState
     }
   | {
       flowType: FlowType.Registration
+      flow?: {
+        oauth2_login_request?: {
+          client?: {
+            client_name?: string
+          }
+        }
+      }
       formState?: FormState
     }
   | {
@@ -313,12 +325,15 @@ export function useCardHeaderText(
           }),
         }
       }
+      const clientName = opts.flow.oauth2_login_request?.client?.client_name
       return {
-        title: intl.formatMessage({
-          id: "login.title",
-        }),
-        description:
-          parts.length > 0
+        title: intl.formatMessage({ id: "login.title" }),
+        description: clientName
+          ? intl.formatMessage(
+              { id: "login.subtitle-oauth2" },
+              { clientName },
+            )
+          : parts.length > 0
             ? intl.formatMessage(
                 {
                   id: codeSent
@@ -346,25 +361,29 @@ export function useCardHeaderText(
         codeMethodNode &&
         opts.formState?.current === "method_active" &&
         opts.formState?.method === "code"
+      const clientName = opts.flow?.oauth2_login_request?.client?.client_name
       return {
-        title: intl.formatMessage({
-          id: "registration.title",
-        }),
+        title: intl.formatMessage({ id: "registration.title" }),
         description: codeSent
           ? intl.formatMessage({ id: "identities.messages.1040005" })
-          : parts.length > 0
+          : clientName
             ? intl.formatMessage(
-                {
-                  id: "registration.subtitle",
-                },
-                {
-                  parts: joinWithCommaOr(
-                    parts,
-                    intl.formatMessage({ id: "misc.or" }),
-                  ),
-                },
+                { id: "registration.subtitle-oauth2" },
+                { clientName },
               )
-            : "",
+            : parts.length > 0
+              ? intl.formatMessage(
+                  {
+                    id: "registration.subtitle",
+                  },
+                  {
+                    parts: joinWithCommaOr(
+                      parts,
+                      intl.formatMessage({ id: "misc.or" }),
+                    ),
+                  },
+                )
+              : "",
       }
     }
     case FlowType.OAuth2Consent:
