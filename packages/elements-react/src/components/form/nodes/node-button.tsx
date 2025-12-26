@@ -14,9 +14,6 @@ export function NodeButton({ node }: NodeButtonProps) {
   if (isResendNode || isScreenSelectionNode) {
     return null
   }
-  if (node.group === "oauth2_consent") {
-    return null
-  }
 
   const isSocial =
     (node.attributes.name === "provider" || node.attributes.name === "link") &&
