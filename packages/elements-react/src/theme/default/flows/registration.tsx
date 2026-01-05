@@ -10,6 +10,7 @@ import {
   OrySelfServiceFlowCard,
 } from "@ory/elements-react"
 import { getOryComponents } from "../components"
+import { getConfigWithOAuth2Logo } from "../utils/oauth2-config"
 
 /**
  * Props for the Registration component.
@@ -60,9 +61,14 @@ export function Registration({
   config,
 }: RegistrationFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
+  const configWithLogo = getConfigWithOAuth2Logo(
+    config,
+    flow.oauth2_login_request?.client?.logo_uri,
+  )
+
   return (
     <OryProvider
-      config={config}
+      config={configWithLogo}
       flow={flow}
       flowType={FlowType.Registration}
       components={components}
