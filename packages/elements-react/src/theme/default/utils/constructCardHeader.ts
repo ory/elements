@@ -37,6 +37,7 @@ export type CardHeaderTextOptions =
         oauth2_login_request?: {
           client?: {
             client_name?: string
+            logo_uri?: string
           }
         }
       }
@@ -48,6 +49,7 @@ export type CardHeaderTextOptions =
         oauth2_login_request?: {
           client?: {
             client_name?: string
+            logo_uri?: string
           }
         }
       }
