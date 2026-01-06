@@ -4,7 +4,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "dev", "preview", "build-storybook"]
+        "cacheableOperations": ["build", "dev", "preview", "build-storybook", "test", "lint", "typecheck"]
       }
     }
   },
@@ -29,14 +29,24 @@
       }
     },
     "groups": {
-      "elements": {
+      "elements-react": {
         "projects": ["@ory/elements-react"],
-        "title": "Elements",
+        "title": "Elements React",
+        "releaseTagPattern": "release/{projectName}/{version}"
+      },
+      "elements-vue": {
+        "projects": ["@ory/elements-vue"],
+        "title": "Elements Vue",
         "releaseTagPattern": "release/{projectName}/{version}"
       },
       "nextjs": {
         "projects": ["@ory/nextjs"],
         "title": "Next.js",
+        "releaseTagPattern": "release/{projectName}/{version}"
+      },
+      "nuxt": {
+        "projects": ["@ory/nuxt"],
+        "title": "Nuxt",
         "releaseTagPattern": "release/{projectName}/{version}"
       }
     }

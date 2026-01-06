@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "examples/nuxt-app",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "command": "nuxt build",
+      "options": {
+        "cwd": "examples/nuxt-app"
+      },
+      "dependsOn": ["^build"]
+    },
+    "dev": {
+      "command": "nuxt dev",
+      "options": {
+        "cwd": "examples/nuxt-app"
+      },
+      "dependsOn": ["^build"]
+    },
+    "preview": {
+      "command": "nuxt preview",
+      "options": {
+        "cwd": "examples/nuxt-app"
+      },
+      "dependsOn": ["build"]
+    },
+    "generate": {
+      "command": "nuxt generate",
+      "options": {
+        "cwd": "examples/nuxt-app"
+      },
+      "dependsOn": ["^build"]
+    }
+  }
+}
