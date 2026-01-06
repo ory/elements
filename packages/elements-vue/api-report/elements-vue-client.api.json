@@ -1,0 +1,613 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.52.8",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/elements-vue!",
+  "docComment": "",
+  "name": "@ory/elements-vue",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/elements-vue!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!provideSession:function(1)",
+          "docComment": "/**\n * Provides session context to child components.\n *\n * Call this in your root component's setup function:\n *\n * @param options - Provider options\n *\n * @returns The session context data\n *\n * @example\n * ```vue\n * <script setup>\n * import { provideSession } from \"@ory/elements-vue/client\"\n *\n * // With initial session from SSR\n * provideSession({ session: serverSession })\n *\n * // Or let it fetch on mount\n * provideSession()\n * </script>\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function provideSession(options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SessionProviderOptions",
+              "canonicalReference": "@ory/elements-vue!SessionProviderOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "SessionContextData",
+              "canonicalReference": "@ory/elements-vue!SessionContextData:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/client/useSession.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "provideSession"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!SessionContextData:interface",
+          "docComment": "/**\n * Session context data provided by SessionProvider\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface SessionContextData "
+            }
+          ],
+          "fileUrlPath": "src/client/useSession.ts",
+          "releaseTag": "Public",
+          "name": "SessionContextData",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionContextData#error:member",
+              "docComment": "/**\n * Error that occurred when fetching the session, if any\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "error: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "DeepReadonly",
+                  "canonicalReference": "@vue/reactivity!DeepReadonly:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Ref",
+                  "canonicalReference": "@vue/reactivity!Ref:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Error",
+                  "canonicalReference": "!Error:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "error",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionContextData#initialized:member",
+              "docComment": "/**\n * Whether the session has been initialized (first fetch completed)\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "initialized: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Readonly",
+                  "canonicalReference": "!Readonly:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Ref",
+                  "canonicalReference": "@vue/reactivity!Ref:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "initialized",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionContextData#isLoading:member",
+              "docComment": "/**\n * Whether the session is currently being loaded\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isLoading: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Readonly",
+                  "canonicalReference": "!Readonly:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Ref",
+                  "canonicalReference": "@vue/reactivity!Ref:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isLoading",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionContextData#refetch:member",
+              "docComment": "/**\n * Refetch the session from the server\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "refetch: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "refetch",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionContextData#session:member",
+              "docComment": "/**\n * The current session or null if not authenticated\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "session: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "DeepReadonly",
+                  "canonicalReference": "@vue/reactivity!DeepReadonly:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Ref",
+                  "canonicalReference": "@vue/reactivity!Ref:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Session",
+                  "canonicalReference": "@ory/client-fetch!Session:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "session",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!SessionProvider:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/client/SessionProvider.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "SessionProvider",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!SessionProviderOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface SessionProviderOptions "
+            }
+          ],
+          "fileUrlPath": "src/client/useSession.ts",
+          "releaseTag": "Public",
+          "name": "SessionProviderOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionProviderOptions#baseUrl:member",
+              "docComment": "/**\n * Base URL for the Ory SDK (defaults to window.location.origin)\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "baseUrl?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "baseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SessionProviderOptions#session:member",
+              "docComment": "/**\n * Initial session from server-side rendering\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "session?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Session",
+                  "canonicalReference": "@ory/client-fetch!Session:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "session",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!useSession:function(1)",
+          "docComment": "/**\n * Access the session context from any child component.\n *\n * Must be used within a component tree where `provideSession` has been called.\n *\n * @returns The session context data\n *\n * @example\n * ```vue\n * <script setup>\n * import { useSession } from \"@ory/elements-vue/client\"\n *\n * const { session, isLoading, error, refetch } = useSession()\n * </script>\n *\n * <template>\n *   <div v-if=\"isLoading\">Loading...</div>\n *   <div v-else-if=\"error\">Error: {{ error.message }}</div>\n *   <div v-else-if=\"session\">Welcome, {{ session.identity?.traits?.email }}</div>\n *   <div v-else>Not authenticated</div>\n * </template>\n * ```\n *\n * @throws\n *\n * Error if used outside of a SessionProvider\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function useSession(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "SessionContextData",
+              "canonicalReference": "@ory/elements-vue!SessionContextData:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/client/useSession.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useSession"
+        }
+      ]
+    }
+  ]
+}

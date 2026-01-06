@@ -73,6 +73,7 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "0.12.0",
     "eslint-plugin-tsdoc": "0.4.0",
+    "eslint-plugin-vue": "10.7.0",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "jest-transform-stub": "2.0.0",
@@ -95,6 +96,7 @@
     "vite": "6.4.1",
     "vite-plugin-require": "1.2.14",
     "vite-plugin-svgr": "4.3.0",
+    "vue-eslint-parser": "10.2.0",
     "zx": "8.8.5"
   },
   "files": [
