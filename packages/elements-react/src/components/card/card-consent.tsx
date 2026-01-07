@@ -43,9 +43,7 @@ export function isFooterNode(node: UiNode): boolean {
     return false
   }
   const { name, type } = node.attributes
-  return (
-    name === "remember" || type === UiNodeInputAttributesTypeEnum.Submit
-  )
+  return name === "remember" || type === UiNodeInputAttributesTypeEnum.Submit
 }
 
 /**

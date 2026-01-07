@@ -53,7 +53,10 @@ export async function POST(request: Request) {
 
   if (!consentChallenge) {
     return NextResponse.json(
-      { error: "invalid_request", error_description: "Missing consent_challenge" },
+      {
+        error: "invalid_request",
+        error_description: "Missing consent_challenge",
+      },
       { status: 400 },
     )
   }
