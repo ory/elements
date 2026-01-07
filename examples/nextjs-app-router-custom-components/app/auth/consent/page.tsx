@@ -2,7 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Consent } from "@ory/elements-react/theme"
-import { getConsentFlow, getServerSession, OryPageParams } from "@ory/nextjs/app"
+import {
+  getConsentFlow,
+  getServerSession,
+  OryPageParams,
+} from "@ory/nextjs/app"
 
 import { myCustomComponents } from "@/components"
 import config from "@/ory.config"
