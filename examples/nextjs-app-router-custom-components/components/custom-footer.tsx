@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 /* eslint-disable @typescript-eslint/no-unsafe-enum-comparison -- eslint gets confused because of different versions of @ory/client-fetch */
 import { FlowType } from "@ory/client-fetch"
 import { ConsentFlow, Node, useOryFlow } from "@ory/elements-react"
@@ -38,7 +41,8 @@ export function MyCustomFooter() {
 
 function ConsentFooter({ flow }: { flow: ConsentFlow }) {
   const { rememberNode, submitNodes } = findConsentNodes(flow.ui.nodes)
-  const clientName = flow.consent_request.client?.client_name ?? "this application"
+  const clientName =
+    flow.consent_request.client?.client_name ?? "this application"
 
   return (
     <div className="flex flex-col gap-4">
@@ -47,7 +51,8 @@ function ConsentFooter({ flow }: { flow: ConsentFlow }) {
           Make sure you trust {clientName}
         </p>
         <p className="text-sm text-gray-500">
-          You may be sharing sensitive information with this site or application.
+          You may be sharing sensitive information with this site or
+          application.
         </p>
       </div>
 

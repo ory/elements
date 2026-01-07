@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OryNodeSsoButtonProps } from "@ory/elements-react"
 import { IconBrandGoogle, IconTopologyRing } from "@tabler/icons-react"
 
