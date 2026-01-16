@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
-import { useComponents } from "../../../../context"
+import { useComponents, useOryFlow } from "../../../../context"
 import { OryNodeButtonButtonProps } from "../../../../types"
 import { triggerToWindowCall } from "../../../../util/ui"
 import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
@@ -13,6 +13,9 @@ type ButtonRendererProps = {
 export function ButtonRenderer({ node }: ButtonRendererProps) {
   const { Node } = useComponents()
   const { formState, setValue } = useFormContext()
+  const {
+    formState: { isSubmitting },
+  } = useOryFlow()
   const [clicked, setClicked] = useDebounceValue(false, 100)
 
   const handleClick = useCallback(() => {
@@ -28,15 +31,14 @@ export function ButtonRenderer({ node }: ButtonRendererProps) {
     name: node.attributes.name,
     value: node.attributes.value,
     onClick: handleClick,
-    disabled:
-      node.attributes.disabled || !formState.isReady || formState.isSubmitting,
+    disabled: node.attributes.disabled || !formState.isReady || isSubmitting,
   } satisfies OryNodeButtonButtonProps
 
   useEffect(() => {
-    if (!formState.isSubmitting) {
+    if (!isSubmitting) {
       setClicked(false)
     }
-  }, [formState.isSubmitting, setClicked])
+  }, [isSubmitting, setClicked])
 
   return (
     <Node.Button

@@ -79,12 +79,11 @@ export type FlowContextValue = OryFlowContainer & {
     dispatchFormState: Dispatch<FormStateAction>;
 };
 
+// Warning: (ae-forgotten-export) The symbol "FlowFormState" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "CommonFormStateProperties" needs to be exported by the entry point index.d.ts
+//
 // @public
-export type FormState = FormStateSelectMethod | FormStateProvideIdentifier | FormStateMethodActive | {
-    current: "success_screen";
-} | {
-    current: "settings";
-};
+export type FormState = FlowFormState & CommonFormStateProperties;
 
 // @public
 export type FormStateAction = {
@@ -95,6 +94,12 @@ export type FormStateAction = {
     method: UiNodeGroupEnum;
 } | {
     type: "action_clear_active_method";
+} | {
+    type: "form_submit_start";
+} | {
+    type: "form_submit_end";
+} | {
+    type: "page_redirect";
 };
 
 // @public
@@ -668,7 +673,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:700:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:871:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:875:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1182:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1212:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

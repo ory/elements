@@ -6,11 +6,15 @@ import { MouseEventHandler } from "react"
 import { useController } from "react-hook-form"
 import { triggerToWindowCall } from "../../../../util/ui"
 import { OryNodeInputInputProps } from "../../../../types"
+import { useOryFlow } from "../../../../context"
 
 export function useInputProps(
   attributes: UiNodeInputAttributes,
   placeholder?: string,
 ): OryNodeInputInputProps {
+  const {
+    formState: { isSubmitting },
+  } = useOryFlow()
   const controller = useController({
     name: attributes.name,
     control: undefined,
@@ -30,6 +34,7 @@ export function useInputProps(
     maxLength: attributes.maxlength,
     autoComplete: attributes.autocomplete,
     placeholder: placeholder || "",
-    disabled: attributes.disabled || !controller.formState.isReady,
+    disabled:
+      attributes.disabled || !controller.formState.isReady || isSubmitting,
   }
 }

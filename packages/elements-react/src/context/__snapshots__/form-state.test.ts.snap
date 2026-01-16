@@ -1,8 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`should parse state from flow on "action_flow_update" with active method = code 1`] = `
 {
   "current": "method_active",
+  "isSubmitting": false,
   "method": "code",
 }
 `;
@@ -10,6 +11,7 @@ exports[`should parse state from flow on "action_flow_update" with active method
 exports[`should parse state from flow on "action_flow_update" with active method = code_recovery 1`] = `
 {
   "current": "method_active",
+  "isSubmitting": false,
   "method": "code",
 }
 `;
@@ -17,6 +19,7 @@ exports[`should parse state from flow on "action_flow_update" with active method
 exports[`should parse state from flow on "action_flow_update" with active method = link_recovery 1`] = `
 {
   "current": "method_active",
+  "isSubmitting": false,
   "method": "link",
 }
 `;

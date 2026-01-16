@@ -639,7 +639,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!FormState:type",
-          "docComment": "/**\n * Represents the state of the form based on the flow type and active method. This type is used to determine which part of the form should be displayed.\n *\n * It can be one of the following: - `select_method`: The user is selecting an authentication method. - `provide_identifier`: The user is providing an identifier (e.g., email or username). - `method_active`: An authentication method is active, and the user is interacting with it. - `success_screen`: The flow has successfully completed (only used in the verification flow). - `settings`: The user is in the settings flow.\n */\n",
+          "docComment": "/**\n * Represents the state of the form based on the flow type and active method. This type is used to determine which part of the form should be displayed.\n *\n * It can be one of the following: - `select_method`: The user is selecting an authentication method. - `provide_identifier`: The user is providing an identifier (e.g., email or username). - `method_active`: An authentication method is active, and the user is interacting with it. - `success_screen`: The flow has successfully completed (only used in the verification flow). - `settings`: The user is in the settings flow.\n *\n * In addition, it includes a common properties: - `isSubmitting`: A boolean indicating whether the form is currently being submitted.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -647,30 +647,17 @@
             },
             {
               "kind": "Reference",
-              "text": "FormStateSelectMethod",
-              "canonicalReference": "@ory/elements-react!FormStateSelectMethod:type"
+              "text": "FlowFormState",
+              "canonicalReference": "@ory/elements-react!~FlowFormState:type"
             },
             {
               "kind": "Content",
-              "text": " | "
+              "text": " & "
             },
             {
               "kind": "Reference",
-              "text": "FormStateProvideIdentifier",
-              "canonicalReference": "@ory/elements-react!FormStateProvideIdentifier:type"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "FormStateMethodActive",
-              "canonicalReference": "@ory/elements-react!FormStateMethodActive:type"
-            },
-            {
-              "kind": "Content",
-              "text": " | {\n    current: \"success_screen\";\n} | {\n    current: \"settings\";\n}"
+              "text": "CommonFormStateProperties",
+              "canonicalReference": "@ory/elements-react!~CommonFormStateProperties:type"
             },
             {
               "kind": "Content",
@@ -682,7 +669,7 @@
           "name": "FormState",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 7
+            "endIndex": 4
           }
         },
         {
@@ -714,7 +701,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"action_clear_active_method\";\n}"
+              "text": ";\n} | {\n    type: \"action_clear_active_method\";\n} | {\n    type: \"form_submit_start\";\n} | {\n    type: \"form_submit_end\";\n} | {\n    type: \"page_redirect\";\n}"
             },
             {
               "kind": "Content",

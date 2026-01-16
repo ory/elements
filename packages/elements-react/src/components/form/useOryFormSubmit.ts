@@ -37,6 +37,7 @@ export function useOryFormSubmit(
   const config = useOryConfiguration()
 
   const handleSuccess = (flow: OryFlowContainer) => {
+    flowContainer.dispatchFormState({ type: "form_submit_end" })
     flowContainer.setFlowContainer(flow)
     const newValues = computeDefaultValues(flow.flow)
     methods.reset(newValues, {
@@ -45,142 +46,153 @@ export function useOryFormSubmit(
   }
 
   const onRedirect: OnRedirectHandler = (url, _external) => {
+    flowContainer.dispatchFormState({ type: "page_redirect" })
     window.location.assign(url)
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (initialData) => {
+    flowContainer.dispatchFormState({ type: "form_submit_start" })
     // This is necessary to avoid sending empty strings to the backend, which can cause validation errors.
     // TODO: Kratos could be improved to handle this better, and treat empty strings as missing values.
-    const data = removeEmptyStrings(initialData)
-    console.log("Submitting form data:", data)
-    switch (flowContainer.flowType) {
-      case FlowType.Login: {
-        const submitData: UpdateLoginFlowBody = {
-          ...(data as unknown as UpdateLoginFlowBody),
-        }
-        if (submitData.method === "code" && data.code) {
-          submitData.resend = ""
-        }
-
-        await onSubmitLogin(flowContainer, config, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-      case FlowType.Registration: {
-        const submitData: UpdateRegistrationFlowBody = {
-          ...(data as unknown as UpdateRegistrationFlowBody),
-        }
-
-        if (submitData.method === "code" && submitData.code) {
-          submitData.resend = ""
-        }
-
-        await onSubmitRegistration(flowContainer, config, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-      case FlowType.Verification:
-        await onSubmitVerification(flowContainer, config, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: data as unknown as UpdateVerificationFlowBody,
-        })
-        break
-      case FlowType.Recovery: {
-        const submitData: UpdateRecoveryFlowBody = {
-          ...(data as unknown as UpdateRecoveryFlowBody),
-        }
-        // TODO: We should probably fix this in Kratos, and give the code priority over the email. However, that would be breaking :(
-        if (data.code) {
-          submitData.email = ""
-        }
-        await onSubmitRecovery(flowContainer, config, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
-      }
-      case FlowType.Settings: {
-        const submitData: UpdateSettingsFlowBody = {
-          ...(data as unknown as UpdateSettingsFlowBody),
-        }
-
-        if ("totp_unlink" in submitData) {
-          submitData.method = "totp"
-        }
-
-        if (
-          "lookup_secret_confirm" in submitData ||
-          "lookup_secret_reveal" in submitData ||
-          "lookup_secret_regenerate" in submitData ||
-          "lookup_secret_disable" in submitData
-        ) {
-          submitData.method = "lookup_secret"
-        }
-
-        // Force the account selection screen on link to provide a better use experience.
-        // https://github.com/ory/elements/issues/268
-        // TODO: Maybe this needs to be configurable in the configuration
-        if (
-          submitData.method === UiNodeGroupEnum.Oidc &&
-          submitData.link &&
-          supportsSelectAccountPrompt.includes(submitData.link)
-        ) {
-          submitData.upstream_parameters = {
-            prompt: "select_account",
+    try {
+      const data = removeEmptyStrings(initialData)
+      switch (flowContainer.flowType) {
+        case FlowType.Login: {
+          const submitData: UpdateLoginFlowBody = {
+            ...(data as unknown as UpdateLoginFlowBody),
           }
-        }
+          if (submitData.method === "code" && data.code) {
+            submitData.resend = ""
+          }
 
-        if ("webauthn_remove" in submitData) {
-          submitData.method = "webauthn"
+          await onSubmitLogin(flowContainer, config, {
+            onRedirect,
+            setFlowContainer: handleSuccess,
+            body: submitData,
+          })
+          break
         }
+        case FlowType.Registration: {
+          const submitData: UpdateRegistrationFlowBody = {
+            ...(data as unknown as UpdateRegistrationFlowBody),
+          }
 
-        if ("passkey_remove" in submitData) {
-          submitData.method = "passkey"
+          if (submitData.method === "code" && submitData.code) {
+            submitData.resend = ""
+          }
+
+          await onSubmitRegistration(flowContainer, config, {
+            onRedirect,
+            setFlowContainer: handleSuccess,
+            body: submitData,
+          })
+          break
         }
+        case FlowType.Verification:
+          await onSubmitVerification(flowContainer, config, {
+            onRedirect,
+            setFlowContainer: handleSuccess,
+            body: data as unknown as UpdateVerificationFlowBody,
+          })
+          break
+        case FlowType.Recovery: {
+          const submitData: UpdateRecoveryFlowBody = {
+            ...(data as unknown as UpdateRecoveryFlowBody),
+          }
+          // TODO: We should probably fix this in Kratos, and give the code priority over the email. However, that would be breaking :(
+          if (data.code) {
+            submitData.email = ""
+          }
+          await onSubmitRecovery(flowContainer, config, {
+            onRedirect,
+            setFlowContainer: handleSuccess,
+            body: submitData,
+          })
+          break
+        }
+        case FlowType.Settings: {
+          const submitData: UpdateSettingsFlowBody = {
+            ...(data as unknown as UpdateSettingsFlowBody),
+          }
 
-        await onSubmitSettings(flowContainer, config, {
-          onRedirect,
-          setFlowContainer: handleSuccess,
-          body: submitData,
-        })
-        break
+          if ("totp_unlink" in submitData) {
+            submitData.method = "totp"
+          }
+
+          if (
+            "lookup_secret_confirm" in submitData ||
+            "lookup_secret_reveal" in submitData ||
+            "lookup_secret_regenerate" in submitData ||
+            "lookup_secret_disable" in submitData
+          ) {
+            submitData.method = "lookup_secret"
+          }
+
+          // Force the account selection screen on link to provide a better use experience.
+          // https://github.com/ory/elements/issues/268
+          // TODO: Maybe this needs to be configurable in the configuration
+          if (
+            submitData.method === UiNodeGroupEnum.Oidc &&
+            submitData.link &&
+            supportsSelectAccountPrompt.includes(submitData.link)
+          ) {
+            submitData.upstream_parameters = {
+              prompt: "select_account",
+            }
+          }
+
+          if ("webauthn_remove" in submitData) {
+            submitData.method = "webauthn"
+          }
+
+          if ("passkey_remove" in submitData) {
+            submitData.method = "passkey"
+          }
+
+          await onSubmitSettings(flowContainer, config, {
+            onRedirect,
+            setFlowContainer: handleSuccess,
+            body: submitData,
+          })
+          break
+        }
+        case FlowType.OAuth2Consent: {
+          // TODO: move this to a full fleged SDK method?
+          const response = await fetch(flowContainer.flow.ui.action, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          const oauth2Success = await response.json()
+          if (
+            oauth2Success.redirect_to &&
+            typeof oauth2Success.redirect_to === "string"
+          ) {
+            onRedirect(oauth2Success.redirect_to as string, true)
+          }
+          throw new Error(
+            `[Ory/Elements]: OAuth2 consent flow not completed. This indicates a bug in Ory. Please report this issue to github.com/ory/elements. \nResponse from ${flowContainer.flow.ui.action}: ${JSON.stringify(oauth2Success)}`,
+          )
+        }
       }
-      case FlowType.OAuth2Consent: {
-        // TODO: move this to a full fleged SDK method?
-        const response = await fetch(flowContainer.flow.ui.action, {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        const oauth2Success = await response.json()
-        if (
-          oauth2Success.redirect_to &&
-          typeof oauth2Success.redirect_to === "string"
-        ) {
-          onRedirect(oauth2Success.redirect_to as string, true)
-        }
+      if ("password" in data) {
+        methods.setValue("password", "")
       }
+      if ("code" in data) {
+        methods.setValue("code", "")
+      }
+      if ("totp_code" in data) {
+        methods.setValue("totp_code", "")
+      }
+      onAfterSubmit?.(data.method)
+    } catch (error) {
+      // Fail safe, ensure that the submit state is ended
+      // But in practice none of the above methods should throw
+      flowContainer.dispatchFormState({ type: "form_submit_end" })
+      throw error
     }
-    if ("password" in data) {
-      methods.setValue("password", "")
-    }
-    if ("code" in data) {
-      methods.setValue("code", "")
-    }
-    if ("totp_code" in data) {
-      methods.setValue("totp_code", "")
-    }
-    onAfterSubmit?.(data.method)
   }
 
   return onSubmit

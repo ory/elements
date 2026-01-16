@@ -37,6 +37,17 @@ export type FormStateMethodActive = {
   method: UiNodeGroupEnum
 }
 
+type FlowFormState =
+  | FormStateSelectMethod
+  | FormStateProvideIdentifier
+  | FormStateMethodActive
+  | { current: "success_screen" }
+  | { current: "settings" }
+
+type CommonFormStateProperties = {
+  isSubmitting: boolean
+}
+
 /**
  * Represents the state of the form based on the flow type and active method.
  * This type is used to determine which part of the form should be displayed.
@@ -47,13 +58,11 @@ export type FormStateMethodActive = {
  * - `method_active`: An authentication method is active, and the user is interacting with it.
  * - `success_screen`: The flow has successfully completed (only used in the verification flow).
  * - `settings`: The user is in the settings flow.
+ *
+ * In addition, it includes a common properties:
+ * - `isSubmitting`: A boolean indicating whether the form is currently being submitted.
  */
-export type FormState =
-  | FormStateSelectMethod
-  | FormStateProvideIdentifier
-  | FormStateMethodActive
-  | { current: "success_screen" }
-  | { current: "settings" }
+export type FormState = FlowFormState & CommonFormStateProperties
 
 /**
  * Represents the actions that can be dispatched to update the form state.
@@ -92,6 +101,32 @@ export type FormStateAction =
        */
       type: "action_clear_active_method"
     }
+  | {
+      /**
+       * Action to indicate the start of a form submission.
+       * This action is dispatched when the user submits the form, and it sets the submitting state to true.
+       */
+      type: "form_submit_start"
+    }
+  | {
+      /**
+       * Action to indicate the end of a form submission.
+       * This action is dispatched when the form submission is complete, and it sets the submitting state to false.
+       */
+      type: "form_submit_end"
+    }
+  | {
+      /**
+       * Action to indicate that a page redirect is occurring.
+       * This action is dispatched when the form submission results in a page redirect
+       * (usually after a successful login, etc. to redirect to the main application's URL),
+       * and it keeps the submitting state as true, as the next action is a full page unload.
+       *
+       * This is necessary, to keep submit buttons in a submitting state while the redirect is in progress,
+       * to prevent the user accidentally interacting with the page while it's redirecting causing UX issues.
+       */
+      type: "page_redirect"
+    }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
   return nodes
@@ -99,7 +134,7 @@ function findMethodWithMessage(nodes?: UiNode[]) {
     ?.find((node) => node.messages?.length > 0)
 }
 
-function parseStateFromFlow(flow: OryFlowContainer): FormState {
+function parseStateFromFlow(flow: OryFlowContainer): FlowFormState {
   switch (flow.flowType) {
     case FlowType.Registration:
     case FlowType.Login: {
@@ -170,6 +205,7 @@ export function useFormStateReducer(flow: OryFlowContainer) {
   const [selectedMethod, setSelectedMethod] = useState<
     UiNodeGroupEnum | undefined
   >()
+  const [isRedirecting, setRedirecting] = useState(false)
 
   const formStateReducer = (
     state: FormState,
@@ -178,22 +214,53 @@ export function useFormStateReducer(flow: OryFlowContainer) {
     switch (action.type) {
       case "action_flow_update": {
         if (selectedMethod) {
-          return { current: "method_active", method: selectedMethod }
+          return {
+            current: "method_active",
+            method: selectedMethod,
+            isSubmitting: state.isSubmitting,
+          }
         }
-        return parseStateFromFlow(action.flow)
+        const flowFormState = parseStateFromFlow(action.flow)
+        return {
+          ...flowFormState,
+          isSubmitting: state.isSubmitting,
+        }
       }
       case "action_select_method": {
         setSelectedMethod(action.method)
-        return { current: "method_active", method: action.method }
+        return {
+          current: "method_active",
+          method: action.method,
+          isSubmitting: state.isSubmitting,
+        }
       }
       case "action_clear_active_method": {
         return {
           current: "select_method",
+          isSubmitting: state.isSubmitting,
         }
       }
+      case "form_submit_start":
+        return {
+          ...state,
+          isSubmitting: true,
+        }
+      case "form_submit_end":
+        return {
+          ...state,
+          // If we ever dispatched a page redirect, we want to keep the submitting state true
+          // This is because the page will redirect/is redirecting to a potentially slow loading external page.
+          isSubmitting: isRedirecting,
+        }
+      case "page_redirect":
+        setRedirecting(true)
+        return {
+          ...state,
+          isSubmitting: true,
+        }
     }
     return state
   }
 
-  return useReducer(formStateReducer, action)
+  return useReducer(formStateReducer, { ...action, isSubmitting: false })
 }
