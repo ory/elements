@@ -659,7 +659,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
             },
             {
               "kind": "Content",
@@ -704,7 +704,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
             },
             {
               "kind": "Content",
@@ -809,7 +809,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_8:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_7:type"
             },
             {
               "kind": "Content",
@@ -854,7 +854,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_8:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_7:type"
             },
             {
               "kind": "Content",
@@ -999,7 +999,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
             },
             {
               "kind": "Content",
@@ -1044,7 +1044,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
             },
             {
               "kind": "Content",
@@ -1057,7 +1057,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{}>, {\n    isSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{}>, {\n    isSubmitting: boolean;\n    isFormSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -1103,7 +1103,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_19:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_18:type"
             },
             {
               "kind": "Content",
@@ -1148,7 +1148,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_19:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_18:type"
             },
             {
               "kind": "Content",
@@ -1477,7 +1477,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
             },
             {
               "kind": "Content",
@@ -1522,7 +1522,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
             },
             {
               "kind": "Content",
@@ -1581,7 +1581,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_18:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
             },
             {
               "kind": "Content",
@@ -1626,7 +1626,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_18:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
             },
             {
               "kind": "Content",
@@ -1685,7 +1685,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_20:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_19:type"
             },
             {
               "kind": "Content",
@@ -1730,7 +1730,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_20:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_19:type"
             },
             {
               "kind": "Content",
@@ -1875,7 +1875,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_20:type"
             },
             {
               "kind": "Content",
@@ -1920,7 +1920,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_20:type"
             },
             {
               "kind": "Content",
@@ -2134,7 +2134,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
             },
             {
               "kind": "Content",
@@ -2179,7 +2179,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
             },
             {
               "kind": "Content",
@@ -2238,7 +2238,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
             },
             {
               "kind": "Content",
@@ -2283,7 +2283,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
             },
             {
               "kind": "Content",
@@ -2388,7 +2388,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_22:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
             },
             {
               "kind": "Content",
@@ -2433,7 +2433,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_22:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
             },
             {
               "kind": "Content",
@@ -2739,7 +2739,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
             },
             {
               "kind": "Content",
@@ -2784,7 +2784,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
             },
             {
               "kind": "Content",
@@ -2797,7 +2797,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{}>, {\n    isSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{}>, {\n    isSubmitting: boolean;\n    isFormSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -2843,7 +2843,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
             },
             {
               "kind": "Content",
@@ -2888,7 +2888,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
             },
             {
               "kind": "Content",
@@ -2947,7 +2947,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_34:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_33:type"
             },
             {
               "kind": "Content",
@@ -2992,7 +2992,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_34:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_33:type"
             },
             {
               "kind": "Content",
@@ -3741,7 +3741,7 @@
             },
             {
               "kind": "Content",
-              "text": "<string, string | boolean | number | undefined>"
+              "text": "<string, string | boolean | number | string[] | undefined>"
             },
             {
               "kind": "Content",
@@ -6521,7 +6521,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_3:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_2:type"
             },
             {
               "kind": "Content",
@@ -6566,7 +6566,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_3:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_2:type"
             },
             {
               "kind": "Content",
@@ -8703,7 +8703,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
             },
             {
               "kind": "Content",
@@ -8748,7 +8748,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
             },
             {
               "kind": "Content",
@@ -8816,7 +8816,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_6:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
             },
             {
               "kind": "Content",
@@ -8861,7 +8861,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_6:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
             },
             {
               "kind": "Content",
@@ -9364,16 +9364,7 @@
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_2:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", {}, {}, {}, {}, import(\"vue\")."
+              "text": "<{}, {}, {}, {}, {}, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -9409,16 +9400,7 @@
             },
             {
               "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_2:type"
-            },
-            {
-              "kind": "Content",
-              "text": "> & "
+              "text": "<{}> & "
             },
             {
               "kind": "Reference",
@@ -9427,16 +9409,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{}>, {\n    session: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Session",
-              "canonicalReference": "@ory/client-fetch!Session:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | null;\n    logoutUrl: string;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -9445,16 +9418,16 @@
             },
             {
               "kind": "Content",
-              "text": ", false, {}, any>"
+              "text": ", true, {}, any>"
             }
           ],
-          "fileUrlPath": "src/components/OryPageHeader.vue",
+          "fileUrlPath": "dist/types/src/components/OryPageHeader.vue.d.ts",
           "isReadonly": true,
           "releaseTag": "Public",
           "name": "OryPageHeader",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 22
+            "endIndex": 16
           }
         },
         {
@@ -9963,7 +9936,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_27:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_26:type"
             },
             {
               "kind": "Content",
@@ -10008,7 +9981,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_27:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_26:type"
             },
             {
               "kind": "Content",
@@ -10021,7 +9994,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    \"onUpdate:modelValue\"?: ((value: string) => any) | undefined;\n}>, {\n    length: number;\n    disabled: boolean;\n    class: string;\n    modelValue: string;\n    hasError: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{\n    \"onUpdate:modelValue\"?: ((value: string) => any) | undefined;\n}>, {\n    length: number;\n    autocomplete: string;\n    disabled: boolean;\n    class: string;\n    modelValue: string;\n    hasError: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -10969,6 +10942,51 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!replaceWindowFlowId:function(1)",
+          "docComment": "/**\n * Replaces the flow ID in the browser URL without triggering a navigation.\n *\n * @param flowId - The new flow ID to set in the URL\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function replaceWindowFlowId(flowId: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/util/ui/index.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "flowId",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "replaceWindowFlowId"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-vue!resolveLabel:function(1)",
           "docComment": "/**\n * Resolves a label from a UiText, handling dynamic text.\n *\n * @param text - The UiText containing the label\n *\n * @param i18n - The i18n object from vue-i18n\n */\n",
           "excerptTokens": [
@@ -11009,7 +11027,7 @@
             },
             {
               "kind": "Content",
-              "text": "any"
+              "text": "string"
             },
             {
               "kind": "Content",
@@ -11072,7 +11090,7 @@
             },
             {
               "kind": "Content",
-              "text": "any"
+              "text": "string"
             },
             {
               "kind": "Content",
@@ -11541,7 +11559,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_26:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_25:type"
             },
             {
               "kind": "Content",
@@ -11586,7 +11604,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_26:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_25:type"
             },
             {
               "kind": "Content",
@@ -12130,7 +12148,7 @@
             },
             {
               "kind": "Content",
-              "text": "any"
+              "text": "string"
             }
           ],
           "fileUrlPath": "src/util/i18n/index.ts",
@@ -12307,6 +12325,61 @@
           "overloadIndex": 1,
           "parameters": [],
           "name": "useGroupSorter"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!useHasSlotContent:function(1)",
+          "docComment": "/**\n * Checks if the default slot has real content (not just comments or empty text nodes).\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function useHasSlotContent(slots: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Slots",
+              "canonicalReference": "@vue/runtime-core!Slots:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComputedRef",
+              "canonicalReference": "@vue/reactivity!ComputedRef:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<boolean>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/composables/useSlotContent.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "slots",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "useHasSlotContent"
         },
         {
           "kind": "Function",
@@ -12905,7 +12978,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(name: string) => string | number | boolean | undefined"
+                  "text": "(name: string) => string | number | boolean | string[] | undefined"
                 },
                 {
                   "kind": "Content",
@@ -13068,7 +13141,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(name: string, value: string | number | boolean | undefined) => void"
+                  "text": "(name: string, value: string | number | boolean | string[] | undefined) => void"
                 },
                 {
                   "kind": "Content",

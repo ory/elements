@@ -85,6 +85,7 @@ export const DefaultBadge: DefineComponent<    {}, {}, {}, {}, {}, ComponentOpti
 // @public (undocumented)
 export const DefaultButton: DefineComponent<__VLS_Props_5, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_5> & Readonly<{}>, {
 isSubmitting: boolean;
+isFormSubmitting: boolean;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_Props_13" needs to be exported by the entry point index.d.ts
@@ -219,6 +220,7 @@ export const DefaultSettingsSectionFooter: __VLS_WithSlots_12<typeof __VLS_compo
 // @public (undocumented)
 export const DefaultSsoButton: DefineComponent<__VLS_Props_11, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_11> & Readonly<{}>, {
 isSubmitting: boolean;
+isFormSubmitting: boolean;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_Props_7" needs to be exported by the entry point index.d.ts
@@ -288,6 +290,7 @@ export const PinInput: DefineComponent<__VLS_Props_21, {}, {}, {}, {}, Component
 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {
 length: number;
+autocomplete: string;
 disabled: boolean;
 class: string;
 modelValue: string;

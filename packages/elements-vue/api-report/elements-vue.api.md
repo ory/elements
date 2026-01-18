@@ -41,6 +41,7 @@ import { SelfServiceFlowExpiredError } from '@ory/client-fetch';
 import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import type { Slot } from 'vue';
+import { Slots } from 'vue';
 import { UiContainer } from '@ory/client-fetch';
 import { UiNode } from '@ory/client-fetch';
 import { UiNodeAnchorAttributes } from '@ory/client-fetch';
@@ -115,10 +116,10 @@ export interface ConsentFlowProps {
     session: Session;
 }
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_15" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_14" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultAnchor: DefineComponent<__VLS_Props_15, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_15> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultAnchor: DefineComponent<__VLS_Props_14, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_14> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_WithSlots_12" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "__VLS_component_12" needs to be exported by the entry point index.d.ts
@@ -127,25 +128,26 @@ export const DefaultAnchor: DefineComponent<__VLS_Props_15, {}, {}, {}, {}, Comp
 // @public (undocumented)
 export const DefaultAuthMethodListContainer: __VLS_WithSlots_12<typeof __VLS_component_12, __VLS_Slots_12>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_8" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_7" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultAuthMethodListItem: DefineComponent<__VLS_Props_8, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_8> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultAuthMethodListItem: DefineComponent<__VLS_Props_7, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_7> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // @public (undocumented)
 export const DefaultBadge: DefineComponent<    {}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_11" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_10" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultButton: DefineComponent<__VLS_Props_11, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_11> & Readonly<{}>, {
+export const DefaultButton: DefineComponent<__VLS_Props_10, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_10> & Readonly<{}>, {
 isSubmitting: boolean;
+isFormSubmitting: boolean;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_19" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_18" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultCaptcha: DefineComponent<__VLS_Props_19, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_19> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultCaptcha: DefineComponent<__VLS_Props_18, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_18> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_WithSlots_8" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "__VLS_component_8" needs to be exported by the entry point index.d.ts
@@ -178,32 +180,32 @@ export const DefaultCardHeader: __VLS_WithSlots_9<typeof __VLS_component_9, __VL
 // @public (undocumented)
 export const DefaultCardLogo: DefineComponent<    {}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_12" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_11" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultCheckbox: DefineComponent<__VLS_Props_12, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_12> & Readonly<{}>, {
+export const DefaultCheckbox: DefineComponent<__VLS_Props_11, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_11> & Readonly<{}>, {
 modelValue: boolean;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_18" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_17" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultCodeInput: DefineComponent<__VLS_Props_18, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_18> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultCodeInput: DefineComponent<__VLS_Props_17, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_17> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_20" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_19" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultConsentCheckbox: DefineComponent<__VLS_Props_20, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_20> & Readonly<{}>, {
+export const DefaultConsentCheckbox: DefineComponent<__VLS_Props_19, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_19> & Readonly<{}>, {
 modelValue: boolean;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // @public (undocumented)
 export const DefaultCurrentIdentifierButton: DefineComponent<    {}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_21" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_20" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultDivider: DefineComponent<__VLS_Props_21, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_21> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultDivider: DefineComponent<__VLS_Props_20, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_20> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_WithSlots_13" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "__VLS_component_13" needs to be exported by the entry point index.d.ts
@@ -222,15 +224,15 @@ export const DefaultGroupContainer: __VLS_WithSlots_14<typeof __VLS_component_14
 // @public
 export function defaultGroupSorter(a: UiNodeGroupEnum, b: UiNodeGroupEnum): number;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_14" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_13" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultImage: DefineComponent<__VLS_Props_14, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_14> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultImage: DefineComponent<__VLS_Props_13, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_13> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_10" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_9" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultInput: DefineComponent<__VLS_Props_10, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_10> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultInput: DefineComponent<__VLS_Props_9, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_9> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_WithSlots_15" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "__VLS_component_15" needs to be exported by the entry point index.d.ts
@@ -239,10 +241,10 @@ export const DefaultInput: DefineComponent<__VLS_Props_10, {}, {}, {}, {}, Compo
 // @public (undocumented)
 export const DefaultLabel: __VLS_WithSlots_15<typeof __VLS_component_15, __VLS_Slots_15>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_22" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_21" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultMessage: DefineComponent<__VLS_Props_22, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_22> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultMessage: DefineComponent<__VLS_Props_21, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_21> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // Warning: (ae-forgotten-export) The symbol "__VLS_WithSlots_16" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "__VLS_component_16" needs to be exported by the entry point index.d.ts
@@ -275,22 +277,23 @@ export const DefaultSettingsSectionContent: __VLS_WithSlots_18<typeof __VLS_comp
 // @public (undocumented)
 export const DefaultSettingsSectionFooter: __VLS_WithSlots_19<typeof __VLS_component_19, __VLS_Slots_19>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_17" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_16" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultSsoButton: DefineComponent<__VLS_Props_17, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_17> & Readonly<{}>, {
+export const DefaultSsoButton: DefineComponent<__VLS_Props_16, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_16> & Readonly<{}>, {
 isSubmitting: boolean;
+isFormSubmitting: boolean;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_13" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_12" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const DefaultText: DefineComponent<__VLS_Props_13, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_13> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const DefaultText: DefineComponent<__VLS_Props_12, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_12> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_34" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_33" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-const Error_2: DefineComponent<__VLS_Props_34, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_34> & Readonly<{}>, {
+const Error_2: DefineComponent<__VLS_Props_33, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_33> & Readonly<{}>, {
 session: Session | null;
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 export { Error_2 as Error }
@@ -377,7 +380,7 @@ export type FormStateSelectMethod = {
 };
 
 // @public (undocumented)
-export type FormValues = Record<string, string | boolean | number | undefined>;
+export type FormValues = Record<string, string | boolean | number | string[] | undefined>;
 
 // @public
 export function frontendClient(sdkUrl: string, opts?: Partial<ConfigurationParameters>): FrontendApi;
@@ -567,10 +570,10 @@ export function messageTestId(message: {
     "data-testid": string;
 };
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_3" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const MethodActiveForm: DefineComponent<__VLS_Props_3, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_3> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const MethodActiveForm: DefineComponent<__VLS_Props_2, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_2> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // @public
 export function nodesToAuthMethodGroups(nodes: Array<UiNode>, excludeAuthMethods?: UiNodeGroupEnum[]): UiNodeGroupEnum[];
@@ -782,17 +785,17 @@ export type OryIntlConfig = {
 // @public (undocumented)
 export const OryLocales: LocaleMap;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_5" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_4" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const OryMessages: DefineComponent<__VLS_Props_5, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_5> & Readonly<{}>, {
+export const OryMessages: DefineComponent<__VLS_Props_4, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_4> & Readonly<{}>, {
 messages: UiText[];
 }, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_6" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_5" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const OryNode: DefineComponent<__VLS_Props_6, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_6> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const OryNode: DefineComponent<__VLS_Props_5, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_5> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // @public (undocumented)
 export type OryNodeAnchorProps = {
@@ -866,13 +869,8 @@ export type OryNodeTextProps = {
     attributes: UiNodeTextAttributes;
 };
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const OryPageHeader: DefineComponent<__VLS_Props_2, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_2> & Readonly<{}>, {
-session: Session | null;
-logoutUrl: string;
-}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const OryPageHeader: DefineComponent<    {}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>;
 
 // @public
 export interface OryPageHeaderProps {
@@ -916,15 +914,16 @@ export const OrySelfServiceFlowCard: DefineComponent<    {}, {}, {}, {}, {}, Com
 // @public (undocumented)
 export const OrySettingsCard: DefineComponent<    {}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_27" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_26" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const PinInput: DefineComponent<__VLS_Props_27, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+export const PinInput: DefineComponent<__VLS_Props_26, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
 "update:modelValue": (value: string) => any;
-}, string, PublicProps, Readonly<__VLS_Props_27> & Readonly<{
+}, string, PublicProps, Readonly<__VLS_Props_26> & Readonly<{
 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {
 length: number;
+autocomplete: string;
 disabled: boolean;
 class: string;
 modelValue: string;
@@ -1018,12 +1017,15 @@ export function registrationUrl(config: Config): string;
 export function removeEmptyStrings<T>(input: T): T;
 
 // @public
-export function resolveLabel(text: UiText, i18n: ReturnType<typeof useI18n>): any;
+export function replaceWindowFlowId(flowId: string): void;
+
+// @public
+export function resolveLabel(text: UiText, i18n: ReturnType<typeof useI18n>): string;
 
 // Warning: (ae-forgotten-export) The symbol "I18nComposer" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function resolvePlaceholder(text: UiText, i18n: I18nComposer): any;
+export function resolvePlaceholder(text: UiText, i18n: I18nComposer): string;
 
 // @public (undocumented)
 export const SelectMethodForm: DefineComponent<    {}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>;
@@ -1060,10 +1062,10 @@ export interface SettingsFlowContextProps {
 // @public
 export function settingsUrl(config: Config): string;
 
-// Warning: (ae-forgotten-export) The symbol "__VLS_Props_26" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "__VLS_Props_25" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Spinner: DefineComponent<__VLS_Props_26, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_26> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
+export const Spinner: DefineComponent<__VLS_Props_25, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<__VLS_Props_25> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>;
 
 // @public
 export function toAuthMethodPickerOptions(visibleGroups: GroupedNodes): AuthMethodOptions;
@@ -1105,7 +1107,7 @@ export type UiNodeText = UiNode & {
 };
 
 // @public
-export const uiTextToFormattedMessage: ({ id, context, text }: Omit<UiText, "type">, i18n: I18nComposer) => any;
+export const uiTextToFormattedMessage: ({ id, context, text }: Omit<UiText, "type">, i18n: I18nComposer) => string;
 
 // @public
 export function useComponents(): OryFlowComponents;
@@ -1115,6 +1117,9 @@ export function useFunctionalNodes(nodes: Ref<UiNode[]>): ComputedRef<UiNode[]>;
 
 // @public
 export function useGroupSorter(): (a: UiNodeGroupEnum, b: UiNodeGroupEnum) => number;
+
+// @public
+export function useHasSlotContent(slots: Slots): ComputedRef<boolean>;
 
 // @public
 export function useNodeGroupsWithVisibleNodes(nodes: Ref<UiNode[]>): ComputedRef<GroupedNodes>;
@@ -1155,12 +1160,12 @@ export interface UseOryFormOptions {
 // @public (undocumented)
 export interface UseOryFormReturn {
     action: ComputedRef<string>;
-    getValue: (name: string) => string | number | boolean | undefined;
+    getValue: (name: string) => string | number | boolean | string[] | undefined;
     handleSubmit: (event?: Event) => Promise<void>;
     isSubmitting: Ref<boolean>;
     method: ComputedRef<string>;
     reset: () => void;
-    setValue: (name: string, value: string | number | boolean | undefined) => void;
+    setValue: (name: string, value: string | number | boolean | string[] | undefined) => void;
     values: FormValues;
 }
 
@@ -1219,6 +1224,6 @@ export function withoutSingleSignOnNodes(nodes: UiNode[]): UiNode[];
 // Warnings were encountered during analysis:
 //
 // src/util/nodeGroups.ts:27:3 - (ae-forgotten-export) The symbol "GroupedNodes_2" needs to be exported by the entry point index.d.ts
-// src/util/ui/index.ts:378:13 - (ae-forgotten-export) The symbol "Entries" needs to be exported by the entry point index.d.ts
+// src/util/ui/index.ts:390:13 - (ae-forgotten-export) The symbol "Entries" needs to be exported by the entry point index.d.ts
 
 ```
