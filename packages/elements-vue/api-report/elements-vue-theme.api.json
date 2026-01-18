@@ -875,7 +875,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{}>, {\n    isSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{}>, {\n    isSubmitting: boolean;\n    isFormSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -2489,7 +2489,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{}>, {\n    isSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{}>, {\n    isSubmitting: boolean;\n    isFormSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -3214,7 +3214,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    \"onUpdate:modelValue\"?: ((value: string) => any) | undefined;\n}>, {\n    length: number;\n    disabled: boolean;\n    class: string;\n    modelValue: string;\n    hasError: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "<{\n    \"onUpdate:modelValue\"?: ((value: string) => any) | undefined;\n}>, {\n    length: number;\n    autocomplete: string;\n    disabled: boolean;\n    class: string;\n    modelValue: string;\n    hasError: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",

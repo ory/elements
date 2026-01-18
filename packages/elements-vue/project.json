@@ -9,7 +9,7 @@
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/dist"],
       "options": {
-        "command": "tsup --config tsup.config.ts",
+        "command": "tsup --config tsup.config.ts && vue-tsc --declaration --emitDeclarationOnly --outDir dist",
         "cwd": "packages/elements-vue"
       }
     },
