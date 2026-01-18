@@ -11,17 +11,15 @@ examples/nuxt-app/
 │   ├── auth.vue           # Centered layout for auth pages
 │   └── default.vue        # Default application layout
 ├── pages/
-│   ├── auth/
-│   │   ├── login.vue      # Login flow
-│   │   ├── registration.vue
-│   │   ├── recovery.vue
-│   │   └── verification.vue
+│   ├── login.vue          # Login flow
+│   ├── registration.vue   # Registration flow
+│   ├── recovery.vue       # Account recovery flow
+│   ├── verification.vue   # Email verification flow
 │   ├── settings.vue       # Protected settings page
+│   ├── session.vue        # Session details page
 │   ├── error.vue          # Error display page
 │   └── index.vue          # Home page with session status
-├── nuxt.config.ts         # Nuxt & Ory module configuration
-└── public/
-    └── ory-logo.svg       # Project logo
+└── nuxt.config.ts         # Nuxt & Ory module configuration
 ```
 
 ## Configuration
@@ -37,12 +35,11 @@ export default defineNuxtConfig({
   ory: {
     project: {
       // Localization
-      default_locale: "es",
+      default_locale: "en",
       locale_behavior: "force_default",
 
       // Branding
       name: "Ory Nuxt Example",
-      logo_light_url: "/ory-logo.svg",
 
       // Feature flags
       registration_enabled: true,
@@ -50,10 +47,10 @@ export default defineNuxtConfig({
       recovery_enabled: true,
 
       // UI URLs (must match your pages)
-      login_ui_url: "/auth/login",
-      registration_ui_url: "/auth/registration",
-      verification_ui_url: "/auth/verification",
-      recovery_ui_url: "/auth/recovery",
+      login_ui_url: "/login",
+      registration_ui_url: "/registration",
+      verification_ui_url: "/verification",
+      recovery_ui_url: "/recovery",
       settings_ui_url: "/settings",
       error_ui_url: "/error",
       default_redirect_url: "/",
@@ -99,31 +96,26 @@ export default defineNuxtConfig({
 ### Theme Configuration (`assets/css/main.css`)
 
 ```css
-@import "tailwindcss";
+@import "@ory/elements-vue/theme/default/styles.css";
 
-/* Scan @ory/elements-vue for Tailwind classes */
-@source "../../node_modules/@ory/elements-vue/dist/**/*.{js,mjs}";
+/* Include @ory/elements-vue components for Tailwind class scanning */
+@source "../../../../packages/elements-vue/dist/**/*.{js,mjs}";
 
-/* Define CSS custom properties for theming */
-:root {
-  --ui-50: #f8fafc;
-  /* ... color palette ... */
-}
-
-/* Map to Tailwind 4 theme */
-@theme {
-  --color-button-primary-background-default: var(--interface-background-brand-primary);
-  /* ... component tokens ... */
+/* Base styles */
+body {
+  font-family: Inter, Helvetica, sans-serif;
+  background-color: var(--ui-100);
+  color: var(--ory-foreground-default);
 }
 ```
 
-The `@source` directive tells Tailwind to scan the Ory elements package for class names used in components.
+The `@import` imports the default Ory theme styles, while `@source` tells Tailwind to scan the Ory elements package for class names used in components.
 
 ## Using Ory Components
 
 ### Auth Pages
 
-Import the flow component and use the corresponding composable:
+Import the flow component and use the corresponding composable (e.g., `pages/login.vue`):
 
 ```vue
 <script setup lang="ts">
@@ -163,7 +155,7 @@ const { data: session } = await useAsyncOrySession()
     Welcome back! Session ID: {{ session.id }}
   </div>
   <div v-else>
-    <NuxtLink to="/auth/login">Login</NuxtLink>
+    <NuxtLink to="/login">Login</NuxtLink>
   </div>
 </template>
 ```
@@ -203,23 +195,28 @@ npm install
 # Build dependencies
 npm run build --workspace=@ory/elements-vue --workspace=@ory/nuxt
 
+# (Optional) Generate Nuxt types for IDE support
+npm run prepare:types --workspace=nuxt-app
+
 # Start the dev server
 npm run dev --workspace=nuxt-app
 ```
 
 The app will be available at http://localhost:3000.
 
+> **Note:** The `prepare:types` script runs `nuxt prepare` to generate TypeScript declarations for better IDE support. This is optional as `nuxt dev` and `nuxt build` run it automatically.
+
 ## Internationalization (i18n)
 
-The example uses Spanish (`es`) locale by default. To change the locale, update `nuxt.config.ts`:
+The example uses English (`en`) locale by default. To change the locale, update `nuxt.config.ts`:
 
 ```typescript
 ory: {
   project: {
-    default_locale: "en", // or "fr", "de", etc.
+    default_locale: "fr", // or "es", "de", etc.
     locale_behavior: "force_default",
   },
 }
 ```
 
-Available locales are defined in `@ory/elements-vue/locales`.
+Available locales are defined in `@ory/elements-vue`.
