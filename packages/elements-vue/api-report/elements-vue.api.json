@@ -292,7 +292,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_24:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_25:type"
             },
             {
               "kind": "Content",
@@ -301,7 +301,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_24:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_25:var"
             },
             {
               "kind": "Content",
@@ -310,7 +310,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_24:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_25:type"
             },
             {
               "kind": "Content",
@@ -659,7 +659,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
             },
             {
               "kind": "Content",
@@ -704,7 +704,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
             },
             {
               "kind": "Content",
@@ -809,7 +809,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_7:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_6:type"
             },
             {
               "kind": "Content",
@@ -854,7 +854,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_7:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_6:type"
             },
             {
               "kind": "Content",
@@ -999,7 +999,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
             },
             {
               "kind": "Content",
@@ -1044,7 +1044,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
             },
             {
               "kind": "Content",
@@ -1477,7 +1477,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
             },
             {
               "kind": "Content",
@@ -1522,7 +1522,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_10:type"
             },
             {
               "kind": "Content",
@@ -2134,7 +2134,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
             },
             {
               "kind": "Content",
@@ -2179,7 +2179,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
             },
             {
               "kind": "Content",
@@ -2238,7 +2238,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_8:type"
             },
             {
               "kind": "Content",
@@ -2283,7 +2283,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_8:type"
             },
             {
               "kind": "Content",
@@ -2479,7 +2479,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_17:type"
             },
             {
               "kind": "Content",
@@ -2488,7 +2488,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_16:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_17:var"
             },
             {
               "kind": "Content",
@@ -2497,7 +2497,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_17:type"
             },
             {
               "kind": "Content",
@@ -2588,52 +2588,6 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_17:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<typeof "
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_17:var"
-            },
-            {
-              "kind": "Content",
-              "text": ", "
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_17:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
-            }
-          ],
-          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSection.vue",
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "DefaultSettingsSection",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 7
-          }
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionContent:var",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "_default: "
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_WithSlots",
               "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_18:type"
             },
             {
@@ -2659,10 +2613,10 @@
               "text": ">"
             }
           ],
-          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSectionContent.vue",
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSection.vue",
           "isReadonly": true,
           "releaseTag": "Public",
-          "name": "DefaultSettingsSectionContent",
+          "name": "DefaultSettingsSection",
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
@@ -2670,7 +2624,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionFooter:var",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionContent:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -2699,6 +2653,52 @@
               "kind": "Reference",
               "text": "__VLS_Slots",
               "canonicalReference": "@ory/elements-vue!~__VLS_Slots_19:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSectionContent.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSettingsSectionContent",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionFooter:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_20:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_20:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_20:type"
             },
             {
               "kind": "Content",
@@ -2739,7 +2739,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
             },
             {
               "kind": "Content",
@@ -2784,7 +2784,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
             },
             {
               "kind": "Content",
@@ -2820,6 +2820,52 @@
         },
         {
           "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSsoButtonContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_16:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_16:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_16:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSsoButtonContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSsoButtonContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
           "canonicalReference": "@ory/elements-vue!DefaultText:var",
           "docComment": "",
           "excerptTokens": [
@@ -2843,7 +2889,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
             },
             {
               "kind": "Content",
@@ -2888,7 +2934,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
             },
             {
               "kind": "Content",
@@ -4234,113 +4280,6 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@ory/elements-vue!getNodesGroups:function(1)",
-          "docComment": "/**\n * Groups nodes by their group.\n *\n * @param nodes - The nodes to group\n *\n * @param opts - The options to use\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare function getNodesGroups(nodes: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]"
-            },
-            {
-              "kind": "Content",
-              "text": ", { omit }?: "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    omit?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Array",
-              "canonicalReference": "!Array:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<\"script\" | \"input_hidden\">;\n}"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
-            },
-            {
-              "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNodeGroupEnum",
-              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>>"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "src/util/ui/index.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 8,
-            "endIndex": 16
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "nodes",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 3
-              },
-              "isOptional": false
-            },
-            {
-              "parameterName": "{ omit }",
-              "parameterTypeTokenRange": {
-                "startIndex": 4,
-                "endIndex": 7
-              },
-              "isOptional": true
-            }
-          ],
-          "name": "getNodesGroups"
-        },
-        {
-          "kind": "Function",
           "canonicalReference": "@ory/elements-vue!getOryComponents:function(1)",
           "docComment": "/**\n * Merges the default Ory components with any provided overrides.\n *\n * @param overrides - Optional overrides for the default components.\n */\n",
           "excerptTokens": [
@@ -4851,12 +4790,12 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@ory/elements-vue!isChoosingMethod:function(1)",
-          "docComment": "/**\n * Check if the flow is in choosing method state\n */\n",
+          "canonicalReference": "@ory/elements-vue!isConsentFlow:function(1)",
+          "docComment": "/**\n * Type guard to check if a flow is a ConsentFlow\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare function isChoosingMethod(flow: "
+              "text": "export declare function isConsentFlow(flow: "
             },
             {
               "kind": "Reference",
@@ -4865,21 +4804,35 @@
             },
             {
               "kind": "Content",
-              "text": "): "
+              "text": "[\"flow\"]"
             },
             {
               "kind": "Content",
-              "text": "boolean"
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "flow",
+              "canonicalReference": "@ory/elements-vue!~flow"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "ConsentFlow",
+              "canonicalReference": "@ory/elements-vue!ConsentFlow:type"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "src/components/card/two-step/utils.ts",
+          "fileUrlPath": "src/util/flowContainer.ts",
           "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 4
+            "startIndex": 4,
+            "endIndex": 7
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -4888,12 +4841,12 @@
               "parameterName": "flow",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 2
+                "endIndex": 3
               },
               "isOptional": false
             }
           ],
-          "name": "isChoosingMethod"
+          "name": "isConsentFlow"
         },
         {
           "kind": "Function",
@@ -6179,7 +6132,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_20:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_21:type"
             },
             {
               "kind": "Content",
@@ -6188,7 +6141,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_20:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_21:var"
             },
             {
               "kind": "Content",
@@ -6197,7 +6150,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_20:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_21:type"
             },
             {
               "kind": "Content",
@@ -8698,16 +8651,16 @@
             },
             {
               "kind": "Content",
-              "text": "<"
+              "text": "<{\n    messages?: "
             },
             {
               "kind": "Reference",
-              "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
             },
             {
               "kind": "Content",
-              "text": ", {}, {}, {}, {}, import(\"vue\")."
+              "text": "[];\n    hiddenMessageIds?: number[];\n}, {}, {}, {}, {}, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -8743,16 +8696,16 @@
             },
             {
               "kind": "Content",
-              "text": "<"
+              "text": "<{\n    messages?: "
             },
             {
               "kind": "Reference",
-              "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
+              "text": "UiText",
+              "canonicalReference": "@ory/client-fetch!UiText:interface"
             },
             {
               "kind": "Content",
-              "text": "> & "
+              "text": "[];\n    hiddenMessageIds?: number[];\n}> & "
             },
             {
               "kind": "Reference",
@@ -8770,7 +8723,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n}, {}, {}, {}, string, import(\"vue\")."
+              "text": "[];\n    hiddenMessageIds: number[];\n}, {}, {}, {}, string, import(\"vue\")."
             },
             {
               "kind": "Reference",
@@ -8816,7 +8769,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
             },
             {
               "kind": "Content",
@@ -8861,7 +8814,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
             },
             {
               "kind": "Content",
@@ -10418,7 +10371,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_22:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_23:type"
             },
             {
               "kind": "Content",
@@ -10427,7 +10380,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_22:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_23:var"
             },
             {
               "kind": "Content",
@@ -10436,7 +10389,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_22:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_23:type"
             },
             {
               "kind": "Content",
@@ -10656,7 +10609,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_21:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_22:type"
             },
             {
               "kind": "Content",
@@ -10665,7 +10618,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_21:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_22:var"
             },
             {
               "kind": "Content",
@@ -10674,7 +10627,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_21:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_22:type"
             },
             {
               "kind": "Content",
@@ -11222,7 +11175,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_25:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_26:type"
             },
             {
               "kind": "Content",
@@ -11231,7 +11184,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_25:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_26:var"
             },
             {
               "kind": "Content",
@@ -11240,7 +11193,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_25:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_26:type"
             },
             {
               "kind": "Content",
@@ -12209,79 +12162,6 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@ory/elements-vue!useFunctionalNodes:function(1)",
-          "docComment": "/**\n * Vue composable for functional nodes.\n *\n * @param nodes - Reactive array of nodes\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare function useFunctionalNodes(nodes: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Ref",
-              "canonicalReference": "@vue/reactivity!Ref:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
-            },
-            {
-              "kind": "Reference",
-              "text": "ComputedRef",
-              "canonicalReference": "@vue/reactivity!ComputedRef:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "src/util/ui/index.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 6,
-            "endIndex": 10
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "nodes",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 5
-              },
-              "isOptional": false
-            }
-          ],
-          "name": "useFunctionalNodes"
-        },
-        {
-          "kind": "Function",
           "canonicalReference": "@ory/elements-vue!useGroupSorter:function(1)",
           "docComment": "/**\n * Use the group sorter function\n */\n",
           "excerptTokens": [
@@ -12380,287 +12260,6 @@
             }
           ],
           "name": "useHasSlotContent"
-        },
-        {
-          "kind": "Function",
-          "canonicalReference": "@ory/elements-vue!useNodeGroupsWithVisibleNodes:function(1)",
-          "docComment": "/**\n * Vue composable for getting node groups with visible nodes.\n *\n * @param nodes - Reactive array of nodes\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare function useNodeGroupsWithVisibleNodes(nodes: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Ref",
-              "canonicalReference": "@vue/reactivity!Ref:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
-            },
-            {
-              "kind": "Reference",
-              "text": "ComputedRef",
-              "canonicalReference": "@vue/reactivity!ComputedRef:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "GroupedNodes",
-              "canonicalReference": "@ory/elements-vue!GroupedNodes:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "src/util/ui/index.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 6,
-            "endIndex": 10
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "nodes",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 5
-              },
-              "isOptional": false
-            }
-          ],
-          "name": "useNodeGroupsWithVisibleNodes"
-        },
-        {
-          "kind": "Function",
-          "canonicalReference": "@ory/elements-vue!useNodesGroups:function(1)",
-          "docComment": "/**\n * Vue composable for grouping nodes.\n *\n * @param nodes - Reactive array of nodes\n *\n * @param opts - Options for filtering\n *\n * @param groupSorter - Function to sort groups\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare function useNodesGroups(nodes: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Ref",
-              "canonicalReference": "@vue/reactivity!Ref:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>"
-            },
-            {
-              "kind": "Content",
-              "text": ", opts?: "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    omit?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Array",
-              "canonicalReference": "!Array:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<\"script\" | \"input_hidden\">;\n}"
-            },
-            {
-              "kind": "Content",
-              "text": ", groupSorter?: "
-            },
-            {
-              "kind": "Content",
-              "text": "(a: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNodeGroupEnum",
-              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", b: "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNodeGroupEnum",
-              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
-            },
-            {
-              "kind": "Content",
-              "text": ") => number"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n    groups: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ComputedRef",
-              "canonicalReference": "@vue/reactivity!ComputedRef:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNodeGroupEnum",
-              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>>>;\n    entries: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ComputedRef",
-              "canonicalReference": "@vue/reactivity!ComputedRef:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "Entries",
-              "canonicalReference": "@ory/elements-vue!~Entries:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNodeGroupEnum",
-              "canonicalReference": "@ory/client-fetch!UiNodeGroupEnum:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", "
-            },
-            {
-              "kind": "Reference",
-              "text": "UiNode",
-              "canonicalReference": "@ory/client-fetch!UiNode:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[]>>>;\n}"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "src/util/ui/index.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 16,
-            "endIndex": 37
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "nodes",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 5
-              },
-              "isOptional": false
-            },
-            {
-              "parameterName": "opts",
-              "parameterTypeTokenRange": {
-                "startIndex": 6,
-                "endIndex": 9
-              },
-              "isOptional": true
-            },
-            {
-              "parameterName": "groupSorter",
-              "parameterTypeTokenRange": {
-                "startIndex": 10,
-                "endIndex": 15
-              },
-              "isOptional": true
-            }
-          ],
-          "name": "useNodesGroups"
         },
         {
           "kind": "Function",
@@ -13367,7 +12966,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_23:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_24:type"
             },
             {
               "kind": "Content",
@@ -13376,7 +12975,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_23:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_24:var"
             },
             {
               "kind": "Content",
@@ -13385,7 +12984,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_23:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_24:type"
             },
             {
               "kind": "Content",

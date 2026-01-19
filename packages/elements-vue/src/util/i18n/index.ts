@@ -34,7 +34,6 @@ export const uiTextToFormattedMessage = (
           const date = new Date(value * 1000)
           return {
             ...accumulator,
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
             [key]: String(i18n.d(date)),
             [key + "_since_minutes"]: Math.ceil(
               (value - new Date().getTime() / 1000) / 60,
@@ -47,7 +46,6 @@ export const uiTextToFormattedMessage = (
       } else if (key === "property") {
         return {
           ...accumulator,
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
           [key]: String(i18n.t(`property.${value}`, String(value))),
         }
       }
@@ -59,7 +57,6 @@ export const uiTextToFormattedMessage = (
     {},
   )
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   return String(
     i18n.t(`identities.messages.${id}`, contextInjectedMessage, text),
   )
@@ -72,7 +69,6 @@ export const uiTextToFormattedMessage = (
  * @param i18n - The i18n object from vue-i18n
  */
 export function resolvePlaceholder(text: UiText, i18n: I18nComposer): string {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   const fallback = String(
     i18n.t(
       "input.placeholder",
@@ -83,7 +79,6 @@ export function resolvePlaceholder(text: UiText, i18n: I18nComposer): string {
 
   if (isDynamicText(text)) {
     const field = text.context.name
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     return String(i18n.t(`forms.input.placeholder.${field}`, fallback))
   }
   return fallback

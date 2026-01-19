@@ -155,11 +155,12 @@ function loadTurnstileScript(): Promise<void> {
 }
 
 function waitForTurnstileAndRender() {
-  loadTurnstileScript()
+  void loadTurnstileScript()
     .then(() => {
       renderWidget()
+      return undefined
     })
-    .catch((error) => {
+    .catch((error: unknown) => {
       console.error("Turnstile initialization failed:", error)
     })
 }

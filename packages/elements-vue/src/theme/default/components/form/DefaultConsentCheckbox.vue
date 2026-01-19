@@ -5,7 +5,7 @@
 import { computed, ref } from "vue"
 import type { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useOryIntl } from "../../../../composables/useOryIntl"
-import type { IconName } from "../ui/Icon.vue"
+import type { IconName } from "../ui/types"
 import Icon from "../ui/Icon.vue"
 
 const ScopeIcons: Record<string, IconName> = {
@@ -45,7 +45,7 @@ const scopeDescription = computed(() => {
   return translation === key ? "" : translation
 })
 
-const iconName = computed(() => ScopeIcons[scopeValue.value] ?? "personal")
+const iconName = computed((): IconName => ScopeIcons[scopeValue.value] ?? "personal")
 
 function handleChange() {
   isChecked.value = !isChecked.value

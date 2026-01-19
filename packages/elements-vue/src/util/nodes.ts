@@ -49,7 +49,6 @@ export function resolveLabel(
 ): string {
   if (isDynamicText(text)) {
     const field = text.context.name
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     return String(i18n.t(`forms.label.${field}`, text.text))
   }
   return uiTextToFormattedMessage(text, i18n)

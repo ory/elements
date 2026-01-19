@@ -265,6 +265,14 @@ const config = tseslint.config([
     },
   },
   {
+    files: ["packages/elements-vue/stories/**/*.{js,ts,vue}"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "better-tailwindcss/no-unregistered-classes": "off",
+    },
+  },
+  {
     name: "no-react-hook-form-imports",
     files: ["packages/elements-react/src/theme/default/**"],
     rules: {

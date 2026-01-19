@@ -8,7 +8,7 @@ import { useOryFlow } from "../../../../composables/useOryFlow"
 import { useOryIntl } from "../../../../composables/useOryIntl"
 import { useOptionalOryFormContext } from "../../../../composables/useOryFormContext"
 import { triggerToWindowCall } from "../../../../util/ui"
-import type { IconName } from "../ui/Icon.vue"
+import type { IconName } from "../ui/types"
 import Icon from "../ui/Icon.vue"
 
 const props = defineProps<{
@@ -31,7 +31,10 @@ const iconsMap: Record<string, IconName> = {
   hardware_token: "key",
 }
 
-const iconName = computed(() => iconsMap[props.group] || null)
+const iconName = computed((): IconName | null => {
+  const group = props.group as string
+  return group in iconsMap ? iconsMap[group] : null
+})
 
 const titleText = computed(() => {
   const titleId = props.title?.id ?? `two-step.${props.group}.title`

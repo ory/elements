@@ -107,6 +107,7 @@ export function isConsentFlow(
     flow &&
     "consent_request" in flow &&
     "session" in flow &&
-    (flow as ConsentFlow).active === "oauth2_consent"
+    "active" in flow &&
+    flow.active === "oauth2_consent"
   )
 }

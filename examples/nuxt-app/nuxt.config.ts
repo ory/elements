@@ -38,16 +38,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: [
-        "alloy-subsequent-parks-chorus.trycloudflare.com",
-        "mic-attached-observe-portsmouth.trycloudflare.com",
-        "vegetables-mostly-daughter-storage.trycloudflare.com",
-        "stones-ranging-donors-periodic.trycloudflare.com",
-        "showcase-yours-dimension-tobacco.trycloudflare.com",
-        "conjunction-impossible-strong-somewhat.trycloudflare.com",
-        "deeply-channels-mutual-gotten.trycloudflare.com",
-        "milk-bali-clearly-heavily.trycloudflare.com",
-      ],
+      allowedHosts: [],
     },
   },
 
