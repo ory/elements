@@ -35,7 +35,9 @@ const codes = computed(() => {
     | undefined
 
   if (context?.secrets && Array.isArray(context.secrets)) {
-    return context.secrets.map((s) => s.context?.secret || s.text).filter(Boolean)
+    return context.secrets
+      .map((s) => s.context?.secret || s.text)
+      .filter(Boolean)
   }
 
   return []

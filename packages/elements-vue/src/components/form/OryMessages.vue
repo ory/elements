@@ -26,16 +26,14 @@ const props = withDefaults(
 
 const components = useComponents()
 
-const filteredMessages = computed(() =>
-  props.messages?.filter((m) => !props.hiddenMessageIds.includes(m.id)) ?? [],
+const filteredMessages = computed(
+  () =>
+    props.messages?.filter((m) => !props.hiddenMessageIds.includes(m.id)) ?? [],
 )
 </script>
 
 <template>
-  <component
-    :is="components.Message.Root"
-    v-if="filteredMessages.length > 0"
-  >
+  <component :is="components.Message.Root" v-if="filteredMessages.length > 0">
     <component
       :is="components.Message.Content"
       v-for="message in filteredMessages"

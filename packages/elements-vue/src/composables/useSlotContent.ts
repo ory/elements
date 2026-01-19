@@ -9,7 +9,11 @@ import { computed, Comment, Text, type Slots } from "vue"
 export function useHasSlotContent(slots: Slots) {
   return computed(() => {
     const slotContent = slots.default?.()
-    if (!slotContent || !Array.isArray(slotContent) || slotContent.length === 0) {
+    if (
+      !slotContent ||
+      !Array.isArray(slotContent) ||
+      slotContent.length === 0
+    ) {
       return false
     }
     return slotContent.some((vnode) => {

@@ -122,7 +122,13 @@ function togglePassword() {
     :disabled="attributes.disabled"
     :autocomplete="attributes.autocomplete"
     :pattern="attributes.pattern"
-    :class="cn(defaultInputClassName, textInputClassName, isSettingsFlow && 'max-w-[488px]')"
+    :class="
+      cn(
+        defaultInputClassName,
+        textInputClassName,
+        isSettingsFlow && 'max-w-[488px]',
+      )
+    "
     :data-testid="`ory/form/node/input/${attributes.name}`"
     @input="handleInput"
     @blur="handleBlur"

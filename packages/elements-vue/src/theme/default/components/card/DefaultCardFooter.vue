@@ -200,7 +200,11 @@ const footerContent = computed(() => {
 const hasRealSlotContent = useHasSlotContent(slots)
 
 const hasFooterContent = computed(
-  () => showLogoutButton.value || showChooseMethod.value || showGoBackLink.value || footerContent.value,
+  () =>
+    showLogoutButton.value ||
+    showChooseMethod.value ||
+    showGoBackLink.value ||
+    footerContent.value,
 )
 
 const logoutHref = computed(() => logoutUrl.value || fallbackUrl.value)

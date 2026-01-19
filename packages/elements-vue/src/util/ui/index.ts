@@ -301,4 +301,3 @@ export function getNodeGroupsWithVisibleNodes(nodes: UiNode[]): GroupedNodes {
 
   return finalGroups
 }
-

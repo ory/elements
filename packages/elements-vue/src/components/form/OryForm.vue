@@ -83,10 +83,7 @@ watch(
 <template>
   <template v-if="!hasMethods">
     <component :is="components.Message.Root">
-      <component
-        :is="components.Message.Content"
-        :message="noMethodsMessage"
-      />
+      <component :is="components.Message.Content" :message="noMethodsMessage" />
     </component>
   </template>
   <component

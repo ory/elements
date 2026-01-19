@@ -35,7 +35,10 @@ const config: StorybookConfig = {
       ...(Array.isArray(config.resolve.alias) ? config.resolve.alias : []),
       {
         find: "$snapshots",
-        replacement: path.resolve(__dirname, "../../elements-react/.stub-responses"),
+        replacement: path.resolve(
+          __dirname,
+          "../../elements-react/.stub-responses",
+        ),
       },
       {
         find: "@ory/elements-vue",
