@@ -2,7 +2,7 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <script setup lang="ts">
-import { computed, useSlots } from "vue"
+import { computed, useSlots, Comment } from "vue"
 import { FlowType } from "@ory/client-fetch"
 import { useOryFlow } from "../../../../composables/useOryFlow"
 import { cn } from "../../utils/cn"

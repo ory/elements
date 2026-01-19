@@ -2,35 +2,8 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <script lang="ts">
-export type IconName =
-  | "alert-triangle"
-  | "arrow-left"
-  | "code"
-  | "download"
-  | "eye"
-  | "eye-off"
-  | "key"
-  | "logout"
-  | "lookup-secret"
-  | "message"
-  | "passkey"
-  | "password"
-  | "personal"
-  | "phone"
-  | "qr-code"
-  | "refresh"
-  | "settings"
-  | "totp"
-  | "trash"
-  | "unlink"
-  | "user"
-  | "webauthn"
-  | "x"
-
-export interface IconProps {
-  name: IconName
-  size?: number
-}
+export type { IconName, IconProps } from "./types"
+import type { IconName, IconProps } from "./types"
 
 interface IconPath {
   d: string
