@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 /* eslint-disable @typescript-eslint/no-unsafe-enum-comparison -- eslint gets confused because of different versions of @ory/client-fetch */
 import { FlowType } from "@ory/client-fetch"
 import { useOryFlow } from "@ory/elements-react"

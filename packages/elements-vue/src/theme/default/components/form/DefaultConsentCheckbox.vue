@@ -45,7 +45,9 @@ const scopeDescription = computed(() => {
   return translation === key ? "" : translation
 })
 
-const iconName = computed((): IconName => ScopeIcons[scopeValue.value] ?? "personal")
+const iconName = computed(
+  (): IconName => ScopeIcons[scopeValue.value] ?? "personal",
+)
 
 function handleChange() {
   isChecked.value = !isChecked.value
@@ -62,9 +64,7 @@ function handleChange() {
       <Icon :name="iconName" :size="16" />
     </span>
     <span class="inline-flex max-w-full min-w-1 flex-1 flex-col leading-normal">
-      <span
-        class="break-words text-interface-foreground-default-primary"
-      >
+      <span class="break-words text-interface-foreground-default-primary">
         {{ scopeTitle }}
       </span>
       <span

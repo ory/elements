@@ -244,7 +244,10 @@ export function useCardHeaderText(
         let descriptionKey = "login.subtitle-aal2"
         if (codeSent) {
           descriptionKey = "identities.messages.1010014"
-        } else if (opts.formState?.current === "method_active" && opts.formState.method) {
+        } else if (
+          opts.formState?.current === "method_active" &&
+          opts.formState.method
+        ) {
           descriptionKey = `login.${opts.formState.method}.subtitle`
         }
         return {

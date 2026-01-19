@@ -41,8 +41,8 @@ const ssoNodes = computed(() =>
 
 const ssoNodeCount = computed(() => ssoNodes.value.length)
 
-const providerKey = computed(() =>
-  (props.attributes.value as string).split("-")[0],
+const providerKey = computed(
+  () => (props.attributes.value as string).split("-")[0],
 )
 
 const providerDisplayName = computed(() => {

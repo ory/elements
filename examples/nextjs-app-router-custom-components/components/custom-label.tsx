@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { OryNodeLabelProps } from "@ory/elements-react"
 
 export function MyCustomLabel({

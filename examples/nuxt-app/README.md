@@ -1,6 +1,7 @@
 # Ory Nuxt Example
 
-This example demonstrates how to integrate Ory authentication flows with a Nuxt 4 application using `@ory/nuxt` and `@ory/elements-vue`.
+This example demonstrates how to integrate Ory authentication flows with a Nuxt
+4 application using `@ory/nuxt` and `@ory/elements-vue`.
 
 ## Project Structure
 
@@ -109,13 +110,15 @@ body {
 }
 ```
 
-The `@import` imports the default Ory theme styles, while `@source` tells Tailwind to scan the Ory elements package for class names used in components.
+The `@import` imports the default Ory theme styles, while `@source` tells
+Tailwind to scan the Ory elements package for class names used in components.
 
 ## Using Ory Components
 
 ### Auth Pages
 
-Import the flow component and use the corresponding composable (e.g., `pages/login.vue`):
+Import the flow component and use the corresponding composable (e.g.,
+`pages/login.vue`):
 
 ```vue
 <script setup lang="ts">
@@ -135,6 +138,7 @@ const flow = await useOryLoginFlow()
 ```
 
 Available components:
+
 - `Login` - Login flow with `useOryLoginFlow()`
 - `Registration` - Registration flow with `useOryRegistrationFlow()`
 - `Recovery` - Account recovery with `useOryRecoveryFlow()`
@@ -151,9 +155,7 @@ const { data: session } = await useAsyncOrySession()
 </script>
 
 <template>
-  <div v-if="session">
-    Welcome back! Session ID: {{ session.id }}
-  </div>
+  <div v-if="session">Welcome back! Session ID: {{ session.id }}</div>
   <div v-else>
     <NuxtLink to="/login">Login</NuxtLink>
   </div>
@@ -176,15 +178,15 @@ This redirects unauthenticated users to the login page.
 
 ## Available Composables
 
-| Composable | Description |
-|------------|-------------|
-| `useOryConfig()` | Access Ory project configuration |
-| `useOryLoginFlow()` | Initialize or retrieve login flow |
+| Composable                 | Description                              |
+| -------------------------- | ---------------------------------------- |
+| `useOryConfig()`           | Access Ory project configuration         |
+| `useOryLoginFlow()`        | Initialize or retrieve login flow        |
 | `useOryRegistrationFlow()` | Initialize or retrieve registration flow |
-| `useOryRecoveryFlow()` | Initialize or retrieve recovery flow |
+| `useOryRecoveryFlow()`     | Initialize or retrieve recovery flow     |
 | `useOryVerificationFlow()` | Initialize or retrieve verification flow |
-| `useOrySettingsFlow()` | Initialize or retrieve settings flow |
-| `useAsyncOrySession()` | Get current session (async) |
+| `useOrySettingsFlow()`     | Initialize or retrieve settings flow     |
+| `useAsyncOrySession()`     | Get current session (async)              |
 
 ## Running the Example
 
@@ -204,11 +206,14 @@ npm run dev --workspace=nuxt-app
 
 The app will be available at http://localhost:3000.
 
-> **Note:** The `prepare:types` script runs `nuxt prepare` to generate TypeScript declarations for better IDE support. This is optional as `nuxt dev` and `nuxt build` run it automatically.
+> **Note:** The `prepare:types` script runs `nuxt prepare` to generate
+> TypeScript declarations for better IDE support. This is optional as `nuxt dev`
+> and `nuxt build` run it automatically.
 
 ## Internationalization (i18n)
 
-The example uses English (`en`) locale by default. To change the locale, update `nuxt.config.ts`:
+The example uses English (`en`) locale by default. To change the locale, update
+`nuxt.config.ts`:
 
 ```typescript
 ory: {

@@ -4,7 +4,15 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "dev", "preview", "build-storybook", "test", "lint", "typecheck"]
+        "cacheableOperations": [
+          "build",
+          "dev",
+          "preview",
+          "build-storybook",
+          "test",
+          "lint",
+          "typecheck"
+        ]
       }
     }
   },

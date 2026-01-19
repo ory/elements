@@ -25,40 +25,57 @@ const headerText = computed(() => {
   const ui = flow.ui
 
   if (flowType.value === FlowType.Login) {
-    return useCardHeaderText(ui, {
-      flowType: FlowType.Login as const,
-      flow: {
-        refresh: "refresh" in flow ? flow.refresh : false,
-        requested_aal: "requested_aal" in flow ? flow.requested_aal : undefined,
+    return useCardHeaderText(
+      ui,
+      {
+        flowType: FlowType.Login as const,
+        flow: {
+          refresh: "refresh" in flow ? flow.refresh : false,
+          requested_aal:
+            "requested_aal" in flow ? flow.requested_aal : undefined,
+        },
+        formState: formState.value,
       },
-      formState: formState.value,
-    }, t)
+      t,
+    )
   }
 
   if (flowType.value === FlowType.Registration) {
-    return useCardHeaderText(ui, {
-      flowType: FlowType.Registration as const,
-      formState: formState.value,
-    }, t)
+    return useCardHeaderText(
+      ui,
+      {
+        flowType: FlowType.Registration as const,
+        formState: formState.value,
+      },
+      t,
+    )
   }
 
   if (flowType.value === FlowType.OAuth2Consent && isConsentFlow(flow)) {
-    return useCardHeaderText(ui, {
-      flowType: FlowType.OAuth2Consent as const,
-      flow: {
-        consent_request: flow.consent_request,
-        session: flow.session,
+    return useCardHeaderText(
+      ui,
+      {
+        flowType: FlowType.OAuth2Consent as const,
+        flow: {
+          consent_request: flow.consent_request,
+          session: flow.session,
+        },
       },
-    }, t)
+      t,
+    )
   }
 
-  return useCardHeaderText(ui, {
-    flowType: flowType.value as
-      | FlowType.Recovery
-      | FlowType.Verification
-      | FlowType.Settings
-      | FlowType.Error,
-  }, t)
+  return useCardHeaderText(
+    ui,
+    {
+      flowType: flowType.value as
+        | FlowType.Recovery
+        | FlowType.Verification
+        | FlowType.Settings
+        | FlowType.Error,
+    },
+    t,
+  )
 })
 
 const hasRealSlotContent = useHasSlotContent(slots)

@@ -22,10 +22,12 @@
       "$snapshots/*": ["../elements-react/.stub-responses/*"]
     }
   },
-  "exclude": ["node_modules", "dist", "vitest.config.ts", "**/*.spec.ts", "**/*.test.ts"],
-  "include": [
-    "**/*.ts",
-    "**/*.vue",
-    "tsup.config.ts"
-  ]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "vitest.config.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ],
+  "include": ["**/*.ts", "**/*.vue", "tsup.config.ts"]
 }

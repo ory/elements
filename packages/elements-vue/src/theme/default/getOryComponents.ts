@@ -98,7 +98,8 @@ export function getOryComponents(
       SsoSettings: overrides?.Form?.SsoSettings ?? DefaultSettingsOidc,
       WebauthnSettings:
         overrides?.Form?.WebauthnSettings ?? DefaultSettingsWebauthn,
-      PasskeySettings: overrides?.Form?.PasskeySettings ?? DefaultSettingsPasskey,
+      PasskeySettings:
+        overrides?.Form?.PasskeySettings ?? DefaultSettingsPasskey,
     },
     Message: {
       Root: overrides?.Message?.Root ?? DefaultMessageContainer,

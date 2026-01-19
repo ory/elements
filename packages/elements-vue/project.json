@@ -41,7 +41,10 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/elements-vue/**/*.ts", "packages/elements-vue/**/*.vue"]
+        "lintFilePatterns": [
+          "packages/elements-vue/**/*.ts",
+          "packages/elements-vue/**/*.vue"
+        ]
       }
     },
     "typecheck": {

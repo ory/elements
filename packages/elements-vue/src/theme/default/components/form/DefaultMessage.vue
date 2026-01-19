@@ -25,7 +25,9 @@ const messageClass = computed(
   () => `leading-normal ${messageTypeClasses[props.message.type] ?? ""}`,
 )
 
-const formattedMessage = computed(() => uiTextToFormattedMessage(props.message, t))
+const formattedMessage = computed(() =>
+  uiTextToFormattedMessage(props.message, t),
+)
 </script>
 
 <template>

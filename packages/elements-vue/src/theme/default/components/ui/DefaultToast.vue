@@ -24,14 +24,19 @@ const title = computed(() =>
 
 const messageText = computed(() => {
   const key = `identities.messages.${props.message.id}`
-  const translation = intl.t(key, props.message.context as Record<string, unknown>)
+  const translation = intl.t(
+    key,
+    props.message.context as Record<string, unknown>,
+  )
   return translation !== key ? translation : props.message.text
 })
 
 const titleClass = computed(() =>
   cn("font-medium", {
-    "text-interface-foreground-validation-success": props.message.type === "success",
-    "text-interface-foreground-validation-danger": props.message.type === "error",
+    "text-interface-foreground-validation-success":
+      props.message.type === "success",
+    "text-interface-foreground-validation-danger":
+      props.message.type === "error",
     "text-interface-foreground-validation-warning":
       (props.message.type as string) === "warning",
   }),
