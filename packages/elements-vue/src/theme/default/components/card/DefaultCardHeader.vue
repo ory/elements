@@ -9,6 +9,7 @@ import { useComponents } from "../../../../composables/useComponents"
 import { useOryIntl } from "../../../../composables/useOryIntl"
 import { useHasSlotContent } from "../../../../composables/useSlotContent"
 import { useCardHeaderText } from "../../utils/constructCardHeader"
+import { isConsentFlow } from "../../../../util/flowContainer"
 import DefaultCurrentIdentifierButton from "./DefaultCurrentIdentifierButton.vue"
 
 const { flowContainer, formState, flowType } = useOryFlow()
@@ -16,7 +17,7 @@ const { Card } = useComponents()
 const intl = useOryIntl()
 const slots = useSlots()
 
-const t = (key: string, values?: Record<string, string>) =>
+const t = (key: string, values?: Record<string, unknown>) =>
   String(intl.t(key, values))
 
 const headerText = computed(() => {
@@ -41,6 +42,16 @@ const headerText = computed(() => {
     }, t)
   }
 
+  if (flowType.value === FlowType.OAuth2Consent && isConsentFlow(flow)) {
+    return useCardHeaderText(ui, {
+      flowType: FlowType.OAuth2Consent as const,
+      flow: {
+        consent_request: flow.consent_request,
+        session: flow.session,
+      },
+    }, t)
+  }
+
   return useCardHeaderText(ui, {
     flowType: flowType.value as
       | FlowType.Recovery
@@ -54,7 +65,7 @@ const hasRealSlotContent = useHasSlotContent(slots)
 </script>
 
 <template>
-  <header class="flex flex-col items-start gap-8 antialiased">
+  <header class="flex flex-col gap-8 antialiased">
     <slot v-if="hasRealSlotContent" />
     <template v-else>
       <component :is="Card.Logo" />
@@ -65,7 +76,6 @@ const hasRealSlotContent = useHasSlotContent(slots)
           {{ headerText.title }}
         </h2>
         <p
-          v-if="headerText.description"
           class="leading-normal text-interface-foreground-default-secondary"
           :data-testid="
             headerText.messageId

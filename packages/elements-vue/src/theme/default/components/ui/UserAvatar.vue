@@ -3,7 +3,7 @@
 
 <script setup lang="ts">
 import type { UserInitials } from "../../utils/user"
-import { IconUser } from "../../assets/icons"
+import Icon from "./Icon.vue"
 
 withDefaults(
   defineProps<{
@@ -42,8 +42,9 @@ const emit = defineEmits<{
         :alt="initials.primary"
         class="w-full object-contain"
       />
-      <IconUser
+      <Icon
         v-else
+        name="user"
         :size="24"
         class="text-button-primary-foreground-default"
       />

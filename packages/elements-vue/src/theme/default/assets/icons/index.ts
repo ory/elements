@@ -1,20 +1,5 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-export { ArrowLeft } from "./ArrowLeft"
-export { IconUser } from "./IconUser"
-export { IconLogout } from "./IconLogout"
-export { IconSettings } from "./IconSettings"
-export { IconEye } from "./IconEye"
-export { IconEyeOff } from "./IconEyeOff"
-export { IconTrash } from "./IconTrash"
-export { IconQrCode } from "./IconQrCode"
-export { IconKey } from "./IconKey"
-export { IconPasskey } from "./IconPasskey"
-export { IconRefresh } from "./IconRefresh"
-export { IconDownload } from "./IconDownload"
-export { IconCode } from "./IconCode"
-export { IconTotp } from "./IconTotp"
-export { IconWebauthn } from "./IconWebauthn"
-export { IconLookupSecret } from "./IconLookupSecret"
-export { IconPassword } from "./IconPassword"
+export { default as Icon } from "../../components/ui/Icon.vue"
+export type { IconName, IconProps } from "../../components/ui/Icon.vue"

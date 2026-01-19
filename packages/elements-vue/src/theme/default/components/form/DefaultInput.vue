@@ -9,7 +9,7 @@ import { cn } from "../../utils/cn"
 import { resolvePlaceholder } from "../../utils/i18n"
 import { useOryIntl } from "../../../../composables/useOryIntl"
 import { useOryFlow } from "../../../../composables/useOryFlow"
-import { IconEye, IconEyeOff } from "../../assets/icons"
+import Icon from "../ui/Icon.vue"
 
 const props = defineProps<{
   node: UiNode
@@ -30,6 +30,21 @@ const defaultInputClassName = cn(
   "border-input-border-default bg-input-background-default text-input-foreground-primary",
   "focus-within:border-input-border-focus focus-visible:border-input-border-focus",
   "hover:bg-input-background-hover",
+)
+
+const passwordWrapperClassName = cn(
+  defaultInputClassName,
+  "flex justify-stretch not-focus-within:hover:border-input-border-hover",
+  "data-[disabled=true]:border-input-border-disabled data-[disabled=true]:bg-input-background-disabled data-[disabled=true]:text-input-foreground-disabled",
+)
+
+const passwordInputClassName = cn(
+  "w-full rounded-l-forms rounded-r-none bg-transparent px-4 py-[13px] text-input-foreground-primary",
+  "placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:outline-none",
+  "disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
+)
+
+const textInputClassName = cn(
   "px-4 py-[13px] hover:border-input-border-hover",
   "placeholder:h-[20px] placeholder:text-input-foreground-tertiary",
   "disabled:border-input-border-disabled disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
@@ -72,7 +87,8 @@ function togglePassword() {
 <template>
   <div
     v-if="attributes.type === 'password'"
-    :class="cn('relative', isSettingsFlow && 'max-w-[488px]')"
+    :class="cn(passwordWrapperClassName, isSettingsFlow && 'max-w-[488px]')"
+    :data-disabled="attributes.disabled"
   >
     <input
       :type="inputType"
@@ -83,17 +99,17 @@ function togglePassword() {
       :disabled="attributes.disabled"
       :autocomplete="attributes.autocomplete"
       :pattern="attributes.pattern"
-      :class="cn(defaultInputClassName, 'pr-12')"
+      :class="passwordInputClassName"
       :data-testid="`ory/form/node/input/${attributes.name}`"
       @input="handleInput"
       @blur="handleBlur"
     />
     <button
       type="button"
-      class="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-input-foreground-tertiary hover:text-input-foreground-primary"
+      class="cursor-pointer bg-transparent px-2 py-[13px]"
       @click="togglePassword"
     >
-      <component :is="showPassword ? IconEyeOff : IconEye" :size="20" />
+      <Icon :name="showPassword ? 'eye-off' : 'eye'" :size="20" />
     </button>
   </div>
   <input
@@ -106,7 +122,7 @@ function togglePassword() {
     :disabled="attributes.disabled"
     :autocomplete="attributes.autocomplete"
     :pattern="attributes.pattern"
-    :class="cn(defaultInputClassName, isSettingsFlow && 'max-w-[488px]')"
+    :class="cn(defaultInputClassName, textInputClassName, isSettingsFlow && 'max-w-[488px]')"
     :data-testid="`ory/form/node/input/${attributes.name}`"
     @input="handleInput"
     @blur="handleBlur"

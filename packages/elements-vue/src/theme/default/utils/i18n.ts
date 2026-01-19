@@ -47,9 +47,11 @@ export function uiTextToFormattedMessage(
           }
         }
       } else if (key === "property") {
+        const translationKey = `property.${value}`
+        const translated = t(translationKey)
         return {
           ...accumulator,
-          [key]: t(`property.${value}`) || value,
+          [key]: translated === translationKey ? (value as string) : translated,
         }
       }
       return {

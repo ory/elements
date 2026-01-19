@@ -2,7 +2,7 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <script setup lang="ts">
-import { IconTrash } from "../../assets/icons"
+import Icon from "../ui/Icon.vue"
 import Spinner from "../form/Spinner.vue"
 
 defineProps<{
@@ -24,8 +24,9 @@ defineEmits<{
     @click="$emit('click', $event)"
   >
     <Spinner v-if="disabled" class="relative" />
-    <IconTrash
+    <Icon
       v-else
+      name="trash"
       class="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
       :size="24"
     />

@@ -18,7 +18,8 @@
     "lib": ["ES6", "DOM", "WebWorker"],
     "rootDir": ".",
     "paths": {
-      "@ory/elements-vue": ["./src/index.ts"]
+      "@ory/elements-vue": ["./src/index.ts"],
+      "$snapshots/*": ["../elements-react/.stub-responses/*"]
     }
   },
   "exclude": ["node_modules", "dist", "vitest.config.ts", "**/*.spec.ts", "**/*.test.ts"],

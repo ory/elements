@@ -10,7 +10,7 @@ import {
 } from "@ory/client-fetch"
 import { useOryFormContext } from "../../../../composables/useOryFormContext"
 import { useComponents } from "../../../../composables/useComponents"
-import { IconEye, IconRefresh, IconDownload } from "../../assets/icons"
+import Icon from "../ui/Icon.vue"
 
 const props = defineProps<{
   nodes: UiNode[]
@@ -20,19 +20,25 @@ const formContext = useOryFormContext()
 const components = useComponents()
 
 const codes = computed(() => {
-  const textNodes = props.nodes.filter(
+  const textNode = props.nodes.find(
     (node) =>
       isUiNodeTextAttributes(node.attributes) &&
       node.attributes.id?.startsWith("lookup_secret_codes"),
   )
-  return textNodes
-    .map((node) => {
-      if (isUiNodeTextAttributes(node.attributes)) {
-        return String(node.attributes.text.text)
-      }
-      return ""
-    })
-    .filter((code) => code !== "")
+
+  if (!textNode || !isUiNodeTextAttributes(textNode.attributes)) {
+    return []
+  }
+
+  const context = textNode.attributes.text.context as
+    | { secrets?: Array<{ text: string; context?: { secret: string } }> }
+    | undefined
+
+  if (context?.secrets && Array.isArray(context.secrets)) {
+    return context.secrets.map((s) => s.context?.secret || s.text).filter(Boolean)
+  }
+
+  return []
 })
 
 const regenerateButton = computed(() =>
@@ -115,7 +121,8 @@ function handleDownload() {
           :data-loading="formContext.isSubmitting.value"
           @click="handleRegenerate"
         >
-          <IconRefresh
+          <Icon
+            name="refresh"
             :size="24"
             class="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
           />
@@ -129,7 +136,8 @@ function handleDownload() {
           :disabled="formContext.isSubmitting.value"
           @click="handleReveal"
         >
-          <IconEye
+          <Icon
+            name="eye"
             :size="24"
             class="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
           />
@@ -143,7 +151,8 @@ function handleDownload() {
           title="Download recovery codes"
           @click="handleDownload"
         >
-          <IconDownload
+          <Icon
+            name="download"
             :size="24"
             class="text-button-link-default-secondary hover:text-button-link-default-secondary-hover"
           />

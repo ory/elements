@@ -2,25 +2,63 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <script setup lang="ts">
-import { watch } from "vue"
-import { FlowType } from "@ory/client-fetch"
+import { computed, watch } from "vue"
+import {
+  FlowType,
+  isUiNodeInputAttributes,
+  isUiNodeAnchorAttributes,
+  isUiNodeImageAttributes,
+  isUiNodeScriptAttributes,
+} from "@ory/client-fetch"
 import { useComponents } from "../../composables/useComponents"
 import { useOryForm } from "../../composables/useOryForm"
 import { provideOryForm } from "../../composables/useOryFormContext"
 import { useOryFlow } from "../../composables/useOryFlow"
+import { useOryIntl } from "../../composables/useOryIntl"
 
 const props = defineProps<{
   onAfterSubmit?: (method: string | number | boolean | undefined) => void
 }>()
 
 const components = useComponents()
-const { formState, flowType } = useOryFlow()
+const { flowContainer, formState, flowType } = useOryFlow()
+const intl = useOryIntl()
 const formContext = useOryForm({
   onAfterSubmit: props.onAfterSubmit,
 })
 const { handleSubmit, action, method, setValue } = formContext
 
 provideOryForm(formContext)
+
+const hasMethods = computed(() =>
+  flowContainer.value.flow.ui.nodes.some((node) => {
+    if (isUiNodeInputAttributes(node.attributes)) {
+      if (node.attributes.type === "hidden") {
+        return false
+      }
+      return node.attributes.name !== "csrf_token"
+    } else if (isUiNodeAnchorAttributes(node.attributes)) {
+      return true
+    } else if (isUiNodeImageAttributes(node.attributes)) {
+      return true
+    } else if (isUiNodeScriptAttributes(node.attributes)) {
+      return true
+    }
+    return false
+  }),
+)
+
+const noMethodsMessage = computed(() => {
+  const translationKey = "identities.messages.5000002"
+  const defaultMessage =
+    "No authentication methods are available for this request. Please contact the site or app owner."
+  const translated = intl.t(translationKey)
+  return {
+    id: 5000002,
+    text: translated === translationKey ? defaultMessage : translated,
+    type: "error" as const,
+  }
+})
 
 /**
  * Method field enforcement for code flows.
@@ -43,7 +81,16 @@ watch(
 </script>
 
 <template>
+  <template v-if="!hasMethods">
+    <component :is="components.Message.Root">
+      <component
+        :is="components.Message.Content"
+        :message="noMethodsMessage"
+      />
+    </component>
+  </template>
   <component
+    v-else
     :is="components.Form.Root"
     :action="action"
     :method="method"

@@ -6,7 +6,7 @@ import { ref, computed, onMounted, onUnmounted } from "vue"
 import type { Session, LogoutFlow } from "@ory/client-fetch"
 import { getUserInitials } from "../../utils/user"
 import UserAvatar from "./UserAvatar.vue"
-import { IconSettings, IconLogout } from "../../assets/icons"
+import Icon from "./Icon.vue"
 import { useOryConfig } from "../../../../composables/useOryConfig"
 import { useClientLogout } from "../../utils/logout"
 
@@ -92,12 +92,12 @@ onUnmounted(() => {
       </div>
 
       <a v-if="settingsUrl" :href="settingsUrl" :class="menuItemClass">
-        <IconSettings :size="16" />
+        <Icon name="settings" :size="16" />
         User settings
       </a>
 
       <a v-if="logoutUrl" :href="logoutUrl" :class="menuItemClass">
-        <IconLogout :size="16" />
+        <Icon name="logout" :size="16" />
         Logout
       </a>
     </div>

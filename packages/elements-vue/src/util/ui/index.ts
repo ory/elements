@@ -5,6 +5,10 @@ import {
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
   UiNode,
+  UiNodeGroupEnum,
+  type UiNodeAttributes,
+  type UiNodeInputAttributesOnclickTriggerEnum,
+  type UiNodeInputAttributesOnloadTriggerEnum,
 } from "@ory/client-fetch"
 
 /**
@@ -19,14 +23,6 @@ export function replaceWindowFlowId(flowId: string): void {
     window.history.replaceState({}, "", url.toString())
   }
 }
-
-import type {
-  UiNodeAttributes,
-  UiNodeInputAttributesOnclickTriggerEnum,
-  UiNodeInputAttributesOnloadTriggerEnum,
-} from "@ory/client-fetch"
-import { UiNodeGroupEnum } from "@ory/client-fetch"
-import { computed, type ComputedRef, type Ref } from "vue"
 
 /**
  * Triggers a window function call for WebAuthn scripts.
@@ -101,10 +97,6 @@ export function triggerToFunction(
   }
   return triggerFn as () => void
 }
-
-type Entries<T> = {
-  [K in keyof T]: [K, T[K]]
-}[keyof T][]
 
 /**
  * Returns a list of auth methods from a list of nodes. For example,
@@ -223,17 +215,6 @@ export function getFunctionalNodes(nodes: UiNode[]) {
 }
 
 /**
- * Vue composable for functional nodes.
- *
- * @param nodes - Reactive array of nodes
- */
-export function useFunctionalNodes(
-  nodes: Ref<UiNode[]>,
-): ComputedRef<UiNode[]> {
-  return computed(() => getFunctionalNodes(nodes.value))
-}
-
-/**
  * Type guard for UiNodeGroupEnum
  *
  * @param method - The string to type guard
@@ -321,82 +302,3 @@ export function getNodeGroupsWithVisibleNodes(nodes: UiNode[]): GroupedNodes {
   return finalGroups
 }
 
-/**
- * Vue composable for getting node groups with visible nodes.
- *
- * @param nodes - Reactive array of nodes
- */
-export function useNodeGroupsWithVisibleNodes(
-  nodes: Ref<UiNode[]>,
-): ComputedRef<GroupedNodes> {
-  return computed(() => getNodeGroupsWithVisibleNodes(nodes.value))
-}
-
-/**
- * Groups nodes by their group.
- *
- * @param nodes - The nodes to group
- * @param opts - The options to use
- */
-export function getNodesGroups(
-  nodes: UiNode[],
-  { omit }: { omit?: Array<"script" | "input_hidden"> } = {},
-) {
-  const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
-  const groupRetained: Partial<Record<UiNodeGroupEnum, number>> = {}
-
-  for (const node of nodes) {
-    const groupNodes = groups[node.group] ?? []
-    groupNodes.push(node)
-    groups[node.group] = groupNodes
-
-    if (omit?.includes("script") && isUiNodeScriptAttributes(node.attributes)) {
-      continue
-    }
-
-    if (
-      omit?.includes("input_hidden") &&
-      isUiNodeInputAttributes(node.attributes) &&
-      node.attributes.type === "hidden"
-    ) {
-      continue
-    }
-
-    groupRetained[node.group] = (groupRetained[node.group] ?? 0) + 1
-  }
-
-  const finalGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
-  for (const [group, count] of Object.entries(groupRetained)) {
-    if (count > 0) {
-      finalGroups[group as UiNodeGroupEnum] = groups[group as UiNodeGroupEnum]
-    }
-  }
-
-  return finalGroups
-}
-
-/**
- * Vue composable for grouping nodes.
- *
- * @param nodes - Reactive array of nodes
- * @param opts - Options for filtering
- * @param groupSorter - Function to sort groups
- */
-export function useNodesGroups(
-  nodes: Ref<UiNode[]>,
-  opts: { omit?: Array<"script" | "input_hidden"> } = {},
-  groupSorter: (a: UiNodeGroupEnum, b: UiNodeGroupEnum) => number = () => 0,
-) {
-  const groups = computed(() => getNodesGroups(nodes.value, opts))
-
-  const entries = computed(() =>
-    (
-      Object.entries(groups.value) as Entries<Record<UiNodeGroupEnum, UiNode[]>>
-    ).sort(([a], [b]) => groupSorter(a, b)),
-  )
-
-  return {
-    groups,
-    entries,
-  }
-}

@@ -10,7 +10,7 @@ import { useOryConfig } from "../../../../composables/useOryConfig"
 import { useOryIntl } from "../../../../composables/useOryIntl"
 import { useSession } from "../../../../client/useSession"
 import UserMenu from "./UserMenu.vue"
-import { ArrowLeft } from "../../assets/icons"
+import Icon from "./Icon.vue"
 
 const { Card } = useComponents()
 const flow = useOryFlow()
@@ -45,7 +45,7 @@ const returnUrl = computed(() => {
           :href="returnUrl"
           class="inline-flex items-center gap-2 text-button-link-default-primary hover:text-button-link-default-primary-hover"
         >
-          <ArrowLeft :size="20" />
+          <Icon name="arrow-left" :size="20" />
           {{ intl.t("settings.navigation-back-button") }}
         </a>
       </div>
