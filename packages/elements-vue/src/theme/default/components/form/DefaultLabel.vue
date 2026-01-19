@@ -66,7 +66,7 @@ const labelAction = computed(() => {
       }
     } else if (attrs.type === "password") {
       return {
-        message: t("login.forgot-password"),
+        message: t("forms.label.forgot-password"),
         href: initFlowUrl(config.sdk.url, "recovery", flow),
         testId: "forgot-password",
       }

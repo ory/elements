@@ -74,6 +74,21 @@
         ]
       },
       "dependsOn": ["build"]
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 6007,
+        "configDir": "packages/elements-vue/.storybook"
+      }
+    },
+    "storybook:build": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/elements-vue",
+        "configDir": "packages/elements-vue/.storybook"
+      }
     }
   }
 }

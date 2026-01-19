@@ -4,12 +4,15 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, watch } from "vue"
 import { UiNodeGroupEnum, isUiNodeScriptAttributes } from "@ory/client-fetch"
+import { Toaster } from "vue-sonner"
 import { useOryFlow } from "../../composables/useOryFlow"
-import { useGroupSorter } from "../../composables/useComponents"
+import { useGroupSorter, useComponents } from "../../composables/useComponents"
 import { getNodeGroups, getScriptNodes } from "../../util/nodeGroups"
+import { showToast } from "../../util/showToast"
 import SettingsSection from "./SettingsSection.vue"
 
 const { flowContainer } = useOryFlow()
+const { Message } = useComponents()
 const flow = computed(() => flowContainer.value.flow)
 const groupSorter = useGroupSorter()
 
@@ -71,15 +74,38 @@ watch(scriptNodes, () => {
   cleanupScripts()
   loadScripts()
 })
+
+const shownMessageIds = new Set<number>()
+
+function showMessages() {
+  const messages = flow.value.ui.messages
+  if (!messages) return
+  messages.forEach((message) => {
+    if (!shownMessageIds.has(message.id)) {
+      shownMessageIds.add(message.id)
+      showToast({ message }, Message.Toast)
+    }
+  })
+}
+
+onMounted(() => {
+  showMessages()
+})
+
+watch(
+  () => flow.value.ui.messages,
+  () => {
+    showMessages()
+  },
+)
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center gap-8">
-    <SettingsSection
-      v-for="[group, nodes] in filteredEntries"
-      :key="group"
-      :group="group"
-      :nodes="nodes"
-    />
-  </div>
+  <SettingsSection
+    v-for="[group, nodes] in filteredEntries"
+    :key="group"
+    :group="group"
+    :nodes="nodes"
+  />
+  <Toaster position="bottom-right" />
 </template>

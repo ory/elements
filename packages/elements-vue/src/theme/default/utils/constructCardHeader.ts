@@ -5,17 +5,20 @@ import {
   AuthenticatorAssuranceLevel,
   FlowType,
   isUiNodeInputAttributes,
+  OAuth2ConsentRequest,
+  Session,
   UiContainer,
 } from "@ory/client-fetch"
 import type { FormState } from "../../../composables/useOryFlow"
 import { findNode } from "../../../util/ui"
+import { uiTextToFormattedMessage } from "./i18n"
 
 /**
  * Translation function type for i18n.
  */
 export type TranslateFunction = (
   key: string,
-  values?: Record<string, string>,
+  values?: Record<string, unknown>,
 ) => string
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
@@ -41,6 +44,13 @@ export type CardHeaderTextOptions =
   | {
       flowType: FlowType.Registration
       formState?: FormState
+    }
+  | {
+      flowType: FlowType.OAuth2Consent
+      flow: {
+        consent_request: OAuth2ConsentRequest
+        session: Session
+      }
     }
   | {
       flowType:
@@ -73,7 +83,7 @@ export function useCardHeaderText(
       if (recoveryV2Message) {
         return {
           title: t("recovery.title"),
-          description: recoveryV2Message.text,
+          description: uiTextToFormattedMessage(recoveryV2Message, t),
           messageId: recoveryV2Message.id + "",
         }
       } else if (
@@ -123,7 +133,10 @@ export function useCardHeaderText(
       if (accountLinkingMessage) {
         return {
           title: t("account-linking.title"),
-          description: t("identities.messages.1010016"),
+          description: t(
+            "identities.messages.1010016",
+            accountLinkingMessage.context as Record<string, string>,
+          ),
           messageId: "1010016",
         }
       }
@@ -228,11 +241,15 @@ export function useCardHeaderText(
               }),
         }
       } else if (opts.flow.requested_aal === "aal2") {
+        let descriptionKey = "login.subtitle-aal2"
+        if (codeSent) {
+          descriptionKey = "identities.messages.1010014"
+        } else if (opts.formState?.current === "method_active" && opts.formState.method) {
+          descriptionKey = `login.${opts.formState.method}.subtitle`
+        }
         return {
           title: t("login.title-aal2"),
-          description: codeSent
-            ? t("identities.messages.1010014")
-            : t("login.subtitle-aal2"),
+          description: t(descriptionKey),
         }
       }
       return {
@@ -269,6 +286,16 @@ export function useCardHeaderText(
             : "",
       }
     }
+    case FlowType.OAuth2Consent:
+      return {
+        title: t("consent.title", {
+          party: opts.flow.consent_request.client?.client_name ?? "",
+        }),
+        description: t("consent.subtitle", {
+          identifier:
+            (opts.flow.session.identity?.traits?.email as string) ?? "",
+        }),
+      }
   }
 
   return {

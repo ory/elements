@@ -2,9 +2,19 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed, ref } from "vue"
 import type { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
-import { cn } from "../../utils/cn"
+import { useOryIntl } from "../../../../composables/useOryIntl"
+import type { IconName } from "../ui/Icon.vue"
+import Icon from "../ui/Icon.vue"
+
+const ScopeIcons: Record<string, IconName> = {
+  openid: "personal",
+  offline_access: "personal",
+  profile: "personal",
+  email: "message",
+  phone: "phone",
+}
 
 const props = withDefaults(
   defineProps<{
@@ -14,67 +24,82 @@ const props = withDefaults(
     onChange?: (checked: boolean) => void
   }>(),
   {
-    modelValue: false,
+    modelValue: true,
   },
 )
 
-const scopeDescription = computed(() => {
-  if (
-    props.node.meta?.label?.context &&
-    typeof props.node.meta.label.context === "object" &&
-    "scope_description" in props.node.meta.label.context
-  ) {
-    return String(
-      (props.node.meta.label.context as Record<string, unknown>)
-        .scope_description,
-    )
-  }
-  return null
+const intl = useOryIntl()
+const isChecked = ref(props.modelValue)
+
+const scopeValue = computed(() => props.attributes.value as string)
+
+const scopeTitle = computed(() => {
+  const key = `consent.scope.${scopeValue.value}.title`
+  const translation = intl.t(key)
+  return translation === key ? scopeValue.value : translation
 })
 
-function handleChange(e: Event) {
-  const target = e.target as HTMLInputElement
-  props.onChange?.(target.checked)
+const scopeDescription = computed(() => {
+  const key = `consent.scope.${scopeValue.value}.description`
+  const translation = intl.t(key)
+  return translation === key ? "" : translation
+})
+
+const iconName = computed(() => ScopeIcons[scopeValue.value] ?? "personal")
+
+function handleChange() {
+  isChecked.value = !isChecked.value
+  props.onChange?.(isChecked.value)
 }
 </script>
 
 <template>
   <label
-    :class="
-      cn(
-        'flex cursor-pointer items-start gap-3 rounded-lg p-4',
-        'border border-input-border-default',
-        'hover:border-input-border-hover hover:bg-input-background-hover',
-        'transition-colors',
-      )
-    "
+    class="col-span-2 flex w-full cursor-pointer items-start gap-3 rounded-buttons p-2 text-left hover:bg-interface-background-default-primary-hover"
+    data-testid="ory/screen/consent/scope-checkbox-label"
   >
-    <input
-      type="checkbox"
-      :name="attributes.name"
-      :checked="modelValue"
-      :disabled="attributes.disabled"
-      :class="
-        cn(
-          'mt-1 h-5 w-5 rounded border-input-border-default bg-input-background-default',
-          'checked:border-button-primary-border-default checked:bg-button-primary-background-default',
-          'focus:ring-2 focus:ring-button-primary-background-default focus:ring-offset-2',
-          'disabled:cursor-not-allowed disabled:opacity-50',
-        )
-      "
-      :data-testid="`ory/form/node/checkbox/consent/${attributes.name}`"
-      @change="handleChange"
-    />
-    <div class="flex flex-col gap-1">
-      <span class="font-medium text-interface-foreground-default-primary">
-        {{ attributes.label?.text ?? attributes.name }}
+    <span class="mt-1 text-interface-foreground-brand-primary">
+      <Icon :name="iconName" :size="16" />
+    </span>
+    <span class="inline-flex max-w-full min-w-1 flex-1 flex-col leading-normal">
+      <span
+        class="break-words text-interface-foreground-default-primary"
+      >
+        {{ scopeTitle }}
       </span>
       <span
         v-if="scopeDescription"
-        class="text-sm text-interface-foreground-default-secondary"
+        class="text-interface-foreground-default-secondary"
       >
         {{ scopeDescription }}
       </span>
-    </div>
+    </span>
+    <button
+      type="button"
+      role="switch"
+      :aria-checked="isChecked"
+      :class="[
+        'relative h-4 w-7 rounded-identifier border p-[3px] transition-all',
+        isChecked
+          ? 'border-toggle-border-checked bg-toggle-background-checked'
+          : 'border-toggle-border-default bg-toggle-background-default',
+      ]"
+      data-testid="ory/screen/consent/scope-checkbox"
+      @click.prevent="handleChange"
+    >
+      <span
+        :class="[
+          'block size-2 rounded-identifier transition-all',
+          isChecked
+            ? 'translate-x-3 bg-toggle-foreground-checked'
+            : 'bg-toggle-foreground-default',
+        ]"
+      />
+    </button>
+    <input
+      type="hidden"
+      :name="attributes.name"
+      :value="isChecked ? attributes.value : ''"
+    />
   </label>
 </template>

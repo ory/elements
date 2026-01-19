@@ -25,6 +25,7 @@ import {
   DefaultAnchor,
   DefaultLabel,
   DefaultSsoButton,
+  DefaultSsoButtonContainer,
   DefaultCodeInput,
   DefaultCaptcha,
   DefaultConsentCheckbox,
@@ -35,27 +36,14 @@ import {
   DefaultSettingsSectionContent,
   DefaultSettingsSectionFooter,
 } from "./components/form"
-import { DefaultPageHeader } from "./components/ui"
-import { defineComponent, h } from "vue"
-
-// Placeholder components for settings (to be implemented)
-const PlaceholderComponent = defineComponent({
-  name: "PlaceholderComponent",
-  setup(_, { slots }) {
-    return () => h("div", null, slots.default?.())
-  },
-})
-
-const PlaceholderToast = defineComponent({
-  name: "PlaceholderToast",
-  props: {
-    message: Object,
-    id: [String, Number],
-  },
-  setup() {
-    return () => null
-  },
-})
+import { DefaultPageHeader, DefaultToast } from "./components/ui"
+import {
+  DefaultSettingsTotp,
+  DefaultSettingsWebauthn,
+  DefaultSettingsPasskey,
+  DefaultSettingsOidc,
+  DefaultSettingsRecoveryCodes,
+} from "./components/settings"
 
 /**
  * Merges the default Ory components with any provided overrides.
@@ -103,19 +91,19 @@ export function getOryComponents(
     Form: {
       Root: overrides?.Form?.Root ?? DefaultFormContainer,
       Group: overrides?.Form?.Group ?? DefaultGroupContainer,
-      SsoRoot: overrides?.Form?.SsoRoot ?? PlaceholderComponent,
+      SsoRoot: overrides?.Form?.SsoRoot ?? DefaultSsoButtonContainer,
       RecoveryCodesSettings:
-        overrides?.Form?.RecoveryCodesSettings ?? PlaceholderComponent,
-      TotpSettings: overrides?.Form?.TotpSettings ?? PlaceholderComponent,
-      SsoSettings: overrides?.Form?.SsoSettings ?? PlaceholderComponent,
+        overrides?.Form?.RecoveryCodesSettings ?? DefaultSettingsRecoveryCodes,
+      TotpSettings: overrides?.Form?.TotpSettings ?? DefaultSettingsTotp,
+      SsoSettings: overrides?.Form?.SsoSettings ?? DefaultSettingsOidc,
       WebauthnSettings:
-        overrides?.Form?.WebauthnSettings ?? PlaceholderComponent,
-      PasskeySettings: overrides?.Form?.PasskeySettings ?? PlaceholderComponent,
+        overrides?.Form?.WebauthnSettings ?? DefaultSettingsWebauthn,
+      PasskeySettings: overrides?.Form?.PasskeySettings ?? DefaultSettingsPasskey,
     },
     Message: {
       Root: overrides?.Message?.Root ?? DefaultMessageContainer,
       Content: overrides?.Message?.Content ?? DefaultMessage,
-      Toast: overrides?.Message?.Toast ?? PlaceholderToast,
+      Toast: overrides?.Message?.Toast ?? DefaultToast,
     },
     Page: {
       Header: overrides?.Page?.Header ?? DefaultPageHeader,

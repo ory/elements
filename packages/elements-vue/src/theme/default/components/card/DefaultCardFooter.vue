@@ -3,22 +3,31 @@
 
 <script setup lang="ts">
 import { computed, ref, watch, useSlots } from "vue"
-import { FlowType, UiNodeGroupEnum } from "@ory/client-fetch"
+import {
+  FlowType,
+  UiNodeGroupEnum,
+  isUiNodeInputAttributes,
+  getNodeId,
+} from "@ory/client-fetch"
 import { useOryFlow } from "../../../../composables/useOryFlow"
 import { useOryConfig } from "../../../../composables/useOryConfig"
 import { useOryIntl } from "../../../../composables/useOryIntl"
 import { useHasSlotContent } from "../../../../composables/useSlotContent"
+import { useComponents } from "../../../../composables/useComponents"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 import {
   getNodeGroupsWithVisibleNodes,
   nodesToAuthMethodGroups,
+  findNode,
 } from "../../../../util/ui"
 import { getLogoutUrl } from "../../../../util/getLogoutUrl"
+import { isConsentFlow, type ConsentFlow } from "../../../../util/flowContainer"
 
 const { flowContainer, formState, flowType, dispatchFormState } = useOryFlow()
 const config = useOryConfig()
 const intl = useOryIntl()
 const slots = useSlots()
+const { Node } = useComponents()
 
 const t = (key: string) => String(intl.t(key))
 
@@ -142,33 +151,46 @@ const showChooseMethod = computed(() => {
   )
 })
 
+const showGoBackLink = computed(() => {
+  if (flowType.value !== FlowType.Login) {
+    return false
+  }
+  if (showLogoutButton.value) {
+    return false
+  }
+  return (
+    authMethodsForLogout.value.length === 1 &&
+    authMethodsForLogout.value[0] === "code" &&
+    formState.value.current === "method_active"
+  )
+})
+
 const footerContent = computed(() => {
   const flow = flowContainer.value.flow
 
-  if (flowType.value === FlowType.Login) {
-    if (
-      formState.value.current === "provide_identifier" &&
-      config.project?.registration_enabled !== false
-    ) {
-      return {
-        type: "login",
-        labelText: t("login.registration-label"),
-        linkText: t("login.registration-button"),
-        href: initFlowUrl(config.sdk.url, "registration", flow),
-        testId: "ory/screen/login/action/register",
-      }
+  if (
+    flowType.value === FlowType.Login &&
+    !showLogoutButton.value &&
+    formState.value.current === "provide_identifier" &&
+    config.project?.registration_enabled !== false
+  ) {
+    return {
+      labelText: t("login.registration-label"),
+      linkText: t("login.registration-button"),
+      href: initFlowUrl(config.sdk.url, "registration", flow),
+      testId: "ory/screen/login/action/register",
     }
   }
 
-  if (flowType.value === FlowType.Registration) {
-    if (formState.value.current !== "method_active") {
-      return {
-        type: "registration",
-        labelText: t("registration.login-label"),
-        linkText: t("registration.login-button"),
-        href: initFlowUrl(config.sdk.url, "login", flow),
-        testId: "ory/screen/registration/action/login",
-      }
+  if (
+    flowType.value === FlowType.Registration &&
+    formState.value.current !== "method_active"
+  ) {
+    return {
+      labelText: t("registration.login-label"),
+      linkText: t("registration.login-button"),
+      href: initFlowUrl(config.sdk.url, "login", flow),
+      testId: "ory/screen/registration/action/login",
     }
   }
 
@@ -178,7 +200,7 @@ const footerContent = computed(() => {
 const hasRealSlotContent = useHasSlotContent(slots)
 
 const hasFooterContent = computed(
-  () => showLogoutButton.value || showChooseMethod.value || footerContent.value,
+  () => showLogoutButton.value || showChooseMethod.value || showGoBackLink.value || footerContent.value,
 )
 
 const logoutHref = computed(() => logoutUrl.value || fallbackUrl.value)
@@ -194,13 +216,90 @@ const logoutLinkText = computed(() =>
 function handleChooseAnotherMethod() {
   dispatchFormState({ type: "action_clear_active_method" })
 }
+
+const chooseMethodTestId = computed(() =>
+  flowType.value === FlowType.Registration
+    ? "ory/screen/registration/action/selectMethod"
+    : "ory/screen/login/mfa/action/selectMethod",
+)
+
+const chooseMethodText = computed(() =>
+  flowType.value === FlowType.Registration
+    ? t("card.footer.select-another-method")
+    : t("login.2fa.method.go-back"),
+)
+
+const isConsentFlowType = computed(
+  () =>
+    flowType.value === FlowType.OAuth2Consent &&
+    isConsentFlow(flowContainer.value.flow),
+)
+
+const consentFlow = computed(() =>
+  isConsentFlowType.value ? (flowContainer.value.flow as ConsentFlow) : null,
+)
+
+const consentClientName = computed(
+  () => consentFlow.value?.consent_request?.client?.client_name ?? "",
+)
+
+const consentRememberNode = computed(() => {
+  if (!consentFlow.value) return null
+  return findNode(consentFlow.value.ui.nodes, {
+    group: "oauth2_consent",
+    node_type: "input",
+    name: "remember",
+  })
+})
+
+const consentSubmitNodes = computed(() => {
+  if (!consentFlow.value) return []
+  return consentFlow.value.ui.nodes.filter(
+    (n) =>
+      isUiNodeInputAttributes(n.attributes) &&
+      n.attributes.type === "submit" &&
+      n.group === "oauth2_consent",
+  )
+})
 </script>
 
 <template>
   <footer v-if="hasRealSlotContent" class="antialiased">
     <slot />
   </footer>
-  <footer v-else-if="hasFooterContent" class="flex flex-col gap-2 antialiased">
+  <div v-else-if="isConsentFlowType" class="flex flex-col gap-8">
+    <div>
+      <p
+        class="leading-normal font-medium text-interface-foreground-default-secondary"
+      >
+        Make sure you trust {{ consentClientName }}
+      </p>
+      <p class="leading-normal text-interface-foreground-default-secondary">
+        You may be sharing sensitive information with this site or application.
+      </p>
+    </div>
+    <component
+      v-if="consentRememberNode"
+      :is="Node.Checkbox"
+      :node="consentRememberNode"
+      :attributes="consentRememberNode.attributes"
+    />
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+      <component
+        v-for="node in consentSubmitNodes"
+        :key="getNodeId(node)"
+        :is="Node.Button"
+        :node="node"
+        :attributes="node.attributes"
+      />
+    </div>
+    <p class="text-sm">
+      <span class="text-interface-foreground-default-tertiary">
+        Authorizing will redirect to {{ consentClientName }}
+      </span>
+    </p>
+  </div>
+  <template v-else-if="hasFooterContent">
     <span
       v-if="showLogoutButton"
       class="leading-normal font-normal text-interface-foreground-default-primary antialiased"
@@ -217,17 +316,34 @@ function handleChooseAnotherMethod() {
         {{ logoutLinkText }}
       </a>
     </span>
-    <button
+    <span
       v-if="showChooseMethod"
-      class="cursor-pointer text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
-      data-testid="ory/screen/login/mfa/action/selectMethod"
-      @click="handleChooseAnotherMethod"
+      class="leading-normal font-normal text-interface-foreground-default-primary antialiased"
     >
-      {{ t("login.2fa.method.go-back") }}
-    </button>
+      <button
+        class="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
+        :data-testid="chooseMethodTestId"
+        type="button"
+        @click="handleChooseAnotherMethod"
+      >
+        {{ chooseMethodText }}
+      </button>
+    </span>
+    <span
+      v-if="showGoBackLink"
+      class="leading-normal font-normal text-interface-foreground-default-primary antialiased"
+    >
+      <a
+        class="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
+        :href="fallbackUrl"
+        data-testid="ory/screen/login/action/cancel"
+      >
+        {{ t("login.2fa.go-back.link") }}
+      </a>
+    </span>
     <span
       v-if="footerContent"
-      class="leading-normal font-normal text-interface-foreground-default-primary"
+      class="leading-normal font-normal text-interface-foreground-default-primary antialiased"
     >
       {{ footerContent.labelText }}
       {{ " " }}
@@ -239,5 +355,5 @@ function handleChooseAnotherMethod() {
         {{ footerContent.linkText }}
       </a>
     </span>
-  </footer>
+  </template>
 </template>

@@ -12,6 +12,7 @@ import {
 import { useOryFlow } from "../../../../composables/useOryFlow"
 import { useOryConfig } from "../../../../composables/useOryConfig"
 import { restartFlowUrl } from "../../utils/url"
+import Icon from "../ui/Icon.vue"
 
 const { flowContainer, formState, flowType } = useOryFlow()
 const config = useOryConfig()
@@ -117,21 +118,11 @@ const backButtonInfo = computed(() => {
     <span
       class="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+      <Icon
+        name="arrow-left"
+        :size="16"
         class="shrink-0 text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover"
-      >
-        <path d="M19 12H5" />
-        <path d="m12 19-7-7 7-7" />
-      </svg>
+      />
       <span
         class="overflow-hidden text-sm font-medium text-nowrap text-ellipsis text-button-identifier-foreground-default group-hover:text-button-identifier-foreground-hover"
       >

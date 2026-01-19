@@ -9,6 +9,7 @@ import { useOryFormContext } from "../../../../composables/useOryFormContext"
 import { useComponents } from "../../../../composables/useComponents"
 import { OryNode } from "../../../../components"
 import SettingsRemoveButton from "./SettingsRemoveButton.vue"
+import ProviderLogo from "../ui/ProviderLogo.vue"
 
 const props = defineProps<{
   nodes: UiNode[]
@@ -102,11 +103,11 @@ function handleUnlink(node: UiNode, event: Event) {
         class="flex justify-between"
       >
         <div class="flex items-center gap-6">
-          <div
-            class="flex h-8 w-8 items-center justify-center rounded-full bg-interface-background-default-secondary text-xs font-medium uppercase"
-          >
-            {{ extractProvider(node.meta.label?.context).slice(0, 1) }}
-          </div>
+          <ProviderLogo
+            :provider="getProviderFromValue(node)"
+            :fallback-label="extractProvider(node.meta.label?.context)"
+            :size="32"
+          />
           <p
             class="text-sm font-medium text-interface-foreground-default-secondary"
           >

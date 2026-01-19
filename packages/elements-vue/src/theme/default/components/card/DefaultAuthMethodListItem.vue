@@ -2,21 +2,14 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted, type Component } from "vue"
+import { computed, ref, onMounted, onUnmounted } from "vue"
 import { UiNodeGroupEnum, isUiNodeInputAttributes } from "@ory/client-fetch"
 import { useOryFlow } from "../../../../composables/useOryFlow"
 import { useOryIntl } from "../../../../composables/useOryIntl"
 import { useOptionalOryFormContext } from "../../../../composables/useOryFormContext"
 import { triggerToWindowCall } from "../../../../util/ui"
-import {
-  IconCode,
-  IconTotp,
-  IconWebauthn,
-  IconLookupSecret,
-  IconPassword,
-  IconPasskey,
-  IconKey,
-} from "../../assets/icons"
+import type { IconName } from "../ui/Icon.vue"
+import Icon from "../ui/Icon.vue"
 
 const props = defineProps<{
   group: UiNodeGroupEnum
@@ -28,17 +21,17 @@ const { flowContainer } = useOryFlow()
 const intl = useOryIntl()
 const formContext = useOptionalOryFormContext()
 
-const iconsMap: Record<string, Component> = {
-  code: IconCode,
-  totp: IconTotp,
-  webauthn: IconWebauthn,
-  lookup_secret: IconLookupSecret,
-  password: IconPassword,
-  passkey: IconPasskey,
-  hardware_token: IconKey,
+const iconsMap: Record<string, IconName> = {
+  code: "code",
+  totp: "totp",
+  webauthn: "webauthn",
+  lookup_secret: "lookup-secret",
+  password: "password",
+  passkey: "passkey",
+  hardware_token: "key",
 }
 
-const Icon = computed(() => iconsMap[props.group] || null)
+const iconName = computed(() => iconsMap[props.group] || null)
 
 const titleText = computed(() => {
   const titleId = props.title?.id ?? `two-step.${props.group}.title`
@@ -187,7 +180,7 @@ function handleClick(event: Event) {
       @click="handlePasskeyClick"
     >
       <span class="mt-1 text-interface-foreground-brand-primary">
-        <component :is="Icon" v-if="Icon" :size="16" />
+        <Icon v-if="iconName" :name="iconName" :size="16" />
       </span>
       <span
         class="inline-flex max-w-full min-w-1 flex-1 flex-col leading-normal"
@@ -202,6 +195,9 @@ function handleClick(event: Event) {
               : descriptionText
           }}
         </span>
+      </span>
+      <span v-if="failedToLoad" class="text-black">
+        <Icon name="alert-triangle" :size="20" />
       </span>
     </button>
   </template>
@@ -218,7 +214,7 @@ function handleClick(event: Event) {
     @click="handleClick"
   >
     <span class="mt-1 text-interface-foreground-brand-primary">
-      <component :is="Icon" v-if="Icon" :size="16" />
+      <Icon v-if="iconName" :name="iconName" :size="16" />
     </span>
     <span class="inline-flex max-w-full min-w-1 flex-1 flex-col leading-normal">
       <span class="break-words text-interface-foreground-default-primary">

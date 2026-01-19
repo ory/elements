@@ -60,17 +60,9 @@ function ensureMethodInputInForm(methodValue: string) {
   methodInput.value = methodValue
 }
 
-onUnmounted(() => {
-  if (clickDebounceTimeout) {
-    clearTimeout(clickDebounceTimeout)
-  }
-})
-
 /** Type-safe accessor for input attributes */
 const inputAttrs = computed(() =>
-  isUiNodeInputAttributes(props.node.attributes)
-    ? (props.node.attributes as UiNodeInputAttributes)
-    : null,
+  isUiNodeInputAttributes(props.node.attributes) ? props.node.attributes : null,
 )
 
 let scriptElement: HTMLScriptElement | null = null
@@ -99,8 +91,13 @@ function cleanupScript() {
   }
 }
 
+const ignoredScriptGroups = ["captcha"]
+
 onMounted(() => {
-  if (isUiNodeScriptAttributes(props.node.attributes)) {
+  if (
+    isUiNodeScriptAttributes(props.node.attributes) &&
+    !ignoredScriptGroups.includes(props.node.group)
+  ) {
     loadScript()
   }
 
@@ -117,13 +114,19 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  if (clickDebounceTimeout) {
+    clearTimeout(clickDebounceTimeout)
+  }
   cleanupScript()
 })
 
 watch(
   () => props.node,
   () => {
-    if (isUiNodeScriptAttributes(props.node.attributes)) {
+    if (
+      isUiNodeScriptAttributes(props.node.attributes) &&
+      !ignoredScriptGroups.includes(props.node.group)
+    ) {
       cleanupScript()
       loadScript()
     }
@@ -197,7 +200,13 @@ function isScopeSelected(scopeValue: string): boolean {
 </script>
 
 <template>
-  <template v-if="isUiNodeScriptAttributes(node.attributes)" />
+  <component
+    v-if="node.group === UiNodeGroupEnum.Captcha"
+    :is="components.Node.Captcha"
+    :node="node"
+  />
+
+  <template v-else-if="isUiNodeScriptAttributes(node.attributes)" />
 
   <component
     v-else-if="isUiNodeAnchorAttributes(node.attributes)"
@@ -277,6 +286,11 @@ function isScopeSelected(scopeValue: string): boolean {
             handleGrantScopeChange(checked, inputAttrs!.value as string)
         "
       />
+      <template
+        v-else-if="
+          node.group === 'oauth2_consent' && inputAttrs.name === 'remember'
+        "
+      />
       <component
         v-else
         :is="components.Node.Checkbox"
@@ -286,12 +300,6 @@ function isScopeSelected(scopeValue: string): boolean {
         @change="(checked: boolean) => setValue(inputAttrs!.name, checked)"
       />
     </template>
-
-    <component
-      v-else-if="node.group === UiNodeGroupEnum.Captcha"
-      :is="components.Node.Captcha"
-      :node="node"
-    />
 
     <component
       v-else-if="
