@@ -1,6 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+export { AutofocusProvider, useAutofocus } from "./autofocus-context"
 export { useComponents, useNodeSorter } from "./component"
 export {
   useOryFlow,

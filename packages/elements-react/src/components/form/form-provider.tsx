@@ -5,6 +5,7 @@ import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren } from "react"
 import { FormProvider, useForm } from "react-hook-form"
 import { useOryFlow } from "../../context"
+import { AutofocusProvider } from "../../context/autofocus-context"
 import { computeDefaultValues } from "./form-helpers"
 import { useOryFormResolver } from "./form-resolver"
 
@@ -28,5 +29,9 @@ export function OryFormProvider({
     resolver: useOryFormResolver(),
   })
 
-  return <FormProvider {...methods}>{children}</FormProvider>
+  return (
+    <FormProvider {...methods}>
+      <AutofocusProvider>{children}</AutofocusProvider>
+    </FormProvider>
+  )
 }

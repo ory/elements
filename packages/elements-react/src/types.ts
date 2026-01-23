@@ -149,6 +149,7 @@ export type OryNodeInputInputProps = {
   autoComplete?: string
   maxLength?: number
   placeholder: string
+  autoFocus?: boolean
 }
 
 export type OryNodeInputProps = {

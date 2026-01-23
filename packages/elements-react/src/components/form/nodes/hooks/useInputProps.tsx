@@ -7,6 +7,7 @@ import { useController } from "react-hook-form"
 import { triggerToWindowCall } from "../../../../util/ui"
 import { OryNodeInputInputProps } from "../../../../types"
 import { useOryFlow } from "../../../../context"
+import { useAutofocus } from "../../../../context/autofocus-context"
 
 export function useInputProps(
   attributes: UiNodeInputAttributes,
@@ -15,6 +16,7 @@ export function useInputProps(
   const {
     formState: { isSubmitting },
   } = useOryFlow()
+  const { claimAutofocus } = useAutofocus()
   const controller = useController({
     name: attributes.name,
     control: undefined,
@@ -27,6 +29,14 @@ export function useInputProps(
       triggerToWindowCall(attributes.onclickTrigger)
     }
   }
+
+  const isDisabled =
+    attributes.disabled || !controller.formState.isReady || isSubmitting
+  const isHidden = attributes.type === "hidden"
+
+  // Only focusable, visible inputs can claim autofocus
+  const shouldAutofocus = !isDisabled && !isHidden && claimAutofocus()
+
   return {
     ...controller.field,
     type: attributes.type,
@@ -34,7 +44,7 @@ export function useInputProps(
     maxLength: attributes.maxlength,
     autoComplete: attributes.autocomplete,
     placeholder: placeholder || "",
-    disabled:
-      attributes.disabled || !controller.formState.isReady || isSubmitting,
+    disabled: isDisabled,
+    autoFocus: shouldAutofocus,
   }
 }
