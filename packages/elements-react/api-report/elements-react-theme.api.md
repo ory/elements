@@ -125,9 +125,11 @@ export type OAuth2Error = {
 };
 
 // @public
-export type OryError = FlowError | OAuth2Error | {
+export type OryError = {
+    correlationId?: string;
+} & (FlowError | OAuth2Error | {
     error: GenericError;
-};
+});
 
 // @public
 export function Recovery({ flow, config, children, components: flowOverrideComponents, }: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
@@ -169,8 +171,8 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:420:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:443:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:422:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:445:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

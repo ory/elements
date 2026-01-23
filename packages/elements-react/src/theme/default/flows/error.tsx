@@ -27,7 +27,9 @@ import { useClientLogout } from "../utils/logout"
  * @hidden
  * @inline
  */
-export type OryError = FlowError | OAuth2Error | { error: GenericError }
+export type OryError = {
+  correlationId?: string
+} & (FlowError | OAuth2Error | { error: GenericError })
 
 /**
  * An OAuth2 error response.
@@ -201,20 +203,28 @@ export function Error({
               <p className="text-sm text-interface-foreground-default-secondary">
                 Time: <code>{parsed.timestamp?.toUTCString()}</code>
               </p>
-              <p className="text-sm text-interface-foreground-default-secondary">
-                Message:{" "}
-                <code data-testid={"ory/screen/error/message"}>
-                  {parsed.reason}
-                </code>
-              </p>
+              {error.correlationId && (
+                <p className="text-sm text-interface-foreground-default-secondary">
+                  Correlation ID: <code>{error.correlationId}</code>
+                </p>
+              )}
+              {parsed.reason && (
+                <p className="text-sm text-interface-foreground-default-secondary">
+                  Message:{" "}
+                  <code data-testid={"ory/screen/error/message"}>
+                    {parsed.reason}
+                  </code>
+                </p>
+              )}
 
               <div>
                 <button
-                  className="text-interface-foreground-default-primary underline"
+                  className="cursor-pointer text-interface-foreground-default-primary underline"
                   onClick={() => {
                     const text = `${parsed.id ? `ID: ${parsed.id}` : ""}
 Time: ${parsed.timestamp?.toUTCString()}
 ${parsed.reason ? `Message: ${parsed.reason}` : ""}
+${error.correlationId ? `Correlation ID: ${error.correlationId}` : ""}
 `
                     void navigator.clipboard.writeText(text)
                   }}
