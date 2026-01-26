@@ -292,5 +292,6 @@
   "error.instructions": "Vui lòng thử lại sau vài phút hoặc liên hệ người quản trị trang web.",
   "error.footer.text": "Khi báo cáo lỗi này, vui lòng bao gồm thông tin sau:",
   "error.footer.copy": "Sao chép",
-  "error.action.go-back": "Quay lại"
+  "error.action.go-back": "Quay lại",
+  "captcha.error": "Xác minh bảo mật không thành công. Vui lòng thử lại sau. Nếu vấn đề vẫn tiếp diễn, vui lòng liên hệ với bộ phận hỗ trợ."
 }

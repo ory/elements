@@ -292,5 +292,6 @@
   "error.instructions": "Prova di nuovo tra qualche minuto o contatta l'amministratore del sito.",
   "error.footer.text": "Quando segnali questo errore, includi le seguenti informazioni:",
   "error.footer.copy": "Copia",
-  "error.action.go-back": "Torna indietro"
+  "error.action.go-back": "Torna indietro",
+  "captcha.error": "Verifica di sicurezza fallita. Riprova più tardi. Se il problema persiste, contatta il supporto."
 }

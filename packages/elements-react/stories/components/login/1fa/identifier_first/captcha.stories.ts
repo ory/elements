@@ -17,19 +17,101 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-export const ShowForm: Story = {
+
+export const ShowFormInteractive: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/captcha/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/captcha/interactive/initial-form.json"),
     ),
     config,
   },
 }
 
-export const ValidationCaptchaUnsolved: Story = {
+export const ShowFormHidden: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/captcha/wrong-captcha.json"),
+      require("$snapshots/login/1fa/identifier_first/captcha/hidden/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+export const ShowFormClientError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/client-error/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+export const ValidationCaptchaUnsolvedInteractive: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/interactive/wrong-captcha.json"),
+    ),
+    config,
+  },
+}
+
+export const ValidationCaptchaUnsolvedHidden: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/hidden/wrong-captcha.json"),
+    ),
+    config,
+  },
+}
+
+export const MethodSelectHidden: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/hidden/show-options.json"),
+    ),
+    config,
+  },
+}
+
+export const MethodSelectInteractive: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/interactive/show-options.json"),
+    ),
+    config,
+  },
+}
+
+export const MethodSelectClientError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/client-error/show-options.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSentHidden: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/hidden/show-send.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSentInteractive: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/interactive/show-send.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSentClientError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/captcha/client-error/show-send.json"),
     ),
     config,
   },

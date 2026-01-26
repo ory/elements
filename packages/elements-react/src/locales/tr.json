@@ -292,5 +292,6 @@
   "error.instructions": "Lütfen birkaç dakika sonra tekrar deneyin veya web sitesi operatörüyle irtibat kurun.",
   "error.footer.text": "Bu hatayı bildirirken aşağıdaki bilgileri dahil edin:",
   "error.footer.copy": "Kopyala",
-  "error.action.go-back": "Geri Dön"
+  "error.action.go-back": "Geri Dön",
+  "captcha.error": "Güvenlik doğrulaması başarısız oldu. Lütfen daha sonra tekrar deneyin. Sorun devam ederse destek ekibiyle iletişime geçin."
 }

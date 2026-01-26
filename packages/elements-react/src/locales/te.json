@@ -292,5 +292,6 @@
   "error.support-email-link": "సమస్య కొనసాగుతుంటే, దయచేసి <a>{contactSupportEmail}</a> తో సంప్రదించండి",
   "error.title": "తప్పు జరిగింది",
   "error.title-internal-server-error": "ఇంటర్నల్ సర్వర్ తప్పు",
-  "error.title-not-found": "404 - పేజీ కనుగొనబడలేదు"
+  "error.title-not-found": "404 - పేజీ కనుగొనబడలేదు",
+  "captcha.error": "రక్షణ ధృవీకరణ విఫలమైంది. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి. సమస్య కొనసాగితే, మద్దతును సంప్రదించండి."
 }

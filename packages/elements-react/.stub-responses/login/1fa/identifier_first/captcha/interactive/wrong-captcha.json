@@ -1,0 +1,199 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "organization_id": null,
+  "type": "browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
+  "ui": {
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "transient_payload.captcha_turnstile_response",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_trigger_script",
+          "nonce": "00000000-0000-0000-0000-000000000000",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "div",
+        "group": "captcha",
+        "attributes": {
+          "id": "captcha_turnstile_inject",
+          "node_type": "div"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_script",
+          "nonce": "00000000-0000-0000-0000-000000000000",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "captcha_turnstile_options",
+          "type": "hidden",
+          "value": "{\"sitekey\":\"3x00000000000000000000FF\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "identifier",
+          "type": "text",
+          "value": "",
+          "required": true,
+          "autocomplete": "username webauthn",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "name": "traits.email",
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "identifier_first",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "identifier_first",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "webauthn",
+        "attributes": {
+          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
+          "type": "text/javascript",
+          "id": "webauthn_script",
+          "nonce": "00000000-0000-0000-0000-000000000000",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_login",
+          "type": "hidden",
+          "disabled": false,
+          "onload": "window.oryPasskeyLoginAutocompleteInit()",
+          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_challenge",
+          "type": "hidden",
+          "value": "{}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 4000038,
+        "text": "Captcha verification failed, please try again.",
+        "type": "error"
+      }
+    ]
+  },
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
+  "refresh": false,
+  "requested_aal": "aal1",
+  "state": "choose_method",
+  "transient_payload": {}
+}

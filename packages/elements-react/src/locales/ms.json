@@ -292,5 +292,6 @@
   "two-step.totp.title": "Gunakan Aplikasi Pengesah anda (TOTP)",
   "two-step.totp.description": "Gunakan kod sekali guna 6 digit dari aplikasi pengesah anda",
   "two-step.lookup_secret.title": "Kod pemulihan sandaran",
-  "two-step.lookup_secret.description": "Gunakan salah satu daripada kod sandaran 8 digit anda untuk mengesahkan"
+  "two-step.lookup_secret.description": "Gunakan salah satu daripada kod sandaran 8 digit anda untuk mengesahkan",
+  "captcha.error": "Pengesahan keselamatan gagal. Sila cuba lagi kemudian. Jika masalah berterusan, hubungi sokongan."
 }

@@ -17,19 +17,73 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-export const ShowForm: Story = {
+export const ShowFormInteractive: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/captcha/initial-form.json"),
+      require("$snapshots/login/1fa/unified/captcha/interactive/initial-form.json"),
     ),
     config,
   },
 }
 
-export const ValidationCaptchaUnsolved: Story = {
+export const ShowFormHidden: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/unified/captcha/wrong-captcha.json"),
+      require("$snapshots/login/1fa/unified/captcha/hidden/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+export const ShowFormClientError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/captcha/client-error/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+export const ValidationCaptchaUnsolvedInteractive: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/captcha/interactive/wrong-captcha.json"),
+    ),
+    config,
+  },
+}
+
+export const ValidationCaptchaUnsolvedHidden: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/captcha/hidden/wrong-captcha.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSentHidden: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/captcha/hidden/show-send.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSentInteractive: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/captcha/interactive/show-send.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSentClientError: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/unified/captcha/client-error/show-send.json"),
     ),
     config,
   },

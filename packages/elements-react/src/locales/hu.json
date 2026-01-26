@@ -292,5 +292,6 @@
   "error.instructions": "Kérjük, próbálja újra néhány perc múlva, vagy lépjen kapcsolatba a weboldal üzemeltetőjével.",
   "error.footer.text": "Hiba jelentésekor kérjük, hogy adja meg a következő információkat:",
   "error.footer.copy": "Másolás",
-  "error.action.go-back": "Vissza"
+  "error.action.go-back": "Vissza",
+  "captcha.error": "A biztonsági ellenőrzés sikertelen. Kérjük, próbálja meg később. Ha a probléma továbbra is fennáll, lépjen kapcsolatba az ügyfélszolgálattal."
 }

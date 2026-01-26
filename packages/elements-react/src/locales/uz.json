@@ -292,5 +292,6 @@
   "error.instructions": "Iltimos, bir necha daqiqadan so'ng qayta urinib ko'ring yoki veb-sayt operatori bilan bog'laning.",
   "error.footer.text": "Bu xato haqida xabar berishda quyidagi ma'lumotlarni qo'shing:",
   "error.footer.copy": "Nusxa olish",
-  "error.action.go-back": "Orqaga qaytish"
+  "error.action.go-back": "Orqaga qaytish",
+  "captcha.error": "Xavfsizlikni tekshirish muvaffaqiyatsiz tugadi. Iltimos, keyinroq qayta urinib ko'ring. Agar muammo davom etsa, yordam xizmatiga murojaat qiling."
 }

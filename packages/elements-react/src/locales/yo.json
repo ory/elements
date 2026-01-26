@@ -292,5 +292,6 @@
   "error.instructions": "Jọ̀wọ́ tún gbìyànjú ní ìṣẹ́jú díẹ̀ tàbí kan sí oluṣàkóso ààyè náà.",
   "error.footer.text": "Nígbà tí o bá ń ròyìn àṣìṣe yìí, jọ̀wọ́ kó ìròyìn wọ̀nyí wọlé:",
   "error.footer.copy": "Ṣẹ̀dà",
-  "error.action.go-back": "Padà sẹ́yìn"
+  "error.action.go-back": "Padà sẹ́yìn",
+  "captcha.error": "Ijẹrisi aabo kuna. Jọwọ gbiyanju lẹẹkansi nigbamii. Ti iṣoro naa ba tẹsiwaju, kan si atilẹyin."
 }

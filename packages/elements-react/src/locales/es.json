@@ -292,5 +292,6 @@
   "error.footer.copy": "Copiar",
   "error.action.go-back": "Regresar",
   "identities.messages.1010020": "",
-  "identities.messages.1050020": "Eliminar passkey \"{display_name}\""
+  "identities.messages.1050020": "Eliminar passkey \"{display_name}\"",
+  "captcha.error": "La verificación de seguridad falló. Por favor, inténtelo de nuevo más tarde. Si el problema persiste, contacte con soporte."
 }

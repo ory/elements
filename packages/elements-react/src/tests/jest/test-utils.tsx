@@ -11,6 +11,7 @@ import { OryFlowProvider } from "../../context/flow-context"
 import { getOryComponents } from "../../theme/default"
 import { OryClientConfiguration, OryFlowContainer } from "../../util"
 import { OryConfigurationProvider } from "../../context"
+import { OryFormProvider } from "../../components/form/form-provider"
 
 export const defaultConfiguration: OryClientConfiguration = {
   project: {
@@ -47,7 +48,7 @@ const OryProvider = ({ children, components, flow }: OryProviderProps) => (
   >
     <OryComponentProvider components={getOryComponents(components)}>
       <OryConfigurationProvider {...defaultConfiguration}>
-        {children}
+        <OryFormProvider>{children}</OryFormProvider>
       </OryConfigurationProvider>
     </OryComponentProvider>
   </OryFlowProvider>

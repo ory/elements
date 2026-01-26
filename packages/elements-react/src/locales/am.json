@@ -292,5 +292,6 @@
   "error.instructions": "እባክዎን በጥቂት ደቂቃዎች ውስጥ እንደገና ይሞክሩ ወይም የድር ጣቢያውን አስተዳዳሪ ያነጋግሩ።",
   "error.footer.text": "ይህን ስህተት በሚዘግቡበት ጊዜ፣ እባክዎን የሚከተለውን መረጃ ያካትቱ፡",
   "error.footer.copy": "ቅዳ",
-  "error.action.go-back": "ተመለስ"
+  "error.action.go-back": "ተመለስ",
+  "captcha.error": "የደህንነት ማረጋገጫ አልተሳካም። እባክዎ በኋላ እንደገና ይሞክሩ። ችግሩ ከቀጠለ ድጋፍን ያነጋግሩ።"
 }

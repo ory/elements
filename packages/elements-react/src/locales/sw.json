@@ -292,5 +292,6 @@
   "error.instructions": "Tafadhali jaribu tena baada ya dakika chache au wasiliana na mfanyakazi wa tovuti.",
   "error.footer.text": "Unaporipoti kosa hili, tafadhali jumuisha taarifa zifuatazo:",
   "error.footer.copy": "Nakili",
-  "error.action.go-back": "Rudi nyuma"
+  "error.action.go-back": "Rudi nyuma",
+  "captcha.error": "Uhakiki wa usalama umeshindwa. Tafadhali jaribu tena baadaye. Ikiwa tatizo litaendelea, wasiliana na usaidizi."
 }

@@ -292,5 +292,6 @@
   "error.footer.text": "Zgłaszając ten błąd, dołącz poniższe informacje:",
   "error.title.what-can-i-do": "Co mogę zrobić?",
   "error.title.what-happened": "Co się stało?",
-  "error.instructions": "Spróbuj ponownie za kilka minut lub skontaktuj się z operatorem witryny."
+  "error.instructions": "Spróbuj ponownie za kilka minut lub skontaktuj się z operatorem witryny.",
+  "captcha.error": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie później. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną."
 }

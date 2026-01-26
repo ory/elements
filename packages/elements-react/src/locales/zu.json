@@ -292,5 +292,6 @@
   "error.instructions": "Sicela uzame futhi emaminithini ambalwa noma uxhumane nomsebenzisi wewebhusayithi.",
   "error.footer.text": "Uma ubika leli phutha, sicela ufake lolu lwazi olulandelayo:",
   "error.footer.copy": "Kopisha",
-  "error.action.go-back": "Buyela emuva"
+  "error.action.go-back": "Buyela emuva",
+  "captcha.error": "Ukuqinisekisa kokuvikela kuhlulekile. Sicela uzame futhi mya. Uma inkinga iqhubeka, thintana nosekelo."
 }

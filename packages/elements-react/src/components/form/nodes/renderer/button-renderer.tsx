@@ -13,9 +13,7 @@ type ButtonRendererProps = {
 export function ButtonRenderer({ node }: ButtonRendererProps) {
   const { Node } = useComponents()
   const { formState, setValue } = useFormContext()
-  const {
-    formState: { isSubmitting },
-  } = useOryFlow()
+  const { formState: oryFormState } = useOryFlow()
   const [clicked, setClicked] = useDebounceValue(false, 100)
 
   const handleClick = useCallback(() => {
@@ -31,14 +29,18 @@ export function ButtonRenderer({ node }: ButtonRendererProps) {
     name: node.attributes.name,
     value: node.attributes.value,
     onClick: handleClick,
-    disabled: node.attributes.disabled || !formState.isReady || isSubmitting,
+    disabled:
+      node.attributes.disabled ||
+      !formState.isReady ||
+      !oryFormState.isReady ||
+      oryFormState.isSubmitting,
   } satisfies OryNodeButtonButtonProps
 
   useEffect(() => {
-    if (!isSubmitting) {
+    if (!oryFormState.isSubmitting) {
       setClicked(false)
     }
-  }, [isSubmitting, setClicked])
+  }, [oryFormState.isSubmitting, setClicked])
 
   return (
     <Node.Button

@@ -292,5 +292,6 @@
   "error.instructions": "Prøv venligst igen om et par minutter eller kontakt webstedets operatør.",
   "error.footer.text": "Når du rapporterer denne fejl, skal du inkludere følgende information:",
   "error.footer.copy": "Kopier",
-  "error.action.go-back": "Gå tilbage"
+  "error.action.go-back": "Gå tilbage",
+  "captcha.error": "Sikkerhedsbekræftelse mislykkedes. Prøv venligst igen senere. Kontakt support, hvis problemet fortsætter."
 }

@@ -292,5 +292,6 @@
   "error.instructions": "Probeer asseblief oor 'n paar minute weer of kontak die webwerf-operateur.",
   "error.footer.text": "Wanneer hierdie fout gerapporteer word, sluit asseblief die volgende inligting in:",
   "error.footer.copy": "Kopieer",
-  "error.action.go-back": "Gaan terug"
+  "error.action.go-back": "Gaan terug",
+  "captcha.error": "Sekuriteitsverifikasie het misluk. Probeer asseblief later weer. Indien die probleem voortduur, kontak ondersteuning."
 }

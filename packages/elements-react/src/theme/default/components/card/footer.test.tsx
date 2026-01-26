@@ -182,6 +182,7 @@ describe("DefaultCardFooter", () => {
         authMethods: ["totp", "code"],
         formState: {
           current: "select_method",
+          isReady: true,
           isSubmitting: false,
         },
       })

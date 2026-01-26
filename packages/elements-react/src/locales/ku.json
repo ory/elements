@@ -292,5 +292,6 @@
   "error.instructions": "تکایە لە ماوەی چەند خولەکێکدا دووبارە هەوڵ بدەرەوە یان پەیوەندی بە بەڕێوەبەری ماڵپەڕەکە بکە.",
   "error.footer.text": "کاتێک ئەم هەڵەیە ڕاپۆرت دەکەیت، تکایە ئەم زانیاریانە لەخۆبگرە:",
   "error.footer.copy": "کۆپیکردن",
-  "error.action.go-back": "گەڕانەوە"
+  "error.action.go-back": "گەڕانەوە",
+  "captcha.error": "Piştrastkirina ewlehiyê bi ser neket. Ji kerema xwe piştre dîsa hewl bidin. Heke pirsgirêk berdewam bike, bi piştgiriya re têkilî daynin."
 }

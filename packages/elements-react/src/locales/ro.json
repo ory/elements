@@ -292,5 +292,6 @@
   "error.instructions": "Vă rugăm să încercați din nou în câteva minute sau să contactați operatorul site-ului.",
   "error.footer.text": "Când raportați această eroare, vă rugăm să includeți următoarele informații:",
   "error.footer.copy": "Copiază",
-  "error.action.go-back": "Înapoi"
+  "error.action.go-back": "Înapoi",
+  "captcha.error": "Verificarea de securitate a eșuat. Vă rugăm să încercați din nou mai târziu. Dacă problema persistă, contactați asistența."
 }

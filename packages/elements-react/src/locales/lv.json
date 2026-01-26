@@ -292,5 +292,6 @@
   "error.instructions": "Lūdzu, mēģiniet vēlreiz pēc dažām minūtēm vai sazinieties ar vietnes operatoru.",
   "error.footer.text": "Ziņojot par šo kļūdu, lūdzu, iekļaujiet šādu informāciju:",
   "error.footer.copy": "Kopēt",
-  "error.action.go-back": "Atpakaļ"
+  "error.action.go-back": "Atpakaļ",
+  "captcha.error": "Drošības pārbaude neizdevās. Lūdzu, mēģiniet vēlreiz vēlāk. Ja problēma joprojām pastāv, sazinieties ar atbalsta dienestu."
 }

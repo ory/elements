@@ -292,5 +292,6 @@
   "error.instructions": "Torneu-ho a intentar d'aquí a uns minuts o contacteu amb l'operador del lloc web.",
   "error.footer.text": "Quan informeu d'aquest error, incloeu la informació següent:",
   "error.footer.copy": "Copiar",
-  "error.action.go-back": "Tornar"
+  "error.action.go-back": "Tornar",
+  "captcha.error": "La verificació de seguretat ha fallat. Si us plau, torneu-ho a provar més tard. Si el problema persisteix, contacteu amb el suport."
 }

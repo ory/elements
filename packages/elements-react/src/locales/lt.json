@@ -292,5 +292,6 @@
   "error.instructions": "Prašome bandyti dar kartą po kelių minučių arba susisiekti su svetainės operatoriumi.",
   "error.footer.text": "Pranešdami apie šią klaidą, prašome įtraukti šią informaciją:",
   "error.footer.copy": "Kopijuoti",
-  "error.action.go-back": "Grįžti atgal"
+  "error.action.go-back": "Grįžti atgal",
+  "captcha.error": "Saugumo patikra nepavyko. Bandykite dar kartą vėliau. Jei problema išlieka, susisiekite su palaikymo komanda."
 }

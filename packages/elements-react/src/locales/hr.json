@@ -292,5 +292,6 @@
   "error.instructions": "Molimo pokušajte ponovno za nekoliko minuta ili kontaktirajte operatera web stranice.",
   "error.footer.text": "Prilikom prijavljivanja ove greške, molimo uključite sljedeće informacije:",
   "error.footer.copy": "Kopiraj",
-  "error.action.go-back": "Natrag"
+  "error.action.go-back": "Natrag",
+  "captcha.error": "Sigurnosna provjera nije uspjela. Molimo pokušajte ponovo kasnije. Ako se problem nastavi, obratite se podršci."
 }

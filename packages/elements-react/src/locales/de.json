@@ -292,5 +292,6 @@
   "error.footer.text": "Bitte fügen Sie bei der Meldung dieses Fehlers die folgenden Informationen hinzu:",
   "error.instructions": "Bitte versuchen Sie es in wenigen Minuten erneut oder wenden Sie sich an den Webseiten-Betreiber.",
   "error.title.what-can-i-do": "Was kann ich tun?",
-  "error.action.go-back": "Zurück"
+  "error.action.go-back": "Zurück",
+  "captcha.error": "Sicherheitsüberprüfung fehlgeschlagen. Bitte versuchen Sie es später noch einmal. Wenn das Problem weiterhin besteht, wenden Sie sich an den Support."
 }

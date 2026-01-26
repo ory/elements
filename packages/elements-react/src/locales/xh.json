@@ -292,5 +292,6 @@
   "error.instructions": "Nceda uzame kwakhona kwimizuzu embalwa okanye uqhagamshelane nomqhubi wesayithi.",
   "error.footer.text": "Xa uxela le mpazamo, nceda ubandakanye le nkcazelo ilandelayo:",
   "error.footer.copy": "Khuphela",
-  "error.action.go-back": "Buyela emva"
+  "error.action.go-back": "Buyela emva",
+  "captcha.error": "Uqinisekiso lokhuseleko aluphumelelanga. Nceda uzame kwakhona kamva. Ukuba ingxaki iyaqhubeka, qhagamshelana nenkxaso."
 }

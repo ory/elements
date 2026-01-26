@@ -20,7 +20,11 @@ test('should initialize with "provide_identifier" state', () => {
   const { result } = renderHook(() => useFormStateReducer(init))
 
   const [state] = result.current
-  expect(state).toEqual({ current: "provide_identifier", isSubmitting: false })
+  expect(state).toEqual({
+    current: "provide_identifier",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 
 test('should initialize with "settings" state for settings flows', () => {
@@ -31,7 +35,11 @@ test('should initialize with "settings" state for settings flows', () => {
   )
 
   const [state] = result.current
-  expect(state).toEqual({ current: "settings", isSubmitting: false })
+  expect(state).toEqual({
+    current: "settings",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 
 test('should transition to "method_active" state when "action_select_method" is dispatched', () => {
@@ -49,6 +57,7 @@ test('should transition to "method_active" state when "action_select_method" is 
   expect(state).toEqual({
     current: "method_active",
     method: UiNodeGroupEnum.Code,
+    isReady: true,
     isSubmitting: false,
   })
 })
@@ -100,7 +109,11 @@ test(`should parse state from flow on "action_flow_update" provide_identifier`, 
   })
 
   const [state] = result.current
-  expect(state).toEqual({ current: "provide_identifier", isSubmitting: false })
+  expect(state).toEqual({
+    current: "provide_identifier",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 
 test(`should parse state from flow on "action_flow_update" if password has validation error`, () => {
@@ -159,6 +172,7 @@ test(`should parse state from flow on "action_flow_update" if password has valid
   expect(state).toEqual({
     current: "method_active",
     method: "password",
+    isReady: true,
     isSubmitting: false,
   })
 })
@@ -219,7 +233,11 @@ test(`should ignore validation message on default group nodes`, () => {
   })
 
   const [state] = result.current
-  expect(state).toEqual({ current: "provide_identifier", isSubmitting: false })
+  expect(state).toEqual({
+    current: "provide_identifier",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 
 test(`should parse state from flow on "action_flow_update" when choosing method on registration`, () => {
@@ -251,7 +269,11 @@ test(`should parse state from flow on "action_flow_update" when choosing method 
   })
 
   const [state] = result.current
-  expect(state).toEqual({ current: "select_method", isSubmitting: false })
+  expect(state).toEqual({
+    current: "select_method",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 
 test(`should parse state from flow on "action_flow_update" when choosing method on login`, () => {
@@ -284,7 +306,11 @@ test(`should parse state from flow on "action_flow_update" when choosing method 
   })
 
   const [state] = result.current
-  expect(state).toEqual({ current: "select_method", isSubmitting: false })
+  expect(state).toEqual({
+    current: "select_method",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 ;[(FlowType.Recovery, FlowType.Verification)].forEach((flowType) => {
   test(`should parse state from flow on "action_flow_update" ${flowType} provide_identifier`, () => {
@@ -310,6 +336,7 @@ test(`should parse state from flow on "action_flow_update" when choosing method 
     const [state] = result.current
     expect(state).toEqual({
       current: "provide_identifier",
+      isReady: true,
       isSubmitting: false,
     })
   })
@@ -338,6 +365,7 @@ test(`should parse state from flow on "action_flow_update" when choosing method 
     expect(state).toEqual({
       current: "method_active",
       method: "code",
+      isReady: true,
       isSubmitting: false,
     })
   })
@@ -401,6 +429,7 @@ for (const activeMethod of ["identifier_first", "default"]) {
     const [state] = result.current
     expect(state).toEqual({
       current: "provide_identifier",
+      isReady: true,
       isSubmitting: false,
     })
   })
@@ -435,7 +464,11 @@ test(`should parse select_method from account linking flow`, () => {
   })
 
   const [state] = result.current
-  expect(state).toEqual({ current: "select_method", isSubmitting: false })
+  expect(state).toEqual({
+    current: "select_method",
+    isReady: true,
+    isSubmitting: false,
+  })
 })
 
 test(`should keep current method active on "action_flow_update" if a method is already selected`, () => {
@@ -477,6 +510,7 @@ test(`should keep current method active on "action_flow_update" if a method is a
   expect(state).toEqual({
     current: "method_active",
     method: "totp",
+    isReady: true,
     isSubmitting: false,
   })
 })
@@ -494,6 +528,7 @@ test("should set isSubmitting to true on form_submit_start", () => {
   const [state] = result.current
   expect(state).toEqual({
     current: "provide_identifier",
+    isReady: true,
     isSubmitting: true,
   })
 })
@@ -517,6 +552,7 @@ test("should set isSubmitting to false on form_submit_end when not redirecting",
   const [state] = result.current
   expect(state).toEqual({
     current: "provide_identifier",
+    isReady: true,
     isSubmitting: false,
   })
 })
@@ -546,6 +582,7 @@ test("should keep isSubmitting true on form_submit_end when page_redirect was di
   const [state] = result.current
   expect(state).toEqual({
     current: "provide_identifier",
+    isReady: true,
     isSubmitting: true,
   })
 })
@@ -563,6 +600,7 @@ test("should set isSubmitting to true on page_redirect", () => {
   const [state] = result.current
   expect(state).toEqual({
     current: "provide_identifier",
+    isReady: true,
     isSubmitting: true,
   })
 })
@@ -588,6 +626,77 @@ test("should preserve current state and method on page_redirect", () => {
   expect(state).toEqual({
     current: "method_active",
     method: UiNodeGroupEnum.Password,
+    isReady: true,
     isSubmitting: true,
+  })
+})
+
+test("should set isReady to false on when input loading", () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  act(() => {
+    dispatch({
+      type: "form_input_loading",
+      group: "captcha",
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({
+    current: "provide_identifier",
+    isReady: false,
+    isSubmitting: false,
+  })
+})
+
+test("should set isReady to true only when all inputs are ready", () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  act(() => {
+    dispatch({
+      type: "form_input_loading",
+      group: "captcha",
+    })
+  })
+
+  act(() => {
+    dispatch({
+      type: "form_input_loading",
+      group: "identifier_first",
+    })
+  })
+
+  expect(result.current[0]).toEqual({
+    current: "provide_identifier",
+    isReady: false,
+    isSubmitting: false,
+  })
+
+  act(() => {
+    dispatch({
+      type: "form_input_ready",
+      input: "captcha",
+    })
+  })
+
+  expect(result.current[0]).toEqual({
+    current: "provide_identifier",
+    isReady: false,
+    isSubmitting: false,
+  })
+
+  act(() => {
+    dispatch({
+      type: "form_input_ready",
+      input: "identifier_first",
+    })
+  })
+
+  expect(result.current[0]).toEqual({
+    current: "provide_identifier",
+    isReady: true,
+    isSubmitting: false,
   })
 })

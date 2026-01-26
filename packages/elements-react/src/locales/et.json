@@ -292,5 +292,6 @@
   "error.instructions": "Palun proovige mõne minuti pärast uuesti või võtke ühendust veebilehe operaatoriga.",
   "error.footer.text": "Kui teate sellest veast, lisage järgmine teave:",
   "error.footer.copy": "Kopeeri",
-  "error.action.go-back": "Mine tagasi"
+  "error.action.go-back": "Mine tagasi",
+  "captcha.error": "Turvakontroll ebaõnnestus. Palun proovige hiljem uuesti. Probleemi püsimisel võtke ühendust klienditoega."
 }

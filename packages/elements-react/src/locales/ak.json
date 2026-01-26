@@ -292,5 +292,6 @@
   "error.instructions": "Yɛsrɛ wo san yɛ bio wɔ simma kakra mu anaasɛ di nkitaho wɔ wɛbsaet no dwumayɛfo so.",
   "error.footer.text": "Sɛ worebɔ saa mfomso yi ho amanneɛ a, yɛsrɛ wo fa nsɛm a edidi so yi ka ho:",
   "error.footer.copy": "Fa ko",
-  "error.action.go-back": "San kɔ"
+  "error.action.go-back": "San kɔ",
+  "captcha.error": "Bammɔ ho nhwehwɛmu no antumi anyɛ yie. Yɛsrɛ wo, bɔ mmɔden bio akyire yi. Sɛ ɔhaw no kɔ so a, di nkitaho fa mmoa ho."
 }

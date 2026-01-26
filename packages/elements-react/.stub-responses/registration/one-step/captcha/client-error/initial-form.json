@@ -133,6 +133,18 @@
         "type": "input",
         "group": "passkey",
         "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
           "name": "passkey_register_trigger",
           "type": "button",
           "disabled": false,
@@ -153,18 +165,6 @@
         "type": "input",
         "group": "passkey",
         "attributes": {
-          "name": "passkey_register",
-          "type": "hidden",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
           "name": "passkey_create_data",
           "type": "hidden",
           "value": "{}",
@@ -173,6 +173,25 @@
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040006,
+            "text": "Send sign up code",
+            "type": "info"
+          }
+        }
       },
       {
         "type": "input",
@@ -276,19 +295,12 @@
         "attributes": {
           "name": "captcha_turnstile_options",
           "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "value": "{\"sitekey\":\"2x00000000000000000000AB\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
-      }
-    ],
-    "messages": [
-      {
-        "id": 4000038,
-        "text": "Captcha verification failed, please try again.",
-        "type": "error"
       }
     ]
   },

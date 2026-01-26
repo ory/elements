@@ -292,5 +292,6 @@
   "error.support-email-link": "यदि समस्या जारी रहती है, तो कृपया <a>{contactSupportEmail}</a> से संपर्क करें",
   "error.title": "एक त्रुटि हुई",
   "error.title-internal-server-error": "आंतरिक सर्वर त्रुटि",
-  "error.title-not-found": "404 - पृष्ठ नहीं मिला"
+  "error.title-not-found": "404 - पृष्ठ नहीं मिला",
+  "captcha.error": "सुरक्षा सत्यापन विफल रहा। कृपया बाद में पुनः प्रयास करें। यदि समस्या बनी रहती है, तो सहायता से संपर्क करें।"
 }

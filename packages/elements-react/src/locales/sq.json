@@ -292,5 +292,6 @@
   "error.instructions": "Ju lutemi provoni përsëri për disa minuta ose kontaktoni operatorin e faqes së internetit.",
   "error.footer.text": "Kur raportoni këtë gabim, ju lutemi përfshini informacionin e mëposhtëm:",
   "error.footer.copy": "Kopjo",
-  "error.action.go-back": "Kthehu mbrapa"
+  "error.action.go-back": "Kthehu mbrapa",
+  "captcha.error": "Verifikimi i sigurisë dështoi. Ju lutemi provoni përsëri më vonë. Nëse problemi vazhdon, kontaktoni mbështetjen."
 }

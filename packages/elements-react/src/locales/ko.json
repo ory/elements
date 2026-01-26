@@ -292,5 +292,6 @@
   "error.instructions": "몇 분 후 다시 시도하거나 웹사이트 운영자에게 문의하세요.",
   "error.footer.text": "이 오류를 보고할 때 다음 정보를 포함해 주세요:",
   "error.footer.copy": "복사",
-  "error.action.go-back": "뒤로 가기"
+  "error.action.go-back": "뒤로 가기",
+  "captcha.error": "보안 확인에 실패했습니다. 나중에 다시 시도해 주세요. 문제가 지속되면 지원팀에 문의하세요."
 }

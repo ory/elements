@@ -292,5 +292,6 @@
   "error.instructions": "请几分钟后重试或联系网站管理员。",
   "error.footer.text": "报告此错误时，请包括以下信息：",
   "error.footer.copy": "复制",
-  "error.action.go-back": "返回"
+  "error.action.go-back": "返回",
+  "captcha.error": "安全验证失败。请稍后再试。如果问题仍然存在，请联系支持部门。"
 }

@@ -292,5 +292,6 @@
   "error.support-email-link": "اگر مشکل ادامه داشت، لطفاً با <a>{contactSupportEmail}</a> تماس بگیرید",
   "error.title": "خطایی رخ داد",
   "error.title-internal-server-error": "خطای سرور داخلی",
-  "error.title-not-found": "404 - صفحه یافت نشد"
+  "error.title-not-found": "404 - صفحه یافت نشد",
+  "captcha.error": "تأیید امنیتی ناموفق بود. لطفاً بعداً دوباره تلاش کنید. اگر مشکل ادامه داشت، با پشتیبانی تماس بگیرید."
 }

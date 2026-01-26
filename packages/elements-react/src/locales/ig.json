@@ -292,5 +292,6 @@
   "error.instructions": "Biko gbalịa ọzọ n'ime nkeji ole na ole ma ọ bụ kpọtụrụ onye na-arụ ọrụ weebụsaịtị.",
   "error.footer.text": "Mgbe ị na-akọ njehie a, biko tinye ozi ndị a:",
   "error.footer.copy": "Detuo",
-  "error.action.go-back": "Laghachi azụ"
+  "error.action.go-back": "Laghachi azụ",
+  "captcha.error": "Nyocha nchekwa kụrụ afọ n'ala. Biko nwaa ọzọ mechaa. Ọ bụrụ na nsogbu ahụ anọgide, kpọtụrụ nkwado."
 }

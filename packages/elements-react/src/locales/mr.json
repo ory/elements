@@ -292,5 +292,6 @@
   "consent.remember-label": "याच निर्णयाची आठवण येईल जेणेकरून आपल्या संमतीशिवाय एप्लिकेशन पुन्हा परवानगी मागू शकणार नाही.",
   "consent.remember-tooltip": "माझा निर्णय आठवा",
   "consent.requested-permissions-label": "एप्लिकेशन खालील परवानगींचा प्रवेश मागत आहे:",
-  "consent.terms-of-service-label": "सेवा नियम"
+  "consent.terms-of-service-label": "सेवा नियम",
+  "captcha.error": "सुरक्षा पडताळणी अयशस्वी झाली. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा. समस्या कायम राहिल्यास, समर्थनाशी संपर्क साधा."
 }

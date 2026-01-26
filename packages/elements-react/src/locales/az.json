@@ -292,5 +292,6 @@
   "error.instructions": "Bir neçə dəqiqə sonra yenidən cəhd edin və ya vebsayt operatoru ilə əlaqə saxlayın.",
   "error.footer.text": "Bu xətanı bildirərkən aşağıdakı məlumatı daxil edin:",
   "error.footer.copy": "Kopyala",
-  "error.action.go-back": "Geri qayıt"
+  "error.action.go-back": "Geri qayıt",
+  "captcha.error": "Təhlükəsizlik yoxlaması uğursuz oldu. Zəhmət olmasa bir az sonra yenidən cəhd edin. Problem davam edərsə, dəstək xidməti ilə əlaqə saxlayın."
 }

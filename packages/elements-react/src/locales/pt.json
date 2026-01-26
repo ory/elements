@@ -292,5 +292,6 @@
   "error.footer.text": "Ao reportar este erro, inclua a informação seguinte:",
   "error.title.what-can-i-do": "O que posso fazer?",
   "error.title.what-happened": "O que aconteceu?",
-  "error.instructions": "Tente novamente dentro de alguns minutos ou contacte o operador do site."
+  "error.instructions": "Tente novamente dentro de alguns minutos ou contacte o operador do site.",
+  "captcha.error": "A verificação de segurança falhou. Por favor, tente novamente mais tarde. Se o problema persistir, contacte o suporte."
 }

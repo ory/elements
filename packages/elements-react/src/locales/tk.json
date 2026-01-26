@@ -292,5 +292,6 @@
   "error.instructions": "Haýyş edýäris birnäçe minutdan soň täzeden synanyşyň ýa-da web sahypasynyň operatory bilen habarlaşyň.",
   "error.footer.text": "Bu ýalňyşlygy habar berenimizde, haýyş edýäris aşakdaky maglumatlary goşuň:",
   "error.footer.copy": "Göçürmek",
-  "error.action.go-back": "Yza dolan"
+  "error.action.go-back": "Yza dolan",
+  "captcha.error": "Howpsuzlyk barlagy şowsuz boldy. Soňrak gaýtadan synanyşmagyňyzy haýyş edýäris. Mesele dowam etse, goldaw gullugy bilen habarlaşyň."
 }

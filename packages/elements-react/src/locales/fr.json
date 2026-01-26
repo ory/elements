@@ -292,5 +292,6 @@
   "error.footer.text": "Lorsque vous signalez cette erreur, veuillez inclure les informations suivantes:",
   "error.footer.copy": "Copier",
   "error.action.go-back": "Retour",
-  "identities.messages.1010020": ""
+  "identities.messages.1010020": "",
+  "captcha.error": "La vérification de sécurité a échoué. Veuillez réessayer plus tard. Si le problème persiste, contactez le support."
 }

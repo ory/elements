@@ -292,5 +292,6 @@
   "two-step.totp.title": "Gamitin ang iyong Authenticator App (TOTP)",
   "two-step.totp.description": "Gamitin ang 6-digit na one-time code mula sa iyong authenticator app",
   "two-step.lookup_secret.title": "Kodigo ng backup na pagbawi",
-  "two-step.lookup_secret.description": "Gumamit ng isa sa iyong 8-digit na backup codes upang mag-authenticate"
+  "two-step.lookup_secret.description": "Gumamit ng isa sa iyong 8-digit na backup codes upang mag-authenticate",
+  "captcha.error": "Nabigo ang pag-verify ng seguridad. Pakisubukang muli mamaya. Kung magpapatuloy ang problema, makipag-ugnayan sa suporta."
 }

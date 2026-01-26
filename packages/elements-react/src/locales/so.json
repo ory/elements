@@ -292,5 +292,6 @@
   "error.instructions": "Fadlan dib u isku day dhawr daqiiqo ka dib ama la xiriir hawl-wadeenka bogga.",
   "error.footer.text": "Markaad sheegayso khaladkan, fadlan ku dar macluumaadkan soo socda:",
   "error.footer.copy": "Koobiyee",
-  "error.action.go-back": "Dib u noqo"
+  "error.action.go-back": "Dib u noqo",
+  "captcha.error": "Xaqiijinta amniga waa fashilantay. Fadlan isku day mar dambe. Haddii dhibaatadu sii socoto, la xiriir taageerada."
 }

@@ -292,5 +292,6 @@
   "error.instructions": "Zkuste to prosím znovu za několik minut nebo kontaktujte provozovatele webu.",
   "error.footer.text": "Při hlášení této chyby uveďte prosím následující informace:",
   "error.footer.copy": "Kopírovat",
-  "error.action.go-back": "Zpět"
+  "error.action.go-back": "Zpět",
+  "captcha.error": "Bezpečnostní ověření selhalo. Zkuste to prosím později. Pokud problém přetrvává, kontaktujte podporu."
 }

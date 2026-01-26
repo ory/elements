@@ -292,5 +292,6 @@
   "error.instructions": "I ka segin k'a lajɛ miniti damadɔ kɔnɔ walima ka websaeti baarakɛla kunnafoni.",
   "error.footer.text": "Ni i bɛ nin fili in raportw kɛ, i ka nin kunnafoniw fara a kan:",
   "error.footer.copy": "Kopi kɛ",
-  "error.action.go-back": "Segin"
+  "error.action.go-back": "Segin",
+  "captcha.error": "Kɔlɔsili kɛra kɔnɔ, a ma ɲɛ. Hakɛto, a ɲini tugun kɔfɛ. Ni gɛlɛya tora yen, a ɲini dɛmɛ."
 }

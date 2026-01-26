@@ -292,5 +292,6 @@
   "error.instructions": "数分後に再試行するか、サイト管理者に連絡してください。",
   "error.footer.text": "このエラーを報告する際は、以下の情報を含めてください：",
   "error.footer.copy": "コピー",
-  "error.action.go-back": "戻る"
+  "error.action.go-back": "戻る",
+  "captcha.error": "セキュリティ検証に失敗しました。後でもう一度お試しください。問題が解決しない場合は、サポートにお問い合わせください。"
 }

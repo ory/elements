@@ -46,6 +46,7 @@ type FlowFormState =
 
 type CommonFormStateProperties = {
   isSubmitting: boolean
+  isReady: boolean
 }
 
 /**
@@ -61,6 +62,7 @@ type CommonFormStateProperties = {
  *
  * In addition, it includes a common properties:
  * - `isSubmitting`: A boolean indicating whether the form is currently being submitted.
+ * - `isReady`: A boolean indicating whether the form is ready.
  */
 export type FormState = FlowFormState & CommonFormStateProperties
 
@@ -100,6 +102,30 @@ export type FormStateAction =
        * and return to the method selection state.
        */
       type: "action_clear_active_method"
+    }
+  | {
+      /**
+       * Action to indicate that an input group is loading.
+       * This action is dispatched when the specified input is in the process of loading,
+       * and it sets the form state to not ready.
+       */
+      type: "form_input_loading"
+      /**
+       * The input group that is loading.
+       */
+      group: UiNodeGroupEnum
+    }
+  | {
+      /**
+       * Action to indicate that the input group is ready.
+       * This action is dispatched when the specified input has finished loading,
+       * and it sets the form state to ready.
+       */
+      type: "form_input_ready"
+      /**
+       * The input group that is ready.
+       */
+      input: UiNodeGroupEnum
     }
   | {
       /**
@@ -206,6 +232,9 @@ export function useFormStateReducer(flow: OryFlowContainer) {
     UiNodeGroupEnum | undefined
   >()
   const [isRedirecting, setRedirecting] = useState(false)
+  const [loadingInputs, setLoadingInputs] = useState<Set<UiNodeGroupEnum>>(
+    new Set(),
+  )
 
   const formStateReducer = (
     state: FormState,
@@ -214,15 +243,18 @@ export function useFormStateReducer(flow: OryFlowContainer) {
     switch (action.type) {
       case "action_flow_update": {
         if (selectedMethod) {
+          setLoadingInputs(new Set())
           return {
             current: "method_active",
             method: selectedMethod,
+            isReady: state.isReady,
             isSubmitting: state.isSubmitting,
           }
         }
         const flowFormState = parseStateFromFlow(action.flow)
         return {
           ...flowFormState,
+          isReady: state.isReady,
           isSubmitting: state.isSubmitting,
         }
       }
@@ -231,12 +263,31 @@ export function useFormStateReducer(flow: OryFlowContainer) {
         return {
           current: "method_active",
           method: action.method,
+          isReady: state.isReady,
           isSubmitting: state.isSubmitting,
         }
       }
       case "action_clear_active_method": {
         return {
           current: "select_method",
+          isReady: state.isReady,
+          isSubmitting: state.isSubmitting,
+        }
+      }
+      case "form_input_loading":
+        setLoadingInputs((prev) => new Set(prev).add(action.group))
+        return {
+          ...state,
+          isReady: false,
+          isSubmitting: state.isSubmitting,
+        }
+      case "form_input_ready": {
+        const newLoadingInputs = new Set(loadingInputs)
+        newLoadingInputs.delete(action.input)
+        setLoadingInputs(newLoadingInputs)
+        return {
+          ...state,
+          isReady: newLoadingInputs.size === 0,
           isSubmitting: state.isSubmitting,
         }
       }
@@ -262,5 +313,9 @@ export function useFormStateReducer(flow: OryFlowContainer) {
     return state
   }
 
-  return useReducer(formStateReducer, { ...action, isSubmitting: false })
+  return useReducer(formStateReducer, {
+    ...action,
+    isReady: true,
+    isSubmitting: false,
+  })
 }

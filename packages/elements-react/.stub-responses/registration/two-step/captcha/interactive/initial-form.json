@@ -113,107 +113,6 @@
         }
       },
       {
-        "type": "script",
-        "group": "webauthn",
-        "attributes": {
-          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
-          "async": true,
-          "referrerpolicy": "no-referrer",
-          "crossorigin": "anonymous",
-          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
-          "type": "text/javascript",
-          "id": "webauthn_script",
-          "nonce": "00000000-0000-0000-0000-000000000000",
-          "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_register_trigger",
-          "type": "button",
-          "disabled": false,
-          "onclick": "window.oryPasskeyRegistration()",
-          "onclickTrigger": "oryPasskeyRegistration",
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040007,
-            "text": "Sign up with passkey",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_register",
-          "type": "hidden",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_create_data",
-          "type": "hidden",
-          "value": "{}",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "new-password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070001,
-            "text": "Password",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1040001,
-            "text": "Sign up",
-            "type": "info"
-          }
-        }
-      },
-      {
         "type": "input",
         "group": "captcha",
         "attributes": {
@@ -276,12 +175,31 @@
         "attributes": {
           "name": "captcha_turnstile_options",
           "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "value": "{\"sitekey\":\"3x00000000000000000000FF\",\"theme\":\"light\",\"action\":\"registration\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1040001,
+            "text": "Sign up",
+            "type": "info"
+          }
+        }
       }
     ]
   },

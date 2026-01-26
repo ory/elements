@@ -292,5 +292,6 @@
   "error.instructions": "Prosimo, poskusite znova čez nekaj minut ali kontaktirajte upravljavca spletne strani.",
   "error.footer.text": "Pri poročanju te napake prosimo, vključite naslednje informacije:",
   "error.footer.copy": "Kopiraj",
-  "error.action.go-back": "Pojdi nazaj"
+  "error.action.go-back": "Pojdi nazaj",
+  "captcha.error": "Varnostno preverjanje ni uspelo. Poskusite znova pozneje. Če težava ne izgine, se obrnite na podporo."
 }

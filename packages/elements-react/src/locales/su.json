@@ -292,5 +292,6 @@
   "error.instructions": "Mangga cobian deui dina sababaraha menit atanapi ngahubungi operator situs wéb.",
   "error.footer.text": "Nalika ngalaporkeun kasalahan ieu, mangga kalebet inpormasi ieu:",
   "error.footer.copy": "Tiron",
-  "error.action.go-back": "Balik"
+  "error.action.go-back": "Balik",
+  "captcha.error": "Verifikasi kaamanan gagal. Mangga cobian deui engké. Upami masalahna tetep, kontak dukungan."
 }

@@ -292,5 +292,6 @@
   "error.footer.text": "Inkludera följande information när du rapporterar felet:",
   "error.title.what-can-i-do": "Vad kan jag göra?",
   "error.title.what-happened": "Vad hände?",
-  "error.instructions": "Försök igen om några minuter eller kontakta webbplatsens ansvariga."
+  "error.instructions": "Försök igen om några minuter eller kontakta webbplatsens ansvariga.",
+  "captcha.error": "Säkerhetsverifieringen misslyckades. Försök igen senare. Kontakta supporten om problemet kvarstår."
 }

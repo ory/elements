@@ -292,5 +292,6 @@
   "error.footer.text": "Neem de volgende informatie op wanneer u deze fout meldt:",
   "error.title.what-can-i-do": "Wat kan ik doen?",
   "error.title.what-happened": "Wat is er gebeurd?",
-  "error.instructions": "Probeer het over een paar minuten opnieuw of neem contact op met de websitebeheerder."
+  "error.instructions": "Probeer het over een paar minuten opnieuw of neem contact op met de websitebeheerder.",
+  "captcha.error": "Beveiligingsverificatie mislukt. Probeer het later opnieuw. Als het probleem aanhoudt, neem dan contact op met de ondersteuning."
 }

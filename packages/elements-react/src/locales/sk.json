@@ -292,5 +292,6 @@
   "error.instructions": "Prosím, skúste to znova o niekoľko minút alebo kontaktujte prevádzkovateľa webovej stránky.",
   "error.footer.text": "Pri hlásení tejto chyby prosím zahrňte nasledujúce informácie:",
   "error.footer.copy": "Kopírovať",
-  "error.action.go-back": "Späť"
+  "error.action.go-back": "Späť",
+  "captcha.error": "Bezpečnostné overenie zlyhalo. Skúste to prosím neskôr. Ak problém pretrváva, kontaktujte podporu."
 }

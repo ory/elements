@@ -292,5 +292,6 @@
   "error.instructions": "Silakan coba lagi dalam beberapa menit atau hubungi operator situs web.",
   "error.footer.text": "Ketika melaporkan kesalahan ini, harap sertakan informasi berikut:",
   "error.footer.copy": "Salin",
-  "error.action.go-back": "Kembali"
+  "error.action.go-back": "Kembali",
+  "captcha.error": "Verifikasi keamanan gagal. Silakan coba lagi nanti. Jika masalah berlanjut, hubungi dukungan."
 }

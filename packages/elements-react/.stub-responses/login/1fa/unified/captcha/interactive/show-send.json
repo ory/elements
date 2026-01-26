@@ -5,6 +5,7 @@
   "expires_at": "0001-01-01T00:00:00Z",
   "issued_at": "0001-01-01T00:00:00Z",
   "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser",
+  "active": "code",
   "ui": {
     "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
@@ -72,21 +73,7 @@
         "attributes": {
           "name": "captcha_turnstile_options",
           "type": "hidden",
-          "value": "{\"sitekey\":\"1x00000000000000000000AA\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "default",
-        "attributes": {
-          "name": "csrf_token",
-          "type": "hidden",
-          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
-          "required": true,
+          "value": "{\"sitekey\":\"3x00000000000000000000FF\",\"theme\":\"light\",\"action\":\"login\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
           "disabled": false,
           "node_type": "input"
         },
@@ -98,8 +85,8 @@
         "group": "default",
         "attributes": {
           "name": "identifier",
-          "type": "text",
-          "value": "",
+          "type": "hidden",
+          "value": "dev@ory.dev",
           "required": true,
           "autocomplete": "username webauthn",
           "disabled": false,
@@ -119,64 +106,12 @@
         }
       },
       {
-        "type": "script",
-        "group": "webauthn",
-        "attributes": {
-          "src": "https://slug.projects.oryapis:8080/.well-known/ory/webauthn.js",
-          "async": true,
-          "referrerpolicy": "no-referrer",
-          "crossorigin": "anonymous",
-          "integrity": "sha512-Dg0gN3fy+JoKxRp9Zda/4KYn3SlMdaKjs3fK5g6nDVQ/CVakD1dfMQyvRtJeiAtzSMEFviJbBLcVSrsBPGsFBA==",
-          "type": "text/javascript",
-          "id": "webauthn_script",
-          "nonce": "00000000-0000-0000-0000-000000000000",
-          "node_type": "script"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
         "type": "input",
-        "group": "passkey",
+        "group": "code",
         "attributes": {
-          "name": "passkey_login_trigger",
-          "type": "button",
-          "value": "",
-          "disabled": false,
-          "onclick": "window.oryPasskeyLogin()",
-          "onclickTrigger": "oryPasskeyLogin",
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010021,
-            "text": "Sign in with passkey",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_login",
+          "name": "method",
           "type": "hidden",
-          "disabled": false,
-          "onload": "window.oryPasskeyLoginAutocompleteInit()",
-          "onloadTrigger": "oryPasskeyLoginAutocompleteInit",
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
-          "name": "passkey_challenge",
-          "type": "hidden",
-          "value": "{}",
+          "value": "code",
           "disabled": false,
           "node_type": "input"
         },
@@ -185,42 +120,81 @@
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "code",
         "attributes": {
-          "name": "password",
-          "type": "password",
+          "name": "code",
+          "type": "text",
           "required": true,
-          "autocomplete": "current-password",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070001,
-            "text": "Password",
+            "id": 1070013,
+            "text": "Login code",
             "type": "info"
           }
         }
       },
       {
         "type": "input",
-        "group": "password",
+        "group": "code",
         "attributes": {
           "name": "method",
           "type": "submit",
-          "value": "password",
+          "value": "code",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010022,
-            "text": "Sign in with password",
+            "id": 1070009,
+            "text": "Continue",
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "resend",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070008,
+            "text": "Resend code",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ],
+    "messages": [
+      {
+        "id": 1010014,
+        "text": "A code was sent to the address you provided. If you didn't receive it, please check the spelling of the address and try again.",
+        "type": "info"
       }
     ]
   },
@@ -228,5 +202,6 @@
   "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal1",
-  "state": "choose_method"
+  "state": "sent_email",
+  "transient_payload": {}
 }

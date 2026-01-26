@@ -292,5 +292,6 @@
   "error.action.go-back": "Gå tilbake",
   "settings.messages.toast-title.error": "Kunne ikke oppdatere innstillinger",
   "settings.messages.toast-title.success": "Innstillinger oppdatert",
-  "two-step.passkey.description.error": "Kunne ikke laste de nødvendige bibliotekene for å bruke passordet ditt. \nVennligst prøv igjen senere."
+  "two-step.passkey.description.error": "Kunne ikke laste de nødvendige bibliotekene for å bruke passordet ditt. \nVennligst prøv igjen senere.",
+  "captcha.error": "Sikkerhetsverifisering mislyktes. Vennligst prøv igjen senere. Kontakt kundestøtte hvis problemet vedvarer."
 }

@@ -292,5 +292,6 @@
   "error.instructions": "Don Allah ka sake gwadawa cikin 'yan mintuna ko ka tuntuɓi mai aiki da gidan yanar gizon.",
   "error.footer.text": "Lokacin da kake ba da rahoton wannan kuskuren, don Allah ka haɗa wannan bayanin:",
   "error.footer.copy": "Kwafi",
-  "error.action.go-back": "Koma baya"
+  "error.action.go-back": "Koma baya",
+  "captcha.error": "Tabbatar da tsaro ya gaza. Da fatan za a sake gwadawa anjima. Idan matsalar ta ci gaba, tuntuɓi tallafi."
 }

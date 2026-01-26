@@ -95,6 +95,12 @@ export type FormStateAction = {
 } | {
     type: "action_clear_active_method";
 } | {
+    type: "form_input_loading";
+    group: UiNodeGroupEnum;
+} | {
+    type: "form_input_ready";
+    input: UiNodeGroupEnum;
+} | {
     type: "form_submit_start";
 } | {
     type: "form_submit_end";
@@ -673,7 +679,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:700:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:871:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:875:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1212:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1236:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

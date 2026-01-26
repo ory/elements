@@ -292,5 +292,6 @@
   "error.instructions": "Please try again in a few minutes or contact the website operator.",
   "error.footer.text": "When reporting this error, please include the following information:",
   "error.footer.copy": "Copy",
-  "error.action.go-back": "Go back"
+  "error.action.go-back": "Go back",
+  "captcha.error": "Security verification failed. Please try again later. If the problem persists, contact support."
 }
