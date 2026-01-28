@@ -43,12 +43,15 @@ const createMockRequest = (
 }
 
 const mockFetch = (responseInit: Partial<Response>) => {
-  global.fetch = jest.fn().mockResolvedValue(
-    new Response(responseInit.body || "", {
-      headers: new Headers(responseInit.headers || {}),
-      status: responseInit.status || 200,
-    }),
-  )
+  const response = new Response(responseInit.body || "", {
+    headers: new Headers(responseInit.headers || {}),
+    status: responseInit.status || 200,
+  })
+  // simulate immutable headers like those returned by undici's fetch
+  Object.defineProperty(response.headers, "append", { value: null })
+  Object.defineProperty(response.headers, "set", { value: null })
+  Object.defineProperty(response.headers, "delete", { value: null })
+  global.fetch = jest.fn().mockResolvedValue(response)
 }
 
 const createOptions = (): OryMiddlewareOptions => ({
