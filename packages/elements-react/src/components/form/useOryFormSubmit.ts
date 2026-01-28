@@ -171,6 +171,7 @@ export function useOryFormSubmit(
             typeof oauth2Success.redirect_to === "string"
           ) {
             onRedirect(oauth2Success.redirect_to as string, true)
+            break
           }
           throw new Error(
             `[Ory/Elements]: OAuth2 consent flow not completed. This indicates a bug in Ory. Please report this issue to github.com/ory/elements. \nResponse from ${flowContainer.flow.ui.action}: ${JSON.stringify(oauth2Success)}`,
