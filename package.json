@@ -48,6 +48,8 @@
     "@storybook/node-logger": "8.6.14",
     "@storybook/react": "8.6.14",
     "@storybook/react-vite": "8.6.14",
+    "@storybook/vue3": "8.6.14",
+    "@storybook/vue3-vite": "8.6.14",
     "@storybook/test-runner": "^0.23.0",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/types": "8.6.14",
@@ -73,6 +75,7 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "0.12.0",
     "eslint-plugin-tsdoc": "0.4.0",
+    "eslint-plugin-vue": "10.7.0",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "jest-transform-stub": "2.0.0",
@@ -95,6 +98,7 @@
     "vite": "6.4.1",
     "vite-plugin-require": "1.2.14",
     "vite-plugin-svgr": "4.3.0",
+    "vue-eslint-parser": "10.2.0",
     "zx": "8.8.5"
   },
   "files": [

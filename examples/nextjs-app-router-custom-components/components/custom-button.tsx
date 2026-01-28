@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 "use client"
 import { getNodeLabel } from "@ory/client-fetch"
 import { OryNodeButtonProps } from "@ory/elements-react"

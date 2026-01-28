@@ -1,12 +1,16 @@
 # Translation System Documentation
 
-This directory contains the internationalization (i18n) locale files and a translation management script that uses Ollama to automatically translate content.
+This directory contains the internationalization (i18n) locale files and a
+translation management script that uses Ollama to automatically translate
+content.
 
 ## Overview
 
 The translation system works by:
+
 1. Using `en.json` as the source of truth for all translations
-2. Automatically detecting differences between `en.json` and other language files
+2. Automatically detecting differences between `en.json` and other language
+   files
 3. Using Ollama with multilingual models to translate missing or new content
 4. Maintaining consistency across all language files
 
@@ -36,7 +40,8 @@ locales/
 
 ## Using the Translation Script
 
-The script is located at `script/translate.js` and provides several modes of operation:
+The script is located at `script/translate.js` and provides several modes of
+operation:
 
 ### View Usage Information
 
@@ -47,7 +52,8 @@ node translate.js
 
 ### Update Existing Translations
 
-When you add new keys to `en.json` or modify existing values, you can update all language files:
+When you add new keys to `en.json` or modify existing values, you can update all
+language files:
 
 ```bash
 # Update ALL existing language files with missing keys
@@ -59,6 +65,7 @@ node translate.js --update es    # Updates Spanish only
 ```
 
 The script will:
+
 - Compare each language file with `en.json`
 - Identify missing keys
 - Translate only the missing keys
@@ -76,6 +83,7 @@ node translate.js --new nl    # Creates Dutch (nl.json)
 ```
 
 The script will:
+
 - Translate the entire `en.json` file to the target language
 - Create a new `[language_code].json` file
 - Preserve all placeholders and HTML tags
@@ -90,6 +98,7 @@ node translate.js --all
 ```
 
 This will:
+
 1. Update all existing language files with any missing keys
 2. Prompt you to add new languages (optional)
 
@@ -98,6 +107,7 @@ This will:
 ### Example 1: Adding New Features
 
 1. Add new keys to `en.json`:
+
 ```json
 {
   "existing.key": "Existing text",
@@ -107,6 +117,7 @@ This will:
 ```
 
 2. Update all translations:
+
 ```bash
 cd script
 node translate.js --update
@@ -116,6 +127,7 @@ node translate.js --update
 
 1. Check available language codes in the script (ISO 639-1 codes)
 2. Create the new language file:
+
 ```bash
 cd script
 node translate.js --new it    # Italian
@@ -124,6 +136,7 @@ node translate.js --new it    # Italian
 ### Example 3: Fixing a Single Language
 
 If one language file is out of sync:
+
 ```bash
 cd script
 node translate.js --update de    # Update German only
@@ -134,12 +147,14 @@ node translate.js --update de    # Update German only
 ### Translation Quality
 
 - The script uses AI translation which provides good baseline translations
-- For production applications, consider having native speakers review translations
+- For production applications, consider having native speakers review
+  translations
 - Complex technical terms or brand-specific language may need manual adjustment
 
 ### Placeholders and HTML
 
 The script automatically preserves:
+
 - Placeholders: `{provider}`, `{contactSupportEmail}`, `{clientName}`, etc.
 - Date formats: `{used_at, date, long}`
 - HTML tags: `<a>`, `</a>`, `<strong>`, etc.
@@ -160,22 +175,27 @@ The script automatically preserves:
 ## Troubleshooting
 
 ### "Model not found" Error
+
 ```bash
 ollama pull qwen3:32b
 ```
 
 ### "Connection refused" Error
+
 ```bash
 ollama serve    # Start Ollama service
 ```
 
 ### Empty or Invalid Translations
+
 - Try running the command again (script has 3 retry attempts)
 - Check if Ollama has enough memory allocated
 - Consider using a larger model
 
 ### Partial Translations
+
 The script will:
+
 - Warn about missing keys
 - Add English fallbacks for any missing translations
 - Log which keys used fallbacks
@@ -202,7 +222,8 @@ See the full list in `script/translate.js` in the `LANGUAGE_NAMES` object.
 ## Best Practices
 
 1. **Always test after translation** - Verify UI layout with longer translations
-2. **Review critical content** - Legal, medical, or financial content needs human review
+2. **Review critical content** - Legal, medical, or financial content needs
+   human review
 3. **Keep `en.json` organized** - Group related keys together
 4. **Use descriptive keys** - Makes translations more accurate
 5. **Document context** - Add comments in code where keys are used
@@ -221,7 +242,9 @@ The update script will skip keys that are already translated.
 
 ## Using Claude Code for Translations
 
-As an alternative to the Ollama script, you can use Claude Code directly for translations. This provides more control and allows for interactive refinement of translations.
+As an alternative to the Ollama script, you can use Claude Code directly for
+translations. This provides more control and allows for interactive refinement
+of translations.
 
 ### Prompt Examples
 
@@ -301,11 +324,16 @@ Create a British English variant (en-GB.json) from en.json, adjusting spellings 
 
 ### Tips for Using Claude Code
 
-1. **Be specific about preservation rules** - Always mention preserving placeholders and HTML tags
-2. **Specify the target language clearly** - Use both language name and code (e.g., "French (fr)")
-3. **Provide context when needed** - Mention if it's for a specific industry or user base
-4. **Request validation** - Ask Claude to verify all keys are present after translation
-5. **Iterative refinement** - You can ask Claude to adjust specific translations after initial generation
+1. **Be specific about preservation rules** - Always mention preserving
+   placeholders and HTML tags
+2. **Specify the target language clearly** - Use both language name and code
+   (e.g., "French (fr)")
+3. **Provide context when needed** - Mention if it's for a specific industry or
+   user base
+4. **Request validation** - Ask Claude to verify all keys are present after
+   translation
+5. **Iterative refinement** - You can ask Claude to adjust specific translations
+   after initial generation
 
 ### Advantages of Using Claude Code
 
@@ -313,26 +341,35 @@ Create a British English variant (en-GB.json) from en.json, adjusting spellings 
 - **Context awareness** - Provide specific context about your application
 - **Selective updates** - Translate only specific keys or sections
 - **Quality review** - Ask for native speaker-level refinements
-- **Custom requirements** - Handle special cases like regional variants or industry terminology
+- **Custom requirements** - Handle special cases like regional variants or
+  industry terminology
 - **Immediate availability** - No need to set up Ollama or download models
 
 ### Example Workflow with Claude Code
 
-1. **Initial setup**: "Show me what language files exist in the locales directory"
-2. **Analysis**: "Compare en.json with all other language files and show which ones need updates"
+1. **Initial setup**: "Show me what language files exist in the locales
+   directory"
+2. **Analysis**: "Compare en.json with all other language files and show which
+   ones need updates"
 3. **Translation**: "Update fr.json and de.json with the missing keys you found"
-4. **Validation**: "Verify that all language files now have the same keys as en.json"
-5. **Refinement**: "The French translation for 'dashboard.analytics.retention' seems too literal, can you make it more natural?"
+4. **Validation**: "Verify that all language files now have the same keys as
+   en.json"
+5. **Refinement**: "The French translation for 'dashboard.analytics.retention'
+   seems too literal, can you make it more natural?"
 
-This approach gives you full control over the translation process while leveraging Claude's language capabilities.
+This approach gives you full control over the translation process while
+leveraging Claude's language capabilities.
 
 ## Using Claude.ai or ChatGPT for Translation Review
 
-You can also use web-based AI assistants like Claude.ai or ChatGPT to translate or review your locale files by attaching the JSON files directly. This is useful for quality assurance and getting detailed translation reports.
+You can also use web-based AI assistants like Claude.ai or ChatGPT to translate
+or review your locale files by attaching the JSON files directly. This is useful
+for quality assurance and getting detailed translation reports.
 
 ### How to Use
 
-1. **Attach the files**: Upload `en.json` and the target language file(s) to the chat
+1. **Attach the files**: Upload `en.json` and the target language file(s) to the
+   chat
 2. **Use one of the prompts below**: Copy and paste the appropriate prompt
 3. **Review the output**: The AI will provide a structured report for evaluation
 
@@ -452,7 +489,7 @@ Please identify missing keys and provide translations for them:
 
 1. **Find Missing Keys**: Compare the files and list all keys present in en.json but missing from [language].json
 2. **Provide Translations**: For each missing key, provide the translation in this format:
-    
+
     ```json
     {
       "missing.key.1": "Translated text here",
@@ -512,15 +549,19 @@ Please focus on actionable insights that help prioritize translation updates.
 
 ### Tips for Best Results
 
-1. **Attach files in order**: Always attach en.json first, then target language files
+1. **Attach files in order**: Always attach en.json first, then target language
+   files
 2. **Specify the language**: Always mention the full language name and code
-3. **Be clear about the context**: Mention if it's for a specific type of application
-4. **Request specific formats**: Ask for JSON output when you need ready-to-use translations
+3. **Be clear about the context**: Mention if it's for a specific type of
+   application
+4. **Request specific formats**: Ask for JSON output when you need ready-to-use
+   translations
 5. **Ask for examples**: Request specific examples of issues found
 
 ### Evaluating the AI's Response
 
 A good translation review should:
+
 - ✅ Identify all missing or extra keys
 - ✅ Catch placeholder and HTML tag issues
 - ✅ Point out unnatural or awkward translations
@@ -531,6 +572,7 @@ A good translation review should:
 ### When to Use This Method
 
 This approach is ideal for:
+
 - **Quality assurance**: Before deploying new translations
 - **Vendor validation**: Checking translations from external translators
 - **Periodic reviews**: Regular quality checks of existing translations
