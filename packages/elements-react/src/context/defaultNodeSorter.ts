@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
 
 const defaultNodeOrder = [

@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 "use client"
 import { OryFlowComponentOverrides } from "@ory/elements-react"
 import { MyCustomButton } from "./custom-button"

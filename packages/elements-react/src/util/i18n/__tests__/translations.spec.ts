@@ -60,7 +60,10 @@ describe("Translations", () => {
         ).sort()
 
         // Check if placeholders match
-        if (JSON.stringify(enPlaceholders) !== JSON.stringify(translatedPlaceholders)) {
+        if (
+          JSON.stringify(enPlaceholders) !==
+          JSON.stringify(translatedPlaceholders)
+        ) {
           issues.push(
             `Key "${key}": expected placeholders ${JSON.stringify(enPlaceholders)}, got ${JSON.stringify(translatedPlaceholders)}`,
           )
@@ -150,7 +153,9 @@ describe("Translations", () => {
 
         // Check if the translation is exactly the same as English (potential fallback)
         if (enValue === translatedValue) {
-          issues.push(`Key "${key}": translation matches English text "${enValue}"`)
+          issues.push(
+            `Key "${key}": translation matches English text "${enValue}"`,
+          )
         }
       }
 

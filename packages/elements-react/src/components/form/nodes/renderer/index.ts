@@ -1,3 +1,6 @@
+// Copyright © 2026 Ory Corp
+// SPDX-License-Identifier: Apache-2.0
+
 import { ButtonRenderer } from "./button-renderer"
 import { CheckboxRenderer } from "./checkbox-renderer"
 import { ConsentCheckboxRenderer } from "./consent-checkbox-renderer"
