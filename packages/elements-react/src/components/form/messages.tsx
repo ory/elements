@@ -37,7 +37,7 @@ export interface OryCardValidationMessagesProps {
    * If not provided, the default list of message IDs to hide will be used.
    * @default [1040009, 1060003, 1080003, 1010004, 1010014, 1040005, 1010016, 1010003]
    *
-   * @see https://www.ory.sh/docs/kratos/concepts/ui-messages
+   * @see https://www.ory.com/docs/kratos/concepts/ui-messages
    */
   hiddenMessageIds?: number[]
 }

@@ -24,7 +24,7 @@
 
 _Please note_: We take Ory Ory Elements's security and our users' trust very
 seriously. If you believe you have found a security issue in Ory Ory Elements,
-please disclose it by contacting us at security@ory.sh.
+please disclose it by contacting us at security@ory.com.
 
 There are many ways in which you can contribute. The goal of this document is to
 provide a high-level overview of how you can get involved in Ory.
@@ -40,11 +40,9 @@ contributions and don't want a wall of rules to get in the way of that.
 
 That said, if you want to ensure that a pull request is likely to be merged,
 talk to us! You can find out our thoughts and ensure that your contribution
-won't clash with Ory
-Ory Elements's direction. A great way to
-do this is via
-[Ory Ory Elements Discussions](https://github.com/orgs/ory/discussions)
-or the [Ory Chat](https://www.ory.sh/chat).
+won't clash with Ory Ory Elements's direction. A great way to do this is via
+[Ory Ory Elements Discussions](https://github.com/orgs/ory/discussions) or the
+[Ory Chat](https://www.ory.com/chat).
 
 ## FAQ
 
@@ -61,13 +59,12 @@ or the [Ory Chat](https://www.ory.sh/chat).
 - I want to talk to other Ory Ory Elements users.
   [How can I become a part of the community?](#communication)
 
-- I would like to know what I am agreeing to when I contribute to Ory
-  Ory Elements.
-  Does Ory have
+- I would like to know what I am agreeing to when I contribute to Ory Ory
+  Elements. Does Ory have
   [a Contributors License Agreement?](https://cla-assistant.io/ory/elements)
 
 - I would like updates about new versions of Ory Ory Elements.
-  [How are new releases announced?](https://www.ory.sh/l/sign-up-newsletter)
+  [How are new releases announced?](https://www.ory.com/l/sign-up-newsletter)
 
 ## How can I contribute?
 
@@ -78,8 +75,8 @@ There are many other ways you can contribute. Here are a few things you can do
 to help out:
 
 - **Give us a star.** It may not seem like much, but it really makes a
-  difference. This is something that everyone can do to help out Ory Ory Elements.
-  Github stars help the project gain visibility and stand out.
+  difference. This is something that everyone can do to help out Ory Ory
+  Elements. Github stars help the project gain visibility and stand out.
 
 - **Join the community.** Sometimes helping people can be as easy as listening
   to their problems and offering a different perspective. Join our Slack, have a
@@ -93,8 +90,8 @@ to help out:
   help, please share it! Bonus: You get GitHub achievements for answered
   discussions.
 
-- **Help with open issues.** We have a lot of open issues for Ory Ory Elements and
-  some of them may lack necessary information, some are duplicates of older
+- **Help with open issues.** We have a lot of open issues for Ory Ory Elements
+  and some of them may lack necessary information, some are duplicates of older
   issues. You can help out by guiding people through the process of filling out
   the issue template, asking for clarifying information or pointing them to
   existing issues that match their description of the problem.
@@ -109,15 +106,17 @@ to help out:
 
 ## Communication
 
-We use [Slack](https://www.ory.sh/chat). You are welcome to drop in and ask
+We use [Slack](https://www.ory.com/chat). You are welcome to drop in and ask
 questions, discuss bugs and feature requests, talk to other users of Ory, etc.
 
-Check out [Ory Ory Elements Discussions](https://github.com/orgs/ory/discussions). This is a great place for
-in-depth discussions and lots of code examples, logs and similar data.
+Check out
+[Ory Ory Elements Discussions](https://github.com/orgs/ory/discussions). This is
+a great place for in-depth discussions and lots of code examples, logs and
+similar data.
 
 You can also join our community calls if you want to speak to the Ory team
 directly or ask some questions. You can find more info and participate in
-[Slack](https://www.ory.sh/chat) in the #community-call channel.
+[Slack](https://www.ory.com/chat) in the #community-call channel.
 
 If you want to receive regular notifications about updates to Ory Ory Elements,
 consider joining the mailing list. We will _only_ send you vital information on
@@ -139,7 +138,7 @@ to add your example or Ory-related project to the awesome-ory README.
 ## Contribute code
 
 Unless you are fixing a known bug, we **strongly** recommend discussing it with
-the core team via a GitHub issue or [in our chat](https://www.ory.sh/chat)
+the core team via a GitHub issue or [in our chat](https://www.ory.com/chat)
 before getting started to ensure your work is consistent with Ory Ory Elements's
 roadmap and architecture.
 
@@ -208,7 +207,7 @@ instructions please head over to the Ory Documentation
 ## Disclosing vulnerabilities
 
 Please disclose vulnerabilities exclusively to
-[security@ory.sh](mailto:security@ory.sh). Do not use GitHub issues.
+[security@ory.com](mailto:security@ory.com). Do not use GitHub issues.
 
 ## Code style
 
@@ -250,4 +249,4 @@ community a safe place for you and we've got your back.
 
 We welcome discussion about creating a welcoming, safe, and productive
 environment for the community. If you have any questions, feedback, or concerns
-[please let us know](https://www.ory.sh/chat).
+[please let us know](https://www.ory.com/chat).

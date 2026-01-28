@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://ory.sh">
+    <a href="https://ory.com">
         <img src="https://raw.githubusercontent.com/ory/meta/refs/heads/master/static/logos/logo-ory.svg" height="72" />
     </a>
 </p>
@@ -13,7 +13,7 @@
 <a aria-label="License" href="https://github.com/ory/elements/blob/main/LICENSE">
 <img src="https://img.shields.io/github/license/ory/elements?style=flat-square">
 </a>
-<a aria-label="Join Ory Slack community!" href="https://slack.ory.sh/">
+<a aria-label="Join Ory Slack community!" href="https://slack.ory.com/">
 <img src="https://img.shields.io/badge/Slack-Join%20the%20community!-4f46e5?style=flat-square&logo=slack&logoColor=eef2ff">
 </a>
 </p>
@@ -25,7 +25,7 @@ Network.
 
 ## Documentation
 
-Visit https://ory.sh/docs to see the full Ory documentation.
+Visit https://ory.com/docs to see the full Ory documentation.
 
 ## Getting started
 
@@ -93,7 +93,7 @@ export function init(params: QueryParams, flowType: FlowType) {
 
 To access & render the flow, on your flow page, you can use the `flow` query
 parameter, that is included in the redirect. Use it to call the
-[`getRegistrationFlowRaw()`](https://www.ory.sh/docs/reference/api#tag/frontend/operation/getRegistrationFlow)
+[`getRegistrationFlowRaw()`](https://www.ory.com/docs/reference/api#tag/frontend/operation/getRegistrationFlow)
 API.
 
 **Full Example**:

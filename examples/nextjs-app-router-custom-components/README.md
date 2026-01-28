@@ -11,7 +11,7 @@ router.
    endpoints** URL
 5. Set `ORY_PROJECT_API_TOKEN` in the `.env` file to your project's **API
    token**. You can create an
-   [API key in the Ory Console](https://www.ory.sh/docs/concepts/personal-access-token).
+   [API key in the Ory Console](https://www.ory.com/docs/concepts/personal-access-token).
 6. Run `npm install`
 7. Run `npm run dev` and open navigate to http://localhost:3000
 
@@ -54,7 +54,7 @@ The project files reside in the `app/` directory:
 ## Need help?
 
 If you have any issues using this examples, or Ory's products, don't hesitate to
-reach out via the [Ory Community Slack](https://slack.ory.sh).
+reach out via the [Ory Community Slack](https://slack.ory.com).
 
 ## Run against local Ory Network instance
 

@@ -26,7 +26,7 @@ Ory Elements is a set of components that you can use to build your own login,
 registration, settings, verification, recovery and consent user interface. To
 just integrate authentication into your Next.js application and use the default
 user interfaces, follow our
-[guide for Auth.js](https://www.ory.sh/docs/getting-started/integrate-auth/auth-js).
+[guide for Auth.js](https://www.ory.com/docs/getting-started/integrate-auth/auth-js).
 
 ## Getting Started
 

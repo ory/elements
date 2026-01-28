@@ -8,13 +8,13 @@ ecosystem. Supports both app and page routers.
 > This package's primary use case is for developing custom components for login,
 > registration, verification, settings, recovery, or consent. For integrating
 > authentication without changing the UI, follow our
-> [guide for Auth.js](https://www.ory.sh/docs/getting-started/integrate-auth/auth-js).
+> [guide for Auth.js](https://www.ory.com/docs/getting-started/integrate-auth/auth-js).
 
 ## Use case
 
 This package includes a middleware for the app and page router that enables
 local development and preview environments to work with
-[Ory's cookie security model](https://www.ory.sh/docs/security-model). When
+[Ory's cookie security model](https://www.ory.com/docs/security-model). When
 using the `@ory/nextjs` middleware, Ory Tunnel is not needed for development.
 
 Check the
