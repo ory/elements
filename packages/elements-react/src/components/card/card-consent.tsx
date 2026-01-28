@@ -8,7 +8,43 @@ import { OryCard } from "./card"
 import { OryCardContent } from "./content"
 import { OryCardFooter } from "./footer"
 import { OryCardHeader } from "./header"
-import { getNodeId } from "@ory/client-fetch"
+import {
+  getNodeId,
+  UiNode,
+  isUiNodeInputAttributes,
+  UiNodeInputAttributesTypeEnum,
+} from "@ory/client-fetch"
+
+/**
+ * Returns a unique key for a consent node.
+ * For input nodes, combines name with value for uniqueness.
+ *
+ * @internal Exported for testing
+ */
+export function getConsentNodeKey(node: UiNode): string {
+  if (isUiNodeInputAttributes(node.attributes)) {
+    const { name, value } = node.attributes
+    if (value !== undefined && value !== null) {
+      return `${name}_${String(value)}`
+    }
+    return name
+  }
+  return getNodeId(node)
+}
+
+/**
+ * Checks if a node should be rendered in the footer instead of the main content.
+ * The Remember checkbox and submit buttons are rendered by ConsentCardFooter.
+ *
+ * @internal Exported for testing
+ */
+export function isFooterNode(node: UiNode): boolean {
+  if (!isUiNodeInputAttributes(node.attributes)) {
+    return false
+  }
+  const { name, type } = node.attributes
+  return name === "remember" || type === UiNodeInputAttributesTypeEnum.Submit
+}
 
 /**
  * The `OryConsentCard` component renders a card for displaying the OAuth2 consent flow.
@@ -26,9 +62,11 @@ export function OryConsentCard() {
         <OryForm>
           <Card.Divider />
           <Form.Group>
-            {flow.flow.ui.nodes.map((node) => (
-              <Node key={getNodeId(node)} node={node} />
-            ))}
+            {flow.flow.ui.nodes
+              .filter((node) => !isFooterNode(node))
+              .map((node) => (
+                <Node key={getConsentNodeKey(node)} node={node} />
+              ))}
           </Form.Group>
           <Card.Divider />
           <OryCardFooter />
