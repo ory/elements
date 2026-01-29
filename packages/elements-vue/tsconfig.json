@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "declarationDir": "dist/types",
+    "lib": ["ES6", "DOM", "WebWorker"],
+    "rootDir": ".",
+    "paths": {
+      "@ory/elements-vue": ["./src/index.ts"],
+      "$snapshots/*": ["../elements-react/.stub-responses/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "vitest.config.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ],
+  "include": ["**/*.ts", "**/*.vue", "tsup.config.ts"]
+}

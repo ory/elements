@@ -1,0 +1,4165 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.52.8",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/elements-vue!",
+  "docComment": "",
+  "name": "@ory/elements-vue",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/elements-vue!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!cn:function(1)",
+          "docComment": "/**\n * Combines class names using clsx and tailwind-merge\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function cn(...inputs: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ClassValue",
+              "canonicalReference": "clsx!ClassValue:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[]"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/utils/cn.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "inputs",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "cn"
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Consent:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_18:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_18:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_18:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Consent.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Consent",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!ConsentFlowProps:interface",
+          "docComment": "/**\n * Props for the Consent component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ConsentFlowProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "ConsentFlowProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ConsentFlowProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ConsentFlowProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ConsentFlowProps#consentChallenge:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "consentChallenge: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OAuth2ConsentRequest",
+                  "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "consentChallenge",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ConsentFlowProps#csrfToken:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "csrfToken: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "csrfToken",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ConsentFlowProps#formActionUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "formActionUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "formActionUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ConsentFlowProps#session:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "session: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Session",
+                  "canonicalReference": "@ory/client-fetch!Session:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "session",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultAnchor:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_9:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultAnchor.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultAnchor",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultAuthMethodListContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_5:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_5:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_5:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/card/DefaultAuthMethodListContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultAuthMethodListContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultAuthMethodListItem:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/card/DefaultAuthMethodListItem.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultAuthMethodListItem",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultBadge:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}, {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", true, {}, any>"
+            }
+          ],
+          "fileUrlPath": "dist/types/src/theme/default/components/card/DefaultBadge.vue.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultBadge",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 16
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultButton:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_5:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {\n    isSubmitting: boolean;\n    isFormSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultButton.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCaptcha:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultCaptcha.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCaptcha",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCard:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/card/DefaultCard.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCard",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCardContent:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_3:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_3:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_3:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/card/DefaultCardContent.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCardContent",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCardFooter:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_4:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_4:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_4:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/card/DefaultCardFooter.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCardFooter",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCardHeader:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_2:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/card/DefaultCardHeader.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCardHeader",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCardLogo:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}, {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", true, {}, any>"
+            }
+          ],
+          "fileUrlPath": "dist/types/src/theme/default/components/card/DefaultCardLogo.vue.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCardLogo",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 16
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCheckbox:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_6:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_6:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {\n    modelValue: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultCheckbox.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCheckbox",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCodeInput:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultCodeInput.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCodeInput",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultConsentCheckbox:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {\n    modelValue: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultConsentCheckbox.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultConsentCheckbox",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultCurrentIdentifierButton:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}, {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", true, {}, any>"
+            }
+          ],
+          "fileUrlPath": "dist/types/src/theme/default/components/card/DefaultCurrentIdentifierButton.vue.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultCurrentIdentifierButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 16
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultDivider:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultDivider.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultDivider",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultFormContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_6:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_6:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_6:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultFormContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultFormContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultGroupContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_7:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_7:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_7:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultGroupContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultGroupContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultImage:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_8:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_8:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultImage.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultImage",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultInput:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_4:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultInput.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultInput",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultLabel:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_8:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_8:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_8:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultLabel.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultLabel",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultMessage:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultMessage.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultMessage",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultMessageContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_10:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_10:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_10:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultMessageContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultMessageContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSection:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_11:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_11:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_11:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSection.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSettingsSection",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionContent:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_12:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_12:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_12:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSectionContent.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSettingsSectionContent",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionFooter:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_13:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_13:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_13:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSectionFooter.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSettingsSectionFooter",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSsoButton:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_11:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {\n    isSubmitting: boolean;\n    isFormSubmitting: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSsoButton.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSsoButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSsoButtonContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_9:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_9:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_9:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSsoButtonContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSsoButtonContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultText:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_7:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_7:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultText.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultText",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Error_2:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_29:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_29:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {\n    session: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Error.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Error_2",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 22
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!ErrorFlowContextProps:interface",
+          "docComment": "/**\n * Props for the Error component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ErrorFlowContextProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "ErrorFlowContextProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ErrorFlowContextProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ErrorFlowContextProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ErrorFlowContextProps#error:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "error: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryError",
+                  "canonicalReference": "@ory/elements-vue!OryError:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "error",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!ErrorFlowContextProps#session:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "session?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Session",
+                  "canonicalReference": "@ory/client-fetch!Session:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "session",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!getOryComponents:function(1)",
+          "docComment": "/**\n * Merges the default Ory components with any provided overrides.\n *\n * @param overrides - Optional overrides for the default components.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function getOryComponents(overrides?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowComponentOverrides",
+              "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFlowComponents",
+              "canonicalReference": "@ory/elements-vue!~OryFlowComponents:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/getOryComponents.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "overrides",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getOryComponents"
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Login:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_14:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_14:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_14:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Login.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Login",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!LoginFlowContextProps:interface",
+          "docComment": "/**\n * Props for the Login component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface LoginFlowContextProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "LoginFlowContextProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!LoginFlowContextProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!LoginFlowContextProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!LoginFlowContextProps#flow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "flow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "LoginFlow",
+                  "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "flow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-vue!OAuth2Error:type",
+          "docComment": "/**\n * OAuth2 error response type\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type OAuth2Error = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    error: string;\n    error_description: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "OAuth2Error",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-vue!OryError:type",
+          "docComment": "/**\n * Union type of all possible Ory errors\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type OryError = "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2Error",
+              "canonicalReference": "@ory/elements-vue!OAuth2Error:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | {\n    error: "
+            },
+            {
+              "kind": "Reference",
+              "text": "GenericError",
+              "canonicalReference": "@ory/client-fetch!GenericError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "OryError",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!PinInput:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_22:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {\n    \"update:modelValue\": (value: string) => any;\n}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_22:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    \"onUpdate:modelValue\"?: ((value: string) => any) | undefined;\n}>, {\n    length: number;\n    autocomplete: string;\n    disabled: boolean;\n    class: string;\n    modelValue: string;\n    hasError: boolean;\n}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/PinInput.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "PinInput",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Recovery:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_16:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_16:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_16:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Recovery.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Recovery",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!RecoveryFlowContextProps:interface",
+          "docComment": "/**\n * Props for the Recovery component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface RecoveryFlowContextProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "RecoveryFlowContextProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!RecoveryFlowContextProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!RecoveryFlowContextProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!RecoveryFlowContextProps#flow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "flow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RecoveryFlow",
+                  "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "flow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Registration:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_15:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_15:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_15:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Registration.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Registration",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!RegistrationFlowContextProps:interface",
+          "docComment": "/**\n * Props for the Registration component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface RegistrationFlowContextProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "RegistrationFlowContextProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!RegistrationFlowContextProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!RegistrationFlowContextProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!RegistrationFlowContextProps#flow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "flow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RegistrationFlow",
+                  "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "flow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Settings:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_19:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_19:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_19:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Settings.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Settings",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps:interface",
+          "docComment": "/**\n * Props for the Settings component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface SettingsFlowContextProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "SettingsFlowContextProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps#className:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "className?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "className",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps#flow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "flow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SettingsFlow",
+                  "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "flow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps#logoutUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "logoutUrl?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "logoutUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!SettingsFlowContextProps#session:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "session?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Session",
+                  "canonicalReference": "@ory/client-fetch!Session:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "session",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Spinner:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "DefineComponent",
+              "canonicalReference": "@vue/runtime-core!DefineComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, {}, {}, {}, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentOptionsMixin",
+              "canonicalReference": "@vue/runtime-core!ComponentOptionsMixin:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "PublicProps",
+              "canonicalReference": "@vue/runtime-core!PublicProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Props",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Readonly",
+              "canonicalReference": "!Readonly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}>, {}, {}, {}, {}, string, import(\"vue\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentProvideOptions",
+              "canonicalReference": "@vue/runtime-core!ComponentProvideOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", false, {}, any>"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/Spinner.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Spinner",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-vue!translateConsentChallengeToUiNodes:function(1)",
+          "docComment": "/**\n * Translate an OAuth2 consent challenge to UI nodes\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function translateConsentChallengeToUiNodes(consentChallenge: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", csrfToken: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", formAction: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", session: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "ConsentFlow",
+              "canonicalReference": "@ory/elements-vue!~ConsentFlow:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/utils/oauth2.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "consentChallenge",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "csrfToken",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "formAction",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "session",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "translateConsentChallengeToUiNodes"
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!Verification:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_17:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_17:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_17:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/Verification.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Verification",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-vue!VerificationFlowContextProps:interface",
+          "docComment": "/**\n * Props for the Verification component.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface VerificationFlowContextProps "
+            }
+          ],
+          "fileUrlPath": "src/theme/default/flows/types.ts",
+          "releaseTag": "Public",
+          "name": "VerificationFlowContextProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!VerificationFlowContextProps#components:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "components?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryFlowComponentOverrides",
+                  "canonicalReference": "@ory/elements-vue!~OryFlowComponentOverrides:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "components",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!VerificationFlowContextProps#config:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OryClientConfiguration",
+                  "canonicalReference": "@ory/elements-vue!~OryClientConfiguration:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "config",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-vue!VerificationFlowContextProps#flow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "flow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "VerificationFlow",
+                  "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "flow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        }
+      ]
+    }
+  ]
+}
