@@ -293,5 +293,8 @@
   "error.footer.text": "Kur raportoni këtë gabim, ju lutemi përfshini informacionin e mëposhtëm:",
   "error.footer.copy": "Kopjo",
   "error.action.go-back": "Kthehu mbrapa",
+  "identities.messages.4000039": "Fjalëkalimi i ri duhet të jetë i ndryshëm nga fjalëkalimi i vjetër.",
+  "identities.messages.4000040": "Futni një adresë emaili të vlefshme",
+  "identities.messages.4000041": "Futni një numër telefoni të vlefshëm",
   "captcha.error": "Verifikimi i sigurisë dështoi. Ju lutemi provoni përsëri më vonë. Nëse problemi vazhdon, kontaktoni mbështetjen."
 }

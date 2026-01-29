@@ -293,5 +293,8 @@
   "error.footer.text": "Bu hatayı bildirirken aşağıdaki bilgileri dahil edin:",
   "error.footer.copy": "Kopyala",
   "error.action.go-back": "Geri Dön",
+  "identities.messages.4000039": "Yeni şifre eski şifreden farklı olmalıdır.",
+  "identities.messages.4000040": "Geçerli bir e-posta adresi girin",
+  "identities.messages.4000041": "Geçerli bir telefon numarası girin",
   "captcha.error": "Güvenlik doğrulaması başarısız oldu. Lütfen daha sonra tekrar deneyin. Sorun devam ederse destek ekibiyle iletişime geçin."
 }

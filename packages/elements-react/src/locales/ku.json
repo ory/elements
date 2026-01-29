@@ -293,5 +293,8 @@
   "error.footer.text": "کاتێک ئەم هەڵەیە ڕاپۆرت دەکەیت، تکایە ئەم زانیاریانە لەخۆبگرە:",
   "error.footer.copy": "کۆپیکردن",
   "error.action.go-back": "گەڕانەوە",
+  "identities.messages.4000039": "Divê şîfreya nû ji şîfreya kevin cuda be.",
+  "identities.messages.4000040": "Navnîşanek e-nameyek derbasdar binivîse",
+  "identities.messages.4000041": "Hejmarek têlefonek derbasdar binivîse",
   "captcha.error": "Piştrastkirina ewlehiyê bi ser neket. Ji kerema xwe piştre dîsa hewl bidin. Heke pirsgirêk berdewam bike, bi piştgiriya re têkilî daynin."
 }

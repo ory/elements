@@ -293,5 +293,8 @@
   "error.footer.text": "Unaporipoti kosa hili, tafadhali jumuisha taarifa zifuatazo:",
   "error.footer.copy": "Nakili",
   "error.action.go-back": "Rudi nyuma",
+  "identities.messages.4000039": "Nenosiri jipya lazima liwe tofauti na nenosiri la zamani.",
+  "identities.messages.4000040": "Weka anwani ya barua pepe halali",
+  "identities.messages.4000041": "Weka nambari ya simu halali",
   "captcha.error": "Uhakiki wa usalama umeshindwa. Tafadhali jaribu tena baadaye. Ikiwa tatizo litaendelea, wasiliana na usaidizi."
 }

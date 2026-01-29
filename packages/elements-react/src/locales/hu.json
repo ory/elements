@@ -293,5 +293,8 @@
   "error.footer.text": "Hiba jelentésekor kérjük, hogy adja meg a következő információkat:",
   "error.footer.copy": "Másolás",
   "error.action.go-back": "Vissza",
+  "identities.messages.4000039": "Az új jelszónak különböznie kell a régi jelszótól.",
+  "identities.messages.4000040": "Adjon meg egy érvényes e-mail címet",
+  "identities.messages.4000041": "Adjon meg egy érvényes telefonszámot",
   "captcha.error": "A biztonsági ellenőrzés sikertelen. Kérjük, próbálja meg később. Ha a probléma továbbra is fennáll, lépjen kapcsolatba az ügyfélszolgálattal."
 }

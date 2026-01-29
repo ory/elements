@@ -293,5 +293,8 @@
   "error.title.what-can-i-do": "O que posso fazer?",
   "error.title.what-happened": "O que aconteceu?",
   "error.instructions": "Tente novamente dentro de alguns minutos ou contacte o operador do site.",
+  "identities.messages.4000039": "A nova senha deve ser diferente da senha antiga.",
+  "identities.messages.4000040": "Insira um endereço de e-mail válido",
+  "identities.messages.4000041": "Insira um número de telefone válido",
   "captcha.error": "A verificação de segurança falhou. Por favor, tente novamente mais tarde. Se o problema persistir, contacte o suporte."
 }

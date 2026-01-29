@@ -293,5 +293,8 @@
   "error.footer.text": "Bu xato haqida xabar berishda quyidagi ma'lumotlarni qo'shing:",
   "error.footer.copy": "Nusxa olish",
   "error.action.go-back": "Orqaga qaytish",
+  "identities.messages.4000039": "Yangi parol eski paroldan farqli bo'lishi kerak.",
+  "identities.messages.4000040": "Yaroqli elektron pochta manzilini kiriting",
+  "identities.messages.4000041": "Yaroqli telefon raqamini kiriting",
   "captcha.error": "Xavfsizlikni tekshirish muvaffaqiyatsiz tugadi. Iltimos, keyinroq qayta urinib ko'ring. Agar muammo davom etsa, yordam xizmatiga murojaat qiling."
 }

@@ -293,5 +293,8 @@
   "two-step.totp.description": "Gunakan kod sekali guna 6 digit dari aplikasi pengesah anda",
   "two-step.lookup_secret.title": "Kod pemulihan sandaran",
   "two-step.lookup_secret.description": "Gunakan salah satu daripada kod sandaran 8 digit anda untuk mengesahkan",
+  "identities.messages.4000039": "Kata laluan baharu mestilah berbeza daripada kata laluan lama.",
+  "identities.messages.4000040": "Masukkan alamat e-mel yang sah",
+  "identities.messages.4000041": "Masukkan nombor telefon yang sah",
   "captcha.error": "Pengesahan keselamatan gagal. Sila cuba lagi kemudian. Jika masalah berterusan, hubungi sokongan."
 }

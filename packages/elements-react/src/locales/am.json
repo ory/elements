@@ -293,5 +293,8 @@
   "error.footer.text": "ይህን ስህተት በሚዘግቡበት ጊዜ፣ እባክዎን የሚከተለውን መረጃ ያካትቱ፡",
   "error.footer.copy": "ቅዳ",
   "error.action.go-back": "ተመለስ",
+  "identities.messages.4000039": "አዲሱ የይለፍ ቃል ከድሮው የይለፍ ቃል የተለየ መሆን አለበት።",
+  "identities.messages.4000040": "ትክክለኛ የኢሜይል አድራሻ ያስገቡ",
+  "identities.messages.4000041": "ትክክለኛ ስልክ ቁጥር ያስገቡ",
   "captcha.error": "የደህንነት ማረጋገጫ አልተሳካም። እባክዎ በኋላ እንደገና ይሞክሩ። ችግሩ ከቀጠለ ድጋፍን ያነጋግሩ።"
 }

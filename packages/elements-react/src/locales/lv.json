@@ -293,5 +293,8 @@
   "error.footer.text": "Ziņojot par šo kļūdu, lūdzu, iekļaujiet šādu informāciju:",
   "error.footer.copy": "Kopēt",
   "error.action.go-back": "Atpakaļ",
+  "identities.messages.4000039": "Jaunajai parolei ir jāatšķiras no vecās paroles.",
+  "identities.messages.4000040": "Ievadiet derīgu e-pasta adresi",
+  "identities.messages.4000041": "Ievadiet derīgu tālruņa numuru",
   "captcha.error": "Drošības pārbaude neizdevās. Lūdzu, mēģiniet vēlreiz vēlāk. Ja problēma joprojām pastāv, sazinieties ar atbalsta dienestu."
 }

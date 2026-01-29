@@ -293,5 +293,8 @@
   "error.footer.text": "Prilikom prijavljivanja ove greške, molimo uključite sljedeće informacije:",
   "error.footer.copy": "Kopiraj",
   "error.action.go-back": "Natrag",
+  "identities.messages.4000039": "Nova lozinka mora biti drugačija od stare lozinke.",
+  "identities.messages.4000040": "Unesite valjanu e-mail adresu",
+  "identities.messages.4000041": "Unesite valjani telefonski broj",
   "captcha.error": "Sigurnosna provjera nije uspjela. Molimo pokušajte ponovo kasnije. Ako se problem nastavi, obratite se podršci."
 }

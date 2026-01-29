@@ -293,5 +293,8 @@
   "error.footer.text": "Quan informeu d'aquest error, incloeu la informació següent:",
   "error.footer.copy": "Copiar",
   "error.action.go-back": "Tornar",
+  "identities.messages.4000039": "La nova contrasenya ha de ser diferent de l'antiga.",
+  "identities.messages.4000040": "Introduïu una adreça de correu electrònic vàlida",
+  "identities.messages.4000041": "Introduïu un número de telèfon vàlid",
   "captcha.error": "La verificació de seguretat ha fallat. Si us plau, torneu-ho a provar més tard. Si el problema persisteix, contacteu amb el suport."
 }

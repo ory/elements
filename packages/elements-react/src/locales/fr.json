@@ -293,5 +293,8 @@
   "error.footer.copy": "Copier",
   "error.action.go-back": "Retour",
   "identities.messages.1010020": "",
+  "identities.messages.4000039": "Le nouveau mot de passe doit être différent de l'ancien mot de passe.",
+  "identities.messages.4000040": "Entrez une adresse e-mail valide",
+  "identities.messages.4000041": "Entrez un numéro de téléphone valide",
   "captcha.error": "La vérification de sécurité a échoué. Veuillez réessayer plus tard. Si le problème persiste, contactez le support."
 }

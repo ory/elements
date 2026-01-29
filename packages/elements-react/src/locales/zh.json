@@ -293,5 +293,8 @@
   "error.footer.text": "报告此错误时，请包括以下信息：",
   "error.footer.copy": "复制",
   "error.action.go-back": "返回",
+  "identities.messages.4000039": "新密码必须与旧密码不同。",
+  "identities.messages.4000040": "请输入有效的电子邮件地址",
+  "identities.messages.4000041": "请输入有效的电话号码",
   "captcha.error": "安全验证失败。请稍后再试。如果问题仍然存在，请联系支持部门。"
 }

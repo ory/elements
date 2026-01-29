@@ -293,5 +293,8 @@
   "settings.messages.toast-title.error": "Kunne ikke oppdatere innstillinger",
   "settings.messages.toast-title.success": "Innstillinger oppdatert",
   "two-step.passkey.description.error": "Kunne ikke laste de nødvendige bibliotekene for å bruke passordet ditt. \nVennligst prøv igjen senere.",
+  "identities.messages.4000039": "Det nye passordet må være annerledes enn det gamle passordet.",
+  "identities.messages.4000040": "Skriv inn en gyldig e-postadresse",
+  "identities.messages.4000041": "Skriv inn et gyldig telefonnummer",
   "captcha.error": "Sikkerhetsverifisering mislyktes. Vennligst prøv igjen senere. Kontakt kundestøtte hvis problemet vedvarer."
 }

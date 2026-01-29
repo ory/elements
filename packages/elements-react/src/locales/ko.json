@@ -293,5 +293,8 @@
   "error.footer.text": "이 오류를 보고할 때 다음 정보를 포함해 주세요:",
   "error.footer.copy": "복사",
   "error.action.go-back": "뒤로 가기",
+  "identities.messages.4000039": "새 비밀번호는 이전 비밀번호와 달라야 합니다.",
+  "identities.messages.4000040": "유효한 이메일 주소를 입력하세요",
+  "identities.messages.4000041": "유효한 전화번호를 입력하세요",
   "captcha.error": "보안 확인에 실패했습니다. 나중에 다시 시도해 주세요. 문제가 지속되면 지원팀에 문의하세요."
 }

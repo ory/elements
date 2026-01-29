@@ -293,5 +293,8 @@
   "error.footer.text": "Ketika melaporkan kesalahan ini, harap sertakan informasi berikut:",
   "error.footer.copy": "Salin",
   "error.action.go-back": "Kembali",
+  "identities.messages.4000039": "Kata sandi baru harus berbeda dari kata sandi lama.",
+  "identities.messages.4000040": "Masukkan alamat email yang valid",
+  "identities.messages.4000041": "Masukkan nomor telepon yang valid",
   "captcha.error": "Verifikasi keamanan gagal. Silakan coba lagi nanti. Jika masalah berlanjut, hubungi dukungan."
 }

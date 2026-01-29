@@ -293,5 +293,8 @@
   "error.footer.text": "Când raportați această eroare, vă rugăm să includeți următoarele informații:",
   "error.footer.copy": "Copiază",
   "error.action.go-back": "Înapoi",
+  "identities.messages.4000039": "Noua parolă trebuie să fie diferită de parola veche.",
+  "identities.messages.4000040": "Introduceți o adresă de e-mail validă",
+  "identities.messages.4000041": "Introduceți un număr de telefon valid",
   "captcha.error": "Verificarea de securitate a eșuat. Vă rugăm să încercați din nou mai târziu. Dacă problema persistă, contactați asistența."
 }

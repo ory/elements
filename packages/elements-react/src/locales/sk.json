@@ -293,5 +293,8 @@
   "error.footer.text": "Pri hlásení tejto chyby prosím zahrňte nasledujúce informácie:",
   "error.footer.copy": "Kopírovať",
   "error.action.go-back": "Späť",
+  "identities.messages.4000039": "Nové heslo sa musí líšiť od starého hesla.",
+  "identities.messages.4000040": "Zadajte platnú e-mailovú adresu",
+  "identities.messages.4000041": "Zadajte platné telefónne číslo",
   "captcha.error": "Bezpečnostné overenie zlyhalo. Skúste to prosím neskôr. Ak problém pretrváva, kontaktujte podporu."
 }

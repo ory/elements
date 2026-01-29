@@ -293,5 +293,8 @@
   "error.footer.text": "Kui teate sellest veast, lisage järgmine teave:",
   "error.footer.copy": "Kopeeri",
   "error.action.go-back": "Mine tagasi",
+  "identities.messages.4000039": "Uus parool peab erinema vanast paroolist.",
+  "identities.messages.4000040": "Sisestage kehtiv e-posti aadress",
+  "identities.messages.4000041": "Sisestage kehtiv telefoninumber",
   "captcha.error": "Turvakontroll ebaõnnestus. Palun proovige hiljem uuesti. Probleemi püsimisel võtke ühendust klienditoega."
 }

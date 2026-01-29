@@ -293,5 +293,8 @@
   "error.title.what-can-i-do": "Wat kan ik doen?",
   "error.title.what-happened": "Wat is er gebeurd?",
   "error.instructions": "Probeer het over een paar minuten opnieuw of neem contact op met de websitebeheerder.",
+  "identities.messages.4000039": "Het nieuwe wachtwoord moet anders zijn dan het oude wachtwoord.",
+  "identities.messages.4000040": "Voer een geldig e-mailadres in",
+  "identities.messages.4000041": "Voer een geldig telefoonnummer in",
   "captcha.error": "Beveiligingsverificatie mislukt. Probeer het later opnieuw. Als het probleem aanhoudt, neem dan contact op met de ondersteuning."
 }

@@ -293,5 +293,8 @@
   "error.title.what-can-i-do": "Co mogę zrobić?",
   "error.title.what-happened": "Co się stało?",
   "error.instructions": "Spróbuj ponownie za kilka minut lub skontaktuj się z operatorem witryny.",
+  "identities.messages.4000039": "Nowe hasło musi różnić się od starego hasła.",
+  "identities.messages.4000040": "Wprowadź prawidłowy adres e-mail",
+  "identities.messages.4000041": "Wprowadź prawidłowy numer telefonu",
   "captcha.error": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie później. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną."
 }

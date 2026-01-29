@@ -293,5 +293,8 @@
   "error.footer.text": "Bu ýalňyşlygy habar berenimizde, haýyş edýäris aşakdaky maglumatlary goşuň:",
   "error.footer.copy": "Göçürmek",
   "error.action.go-back": "Yza dolan",
+  "identities.messages.4000039": "Täze parol köne paroldan tapawutly bolmaly.",
+  "identities.messages.4000040": "Dogry e-poçta salgysyny giriziň",
+  "identities.messages.4000041": "Dogry telefon belgisini giriziň",
   "captcha.error": "Howpsuzlyk barlagy şowsuz boldy. Soňrak gaýtadan synanyşmagyňyzy haýyş edýäris. Mesele dowam etse, goldaw gullugy bilen habarlaşyň."
 }

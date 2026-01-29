@@ -293,5 +293,8 @@
   "error.footer.text": "Markaad sheegayso khaladkan, fadlan ku dar macluumaadkan soo socda:",
   "error.footer.copy": "Koobiyee",
   "error.action.go-back": "Dib u noqo",
+  "identities.messages.4000039": "Furaha cusub waa inuu ka duwanaadaa furaha hore.",
+  "identities.messages.4000040": "Geli ciwaan email sax ah",
+  "identities.messages.4000041": "Geli nambar telefoon sax ah",
   "captcha.error": "Xaqiijinta amniga waa fashilantay. Fadlan isku day mar dambe. Haddii dhibaatadu sii socoto, la xiriir taageerada."
 }

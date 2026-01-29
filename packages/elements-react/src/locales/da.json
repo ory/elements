@@ -293,5 +293,8 @@
   "error.footer.text": "Når du rapporterer denne fejl, skal du inkludere følgende information:",
   "error.footer.copy": "Kopier",
   "error.action.go-back": "Gå tilbage",
+  "identities.messages.4000039": "Den nye adgangskode skal være forskellig fra den gamle adgangskode.",
+  "identities.messages.4000040": "Indtast en gyldig e-mailadresse",
+  "identities.messages.4000041": "Indtast et gyldigt telefonnummer",
   "captcha.error": "Sikkerhedsbekræftelse mislykkedes. Prøv venligst igen senere. Kontakt support, hvis problemet fortsætter."
 }

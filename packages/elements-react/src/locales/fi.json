@@ -293,5 +293,8 @@
   "error.footer.text": "Kun raportoit tätä virhettä, sisällytä seuraavat tiedot:",
   "error.footer.copy": "Kopioi",
   "error.action.go-back": "Takaisin",
+  "identities.messages.4000039": "Uuden salasanan on oltava eri kuin vanha salasana.",
+  "identities.messages.4000040": "Anna kelvollinen sähköpostiosoite",
+  "identities.messages.4000041": "Anna kelvollinen puhelinnumero",
   "captcha.error": "Suojaustarkistus epäonnistui. Yritä myöhemmin uudelleen. Jos ongelma jatkuu, ota yhteyttä tukeen."
 }

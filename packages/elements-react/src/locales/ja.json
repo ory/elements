@@ -293,5 +293,8 @@
   "error.footer.text": "このエラーを報告する際は、以下の情報を含めてください：",
   "error.footer.copy": "コピー",
   "error.action.go-back": "戻る",
+  "identities.messages.4000039": "新しいパスワードは古いパスワードと異なる必要があります。",
+  "identities.messages.4000040": "有効なメールアドレスを入力してください",
+  "identities.messages.4000041": "有効な電話番号を入力してください",
   "captcha.error": "セキュリティ検証に失敗しました。後でもう一度お試しください。問題が解決しない場合は、サポートにお問い合わせください。"
 }

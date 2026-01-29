@@ -293,5 +293,8 @@
   "error.footer.text": "Wanneer hierdie fout gerapporteer word, sluit asseblief die volgende inligting in:",
   "error.footer.copy": "Kopieer",
   "error.action.go-back": "Gaan terug",
+  "identities.messages.4000039": "Die nuwe wagwoord moet anders wees as die ou wagwoord.",
+  "identities.messages.4000040": "Voer 'n geldige e-posadres in",
+  "identities.messages.4000041": "Voer 'n geldige telefoonnommer in",
   "captcha.error": "Sekuriteitsverifikasie het misluk. Probeer asseblief later weer. Indien die probleem voortduur, kontak ondersteuning."
 }

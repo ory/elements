@@ -293,5 +293,8 @@
   "error.footer.text": "Mgbe ị na-akọ njehie a, biko tinye ozi ndị a:",
   "error.footer.copy": "Detuo",
   "error.action.go-back": "Laghachi azụ",
+  "identities.messages.4000039": "Okwuntughe ọhụrụ ga-adị iche na okwuntughe ochie.",
+  "identities.messages.4000040": "Tinye adreesị ozi-e ziri ezi",
+  "identities.messages.4000041": "Tinye nọmba ekwentị ziri ezi",
   "captcha.error": "Nyocha nchekwa kụrụ afọ n'ala. Biko nwaa ọzọ mechaa. Ọ bụrụ na nsogbu ahụ anọgide, kpọtụrụ nkwado."
 }

@@ -36,11 +36,11 @@
         },
         "messages": [
           {
-            "id": 4000001,
-            "text": "\"no-an-email\" is not valid \"email\"",
+            "id": 4000040,
+            "text": "Enter a valid email address",
             "type": "error",
             "context": {
-              "reason": "\"no-an-email\" is not valid \"email\""
+              "value": "no-an-email"
             }
           }
         ],

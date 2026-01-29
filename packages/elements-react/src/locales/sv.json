@@ -293,5 +293,8 @@
   "error.title.what-can-i-do": "Vad kan jag göra?",
   "error.title.what-happened": "Vad hände?",
   "error.instructions": "Försök igen om några minuter eller kontakta webbplatsens ansvariga.",
+  "identities.messages.4000039": "Det nya lösenordet måste skilja sig från det gamla lösenordet.",
+  "identities.messages.4000040": "Ange en giltig e-postadress",
+  "identities.messages.4000041": "Ange ett giltigt telefonnummer",
   "captcha.error": "Säkerhetsverifieringen misslyckades. Försök igen senare. Kontakta supporten om problemet kvarstår."
 }

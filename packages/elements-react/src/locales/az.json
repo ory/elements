@@ -293,5 +293,8 @@
   "error.footer.text": "Bu xətanı bildirərkən aşağıdakı məlumatı daxil edin:",
   "error.footer.copy": "Kopyala",
   "error.action.go-back": "Geri qayıt",
+  "identities.messages.4000039": "Yeni parol köhnə paroldan fərqli olmalıdır.",
+  "identities.messages.4000040": "Düzgün e-poçt ünvanı daxil edin",
+  "identities.messages.4000041": "Düzgün telefon nömrəsi daxil edin",
   "captcha.error": "Təhlükəsizlik yoxlaması uğursuz oldu. Zəhmət olmasa bir az sonra yenidən cəhd edin. Problem davam edərsə, dəstək xidməti ilə əlaqə saxlayın."
 }

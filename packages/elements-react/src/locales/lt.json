@@ -293,5 +293,8 @@
   "error.footer.text": "Pranešdami apie šią klaidą, prašome įtraukti šią informaciją:",
   "error.footer.copy": "Kopijuoti",
   "error.action.go-back": "Grįžti atgal",
+  "identities.messages.4000039": "Naujas slaptažodis turi skirtis nuo seno slaptažodžio.",
+  "identities.messages.4000040": "Įveskite galiojantį el. pašto adresą",
+  "identities.messages.4000041": "Įveskite galiojantį telefono numerį",
   "captcha.error": "Saugumo patikra nepavyko. Bandykite dar kartą vėliau. Jei problema išlieka, susisiekite su palaikymo komanda."
 }

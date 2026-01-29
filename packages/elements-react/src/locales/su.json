@@ -293,5 +293,8 @@
   "error.footer.text": "Nalika ngalaporkeun kasalahan ieu, mangga kalebet inpormasi ieu:",
   "error.footer.copy": "Tiron",
   "error.action.go-back": "Balik",
+  "identities.messages.4000039": "Sandi anyar kedah bénten sareng sandi anu lami.",
+  "identities.messages.4000040": "Lebetkeun alamat surélék nu valid",
+  "identities.messages.4000041": "Lebetkeun nomer telepon nu valid",
   "captcha.error": "Verifikasi kaamanan gagal. Mangga cobian deui engké. Upami masalahna tetep, kontak dukungan."
 }

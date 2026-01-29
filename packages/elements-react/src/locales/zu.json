@@ -293,5 +293,8 @@
   "error.footer.text": "Uma ubika leli phutha, sicela ufake lolu lwazi olulandelayo:",
   "error.footer.copy": "Kopisha",
   "error.action.go-back": "Buyela emuva",
+  "identities.messages.4000039": "Iphasiwedi entsha kumele yehluke kweyakudala.",
+  "identities.messages.4000040": "Faka ikheli le-imeyili elivumelekile",
+  "identities.messages.4000041": "Faka inombolo yocingo evumelekile",
   "captcha.error": "Ukuqinisekisa kokuvikela kuhlulekile. Sicela uzame futhi mya. Uma inkinga iqhubeka, thintana nosekelo."
 }

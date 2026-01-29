@@ -293,5 +293,8 @@
   "error.footer.text": "Khi báo cáo lỗi này, vui lòng bao gồm thông tin sau:",
   "error.footer.copy": "Sao chép",
   "error.action.go-back": "Quay lại",
+  "identities.messages.4000039": "Mật khẩu mới phải khác với mật khẩu cũ.",
+  "identities.messages.4000040": "Nhập một địa chỉ email hợp lệ",
+  "identities.messages.4000041": "Nhập một số điện thoại hợp lệ",
   "captcha.error": "Xác minh bảo mật không thành công. Vui lòng thử lại sau. Nếu vấn đề vẫn tiếp diễn, vui lòng liên hệ với bộ phận hỗ trợ."
 }

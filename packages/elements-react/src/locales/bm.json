@@ -293,5 +293,8 @@
   "error.footer.text": "Ni i bɛ nin fili in raportw kɛ, i ka nin kunnafoniw fara a kan:",
   "error.footer.copy": "Kopi kɛ",
   "error.action.go-back": "Segin",
+  "identities.messages.4000039": "Sɛgɛsɛgɛlan kura ka kan ka yɛlɛma ni sɛgɛsɛgɛlan kɔrɔ ye.",
+  "identities.messages.4000040": "E-mail adrɛsi dafalen don",
+  "identities.messages.4000041": "Telefɔni nimɔrɔ dafalen don",
   "captcha.error": "Kɔlɔsili kɛra kɔnɔ, a ma ɲɛ. Hakɛto, a ɲini tugun kɔfɛ. Ni gɛlɛya tora yen, a ɲini dɛmɛ."
 }

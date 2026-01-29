@@ -293,5 +293,8 @@
   "error.action.go-back": "Regresar",
   "identities.messages.1010020": "",
   "identities.messages.1050020": "Eliminar passkey \"{display_name}\"",
+  "identities.messages.4000039": "La nueva contraseña debe ser diferente de la anterior.",
+  "identities.messages.4000040": "Introduzca una dirección de correo electrónico válida",
+  "identities.messages.4000041": "Introduzca un número de teléfono válido",
   "captcha.error": "La verificación de seguridad falló. Por favor, inténtelo de nuevo más tarde. Si el problema persiste, contacte con soporte."
 }

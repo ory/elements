@@ -293,5 +293,8 @@
   "error.footer.text": "Xa uxela le mpazamo, nceda ubandakanye le nkcazelo ilandelayo:",
   "error.footer.copy": "Khuphela",
   "error.action.go-back": "Buyela emva",
+  "identities.messages.4000039": "Iphasiwedi entsha mayibe yahlukile kweyakudala.",
+  "identities.messages.4000040": "Faka idilesi ye-imeyile esebenzayo",
+  "identities.messages.4000041": "Faka inombolo yefowuni esebenzayo",
   "captcha.error": "Uqinisekiso lokhuseleko aluphumelelanga. Nceda uzame kwakhona kamva. Ukuba ingxaki iyaqhubeka, qhagamshelana nenkxaso."
 }
