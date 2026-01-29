@@ -1,0 +1,137 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "type": "browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/verification/browser",
+  "active": "code",
+  "ui": {
+    "action": "https://slug.projects.oryapis:8080/self-service/verification?flow=00000000-0000-0000-0000-000000000000",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "/.well-known/ory/turnstile/captcha-trigger.js",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_trigger_script",
+          "nonce": "00000000-0000-0000-0000-000000000000",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "script",
+        "group": "captcha",
+        "attributes": {
+          "src": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oryCaptchaTurnstileInit",
+          "async": true,
+          "referrerpolicy": "no-referrer",
+          "crossorigin": "anonymous",
+          "integrity": "",
+          "type": "text/javascript",
+          "id": "captcha_script",
+          "nonce": "00000000-0000-0000-0000-000000000000",
+          "node_type": "script"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "captcha_turnstile_options",
+          "type": "hidden",
+          "value": "{\"sitekey\":\"2x00000000000000000000AB\",\"theme\":\"light\",\"action\":\"verification\",\"response_field_name\":\"transient_payload.captcha_turnstile_response\"}",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "div",
+        "group": "captcha",
+        "attributes": {
+          "id": "captcha_turnstile_inject",
+          "node_type": "div"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "captcha",
+        "attributes": {
+          "name": "transient_payload.captcha_turnstile_response",
+          "type": "hidden",
+          "value": "",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "email",
+          "type": "email",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070007,
+            "text": "Email",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      }
+    ]
+  },
+  "state": "choose_method"
+}
