@@ -4,7 +4,6 @@
 
 ```ts
 
-import { AccountExperienceConfiguration } from '@ory/client-fetch';
 import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';

@@ -4,7 +4,6 @@
 
 ```ts
 
-import { AccountExperienceConfiguration } from '@ory/client-fetch';
 import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';
@@ -250,7 +249,7 @@ export interface OryCardValidationMessagesProps {
 // @public
 export interface OryClientConfiguration {
     intl?: IntlConfig;
-    project: AccountExperienceConfiguration;
+    project: ProjectConfiguration;
     sdk?: {
         url?: string;
         options?: Partial<ConfigurationParameters>;
@@ -268,7 +267,7 @@ export function OryConsentCard(): react_jsx_runtime.JSX.Element;
 // @public
 export type OryElementsConfiguration = {
     sdk: OrySDK;
-    project: AccountExperienceConfiguration;
+    project: ProjectConfiguration;
 };
 
 // @public
@@ -580,6 +579,23 @@ export type OryToastProps = {
 };
 
 // @public
+export interface ProjectConfiguration {
+    default_redirect_url: string;
+    error_ui_url: string;
+    login_ui_url: string;
+    logo_dark_url?: string;
+    logo_light_url?: string;
+    name: string;
+    recovery_enabled: boolean;
+    recovery_ui_url: string;
+    registration_enabled: boolean;
+    registration_ui_url: string;
+    settings_ui_url: string;
+    verification_enabled: boolean;
+    verification_ui_url: string;
+}
+
+// @public
 export type RecoveryFlowContainer = {
     flowType: FlowType.Recovery;
     flow: RecoveryFlow;
@@ -679,7 +695,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:700:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:871:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:875:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1236:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1305:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

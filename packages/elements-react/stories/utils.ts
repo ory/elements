@@ -27,8 +27,6 @@ export const config: OryClientConfiguration = {
     default_redirect_url: "https://ory.sh",
     error_ui_url: "",
     settings_ui_url: "",
-    default_locale: "en",
-    locale_behavior: "respect_accept_language",
   },
 } satisfies OryClientConfiguration
 

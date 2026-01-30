@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ory/client-fetch": "*",
+    "@ory/client-fetch": "1.22.22",
     "@ory/elements-react": "*",
     "@ory/nextjs": "*",
     "@tabler/icons-react": "3.34.1",

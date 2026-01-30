@@ -2132,7 +2132,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@ory/elements-react!OryCardValidationMessagesProps#hiddenMessageIds:member",
-              "docComment": "/**\n * An array of message IDs that should be hidden. This is useful for hiding specific messages that are not relevant to the user or are rendered elsewhere. If not provided, the default list of message IDs to hide will be used.\n *\n * @default\n *\n * [1040009, 1060003, 1080003, 1010004, 1010014, 1040005, 1010016, 1010003]\n *\n * @see\n *\n * https://www.ory.sh/docs/kratos/concepts/ui-messages\n */\n",
+              "docComment": "/**\n * An array of message IDs that should be hidden. This is useful for hiding specific messages that are not relevant to the user or are rendered elsewhere. If not provided, the default list of message IDs to hide will be used.\n *\n * @default\n *\n * [1040009, 1060003, 1080003, 1010004, 1010014, 1040005, 1010016, 1010003]\n *\n * @see\n *\n * https://www.ory.com/docs/kratos/concepts/ui-messages\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2213,8 +2213,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "AccountExperienceConfiguration",
-                  "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+                  "text": "ProjectConfiguration",
+                  "canonicalReference": "@ory/elements-react!ProjectConfiguration:interface"
                 },
                 {
                   "kind": "Content",
@@ -2387,8 +2387,8 @@
             },
             {
               "kind": "Reference",
-              "text": "AccountExperienceConfiguration",
-              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+              "text": "ProjectConfiguration",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration:interface"
             },
             {
               "kind": "Content",
@@ -4965,6 +4965,375 @@
             "startIndex": 1,
             "endIndex": 4
           }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@ory/elements-react!ProjectConfiguration:interface",
+          "docComment": "/**\n * The project configuration for Ory Elements.\n *\n * This configuration is used to set various URLs and settings for the Ory Elements project.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface ProjectConfiguration "
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ProjectConfiguration",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#default_redirect_url:member",
+              "docComment": "/**\n * The default redirect URI as configured in the Ory Kratos configuration\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "default_redirect_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "default_redirect_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#error_ui_url:member",
+              "docComment": "/**\n * The URL for the error UI.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "error_ui_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "error_ui_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#login_ui_url:member",
+              "docComment": "/**\n * The URL for the login UI.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "login_ui_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "login_ui_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#logo_dark_url:member",
+              "docComment": "/**\n * The URL for the dark logo.\n *\n * Currently unused.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "logo_dark_url?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "logo_dark_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#logo_light_url:member",
+              "docComment": "/**\n * The URL for the light logo on the auth card.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "logo_light_url?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "logo_light_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#name:member",
+              "docComment": "/**\n * The name of the project displayed on the auth card.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "name: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "name",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#recovery_enabled:member",
+              "docComment": "/**\n * Whether recovery is enabled.\n *\n * Used to determine if the \"Forgot Password\" link is shown on the password input elements.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "recovery_enabled: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "recovery_enabled",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#recovery_ui_url:member",
+              "docComment": "/**\n * The URL for the recovery UI.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "recovery_ui_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "recovery_ui_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#registration_enabled:member",
+              "docComment": "/**\n * Whether registration is enabled.\n *\n * Used to determine if the \"Sign Up\" link is shown on the login card.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "registration_enabled: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "registration_enabled",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#registration_ui_url:member",
+              "docComment": "/**\n * The URL for the registration UI.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "registration_ui_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "registration_ui_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#settings_ui_url:member",
+              "docComment": "/**\n * The URL for the settings UI.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "settings_ui_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "settings_ui_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#verification_enabled:member",
+              "docComment": "/**\n * Whether verification is enabled.\n *\n * Currently unused.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "verification_enabled: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "verification_enabled",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#verification_ui_url:member",
+              "docComment": "/**\n * The URL for the verification UI.\n *\n * Currently unused.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "verification_ui_url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "verification_ui_url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
         },
         {
           "kind": "TypeAlias",

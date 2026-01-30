@@ -1,10 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
-  AccountExperienceConfiguration,
-  ConfigurationParameters,
-} from "@ory/client-fetch"
+import { ConfigurationParameters } from "@ory/client-fetch"
 import { Locale } from "../context/intl-context"
 import { LocaleMap } from "../locales"
 
@@ -66,5 +63,75 @@ export interface OryClientConfiguration {
   /**
    * The configuration for the project.
    */
-  project: AccountExperienceConfiguration
+  project: ProjectConfiguration
+}
+
+/**
+ * The project configuration for Ory Elements.
+ *
+ * This configuration is used to set various URLs and settings for the Ory Elements project.
+ */
+export interface ProjectConfiguration {
+  /**
+   * The default redirect URI as configured in the Ory Kratos configuration
+   */
+  default_redirect_url: string
+  /**
+   * The URL for the error UI.
+   */
+  error_ui_url: string
+  /**
+   * The URL for the login UI.
+   */
+  login_ui_url: string
+  /**
+   * The URL for the dark logo.
+   *
+   * Currently unused.
+   */
+  logo_dark_url?: string
+  /**
+   * The URL for the light logo on the auth card.
+   */
+  logo_light_url?: string
+  /**
+   * The name of the project displayed on the auth card.
+   */
+  name: string
+  /**
+   * Whether recovery is enabled.
+   *
+   * Used to determine if the "Forgot Password" link is shown on the password input elements.
+   */
+  recovery_enabled: boolean
+  /**
+   * The URL for the recovery UI.
+   */
+  recovery_ui_url: string
+  /**
+   * Whether registration is enabled.
+   *
+   * Used to determine if the "Sign Up" link is shown on the login card.
+   */
+  registration_enabled: boolean
+  /**
+   * The URL for the registration UI.
+   */
+  registration_ui_url: string
+  /**
+   * The URL for the settings UI.
+   */
+  settings_ui_url: string
+  /**
+   * Whether verification is enabled.
+   *
+   * Currently unused.
+   */
+  verification_enabled: boolean
+  /**
+   * The URL for the verification UI.
+   *
+   * Currently unused.
+   */
+  verification_ui_url: string
 }

@@ -5,10 +5,8 @@ import { OryClientConfiguration } from "@ory/elements-react"
 
 const config: OryClientConfiguration = {
   project: {
-    default_locale: "en",
     default_redirect_url: "/",
     error_ui_url: "/error",
-    locale_behavior: "force_default",
     name: "Ory Next.js App Router Example",
     registration_enabled: true,
     verification_enabled: true,
