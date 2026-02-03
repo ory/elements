@@ -24,6 +24,7 @@ export function acceptConsentRequest(consentChallenge: string, options: {
     grantScope: string[];
     remember?: boolean;
     rememberFor?: number;
+    identityId?: string;
     session?: {
         accessToken?: Record<string, unknown>;
         idToken?: Record<string, unknown>;
@@ -105,6 +106,7 @@ export interface OryPageParams {
 export function rejectConsentRequest(consentChallenge: string, options?: {
     error?: string;
     errorDescription?: string;
+    identityId?: string;
 }): Promise<string>;
 
 // @public
