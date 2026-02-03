@@ -364,7 +364,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!acceptConsentRequest:function(1)",
-          "docComment": "/**\n * Accept an OAuth2 consent request.\n *\n * This method should be called from an API route handler when the user accepts the consent.\n *\n * @param consentChallenge - The consent challenge from the form.\n *\n * @param options - Options for accepting the consent request.\n *\n * @returns The redirect URL to complete the OAuth2 flow.\n *\n * @example\n * ```tsx\n * // app/api/consent/route.ts\n * import { acceptConsentRequest, rejectConsentRequest } from \"@ory/nextjs/app\"\n * import { redirect } from \"next/navigation\"\n *\n * export async function POST(request: Request) {\n *   const formData = await request.formData()\n *   const action = formData.get(\"action\")\n *   const consentChallenge = formData.get(\"consent_challenge\") as string\n *   const grantScope = formData.getAll(\"grant_scope\") as string[]\n *   const remember = formData.get(\"remember\") === \"true\"\n *\n *   if (action === \"accept\") {\n *     const redirectTo = await acceptConsentRequest(consentChallenge, {\n *       grantScope,\n *       remember,\n *       session: { ... }\n *     })\n *     return redirect(redirectTo)\n *   } else {\n *     const redirectTo = await rejectConsentRequest(consentChallenge)\n *     return redirect(redirectTo)\n *   }\n * }\n * ```\n *\n * @public\n */\n",
+          "docComment": "/**\n * Accept an OAuth2 consent request.\n *\n * This method should be called from an API route handler when the user accepts the consent. It validates that the provided session identity matches the consent request subject to prevent consent hijacking attacks.\n *\n * @param consentChallenge - The consent challenge from the form.\n *\n * @param options - Options for accepting the consent request.\n *\n * @returns The redirect URL to complete the OAuth2 flow.\n *\n * @example\n * ```tsx\n * // app/api/consent/route.ts\n * import { acceptConsentRequest, rejectConsentRequest, getServerSession } from \"@ory/nextjs/app\"\n * import { redirect } from \"next/navigation\"\n *\n * export async function POST(request: Request) {\n *   const session = await getServerSession()\n *   if (!session) {\n *     return new Response(\"Unauthorized\", { status: 401 })\n *   }\n *\n *   const formData = await request.formData()\n *   const action = formData.get(\"action\")\n *   const consentChallenge = formData.get(\"consent_challenge\") as string\n *   const grantScope = formData.getAll(\"grant_scope\") as string[]\n *   const remember = formData.get(\"remember\") === \"true\"\n *\n *   if (action === \"accept\") {\n *     const redirectTo = await acceptConsentRequest(consentChallenge, {\n *       grantScope,\n *       remember,\n *       identityId: session.identity?.id,\n *     })\n *     return redirect(redirectTo)\n *   } else {\n *     const redirectTo = await rejectConsentRequest(consentChallenge, {\n *       identityId: session.identity?.id,\n *     })\n *     return redirect(redirectTo)\n *   }\n * }\n * ```\n *\n * @throws\n *\n * Error if identityId doesn't match the consent request subject.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -380,7 +380,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    grantScope: string[];\n    remember?: boolean;\n    rememberFor?: number;\n    session?: {\n        accessToken?: "
+              "text": "{\n    grantScope: string[];\n    remember?: boolean;\n    rememberFor?: number;\n    identityId?: string;\n    session?: {\n        accessToken?: "
             },
             {
               "kind": "Reference",
@@ -1459,7 +1459,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!rejectConsentRequest:function(1)",
-          "docComment": "/**\n * Reject an OAuth2 consent request.\n *\n * This method should be called from an API route handler when the user rejects the consent.\n *\n * @param consentChallenge - The consent challenge from the form.\n *\n * @param options - Options for rejecting the consent request.\n *\n * @returns The redirect URL to complete the OAuth2 flow.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Reject an OAuth2 consent request.\n *\n * This method should be called from an API route handler when the user rejects the consent. It validates that the provided session identity matches the consent request subject to prevent consent hijacking attacks.\n *\n * @param consentChallenge - The consent challenge from the form.\n *\n * @param options - Options for rejecting the consent request.\n *\n * @returns The redirect URL to complete the OAuth2 flow.\n *\n * @throws\n *\n * Error if identityId doesn't match the consent request subject.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1475,7 +1475,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    error?: string;\n    errorDescription?: string;\n}"
+              "text": "{\n    error?: string;\n    errorDescription?: string;\n    identityId?: string;\n}"
             },
             {
               "kind": "Content",

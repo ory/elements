@@ -66,14 +66,21 @@ export async function getConsentFlow(
  * Accept an OAuth2 consent request.
  *
  * This method should be called from an API route handler when the user accepts the consent.
+ * It validates that the provided session identity matches the consent request subject
+ * to prevent consent hijacking attacks.
  *
  * @example
  * ```tsx
  * // app/api/consent/route.ts
- * import { acceptConsentRequest, rejectConsentRequest } from "@ory/nextjs/app"
+ * import { acceptConsentRequest, rejectConsentRequest, getServerSession } from "@ory/nextjs/app"
  * import { redirect } from "next/navigation"
  *
  * export async function POST(request: Request) {
+ *   const session = await getServerSession()
+ *   if (!session) {
+ *     return new Response("Unauthorized", { status: 401 })
+ *   }
+ *
  *   const formData = await request.formData()
  *   const action = formData.get("action")
  *   const consentChallenge = formData.get("consent_challenge") as string
@@ -84,11 +91,13 @@ export async function getConsentFlow(
  *     const redirectTo = await acceptConsentRequest(consentChallenge, {
  *       grantScope,
  *       remember,
- *       session: { ... }
+ *       identityId: session.identity?.id,
  *     })
  *     return redirect(redirectTo)
  *   } else {
- *     const redirectTo = await rejectConsentRequest(consentChallenge)
+ *     const redirectTo = await rejectConsentRequest(consentChallenge, {
+ *       identityId: session.identity?.id,
+ *     })
  *     return redirect(redirectTo)
  *   }
  * }
@@ -97,6 +106,7 @@ export async function getConsentFlow(
  * @param consentChallenge - The consent challenge from the form.
  * @param options - Options for accepting the consent request.
  * @returns The redirect URL to complete the OAuth2 flow.
+ * @throws Error if identityId doesn't match the consent request subject.
  * @public
  */
 export async function acceptConsentRequest(
@@ -105,13 +115,29 @@ export async function acceptConsentRequest(
     grantScope: string[]
     remember?: boolean
     rememberFor?: number
+    identityId?: string
     session?: {
       accessToken?: Record<string, unknown>
       idToken?: Record<string, unknown>
     }
   },
 ): Promise<string> {
-  const response = await serverSideOAuth2Client().acceptOAuth2ConsentRequest({
+  const oauth2Client = serverSideOAuth2Client()
+
+  // Security: Verify session identity matches consent request subject
+  if (options.identityId) {
+    const consentRequest = await oauth2Client.getOAuth2ConsentRequest({
+      consentChallenge,
+    })
+
+    if (consentRequest.subject !== options.identityId) {
+      throw new Error(
+        "Forbidden: Session identity does not match consent request subject",
+      )
+    }
+  }
+
+  const response = await oauth2Client.acceptOAuth2ConsentRequest({
     consentChallenge,
     acceptOAuth2ConsentRequest: {
       grant_scope: options.grantScope,
@@ -133,10 +159,13 @@ export async function acceptConsentRequest(
  * Reject an OAuth2 consent request.
  *
  * This method should be called from an API route handler when the user rejects the consent.
+ * It validates that the provided session identity matches the consent request subject
+ * to prevent consent hijacking attacks.
  *
  * @param consentChallenge - The consent challenge from the form.
  * @param options - Options for rejecting the consent request.
  * @returns The redirect URL to complete the OAuth2 flow.
+ * @throws Error if identityId doesn't match the consent request subject.
  * @public
  */
 export async function rejectConsentRequest(
@@ -144,9 +173,25 @@ export async function rejectConsentRequest(
   options?: {
     error?: string
     errorDescription?: string
+    identityId?: string
   },
 ): Promise<string> {
-  const response = await serverSideOAuth2Client().rejectOAuth2ConsentRequest({
+  const oauth2Client = serverSideOAuth2Client()
+
+  // Security: Verify session identity matches consent request subject
+  if (options?.identityId) {
+    const consentRequest = await oauth2Client.getOAuth2ConsentRequest({
+      consentChallenge,
+    })
+
+    if (consentRequest.subject !== options.identityId) {
+      throw new Error(
+        "Forbidden: Session identity does not match consent request subject",
+      )
+    }
+  }
+
+  const response = await oauth2Client.rejectOAuth2ConsentRequest({
     consentChallenge,
     rejectOAuth2Request: {
       error: options?.error ?? "access_denied",
