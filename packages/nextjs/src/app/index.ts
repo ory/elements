@@ -10,5 +10,10 @@ export { getSettingsFlow } from "./settings"
 export { getLogoutFlow } from "./logout"
 export { getServerSession } from "./session"
 export { getFlowFactory } from "./flow"
+export {
+  getConsentFlow,
+  acceptConsentRequest,
+  rejectConsentRequest,
+} from "./consent"
 
 export type { OryPageParams } from "./utils"
