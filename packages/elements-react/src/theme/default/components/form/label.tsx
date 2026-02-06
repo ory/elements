@@ -78,8 +78,12 @@ function LabelAction({ attributes }: LabelActionProps) {
   const config = useOryConfiguration()
 
   const action = useMemo(() => {
-    if (flowType === FlowType.Login && config.project.recovery_enabled) {
-      if (formState.current === "provide_identifier" && !flow.refresh) {
+    if (
+      flowType === FlowType.Login &&
+      config.project.recovery_enabled &&
+      !flow.refresh
+    ) {
+      if (formState.current === "provide_identifier") {
         if (attributes.name === "identifier") {
           return {
             message: intl.formatMessage({
