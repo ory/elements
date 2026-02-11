@@ -1,12 +1,18 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiContainer, UiNodeInputAttributes } from "@ory/client-fetch"
+import {
+  UiContainer,
+  UiNode,
+  UiNodeGroupEnum,
+  UiNodeInputAttributes,
+} from "@ory/client-fetch"
 import { OryCardAuthMethodListItemProps, useOryFlow } from "@ory/elements-react"
 import { useEffect, useState } from "react"
-import { useIntl } from "react-intl"
+import { defineMessages, useIntl } from "react-intl"
 import { useEventListener, useTimeout } from "usehooks-ts"
-import { triggerToFunction } from "../../../../util/ui"
+import { kratosMessages } from "../../../../util/i18n/generated/kratosMessages"
+import { findCodeIdentifierNode, triggerToFunction } from "../../../../util/ui"
 import AlertIcon from "../../assets/icons/alert-triangle.svg"
 import lookup_secret from "../../assets/icons/code-asterix.svg"
 import code from "../../assets/icons/code.svg"
@@ -32,10 +38,83 @@ const iconsMap: Record<string, typeof code> = {
   ...logos,
 }
 
+const titles = defineMessages<string>({
+  [UiNodeGroupEnum.Password]: {
+    id: "two-step.password.title",
+    defaultMessage: "Password",
+  },
+  [UiNodeGroupEnum.Code]: {
+    id: "two-step.code.title",
+    defaultMessage: "Email code",
+  },
+  [UiNodeGroupEnum.Webauthn]: {
+    id: "two-step.webauthn.title",
+    defaultMessage: "Security key",
+  },
+  [UiNodeGroupEnum.Passkey]: {
+    id: "two-step.passkey.title",
+    defaultMessage: "Passkey (recommended)",
+  },
+  [UiNodeGroupEnum.Totp]: {
+    id: "two-step.totp.title",
+    defaultMessage: "Use your Authenticator App (TOTP)",
+  },
+  [UiNodeGroupEnum.LookupSecret]: {
+    id: "two-step.lookup_secret.title",
+    defaultMessage: "Backup recovery code",
+  },
+})
+
+export const descriptions = defineMessages<string>({
+  [UiNodeGroupEnum.Password]: {
+    id: "two-step.password.description",
+    defaultMessage: "Enter your password associated with your account",
+  },
+  [UiNodeGroupEnum.Code]: {
+    id: "two-step.code.description",
+    defaultMessage: "A verification code will be sent to your email",
+  },
+  [UiNodeGroupEnum.Webauthn]: {
+    id: "two-step.webauthn.description",
+    defaultMessage: "Use your security key to authenticate",
+  },
+  [UiNodeGroupEnum.Passkey]: {
+    id: "two-step.passkey.description",
+    defaultMessage: "Use your device's for fingerprint or face recognition",
+  },
+  [UiNodeGroupEnum.Totp]: {
+    id: "two-step.totp.description",
+    defaultMessage: "Use a 6-digit one-time code from your authenticator app",
+  },
+  [UiNodeGroupEnum.LookupSecret]: {
+    id: "two-step.lookup_secret.description",
+    defaultMessage: "Use up one of your 8-digit backup codes to authenticate",
+  },
+})
+
+// TODO: change group to UiNodeGroupEnum throughout
+function formatTitle(
+  group: string,
+  nodes: UiNode[],
+  intl: ReturnType<typeof useIntl>,
+): string {
+  const fallbackTitle = { id: `two-step.${group}.title` }
+
+  if (group === "code") {
+    const identifier = findCodeIdentifierNode(nodes)?.attributes?.value
+    if (identifier) {
+      return intl.formatMessage(kratosMessages["1010023"], {
+        address: identifier,
+      })
+    }
+  }
+
+  return intl.formatMessage(titles[group] ?? fallbackTitle)
+}
+
 export function DefaultAuthMethodListItem({
   onClick,
   group,
-  title,
   disabled,
 }: OryCardAuthMethodListItemProps) {
   const intl = useIntl()
@@ -52,27 +131,18 @@ export function DefaultAuthMethodListItem({
       return null
     }
 
-    return (
-      <PasskeyListItem
-        passkeyNode={passkeyNode}
-        group={group}
-        title={title}
-        disabled={disabled}
-      />
-    )
+    return <PasskeyListItem passkeyNode={passkeyNode} disabled={disabled} />
   }
 
+  const fallbackDescription = { id: `two-step.${group}.description` }
   return (
     <ListItem
       as="button"
       icon={Icon}
-      title={intl.formatMessage(
-        { id: title?.id ?? `two-step.${group}.title` },
-        title?.values,
+      title={formatTitle(group, flow.ui.nodes, intl)}
+      description={intl.formatMessage(
+        descriptions[group] ?? fallbackDescription,
       )}
-      description={intl.formatMessage({
-        id: `two-step.${group}.description`,
-      })}
       onClick={onClick}
       type={isGroupImmediateSubmit(group) ? "submit" : "button"}
       data-testid={`ory/form/auth-picker/${group}`}
@@ -100,20 +170,13 @@ function findPasskeyNode(flow: {
 }
 
 type PasskeyListItemProps = {
-  group: string
-  title?: { id: string; values?: Record<string, string> }
   passkeyNode: { attributes: UiNodeInputAttributes }
   disabled?: boolean
 }
 
-function PasskeyListItem({
-  group,
-  title,
-  passkeyNode,
-  disabled,
-}: PasskeyListItemProps) {
+function PasskeyListItem({ passkeyNode, disabled }: PasskeyListItemProps) {
   const intl = useIntl()
-  const Icon = iconsMap[group] || null
+  const Icon = iconsMap.passkey || null
 
   const [isPasskeyScriptInitalized, setPasskeyScriptInitalized] =
     useState(false)
@@ -158,15 +221,14 @@ function PasskeyListItem({
         as="button"
         icon={Icon}
         disabled={true}
-        title={intl.formatMessage(
-          { id: title?.id ?? `two-step.${group}.title` },
-          title?.values,
-        )}
+        title={intl.formatMessage(titles.passkey)}
         description={intl.formatMessage({
           id: "two-step.passkey.description.error",
+          defaultMessage:
+            "Could not load the necessary libraries to use your Passkey. Please try again later.",
         })}
         type="button"
-        data-testid={`ory/form/auth-picker/${group}`}
+        data-testid={`ory/form/auth-picker/passkey`}
       >
         <AlertIcon />
       </ListItem>
@@ -179,16 +241,11 @@ function PasskeyListItem({
       icon={Icon}
       disabled={!isPasskeyScriptInitalized || disabled}
       name={passkeyNode.attributes.name}
-      title={intl.formatMessage(
-        { id: title?.id ?? `two-step.${group}.title` },
-        title?.values,
-      )}
-      description={intl.formatMessage({
-        id: `two-step.${group}.description`,
-      })}
+      title={intl.formatMessage(titles.passkey)}
+      description={intl.formatMessage(descriptions.passkey)}
       onClick={clickHandler}
       type="button"
-      data-testid={`ory/form/auth-picker/${group}`}
+      data-testid={`ory/form/auth-picker/passkey`}
     />
   )
 }

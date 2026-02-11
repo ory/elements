@@ -47,6 +47,7 @@ import { OryMessageContentProps, OryMessageRootProps } from "./messages"
 import { OryCardSettingsSectionProps } from "./settings-section"
 import { OryFormSsoRootProps } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
+import { kratosMessages } from "../../util/i18n/generated/kratosMessages"
 
 /**
  * A record of all the components that are used in the OryForm component.
@@ -295,11 +296,7 @@ export function OryForm({ children, onAfterSubmit }: OryFormProps) {
     // This is defined in Ory Kratos as well.
     const m: UiText = {
       id: 5000002,
-      text: intl.formatMessage({
-        id: `identities.messages.${5000002}`,
-        defaultMessage:
-          "No authentication methods are available for this request. Please contact the site or app owner.",
-      }),
+      text: intl.formatMessage(kratosMessages[5000002]),
       type: "error",
     }
 

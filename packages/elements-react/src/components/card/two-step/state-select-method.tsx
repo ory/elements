@@ -7,10 +7,10 @@ import {
   UiNodeGroupEnum,
   UiText,
 } from "@ory/client-fetch"
-import { OryCard, OryCardContent, OryCardFooter } from "./../"
+import { useIntl } from "react-intl"
 import { useComponents, useNodeSorter, useOryFlow } from "../../../context"
+import { kratosMessages } from "../../../util/i18n/generated/kratosMessages"
 import {
-  findNode,
   GroupedNodes,
   hasSingleSignOnNodes,
   useFunctionalNodes,
@@ -20,10 +20,10 @@ import { OryForm } from "../../form/form"
 import { OryCardValidationMessages } from "../../form/messages"
 import { Node } from "../../form/nodes/node"
 import { OryFormSsoForm } from "../../form/social"
-import { handleAfterFormSubmit } from "./utils"
 import { OryCardHeader } from "../header"
-import { useIntl } from "react-intl"
-import { AuthMethodList, AuthMethodOptions } from "./list-methods"
+import { OryCard, OryCardContent, OryCardFooter } from "./../"
+import { AuthMethodList } from "./list-methods"
+import { handleAfterFormSubmit } from "./utils"
 
 /**
  * Converts the visible groups of nodes into a format suitable for the
@@ -33,25 +33,22 @@ import { AuthMethodList, AuthMethodOptions } from "./list-methods"
  */
 export function toAuthMethodPickerOptions(
   visibleGroups: GroupedNodes,
-): AuthMethodOptions {
-  return Object.fromEntries(
-    Object.values(UiNodeGroupEnum)
-      .filter((group) => visibleGroups[group]?.length)
-      .filter(
-        (group) =>
-          !(
-            [
-              UiNodeGroupEnum.Oidc,
-              UiNodeGroupEnum.Saml,
-              UiNodeGroupEnum.Default,
-              UiNodeGroupEnum.IdentifierFirst,
-              UiNodeGroupEnum.Profile,
-              UiNodeGroupEnum.Captcha,
-            ] as UiNodeGroupEnum[]
-          ).includes(group),
-      )
-      .map((g) => [g, {}]),
-  )
+): UiNodeGroupEnum[] {
+  return Object.values(UiNodeGroupEnum)
+    .filter((group) => visibleGroups[group]?.length)
+    .filter(
+      (group) =>
+        !(
+          [
+            UiNodeGroupEnum.Oidc,
+            UiNodeGroupEnum.Saml,
+            UiNodeGroupEnum.Default,
+            UiNodeGroupEnum.IdentifierFirst,
+            UiNodeGroupEnum.Profile,
+            UiNodeGroupEnum.Captcha,
+          ] as UiNodeGroupEnum[]
+        ).includes(group),
+    )
 }
 
 export function SelectMethodForm() {
@@ -73,28 +70,6 @@ export function SelectMethodForm() {
       ((n.attributes.node_type === "input" && n.attributes.type === "hidden") ||
         isUiNodeScriptAttributes(n.attributes)),
   )
-
-  // Special case to show the address on code method selector
-  if (UiNodeGroupEnum.Code in authMethodBlocks) {
-    let identifier = findNode(ui.nodes, {
-      group: "identifier_first",
-      node_type: "input",
-      name: "identifier",
-    })?.attributes?.value
-    identifier ||= findNode(ui.nodes, {
-      group: "code",
-      node_type: "input",
-      name: "address",
-    })?.attributes?.value
-    if (identifier) {
-      authMethodBlocks[UiNodeGroupEnum.Code] = {
-        title: {
-          id: "identities.messages.1010023",
-          values: { address: identifier },
-        },
-      }
-    }
-  }
 
   return (
     <OryCard>
@@ -139,11 +114,7 @@ function NoMethodsMessage() {
   // This is defined in Ory Kratos as well.
   const noMethods: UiText = {
     id: 5000002,
-    text: intl.formatMessage({
-      id: `identities.messages.5000002`,
-      defaultMessage:
-        "No authentication methods are available for this request. Please contact the site or app owner.",
-    }),
+    text: intl.formatMessage(kratosMessages[5000002]),
     type: "error",
   }
 

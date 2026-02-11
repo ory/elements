@@ -2,8 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiText } from "@ory/client-fetch"
-import { IntlShape, useIntl } from "react-intl"
+import { defineMessages, IntlShape, useIntl } from "react-intl"
 import { isDynamicText } from "../nodes"
+import { isKratosMessageId, kratosMessages } from "./generated/kratosMessages"
 
 /**
  * Converts a UiText to a FormattedMessage.
@@ -88,12 +89,16 @@ export const uiTextToFormattedMessage = (
           }
         }
       } else if (key === "property") {
-        return {
-          ...accumulator,
-          [key]: intl.formatMessage({
-            id: `property.${value}`,
-            defaultMessage: value,
-          }),
+        if (isKnownPropertyKey(value)) {
+          return {
+            ...accumulator,
+            [key]: intl.formatMessage(propertyMessages[value]),
+          }
+        } else {
+          return {
+            ...accumulator,
+            [key]: value,
+          }
         }
       }
       return {
@@ -104,13 +109,11 @@ export const uiTextToFormattedMessage = (
     {},
   )
 
-  return intl.formatMessage(
-    {
-      id: `identities.messages.${id}`,
-      defaultMessage: text,
-    },
-    contextInjectedMessage,
-  )
+  if (isKratosMessageId(id)) {
+    return intl.formatMessage(kratosMessages[id], contextInjectedMessage)
+  }
+
+  return text
 }
 
 export function resolvePlaceholder(
@@ -128,10 +131,43 @@ export function resolvePlaceholder(
   )
   if (isDynamicText(text)) {
     const field = text.context.name
-    return intl.formatMessage({
+    const msg = {
       id: `forms.input.placeholder.${field}`,
       defaultMessage: fallback,
-    })
+    }
+    return intl.formatMessage(msg)
   }
   return fallback
 }
+
+const KNOWN_PROPERTIES = [
+  "password",
+  "email",
+  "phone",
+  "username",
+  "identifier",
+  "code",
+  "recovery_address",
+]
+
+type PropertyKey = (typeof KNOWN_PROPERTIES)[number]
+
+function isKnownPropertyKey(key: unknown): key is PropertyKey {
+  return typeof key === "string" && KNOWN_PROPERTIES.includes(key)
+}
+
+const propertyMessages = defineMessages<PropertyKey>({
+  password: { id: "property.password", defaultMessage: "password" },
+  email: { id: "property.email", defaultMessage: "email" },
+  phone: { id: "property.phone", defaultMessage: "phone" },
+  username: { id: "property.username", defaultMessage: "username" },
+  identifier: {
+    id: "property.identifier",
+    defaultMessage: "identifier",
+  },
+  code: { id: "property.code", defaultMessage: "code" },
+  recovery_address: {
+    id: "property.recovery_address",
+    defaultMessage: "recovery address",
+  },
+})

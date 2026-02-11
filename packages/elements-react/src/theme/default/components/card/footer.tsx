@@ -116,7 +116,7 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
           <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
             {intl.formatMessage({
               id: "login.registration-label",
-              defaultMessage: "No account?",
+              defaultMessage: "Don't have an account?",
             })}{" "}
             <a
               className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
@@ -143,6 +143,7 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
           >
             {intl.formatMessage({
               id: "login.2fa.method.go-back",
+              defaultMessage: "Choose another method",
             })}
           </button>
         </span>
@@ -158,6 +159,7 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
             >
               {intl.formatMessage({
                 id: "login.2fa.go-back.link",
+                defaultMessage: "Go back",
               })}
             </a>
           </span>
@@ -179,6 +181,7 @@ function LogoutButton({ returnTo }: LogoutButtonProps) {
     <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
       {intl.formatMessage({
         id: "login.2fa.go-back",
+        defaultMessage: "Something isn't working?",
       })}{" "}
       <a
         className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
@@ -188,12 +191,15 @@ function LogoutButton({ returnTo }: LogoutButtonProps) {
           didLoadLogout ? "ory/screen/login/action/logout" : undefined
         }
       >
-        {intl.formatMessage({
-          id:
-            !didLoadLogout || logout
-              ? "login.logout-button"
-              : "login.2fa.go-back.link",
-        })}
+        {!didLoadLogout || logout
+          ? intl.formatMessage({
+              id: "login.logout-button",
+              defaultMessage: "Logout",
+            })
+          : intl.formatMessage({
+              id: "login.2fa.go-back.link",
+              defaultMessage: "Go back",
+            })}
       </a>
     </span>
   )

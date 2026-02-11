@@ -5,19 +5,12 @@ import { useComponents, useOryFlow } from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { isGroupImmediateSubmit } from "../../../theme/default/utils/form"
+import { findCodeIdentifierNode } from "../../../util/ui"
 
 type AuthMethodListProps = {
-  options: AuthMethodOptions
+  options: UiNodeGroupEnum[]
   setSelectedGroup: (group: UiNodeGroupEnum) => void
 }
-
-export type AuthMethodOption = {
-  title?: { id: string; values?: Record<string, string> }
-}
-
-export type AuthMethodOptions = Partial<
-  Record<UiNodeGroupEnum, AuthMethodOption>
->
 
 export function AuthMethodList({
   options,
@@ -25,21 +18,20 @@ export function AuthMethodList({
 }: AuthMethodListProps) {
   const { Card } = useComponents()
   const { setValue, getValues, formState } = useFormContext()
-  const { formState: oryFormState } = useOryFlow()
+  const { formState: oryFormState, flow } = useOryFlow()
 
-  if (Object.entries(options).length === 0) {
+  if (options.length === 0) {
     return null
   }
 
-  const handleClick = (group: UiNodeGroupEnum, options?: AuthMethodOption) => {
+  const handleClick = (group: UiNodeGroupEnum) => {
     if (isGroupImmediateSubmit(group)) {
       // Required because identifier node is not always defined with code method in aal2
-      if (
-        group === "code" &&
-        !getValues("identifier") &&
-        options?.title?.values?.address
-      ) {
-        setValue("identifier", options?.title?.values?.address)
+      if (group === "code" && !getValues("identifier")) {
+        const identifier = findCodeIdentifierNode(flow.ui.nodes)
+        if (identifier) {
+          setValue("identifier", identifier.attributes.value)
+        }
       }
       // If the method is "immediate submit" (e.g. the method's submit button should be triggered immediately)
       // then the method needs to be added to the form data.
@@ -51,12 +43,11 @@ export function AuthMethodList({
 
   return (
     <Card.AuthMethodListContainer>
-      {Object.entries(options).map(([group, options]) => (
+      {options.map((group) => (
         <Card.AuthMethodListItem
           key={group}
           group={group}
-          title={options.title}
-          onClick={() => handleClick(group as UiNodeGroupEnum, options)}
+          onClick={() => handleClick(group)}
           disabled={
             !formState.isReady ||
             !oryFormState.isReady ||

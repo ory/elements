@@ -30,10 +30,12 @@ export function isDynamicText(
 export function resolveLabel(text: UiText, intl: ReturnType<typeof useIntl>) {
   if (isDynamicText(text)) {
     const field = text.context.name
-    return intl.formatMessage({
-      id: `forms.label.${field}`,
+    const id = `forms.label.${field}`
+    const msg = {
+      id,
       defaultMessage: text.text,
-    })
+    }
+    return intl.formatMessage(msg)
   }
   return uiTextToFormattedMessage(text, intl)
 }

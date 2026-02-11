@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`intl-context can override individual strings 1`] = `
 <div>
-  custom navigation title
+  custom title
 </div>
 `;
 
 exports[`intl-context doesn't override if an IntlContext is already present 1`] = `
 <div>
-  original navigation title
+  original title
 </div>
 `;
 

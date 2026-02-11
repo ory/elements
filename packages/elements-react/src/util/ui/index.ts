@@ -15,6 +15,7 @@ import type {
 import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { useMemo } from "react"
 import { useGroupSorter } from "../../context/component"
+import { UiNodeInput } from "../utilFixSDKTypesHelper"
 
 export function triggerToWindowCall(
   trigger:
@@ -354,4 +355,25 @@ export function useNodeGroupsWithVisibleNodes(nodes: UiNode[]): GroupedNodes {
 
     return finalGroups
   }, [nodes])
+}
+
+/**
+ * Finds the identifier node for code auth method.
+ *
+ * @param nodes the UI nodes to filter (usually flow.ui.nodes)
+ * @returns the UiNode that corresponds to the identfiier for code method, or undefined if not found
+ */
+export function findCodeIdentifierNode(
+  nodes: UiNode[],
+): UiNodeInput | undefined {
+  return (findNode(nodes, {
+    group: "identifier_first",
+    node_type: "input",
+    name: "identifier",
+  }) ??
+    findNode(nodes, {
+      group: "code",
+      node_type: "input",
+      name: "address",
+    })) as UiNodeInput | undefined
 }

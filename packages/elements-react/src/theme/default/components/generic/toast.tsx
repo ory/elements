@@ -20,8 +20,14 @@ export function DefaultToast({
 
   const title =
     message.type === "error"
-      ? intl.formatMessage({ id: "settings.messages.toast-title.error" })
-      : intl.formatMessage({ id: "settings.messages.toast-title.success" })
+      ? intl.formatMessage({
+          id: "settings.messages.toast-title.error",
+          defaultMessage: "Could not update settings",
+        })
+      : intl.formatMessage({
+          id: "settings.messages.toast-title.success",
+          defaultMessage: "Settings updated",
+        })
   const messageText = uiTextToFormattedMessage(message, intl)
   return (
     <div

@@ -14,6 +14,10 @@ import {
   UiNodeText,
 } from "../../util/utilFixSDKTypesHelper"
 import { Node } from "../form/nodes/node"
+import {
+  settingsCardDescriptions,
+  settingsCardTitles,
+} from "../../util/i18n/settingsCardMessages"
 
 const getQrCodeNode = (nodes: UiNode[]): UiNodeImage | undefined =>
   nodes.find(
@@ -80,8 +84,8 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
   return (
     <>
       <Card.SettingsSectionContent
-        title={intl.formatMessage({ id: "settings.totp.title" })}
-        description={intl.formatMessage({ id: "settings.totp.description" })}
+        title={intl.formatMessage(settingsCardTitles.totp)}
+        description={intl.formatMessage(settingsCardDescriptions.totp)}
       >
         {qrNode && secretNode && totpCodeNode && !totpUnlink ? (
           <TotpSettingsLink
@@ -103,8 +107,16 @@ export function OrySettingsTotp({ nodes }: HeadlessSettingsTotpProps) {
       <Card.SettingsSectionFooter
         text={
           totpUnlink
-            ? intl.formatMessage({ id: "settings.totp.info.linked" })
-            : intl.formatMessage({ id: "settings.totp.info.not-linked" })
+            ? intl.formatMessage({
+                id: "settings.totp.info.linked",
+                defaultMessage:
+                  "You currently have an authenticator app connected.",
+              })
+            : intl.formatMessage({
+                id: "settings.totp.info.not-linked",
+                defaultMessage:
+                  "To enable scan the QR code with your authenticator and enter the code.",
+              })
         }
       >
         {totpLinkButton && <Node node={totpLinkButton} />}

@@ -1629,16 +1629,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    onClick: () => void;\n    group: string;\n    title?: {\n        id: string;\n        values?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<string, string>;\n    };\n    disabled?: boolean;\n}"
+              "text": "{\n    onClick: () => void;\n    group: string;\n    disabled?: boolean;\n}"
             },
             {
               "kind": "Content",
@@ -1650,7 +1641,7 @@
           "name": "OryCardAuthMethodListItemProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 4
+            "endIndex": 2
           }
         },
         {

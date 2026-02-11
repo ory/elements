@@ -11,6 +11,10 @@ import { useEffect } from "react"
 import { useIntl } from "react-intl"
 import { Toaster } from "sonner"
 import { useComponents, useOryFlow } from "../../context"
+import {
+  settingsCardDescriptionMessage,
+  settingsCardTitleMessage,
+} from "../../util/i18n/settingsCardMessages"
 import { showToast } from "../../util/showToast"
 import { useNodesGroups } from "../../util/ui"
 import { Node } from "../form/nodes/node"
@@ -113,12 +117,8 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
       data-testid={`ory/screen/settings/group/${group}`}
     >
       <Card.SettingsSectionContent
-        title={intl.formatMessage({
-          id: `settings.${group}.title`,
-        })}
-        description={intl.formatMessage({
-          id: `settings.${group}.description`,
-        })}
+        title={intl.formatMessage(settingsCardTitleMessage(group))}
+        description={intl.formatMessage(settingsCardDescriptionMessage(group))}
       >
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />

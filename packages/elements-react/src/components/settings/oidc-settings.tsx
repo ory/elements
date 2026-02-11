@@ -6,6 +6,10 @@ import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { OryNodeSettingsButton } from "."
 import { useComponents } from "../../context"
+import {
+  settingsCardDescriptions,
+  settingsCardTitles,
+} from "../../util/i18n/settingsCardMessages"
 import { isUiNodeInput, UiNodeInput } from "../../util/utilFixSDKTypesHelper"
 
 const getLinkButtons = (nodes: UiNode[]): UiNodeInput[] =>
@@ -76,8 +80,8 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
   return (
     <>
       <Card.SettingsSectionContent
-        title={intl.formatMessage({ id: "settings.oidc.title" })}
-        description={intl.formatMessage({ id: "settings.oidc.description" })}
+        title={intl.formatMessage(settingsCardTitles.oidc)}
+        description={intl.formatMessage(settingsCardDescriptions.oidc)}
       >
         <Form.SsoSettings
           linkButtons={linkButtons}
@@ -86,7 +90,11 @@ export function OrySettingsOidc({ nodes }: HeadlessSettingsOidcProps) {
         />
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter
-        text={intl.formatMessage({ id: "settings.oidc.info" })}
+        text={intl.formatMessage({
+          id: "settings.oidc.info",
+          defaultMessage:
+            "Connected accounts from these providers can be used to login to your account",
+        })}
       ></Card.SettingsSectionFooter>
     </>
   )

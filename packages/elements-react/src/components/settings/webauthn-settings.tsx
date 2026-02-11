@@ -5,6 +5,10 @@ import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../context"
+import {
+  settingsCardDescriptions,
+  settingsCardTitles,
+} from "../../util/i18n/settingsCardMessages"
 import { triggerToWindowCall } from "../../util/ui"
 import { UiNodeInput } from "../../util/utilFixSDKTypesHelper"
 import { Node } from "../form/nodes/node"
@@ -57,10 +61,8 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
   return (
     <>
       <Card.SettingsSectionContent
-        title={intl.formatMessage({ id: "settings.webauthn.title" })}
-        description={intl.formatMessage({
-          id: "settings.webauthn.description",
-        })}
+        title={intl.formatMessage(settingsCardTitles.webauthn)}
+        description={intl.formatMessage(settingsCardDescriptions.webauthn)}
       >
         <WebauthnForm
           inputNode={inputNode}
@@ -70,7 +72,11 @@ export function OrySettingsWebauthn({ nodes }: HeadlessSettingsWebauthnProps) {
         {registerNode && <Node node={registerNode} />}
       </Card.SettingsSectionContent>
       <Card.SettingsSectionFooter
-        text={intl.formatMessage({ id: "settings.webauthn.info" })}
+        text={intl.formatMessage({
+          id: "settings.webauthn.info",
+          defaultMessage:
+            "Hardware Tokens are used for second-factor authentication or as first-factor with Passkeys",
+        })}
       ></Card.SettingsSectionFooter>
     </>
   )

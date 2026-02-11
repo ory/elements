@@ -194,10 +194,6 @@ export function OryCard({ children }: PropsWithChildren): react_jsx_runtime.JSX.
 export type OryCardAuthMethodListItemProps = {
     onClick: () => void;
     group: string;
-    title?: {
-        id: string;
-        values?: Record<string, string>;
-    };
     disabled?: boolean;
 };
 
@@ -686,16 +682,16 @@ export type VerificationFlowContainer = {
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:694:5 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:695:5 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:696:5 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:697:5 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:698:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:699:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:700:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:871:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:875:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1305:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:690:5 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:691:5 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:692:5 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:693:5 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:694:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:695:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:696:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:867:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:871:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1301:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

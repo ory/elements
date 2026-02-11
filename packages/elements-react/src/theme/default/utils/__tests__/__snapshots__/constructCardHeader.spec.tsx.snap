@@ -199,7 +199,7 @@ exports[`constructCardHeaderText language=af flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=af flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Bevestig jou identiteit met 'n sosiale verskaffer or jou Email",
+  "description": "Bevestig jou identiteit met 'n sosiale verskaffer of jou Email",
   "title": "Herverifieer",
 }
 `;
@@ -1300,7 +1300,7 @@ exports[`constructCardHeaderText language=ak flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ak flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Si wo ho so dua fa asetra so ɔdefo or wo Email",
+  "description": "Si wo ho so dua fa asetra so ɔdefo anaasɛ wo Email",
   "title": "San hwehwɛ mu",
 }
 `;
@@ -2401,7 +2401,7 @@ exports[`constructCardHeaderText language=am flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=am flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ማንነትዎን በማህበራዊ አቅራቢ or Emailዎን አረጋግጥ",
+  "description": "ማንነትዎን በማህበራዊ አቅራቢ ወይም Emailዎን አረጋግጥ",
   "title": "እንደገና አረጋግጥ",
 }
 `;
@@ -3502,7 +3502,7 @@ exports[`constructCardHeaderText language=ar flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ar flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "أكد هويتك باستخدام موفر اجتماعي or Email الخاص بك",
+  "description": "أكد هويتك باستخدام موفر اجتماعي أو Email الخاص بك",
   "title": "إعادة المصادقة",
 }
 `;
@@ -4603,7 +4603,7 @@ exports[`constructCardHeaderText language=as flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=as flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "এটা ছ'চিয়েল প্ৰদানকাৰী or আপোনাৰ Emailৰ সৈতে আপোনাৰ পৰিচয় নিশ্চিত কৰক",
+  "description": "এটা ছ'চিয়েল প্ৰদানকাৰী বা আপোনাৰ Emailৰ সৈতে আপোনাৰ পৰিচয় নিশ্চিত কৰক",
   "title": "পুনৰ প্ৰমাণীকৰণ কৰক",
 }
 `;
@@ -5704,7 +5704,7 @@ exports[`constructCardHeaderText language=az flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=az flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "sosial provayder or Email ilə kimliyi təsdiq edin",
+  "description": "sosial provayder və ya Email ilə kimliyi təsdiq edin",
   "title": "Yenidən autentifikasiya et",
 }
 `;
@@ -6805,7 +6805,7 @@ exports[`constructCardHeaderText language=be flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=be flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Пацвердзіце сваю асобу з сацыяльны правайдар or Email",
+  "description": "Пацвердзіце сваю асобу з сацыяльны правайдар або Email",
   "title": "Паўторная аўтэнтыфікацыя",
 }
 `;
@@ -7906,7 +7906,7 @@ exports[`constructCardHeaderText language=bg flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=bg flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Потвърдете вашата идентичност с социален доставчик or вашия Email",
+  "description": "Потвърдете вашата идентичност с социален доставчик или вашия Email",
   "title": "Удостоверете се отново",
 }
 `;
@@ -9007,7 +9007,7 @@ exports[`constructCardHeaderText language=bm flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=bm flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "I yɛrɛ lajɛ ni jama ka dibaga dɔ or i ka Email ye",
+  "description": "I yɛrɛ lajɛ ni jama ka dibaga dɔ walima i ka Email ye",
   "title": "Segin ka dantigɛ",
 }
 `;
@@ -10108,7 +10108,7 @@ exports[`constructCardHeaderText language=bn flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=bn flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "একটি সোশ্যাল প্রদানকারী or আপনার Email দিয়ে আপনার পরিচয় নিশ্চিত করুন",
+  "description": "একটি সোশ্যাল প্রদানকারী অথবা আপনার Email দিয়ে আপনার পরিচয় নিশ্চিত করুন",
   "title": "পুনরায় প্রমাণীকরণ করুন",
 }
 `;
@@ -11209,7 +11209,7 @@ exports[`constructCardHeaderText language=ca flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ca flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Confirmeu la vostra identitat amb un proveïdor social or el vostre Email",
+  "description": "Confirmeu la vostra identitat amb un proveïdor social o el vostre Email",
   "title": "Tornar a autenticar",
 }
 `;
@@ -12310,7 +12310,7 @@ exports[`constructCardHeaderText language=cs flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=cs flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Potvrďte svou identitu pomocí sociální poskytovatel or váš Email",
+  "description": "Potvrďte svou identitu pomocí sociální poskytovatel nebo váš Email",
   "title": "Znovu ověřit",
 }
 `;
@@ -13411,7 +13411,7 @@ exports[`constructCardHeaderText language=da flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=da flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Bekræft din identitet med en social udbyder or din Email",
+  "description": "Bekræft din identitet med en social udbyder eller din Email",
   "title": "Godkend igen",
 }
 `;
@@ -14513,7 +14513,7 @@ exports[`constructCardHeaderText language=de flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=de flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Bestätigen Sie Ihre Identität mit einem Social-Login or Ihrer Email.",
+  "description": "Bestätigen Sie Ihre Identität mit einem Social-Login oder Ihrer Email.",
   "title": "Bestätigen Sie, dass Sie es sind",
 }
 `;
@@ -15614,7 +15614,7 @@ exports[`constructCardHeaderText language=el flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=el flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Επιβεβαιώστε την ταυτότητά σας με κοινωνικό πάροχο or το Email σας",
+  "description": "Επιβεβαιώστε την ταυτότητά σας με κοινωνικό πάροχο ή το Email σας",
   "title": "Επαναταυτοποίηση",
 }
 `;
@@ -17816,7 +17816,7 @@ exports[`constructCardHeaderText language=es flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=es flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Confirma tu identidad con un proveedor social or tu Email",
+  "description": "Confirma tu identidad con un proveedor social o tu Email",
   "title": "Confirme que es usted",
 }
 `;
@@ -18917,7 +18917,7 @@ exports[`constructCardHeaderText language=et flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=et flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Kinnitage oma identiteet sotsiaalmeedia pakkuja or oma Email",
+  "description": "Kinnitage oma identiteet sotsiaalmeedia pakkuja või oma Email",
   "title": "Autenti uuesti",
 }
 `;
@@ -20018,7 +20018,7 @@ exports[`constructCardHeaderText language=fa flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=fa flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "هویت خود را با یک ارائه‌دهنده اجتماعی or Email شما تأیید کنید",
+  "description": "هویت خود را با یک ارائه‌دهنده اجتماعی یا Email شما تأیید کنید",
   "title": "احراز هویت مجدد",
 }
 `;
@@ -21119,7 +21119,7 @@ exports[`constructCardHeaderText language=fi flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=fi flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Vahvista identiteettisi käyttäen sosiaalinen tarjoaja or Email",
+  "description": "Vahvista identiteettisi käyttäen sosiaalinen tarjoaja tai Email",
   "title": "Todennus uudelleen",
 }
 `;
@@ -22220,7 +22220,7 @@ exports[`constructCardHeaderText language=fr flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=fr flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Confirmez votre identité avec un fournisseur de réseaux sociaux or votre Email",
+  "description": "Confirmez votre identité avec un fournisseur de réseaux sociaux ou votre Email",
   "title": "Confirmez que c'est bien vous",
 }
 `;
@@ -23321,7 +23321,7 @@ exports[`constructCardHeaderText language=gu flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=gu flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "સોશિયલ પ્રદાતા or તમારું Email સાથે તમારી ઓળખની પુષ્ટિ કરો",
+  "description": "સોશિયલ પ્રદાતા અથવા તમારું Email સાથે તમારી ઓળખની પુષ્ટિ કરો",
   "title": "ફરીથી પ્રમાણિત કરો",
 }
 `;
@@ -24422,7 +24422,7 @@ exports[`constructCardHeaderText language=ha flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ha flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Tabbatar da ainihin ka da mai bayar da sabis na zamantakewa or Email ka",
+  "description": "Tabbatar da ainihin ka da mai bayar da sabis na zamantakewa ko Email ka",
   "title": "Sake tantancewa",
 }
 `;
@@ -25523,7 +25523,7 @@ exports[`constructCardHeaderText language=he flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=he flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "אשר את זהותך עם ספק חברתי or ה-Email שלך",
+  "description": "אשר את זהותך עם ספק חברתי או ה-Email שלך",
   "title": "אמת מחדש",
 }
 `;
@@ -26624,7 +26624,7 @@ exports[`constructCardHeaderText language=hi flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=hi flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "एक सोशल प्रदाता or अपना Email के साथ अपनी पहचान की पुष्टि करें",
+  "description": "एक सोशल प्रदाता या अपना Email के साथ अपनी पहचान की पुष्टि करें",
   "title": "पुनः प्रमाणित करें",
 }
 `;
@@ -27725,7 +27725,7 @@ exports[`constructCardHeaderText language=hr flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=hr flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Potvrdite svoj identitet s pružatelj društvenih mreža or vaš Email",
+  "description": "Potvrdite svoj identitet s pružatelj društvenih mreža ili vaš Email",
   "title": "Ponovna autentifikacija",
 }
 `;
@@ -28826,7 +28826,7 @@ exports[`constructCardHeaderText language=hu flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=hu flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Erősítse meg személyazonosságát a következővel: közösségi szolgáltató or Email",
+  "description": "Erősítse meg személyazonosságát a következővel: közösségi szolgáltató vagy Email",
   "title": "Újrahitelesítés",
 }
 `;
@@ -29927,7 +29927,7 @@ exports[`constructCardHeaderText language=hy flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=hy flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Հաստատեք ձեր ինքնությունը սոցիալական մատակարար or ձեր Email-ով",
+  "description": "Հաստատեք ձեր ինքնությունը սոցիալական մատակարար կամ ձեր Email-ով",
   "title": "Կրկին նույնականացվել",
 }
 `;
@@ -31028,7 +31028,7 @@ exports[`constructCardHeaderText language=id flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=id flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Konfirmasi identitas Anda dengan penyedia sosial or identifikasi Anda Email",
+  "description": "Konfirmasi identitas Anda dengan penyedia sosial atau identifikasi Anda Email",
   "title": "Verifikasi Ulang",
 }
 `;
@@ -32129,7 +32129,7 @@ exports[`constructCardHeaderText language=ig flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ig flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Kwado njirimara gị na onye na-enye mmekọrịta or Email gị",
+  "description": "Kwado njirimara gị na onye na-enye mmekọrịta ma ọ bụ Email gị",
   "title": "Nyochaa ọzọ",
 }
 `;
@@ -33230,7 +33230,7 @@ exports[`constructCardHeaderText language=it flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=it flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Conferma la tua identità con un provider sociale or il tuo Email",
+  "description": "Conferma la tua identità con un provider sociale o il tuo Email",
   "title": "Riautentica",
 }
 `;
@@ -34331,7 +34331,7 @@ exports[`constructCardHeaderText language=ja flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ja flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ソーシャルプロバイダー or あなたのEmailで身元を確認",
+  "description": "ソーシャルプロバイダー または あなたのEmailで身元を確認",
   "title": "再認証",
 }
 `;
@@ -35432,7 +35432,7 @@ exports[`constructCardHeaderText language=ka flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ka flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "დაადასტურეთ თქვენი იდენტობა სოციალური პროვაიდერი or თქვენი Email-ით",
+  "description": "დაადასტურეთ თქვენი იდენტობა სოციალური პროვაიდერი ან თქვენი Email-ით",
   "title": "ხელახალი ავთენტიფიკაცია",
 }
 `;
@@ -36533,7 +36533,7 @@ exports[`constructCardHeaderText language=kk flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=kk flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "әлеуметтік провайдер or Email арқылы жеке басыңызды растаңыз",
+  "description": "әлеуметтік провайдер немесе Email арқылы жеке басыңызды растаңыз",
   "title": "Қайта аутентификация",
 }
 `;
@@ -37634,7 +37634,7 @@ exports[`constructCardHeaderText language=km flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=km flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "បញ្ជាក់អត្តសញ្ញាណរបស់អ្នកជាមួយ អ្នកផ្តល់សេវាសង្គម or Email របស់អ្នក",
+  "description": "បញ្ជាក់អត្តសញ្ញាណរបស់អ្នកជាមួយ អ្នកផ្តល់សេវាសង្គម ឬ Email របស់អ្នក",
   "title": "ផ្ទៀងផ្ទាត់ម្តងទៀត",
 }
 `;
@@ -38735,7 +38735,7 @@ exports[`constructCardHeaderText language=kn flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=kn flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ಸಾಮಾಜಿಕ ಪ್ರೊವೈಡರ್ or ನಿಮ್ಮ Email ನೊಂದಿಗೆ ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಿ",
+  "description": "ಸಾಮಾಜಿಕ ಪ್ರೊವೈಡರ್ ಅಥವಾ ನಿಮ್ಮ Email ನೊಂದಿಗೆ ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಿ",
   "title": "ಮರುದೃಢೀಕರಿಸಿ",
 }
 `;
@@ -39836,7 +39836,7 @@ exports[`constructCardHeaderText language=ko flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ko flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "소셜 제공자 or Email로 신원을 확인하세요",
+  "description": "소셜 제공자 또는 Email로 신원을 확인하세요",
   "title": "재인증",
 }
 `;
@@ -40937,7 +40937,7 @@ exports[`constructCardHeaderText language=ku flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ku flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ناسنامەکەت پشتڕاست بکەرەوە بە دابینکەرێکی کۆمەڵایەتی or Email ـەکەت",
+  "description": "ناسنامەکەت پشتڕاست بکەرەوە بە دابینکەرێکی کۆمەڵایەتی یان Email ـەکەت",
   "title": "دووبارە ڕەسەنایەتی پێشکەش",
 }
 `;
@@ -42038,7 +42038,7 @@ exports[`constructCardHeaderText language=ky flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ky flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "социалдык камсыздоочу or Email менен өзүңүздү тастыктаңыз",
+  "description": "социалдык камсыздоочу же Email менен өзүңүздү тастыктаңыз",
   "title": "Кайра аутентификациялоо",
 }
 `;
@@ -43139,7 +43139,7 @@ exports[`constructCardHeaderText language=lt flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=lt flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Patvirtinkite savo tapatybę su socialinis teikėjas or jūsų Email",
+  "description": "Patvirtinkite savo tapatybę su socialinis teikėjas arba jūsų Email",
   "title": "Iš naujo autentifikuoti",
 }
 `;
@@ -44240,7 +44240,7 @@ exports[`constructCardHeaderText language=lv flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=lv flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Apstipriniet savu identitāti ar sociālais pakalpojumu sniedzējs or jūsu Email",
+  "description": "Apstipriniet savu identitāti ar sociālais pakalpojumu sniedzējs vai jūsu Email",
   "title": "Atkārtoti autentificēties",
 }
 `;
@@ -45341,7 +45341,7 @@ exports[`constructCardHeaderText language=mk flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=mk flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Потврдете го вашиот идентитет со социјален провајдер or вашиот Email",
+  "description": "Потврдете го вашиот идентитет со социјален провајдер или вашиот Email",
   "title": "Повторно автентицирајте се",
 }
 `;
@@ -46442,7 +46442,7 @@ exports[`constructCardHeaderText language=ml flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ml flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ഒരു സോഷ്യൽ ദാതാവ് or നിങ്ങളുടെ Email ഉപയോഗിച്ച് നിങ്ങളുടെ ഐഡന്റിറ്റി സ്ഥിരീകരിക്കുക",
+  "description": "ഒരു സോഷ്യൽ ദാതാവ് അല്ലെങ്കിൽ നിങ്ങളുടെ Email ഉപയോഗിച്ച് നിങ്ങളുടെ ഐഡന്റിറ്റി സ്ഥിരീകരിക്കുക",
   "title": "വീണ്ടും ആധികാരികത പരിശോധിക്കുക",
 }
 `;
@@ -47543,7 +47543,7 @@ exports[`constructCardHeaderText language=mn flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=mn flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "нийгмийн сүлжээний үйлчилгээ үзүүлэгч or таны Email-ээр хувийн мэдээллээ баталгаажуулна уу",
+  "description": "нийгмийн сүлжээний үйлчилгээ үзүүлэгч эсвэл таны Email-ээр хувийн мэдээллээ баталгаажуулна уу",
   "title": "Дахин баталгаажуулах",
 }
 `;
@@ -48644,7 +48644,7 @@ exports[`constructCardHeaderText language=mr flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=mr flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "एक सोशल प्रदाता or आपले Email सह आपली ओळख पुष्टी करा",
+  "description": "एक सोशल प्रदाता किंवा आपले Email सह आपली ओळख पुष्टी करा",
   "title": "पुनर्प्रमाणित करा",
 }
 `;
@@ -49745,7 +49745,7 @@ exports[`constructCardHeaderText language=ms flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ms flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Sahkan identiti anda dengan seorang pemberi khidmat sosial or pengenalan Email anda",
+  "description": "Sahkan identiti anda dengan seorang pemberi khidmat sosial atau pengenalan Email anda",
   "title": "Sahkan semula",
 }
 `;
@@ -50846,7 +50846,7 @@ exports[`constructCardHeaderText language=my flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=my flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ဆိုရှယ် ပံ့ပိုးသူ or သင့် Email ဖြင့် သင့် အထောက်အထားကို အတည်ပြုပါ",
+  "description": "ဆိုရှယ် ပံ့ပိုးသူ သို့မဟုတ် သင့် Email ဖြင့် သင့် အထောက်အထားကို အတည်ပြုပါ",
   "title": "ပြန်လည်အထောက်အထားစိစစ်ရန်",
 }
 `;
@@ -51947,7 +51947,7 @@ exports[`constructCardHeaderText language=ne flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ne flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "एक सामाजिक प्रदायक or तपाईंको Email सँग आफ्नो पहिचान पुष्टि गर्नुहोस्",
+  "description": "एक सामाजिक प्रदायक वा तपाईंको Email सँग आफ्नो पहिचान पुष्टि गर्नुहोस्",
   "title": "पुन: प्रमाणीकरण गर्नुहोस्",
 }
 `;
@@ -53048,7 +53048,7 @@ exports[`constructCardHeaderText language=nl flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=nl flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Bevestig uw identiteit met een sociale aanbieder or uw Email",
+  "description": "Bevestig uw identiteit met een sociale aanbieder of uw Email",
   "title": "Bevestig dat jij het bent",
 }
 `;
@@ -54149,7 +54149,7 @@ exports[`constructCardHeaderText language=no flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=no flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Bekreft din identitet med en sosial leverandør or din Email",
+  "description": "Bekreft din identitet med en sosial leverandør eller din Email",
   "title": "Reautentiser",
 }
 `;
@@ -55250,7 +55250,7 @@ exports[`constructCardHeaderText language=or flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=or flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ଏକ ସୋସିଆଲ ପ୍ରଦାତା or ଆପଣଙ୍କର Email ସହିତ ଆପଣଙ୍କର ପରିଚୟ ନିଶ୍ଚିତ କରନ୍ତୁ",
+  "description": "ଏକ ସୋସିଆଲ ପ୍ରଦାତା କିମ୍ବା ଆପଣଙ୍କର Email ସହିତ ଆପଣଙ୍କର ପରିଚୟ ନିଶ୍ଚିତ କରନ୍ତୁ",
   "title": "ପୁନଃ ପ୍ରମାଣୀକରଣ କରନ୍ତୁ",
 }
 `;
@@ -56351,7 +56351,7 @@ exports[`constructCardHeaderText language=pa flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=pa flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ਇੱਕ ਸੋਸ਼ਲ ਪ੍ਰਦਾਤਾ or ਤੁਹਾਡਾ Email ਨਾਲ ਆਪਣੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ",
+  "description": "ਇੱਕ ਸੋਸ਼ਲ ਪ੍ਰਦਾਤਾ ਜਾਂ ਤੁਹਾਡਾ Email ਨਾਲ ਆਪਣੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ",
   "title": "ਦੁਬਾਰਾ ਪ੍ਰਮਾਣਿਤ ਕਰੋ",
 }
 `;
@@ -57452,7 +57452,7 @@ exports[`constructCardHeaderText language=pl flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=pl flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Potwierdź swoją tożsamość za pomocą dostawca społecznościowy or Twój Email",
+  "description": "Potwierdź swoją tożsamość za pomocą dostawca społecznościowy lub Twój Email",
   "title": "Potwierdź że to Ty",
 }
 `;
@@ -58553,7 +58553,7 @@ exports[`constructCardHeaderText language=ps flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ps flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "خپل پیژندنه د یو ټولنیز چمتو کوونکی or ستاسو Email سره تایید کړئ",
+  "description": "خپل پیژندنه د یو ټولنیز چمتو کوونکی یا ستاسو Email سره تایید کړئ",
   "title": "بیا تصدیق",
 }
 `;
@@ -59654,7 +59654,7 @@ exports[`constructCardHeaderText language=pt flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=pt flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Confirme a sua identidade com um fornecedor social or o seu Email",
+  "description": "Confirme a sua identidade com um fornecedor social ou o seu Email",
   "title": "Confirme que é você",
 }
 `;
@@ -60755,7 +60755,7 @@ exports[`constructCardHeaderText language=ro flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ro flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Confirmați-vă identitatea cu un furnizor social or Email",
+  "description": "Confirmați-vă identitatea cu un furnizor social sau Email",
   "title": "Reautentificare",
 }
 `;
@@ -61856,7 +61856,7 @@ exports[`constructCardHeaderText language=ru flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ru flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Подтвердите свою личность с помощью социальный провайдер or ваш Email",
+  "description": "Подтвердите свою личность с помощью социальный провайдер или ваш Email",
   "title": "Повторная аутентификация",
 }
 `;
@@ -62957,7 +62957,7 @@ exports[`constructCardHeaderText language=sd flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sd flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "هڪ سوشل فراهم ڪندڙ or توهان جو Email سان پنهنجي سڃاڻپ جي تصديق ڪريو",
+  "description": "هڪ سوشل فراهم ڪندڙ يا توهان جو Email سان پنهنجي سڃاڻپ جي تصديق ڪريو",
   "title": "ٻيهر تصديق ڪريو",
 }
 `;
@@ -64058,7 +64058,7 @@ exports[`constructCardHeaderText language=si flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=si flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "සමාජ සැපයුම්කරුවෙකු or ඔබේ Email සමඟ ඔබේ අනන්‍යතාවය තහවුරු කරන්න",
+  "description": "සමාජ සැපයුම්කරුවෙකු හෝ ඔබේ Email සමඟ ඔබේ අනන්‍යතාවය තහවුරු කරන්න",
   "title": "නැවත සත්‍යාපනය කරන්න",
 }
 `;
@@ -65159,7 +65159,7 @@ exports[`constructCardHeaderText language=sk flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sk flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Potvrďte svoju identitu pomocou sociálneho poskytovateľa or vaše Email",
+  "description": "Potvrďte svoju identitu pomocou sociálneho poskytovateľa alebo vaše Email",
   "title": "Znova overiť",
 }
 `;
@@ -66260,7 +66260,7 @@ exports[`constructCardHeaderText language=sl flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sl flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Potrdite svojo identiteto z ponudnik družbenih omrežij or vaš Email",
+  "description": "Potrdite svojo identiteto z ponudnik družbenih omrežij ali vaš Email",
   "title": "Ponovna prijava",
 }
 `;
@@ -67361,7 +67361,7 @@ exports[`constructCardHeaderText language=so flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=so flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Xaqiiji aqoonsigaaga bixiye bulsho or Email",
+  "description": "Xaqiiji aqoonsigaaga bixiye bulsho ama Email",
   "title": "Dib u xaqiiji",
 }
 `;
@@ -68462,7 +68462,7 @@ exports[`constructCardHeaderText language=sq flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sq flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Konfirmoni identitetin tuaj me një ofrues social or Email tuaj",
+  "description": "Konfirmoni identitetin tuaj me një ofrues social ose Email tuaj",
   "title": "Rivërtetohuni",
 }
 `;
@@ -69563,7 +69563,7 @@ exports[`constructCardHeaderText language=sr flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sr flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Potvrdite svoj identitet sa društveni provajder or vaš Email",
+  "description": "Potvrdite svoj identitet sa društveni provajder ili vaš Email",
   "title": "Ponovo se autentifikujte",
 }
 `;
@@ -70664,7 +70664,7 @@ exports[`constructCardHeaderText language=su flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=su flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Pastikeun identitas anjeun nganggo panyadia sosial or Email anjeun",
+  "description": "Pastikeun identitas anjeun nganggo panyadia sosial atanapi Email anjeun",
   "title": "Auténtikasi deui",
 }
 `;
@@ -71765,7 +71765,7 @@ exports[`constructCardHeaderText language=sv flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sv flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Bekräfta din identitet med en social leverantör or din Email",
+  "description": "Bekräfta din identitet med en social leverantör eller din Email",
   "title": "Bekräfta att det är du",
 }
 `;
@@ -72866,7 +72866,7 @@ exports[`constructCardHeaderText language=sw flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=sw flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Thibitisha utambulisho wako na mtoa huduma wa kijamii or Email yako",
+  "description": "Thibitisha utambulisho wako na mtoa huduma wa kijamii au Email yako",
   "title": "Thibitisha tena",
 }
 `;
@@ -73967,7 +73967,7 @@ exports[`constructCardHeaderText language=ta flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ta flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "சமூக வழங்கியாளர் or உங்கள் Email உடன் உங்கள் தனிப்பட்ட தகவலை உறுதிப்படுத்தவும்",
+  "description": "சமூக வழங்கியாளர் அல்லது உங்கள் Email உடன் உங்கள் தனிப்பட்ட தகவலை உறுதிப்படுத்தவும்",
   "title": "மீண்டும் உறுதிப்படுத்தவும்",
 }
 `;
@@ -75068,7 +75068,7 @@ exports[`constructCardHeaderText language=te flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=te flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "సోషల్ ప్రొవైడర్ or మీ Emailతో మీ గుర్తింపును నిర్ధారించండి",
+  "description": "సోషల్ ప్రొవైడర్ లేదా మీ Emailతో మీ గుర్తింపును నిర్ధారించండి",
   "title": "పునర్నిర్ధారించండి",
 }
 `;
@@ -76169,7 +76169,7 @@ exports[`constructCardHeaderText language=tg flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=tg flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Шахсияти худро бо провайдери иҷтимоӣ or Email-и худ тасдиқ кунед",
+  "description": "Шахсияти худро бо провайдери иҷтимоӣ ё Email-и худ тасдиқ кунед",
   "title": "Аз нав аутентификатсия шудан",
 }
 `;
@@ -77270,7 +77270,7 @@ exports[`constructCardHeaderText language=th flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=th flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ยืนยันตัวตนของคุณด้วย ผู้ให้บริการโซเชียล or Emailของคุณ",
+  "description": "ยืนยันตัวตนของคุณด้วย ผู้ให้บริการโซเชียล หรือ Emailของคุณ",
   "title": "ยืนยันตัวตนอีกครั้ง",
 }
 `;
@@ -78371,7 +78371,7 @@ exports[`constructCardHeaderText language=tk flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=tk flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "sosial üpjün ediji or Email bilen şahsyýetiňizi tassyklaň",
+  "description": "sosial üpjün ediji ýa-da Email bilen şahsyýetiňizi tassyklaň",
   "title": "Gaýtadan tassyklama",
 }
 `;
@@ -79472,7 +79472,7 @@ exports[`constructCardHeaderText language=tl flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=tl flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Kumpirmahin ang iyong pagkakakilanlan gamit ang isang provider ng social or ang iyong Email",
+  "description": "Kumpirmahin ang iyong pagkakakilanlan gamit ang isang provider ng social o ang iyong Email",
   "title": "Muling mag-authenticate",
 }
 `;
@@ -80573,7 +80573,7 @@ exports[`constructCardHeaderText language=tr flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=tr flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "bir sosyal sağlayıcı or Emailiniz ile kimliğinizi doğrulayın",
+  "description": "bir sosyal sağlayıcı veya Emailiniz ile kimliğinizi doğrulayın",
   "title": "Yeniden kimlik doğrulama",
 }
 `;
@@ -81674,7 +81674,7 @@ exports[`constructCardHeaderText language=ug flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ug flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "كىملىكىڭىزنى ئىجتىمائىي تەمىنلىگۈچى or Email ڭىز بىلەن جەزملەشتۈرۈڭ",
+  "description": "كىملىكىڭىزنى ئىجتىمائىي تەمىنلىگۈچى ياكى Email ڭىز بىلەن جەزملەشتۈرۈڭ",
   "title": "قايتا دەلىللەش",
 }
 `;
@@ -82775,7 +82775,7 @@ exports[`constructCardHeaderText language=uk flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=uk flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Підтвердіть свою особу через соціальний провайдер or ваш Email",
+  "description": "Підтвердіть свою особу через соціальний провайдер або ваш Email",
   "title": "Перевірте свою особу ще раз",
 }
 `;
@@ -83876,7 +83876,7 @@ exports[`constructCardHeaderText language=ur flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=ur flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ایک سوشل فراہم کنندہ or آپ کا Email کے ساتھ اپنی شناخت کی تصدیق کریں",
+  "description": "ایک سوشل فراہم کنندہ یا آپ کا Email کے ساتھ اپنی شناخت کی تصدیق کریں",
   "title": "دوبارہ تصدیق کریں",
 }
 `;
@@ -84977,7 +84977,7 @@ exports[`constructCardHeaderText language=uz flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=uz flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "ijtimoiy provayder or Email bilan shaxsingizni tasdiqlang",
+  "description": "ijtimoiy provayder yoki Email bilan shaxsingizni tasdiqlang",
   "title": "Qayta autentifikatsiya",
 }
 `;
@@ -86078,7 +86078,7 @@ exports[`constructCardHeaderText language=vi flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=vi flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Xác minh danh tính của bạn với một nhà cung cấp xã hội or thông tin Email của bạn",
+  "description": "Xác minh danh tính của bạn với một nhà cung cấp xã hội hoặc thông tin Email của bạn",
   "title": "Xác thực lại",
 }
 `;
@@ -87179,7 +87179,7 @@ exports[`constructCardHeaderText language=xh flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=xh flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Qinisekisa ubuni bakho ngo umboneleli wezentlalo or Email yakho",
+  "description": "Qinisekisa ubuni bakho ngo umboneleli wezentlalo okanye Email yakho",
   "title": "Phinda uqinisekise",
 }
 `;
@@ -88280,7 +88280,7 @@ exports[`constructCardHeaderText language=yo flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=yo flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Jẹ́rìí ìdánimọ̀ rẹ pẹ̀lú olùpèsè àwùjọ or Email rẹ",
+  "description": "Jẹ́rìí ìdánimọ̀ rẹ pẹ̀lú olùpèsè àwùjọ tàbí Email rẹ",
   "title": "Tún jẹ́rìí",
 }
 `;
@@ -89381,7 +89381,7 @@ exports[`constructCardHeaderText language=zh flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=zh flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "使用 一个社交提供商 or 您的 Email 确认您的身份",
+  "description": "使用 一个社交提供商 或 您的 Email 确认您的身份",
   "title": "重新认证",
 }
 `;
@@ -90482,7 +90482,7 @@ exports[`constructCardHeaderText language=zu flowType=login refresh=true combina
 
 exports[`constructCardHeaderText language=zu flowType=login refresh=true combination=idenfier_first_and_oidc constructCardHeaderText 1`] = `
 {
-  "description": "Qinisekisa ubunikazi bakho nge-umhlinzeki wezinkundla zokuxhumana or i-Email yakho",
+  "description": "Qinisekisa ubunikazi bakho nge-umhlinzeki wezinkundla zokuxhumana noma i-Email yakho",
   "title": "Qinisekisa kabusha",
 }
 `;

@@ -12,6 +12,10 @@ import {
   UiNodeText,
 } from "../../util/utilFixSDKTypesHelper"
 import { Node } from "../form/nodes/node"
+import {
+  settingsCardDescriptions,
+  settingsCardTitles,
+} from "../../util/i18n/settingsCardMessages"
 
 const getRegenerateNode = (nodes: UiNode[]): UiNodeInput | undefined =>
   nodes.find(
@@ -97,10 +101,8 @@ export function OrySettingsRecoveryCodes({
   return (
     <>
       <Card.SettingsSectionContent
-        title={intl.formatMessage({ id: "settings.lookup_secret.title" })}
-        description={intl.formatMessage({
-          id: "settings.lookup_secret.description",
-        })}
+        title={intl.formatMessage(settingsCardTitles.lookup_secret)}
+        description={intl.formatMessage(settingsCardDescriptions.lookup_secret)}
       >
         <Form.RecoveryCodesSettings
           codes={secrets}

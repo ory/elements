@@ -106,7 +106,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
           onError={(error) => {
             console.error("Cloudflare Turnstile Error:", error)
             setErrorMessage({
-              id: 5000002,
+              id: 5000000,
               text: intl.formatMessage({
                 id: "captcha.error",
                 defaultMessage:

@@ -19,6 +19,7 @@ import { useMemo } from "react"
 import { useIntl } from "react-intl"
 import { resolveLabel } from "../../../../util/nodes"
 import { initFlowUrl } from "../../utils/url"
+import { kratosMessages } from "../../../../util/i18n/generated/kratosMessages"
 
 export function DefaultLabel({
   node,
@@ -52,7 +53,7 @@ export function DefaultLabel({
               onClick={resendCode}
               className="cursor-pointer text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
             >
-              {intl.formatMessage({ id: "identities.messages.1070008" })}
+              {intl.formatMessage(kratosMessages[1070008])}
             </button>
           )}
         </span>
@@ -98,7 +99,7 @@ function LabelAction({ attributes }: LabelActionProps) {
         return {
           message: intl.formatMessage({
             id: "forms.label.forgot-password",
-            defaultMessage: "Forgot password?",
+            defaultMessage: "Forgot Password?",
           }),
           href: initFlowUrl(config.sdk.url, "recovery", flow),
           testId: "forgot-password",
