@@ -43,6 +43,36 @@ describe("rewriteUrls", () => {
     const result = rewriteUrls(source, matchBaseUrl, selfUrl, config)
     expect(result).toBe("https://self.com/some/path")
   })
+
+  it("should NOT rewrite OAuth2 paths", () => {
+    const matchBaseUrl = "https://example.com"
+    const selfUrl = "https://self.com"
+
+    const oauth2Paths = [
+      "/oauth2/auth",
+      "/oauth2/token",
+      "/userinfo",
+      "/.well-known/openid-configuration",
+      "/.well-known/jwks.json",
+    ]
+
+    for (const path of oauth2Paths) {
+      const source = `https://example.com${path}`
+      const result = rewriteUrls(source, matchBaseUrl, selfUrl, config)
+      expect(result).toBe(source)
+    }
+  })
+
+  it("should rewrite non-OAuth2 paths while preserving OAuth2 paths in same source", () => {
+    const source =
+      '{"login":"https://example.com/login","oauth":"https://example.com/oauth2/auth"}'
+    const matchBaseUrl = "https://example.com"
+    const selfUrl = "https://self.com"
+    const result = rewriteUrls(source, matchBaseUrl, selfUrl, config)
+    expect(result).toBe(
+      '{"login":"https://self.com/custom/login","oauth":"https://example.com/oauth2/auth"}',
+    )
+  })
 })
 
 describe("rewriteJsonResponse", () => {
@@ -105,5 +135,15 @@ describe("rewriteJsonResponse", () => {
         },
       ],
     })
+  })
+
+  it("should handle null input gracefully", () => {
+    const result = rewriteJsonResponse(null as unknown as object)
+    expect(result).toBeNull()
+  })
+
+  it("should handle undefined input gracefully", () => {
+    const result = rewriteJsonResponse(undefined as unknown as object)
+    expect(result).toBeUndefined()
   })
 })
