@@ -40,17 +40,17 @@ export function ButtonRenderer({ node }: ButtonRendererProps) {
   } satisfies OryNodeButtonButtonProps
 
   useEffect(() => {
-    if (!oryFormState.isSubmitting) {
+    if (!oryFormState.isSubmitting && clicked) {
       setClicked(false)
     }
-  }, [oryFormState.isSubmitting, setClicked])
+  }, [oryFormState.isSubmitting, setClicked, clicked])
 
   return (
     <Node.Button
       attributes={node.attributes}
       node={node}
       buttonProps={buttonProps}
-      isSubmitting={clicked}
+      isSubmitting={clicked && oryFormState.isSubmitting}
     />
   )
 }

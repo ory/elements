@@ -4,7 +4,7 @@
 import { useCallback, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
-import { useComponents } from "../../../../context"
+import { useComponents, useOryFlow } from "../../../../context"
 import { OryNodeButtonButtonProps } from "../../../../types"
 import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 
@@ -30,19 +30,21 @@ export function SSOButtonRenderer({ node }: SsoButtonProps) {
   const { Node } = useComponents()
   const attributes = node.attributes
 
+  const { formState: oryFormState } = useOryFlow()
+
   const {
     setValue,
-    formState: { isSubmitting, isReady },
+    formState: { isReady },
   } = useFormContext()
   // Safari cancels form submission events, if we do a state update in the same tick
   // so we delay the state update by 100ms
   const [clicked, setClicked] = useDebounceValue(false, 100)
 
   useEffect(() => {
-    if (!isSubmitting) {
+    if (!oryFormState.isSubmitting && clicked) {
       setClicked(false)
     }
-  }, [isSubmitting, setClicked])
+  }, [oryFormState.isSubmitting, setClicked, clicked])
 
   const clickHandler = useCallback(() => {
     setValue("provider", attributes.value)
@@ -55,7 +57,11 @@ export function SSOButtonRenderer({ node }: SsoButtonProps) {
     name: attributes.name,
     value: attributes.value,
     onClick: clickHandler,
-    disabled: attributes.disabled || !isReady || isSubmitting,
+    disabled:
+      attributes.disabled ||
+      !isReady ||
+      !oryFormState.isReady ||
+      oryFormState.isSubmitting,
   } satisfies OryNodeButtonButtonProps
   const provider = extractProvider(node.meta.label?.context) ?? ""
 
@@ -65,7 +71,7 @@ export function SSOButtonRenderer({ node }: SsoButtonProps) {
       attributes={attributes}
       buttonProps={buttonProps}
       provider={provider}
-      isSubmitting={clicked}
+      isSubmitting={clicked && oryFormState.isSubmitting}
     />
   )
 }

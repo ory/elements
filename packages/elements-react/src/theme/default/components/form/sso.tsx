@@ -13,6 +13,7 @@ import { useIntl } from "react-intl"
 import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"
 import { Spinner } from "./spinner"
+import { buttonStyles } from "./button"
 
 /**
  * Props for the DefaultButtonSocial component.
@@ -44,7 +45,6 @@ export function DefaultButtonSocial({
   isSubmitting,
   buttonProps,
   provider,
-  attributes,
 }: DefaultSocialButtonProps) {
   const logos = { ...defaultLogos, ...providedLogos }
   const intl = useIntl()
@@ -61,7 +61,7 @@ export function DefaultButtonSocial({
 
   const ssoNodeCount = ssoNodes.length ?? 0
 
-  const Logo = logos[(attributes.value as string).split("-")[0]]
+  const Logo = logos[(node.attributes.value as string).split("-")[0]]
 
   const showLabel =
     flowType === FlowType.Settings ||
@@ -73,29 +73,37 @@ export function DefaultButtonSocial({
 
   return (
     <button
-      className="flex cursor-pointer items-center justify-center gap-3 rounded-buttons border border-button-social-border-default bg-button-social-background-default px-4 py-[13px] transition-colors hover:border-button-social-border-hover hover:bg-button-social-background-hover hover:text-button-social-foreground-hover loading:border-button-social-border-disabled loading:bg-button-social-background-disabled loading:text-button-social-foreground-disabled"
-      data-testid={`ory/form/node/input/${attributes.name}`}
+      className={buttonStyles({
+        intent: "social",
+        className: cn(showLabel ? "p-4" : "px-4 py-3.5"),
+      })}
+      data-testid={`ory/form/node/input/${node.attributes.name}`}
       data-loading={isSubmitting}
       aria-label={label}
       {...buttonProps}
     >
-      <span className="relative size-5">
-        {!isSubmitting ? (
-          Logo ? (
-            <Logo size={20} />
-          ) : (
-            <GenericLogo label={provider.slice(0, 1)} />
-          )
+      <span
+        className={cn(
+          "relative group-disabled:opacity-20 group-loading:opacity-20",
+          showLabel ? "size-4" : "size-5",
+        )}
+      >
+        {Logo ? (
+          <Logo size={showLabel ? 16 : 20} />
         ) : (
-          <Spinner className="size-5" />
+          <GenericLogo label={provider.slice(0, 1)} />
         )}
       </span>
+
+      {isSubmitting && (
+        <Spinner className="size-6 stroke-button-social-foreground-default" />
+      )}
       {showLabel && node.meta.label ? (
         <>
-          <span className="grow text-center leading-none font-medium text-button-social-foreground-default">
+          <span className="grow group-disabled:opacity-20 group-loading:opacity-20">
             {label}
           </span>
-          <span className="block size-5"></span>
+          <span className={cn("block", showLabel ? "size-4" : "size-5")}></span>
         </>
       ) : null}
     </button>
@@ -131,10 +139,11 @@ export function DefaultSocialButtonContainer({
   )
 }
 
+const genericLogoStyles = cn(
+  "flex size-full items-center justify-center rounded-buttons text-xs",
+  "border-button-social-border-generic-provider bg-button-social-background-generic-provider text-button-social-foreground-generic-provider",
+)
+
 export function GenericLogo({ label }: { label: string }) {
-  return (
-    <span className="flex size-full items-center justify-center rounded-buttons border-button-social-border-generic-provider bg-button-social-background-generic-provider text-xs text-button-social-foreground-generic-provider">
-      {label}
-    </span>
-  )
+  return <span className={genericLogoStyles}>{label}</span>
 }

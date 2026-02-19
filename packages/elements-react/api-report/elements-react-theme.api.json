@@ -504,7 +504,7 @@
             },
             {
               "kind": "Content",
-              "text": ": providedLogos, isSubmitting, buttonProps, provider, attributes, }: "
+              "text": ": providedLogos, isSubmitting, buttonProps, provider, }: "
             },
             {
               "kind": "Reference",
@@ -534,7 +534,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ node, logos: providedLogos, isSubmitting, buttonProps, provider, attributes, }",
+              "parameterName": "{ node, logos: providedLogos, isSubmitting, buttonProps, provider, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4

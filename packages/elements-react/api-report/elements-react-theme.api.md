@@ -46,7 +46,7 @@ export type ConsentFlowProps = {
 // Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultButtonSocial({ node, logos: providedLogos, isSubmitting, buttonProps, provider, attributes, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
+export function DefaultButtonSocial({ node, logos: providedLogos, isSubmitting, buttonProps, provider, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export namespace DefaultButtonSocial {

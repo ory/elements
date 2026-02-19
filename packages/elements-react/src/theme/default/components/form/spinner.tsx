@@ -12,28 +12,15 @@ export function Spinner({ className }: { className?: string }) {
         "pointer-events-none absolute inset-0 m-auto size-8 animate-spin",
         className,
       )}
-      viewBox="0 0 34 34"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clipPath="url(#clip0_2572_1748)">
-        <path
-          d="M23.364 10.6362C22.1053 9.37751 20.5016 8.52034 18.7558 8.17307C17.01 7.82581 15.2004 8.00404 13.5559 8.68523C11.9113 9.36641 10.5057 10.52 9.51678 12C8.52784 13.4801 8 15.2201 8 17.0001C8 18.7802 8.52784 20.5202 9.51678 22.0003C10.5057 23.4803 11.9113 24.6339 13.5559 25.3151C15.2004 25.9962 17.01 26.1745 18.7558 25.8272C20.5016 25.4799 22.1053 24.6228 23.364 23.3641"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_2572_1748">
-          <rect
-            width="24"
-            height="24"
-            fill="currentColor"
-            transform="translate(17 0.029541) rotate(45)"
-          />
-        </clipPath>
-      </defs>
+      <path
+        d="M12 3C10.22 3 8.47991 3.52784 6.99987 4.51677C5.51983 5.50571 4.36628 6.91131 3.68509 8.55585C3.0039 10.2004 2.82567 12.01 3.17294 13.7558C3.5202 15.5016 4.37737 17.1053 5.63604 18.364C6.89472 19.6226 8.49836 20.4798 10.2442 20.8271C11.99 21.1743 13.7996 20.9961 15.4442 20.3149C17.0887 19.6337 18.4943 18.4802 19.4832 17.0001C20.4722 15.5201 21 13.78 21 12"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
