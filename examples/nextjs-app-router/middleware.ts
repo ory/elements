@@ -29,7 +29,10 @@ const oryPathPrefixes = [
 ]
 
 export async function middleware(request: NextRequest) {
-  const oryResponse = await oryMiddleware(request)
+  // Type cast needed due to Next.js version differences between packages
+  const oryResponse = await oryMiddleware(
+    request as Parameters<typeof oryMiddleware>[0],
+  )
 
   const isOryPath = oryPathPrefixes.some((prefix) =>
     request.nextUrl.pathname.startsWith(prefix),
@@ -39,7 +42,10 @@ export async function middleware(request: NextRequest) {
   }
 
   const response = NextResponse.next()
-  const result = await csrfProtect(request, response)
+  const result = await csrfProtect(
+    request as Parameters<typeof csrfProtect>[0],
+    response as Parameters<typeof csrfProtect>[1],
+  )
   if (!result.success) {
     return NextResponse.json(
       { error: "CSRF validation failed" },
