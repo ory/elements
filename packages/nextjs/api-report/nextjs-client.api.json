@@ -363,6 +363,90 @@
       "members": [
         {
           "kind": "Function",
+          "canonicalReference": "@ory/nextjs!acceptConsentRequest:function(1)",
+          "docComment": "/**\n * Accept an OAuth2 consent request.\n *\n * This method should be called from an API route handler when the user accepts the consent. It validates that the provided session identity matches the consent request subject to prevent consent hijacking attacks.\n *\n * @param consentChallenge - The consent challenge from the form.\n *\n * @param options - Options for accepting the consent request.\n *\n * @returns The redirect URL to complete the OAuth2 flow.\n *\n * @example\n * ```tsx\n * // app/api/consent/route.ts\n * import { acceptConsentRequest, rejectConsentRequest, getServerSession } from \"@ory/nextjs/app\"\n * import { redirect } from \"next/navigation\"\n *\n * export async function POST(request: Request) {\n *   const session = await getServerSession()\n *   if (!session) {\n *     return new Response(\"Unauthorized\", { status: 401 })\n *   }\n *\n *   const formData = await request.formData()\n *   const action = formData.get(\"action\")\n *   const consentChallenge = formData.get(\"consent_challenge\") as string\n *   const grantScope = formData.getAll(\"grant_scope\") as string[]\n *   const remember = formData.get(\"remember\") === \"true\"\n *\n *   if (action === \"accept\") {\n *     const redirectTo = await acceptConsentRequest(consentChallenge, {\n *       grantScope,\n *       remember,\n *       identityId: session.identity?.id,\n *     })\n *     return redirect(redirectTo)\n *   } else {\n *     const redirectTo = await rejectConsentRequest(consentChallenge, {\n *       identityId: session.identity?.id,\n *     })\n *     return redirect(redirectTo)\n *   }\n * }\n * ```\n *\n * @throws\n *\n * Error if identityId doesn't match the consent request subject.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function acceptConsentRequest(consentChallenge: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    grantScope: string[];\n    remember?: boolean;\n    rememberFor?: number;\n    identityId?: string;\n    session?: {\n        accessToken?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, unknown>;\n        idToken?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, unknown>;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 11
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "consentChallenge",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "acceptConsentRequest"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/nextjs!createOryMiddleware:function(1)",
           "docComment": "/**\n * Creates a Next.js middleware function that proxies requests to the Ory SDK.\n *\n * This middleware function intercepts requests to the Ory SDK and rewrites the URLs if in development mode or on vercel.com domains.\n *\n * @param options - The Ory configuration to use for the middleware.\n *\n * @returns The Ory Next.js middleware function\n *\n * @example\n * ```ts title=\"middleware.ts\"\n * import { createOryMiddleware } from \"@ory/elements/nextjs\";\n *\n * export default createOryMiddleware({\n *   forwardAdditionalHeaders: [\"authorization\", \"x-custom-header\"],\n *   forceCookieDomain: \"example.com\",\n *   project: {\n *     name: \"my-project\",\n *   },\n * });\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
@@ -433,6 +517,88 @@
             }
           ],
           "name": "createOryMiddleware"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getConsentFlow:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an OAuth2 consent request. This method works with server-side rendering.\n *\n * The consent flow is different from other Ory flows - it requires: 1. A consent_challenge query parameter (provided by Ory Hydra) 2. A valid user session (the user must be logged in) 3. A CSRF token for form protection 4. A form action URL where the consent form submits to\n *\n * @param params - The query parameters of the request.\n *\n * @returns The OAuth2 consent request or null if no consent_challenge is found.\n *\n * @example\n * ```tsx\n * import { Consent } from \"@ory/elements-react/theme\"\n * import { getConsentFlow, getServerSession, OryPageParams } from \"@ory/nextjs/app\"\n *\n * import config from \"@/ory.config\"\n *\n * export default async function ConsentPage(props: OryPageParams) {\n *   const consentRequest = await getConsentFlow(props.searchParams)\n *   const session = await getServerSession()\n *\n *   if (!consentRequest || !session) {\n *     return null\n *   }\n *\n *   return (\n *     <Consent\n *       consentChallenge={consentRequest}\n *       session={session}\n *       config={config}\n *       csrfToken=\"your-csrf-token\"\n *       formActionUrl=\"/api/consent\"\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getConsentFlow(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 12
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getConsentFlow"
         },
         {
           "kind": "Function",
@@ -1292,6 +1458,105 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/nextjs!rejectConsentRequest:function(1)",
+          "docComment": "/**\n * Reject an OAuth2 consent request.\n *\n * This method should be called from an API route handler when the user rejects the consent. It validates that the provided session identity matches the consent request subject to prevent consent hijacking attacks.\n *\n * @param consentChallenge - The consent challenge from the form.\n *\n * @param options - Options for rejecting the consent request.\n *\n * @returns The redirect URL to complete the OAuth2 flow.\n *\n * @throws\n *\n * Error if identityId doesn't match the consent request subject.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function rejectConsentRequest(consentChallenge: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    error?: string;\n    errorDescription?: string;\n    identityId?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "consentChallenge",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "rejectConsentRequest"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useConsentFlow:function(1)",
+          "docComment": "/**\n * A client-side hook to fetch an OAuth2 consent request.\n *\n * The consent flow is different from other Ory flows - it requires: 1. A consent_challenge query parameter (provided by Ory Hydra) 2. A valid user session (the user must be logged in) 3. A CSRF token for form protection 4. A form action URL where the consent form submits to\n *\n * @returns The OAuth2 consent request or null/undefined.\n *\n * @example\n * ```tsx\n * import { Consent } from \"@ory/elements-react/theme\"\n * import { useConsentFlow, useSession } from \"@ory/nextjs/pages\"\n *\n * import config from \"@/ory.config\"\n *\n * export default function ConsentPage() {\n *   const consentRequest = useConsentFlow()\n *   const { session, loading } = useSession()\n *\n *   if (!consentRequest || loading || !session) {\n *     return null\n *   }\n *\n *   return (\n *     <Consent\n *       consentChallenge={consentRequest}\n *       session={session}\n *       config={config}\n *       csrfToken=\"your-csrf-token\"\n *       formActionUrl=\"/api/consent\"\n *     />\n *   )\n * }\n * ```\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useConsentFlow(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useConsentFlow"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/nextjs!useLoginFlow:function(1)",
           "docComment": "/**\n * A client side hook to create a login flow.\n *\n * @returns A login flow\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
           "excerptTokens": [
@@ -1421,6 +1686,52 @@
           "overloadIndex": 1,
           "parameters": [],
           "name": "useRegistrationFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useSession:function(1)",
+          "docComment": "/**\n * A client-side hook to fetch the current user session.\n *\n * @returns The session object, loading state, and error if any.\n *\n * @example\n * ```tsx\n * import { useSession } from \"@ory/nextjs/pages\"\n *\n * export default function ProfilePage() {\n *   const { session, loading, error } = useSession()\n *\n *   if (loading) {\n *     return <div>Loading...</div>\n *   }\n *\n *   if (error || !session) {\n *     return <div>Not logged in</div>\n *   }\n *\n *   return <div>Hello {session.identity?.traits?.email}</div>\n * }\n * ```\n *\n * @group\n *\n * Hooks\n *\n * @public @function\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useSession(): "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    session: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n    loading: boolean;\n    error: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useSession"
         },
         {
           "kind": "Function",

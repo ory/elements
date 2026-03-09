@@ -11,6 +11,7 @@ import { LoginFlow } from '@ory/client-fetch';
 import { LogoutFlow } from '@ory/client-fetch';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import * as _ory_client_fetch from '@ory/client-fetch';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
@@ -19,10 +20,25 @@ import { SettingsFlow } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
+export function acceptConsentRequest(consentChallenge: string, options: {
+    grantScope: string[];
+    remember?: boolean;
+    rememberFor?: number;
+    identityId?: string;
+    session?: {
+        accessToken?: Record<string, unknown>;
+        idToken?: Record<string, unknown>;
+    };
+}): Promise<string>;
+
+// @public
 export function createOryMiddleware(options: OryMiddlewareOptions): (r: NextRequest) => Promise<NextResponse<unknown>>;
 
 // Warning: (ae-forgotten-export) The symbol "QueryParams" needs to be exported by the entry point api-extractor-type-index.d.ts
 //
+// @public
+export function getConsentFlow(params: QueryParams | Promise<QueryParams>): Promise<OAuth2ConsentRequest | null>;
+
 // @public
 export function getFlowFactory<T extends object>(params: QueryParams, fetchFlowRaw: () => Promise<ApiResponse<T>>, flowType: FlowType, baseUrl: string, route: string, options?: {
     disableRewrite?: boolean;
@@ -87,6 +103,16 @@ export interface OryPageParams {
 }
 
 // @public
+export function rejectConsentRequest(consentChallenge: string, options?: {
+    error?: string;
+    errorDescription?: string;
+    identityId?: string;
+}): Promise<string>;
+
+// @public
+export function useConsentFlow(): OAuth2ConsentRequest | null | undefined;
+
+// @public
 export const useLoginFlow: () => void | _ory_client_fetch.LoginFlow | null;
 
 // @public
@@ -97,6 +123,13 @@ export const useRecoveryFlow: () => void | _ory_client_fetch.RecoveryFlow | null
 
 // @public
 export const useRegistrationFlow: () => void | _ory_client_fetch.RegistrationFlow | null;
+
+// @public
+export function useSession(): {
+    session: Session | null;
+    loading: boolean;
+    error: Error | null;
+};
 
 // @public
 export const useSettingsFlow: () => void | _ory_client_fetch.SettingsFlow | null;

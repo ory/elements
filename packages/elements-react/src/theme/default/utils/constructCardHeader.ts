@@ -34,11 +34,25 @@ export type CardHeaderTextOptions =
       flow: {
         refresh?: boolean
         requested_aal?: AuthenticatorAssuranceLevel
+        oauth2_login_request?: {
+          client?: {
+            client_name?: string
+            logo_uri?: string
+          }
+        }
       }
       formState?: FormState
     }
   | {
       flowType: FlowType.Registration
+      flow?: {
+        oauth2_login_request?: {
+          client?: {
+            client_name?: string
+            logo_uri?: string
+          }
+        }
+      }
       formState?: FormState
     }
   | {
@@ -388,8 +402,16 @@ export function useCardHeaderText(
           description,
         }
       }
-      const description =
-        parts.length > 0
+      const clientName = opts.flow.oauth2_login_request?.client?.client_name
+      const description = clientName
+        ? intl.formatMessage(
+            {
+              id: "login.subtitle-oauth2",
+              defaultMessage: "Sign in to continue to {clientName}",
+            },
+            { clientName },
+          )
+        : parts.length > 0
           ? codeSent
             ? intl.formatMessage(kratosMessages[1010014])
             : intl.formatMessage(
@@ -421,6 +443,7 @@ export function useCardHeaderText(
         codeMethodNode &&
         opts.formState?.current === "method_active" &&
         opts.formState?.method === "code"
+      const clientName = opts.flow?.oauth2_login_request?.client?.client_name
 
       return {
         title: intl.formatMessage({
@@ -429,20 +452,32 @@ export function useCardHeaderText(
         }),
         description: codeSent
           ? intl.formatMessage(kratosMessages[1040005])
-          : parts.length > 0
+          : clientName
             ? intl.formatMessage(
                 {
-                  id: "registration.subtitle",
-                  defaultMessage: "Sign up with {parts}",
+                  id: "registration.subtitle-oauth2",
+                  defaultMessage:
+                    "Create an account to continue to {clientName}",
                 },
-                {
-                  parts: joinWithCommaOr(
-                    parts,
-                    intl.formatMessage({ id: "misc.or", defaultMessage: "or" }),
-                  ),
-                },
+                { clientName },
               )
-            : "",
+            : parts.length > 0
+              ? intl.formatMessage(
+                  {
+                    id: "registration.subtitle",
+                    defaultMessage: "Sign up with {parts}",
+                  },
+                  {
+                    parts: joinWithCommaOr(
+                      parts,
+                      intl.formatMessage({
+                        id: "misc.or",
+                        defaultMessage: "or",
+                      }),
+                    ),
+                  },
+                )
+              : "",
       }
     }
     case FlowType.OAuth2Consent:

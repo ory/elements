@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ory/nextjs": "*",
+    "@csrf-armor/nextjs": "^1.4.1",
     "@ory/elements-react": "*",
+    "@ory/nextjs": "*",
     "next": "15.5.9",
     "react": "^18",
     "react-dom": "^18"
