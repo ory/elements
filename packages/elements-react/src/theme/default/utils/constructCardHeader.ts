@@ -456,7 +456,8 @@ export function useCardHeaderText(
             ? intl.formatMessage(
                 {
                   id: "registration.subtitle-oauth2",
-                  defaultMessage: "Create an account to continue to {clientName}",
+                  defaultMessage:
+                    "Create an account to continue to {clientName}",
                 },
                 { clientName },
               )
@@ -469,7 +470,10 @@ export function useCardHeaderText(
                   {
                     parts: joinWithCommaOr(
                       parts,
-                      intl.formatMessage({ id: "misc.or", defaultMessage: "or" }),
+                      intl.formatMessage({
+                        id: "misc.or",
+                        defaultMessage: "or",
+                      }),
                     ),
                   },
                 )
