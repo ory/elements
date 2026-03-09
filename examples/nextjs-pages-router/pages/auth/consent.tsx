@@ -7,9 +7,16 @@ import { useConsentFlow, useSession } from "@ory/nextjs/pages"
 
 import config from "@/ory.config"
 
+function getCsrfTokenFromCookie(): string {
+  if (typeof document === "undefined") return ""
+  const match = document.cookie.match(/(^|;\s*)csrf-token=([^;]*)/)
+  return match?.[2] ?? ""
+}
+
 export default function ConsentPage() {
   const consentRequest = useConsentFlow()
   const { session, loading } = useSession()
+  const csrfToken = getCsrfTokenFromCookie()
 
   if (!consentRequest || loading || !session) {
     return null
@@ -21,7 +28,7 @@ export default function ConsentPage() {
         consentChallenge={consentRequest}
         session={session}
         config={config}
-        csrfToken=""
+        csrfToken={csrfToken}
         formActionUrl="/api/consent"
         components={{
           Card: {},

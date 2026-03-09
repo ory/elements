@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { acceptConsentRequest, rejectConsentRequest } from "@ory/nextjs/app"
+import {
+  acceptConsentRequest,
+  getServerSession,
+  rejectConsentRequest,
+} from "@ory/nextjs/app"
 import { NextResponse } from "next/server"
 
 interface ConsentBody {
@@ -40,6 +44,24 @@ async function parseRequest(request: Request): Promise<ConsentBody> {
 }
 
 export async function POST(request: Request) {
+  const session = await getServerSession()
+  if (!session) {
+    console.error("Consent security: No session found")
+    return NextResponse.json(
+      { error: "unauthorized", error_description: "No session" },
+      { status: 401 },
+    )
+  }
+
+  const identityId = session.identity?.id
+  if (!identityId) {
+    console.error("Consent security: Session has no identity ID")
+    return NextResponse.json(
+      { error: "unauthorized", error_description: "Invalid session" },
+      { status: 401 },
+    )
+  }
+
   const body = await parseRequest(request)
 
   const action = body.action
@@ -68,14 +90,31 @@ export async function POST(request: Request) {
       redirectTo = await acceptConsentRequest(consentChallenge, {
         grantScope,
         remember,
+        identityId,
       })
     } else {
-      redirectTo = await rejectConsentRequest(consentChallenge)
+      redirectTo = await rejectConsentRequest(consentChallenge, {
+        identityId,
+      })
     }
 
     return NextResponse.json({ redirect_to: redirectTo })
   } catch (error) {
     console.error("Consent error:", error)
+
+    if (
+      error instanceof Error &&
+      error.message.includes("does not match consent request subject")
+    ) {
+      return NextResponse.json(
+        {
+          error: "forbidden",
+          error_description: "Session does not match consent request subject",
+        },
+        { status: 403 },
+      )
+    }
+
     return NextResponse.json(
       { error: "server_error", error_description: "Failed to process consent" },
       { status: 500 },

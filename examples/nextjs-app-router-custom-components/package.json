@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@csrf-armor/nextjs": "^1.4.1",
     "@ory/client-fetch": "1.22.22",
     "@ory/elements-react": "*",
     "@ory/nextjs": "*",
