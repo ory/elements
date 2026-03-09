@@ -31,7 +31,7 @@ const oryPathPrefixes = [
 export async function middleware(request: NextRequest) {
   // Type cast needed due to Next.js version differences between packages
   const oryResponse = await oryMiddleware(
-    request as Parameters<typeof oryMiddleware>[0],
+    request as unknown as Parameters<typeof oryMiddleware>[0],
   )
 
   const isOryPath = oryPathPrefixes.some((prefix) =>
@@ -43,8 +43,8 @@ export async function middleware(request: NextRequest) {
 
   const response = NextResponse.next()
   const result = await csrfProtect(
-    request as Parameters<typeof csrfProtect>[0],
-    response as Parameters<typeof csrfProtect>[1],
+    request as unknown as Parameters<typeof csrfProtect>[0],
+    response as unknown as Parameters<typeof csrfProtect>[1],
   )
   if (!result.success) {
     return NextResponse.json(
