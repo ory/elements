@@ -26,9 +26,7 @@
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
-    "@eslint/eslintrc": "2.1.4",
     "@eslint/js": "9.27.0",
-    "@formatjs/cli-lib": "7.4.1",
     "@microsoft/api-extractor": "7.52.8",
     "@nx/eslint": "21.3.11",
     "@nx/eslint-plugin": "21.3.11",
@@ -52,9 +50,6 @@
     "@storybook/test-runner": "^0.23.0",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/types": "8.6.15",
-    "@swc-node/register": "~1.10.0",
-    "@swc/core": "~1.11.0",
-    "@swc/helpers": "~0.5.11",
     "@tailwindcss/postcss": "4.1.12",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.7.0",
@@ -65,7 +60,6 @@
     "@types/react-dom": "18.3.7",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "@typescript-eslint/parser": "8.32.1",
-    "@vitejs/plugin-react": "4.4.1",
     "eslint": "9.27.0",
     "eslint-plugin-better-tailwindcss": "3.7.10",
     "eslint-plugin-formatjs": "5.3.1",
@@ -79,7 +73,6 @@
     "jest-transform-stub": "2.0.0",
     "license-checker": "25.0.1",
     "nx": "21.3.11",
-    "postcss": "^8.4.43",
     "prettier": "3.5.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -95,8 +88,7 @@
     "typescript-eslint": "8.32.1",
     "vite": "6.4.1",
     "vite-plugin-require": "1.2.14",
-    "vite-plugin-svgr": "4.3.0",
-    "zx": "8.8.5"
+    "vite-plugin-svgr": "4.3.0"
   },
   "files": [
     "dist/*"
@@ -112,8 +104,7 @@
   ],
   "dependencies": {
     "lodash": "4.17.23",
-    "next": "15.5.10",
-    "tslib": "2.8.1",
+    "next": "15.5.9",
     "tsx": "4.20.2"
   }
 }
