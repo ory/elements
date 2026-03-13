@@ -28,7 +28,9 @@ export function MethodActiveForm({
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
   const groupsToShow = useNodeGroupsWithVisibleNodes(ui.nodes)
-  const finalNodes = getFinalNodes(groupsToShow, formState.method)
+  const finalNodes = getFinalNodes(groupsToShow, formState.method).sort(
+    sortNodes,
+  )
 
   return (
     <OryCard>
@@ -47,7 +49,7 @@ export function MethodActiveForm({
               .map((node, k) => (
                 <Node node={node} key={k} />
               ))}
-            {finalNodes.sort(sortNodes).map((node, k) => (
+            {finalNodes.map((node, k) => (
               <Node node={node} key={k} />
             ))}
           </Form.Group>

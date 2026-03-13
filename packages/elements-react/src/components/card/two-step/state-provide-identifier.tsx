@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import { OryCard, OryCardContent, OryCardFooter } from "./../"
 import { useComponents, useNodeSorter, useOryFlow } from "../../../context"
 import { isNodeVisible, withoutSingleSignOnNodes } from "../../../util/ui"
 import { OryForm } from "../../form/form"
 import { OryCardValidationMessages } from "../../form/messages"
 import { Node } from "../../form/nodes/node"
 import { OryFormSsoForm } from "../../form/social"
-import { handleAfterFormSubmit } from "./utils"
 import { OryCardHeader } from "../header"
+import { OryCard, OryCardContent, OryCardFooter } from "./../"
+import { handleAfterFormSubmit } from "./utils"
 
 export function ProvideIdentifierForm() {
   const { Form, Card } = useComponents()

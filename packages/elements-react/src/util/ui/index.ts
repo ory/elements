@@ -305,7 +305,7 @@ export function withoutSingleSignOnNodes(nodes: UiNode[]) {
  *
  * @param node - The node to check.
  */
-export function isNodeVisible(node: UiNode) {
+export function isNodeVisible(node: UiNode): node is UiNodeInput {
   if (isUiNodeScriptAttributes(node.attributes)) {
     return false
   } else if (isUiNodeInputAttributes(node.attributes)) {
