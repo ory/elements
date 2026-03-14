@@ -7,6 +7,8 @@ import reactHooks from "eslint-plugin-react-hooks"
 import storybook from "eslint-plugin-storybook"
 import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss"
 import tsdoc from "eslint-plugin-tsdoc"
+import pluginVue from "eslint-plugin-vue"
+import vueParser from "vue-eslint-parser"
 import globals from "globals"
 import tseslint from "typescript-eslint"
 import path from "node:path"
@@ -28,6 +30,8 @@ const config = tseslint.config([
       "**/examples/nextjs-pages-router/next-env.d.ts",
       "**/examples/nextjs-app-router-custom-components/.next/**",
       "**/examples/nextjs-app-router-custom-components/next-env.d.ts",
+      "**/examples/nuxt-app/.nuxt/**",
+      "**/examples/nuxt-app/.output/**",
     ],
   },
   eslint.configs.recommended,
@@ -153,6 +157,100 @@ const config = tseslint.config([
     },
   },
   {
+    name: "elements-vue",
+    files: ["packages/elements-vue/**/*.vue"],
+    languageOptions: {
+      parser: vueParser,
+      globals: {
+        ...globals.browser,
+      },
+      parserOptions: {
+        parser: tsParser,
+        ecmaVersion: 2021,
+        sourceType: "module",
+        extraFileExtensions: [".vue"],
+      },
+    },
+    plugins: {
+      vue: pluginVue,
+      "better-tailwindcss": eslintPluginBetterTailwindcss,
+    },
+    rules: {
+      ...pluginVue.configs["flat/recommended"].rules,
+      // Disable rules that conflict with Prettier
+      "vue/html-self-closing": "off",
+      "vue/max-attributes-per-line": "off",
+      "vue/singleline-html-element-content-newline": "off",
+      "vue/multiline-html-element-content-newline": "off",
+      "vue/html-indent": "off",
+      "vue/html-closing-bracket-newline": "off",
+      // Enable tailwindcss rules
+      ...eslintPluginBetterTailwindcss.configs["recommended-error"].rules,
+      "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+      "better-tailwindcss/no-unregistered-classes": [
+        "error",
+        { ignore: ["ory-elements"] },
+      ],
+    },
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "packages/elements-vue/src/theme/default/styles.css",
+      },
+    },
+  },
+  {
+    name: "elements-vue-ts",
+    files: ["packages/elements-vue/**/*.ts"],
+    ignores: ["packages/elements-vue/**/*.vue"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: "module",
+      },
+    },
+  },
+  {
+    name: "nuxt",
+    files: ["packages/nuxt/**/*.ts"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: "module",
+      },
+    },
+  },
+  {
+    name: "nuxt-app",
+    files: ["examples/nuxt-app/**/*.vue"],
+    languageOptions: {
+      parser: vueParser,
+      globals: {
+        ...globals.browser,
+      },
+      parserOptions: {
+        parser: tsParser,
+        ecmaVersion: 2021,
+        sourceType: "module",
+        extraFileExtensions: [".vue"],
+      },
+    },
+    plugins: {
+      vue: pluginVue,
+    },
+    rules: {
+      ...pluginVue.configs["flat/recommended"].rules,
+      // Disable rules that conflict with Prettier
+      "vue/html-self-closing": "off",
+      "vue/max-attributes-per-line": "off",
+      "vue/singleline-html-element-content-newline": "off",
+      "vue/multiline-html-element-content-newline": "off",
+      "vue/html-indent": "off",
+      "vue/html-closing-bracket-newline": "off",
+    },
+  },
+  {
     name: "tests",
     files: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
     rules: {
@@ -164,6 +262,14 @@ const config = tseslint.config([
     files: ["packages/elements-react/stories/**/*.{js,jsx,ts,tsx}"],
     rules: {
       "@typescript-eslint/no-require-imports": "off",
+    },
+  },
+  {
+    files: ["packages/elements-vue/stories/**/*.{js,ts,vue}"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "better-tailwindcss/no-unregistered-classes": "off",
     },
   },
   {

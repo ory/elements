@@ -1,0 +1,14 @@
+/* Copyright © 2026 Ory Corp */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+@import "@ory/elements-vue/theme/default/styles.css";
+
+/* Include @ory/elements-vue components for Tailwind class scanning */
+@source "../../../../packages/elements-vue/dist/**/*.{js,mjs}";
+
+/* Base styles */
+body {
+  font-family: Inter, Helvetica, sans-serif;
+  background-color: var(--ui-100);
+  color: var(--ory-foreground-default);
+}
