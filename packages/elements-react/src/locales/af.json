@@ -104,7 +104,7 @@
   "identities.messages.4000025": "items by indeks {index_a} en {index_b} is gelyk",
   "identities.messages.4000026": "verwag {allowed_types_list}, maar het {actual_type} gekry",
   "identities.messages.4000027": "'n Rekening met dieselfde identifiseerder (e-pos, foon, gebruikersnaam, ...) bestaan reeds. Teken asseblief in by jou bestaande rekening om jou sosiale profiel te koppel.",
-  "identities.messages.4000028": "Jy het probeer aanteken met {credential_identifier_hint} wat reeds deur 'n ander rekening gebruik word. Jy kan aanteken met {available_credential_types_list}. Jy kan aanteken met een van die volgende sosiale aanmeldverskaffers: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Jy het probeer aanteken met {credential_identifier_hint} wat reeds deur 'n ander rekening gebruik word. Jy kan aanteken met {available_credential_types_list}. Jy kan aanteken met een van die volgende sosiale aanmeldverskaffers: {available_oidc_providers_list}.",
   "identities.messages.4000029": "moet gelyk wees aan konstante {expected}",
   "identities.messages.4000030": "const het misluk",
   "identities.messages.4000031": "Die wagwoord kan nie gebruik word nie omdat dit te soortgelyk aan die identifiseerder is.",

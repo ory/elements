@@ -104,7 +104,7 @@
   "identities.messages.4000025": "các mục tại chỉ số {index_a} và {index_b} giống nhau",
   "identities.messages.4000026": "được phép {allowed_types_list}, nhưng đã nhận được {actual_type}",
   "identities.messages.4000027": "Tài khoản với cùng thông tin nhận dạng (email, điện thoại, tên người dùng, ...) đã tồn tại. Vui lòng đăng nhập vào tài khoản hiện có để liên kết hồ sơ xã hội của bạn.",
-  "identities.messages.4000028": "Bạn đã cố gắng đăng nhập với {credential_identifier_hint} nhưng địa chỉ này đã được sử dụng bởi tài khoản khác. Bạn có thể đăng nhập bằng {available_credential_types_list}. Bạn có thể đăng nhập bằng một trong các nhà cung cấp đăng nhập xã hội sau: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Bạn đã cố gắng đăng nhập với {credential_identifier_hint} nhưng địa chỉ này đã được sử dụng bởi tài khoản khác. Bạn có thể đăng nhập bằng {available_credential_types_list}. Bạn có thể đăng nhập bằng một trong các nhà cung cấp đăng nhập xã hội sau: {available_oidc_providers_list}.",
   "identities.messages.4000029": "phải bằng hằng số {expected}",
   "identities.messages.4000030": "kiểm tra hằng số thất bại",
   "identities.messages.4000031": "Mật khẩu không thể sử dụng vì nó quá giống với thông tin nhận dạng.",

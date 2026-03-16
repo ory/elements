@@ -104,7 +104,7 @@
   "identities.messages.4000025": "àwọn ohun ní atọ́ka {index_a} àti {index_b} jọra",
   "identities.messages.4000026": "a ń retí {allowed_types_list}, ṣùgbọ́n a gbà {actual_type}",
   "identities.messages.4000027": "Àkọ́ọ̀lẹ̀ tí ó ní ìdánimọ̀ kannáà (ìméèlì, fóònù, orúkọ oníṣe, ...) ti wà tẹ́lẹ̀. Jọ̀wọ́ wọlé sí àkọ́ọ̀lẹ̀ tí ó wà tẹ́lẹ̀ láti so profaili àwùjọ rẹ pọ̀.",
-  "identities.messages.4000028": "O gbìyànjú wíwọlé pẹ̀lú {credential_identifier_hint} tí ó ti wà lọ́wọ́ àkọ́ọ̀lẹ̀ mìíràn. O lè wọlé nípa lílo {available_credential_types_list}. O lè wọlé nípa lílo ọ̀kan nínú àwọn olùpèsè wíwọlé àwùjọ wọ̀nyí: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "O gbìyànjú wíwọlé pẹ̀lú {credential_identifier_hint} tí ó ti wà lọ́wọ́ àkọ́ọ̀lẹ̀ mìíràn. O lè wọlé nípa lílo {available_credential_types_list}. O lè wọlé nípa lílo ọ̀kan nínú àwọn olùpèsè wíwọlé àwùjọ wọ̀nyí: {available_oidc_providers_list}.",
   "identities.messages.4000029": "gbọdọ̀ dọ́gba pẹ̀lú ìdúróṣinṣin {expected}",
   "identities.messages.4000030": "ìdúróṣinṣin kùnà",
   "identities.messages.4000031": "A kò lè lo ọ̀rọ̀ aṣínà náà nítorí pé ó jọra pẹ̀lú ìdánimọ̀ náà.",

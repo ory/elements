@@ -104,7 +104,7 @@
   "identities.messages.4000025": "ihe dị na ndeksi {index_a} na {index_b} bụ otu",
   "identities.messages.4000026": "a tụrụ anya {allowed_types_list}, mana enwetara {actual_type}",
   "identities.messages.4000027": "Akaụntụ nwere otu njirimara (email, ekwentị, aha njirimara, ...) dị ugbu a. Biko banye na akaụntụ gị dị adị iji jikọọ profaịlụ mmekọrịta gị.",
-  "identities.messages.4000028": "Ị gbalịrị ịbanye na {credential_identifier_hint} nke akaụntụ ọzọ na-eji. Ị nwere ike ịbanye site na iji {available_credential_types_list}. Ị nwere ike ịbanye site na iji otu n'ime ndị na-enye nbanye mmekọrịta ndị a: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Ị gbalịrị ịbanye na {credential_identifier_hint} nke akaụntụ ọzọ na-eji. Ị nwere ike ịbanye site na iji {available_credential_types_list}. Ị nwere ike ịbanye site na iji otu n'ime ndị na-enye nbanye mmekọrịta ndị a: {available_oidc_providers_list}.",
   "identities.messages.4000029": "ga-aha ka ọ bụrụ {expected}",
   "identities.messages.4000030": "const jebeghị",
   "identities.messages.4000031": "Enweghị ike iji okwuntughe ahụ n'ihi na ọ yiri njirimara ahụ nke ukwuu.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "انڈیکس {index_a} اور {index_b} پر اشیاء برابر ہیں",
   "identities.messages.4000026": "{allowed_types_list} متوقع تھا، لیکن {actual_type} ملا",
   "identities.messages.4000027": "ایک ہی شناخت کنندہ (ای میل، فون، صارف نام، ...) والا اکاؤنٹ پہلے سے موجود ہے۔ براہ کرم اپنے سوشل پروفائل کو لنک کرنے کے لیے اپنے موجودہ اکاؤنٹ میں سائن ان کریں۔",
-  "identities.messages.4000028": "آپ نے {credential_identifier_hint} کے ساتھ سائن ان کرنے کی کوشش کی جو پہلے سے ہی کسی اور اکاؤنٹ کے ذریعے استعمال میں ہے۔ آپ {available_credential_types_list} استعمال کرکے سائن ان کر سکتے ہیں۔ آپ درج ذیل سوشل سائن ان فراہم کنندگان میں سے کسی ایک کا استعمال کرکے سائن ان کر سکتے ہیں: {Available_oidc_providers_list}۔",
+  "identities.messages.4000028": "آپ نے {credential_identifier_hint} کے ساتھ سائن ان کرنے کی کوشش کی جو پہلے سے ہی کسی اور اکاؤنٹ کے ذریعے استعمال میں ہے۔ آپ {available_credential_types_list} استعمال کرکے سائن ان کر سکتے ہیں۔ آپ درج ذیل سوشل سائن ان فراہم کنندگان میں سے کسی ایک کا استعمال کرکے سائن ان کر سکتے ہیں: {available_oidc_providers_list}۔",
   "identities.messages.4000029": "مستقل {expected} کے برابر ہونا ضروری ہے",
   "identities.messages.4000030": "const ناکام ہوا",
   "identities.messages.4000031": "پاس ورڈ استعمال نہیں کیا جا سکتا کیونکہ یہ شناخت کنندہ سے بہت ملتا جلتا ہے۔",

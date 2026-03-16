@@ -104,7 +104,7 @@
   "identities.messages.4000025": "{index_a} және {index_b} индекстеріндегі элементтер тең",
   "identities.messages.4000026": "{allowed_types_list} күтілген, бірақ {actual_type} алынды",
   "identities.messages.4000027": "Бірдей идентификаторы (электрондық пошта, телефон, пайдаланушы аты, ...) бар тіркелгі әлдеқашан бар. Әлеуметтік профиліңізді байланыстыру үшін бар тіркелгіңізге кіріңіз.",
-  "identities.messages.4000028": "Сіз {credential_identifier_hint} арқылы кіруге тырыстыңыз, бұл басқа тіркелгіде қолданылып жатыр. Сіз {available_credential_types_list} пайдалана аласыз. Сіз келесі әлеуметтік кіру провайдерлерінің бірін пайдалана аласыз: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Сіз {credential_identifier_hint} арқылы кіруге тырыстыңыз, бұл басқа тіркелгіде қолданылып жатыр. Сіз {available_credential_types_list} пайдалана аласыз. Сіз келесі әлеуметтік кіру провайдерлерінің бірін пайдалана аласыз: {available_oidc_providers_list}.",
   "identities.messages.4000029": "{expected} тұрақтысына тең болуы керек",
   "identities.messages.4000030": "тұрақты сәтсіз",
   "identities.messages.4000031": "Құпия сөзді пайдалануға болмайды, себебі ол идентификаторға тым ұқсас.",

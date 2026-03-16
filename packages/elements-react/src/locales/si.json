@@ -104,7 +104,7 @@
   "identities.messages.4000025": "{index_a} සහ {index_b} දර්ශකයේ අයිතම සමාන වේ",
   "identities.messages.4000026": "{allowed_types_list} අපේක්ෂා කරන ලදී, නමුත් {actual_type} ලැබුණි",
   "identities.messages.4000027": "එකම හඳුනාගැනීම සහිත ගිණුමක් (විද්‍යුත් තැපෑල, දුරකථනය, පරිශීලක නාමය, ...) දැනටමත් පවතී. කරුණාකර ඔබේ සමාජ පැතිකඩ සම්බන්ධ කිරීමට ඔබේ පවතින ගිණුමට පුරනය වන්න.",
-  "identities.messages.4000028": "ඔබ {credential_identifier_hint} සමඟ පුරනය වීමට උත්සාහ කළ නමුත් එය දැනටමත් වෙනත් ගිණුමක් විසින් භාවිතා වේ. ඔබට {available_credential_types_list} භාවිතයෙන් පුරනය විය හැක. ඔබට පහත සමාජ පුරන සැපයුම්කරුවන් භාවිතයෙන් පුරනය විය හැක: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "ඔබ {credential_identifier_hint} සමඟ පුරනය වීමට උත්සාහ කළ නමුත් එය දැනටමත් වෙනත් ගිණුමක් විසින් භාවිතා වේ. ඔබට {available_credential_types_list} භාවිතයෙන් පුරනය විය හැක. ඔබට පහත සමාජ පුරන සැපයුම්කරුවන් භාවිතයෙන් පුරනය විය හැක: {available_oidc_providers_list}.",
   "identities.messages.4000029": "නියතය {expected} ට සමාන විය යුතුය",
   "identities.messages.4000030": "නියතය අසාර්ථක විය",
   "identities.messages.4000031": "මුරපදය හඳුනාගැනීමට ඉතා සමාන නිසා භාවිතා කළ නොහැක.",

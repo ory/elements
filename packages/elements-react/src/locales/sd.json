@@ -104,7 +104,7 @@
   "identities.messages.4000025": "انڊيڪس {index_a} ۽ {index_b} تي شيون برابر آهن",
   "identities.messages.4000026": "{allowed_types_list} جي توقع ڪئي، پر {actual_type} مليو",
   "identities.messages.4000027": "ساڳي سڃاڻپ ڪندڙ (اي ميل، فون، يوزرنيم، ...) سان اڪائونٽ اڳ ۾ ئي موجود آهي. مهرباني ڪري پنهنجي سوشل پروفائيل کي لنڪ ڪرڻ لاءِ پنهنجي موجوده اڪائونٽ ۾ سائن ان ڪريو.",
-  "identities.messages.4000028": "توهان {credential_identifier_hint} سان سائن ان ڪرڻ جي ڪوشش ڪئي جيڪو اڳ ۾ ئي ٻئي اڪائونٽ جي استعمال ۾ آهي. توهان {available_credential_types_list} استعمال ڪندي سائن ان ڪري سگهو ٿا. توهان هيٺين سوشل سائن ان فراهم ڪندڙن مان هڪ استعمال ڪندي سائن ان ڪري سگهو ٿا: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "توهان {credential_identifier_hint} سان سائن ان ڪرڻ جي ڪوشش ڪئي جيڪو اڳ ۾ ئي ٻئي اڪائونٽ جي استعمال ۾ آهي. توهان {available_credential_types_list} استعمال ڪندي سائن ان ڪري سگهو ٿا. توهان هيٺين سوشل سائن ان فراهم ڪندڙن مان هڪ استعمال ڪندي سائن ان ڪري سگهو ٿا: {available_oidc_providers_list}.",
   "identities.messages.4000029": "مستقل {expected} جي برابر هجڻ گهرجي",
   "identities.messages.4000030": "مستقل ناڪام ٿيو",
   "identities.messages.4000031": "پاس ورڊ استعمال نه ٿو ڪري سگهجي ڇاڪاڻ ته اهو سڃاڻپ ڪندڙ سان تمام گهڻو ملندڙ جلندڙ آهي.",

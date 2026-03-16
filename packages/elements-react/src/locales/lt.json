@@ -104,7 +104,7 @@
   "identities.messages.4000025": "elementai indeksuose {index_a} ir {index_b} yra vienodi",
   "identities.messages.4000026": "tikėtasi {allowed_types_list}, bet gautas {actual_type}",
   "identities.messages.4000027": "Paskyra su tuo pačiu identifikatoriumi (el. paštas, telefonas, vartotojo vardas, ...) jau egzistuoja. Prašome prisijungti prie savo esamos paskyros, kad susietumėte savo socialinį profilį.",
-  "identities.messages.4000028": "Bandėte prisijungti su {credential_identifier_hint}, kuris jau naudojamas kitos paskyros. Galite prisijungti naudodami {available_credential_types_list}. Galite prisijungti naudodami vieną iš šių socialinio prisijungimo teikėjų: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Bandėte prisijungti su {credential_identifier_hint}, kuris jau naudojamas kitos paskyros. Galite prisijungti naudodami {available_credential_types_list}. Galite prisijungti naudodami vieną iš šių socialinio prisijungimo teikėjų: {available_oidc_providers_list}.",
   "identities.messages.4000029": "turi būti lygi konstantai {expected}",
   "identities.messages.4000030": "konstanta nepavyko",
   "identities.messages.4000031": "Slaptažodis negali būti naudojamas, nes yra per daug panašus į identifikatorių.",

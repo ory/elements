@@ -104,7 +104,7 @@
   "identities.messages.4000025": "fɛnw bɛ kelen ye jateden {index_a} ani {index_b} na",
   "identities.messages.4000026": "u tun b'a fɛ {allowed_types_list}, nka u ye {actual_type} sɔrɔ",
   "identities.messages.4000027": "Jatebɔsɛbɛn bɛ yen kaban ni lasebenw kelen ye (bataki, telefɔni, baarakɛla tɔgɔ, ...). I ka kan ka don i ka jatebɔsɛbɛn kɔrɔla na walasa k'i ka jama ka jatebɔsɛbɛn jɛɲɔgɔnya.",
-  "identities.messages.4000028": "I ye a lajɛ ka don ni {credential_identifier_hint} ye min bɛ kɛ baara la ni jatebɔsɛbɛn wɛrɛ ye kaban. I bɛ se ka don ni {available_credential_types_list} ye. I bɛ se ka don ni jama ka don dibagaw dɔ ye ninnu na: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "I ye a lajɛ ka don ni {credential_identifier_hint} ye min bɛ kɛ baara la ni jatebɔsɛbɛn wɛrɛ ye kaban. I bɛ se ka don ni {available_credential_types_list} ye. I bɛ se ka don ni jama ka don dibagaw dɔ ye ninnu na: {available_oidc_providers_list}.",
   "identities.messages.4000029": "a ka kan ka kɛ kelen ye ni janya {expected} ye",
   "identities.messages.4000030": "janya ma ɲɛ",
   "identities.messages.4000031": "Daɲɛgafe tɛ se ka kɛ baara la bawo a bɛ ɲɔgɔn cɛ kosɛbɛ ni laseben ye.",

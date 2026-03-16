@@ -104,7 +104,7 @@
   "identities.messages.4000025": "elementene på indeks {index_a} og {index_b} er like",
   "identities.messages.4000026": "forventet {allowed_types_list}, men fikk {actual_type}",
   "identities.messages.4000027": "En konto med samme identifikator (e-post, telefon, brukernavn, ...) eksisterer allerede. Vennligst logg inn på din eksisterende konto for å koble din sosiale profil.",
-  "identities.messages.4000028": "Du prøvde å logge inn med {credential_identifier_hint} som allerede er i bruk av en annen konto. Du kan logge inn med {available_credential_types_list}. Du kan logge inn med en av følgende sosiale innloggingsleverandører: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Du prøvde å logge inn med {credential_identifier_hint} som allerede er i bruk av en annen konto. Du kan logge inn med {available_credential_types_list}. Du kan logge inn med en av følgende sosiale innloggingsleverandører: {available_oidc_providers_list}.",
   "identities.messages.4000029": "må være lik konstanten {expected}",
   "identities.messages.4000030": "const feilet",
   "identities.messages.4000031": "Passordet kan ikke brukes fordi det er for likt identifikatoren.",

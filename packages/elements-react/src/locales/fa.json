@@ -104,7 +104,7 @@
   "identities.messages.4000025": "موارد در شاخص {index_a} و {index_b} یکسان هستند",
   "identities.messages.4000026": "مورد انتظار {allowed_types_list} بود، اما {actual_type} دریافت شد",
   "identities.messages.4000027": "یک حساب با شناسه یکسان (ایمیل، تلفن، نام کاربری، ...) قبلاً وجود دارد. لطفاً به حساب خود وارد شوید تا پروفیل اجتماعی خود را لینک کنید.",
-  "identities.messages.4000028": "شما سعی کردید با {credential_identifier_hint} وارد شوید که قبلاً توسط یک حساب دیگر استفاده شده است. می‌توانید با استفاده از {available_credential_types_list} وارد شوید. می‌توانید با یکی از ارائه‌دهندگان زیر وارد شوید: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "شما سعی کردید با {credential_identifier_hint} وارد شوید که قبلاً توسط یک حساب دیگر استفاده شده است. می‌توانید با استفاده از {available_credential_types_list} وارد شوید. می‌توانید با یکی از ارائه‌دهندگان زیر وارد شوید: {available_oidc_providers_list}.",
   "identities.messages.4000029": "باید برابر با ثابت {expected} باشد",
   "identities.messages.4000030": "تایید شکست",
   "identities.messages.4000031": "رمز عبور نمی‌تواند استفاده شود چون بسیار شبیه به شناسه است.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "elementele de la indexul {index_a} și {index_b} sunt egale",
   "identities.messages.4000026": "așteptat {allowed_types_list}, dar s-a obținut {actual_type}",
   "identities.messages.4000027": "Un cont cu același identificator (email, telefon, nume de utilizator, ...) există deja. Vă rugăm să vă autentificați în contul existent pentru a conecta profilul dumneavoastră social.",
-  "identities.messages.4000028": "Ați încercat să vă autentificați cu {credential_identifier_hint} care este deja utilizat de alt cont. Vă puteți autentifica folosind {available_credential_types_list}. Vă puteți autentifica folosind unul dintre următorii furnizori de autentificare socială: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Ați încercat să vă autentificați cu {credential_identifier_hint} care este deja utilizat de alt cont. Vă puteți autentifica folosind {available_credential_types_list}. Vă puteți autentifica folosind unul dintre următorii furnizori de autentificare socială: {available_oidc_providers_list}.",
   "identities.messages.4000029": "trebuie să fie egal cu constanta {expected}",
   "identities.messages.4000030": "const eșuat",
   "identities.messages.4000031": "Parola nu poate fi utilizată deoarece este prea asemănătoare cu identificatorul.",

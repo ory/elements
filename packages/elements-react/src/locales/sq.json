@@ -104,7 +104,7 @@
   "identities.messages.4000025": "artikujt në indeksin {index_a} dhe {index_b} janë të barabartë",
   "identities.messages.4000026": "pritej {allowed_types_list}, por u mor {actual_type}",
   "identities.messages.4000027": "Një llogari me të njëjtin identifikues (email, telefon, emër përdoruesi, ...) ekziston tashmë. Ju lutemi identifikohuni në llogarinë tuaj ekzistuese për të lidhur profilin tuaj social.",
-  "identities.messages.4000028": "Ju provuat të identifikoheni me {credential_identifier_hint} e cila është tashmë në përdorim nga një llogari tjetër. Ju mund të identifikoheni duke përdorur {available_credential_types_list}. Ju mund të identifikoheni duke përdorur një nga ofruesit e mëposhtëm të identifikimit social: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Ju provuat të identifikoheni me {credential_identifier_hint} e cila është tashmë në përdorim nga një llogari tjetër. Ju mund të identifikoheni duke përdorur {available_credential_types_list}. Ju mund të identifikoheni duke përdorur një nga ofruesit e mëposhtëm të identifikimit social: {available_oidc_providers_list}.",
   "identities.messages.4000029": "duhet të jetë e barabartë me konstantën {expected}",
   "identities.messages.4000030": "const dështoi",
   "identities.messages.4000031": "Fjalëkalimi nuk mund të përdoret sepse është shumë i ngjashëm me identifikuesin.",

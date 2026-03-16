@@ -13,6 +13,56 @@ const uiText: UiText = {
   type: "info",
 }
 
+describe("uiTextToFormattedMessage", () => {
+  test("should fall back to server text when context contains an empty array", () => {
+    const duplicateCredentialMsg: UiText = {
+      id: 4000028,
+      text: "You tried signing in with user@example.com which is already in use by another account. You can sign in using your password.",
+      type: "error",
+      context: {
+        available_credential_types: ["password"],
+        available_oidc_providers: [],
+        credential_identifier_hint: "user@example.com",
+      },
+    }
+
+    renderWithOryElements(
+      <IntlProvider locale={"en"}>
+        <Inner uiText={duplicateCredentialMsg} />
+      </IntlProvider>,
+    )
+
+    // With an empty array, it falls back to the original text from the API which
+    // omits the section about social sign in providers.
+    const rendered = screen.getByText(/You tried signing in with/)
+    expect(rendered.textContent).not.toContain("social sign in providers")
+  })
+
+  test("should use intl formatted message when context arrays are non-empty", () => {
+    const duplicateCredentialMsg: UiText = {
+      id: 4000028,
+      text: "You tried signing in with user@example.com which is already in use by another account. You can sign in using your password. You can sign in using one of the following social sign in providers: Google.",
+      type: "error",
+      context: {
+        available_credential_types: ["password"],
+        available_oidc_providers: ["Google"],
+        credential_identifier_hint: "user@example.com",
+      },
+    }
+
+    renderWithOryElements(
+      <IntlProvider locale={"en"}>
+        <Inner uiText={duplicateCredentialMsg} />
+      </IntlProvider>,
+    )
+
+    // With non-empty arrays, react-intl formats the template and resolves
+    // {available_oidc_providers_list} to the actual provider names.
+    const rendered = screen.getByText(/You tried signing in with/)
+    expect(rendered.textContent).toContain("Google")
+  })
+})
+
 describe("IntlProvider", () => {
   test("should return the german locale", () => {
     renderWithOryElements(

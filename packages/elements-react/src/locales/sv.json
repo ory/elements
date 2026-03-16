@@ -104,7 +104,7 @@
   "identities.messages.4000025": "objekt vid index {index_a} och {index_b} är lika",
   "identities.messages.4000026": "förväntade {allowed_types_list}, men var {actual_type}",
   "identities.messages.4000027": "Ett konto med samma identifierare (e-post, telefon, användarnamn, ...) finns redan. Logga in på ditt befintliga konto och länka din sociala profil på inställningssidan.",
-  "identities.messages.4000028": "Du försökte logga in med {credential_identifier_hint} som redan används av ett annat konto. Du kan logga in med {available_credential_types_list}. Du kan logga in med någon av följande sociala inloggningsleverantörer: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Du försökte logga in med {credential_identifier_hint} som redan används av ett annat konto. Du kan logga in med {available_credential_types_list}. Du kan logga in med någon av följande sociala inloggningsleverantörer: {available_oidc_providers_list}.",
   "identities.messages.4000029": "måste vara lika med konstant {expected}",
   "identities.messages.4000030": "const misslyckades",
   "identities.messages.4000031": "Lösenordet kan inte användas eftersom det är för likt identifieraren.",

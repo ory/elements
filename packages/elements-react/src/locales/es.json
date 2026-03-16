@@ -90,7 +90,7 @@
   "identities.messages.4000025": "los ítems en los índices {index_a} y {index_b} son iguales",
   "identities.messages.4000026": "se esperaba {allowed_types_list}, pero se obtuvo {actual_type}",
   "identities.messages.4000027": "Ya existe una cuenta con el mismo identificador (correo, teléfono, nombre de usuario, ...). Por favor, inicie sesión en su cuenta existente y vincule su perfil social en la página de configuración.",
-  "identities.messages.4000028": "Intentó iniciar sesión con {credential_identifier_hint} que ya está en uso por otra cuenta. Puede iniciar sesión usando {available_credential_types_list}. Puede iniciar sesión usando uno de los siguientes proveedores de inicio de sesión social: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Intentó iniciar sesión con {credential_identifier_hint} que ya está en uso por otra cuenta. Puede iniciar sesión usando {available_credential_types_list}. Puede iniciar sesión usando uno de los siguientes proveedores de inicio de sesión social: {available_oidc_providers_list}.",
   "identities.messages.4000029": "debe ser igual a la constante {expected}",
   "identities.messages.4000030": "constante fallida",
   "identities.messages.4000031": "La contraseña no puede ser utilizada porque es muy similar al identificador.",

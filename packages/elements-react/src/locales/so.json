@@ -104,7 +104,7 @@
   "identities.messages.4000025": "shayada ku jira index {index_a} iyo {index_b} waa isku mid",
   "identities.messages.4000026": "la filayay {allowed_types_list}, laakiin waxaa la helay {actual_type}",
   "identities.messages.4000027": "Koonto leh aqoonsiga isku mid ah (iimayl, telefoon, magaca isticmaalaha, ...) ayaa hore u jirtay. Fadlan kula gal koontooda jira si aad ugu xidho profile-kaaga bulshada.",
-  "identities.messages.4000028": "Waxaad isku dayday inaad kula gasho {credential_identifier_hint} oo hore u isticmaalaya koonto kale. Waxaad ku geli kartaa adiga oo isticmaalaya {available_credential_types_list}. Waxaad ku geli kartaa adiga oo isticmaalaya mid ka mid ah bixiyayaasha galitaanka bulshada ee soo socda: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Waxaad isku dayday inaad kula gasho {credential_identifier_hint} oo hore u isticmaalaya koonto kale. Waxaad ku geli kartaa adiga oo isticmaalaya {available_credential_types_list}. Waxaad ku geli kartaa adiga oo isticmaalaya mid ka mid ah bixiyayaasha galitaanka bulshada ee soo socda: {available_oidc_providers_list}.",
   "identities.messages.4000029": "waa inuu la mid yahay joogtada {expected}",
   "identities.messages.4000030": "joogto waa fashilantay",
   "identities.messages.4000031": "Erayga sirta ah lama isticmaali karo sababtoo ah wuxuu aad ugu eg yahay aqoonsiga.",

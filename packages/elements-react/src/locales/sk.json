@@ -104,7 +104,7 @@
   "identities.messages.4000025": "položky na indexe {index_a} a {index_b} sú rovnaké",
   "identities.messages.4000026": "očakávané {allowed_types_list}, ale dostané {actual_type}",
   "identities.messages.4000027": "Účet s rovnakým identifikátorom (e-mail, telefón, používateľské meno, ...) už existuje. Prihláste sa prosím do svojho existujúceho účtu a prepojte svoj sociálny profil.",
-  "identities.messages.4000028": "Pokúsili ste sa prihlásiť pomocou {credential_identifier_hint}, ktorý už používa iný účet. Môžete sa prihlásiť pomocou {available_credential_types_list}. Môžete sa prihlásiť pomocou jedného z nasledujúcich poskytovateľov sociálneho prihlásenia: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Pokúsili ste sa prihlásiť pomocou {credential_identifier_hint}, ktorý už používa iný účet. Môžete sa prihlásiť pomocou {available_credential_types_list}. Môžete sa prihlásiť pomocou jedného z nasledujúcich poskytovateľov sociálneho prihlásenia: {available_oidc_providers_list}.",
   "identities.messages.4000029": "musí byť rovné konštante {expected}",
   "identities.messages.4000030": "konštanta zlyhala",
   "identities.messages.4000031": "Heslo nemožno použiť, pretože je príliš podobné identifikátoru.",

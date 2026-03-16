@@ -104,7 +104,7 @@
   "identities.messages.4000025": "פריטים באינדקס {index_a} ו-{index_b} שווים",
   "identities.messages.4000026": "צפוי {allowed_types_list}, אך קיבלת {actual_type}",
   "identities.messages.4000027": "חשבון עם אותו מזהה (אימייל, טלפון, שם משתמש, ...) כבר קיים. אנא התחבר לחשבון הקיים שלך כדי לקשר את הפרופיל החברתי שלך.",
-  "identities.messages.4000028": "ניסית להתחבר עם {credential_identifier_hint} שכבר בשימוש של חשבון אחר. תוכל להתחבר באמצעות {available_credential_types_list}. תוכל להתחבר באמצעות אחד מספקי הכניסה החברתית הבאים: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "ניסית להתחבר עם {credential_identifier_hint} שכבר בשימוש של חשבון אחר. תוכל להתחבר באמצעות {available_credential_types_list}. תוכל להתחבר באמצעות אחד מספקי הכניסה החברתית הבאים: {available_oidc_providers_list}.",
   "identities.messages.4000029": "חייב להיות שווה לקבוע {expected}",
   "identities.messages.4000030": "const נכשל",
   "identities.messages.4000031": "לא ניתן להשתמש בסיסמה מכיוון שהיא דומה מדי למזהה.",

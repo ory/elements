@@ -104,7 +104,7 @@
   "identities.messages.4000025": "รายการที่ดัชนี {index_a} และ {index_b} เท่ากัน",
   "identities.messages.4000026": "คาดว่าจะได้ {allowed_types_list} แต่ได้ {actual_type}",
   "identities.messages.4000027": "มีบัญชีที่มีตัวระบุเดียวกัน (อีเมล เบอร์โทรศัพท์ ชื่อผู้ใช้ ฯลฯ) อยู่แล้ว โปรดลงชื่อเข้าใช้บัญชีของคุณเพื่อเชื่อมโยงโปรไฟล์โซเชียลของคุณ",
-  "identities.messages.4000028": "คุณพยายามลงชื่อเข้าใช้ด้วย {credential_identifier_hint} ซึ่งถูกใช้โดยบัญชีอื่นอยู่แล้ว คุณสามารถลงชื่อเข้าใช้โดยใช้ {available_credential_types_list} คุณสามารถลงชื่อเข้าใช้โดยใช้ผู้ให้บริการการลงชื่อเข้าใช้ผ่านโซเชียลมีเดียต่อไปนี้: {Available_oidc_providers_list}",
+  "identities.messages.4000028": "คุณพยายามลงชื่อเข้าใช้ด้วย {credential_identifier_hint} ซึ่งถูกใช้โดยบัญชีอื่นอยู่แล้ว คุณสามารถลงชื่อเข้าใช้โดยใช้ {available_credential_types_list} คุณสามารถลงชื่อเข้าใช้โดยใช้ผู้ให้บริการการลงชื่อเข้าใช้ผ่านโซเชียลมีเดียต่อไปนี้: {available_oidc_providers_list}",
   "identities.messages.4000029": "ต้องเท่ากับค่าคงที่ {expected}",
   "identities.messages.4000030": "การตรวจสอบค่าคงที่ล้มเหลว",
   "identities.messages.4000031": "ไม่สามารถใช้รหัสผ่านนี้ได้เนื่องจากมันคล้ายกับตัวระบุเกินไป",

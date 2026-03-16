@@ -104,7 +104,7 @@
   "identities.messages.4000025": "vipengee kwenye orodha {index_a} na {index_b} ni sawa",
   "identities.messages.4000026": "inatarajiwa {allowed_types_list}, lakini ilipata {actual_type}",
   "identities.messages.4000027": "Akaunti yenye kitambulisho kile kile (barua pepe, simu, jina la mtumiaji, ...) tayari ipo. Tafadhali ingia kwenye akaunti yako iliyopo ili kuunganisha wasifu wako wa kijamii.",
-  "identities.messages.4000028": "Ulijaribu kuingia na {credential_identifier_hint} ambayo tayari inatumika na akaunti nyingine. Unaweza kuingia kwa kutumia {available_credential_types_list}. Unaweza kuingia kwa kutumia mojawapo ya watoa huduma wa kuingia kwa kijamii: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Ulijaribu kuingia na {credential_identifier_hint} ambayo tayari inatumika na akaunti nyingine. Unaweza kuingia kwa kutumia {available_credential_types_list}. Unaweza kuingia kwa kutumia mojawapo ya watoa huduma wa kuingia kwa kijamii: {available_oidc_providers_list}.",
   "identities.messages.4000029": "lazima iwe sawa na kiisio {expected}",
   "identities.messages.4000030": "kiisio kimeshindwa",
   "identities.messages.4000031": "Nenosiri haliwezi kutumika kwa sababu linafanana sana na kitambulisho.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "элементы с индексами {index_a} и {index_b} равны",
   "identities.messages.4000026": "ожидался тип {allowed_types_list}, но получен {actual_type}",
   "identities.messages.4000027": "Учетная запись с таким идентификатором (email, телефон, имя пользователя и т.д.) уже существует. Пожалуйста, войдите в свой существующий аккаунт, чтобы связать свой социальный профиль.",
-  "identities.messages.4000028": "Вы попытались войти с помощью {credential_identifier_hint}, который уже используется другим аккаунтом. Вы можете войти с помощью {available_credential_types_list}. Вы можете войти с помощью одного из следующих провайдеров социального входа: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Вы попытались войти с помощью {credential_identifier_hint}, который уже используется другим аккаунтом. Вы можете войти с помощью {available_credential_types_list}. Вы можете войти с помощью одного из следующих провайдеров социального входа: {available_oidc_providers_list}.",
   "identities.messages.4000029": "должно быть равно константе {expected}",
   "identities.messages.4000030": "проверка const не удалась",
   "identities.messages.4000031": "Пароль не может быть использован, так как он слишком похож на идентификатор.",

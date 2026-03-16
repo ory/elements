@@ -104,7 +104,7 @@
   "identities.messages.4000025": "सूचकांमध्ये {index_a} आणि {index_b} समान आहे",
   "identities.messages.4000026": "अनुमत {allowed_types_list} अपेक्षित होते, परंतु {actual_type} मिळाले",
   "identities.messages.4000027": "एकच ओळखकर्ता (ईमेल, फोन, वापरकर्ता नाव, ...) असलेले खाते इतर खात्याने वापरले जात आहे. कृपया आपल्या अस्तित्वात असलेल्या खात्यात लॉग इन करून आपला सोशल प्रोफाइल जोडा.",
-  "identities.messages.4000028": "आपण {credential_identifier_hint} सह लॉग इन करण्याचा प्रयत्न केला जे इतर खात्याने वापरले जात आहे. आपण {available_credential_types_list} वापरून लॉग इन करू शकता. आपण खालीलपैकी एक सोशल लॉग इन प्रदाता वापरू शकता: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "आपण {credential_identifier_hint} सह लॉग इन करण्याचा प्रयत्न केला जे इतर खात्याने वापरले जात आहे. आपण {available_credential_types_list} वापरून लॉग इन करू शकता. आपण खालीलपैकी एक सोशल लॉग इन प्रदाता वापरू शकता: {available_oidc_providers_list}.",
   "identities.messages.4000029": "एकसारखे {expected} असले पाहिजे",
   "identities.messages.4000030": "const अयशस्वी झाले",
   "identities.messages.4000031": "पासवर्ड वापरला जाऊ शकत नाही कारण तो ओळखकर्ता खूप समान आहे.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "položky na indexu {index_a} a {index_b} jsou stejné",
   "identities.messages.4000026": "očekáváno {allowed_types_list}, ale získáno {actual_type}",
   "identities.messages.4000027": "Účet se stejným identifikátorem (e-mail, telefon, uživatelské jméno, ...) již existuje. Přihlaste se prosím ke svému existujícímu účtu a propojte svůj sociální profil.",
-  "identities.messages.4000028": "Pokusili jste se přihlásit pomocí {credential_identifier_hint}, který je již používán jiným účtem. Můžete se přihlásit pomocí {available_credential_types_list}. Můžete se přihlásit pomocí jednoho z následujících poskytovatelů sociálního přihlášení: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Pokusili jste se přihlásit pomocí {credential_identifier_hint}, který je již používán jiným účtem. Můžete se přihlásit pomocí {available_credential_types_list}. Můžete se přihlásit pomocí jednoho z následujících poskytovatelů sociálního přihlášení: {available_oidc_providers_list}.",
   "identities.messages.4000029": "musí být rovno konstantě {expected}",
   "identities.messages.4000030": "konstanta selhala",
   "identities.messages.4000031": "Heslo nelze použít, protože je příliš podobné identifikátoru.",

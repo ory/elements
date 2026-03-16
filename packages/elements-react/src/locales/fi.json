@@ -104,7 +104,7 @@
   "identities.messages.4000025": "kohteet indekseissä {index_a} ja {index_b} ovat samat",
   "identities.messages.4000026": "odotettiin {allowed_types_list}, mutta saatiin {actual_type}",
   "identities.messages.4000027": "Tili samalla tunnisteella (sähköposti, puhelin, käyttäjätunnus, ...) on jo olemassa. Kirjaudu sisään olemassa olevalle tilillesi linkittääksesi sosiaalisen profiilisi.",
-  "identities.messages.4000028": "Yritit kirjautua sisään tunnisteella {credential_identifier_hint}, joka on jo toisen tilin käytössä. Voit kirjautua sisään käyttämällä {available_credential_types_list}. Voit kirjautua sisään käyttämällä jotakin seuraavista sosiaalisen kirjautumisen tarjoajista: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Yritit kirjautua sisään tunnisteella {credential_identifier_hint}, joka on jo toisen tilin käytössä. Voit kirjautua sisään käyttämällä {available_credential_types_list}. Voit kirjautua sisään käyttämällä jotakin seuraavista sosiaalisen kirjautumisen tarjoajista: {available_oidc_providers_list}.",
   "identities.messages.4000029": "täytyy olla yhtä suuri kuin vakio {expected}",
   "identities.messages.4000030": "vakio epäonnistui",
   "identities.messages.4000031": "Salasanaa ei voida käyttää, koska se on liian samanlainen tunnisteen kanssa.",

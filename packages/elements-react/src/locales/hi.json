@@ -104,7 +104,7 @@
   "identities.messages.4000025": "सूचकांक {index_a} और {index_b} पर आइटम समान हैं",
   "identities.messages.4000026": "अनुमति दिए गए {allowed_types_list}, लेकिन {actual_type} पाया गया",
   "identities.messages.4000027": "एक खाता पहले से ही एक ही पहचानकर्ता (ईमेल, फोन, उपयोगकर्ता नाम, ...) के साथ मौजूद है। कृपया अपने मौजूदा खाते में लॉग इन करके अपना सोशल प्रोफाइल जोड़ें।",
-  "identities.messages.4000028": "आपने {credential_identifier_hint} के साथ लॉग इन करने का प्रयास किया, जो पहले से ही दूसरे खाते द्वारा उपयोग किया जा रहा है। आप {available_credential_types_list} का उपयोग करके लॉग इन कर सकते हैं। आप निम्नलिखित में से एक सोशल लॉगिन प्रदाता का उपयोग करके लॉग इन कर सकते हैं: {Available_oidc_providers_list}।",
+  "identities.messages.4000028": "आपने {credential_identifier_hint} के साथ लॉग इन करने का प्रयास किया, जो पहले से ही दूसरे खाते द्वारा उपयोग किया जा रहा है। आप {available_credential_types_list} का उपयोग करके लॉग इन कर सकते हैं। आप निम्नलिखित में से एक सोशल लॉगिन प्रदाता का उपयोग करके लॉग इन कर सकते हैं: {available_oidc_providers_list}।",
   "identities.messages.4000029": "स्थिर मान {expected} के बराबर होना चाहिए",
   "identities.messages.4000030": "स्थिर मान विफल",
   "identities.messages.4000031": "पासवर्ड का उपयोग नहीं किया जा सकता क्योंकि यह पहचानकर्ता के बहुत करीब है।",

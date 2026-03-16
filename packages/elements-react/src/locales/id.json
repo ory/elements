@@ -104,7 +104,7 @@
   "identities.messages.4000025": "item pada indeks {index_a} dan {index_b} sama",
   "identities.messages.4000026": "harus {allowed_types_list}, tetapi diperoleh {actual_type}",
   "identities.messages.4000027": "Akun dengan identifikasi yang sama (email, telepon, nama pengguna, ...) sudah ada. Silakan masuk ke akun Anda yang sudah ada untuk menghubungkan profil sosial Anda.",
-  "identities.messages.4000028": "Anda mencoba masuk dengan {credential_identifier_hint} yang sudah digunakan oleh akun lain. Anda dapat masuk menggunakan {available_credential_types_list}. Anda dapat masuk menggunakan salah satu penyedia masuk sosial berikut: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Anda mencoba masuk dengan {credential_identifier_hint} yang sudah digunakan oleh akun lain. Anda dapat masuk menggunakan {available_credential_types_list}. Anda dapat masuk menggunakan salah satu penyedia masuk sosial berikut: {available_oidc_providers_list}.",
   "identities.messages.4000029": "harus sama dengan konstanta {expected}",
   "identities.messages.4000030": "konstanta gagal",
   "identities.messages.4000031": "Kata sandi tidak dapat digunakan karena terlalu mirip dengan identifikasi.",

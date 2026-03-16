@@ -104,7 +104,7 @@
   "identities.messages.4000025": "بڕگەکان لە پێڕستی {index_a} و {index_b} یەکسانن",
   "identities.messages.4000026": "{allowed_types_list} چاوەڕوان کراوە، بەڵام {actual_type} وەرگیراوە",
   "identities.messages.4000027": "هەژمارێک بە هەمان ناسێنەر (ئیمەیڵ، مۆبایل، ناوی بەکارهێنەر، ...) پێشتر هەیە. تکایە بچۆرە ژوورەوە بۆ هەژمارە هەبووەکەت بۆ بەستنەوەی پڕۆفایلی کۆمەڵایەتیت.",
-  "identities.messages.4000028": "هەوڵت دا بە {credential_identifier_hint} بچیتە ژوورەوە کە پێشتر لەلایەن هەژمارێکی ترەوە بەکارهاتووە. دەتوانیت بچیتە ژوورەوە بە بەکارهێنانی {available_credential_types_list}. دەتوانیت بچیتە ژوورەوە بە بەکارهێنانی یەکێک لەم دابینکەرانەی چوونەژوورەوەی کۆمەڵایەتی: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "هەوڵت دا بە {credential_identifier_hint} بچیتە ژوورەوە کە پێشتر لەلایەن هەژمارێکی ترەوە بەکارهاتووە. دەتوانیت بچیتە ژوورەوە بە بەکارهێنانی {available_credential_types_list}. دەتوانیت بچیتە ژوورەوە بە بەکارهێنانی یەکێک لەم دابینکەرانەی چوونەژوورەوەی کۆمەڵایەتی: {available_oidc_providers_list}.",
   "identities.messages.4000029": "دەبێت یەکسان بێت بە ثابیتی {expected}",
   "identities.messages.4000030": "const شکستی هێنا",
   "identities.messages.4000031": "وشەی نهێنی ناتوانرێت بەکاربهێنرێت چونکە زۆر لە ناسێنەر دەچێت.",

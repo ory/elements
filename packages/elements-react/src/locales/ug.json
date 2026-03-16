@@ -104,7 +104,7 @@
   "identities.messages.4000025": "{index_a} ۋە {index_b} ئىندېكىسىدىكى تۈرلەر ئوخشاش",
   "identities.messages.4000026": "{allowed_types_list} كۈتۈلدى، لېكىن {actual_type} تېپىلدى",
   "identities.messages.4000027": "ئوخشاش بەلگە (ئېلېكترونلۇق خەت، تېلېفون، ئىشلەتكۈچى ئىسمى، ...) بار ھېساباتمۇ مەۋجۇت. ئىجتىمائىي ھېسابىڭىزنى ئۇلاش ئۈچۈن مەۋجۇت ھېسابىڭىزغا كىرىڭ.",
-  "identities.messages.4000028": "سىز {credential_identifier_hint} بىلەن كىرمەكچى بولدىڭىز، بۇ باشقا ھېسابات تەرىپىدىن ئىشلىتىلماقتا. {available_credential_types_list} ئىشلىتىپ كىرەلەيسىز. تۆۋەندىكى ئىجتىمائىي كىرىش تەمىنلىگۈچىلەردىن بىرىنى ئىشلىتەلەيسىز: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "سىز {credential_identifier_hint} بىلەن كىرمەكچى بولدىڭىز، بۇ باشقا ھېسابات تەرىپىدىن ئىشلىتىلماقتا. {available_credential_types_list} ئىشلىتىپ كىرەلەيسىز. تۆۋەندىكى ئىجتىمائىي كىرىش تەمىنلىگۈچىلەردىن بىرىنى ئىشلىتەلەيسىز: {available_oidc_providers_list}.",
   "identities.messages.4000029": "{expected} گە تەڭ بولۇشى كېرەك",
   "identities.messages.4000030": "تۇراقلىق مەغلۇپ بولدى",
   "identities.messages.4000031": "پارول بەلگىگە بەك ئوخشاش بولغانلىقتىن ئىشلەتكىلى بولمايدۇ.",

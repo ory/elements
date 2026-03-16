@@ -104,7 +104,7 @@
   "identities.messages.4000025": "인덱스 {index_a}와 {index_b}의 항목이 동일합니다.",
   "identities.messages.4000026": "{allowed_types_list}을(를) 기대했지만, {actual_type}을(를) 받았습니다.",
   "identities.messages.4000027": "동일한 식별자(이메일, 전화번호, 사용자 이름 등)를 가진 계정이 이미 존재합니다. 기존 계정에 로그인하여 소셜 프로필을 연결하세요.",
-  "identities.messages.4000028": "{credential_identifier_hint}로 로그인하려 했지만, 이 식별자는 이미 다른 계정에서 사용 중입니다. {available_credential_types_list}을(를) 사용하여 로그인할 수 있습니다. 다음 소셜 로그인 제공자 중 하나를 사용하여 로그인할 수 있습니다: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "{credential_identifier_hint}로 로그인하려 했지만, 이 식별자는 이미 다른 계정에서 사용 중입니다. {available_credential_types_list}을(를) 사용하여 로그인할 수 있습니다. 다음 소셜 로그인 제공자 중 하나를 사용하여 로그인할 수 있습니다: {available_oidc_providers_list}.",
   "identities.messages.4000029": "상수 {expected}와 같아야 합니다.",
   "identities.messages.4000030": "상수 실패",
   "identities.messages.4000031": "비밀번호가 식별자와 너무 유사하여 사용할 수 없습니다.",

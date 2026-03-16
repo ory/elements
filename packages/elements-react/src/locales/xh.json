@@ -104,7 +104,7 @@
   "identities.messages.4000025": "izinto kwindeksi {index_a} ne {index_b} ziyafana",
   "identities.messages.4000026": "kulindelwe {allowed_types_list}, kodwa wafumana {actual_type}",
   "identities.messages.4000027": "Iakaunt enezinto zokuqinisekisa ezifanayo (i-imeyili, umnxeba, igama lomsebenzisi, ...) sele ikhona. Nceda ungene kwiakaunt yakho ekhoyo ukuze udibanise iprofayl yakho yezentlalo.",
-  "identities.messages.4000028": "Uzame ukungena ngo {credential_identifier_hint} esele isetyenziswa yiakaunt enye. Ungangena usebenzisa {available_credential_types_list}. Ungangena usebenzisa enye yale miboneleli yokuqinisekisa yezentlalo ilandelayo: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Uzame ukungena ngo {credential_identifier_hint} esele isetyenziswa yiakaunt enye. Ungangena usebenzisa {available_credential_types_list}. Ungangena usebenzisa enye yale miboneleli yokuqinisekisa yezentlalo ilandelayo: {available_oidc_providers_list}.",
   "identities.messages.4000029": "kufuneka ilingane ne-constant {expected}",
   "identities.messages.4000030": "i-const ayiphumelelanga",
   "identities.messages.4000031": "Igama eliyimfihlo alinakusetyenziswa ngenxa yokuba lifana kakhulu nesinto sokuqinisekisa.",

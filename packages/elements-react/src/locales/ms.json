@@ -159,7 +159,7 @@
   "identities.messages.4000025": "item pada indeks {index_a} dan {index_b} adalah sama",
   "identities.messages.4000026": "dijangka {allowed_types_list}, tetapi mendapat {actual_type}",
   "identities.messages.4000027": "Akaun dengan pengenal yang sama (e-mel, telefon, nama pengguna, ...) sudah wujud. Sila log masuk ke akaun sedia ada anda untuk memautkan profil sosial anda.",
-  "identities.messages.4000028": "Anda cuba log masuk dengan {credential_identifier_hint} yang sudah digunakan oleh akaun lain. Anda boleh log masuk menggunakan {available_credential_types_list}. Anda boleh log masuk menggunakan salah satu penyedia log masuk sosial berikut: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Anda cuba log masuk dengan {credential_identifier_hint} yang sudah digunakan oleh akaun lain. Anda boleh log masuk menggunakan {available_credential_types_list}. Anda boleh log masuk menggunakan salah satu penyedia log masuk sosial berikut: {available_oidc_providers_list}.",
   "identities.messages.4000029": "mestilah sama dengan pemalar {expected}",
   "identities.messages.4000030": "pemalar gagal",
   "identities.messages.4000031": "Kata laluan tidak boleh digunakan kerana terlalu serupa dengan pengenal.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "ਇੰਡੈਕਸ {index_a} ਅਤੇ {index_b} ਦੀਆਂ ਆਈਟਮ ਬਰਾਬਰ ਹਨ",
   "identities.messages.4000026": "{allowed_types_list} ਦੀ ਉਮੀਦ ਸੀ, ਪਰ {actual_type} ਪ੍ਰਾਪਤ ਕੀਤੀ ਗਈ",
   "identities.messages.4000027": "ਉਸੇ ਪਛਾਣਕਰਤਾ (ਈਮੇਲ, ਫੋਨ, ਯੂਜ਼ਰਨੇਮ, ...) ਵਾਲਾ ਖਾਤਾ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਮੌਜੂਦਾ ਖਾਤੇ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ ਤਾਂ ਕਿ ਤੁਸੀਂ ਆਪਣੀ ਸੋਸ਼ਲ ਪ੍ਰੋਫਾਈਲ ਲਿੰਕ ਕਰ ਸਕੋ।",
-  "identities.messages.4000028": "ਤੁਸੀਂ {credential_identifier_hint} ਨਾਲ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਜੋ ਹੋਰ ਖਾਤੇ ਦੁਆਰਾ ਵਰਤੀ ਜਾ ਰਹੀ ਹੈ। ਤੁਸੀਂ {available_credential_types_list} ਨਾਲ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ। ਤੁਸੀਂ ਹੇਠ ਦਿੱਤੇ ਸੋਸ਼ਲ ਲਾਗਇਨ ਪ੍ਰਦਾਤਾਵਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਨਾਲ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "ਤੁਸੀਂ {credential_identifier_hint} ਨਾਲ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਜੋ ਹੋਰ ਖਾਤੇ ਦੁਆਰਾ ਵਰਤੀ ਜਾ ਰਹੀ ਹੈ। ਤੁਸੀਂ {available_credential_types_list} ਨਾਲ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ। ਤੁਸੀਂ ਹੇਠ ਦਿੱਤੇ ਸੋਸ਼ਲ ਲਾਗਇਨ ਪ੍ਰਦਾਤਾਵਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਨਾਲ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ: {available_oidc_providers_list}.",
   "identities.messages.4000029": "{expected} ਨਾਲ ਬਰਾਬਰ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ",
   "identities.messages.4000030": "ਕਾਂਸਟ ਫੇਲ ਹੋ ਗਿਆ",
   "identities.messages.4000031": "ਪਾਸਵਰਡ ਨੂੰ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ ਕਿਉਂਕਿ ਇਹ ਪਛਾਣਕਰਤਾ ਨਾਲ ਬਹੁਤ ਮਿਲਦਾ ਹੈ।",

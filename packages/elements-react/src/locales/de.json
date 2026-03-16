@@ -90,7 +90,7 @@
   "identities.messages.4000025": "Elemente an Index {index_a} und {index_b} sind gleich.",
   "identities.messages.4000026": "erwartete {allowed_types_list}, {actual_type} gefunden.",
   "identities.messages.4000027": "Ein Konto mit demselben Identifikator (E-Mail, Telefon, Benutzername, ...) existiert bereits. Bitte melden Sie sich in Ihrem bestehenden Konto an und verknüpfen Sie Ihren Social-Login auf der Einstellungsseite.",
-  "identities.messages.4000028": "Sie haben versucht, sich mit {credential_identifier_hint} anzumelden, das bereits von einem anderen Konto verwendet wird. Sie können sich mit {available_credential_types_list} anmelden. Sie können sich mit einem der folgenden Social-Logins anmelden: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Sie haben versucht, sich mit {credential_identifier_hint} anzumelden, das bereits von einem anderen Konto verwendet wird. Sie können sich mit {available_credential_types_list} anmelden. Sie können sich mit einem der folgenden Social-Logins anmelden: {available_oidc_providers_list}.",
   "identities.messages.4000029": "muss gleich der Konstanten {expected} sein.",
   "identities.messages.4000030": "const fehlgeschlagen",
   "identities.messages.4000031": "Das Passwort kann nicht verwendet werden, da es zu ähnlich dem Identifikator ist.",

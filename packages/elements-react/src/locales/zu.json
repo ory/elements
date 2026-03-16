@@ -104,7 +104,7 @@
   "identities.messages.4000025": "izinto ku-index {index_a} no-{index_b} ziyafana",
   "identities.messages.4000026": "kulindelwe {allowed_types_list}, kodwa kutholwe {actual_type}",
   "identities.messages.4000027": "I-akhawunti enesikhombi esifanayo (i-imeyili, ucingo, igama lomsebenzisi, ...) isivele ikhona. Sicela ungene ngemvume kwi-akhawunti yakho ekhona ukuze uxhume iphrofayela yakho yezinkundla zokuxhumana.",
-  "identities.messages.4000028": "Uzame ukungena ngemvume nge-{credential_identifier_hint} esivele isetshenziswa ngenye i-akhawunti. Ungangena ngemvume usebenzisa {available_credential_types_list}. Ungangena ngemvume usebenzisa omunye wabahlinzeki bokulandelayo bokungena ngemvume ngezinkundla zokuxhumana: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Uzame ukungena ngemvume nge-{credential_identifier_hint} esivele isetshenziswa ngenye i-akhawunti. Ungangena ngemvume usebenzisa {available_credential_types_list}. Ungangena ngemvume usebenzisa omunye wabahlinzeki bokulandelayo bokungena ngemvume ngezinkundla zokuxhumana: {available_oidc_providers_list}.",
   "identities.messages.4000029": "kumele kulingane nokungaguquguquki {expected}",
   "identities.messages.4000030": "i-const yehlulekile",
   "identities.messages.4000031": "Iphasiwedi ayikwazi ukusetshenziswa ngoba ifana kakhulu nesikhombi.",

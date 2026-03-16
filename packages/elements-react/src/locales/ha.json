@@ -104,7 +104,7 @@
   "identities.messages.4000025": "abubuwa a fihirisin {index_a} da {index_b} sun yi daidai",
   "identities.messages.4000026": "ana tsammani {allowed_types_list}, amma an sami {actual_type}",
   "identities.messages.4000027": "Akwai asusu tare da irin wannan mai ganowa (imel, waya, sunan mai amfani, ...) tuni. Don Allah ka shiga zuwa asusun ka da ke akwai don haɗa bayanan ka na zamantakewa.",
-  "identities.messages.4000028": "Ka yi ƙoƙarin shiga da {credential_identifier_hint} wanda wani asusu ke amfani da shi tuni. Kana iya shiga ta amfani da {available_credential_types_list}. Kana iya shiga ta amfani da ɗaya daga cikin masu bayar da shiga ta zamantakewa masu zuwa: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Ka yi ƙoƙarin shiga da {credential_identifier_hint} wanda wani asusu ke amfani da shi tuni. Kana iya shiga ta amfani da {available_credential_types_list}. Kana iya shiga ta amfani da ɗaya daga cikin masu bayar da shiga ta zamantakewa masu zuwa: {available_oidc_providers_list}.",
   "identities.messages.4000029": "dole ya yi daidai da akai-akai {expected}",
   "identities.messages.4000030": "const ya gaza",
   "identities.messages.4000031": "Ba za a iya amfani da kalmar wucewa ba saboda tana kama da mai ganowa.",

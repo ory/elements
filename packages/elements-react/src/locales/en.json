@@ -104,7 +104,7 @@
   "identities.messages.4000025": "items at index {index_a} and {index_b} are equal",
   "identities.messages.4000026": "expected {allowed_types_list}, but got {actual_type}",
   "identities.messages.4000027": "An account with the same identifier (email, phone, username, ...) exists already. Please sign in to your existing account to link your social profile.",
-  "identities.messages.4000028": "You tried signing in with {credential_identifier_hint} which is already in use by another account. You can sign in using {available_credential_types_list}. You can sign in using one of the following social sign in providers: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "You tried signing in with {credential_identifier_hint} which is already in use by another account. You can sign in using {available_credential_types_list}. You can sign in using one of the following social sign in providers: {available_oidc_providers_list}.",
   "identities.messages.4000029": "must be equal to constant {expected}",
   "identities.messages.4000030": "const failed",
   "identities.messages.4000031": "The password can not be used because it is too similar to the identifier.",

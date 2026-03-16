@@ -104,7 +104,7 @@
   "identities.messages.4000025": "సూచికలు {index_a} మరియు {index_b} సమానంగా ఉన్నాయి",
   "identities.messages.4000026": "అనుమతించబడింది {allowed_types_list}, కానీ {actual_type} ఉంది",
   "identities.messages.4000027": "ఇప్పటికే మరో ఖాతా ద్వారా ఉపయోగించబడుతున్న సూచిక (ఇమెయిల్, ఫోన్, ఉపయోగకర్త పేరు, ...) కలిగిన ఖాతా ఉంది. దయచేసి మీ ఉన్న ఖాతాకు లాగిన్ అవ్వండి మరియు మీ సోషల్ ప్రొఫైల్ ని లింక్ చేయండి.",
-  "identities.messages.4000028": "మీరు {credential_identifier_hint}తో లాగిన్ అయ్యాలని ప్రయత్నించారు, ఇది ఇప్పటికే మరో ఖాతా ద్వారా ఉపయోగించబడుతోంది. మీరు {available_credential_types_list} ఉపయోగించి లాగిన్ అవ్వండి. మీరు దిగువ ఇచ్చిన సోషల్ లాగిన్ ప్రొవైడర్లలో ఒకటి ఉపయోగించి లాగిన్ అవ్వండి: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "మీరు {credential_identifier_hint}తో లాగిన్ అయ్యాలని ప్రయత్నించారు, ఇది ఇప్పటికే మరో ఖాతా ద్వారా ఉపయోగించబడుతోంది. మీరు {available_credential_types_list} ఉపయోగించి లాగిన్ అవ్వండి. మీరు దిగువ ఇచ్చిన సోషల్ లాగిన్ ప్రొవైడర్లలో ఒకటి ఉపయోగించి లాగిన్ అవ్వండి: {available_oidc_providers_list}.",
   "identities.messages.4000029": "స్థిరంగా {expected} కు సమానం కావాలి",
   "identities.messages.4000030": "స్థిరం విఫలమైంది",
   "identities.messages.4000031": "పాస్‌వర్డ్ ఉపయోగించలేము ఎందుకంటే ఇది సూచికతో పోలి ఉంది.",

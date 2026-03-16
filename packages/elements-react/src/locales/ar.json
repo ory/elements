@@ -104,7 +104,7 @@
   "identities.messages.4000025": "العناصر في الفهرس {index_a} و {index_b} متساوية",
   "identities.messages.4000026": "متوقع {allowed_types_list}، ولكن الحصول على {actual_type}",
   "identities.messages.4000027": "يوجد حساب بنفس المعرف (البريد الإلكتروني، الهاتف، اسم المستخدم، ...) بالفعل. يرجى تسجيل الدخول إلى حسابك الحالي لربط ملفك الاجتماعي.",
-  "identities.messages.4000028": "لقد حاولت تسجيل الدخول باستخدام {credential_identifier_hint} المستخدم بالفعل من قبل حساب آخر. يمكنك تسجيل الدخول باستخدام {available_credential_types_list}. يمكنك تسجيل الدخول باستخدام أحد موفري تسجيل الدخول الاجتماعي التاليين: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "لقد حاولت تسجيل الدخول باستخدام {credential_identifier_hint} المستخدم بالفعل من قبل حساب آخر. يمكنك تسجيل الدخول باستخدام {available_credential_types_list}. يمكنك تسجيل الدخول باستخدام أحد موفري تسجيل الدخول الاجتماعي التاليين: {available_oidc_providers_list}.",
   "identities.messages.4000029": "يجب أن يساوي الثابت {expected}",
   "identities.messages.4000030": "فشل الثابت",
   "identities.messages.4000031": "لا يمكن استخدام كلمة المرور لأنها مشابهة جدًا للمعرف.",

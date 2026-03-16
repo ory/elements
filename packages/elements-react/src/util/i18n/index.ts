@@ -110,6 +110,12 @@ export const uiTextToFormattedMessage = (
   )
 
   if (isKratosMessageId(id)) {
+    const hasEmptyArrayContext = Object.values(context).some(
+      (v) => Array.isArray(v) && v.length === 0,
+    )
+    if (hasEmptyArrayContext) {
+      return text
+    }
     return intl.formatMessage(kratosMessages[id], contextInjectedMessage)
   }
 

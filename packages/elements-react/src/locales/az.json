@@ -104,7 +104,7 @@
   "identities.messages.4000025": "{index_a} və {index_b} indekslərindəki elementlər bərabərdir",
   "identities.messages.4000026": "{allowed_types_list} gözlənilirdi, amma {actual_type} alındı",
   "identities.messages.4000027": "Eyni identifikatorla (e-poçt, telefon, istifadəçi adı, ...) hesab artıq mövcuddur. Sosial profilinizi əlaqələndirmək üçün mövcud hesabınıza daxil olun.",
-  "identities.messages.4000028": "{credential_identifier_hint} ilə daxil olmağa çalışdınız, bu artıq başqa bir hesab tərəfindən istifadə olunur. {available_credential_types_list} istifadə edərək daxil ola bilərsiniz. Aşağıdakı sosial daxilolma provayderlərindən birini istifadə edərək daxil ola bilərsiniz: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "{credential_identifier_hint} ilə daxil olmağa çalışdınız, bu artıq başqa bir hesab tərəfindən istifadə olunur. {available_credential_types_list} istifadə edərək daxil ola bilərsiniz. Aşağıdakı sosial daxilolma provayderlərindən birini istifadə edərək daxil ola bilərsiniz: {available_oidc_providers_list}.",
   "identities.messages.4000029": "{expected} sabitinə bərabər olmalıdır",
   "identities.messages.4000030": "sabit uğursuz oldu",
   "identities.messages.4000031": "Şifrə istifadə edilə bilməz çünki identifikatora çox oxşardır.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "елементите на индекс {index_a} и {index_b} са еднакви",
   "identities.messages.4000026": "очаква се {allowed_types_list}, но е получен {actual_type}",
   "identities.messages.4000027": "Акаунт със същия идентификатор (имейл, телефон, потребителско име, ...) вече съществува. Моля, влезте в съществуващия си акаунт, за да свържете вашия социален профил.",
-  "identities.messages.4000028": "Опитахте се да влезете с {credential_identifier_hint}, който вече се използва от друг акаунт. Можете да влезете, като използвате {available_credential_types_list}. Можете да влезете, като използвате един от следните доставчици на социален вход: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Опитахте се да влезете с {credential_identifier_hint}, който вече се използва от друг акаунт. Можете да влезете, като използвате {available_credential_types_list}. Можете да влезете, като използвате един от следните доставчици на социален вход: {available_oidc_providers_list}.",
   "identities.messages.4000029": "трябва да бъде равно на константа {expected}",
   "identities.messages.4000030": "константата е неуспешна",
   "identities.messages.4000031": "Паролата не може да се използва, защото е твърде подобна на идентификатора.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "{index_a} we {index_b} indeksindäki zatlar deňdir",
   "identities.messages.4000026": "{allowed_types_list} garaşylýar, ýöne {actual_type} alyndy",
   "identities.messages.4000027": "Şol bir kesgitleýji (e-poçta, telefon, ulanyjy ady, ...) bolan hasap eýýäm bar. Sosial profilyňyzy baglanyşdyrmak üçin haýyş edýäris bar bolan hasabyňyza giriň.",
-  "identities.messages.4000028": "Siz {credential_identifier_hint} arkaly girmäge synanyşdyňyz, bu eýýäm başga hasap tarapyndan ulanylýar. Siz {available_credential_types_list} ulanyp girip bilersiňiz. Aşakdaky sosial giriş üpjün edijileriniň birini ulanyp girip bilersiňiz: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Siz {credential_identifier_hint} arkaly girmäge synanyşdyňyz, bu eýýäm başga hasap tarapyndan ulanylýar. Siz {available_credential_types_list} ulanyp girip bilersiňiz. Aşakdaky sosial giriş üpjün edijileriniň birini ulanyp girip bilersiňiz: {available_oidc_providers_list}.",
   "identities.messages.4000029": "{expected} hemişelik bahasy bilen deň bolmaly",
   "identities.messages.4000030": "hemişelik şowsuz boldy",
   "identities.messages.4000031": "Parol ulanylyp bilinmeýär, sebäbi kesgitleýjä gaty meňzeýär.",

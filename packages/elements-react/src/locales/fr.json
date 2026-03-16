@@ -90,7 +90,7 @@
   "identities.messages.4000025": "Les éléments aux indices {index_a} et {index_b} sont égaux",
   "identities.messages.4000026": "Les types autorisés étaient {allowed_types_list}, mais le type actuel est {actual_type}",
   "identities.messages.4000027": "Un compte avec le même identifiant (e-mail, téléphone, nom d'utilisateur, ...) existe déjà. Veuillez vous connecter à votre compte existant et lier votre profil social dans la page des paramètres.",
-  "identities.messages.4000028": "Vous avez essayé de vous connecter avec {credential_identifier_hint} qui est déjà utilisé par un autre compte. Vous pouvez vous connecter en utilisant {available_credential_types_list}. Vous pouvez vous connecter en utilisant l'un des fournisseurs de connexion sociale suivants : {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Vous avez essayé de vous connecter avec {credential_identifier_hint} qui est déjà utilisé par un autre compte. Vous pouvez vous connecter en utilisant {available_credential_types_list}. Vous pouvez vous connecter en utilisant l'un des fournisseurs de connexion sociale suivants : {available_oidc_providers_list}.",
   "identities.messages.4000029": "Doit être égal à la constante {expected}",
   "identities.messages.4000030": "Échec de la constante",
   "identities.messages.4000031": "Le mot de passe ne peut pas être utilisé car il est trop similaire à l'identifiant.",

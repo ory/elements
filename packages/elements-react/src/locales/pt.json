@@ -90,7 +90,7 @@
   "identities.messages.4000025": "itens nos índices {index_a} e {index_b} são iguais",
   "identities.messages.4000026": "esperado {allowed_types_list}, mas foi {actual_type}",
   "identities.messages.4000027": "Já existe uma conta com o mesmo username (e-mail, telefone, nome de usuário, ...). Faça login na sua conta existente e vincule seu perfil social na página de configurações.",
-  "identities.messages.4000028": "Tentou fazer login com {credential_identifier_hint}, que já está sendo usado por outra conta. Pode fazer login usando {available_credential_types_list}. Pode fazer login usando um dos seguintes provedores de login social: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Tentou fazer login com {credential_identifier_hint}, que já está sendo usado por outra conta. Pode fazer login usando {available_credential_types_list}. Pode fazer login usando um dos seguintes provedores de login social: {available_oidc_providers_list}.",
   "identities.messages.4000029": "deve ser igual a constante {expected}",
   "identities.messages.4000030": "constante falhou",
   "identities.messages.4000031": "A password não pode ser utilizada porque é muito semelhante ao username.",

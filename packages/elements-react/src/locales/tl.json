@@ -159,7 +159,7 @@
   "identities.messages.4000025": "ang mga item sa index {index_a} at {index_b} ay magkapareho",
   "identities.messages.4000026": "inaasahang {allowed_types_list}, ngunit nakakuha ng {actual_type}",
   "identities.messages.4000027": "Ang account na may parehong identifier (email, telepono, username, ...) ay umiiral na. Mangyaring mag-sign in sa iyong umiiral na account upang i-link ang iyong social profile.",
-  "identities.messages.4000028": "Sinubukan mong mag-sign in gamit ang {credential_identifier_hint} na ginagamit na ng ibang account. Maaari kang mag-sign in gamit ang {available_credential_types_list}. Maaari kang mag-sign in gamit ang isa sa mga sumusunod na social sign in providers: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Sinubukan mong mag-sign in gamit ang {credential_identifier_hint} na ginagamit na ng ibang account. Maaari kang mag-sign in gamit ang {available_credential_types_list}. Maaari kang mag-sign in gamit ang isa sa mga sumusunod na social sign in providers: {available_oidc_providers_list}.",
   "identities.messages.4000029": "dapat pantay sa constant na {expected}",
   "identities.messages.4000030": "nabigo ang const",
   "identities.messages.4000031": "Ang password ay hindi maaaring gamitin dahil napakalapit nito sa identifier.",

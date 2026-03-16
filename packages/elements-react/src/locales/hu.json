@@ -104,7 +104,7 @@
   "identities.messages.4000025": "az elemek a(z) {index_a} és {index_b} indexnél megegyeznek",
   "identities.messages.4000026": "{allowed_types_list} várható, de {actual_type} lett",
   "identities.messages.4000027": "Ugyanezzel az azonosítóval (e-mail, telefon, felhasználónév, ...) már létezik egy fiók. Kérjük, jelentkezzen be a meglévő fiókjába a közösségi profilja összekapcsolásához.",
-  "identities.messages.4000028": "A következővel próbált bejelentkezni: {credential_identifier_hint}, amely már használatban van egy másik fiók által. Bejelentkezhet a következő használatával: {available_credential_types_list}. Bejelentkezhet a következő közösségi bejelentkezési szolgáltatók egyikével: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "A következővel próbált bejelentkezni: {credential_identifier_hint}, amely már használatban van egy másik fiók által. Bejelentkezhet a következő használatával: {available_credential_types_list}. Bejelentkezhet a következő közösségi bejelentkezési szolgáltatók egyikével: {available_oidc_providers_list}.",
   "identities.messages.4000029": "egyenlőnek kell lennie a következő konstanssal: {expected}",
   "identities.messages.4000030": "konstans sikertelen",
   "identities.messages.4000031": "A jelszó nem használható, mert túl hasonló az azonosítóhoz.",

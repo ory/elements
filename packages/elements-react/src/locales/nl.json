@@ -90,7 +90,7 @@
   "identities.messages.4000025": "items op index {index_a} en {index_b} zijn gelijk",
   "identities.messages.4000026": "verwacht {allowed_types_list}, maar kreeg {actual_type}",
   "identities.messages.4000027": "Er bestaat al een account met dezelfde identificatiegegevens (e-mail, telefoon, gebruikersnaam, ...). Meld je aan bij je bestaande account en koppel je sociale profiel in de instellingenpagina.",
-  "identities.messages.4000028": "Je hebt geprobeerd in te loggen met {credential_identifier_hint}, dat al wordt gebruikt door een ander account. Je kunt inloggen met {available_credential_types_list}. Je kunt inloggen met een van de volgende sociale aanmeldingsproviders: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Je hebt geprobeerd in te loggen met {credential_identifier_hint}, dat al wordt gebruikt door een ander account. Je kunt inloggen met {available_credential_types_list}. Je kunt inloggen met een van de volgende sociale aanmeldingsproviders: {available_oidc_providers_list}.",
   "identities.messages.4000029": "moet gelijk zijn aan constante {expected}",
   "identities.messages.4000030": "constante mislukt",
   "identities.messages.4000031": "Het wachtwoord kan niet worden gebruikt omdat het te veel lijkt op de identificatiegegevens.",

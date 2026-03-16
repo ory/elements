@@ -104,7 +104,7 @@
   "identities.messages.4000025": "توکي په {index_a} او {index_b} کې برابر دي",
   "identities.messages.4000026": "{allowed_types_list} تمه کیده، مګر {actual_type} ترلاسه شو",
   "identities.messages.4000027": "د ورته پیژندونکي (بریښنالیک، تلیفون، کارن نوم، ...) سره یو حساب لا دمخه شتون لري. مهرباني وکړئ خپل موجود حساب ته ننوځئ ترڅو خپل ټولنیز پروفایل ونښلوئ.",
-  "identities.messages.4000028": "تاسو د {credential_identifier_hint} سره د ننوتلو هڅه وکړه چې لا دمخه د بل حساب لخوا کارول کیږي. تاسو کولای شئ د {available_credential_types_list} په کارولو سره ننوځئ. تاسو کولای شئ د لاندې ټولنیزو ننوتلو چمتو کوونکو څخه یو وکاروئ: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "تاسو د {credential_identifier_hint} سره د ننوتلو هڅه وکړه چې لا دمخه د بل حساب لخوا کارول کیږي. تاسو کولای شئ د {available_credential_types_list} په کارولو سره ننوځئ. تاسو کولای شئ د لاندې ټولنیزو ننوتلو چمتو کوونکو څخه یو وکاروئ: {available_oidc_providers_list}.",
   "identities.messages.4000029": "باید د ثابتې {expected} سره مساوي وي",
   "identities.messages.4000030": "ثابته ناکامه شوه",
   "identities.messages.4000031": "پټنوم نشي کارول کیدای ځکه چې دا د پیژندونکي سره ډیر ورته دی.",

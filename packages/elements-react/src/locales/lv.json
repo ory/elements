@@ -104,7 +104,7 @@
   "identities.messages.4000025": "vienumi ar indeksiem {index_a} un {index_b} ir vienādi",
   "identities.messages.4000026": "sagaidīts {allowed_types_list}, bet ir {actual_type}",
   "identities.messages.4000027": "Konts ar tādu pašu identifikatoru (e-pasts, tālrunis, lietotājvārds, ...) jau pastāv. Lūdzu, pierakstieties savā esošajā kontā, lai saistītu savu sociālo profilu.",
-  "identities.messages.4000028": "Jūs mēģinājāt pierakstīties ar {credential_identifier_hint}, kas jau tiek izmantots citam kontam. Varat pierakstīties, izmantojot {available_credential_types_list}. Varat pierakstīties, izmantojot kādu no šiem sociālās pierakstīšanās pakalpojumu sniedzējiem: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Jūs mēģinājāt pierakstīties ar {credential_identifier_hint}, kas jau tiek izmantots citam kontam. Varat pierakstīties, izmantojot {available_credential_types_list}. Varat pierakstīties, izmantojot kādu no šiem sociālās pierakstīšanās pakalpojumu sniedzējiem: {available_oidc_providers_list}.",
   "identities.messages.4000029": "jābūt vienādam ar konstanti {expected}",
   "identities.messages.4000030": "konstante neizdevās",
   "identities.messages.4000031": "Paroli nevar izmantot, jo tā ir pārāk līdzīga identifikatoram.",

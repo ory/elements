@@ -104,7 +104,7 @@
   "identities.messages.4000025": "gli elementi all'indice {index_a} e {index_b} sono uguali",
   "identities.messages.4000026": "previsti {allowed_types_list}, ma trovato {actual_type}",
   "identities.messages.4000027": "Esiste già un account con lo stesso identificatore (email, telefono, nome utente, ...). Accedi al tuo account esistente per collegare il tuo profilo sociale.",
-  "identities.messages.4000028": "Hai provato ad accedere con {credential_identifier_hint} che è già in uso da un altro account. Puoi accedere utilizzando {available_credential_types_list}. Puoi accedere utilizzando uno dei seguenti provider di accesso sociale: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Hai provato ad accedere con {credential_identifier_hint} che è già in uso da un altro account. Puoi accedere utilizzando {available_credential_types_list}. Puoi accedere utilizzando uno dei seguenti provider di accesso sociale: {available_oidc_providers_list}.",
   "identities.messages.4000029": "deve essere uguale alla costante {expected}",
   "identities.messages.4000030": "fallimento della costante",
   "identities.messages.4000031": "La password non può essere utilizzata perché è troppo simile all'identificatore.",

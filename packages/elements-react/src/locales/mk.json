@@ -104,7 +104,7 @@
   "identities.messages.4000025": "ставките на индекс {index_a} и {index_b} се еднакви",
   "identities.messages.4000026": "очекувано {allowed_types_list}, но доби {actual_type}",
   "identities.messages.4000027": "Сметка со ист идентификатор (е-маил, телефон, корисничко име, ...) веќе постои. Ве молиме најавете се на вашата постоечка сметка за да го поврзете вашиот социјален профил.",
-  "identities.messages.4000028": "Се обидовте да се најавите со {credential_identifier_hint} кој веќе се користи од друга сметка. Можете да се најавите користејќи {available_credential_types_list}. Можете да се најавите користејќи еден од следниве провајдери за социјално најавување: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Се обидовте да се најавите со {credential_identifier_hint} кој веќе се користи од друга сметка. Можете да се најавите користејќи {available_credential_types_list}. Можете да се најавите користејќи еден од следниве провајдери за социјално најавување: {available_oidc_providers_list}.",
   "identities.messages.4000029": "мора да биде еднакво на константата {expected}",
   "identities.messages.4000030": "константата не успеа",
   "identities.messages.4000031": "Лозинката не може да се користи затоа што е премногу слична на идентификаторот.",

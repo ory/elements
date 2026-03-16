@@ -104,7 +104,7 @@
   "identities.messages.4000025": "索引 {index_a} 和 {index_b} 的项目相同",
   "identities.messages.4000026": "期望 {allowed_types_list} 类型，但实际为 {actual_type}",
   "identities.messages.4000027": "已存在相同标识符（电子邮件、电话、用户名等）的账户。请登录您的现有账户以链接社交资料。",
-  "identities.messages.4000028": "您尝试使用 {credential_identifier_hint} 登录，但已被另一个账户使用。您可以使用 {available_credential_types_list} 进行登录。您可以使用以下社交媒体登录提供商之一进行登录：{Available_oidc_providers_list}。",
+  "identities.messages.4000028": "您尝试使用 {credential_identifier_hint} 登录，但已被另一个账户使用。您可以使用 {available_credential_types_list} 进行登录。您可以使用以下社交媒体登录提供商之一进行登录：{available_oidc_providers_list}。",
   "identities.messages.4000029": "必须等于常量 {expected}",
   "identities.messages.4000030": "const 失败",
   "identities.messages.4000031": "密码不可用，因为它与标识符太相似。",

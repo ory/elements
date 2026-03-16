@@ -104,7 +104,7 @@
   "identities.messages.4000025": "barang dina indéks {index_a} sareng {index_b} sami",
   "identities.messages.4000026": "dipiharep {allowed_types_list}, tapi nampi {actual_type}",
   "identities.messages.4000027": "Akun kalayan identifier anu sami (email, telepon, nami pangguna, ...) parantos aya. Mangga lebet kana akun anjeun anu aya pikeun nyambungkeun profil sosial anjeun.",
-  "identities.messages.4000028": "Anjeun nyobian lebet nganggo {credential_identifier_hint} anu parantos dianggo ku akun anu sanés. Anjeun tiasa lebet nganggo {available_credential_types_list}. Anjeun tiasa lebet nganggo salah sahiji panyadia lebet sosial ieu: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Anjeun nyobian lebet nganggo {credential_identifier_hint} anu parantos dianggo ku akun anu sanés. Anjeun tiasa lebet nganggo {available_credential_types_list}. Anjeun tiasa lebet nganggo salah sahiji panyadia lebet sosial ieu: {available_oidc_providers_list}.",
   "identities.messages.4000029": "kedah sarua sareng konstanta {expected}",
   "identities.messages.4000030": "konstanta gagal",
   "identities.messages.4000031": "Kecap sandi teu tiasa dianggo kusabab teuing mirip sareng identifier.",

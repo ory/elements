@@ -104,7 +104,7 @@
   "identities.messages.4000025": "stavke na poziciji {index_a} i {index_b} su iste",
   "identities.messages.4000026": "očekivano {allowed_types_list}, ali je dobijeno {actual_type}",
   "identities.messages.4000027": "Nalog sa istim identifikatorom (email, telefon, korisničko ime, ...) već postoji. Molimo vas prijavite se na svoj postojeći nalog da povežete svoj društveni profil.",
-  "identities.messages.4000028": "Pokušali ste da se prijavite sa {credential_identifier_hint} koji je već u upotrebi na drugom nalogu. Možete se prijaviti koristeći {available_credential_types_list}. Možete se prijaviti koristeći jedan od sledećih provajdera društvene prijave: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Pokušali ste da se prijavite sa {credential_identifier_hint} koji je već u upotrebi na drugom nalogu. Možete se prijaviti koristeći {available_credential_types_list}. Možete se prijaviti koristeći jedan od sledećih provajdera društvene prijave: {available_oidc_providers_list}.",
   "identities.messages.4000029": "mora biti jednako konstanti {expected}",
   "identities.messages.4000030": "konstanta nije uspela",
   "identities.messages.4000031": "Lozinka ne može biti korišćena jer je previše slična identifikatoru.",

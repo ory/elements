@@ -104,7 +104,7 @@
   "identities.messages.4000025": "በኢንዴክስ {index_a} እና {index_b} ያሉ ንጥሎች እኩል ናቸው",
   "identities.messages.4000026": "{allowed_types_list} ይጠበቃል፣ ግን {actual_type} አገኘሁ",
   "identities.messages.4000027": "ተመሳሳይ መለያ ያለው መለያ (ኢሜይል፣ ስልክ፣ ተጠቃሚ ስም፣ ...) አስቀድሞ አለ። እባክዎን ማህበራዊ መገለጫዎን ለማገናኘት ወደ ነባር መለያዎ ይግቡ።",
-  "identities.messages.4000028": "በ{credential_identifier_hint} ለመግባት ሞክረዋል እሱም አስቀድሞ በሌላ መለያ ጥቅም ላይ ውሏል። {available_credential_types_list}ን በመጠቀም መግባት ይችላሉ። ከሚከተሉት ማህበራዊ መግቢያ አቅራቢዎች በአንዱ መግባት ይችላሉ፡ {Available_oidc_providers_list}።",
+  "identities.messages.4000028": "በ{credential_identifier_hint} ለመግባት ሞክረዋል እሱም አስቀድሞ በሌላ መለያ ጥቅም ላይ ውሏል። {available_credential_types_list}ን በመጠቀም መግባት ይችላሉ። ከሚከተሉት ማህበራዊ መግቢያ አቅራቢዎች በአንዱ መግባት ይችላሉ፡ {available_oidc_providers_list}።",
   "identities.messages.4000029": "ከቋሚ {expected} ጋር እኩል መሆን አለበት",
   "identities.messages.4000030": "ቋሚ ወድቋል",
   "identities.messages.4000031": "የይለፍ ቃሉ ከመለያው ጋር በጣም ስለሚመሳሰል ጥቅም ላይ መዋል አይችልም።",

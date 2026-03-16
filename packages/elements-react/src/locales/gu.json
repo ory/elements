@@ -104,7 +104,7 @@
   "identities.messages.4000025": "ઇન્ડેક્સ {index_a} અને {index_b} પરની આઇટમ સમાન છે",
   "identities.messages.4000026": "{allowed_types_list} ની અપેક્ષા હતી, પરંતુ {actual_type} મળી",
   "identities.messages.4000027": "સમાન ઓળખકર્તા (ઇમેઇલ, ફોન, વપરાશકર્તાનામ, ...) સાથેનું એકાઉન્ટ પહેલેથી જ અસ્તિત્વમાં છે. કૃપા કરીને તમારી સોશિયલ પ્રોફાઇલ લિંક કરવા માટે તમારા હાલના એકાઉન્ટમાં સાઇન ઇન કરો.",
-  "identities.messages.4000028": "તમે {credential_identifier_hint} સાથે સાઇન ઇન કરવાનો પ્રયાસ કર્યો જે પહેલેથી જ બીજા એકાઉન્ટ દ્વારા વપરાયેલ છે. તમે {available_credential_types_list} વાપરીને સાઇન ઇન કરી શકો છો. તમે નીચેના સોશિયલ સાઇન ઇન પ્રદાતાઓમાંથી એકનો ઉપયોગ કરીને સાઇન ઇન કરી શકો છો: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "તમે {credential_identifier_hint} સાથે સાઇન ઇન કરવાનો પ્રયાસ કર્યો જે પહેલેથી જ બીજા એકાઉન્ટ દ્વારા વપરાયેલ છે. તમે {available_credential_types_list} વાપરીને સાઇન ઇન કરી શકો છો. તમે નીચેના સોશિયલ સાઇન ઇન પ્રદાતાઓમાંથી એકનો ઉપયોગ કરીને સાઇન ઇન કરી શકો છો: {available_oidc_providers_list}.",
   "identities.messages.4000029": "કોન્સ્ટન્ટ {expected} સાથે સમાન હોવું જોઈએ",
   "identities.messages.4000030": "કોન્સ્ટ નિષ્ફળ",
   "identities.messages.4000031": "પાસવર્ડ વાપરી શકાય તેમ નથી કારણ કે તે ઓળખકર્તા સાથે ખૂબ સમાન છે.",

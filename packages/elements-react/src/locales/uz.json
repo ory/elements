@@ -104,7 +104,7 @@
   "identities.messages.4000025": "{index_a} va {index_b} indekslaridagi elementlar teng",
   "identities.messages.4000026": "{allowed_types_list} kutilgan, lekin {actual_type} olingan",
   "identities.messages.4000027": "Xuddi shu identifikatorga (elektron pochta, telefon, foydalanuvchi nomi, ...) ega hisob allaqachon mavjud. Ijtimoiy profilingizni bog'lash uchun mavjud hisobingizga kiring.",
-  "identities.messages.4000028": "Siz {credential_identifier_hint} bilan kirishga harakat qildingiz, u allaqachon boshqa hisob tomonidan ishlatilmoqda. Siz {available_credential_types_list} yordamida kirishingiz mumkin. Siz quyidagi ijtimoiy kirish provayderlaridan foydalanib kirishingiz mumkin: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Siz {credential_identifier_hint} bilan kirishga harakat qildingiz, u allaqachon boshqa hisob tomonidan ishlatilmoqda. Siz {available_credential_types_list} yordamida kirishingiz mumkin. Siz quyidagi ijtimoiy kirish provayderlaridan foydalanib kirishingiz mumkin: {available_oidc_providers_list}.",
   "identities.messages.4000029": "o'zgarmas {expected} ga teng bo'lishi kerak",
   "identities.messages.4000030": "o'zgarmas muvaffaqiyatsiz",
   "identities.messages.4000031": "Parol ishlatilishi mumkin emas, chunki u identifikatorga juda o'xshash.",

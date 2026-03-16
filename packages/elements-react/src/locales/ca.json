@@ -104,7 +104,7 @@
   "identities.messages.4000025": "els elements de l'índex {index_a} i {index_b} són iguals",
   "identities.messages.4000026": "s'esperava {allowed_types_list}, però s'ha obtingut {actual_type}",
   "identities.messages.4000027": "Ja existeix un compte amb el mateix identificador (correu electrònic, telèfon, nom d'usuari, ...). Inicieu sessió al vostre compte existent per enllaçar el vostre perfil social.",
-  "identities.messages.4000028": "Heu intentat iniciar sessió amb {credential_identifier_hint} que ja està utilitzat per un altre compte. Podeu iniciar sessió utilitzant {available_credential_types_list}. Podeu iniciar sessió utilitzant un dels proveïdors d'inici de sessió social següents: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Heu intentat iniciar sessió amb {credential_identifier_hint} que ja està utilitzat per un altre compte. Podeu iniciar sessió utilitzant {available_credential_types_list}. Podeu iniciar sessió utilitzant un dels proveïdors d'inici de sessió social següents: {available_oidc_providers_list}.",
   "identities.messages.4000029": "ha de ser igual a la constant {expected}",
   "identities.messages.4000030": "la constant ha fallat",
   "identities.messages.4000031": "La contrasenya no es pot utilitzar perquè és massa similar a l'identificador.",

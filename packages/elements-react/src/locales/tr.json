@@ -104,7 +104,7 @@
   "identities.messages.4000025": "index {index_a} ve {index_b} öğeleri eşit",
   "identities.messages.4000026": "{allowed_types_list} bekleniyordu, ancak {actual_type} alındı",
   "identities.messages.4000027": "Aynı tanımlayıcıya (e-posta, telefon, kullanıcı adı, ...) sahip bir hesap zaten var. Lütfen sosyal profilinizi bağlamak için mevcut hesabınıza giriş yapın.",
-  "identities.messages.4000028": " {credential_identifier_hint} ile giriş yapmayı denediniz, ancak bu kimlik başka bir hesap tarafından zaten kullanılıyor. {available_credential_types_list} kullanarak giriş yapabilirsiniz. Aşağıdaki sosyal giriş sağlayıcılarından biriyle giriş yapabilirsiniz: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": " {credential_identifier_hint} ile giriş yapmayı denediniz, ancak bu kimlik başka bir hesap tarafından zaten kullanılıyor. {available_credential_types_list} kullanarak giriş yapabilirsiniz. Aşağıdaki sosyal giriş sağlayıcılarından biriyle giriş yapabilirsiniz: {available_oidc_providers_list}.",
   "identities.messages.4000029": "{expected} sabitine eşit olmalıdır",
   "identities.messages.4000030": "sabit doğrulama başarısız oldu",
   "identities.messages.4000031": "Şifre kimlik bilgisiyle çok benzer olduğu için kullanılamaz.",

@@ -104,7 +104,7 @@
   "identities.messages.4000025": "indeksite {index_a} ja {index_b} elemendid on võrdsed",
   "identities.messages.4000026": "oodati {allowed_types_list}, kuid saadi {actual_type}",
   "identities.messages.4000027": "Sama identifikaatoriga (e-post, telefon, kasutajanimi, ...) konto on juba olemas. Palun logige oma olemasolevale kontole sisse, et linkida oma sotsiaalmeedia profiil.",
-  "identities.messages.4000028": "Proovisite sisse logida aadressiga {credential_identifier_hint}, mida kasutab juba teine konto. Saate sisse logida kasutades {available_credential_types_list}. Saate sisse logida kasutades ühte järgmistest sotsiaalmeedia sisselogimise pakkujatest: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Proovisite sisse logida aadressiga {credential_identifier_hint}, mida kasutab juba teine konto. Saate sisse logida kasutades {available_credential_types_list}. Saate sisse logida kasutades ühte järgmistest sotsiaalmeedia sisselogimise pakkujatest: {available_oidc_providers_list}.",
   "identities.messages.4000029": "peab olema võrdne konstandiga {expected}",
   "identities.messages.4000030": "konstandi kontroll ebaõnnestus",
   "identities.messages.4000031": "Parooli ei saa kasutada, kuna see on identifikaatoriga liiga sarnane.",

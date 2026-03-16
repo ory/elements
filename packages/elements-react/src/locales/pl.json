@@ -90,7 +90,7 @@
   "identities.messages.4000025": "wpisów w indeksie {index_a} i {index_b} są takie same",
   "identities.messages.4000026": "spodziewano {allowed_types_list}, otrzymano {actual_type}",
   "identities.messages.4000027": "Istnieje już konto o takim samym identyfikatorze (email, telefon, nazwa użytkownika, ...). Zaloguj się do swojego konta i połącz swój profil zewnętrzny na stronie ustawień.",
-  "identities.messages.4000028": "Próbowano się zalogować za pomocą {credential_identifier_hint} który jest już używany przez inne konto. Możesz się zalogować za pomocą {available_credential_types_list}. Możesz się zalogować za pomocą następujących zewnętrznch dostawców logowania: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Próbowano się zalogować za pomocą {credential_identifier_hint} który jest już używany przez inne konto. Możesz się zalogować za pomocą {available_credential_types_list}. Możesz się zalogować za pomocą następujących zewnętrznch dostawców logowania: {available_oidc_providers_list}.",
   "identities.messages.4000029": "musi być równe stałej {expected}",
   "identities.messages.4000030": "const nie powiodła się",
   "identities.messages.4000031": "Hasło nie może być użytę ponieważ jest zbyt podobne do identyfikatora.",

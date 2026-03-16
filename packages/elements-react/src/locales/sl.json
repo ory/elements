@@ -104,7 +104,7 @@
   "identities.messages.4000025": "elementi na indeksu {index_a} in {index_b} sta enaka",
   "identities.messages.4000026": "pričakovano {allowed_types_list}, a dobljeno {actual_type}",
   "identities.messages.4000027": "Račun z istim identifikatorjem (e-pošta, telefon, uporabniško ime, ...) že obstaja. Prosimo, prijavite se v svoj obstoječi račun, da povežete svoj družbeni profil.",
-  "identities.messages.4000028": "Poskusili ste se prijaviti z {credential_identifier_hint}, ki je že v uporabi pri drugem računu. Prijavite se lahko z uporabo {available_credential_types_list}. Prijavite se lahko z uporabo enega od naslednjih ponudnikov družbene prijave: {Available_oidc_providers_list}.",
+  "identities.messages.4000028": "Poskusili ste se prijaviti z {credential_identifier_hint}, ki je že v uporabi pri drugem računu. Prijavite se lahko z uporabo {available_credential_types_list}. Prijavite se lahko z uporabo enega od naslednjih ponudnikov družbene prijave: {available_oidc_providers_list}.",
   "identities.messages.4000029": "mora biti enako konstanti {expected}",
   "identities.messages.4000030": "konstanta ni uspela",
   "identities.messages.4000031": "Geslo ne more biti uporabljeno, ker je preveč podobno identifikatorju.",
