@@ -1,0 +1,18 @@
+**/node_modules
+**/.next
+**/.nx
+**/.git
+**/.github
+**/.changeset
+**/dist
+**/api-report
+**/.stub-responses
+**/.storybook
+**/.vscode
+**/coverage
+packages/elements-react/stories
+
+# Exclude all other examples; the Dockerfile only needs nextjs-app-router.
+examples
+!examples/nextjs-app-router
+!examples/nextjs-app-router/**

@@ -1,0 +1,53 @@
+name: Docker - Build and push nextjs-app-router
+
+on:
+  push:
+    tags:
+      - "release/@ory/nextjs/*"
+      - "release/@ory/elements-react/*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Image tag to push (e.g. v1.2.3)"
+        required: true
+      push_latest:
+        description: "Also tag as latest"
+        type: boolean
+        default: false
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: oryd/elements-nextjs
+          tags: |
+            type=match,pattern=release/@ory/nextjs/(.*),group=1
+            type=match,pattern=release/@ory/elements-react/(.*),group=1
+            type=raw,value=latest,enable=${{ startsWith(github.ref, 'refs/tags/release/@ory/nextjs/') || (github.event_name == 'workflow_dispatch' && inputs.push_latest) }}
+            type=raw,value=${{ inputs.tag }},enable=${{ github.event_name == 'workflow_dispatch' }}
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: examples/nextjs-app-router/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
