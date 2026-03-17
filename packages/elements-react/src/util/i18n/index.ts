@@ -84,7 +84,7 @@ export const uiTextToFormattedMessage = (
               new Date(value),
             ),
             [key + "_until_minutes"]: Math.ceil(
-              (new Date().getTime() / 1000 - value) / 60,
+              (value - new Date().getTime() / 1000) / 60,
             ).toFixed(0),
           }
         }

@@ -513,7 +513,7 @@ export const kratosMessages = defineMessages<number>({
   },
   4010001: {
     id: "identities.messages.4010001",
-    defaultMessage: `The login flow expired {expired_at_unix_since_minutes} minutes ago, please try again.`,
+    defaultMessage: `The interaction expired. Please try again.`,
   },
   4010002: {
     id: "identities.messages.4010002",
@@ -553,7 +553,7 @@ export const kratosMessages = defineMessages<number>({
   },
   4040001: {
     id: "identities.messages.4040001",
-    defaultMessage: `The registration flow expired {expired_at_unix_since_minutes} minutes ago, please try again.`,
+    defaultMessage: `The interaction expired. Please try again.`,
   },
   4040002: {
     id: "identities.messages.4040002",
@@ -565,7 +565,7 @@ export const kratosMessages = defineMessages<number>({
   },
   4050001: {
     id: "identities.messages.4050001",
-    defaultMessage: `The settings flow expired {expired_at_unix_since_minutes} minutes ago, please try again.`,
+    defaultMessage: `The interaction expired. Please try again.`,
   },
   4060001: {
     id: "identities.messages.4060001",
@@ -581,7 +581,7 @@ export const kratosMessages = defineMessages<number>({
   },
   4060005: {
     id: "identities.messages.4060005",
-    defaultMessage: `The recovery flow expired {expired_at_unix_since_minutes} minutes ago, please try again.`,
+    defaultMessage: `The interaction expired. Please try again.`,
   },
   4060006: {
     id: "identities.messages.4060006",
@@ -601,7 +601,7 @@ export const kratosMessages = defineMessages<number>({
   },
   4070005: {
     id: "identities.messages.4070005",
-    defaultMessage: `The verification flow expired {expired_at_unix_since_minutes} minutes ago, please try again.`,
+    defaultMessage: `The interaction expired. Please try again.`,
   },
   4070006: {
     id: "identities.messages.4070006",
