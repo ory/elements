@@ -138,6 +138,53 @@ describe("getNodeId", () => {
     expect(getNodeId(node)).toBe("username")
   })
 
+  it("should return name:value for submit inputs with a value", () => {
+    const node = {
+      attributes: {
+        node_type: "input",
+        name: "provider",
+        type: "submit",
+        value: "google",
+      },
+    } as UiNode
+
+    expect(getNodeId(node)).toBe("provider:google")
+  })
+
+  it("should return unique ids for multiple social login submit nodes", () => {
+    const googleNode = {
+      attributes: {
+        node_type: "input",
+        name: "provider",
+        type: "submit",
+        value: "google",
+      },
+    } as UiNode
+
+    const discordNode = {
+      attributes: {
+        node_type: "input",
+        name: "provider",
+        type: "submit",
+        value: "discord",
+      },
+    } as UiNode
+
+    expect(getNodeId(googleNode)).not.toBe(getNodeId(discordNode))
+  })
+
+  it("should return name for submit inputs without a value", () => {
+    const node = {
+      attributes: {
+        node_type: "input",
+        name: "method",
+        type: "submit",
+      },
+    } as UiNode
+
+    expect(getNodeId(node)).toBe("method")
+  })
+
   it("should return id for non-input attributes", () => {
     const node = {
       attributes: {
