@@ -6,7 +6,7 @@ import type { OryClientConfiguration } from "@ory/elements-react"
 const config: OryClientConfiguration = {
   project: {
     default_redirect_url: "/",
-    error_ui_url: "/error",
+    error_ui_url: "/auth/error",
     name: "Ory Next.js App Router Example",
     registration_enabled: true,
     verification_enabled: true,

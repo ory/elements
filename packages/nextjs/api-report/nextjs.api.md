@@ -6,12 +6,14 @@
 
 import { AccountExperienceConfiguration } from '@ory/client-fetch';
 import { ApiResponse } from '@ory/client-fetch';
+import { FlowError } from '@ory/client-fetch';
 import { FlowType } from '@ory/client-fetch';
 import { LoginFlow } from '@ory/client-fetch';
 import { LogoutFlow } from '@ory/client-fetch';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import * as _ory_client_fetch from '@ory/client-fetch';
+import { ParsedUrlQuery } from 'querystring';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
 import { Session } from '@ory/client-fetch';
@@ -23,6 +25,12 @@ export function createOryMiddleware(options: OryMiddlewareOptions): (r: NextRequ
 
 // Warning: (ae-forgotten-export) The symbol "QueryParams" needs to be exported by the entry point api-extractor-type-index.d.ts
 //
+// @public
+export function getError(searchParams: QueryParams | Promise<QueryParams>): Promise<{
+    error: string;
+    error_description: string;
+} | FlowError>;
+
 // @public
 export function getFlowFactory<T extends object>(params: QueryParams, fetchFlowRaw: () => Promise<ApiResponse<T>>, flowType: FlowType, baseUrl: string, route: string, options?: {
     disableRewrite?: boolean;
@@ -85,6 +93,11 @@ export interface OryPageParams {
         [key: string]: string | string[] | undefined;
     }>;
 }
+
+// Warning: (ae-forgotten-export) The symbol "OryError" needs to be exported by the entry point api-extractor-type-index.d.ts
+//
+// @public
+export function useError(params: ParsedUrlQuery): OryError | null;
 
 // @public
 export const useLoginFlow: () => void | _ory_client_fetch.LoginFlow | null;

@@ -436,6 +436,88 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getError:function(1)",
+          "docComment": "/**\n * Use this method in an app router page to fetch an error from the Ory SDK. This method works with server-side rendering.\n *\n * @param searchParams - the query params of the request. This can be either the search params from the app router or a promise that resolves to the search params. The promise is useful if you want to fetch the search params from a different source, such as a cookie or a header.\n *\n * @returns An object containing the error and error description, or a FlowError object if the error is a flow error. If the error is not a flow error, the error description will be \"An unknown error occurred.\".\n *\n * @example\n * ```tsx\n * import { Error as ErrorComponent } from \"@ory/elements-react/theme\"\n * import \"@ory/elements-react/theme/styles.css\"\n * import { getError, getServerSession, OryPageParams } from \"@ory/nextjs/app\"\n *\n * import config from \"@/ory.config\"\n *\n * export default async function ErrorPage(props: OryPageParams) {\n *   const error = await getError(props.searchParams)\n *   const session = await getServerSession().catch(() => null)\n *\n *   return (\n *     <ErrorComponent\n *       error={error}\n *       config={config}\n *       components={{ Card: {} }}\n *       session={session ?? undefined}\n *     />\n *   )\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getError(searchParams: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/nextjs!~QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    error: string;\n    error_description: string;\n} | "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 12
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "searchParams",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getError"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/nextjs!getFlowFactory:function(1)",
           "docComment": "/**\n * A function that creates a flow fetcher. The flow fetcher can be used to fetch a login, registration, recovery, settings, or verification flow from the SDK.\n *\n * Unless you are building something very custom, you will not need this method. Use it with care and expect potential breaking changes.\n *\n * @param params - The query parameters of the request.\n *\n * @param fetchFlowRaw - A function that fetches the flow from the SDK.\n *\n * @param flowType - The type of the flow.\n *\n * @param baseUrl - The base URL of the application.\n *\n * @param route - The route of the application.\n *\n * @param options - Additional options.\n *\n * @public\n */\n",
           "excerptTokens": [
@@ -1289,6 +1371,57 @@
             }
           ],
           "extendsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!useError:function(1)",
+          "docComment": "/**\n * Use this hook in a page to fetch an error from the Ory SDK. This hook works with client-side rendering.\n *\n * @param params - the `router.query` object from Next.js\n *\n * @returns An object containing the error and error description, or a FlowError object if the error is a flow error. If the error is not a flow error, the error description will be \"An unknown error occurred.\".\n *\n * @example\n * ```tsx\n * import { Error as ErrorComponent } from \"@ory/elements-react/theme\"\n * import \"@ory/elements-react/theme/styles.css\"\n * import { useRouter } from \"next/router\"\n *\n * import config from \"@/ory.config\"\n * import { useError } from \"@ory/nextjs/pages\"\n *\n * export default function ErrorPage() {\n *   const router = useRouter()\n *\n *   const error = useError(router.query)\n *\n *   if (!error) {\n *     return null\n *   }\n *\n *   return (\n *     <main className=\"p-4 pb-8 flex items-center justify-center flex-col gap-8 min-h-screen\">\n *       <ErrorComponent error={error} config={config} components={{ Card: {} }} />\n *     </main>\n *   )\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useError(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ParsedUrlQuery",
+              "canonicalReference": "!\"\\\"querystring\\\"\".ParsedUrlQuery:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryError",
+              "canonicalReference": "@ory/nextjs!~OryError:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/pages/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "useError"
         },
         {
           "kind": "Function",
