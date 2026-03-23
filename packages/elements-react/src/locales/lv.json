@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Ievadiet derīgu e-pasta adresi",
   "identities.messages.4000041": "Ievadiet derīgu tālruņa numuru",
   "captcha.error": "Drošības pārbaude neizdevās. Lūdzu, mēģiniet vēlreiz vēlāk. Ja problēma joprojām pastāv, sazinieties ar atbalsta dienestu.",
-  "identities.messages.5000002": "Nav pieejamas autentifikācijas metodes. Lūdzu, sazinieties ar sistēmas administratoru."
+  "identities.messages.5000002": "Nav pieejamas autentifikācijas metodes. Lūdzu, sazinieties ar sistēmas administratoru.",
+  "identities.messages.4010011": "Šis konts ir deaktivizēts. Lūdzu, sazinieties ar atbalsta dienestu, lai saņemtu palīdzību."
 }

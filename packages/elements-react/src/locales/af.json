@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Voer 'n geldige e-posadres in",
   "identities.messages.4000041": "Voer 'n geldige telefoonnommer in",
   "captcha.error": "Sekuriteitsverifikasie het misluk. Probeer asseblief later weer. Indien die probleem voortduur, kontak ondersteuning.",
-  "identities.messages.5000002": "Geen verifikasiemetodes is beskikbaar nie. Kontak asseblief die stelseladministrateur."
+  "identities.messages.5000002": "Geen verifikasiemetodes is beskikbaar nie. Kontak asseblief die stelseladministrateur.",
+  "identities.messages.4010011": "Hierdie rekening is gedeaktiveer. Kontak asseblief die ondersteuningspan vir hulp."
 }

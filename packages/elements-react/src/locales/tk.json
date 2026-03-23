@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Dogry e-poçta salgysyny giriziň",
   "identities.messages.4000041": "Dogry telefon belgisini giriziň",
   "captcha.error": "Howpsuzlyk barlagy şowsuz boldy. Soňrak gaýtadan synanyşmagyňyzy haýyş edýäris. Mesele dowam etse, goldaw gullugy bilen habarlaşyň.",
-  "identities.messages.5000002": "Awtorizasiýa usullary ýok. Iltimas, ulgam administratory bilen habarlasyň."
+  "identities.messages.5000002": "Awtorizasiýa usullary ýok. Iltimas, ulgam administratory bilen habarlasyň.",
+  "identities.messages.4010011": "Bu hasap ýatyryldy. Kömek üçin goldaw gullugyna ýüz tutuň."
 }

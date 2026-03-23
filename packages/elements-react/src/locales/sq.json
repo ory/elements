@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Futni një adresë emaili të vlefshme",
   "identities.messages.4000041": "Futni një numër telefoni të vlefshëm",
   "captcha.error": "Verifikimi i sigurisë dështoi. Ju lutemi provoni përsëri më vonë. Nëse problemi vazhdon, kontaktoni mbështetjen.",
-  "identities.messages.5000002": "Nuk ka asnjë metodë autentifikimi e mundshme. Ju lutemi, kontaktoni administratorin e sistemit."
+  "identities.messages.5000002": "Nuk ka asnjë metodë autentifikimi e mundshme. Ju lutemi, kontaktoni administratorin e sistemit.",
+  "identities.messages.4010011": "Ky llogari është çaktivizuar. Ju lutemi, kontaktoni shërbimin e mbështetjes për ndihmë."
 }

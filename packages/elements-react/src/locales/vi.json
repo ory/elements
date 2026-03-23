@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Nhập một địa chỉ email hợp lệ",
   "identities.messages.4000041": "Nhập một số điện thoại hợp lệ",
   "captcha.error": "Xác minh bảo mật không thành công. Vui lòng thử lại sau. Nếu vấn đề vẫn tiếp diễn, vui lòng liên hệ với bộ phận hỗ trợ.",
-  "identities.messages.5000002": "Không có phương thức xác thực nào khả dụng. Vui lòng liên hệ với quản trị viên hệ thống."
+  "identities.messages.5000002": "Không có phương thức xác thực nào khả dụng. Vui lòng liên hệ với quản trị viên hệ thống.",
+  "identities.messages.4010011": "Tài khoản này đã bị khóa. Vui lòng liên hệ với bộ phận hỗ trợ để được trợ giúp."
 }

@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Unesite valjanu e-mail adresu",
   "identities.messages.4000041": "Unesite valjani telefonski broj",
   "captcha.error": "Sigurnosna provjera nije uspjela. Molimo pokušajte ponovo kasnije. Ako se problem nastavi, obratite se podršci.",
-  "identities.messages.5000002": "Nijedna metoda autentifikacije nije dostupna. Molimo, obratite se administratoru sustava."
+  "identities.messages.5000002": "Nijedna metoda autentifikacije nije dostupna. Molimo, obratite se administratoru sustava.",
+  "identities.messages.4010011": "Ovaj je račun deaktiviran. Molimo, obratite se službi za podršku za pomoć."
 }

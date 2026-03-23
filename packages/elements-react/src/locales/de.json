@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Geben Sie eine gültige E-Mail-Adresse ein",
   "identities.messages.4000041": "Geben Sie eine gültige Telefonnummer ein",
   "captcha.error": "Sicherheitsüberprüfung fehlgeschlagen. Bitte versuchen Sie es später noch einmal. Wenn das Problem weiterhin besteht, wenden Sie sich an den Support.",
-  "identities.messages.5000002": "Es sind keine Authentifizierungsmethoden verfügbar. Bitte wenden Sie sich an den Systemadministrator."
+  "identities.messages.5000002": "Es sind keine Authentifizierungsmethoden verfügbar. Bitte wenden Sie sich an den Systemadministrator.",
+  "identities.messages.4010011": "Dieses Konto wurde deaktiviert. Bitte wenden Sie sich an den Systemadministrator."
 }

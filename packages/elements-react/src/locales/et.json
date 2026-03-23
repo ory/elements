@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Sisestage kehtiv e-posti aadress",
   "identities.messages.4000041": "Sisestage kehtiv telefoninumber",
   "captcha.error": "Turvakontroll ebaõnnestus. Palun proovige hiljem uuesti. Probleemi püsimisel võtke ühendust klienditoega.",
-  "identities.messages.5000002": "Autentimise meetodeid ei ole hetkel saadaval. Palun võtke ühendust süsteemiadministraatoriga."
+  "identities.messages.5000002": "Autentimise meetodeid ei ole hetkel saadaval. Palun võtke ühendust süsteemiadministraatoriga.",
+  "identities.messages.4010011": "See konto on deaktiveeritud. Palun võtke abi saamiseks ühendust tugiteenusega."
 }

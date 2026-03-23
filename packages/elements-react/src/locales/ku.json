@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Navnîşanek e-nameyek derbasdar binivîse",
   "identities.messages.4000041": "Hejmarek têlefonek derbasdar binivîse",
   "captcha.error": "Piştrastkirina ewlehiyê bi ser neket. Ji kerema xwe piştre dîsa hewl bidin. Heke pirsgirêk berdewam bike, bi piştgiriya re têkilî daynin.",
-  "identities.messages.5000002": "هیچ ڕێگەیەک بۆ پشتڕاستکردنەوە لەبەردەست نییە. ئەبێت پەیوەندی بە بەڕێوەبەری سیستمەکە بکەن."
+  "identities.messages.5000002": "هیچ ڕێگەیەک بۆ پشتڕاستکردنەوە لەبەردەست نییە. ئەبێت پەیوەندی بە بەڕێوەبەری سیستمەکە بکەن.",
+  "identities.messages.4010011": "ئەم حسابە کراوە. بۆ وەرگرتنی هاوکاری، ئەتوانن پەیوەندی بکەن بە پشتیوانی تەکنیکییەوە."
 }

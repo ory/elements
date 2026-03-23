@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Maglagay ng wastong email address",
   "identities.messages.4000041": "Maglagay ng wastong numero ng telepono",
   "captcha.error": "Nabigo ang pag-verify ng seguridad. Pakisubukang muli mamaya. Kung magpapatuloy ang problema, makipag-ugnayan sa suporta.",
-  "identities.messages.5000002": "Walang magagamit na paraan ng pagpapatunay. Mangyaring makipag-ugnayan sa administrador ng sistema."
+  "identities.messages.5000002": "Walang magagamit na paraan ng pagpapatunay. Mangyaring makipag-ugnayan sa administrador ng sistema.",
+  "identities.messages.4010011": "Hindi na aktibo ang account na ito. Mangyaring makipag-ugnayan sa aming suporta para sa tulong."
 }

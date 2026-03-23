@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Zadajte platnú e-mailovú adresu",
   "identities.messages.4000041": "Zadajte platné telefónne číslo",
   "captcha.error": "Bezpečnostné overenie zlyhalo. Skúste to prosím neskôr. Ak problém pretrváva, kontaktujte podporu.",
-  "identities.messages.5000002": "Žiadna z metód overovania nie je v súčasnosti k dispozícii. Obráťte sa, prosím, na správcu systému."
+  "identities.messages.5000002": "Žiadna z metód overovania nie je v súčasnosti k dispozícii. Obráťte sa, prosím, na správcu systému.",
+  "identities.messages.4010011": "Tento účet bol deaktivovaný. Ak potrebujete pomoc, obráťte sa na našu technickú podporu."
 }

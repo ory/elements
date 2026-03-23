@@ -247,5 +247,6 @@
   "error.footer.copy": "Copy",
   "error.action.go-back": "Go back",
   "captcha.error": "Security verification failed. Please try again later. If the problem persists, contact support.",
-  "identities.messages.5000002": "No authentication methods are available. Please contact the system administrator."
+  "identities.messages.5000002": "No authentication methods are available. Please contact the system administrator.",
+  "identities.messages.4010011": "This account has been disabled. Please contact support for assistance."
 }

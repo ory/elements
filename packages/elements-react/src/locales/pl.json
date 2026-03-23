@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Wprowadź prawidłowy adres e-mail",
   "identities.messages.4000041": "Wprowadź prawidłowy numer telefonu",
   "captcha.error": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie później. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną.",
-  "identities.messages.5000002": "Brak dostępnych metod uwierzytelniania. Prosimy o kontakt z administratorem systemu."
+  "identities.messages.5000002": "Brak dostępnych metod uwierzytelniania. Prosimy o kontakt z administratorem systemu.",
+  "identities.messages.4010011": "To konto zostało dezaktywowane. W razie potrzeby prosimy o kontakt z działem pomocy technicznej."
 }

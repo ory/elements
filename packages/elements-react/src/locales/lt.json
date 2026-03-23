@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Įveskite galiojantį el. pašto adresą",
   "identities.messages.4000041": "Įveskite galiojantį telefono numerį",
   "captcha.error": "Saugumo patikra nepavyko. Bandykite dar kartą vėliau. Jei problema išlieka, susisiekite su palaikymo komanda.",
-  "identities.messages.5000002": "Šiuo metu nėra prieinamų autentifikacijos būdų. Prašome kreiptis į sistemos administratorių."
+  "identities.messages.5000002": "Šiuo metu nėra prieinamų autentifikacijos būdų. Prašome kreiptis į sistemos administratorių.",
+  "identities.messages.4010011": "Ši paskyra buvo deaktyvuota. Jei reikia pagalbos, kreipkitės į techninės pagalbos tarnybą."
 }

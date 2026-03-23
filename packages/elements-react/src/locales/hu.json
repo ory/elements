@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Adjon meg egy érvényes e-mail címet",
   "identities.messages.4000041": "Adjon meg egy érvényes telefonszámot",
   "captcha.error": "A biztonsági ellenőrzés sikertelen. Kérjük, próbálja meg később. Ha a probléma továbbra is fennáll, lépjen kapcsolatba az ügyfélszolgálattal.",
-  "identities.messages.5000002": "Nincsenek elérhető hitelesítési módszerek. Kérjük, vegye fel a kapcsolatot a rendszeradminisztrátorral."
+  "identities.messages.5000002": "Nincsenek elérhető hitelesítési módszerek. Kérjük, vegye fel a kapcsolatot a rendszeradminisztrátorral.",
+  "identities.messages.4010011": "Ez a felhasználói fiók letiltásra került. Kérjük, vegye fel a kapcsolatot a támogatással, ha segítségre van szüksége."
 }

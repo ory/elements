@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Inserisci un indirizzo email valido",
   "identities.messages.4000041": "Inserisci un numero di telefono valido",
   "captcha.error": "Verifica di sicurezza fallita. Riprova più tardi. Se il problema persiste, contatta il supporto.",
-  "identities.messages.5000002": "Nessun metodo di autenticazione è disponibile. Si prega di contattare l’amministratore del sistema."
+  "identities.messages.5000002": "Nessun metodo di autenticazione è disponibile. Si prega di contattare l’amministratore del sistema.",
+  "identities.messages.4010011": "Questo account è stato disattivato. Si prega di contattare l’assistenza per ricevere aiuto."
 }

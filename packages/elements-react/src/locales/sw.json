@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Weka anwani ya barua pepe halali",
   "identities.messages.4000041": "Weka nambari ya simu halali",
   "captcha.error": "Uhakiki wa usalama umeshindwa. Tafadhali jaribu tena baadaye. Ikiwa tatizo litaendelea, wasiliana na usaidizi.",
-  "identities.messages.5000002": "Hakuna njia za uthibitishaji zinazopatikana. Tafadhali wasiliana na msimamizi wa mfumo."
+  "identities.messages.5000002": "Hakuna njia za uthibitishaji zinazopatikana. Tafadhali wasiliana na msimamizi wa mfumo.",
+  "identities.messages.4010011": "Akaunti hii imefungwa. Tafadhali wasiliana na kituo cha usaidizi kwa msaada."
 }

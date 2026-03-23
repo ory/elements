@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Ange en giltig e-postadress",
   "identities.messages.4000041": "Ange ett giltigt telefonnummer",
   "captcha.error": "Säkerhetsverifieringen misslyckades. Försök igen senare. Kontakta supporten om problemet kvarstår.",
-  "identities.messages.5000002": "Inga autentiseringsmetoder är tillgängliga. Vänligen kontakta systemadministratören."
+  "identities.messages.5000002": "Inga autentiseringsmetoder är tillgängliga. Vänligen kontakta systemadministratören.",
+  "identities.messages.4010011": "Det här kontot har inaktiverats. Kontakta supporten för att få hjälp."
 }

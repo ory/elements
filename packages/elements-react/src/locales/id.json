@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Masukkan alamat email yang valid",
   "identities.messages.4000041": "Masukkan nomor telepon yang valid",
   "captcha.error": "Verifikasi keamanan gagal. Silakan coba lagi nanti. Jika masalah berlanjut, hubungi dukungan.",
-  "identities.messages.5000002": "Tidak ada metode autentikasi yang tersedia. Silakan hubungi administrator sistem."
+  "identities.messages.5000002": "Tidak ada metode autentikasi yang tersedia. Silakan hubungi administrator sistem.",
+  "identities.messages.4010011": "Akun ini telah dinonaktifkan. Silakan hubungi layanan dukungan untuk mendapatkan bantuan."
 }

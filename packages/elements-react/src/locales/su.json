@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Lebetkeun alamat surélék nu valid",
   "identities.messages.4000041": "Lebetkeun nomer telepon nu valid",
   "captcha.error": "Verifikasi kaamanan gagal. Mangga cobian deui engké. Upami masalahna tetep, kontak dukungan.",
-  "identities.messages.5000002": "Euweuh metodeu otentikasi anu sayogi. Mangga hubungi administrator sistem."
+  "identities.messages.5000002": "Euweuh metodeu otentikasi anu sayogi. Mangga hubungi administrator sistem.",
+  "identities.messages.4010011": "Akun ieu geus dinonaktifkeun. Mangga hubungi dukungan pikeun bantuan."
 }

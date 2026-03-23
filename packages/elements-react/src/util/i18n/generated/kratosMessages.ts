@@ -20,9 +20,9 @@ const KNOWN_KRATOS_MESSAGE_IDS = [
   4000027, 4000028, 4000029, 4000030, 4000031, 4000032, 4000033, 4000034,
   4000035, 4000036, 4000037, 4000038, 4000039, 4000040, 4000041, 4010001,
   4010002, 4010003, 4010004, 4010005, 4010006, 4010007, 4010008, 4010009,
-  4010010, 4040001, 4040002, 4040003, 4050001, 4060001, 4060002, 4060004,
-  4060005, 4060006, 4070001, 4070002, 4070003, 4070005, 4070006, 5000001,
-  5000002,
+  4010010, 4010011, 4040001, 4040002, 4040003, 4050001, 4060001, 4060002,
+  4060004, 4060005, 4060006, 4070001, 4070002, 4070003, 4070005, 4070006,
+  5000001, 5000002,
 ] as const
 
 export type KratosMessageId = (typeof KNOWN_KRATOS_MESSAGE_IDS)[number]
@@ -550,6 +550,10 @@ export const kratosMessages = defineMessages<number>({
   4010010: {
     id: "identities.messages.4010010",
     defaultMessage: `The address you entered does not match any known addresses in the current account.`,
+  },
+  4010011: {
+    id: "identities.messages.4010011",
+    defaultMessage: `This account has been disabled. Please contact support for assistance.`,
   },
   4040001: {
     id: "identities.messages.4040001",

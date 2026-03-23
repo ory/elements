@@ -247,5 +247,6 @@
   "identities.messages.4000040": "请输入有效的电子邮件地址",
   "identities.messages.4000041": "请输入有效的电话号码",
   "captcha.error": "安全验证失败。请稍后再试。如果问题仍然存在，请联系支持部门。",
-  "identities.messages.5000002": "目前没有可用的身份验证方法。请联系系统管理员。"
+  "identities.messages.5000002": "目前没有可用的身份验证方法。请联系系统管理员。",
+  "identities.messages.4010011": "此账户已被停用。请联系客服寻求帮助。"
 }

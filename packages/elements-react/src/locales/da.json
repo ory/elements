@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Indtast en gyldig e-mailadresse",
   "identities.messages.4000041": "Indtast et gyldigt telefonnummer",
   "captcha.error": "Sikkerhedsbekræftelse mislykkedes. Prøv venligst igen senere. Kontakt support, hvis problemet fortsætter.",
-  "identities.messages.5000002": "Der er ingen tilgængelige godkendelsesmetoder. Kontakt systemadministratoren."
+  "identities.messages.5000002": "Der er ingen tilgængelige godkendelsesmetoder. Kontakt systemadministratoren.",
+  "identities.messages.4010011": "Denne konto er blevet deaktiveret. Kontakt vores supportteam, hvis du har brug for hjælp."
 }

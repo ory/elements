@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Entrez une adresse e-mail valide",
   "identities.messages.4000041": "Entrez un numéro de téléphone valide",
   "captcha.error": "La vérification de sécurité a échoué. Veuillez réessayer plus tard. Si le problème persiste, contactez le support.",
-  "identities.messages.5000002": "Aucune méthode d’authentification n’est disponible. Veuillez contacter l’administrateur du système."
+  "identities.messages.5000002": "Aucune méthode d’authentification n’est disponible. Veuillez contacter l’administrateur du système.",
+  "identities.messages.4010011": "Ce compte a été désactivé. Veuillez contacter le service d’assistance pour obtenir de l’aide."
 }

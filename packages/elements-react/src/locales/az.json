@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Düzgün e-poçt ünvanı daxil edin",
   "identities.messages.4000041": "Düzgün telefon nömrəsi daxil edin",
   "captcha.error": "Təhlükəsizlik yoxlaması uğursuz oldu. Zəhmət olmasa bir az sonra yenidən cəhd edin. Problem davam edərsə, dəstək xidməti ilə əlaqə saxlayın.",
-  "identities.messages.5000002": "Mövcud olmayan autentikasiya metodları. Zəhmət olmasa, sistem administratoru ilə əlaqə saxlayın."
+  "identities.messages.5000002": "Mövcud olmayan autentikasiya metodları. Zəhmət olmasa, sistem administratoru ilə əlaqə saxlayın.",
+  "identities.messages.4010011": "Bu hesab deaktiv edilib. Zəhmət olmasa, yardım üçün dəstək xidməti ilə əlaqə saxlayın."
 }

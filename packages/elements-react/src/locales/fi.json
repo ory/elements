@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Anna kelvollinen sähköpostiosoite",
   "identities.messages.4000041": "Anna kelvollinen puhelinnumero",
   "captcha.error": "Suojaustarkistus epäonnistui. Yritä myöhemmin uudelleen. Jos ongelma jatkuu, ota yhteyttä tukeen.",
-  "identities.messages.5000002": "Yhtään tunnistusmenetelmää ei ole käytettävissä. Ole hyvä ja ota yhteyttä järjestelmänvalvojaan."
+  "identities.messages.5000002": "Yhtään tunnistusmenetelmää ei ole käytettävissä. Ole hyvä ja ota yhteyttä järjestelmänvalvojaan.",
+  "identities.messages.4010011": "Tämä käyttäjätili on poistettu käytöstä. Ota yhteyttä tukipalveluun saadaksesi apua."
 }

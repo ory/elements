@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Masukkan alamat e-mel yang sah",
   "identities.messages.4000041": "Masukkan nombor telefon yang sah",
   "captcha.error": "Pengesahan keselamatan gagal. Sila cuba lagi kemudian. Jika masalah berterusan, hubungi sokongan.",
-  "identities.messages.5000002": "Tiada kaedah pengesahan yang tersedia. Sila hubungi pentadbir sistem."
+  "identities.messages.5000002": "Tiada kaedah pengesahan yang tersedia. Sila hubungi pentadbir sistem.",
+  "identities.messages.4010011": "Akaun ini telah dinyahaktifkan. Sila hubungi pasukan sokongan untuk mendapatkan bantuan."
 }

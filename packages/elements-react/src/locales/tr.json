@@ -247,5 +247,6 @@
   "identities.messages.4000040": "Geçerli bir e-posta adresi girin",
   "identities.messages.4000041": "Geçerli bir telefon numarası girin",
   "captcha.error": "Güvenlik doğrulaması başarısız oldu. Lütfen daha sonra tekrar deneyin. Sorun devam ederse destek ekibiyle iletişime geçin.",
-  "identities.messages.5000002": "Herhangi bir kimlik doğrulama yöntemi kullanılamıyor. Lütfen sistem yöneticisiyle iletişime geçin."
+  "identities.messages.5000002": "Herhangi bir kimlik doğrulama yöntemi kullanılamıyor. Lütfen sistem yöneticisiyle iletişime geçin.",
+  "identities.messages.4010011": "Bu hesap devre dışı bırakılmıştır. Yardım almak için lütfen destek ekibiyle iletişime geçin."
 }
