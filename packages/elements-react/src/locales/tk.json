@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Dogry telefon belgisini giriziň",
   "captcha.error": "Howpsuzlyk barlagy şowsuz boldy. Soňrak gaýtadan synanyşmagyňyzy haýyş edýäris. Mesele dowam etse, goldaw gullugy bilen habarlaşyň.",
   "identities.messages.5000002": "Awtorizasiýa usullary ýok. Iltimas, ulgam administratory bilen habarlasyň.",
-  "identities.messages.4010011": "Bu hasap ýatyryldy. Kömek üçin goldaw gullugyna ýüz tutuň."
+  "identities.messages.4010011": "Bu hasap ýatyryldy. Kömek üçin goldaw gullugyna ýüz tutuň.",
+  "identities.messages.1070018": "E-poçta salgysy ýa-da telefon belgisi",
+  "identities.messages.1080004": "Siz beren telefon belgisine, tassyklaý kodyny içerýän SMS habar iberildi. Eger habar gelmedik bolsa, belgäniň dogry ýazylşyny barlap, hasaba alnan belgäniň ulanylypdygyny anyklap geçiň.",
+  "identities.messages.1080005": "Siz telefon belginiň dogrulygyny üstünlikli anykladylar."
 }

@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Geben Sie eine gültige Telefonnummer ein",
   "captcha.error": "Sicherheitsüberprüfung fehlgeschlagen. Bitte versuchen Sie es später noch einmal. Wenn das Problem weiterhin besteht, wenden Sie sich an den Support.",
   "identities.messages.5000002": "Es sind keine Authentifizierungsmethoden verfügbar. Bitte wenden Sie sich an den Systemadministrator.",
-  "identities.messages.4010011": "Dieses Konto wurde deaktiviert. Bitte wenden Sie sich an den Systemadministrator."
+  "identities.messages.4010011": "Dieses Konto wurde deaktiviert. Bitte wenden Sie sich an den Systemadministrator.",
+  "identities.messages.1070018": "E-Mail-Adresse oder Telefonnummer",
+  "identities.messages.1080004": "Eine SMS mit einem Bestätigungscode wurde an die von Ihnen angegebene Telefonnummer gesendet. Falls Sie keine SMS erhalten haben, überprüfen Sie bitte, ob die Telefonnummer korrekt ist, und stellen Sie sicher, dass Sie die Nummer verwenden, mit der Sie sich registriert haben.",
+  "identities.messages.1080005": "Sie haben Ihre Telefonnummer erfolgreich verifiziert."
 }

@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Futni një numër telefoni të vlefshëm",
   "captcha.error": "Verifikimi i sigurisë dështoi. Ju lutemi provoni përsëri më vonë. Nëse problemi vazhdon, kontaktoni mbështetjen.",
   "identities.messages.5000002": "Nuk ka asnjë metodë autentifikimi e mundshme. Ju lutemi, kontaktoni administratorin e sistemit.",
-  "identities.messages.4010011": "Ky llogari është çaktivizuar. Ju lutemi, kontaktoni shërbimin e mbështetjes për ndihmë."
+  "identities.messages.4010011": "Ky llogari është çaktivizuar. Ju lutemi, kontaktoni shërbimin e mbështetjes për ndihmë.",
+  "identities.messages.1070018": "Adresa e postës elektronike ose numri i telefonit.",
+  "identities.messages.1080004": "Një mesazh tekst me një kod verifikimi është dërguar në numrin e telefonit që ju keni dhënë. Nëse nuk e keni marrë mesazhin, kontrolloni nëse numri është shkruar saktë dhe sigurohuni që të përdorni numrin me të cilin jeni regjistruar.",
+  "identities.messages.1080005": "Ju keni verifikuar me sukses numrin tuaj të telefonit."
 }

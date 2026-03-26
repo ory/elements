@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Унесите важећи број телефона",
   "captcha.error": "Безбедносна провера није успела. Покушајте поново касније. Ако се проблем настави, контактирајте подршку.",
   "identities.messages.5000002": "Ниједан метод аутентификације није доступан. Молимо вас да се обратите администратору система.",
-  "identities.messages.4010011": "Овај налог је деактивиран. Молимо вас да се обратите служби за подршку за помоћ."
+  "identities.messages.4010011": "Овај налог је деактивиран. Молимо вас да се обратите служби за подршку за помоћ.",
+  "identities.messages.1070018": "Адреса електронске поште или број телефона",
+  "identities.messages.1080004": "Na broj telefona koji ste naveli, poslata je tekstualna poruka koja sadrži kod za verifikaciju. Ako niste primili poruku, proverite da li ste pravilno uneli broj i uverite se da koristite broj telefona sa kojim ste se registrovali.",
+  "identities.messages.1080005": "Успешно сте потврдили свој број телефона."
 }

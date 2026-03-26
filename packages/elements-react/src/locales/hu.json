@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Adjon meg egy érvényes telefonszámot",
   "captcha.error": "A biztonsági ellenőrzés sikertelen. Kérjük, próbálja meg később. Ha a probléma továbbra is fennáll, lépjen kapcsolatba az ügyfélszolgálattal.",
   "identities.messages.5000002": "Nincsenek elérhető hitelesítési módszerek. Kérjük, vegye fel a kapcsolatot a rendszeradminisztrátorral.",
-  "identities.messages.4010011": "Ez a felhasználói fiók letiltásra került. Kérjük, vegye fel a kapcsolatot a támogatással, ha segítségre van szüksége."
+  "identities.messages.4010011": "Ez a felhasználói fiók letiltásra került. Kérjük, vegye fel a kapcsolatot a támogatással, ha segítségre van szüksége.",
+  "identities.messages.1070018": "E-mail cím vagy telefonszám",
+  "identities.messages.1080004": "Egy szöveges üzenet, amely tartalmazza a visszaigazoló kódot, elküldésre került a megadott telefonszámra. Ha nem kapta meg az üzenetet, ellenőrizze a telefonszám helyesírását, és győződjön meg arról, hogy a regisztrációkor megadott telefonszámot használja.",
+  "identities.messages.1080005": "Sikeresen ellenőriztük a telefonszámát."
 }

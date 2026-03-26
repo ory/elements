@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Weka nambari ya simu halali",
   "captcha.error": "Uhakiki wa usalama umeshindwa. Tafadhali jaribu tena baadaye. Ikiwa tatizo litaendelea, wasiliana na usaidizi.",
   "identities.messages.5000002": "Hakuna njia za uthibitishaji zinazopatikana. Tafadhali wasiliana na msimamizi wa mfumo.",
-  "identities.messages.4010011": "Akaunti hii imefungwa. Tafadhali wasiliana na kituo cha usaidizi kwa msaada."
+  "identities.messages.4010011": "Akaunti hii imefungwa. Tafadhali wasiliana na kituo cha usaidizi kwa msaada.",
+  "identities.messages.1070018": "Anwani ya barua pepe au nambari ya simu",
+  "identities.messages.1080004": "Ujumbe mfupi unaojumuisha nambari ya uthibitishaji umetumwa kwenye nambari ya simu uliyotoa. Ikiwa hupokei ujumbe, angalia kama nambari uliyotoa imeandikwa vizuri na hakikisha unatumia nambari uliyojisajili nayo.",
+  "identities.messages.1080005": "Umefanikiwa kuthibitisha nambari yako ya simu."
 }

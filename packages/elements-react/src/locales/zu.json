@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Faka inombolo yocingo evumelekile",
   "captcha.error": "Ukuqinisekisa kokuvikela kuhlulekile. Sicela uzame futhi mya. Uma inkinga iqhubeka, thintana nosekelo.",
   "identities.messages.5000002": "Ayikho izindlela zokuqinisekisa ezitholakalayo. Sicela uxhumane nomphathi wesistimu.",
-  "identities.messages.4010011": "Le-akhawunti isusiwe. Sicela uxhumane nethimba elinikeza usizo."
+  "identities.messages.4010011": "Le-akhawunti isusiwe. Sicela uxhumane nethimba elinikeza usizo.",
+  "identities.messages.1070018": "I-imeyili noma inombolo yocingo",
+  "identities.messages.1080004": "I-SMS equkethe ikhodi yokuqinisekisa ithunyelwe kunombolo yocingo owunikeze. Uma ungakatholi i-SMS, hlola ukuthi inombolo ibhalwe kahle, futhi qiniseka ukuthi usebenzisa inombolo obhalisele ngayo.",
+  "identities.messages.1080005": "Uphumelele ukuhlola inombolo yakho yocingo."
 }

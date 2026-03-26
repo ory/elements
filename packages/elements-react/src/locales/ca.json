@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Introduïu un número de telèfon vàlid",
   "captcha.error": "La verificació de seguretat ha fallat. Si us plau, torneu-ho a provar més tard. Si el problema persisteix, contacteu amb el suport.",
   "identities.messages.5000002": "No hi ha cap mètode d’autenticació disponible. Si us plau, poseu-vos en contacte amb l’administrador del sistema.",
-  "identities.messages.4010011": "Aquest compte ha estat desactivat. Si us plau, poseu-vos en contacte amb el servei d’assistència per obtenir ajuda."
+  "identities.messages.4010011": "Aquest compte ha estat desactivat. Si us plau, poseu-vos en contacte amb el servei d’assistència per obtenir ajuda.",
+  "identities.messages.1070018": "Adreça de correu electrònic o número de telèfon.",
+  "identities.messages.1080004": "S'ha enviat un missatge de text amb un codi de verificació al número de telèfon que heu proporcionat. Si no heu rebut el missatge, reviseu si el número està escrit correctament i assegureu-vos d'utilitzar el número amb el qual us vau registrar.",
+  "identities.messages.1080005": "Heu verificat correctament el vostre número de telèfon."
 }

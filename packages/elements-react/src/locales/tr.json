@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Geçerli bir telefon numarası girin",
   "captcha.error": "Güvenlik doğrulaması başarısız oldu. Lütfen daha sonra tekrar deneyin. Sorun devam ederse destek ekibiyle iletişime geçin.",
   "identities.messages.5000002": "Herhangi bir kimlik doğrulama yöntemi kullanılamıyor. Lütfen sistem yöneticisiyle iletişime geçin.",
-  "identities.messages.4010011": "Bu hesap devre dışı bırakılmıştır. Yardım almak için lütfen destek ekibiyle iletişime geçin."
+  "identities.messages.4010011": "Bu hesap devre dışı bırakılmıştır. Yardım almak için lütfen destek ekibiyle iletişime geçin.",
+  "identities.messages.1070018": "E-posta adresi veya telefon numarası",
+  "identities.messages.1080004": "Kaydettiğiniz telefon numarasına, doğrulama kodu içeren bir kısa mesaj gönderildi. Eğer kısa mesajı almadıysanız, numaranın doğru yazıldığından emin olun ve kayıt sırasında kullandığınız numarayı kullandığınızdan emin olun.",
+  "identities.messages.1080005": "Telefon numaranız başarıyla doğrulandı."
 }

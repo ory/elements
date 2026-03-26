@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Insira um número de telefone válido",
   "captcha.error": "A verificação de segurança falhou. Por favor, tente novamente mais tarde. Se o problema persistir, contacte o suporte.",
   "identities.messages.5000002": "Nenhum método de autenticação está disponível. Contacte o administrador do sistema.",
-  "identities.messages.4010011": "Esta conta foi desativada. Contacte o suporte técnico para obter ajuda."
+  "identities.messages.4010011": "Esta conta foi desativada. Contacte o suporte técnico para obter ajuda.",
+  "identities.messages.1070018": "Endereço de e-mail ou número de telefone.",
+  "identities.messages.1080004": "Uma mensagem de texto contendo um código de verificação foi enviada para o número de telefone que você forneceu. Se não tiver recebido a mensagem, verifique se o número está correto e certifique-se de que está a usar o número com o qual se registou.",
+  "identities.messages.1080005": "Verificou o seu número de telefone com sucesso."
 }

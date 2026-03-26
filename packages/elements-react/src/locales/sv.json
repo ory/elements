@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Ange ett giltigt telefonnummer",
   "captcha.error": "Säkerhetsverifieringen misslyckades. Försök igen senare. Kontakta supporten om problemet kvarstår.",
   "identities.messages.5000002": "Inga autentiseringsmetoder är tillgängliga. Vänligen kontakta systemadministratören.",
-  "identities.messages.4010011": "Det här kontot har inaktiverats. Kontakta supporten för att få hjälp."
+  "identities.messages.4010011": "Det här kontot har inaktiverats. Kontakta supporten för att få hjälp.",
+  "identities.messages.1070018": "E-postadress eller telefonnummer",
+  "identities.messages.1080004": "Ett sms med en verifieringskod har skickats till det telefonnummer du angav. Om du inte har mottagit något sms, kontrollera att telefonnumret är korrekt och se till att du använder det nummer som du registrerade dig med.",
+  "identities.messages.1080005": "Du har verifierat ditt telefonnummer."
 }

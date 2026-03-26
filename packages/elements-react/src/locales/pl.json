@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Wprowadź prawidłowy numer telefonu",
   "captcha.error": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie później. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną.",
   "identities.messages.5000002": "Brak dostępnych metod uwierzytelniania. Prosimy o kontakt z administratorem systemu.",
-  "identities.messages.4010011": "To konto zostało dezaktywowane. W razie potrzeby prosimy o kontakt z działem pomocy technicznej."
+  "identities.messages.4010011": "To konto zostało dezaktywowane. W razie potrzeby prosimy o kontakt z działem pomocy technicznej.",
+  "identities.messages.1070018": "Adres e-mail lub numer telefonu.",
+  "identities.messages.1080004": "Na podany przez Ciebie numer telefonu wysłano wiadomość SMS zawierającą kod weryfikacyjny. Jeśli nie otrzymałeś wiadomości, sprawdź, czy poprawnie wpisałeś numer, i upewnij się, że używasz numeru, który podałeś podczas rejestracji.",
+  "identities.messages.1080005": "Pomyślnie zweryfikowano numer Twojego telefonu."
 }

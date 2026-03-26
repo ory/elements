@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Inserisci un numero di telefono valido",
   "captcha.error": "Verifica di sicurezza fallita. Riprova più tardi. Se il problema persiste, contatta il supporto.",
   "identities.messages.5000002": "Nessun metodo di autenticazione è disponibile. Si prega di contattare l’amministratore del sistema.",
-  "identities.messages.4010011": "Questo account è stato disattivato. Si prega di contattare l’assistenza per ricevere aiuto."
+  "identities.messages.4010011": "Questo account è stato disattivato. Si prega di contattare l’assistenza per ricevere aiuto.",
+  "identities.messages.1070018": "Indirizzo email o numero di telefono.",
+  "identities.messages.1080004": "È stato inviato un messaggio di testo contenente un codice di verifica al numero di telefono che hai fornito. Se non hai ricevuto il messaggio, controlla che il numero sia corretto e assicurati di utilizzare il numero con cui ti sei registrato.",
+  "identities.messages.1080005": "Hai verificato con successo il tuo numero di telefono."
 }

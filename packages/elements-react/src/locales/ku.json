@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Hejmarek têlefonek derbasdar binivîse",
   "captcha.error": "Piştrastkirina ewlehiyê bi ser neket. Ji kerema xwe piştre dîsa hewl bidin. Heke pirsgirêk berdewam bike, bi piştgiriya re têkilî daynin.",
   "identities.messages.5000002": "هیچ ڕێگەیەک بۆ پشتڕاستکردنەوە لەبەردەست نییە. ئەبێت پەیوەندی بە بەڕێوەبەری سیستمەکە بکەن.",
-  "identities.messages.4010011": "ئەم حسابە کراوە. بۆ وەرگرتنی هاوکاری، ئەتوانن پەیوەندی بکەن بە پشتیوانی تەکنیکییەوە."
+  "identities.messages.4010011": "ئەم حسابە کراوە. بۆ وەرگرتنی هاوکاری، ئەتوانن پەیوەندی بکەن بە پشتیوانی تەکنیکییەوە.",
+  "identities.messages.1070018": "ئیمەیڵ یان ژمارەی تەلەفۆن",
+  "identities.messages.1080004": "پەیامێکی نووسراو کە کۆدێکی ڕاستکردن تێدایە، بۆ ژمارەی تەلەفۆنەکە ڕەوانە کراوە کە تۆ دایبەزاند. ئەگەر پەیامێکی نووسراو نەگەڕایەوە، ژمارەکە بەرجێ بکە و دڵنیایی بە، کە ئەو ژمارەیە بەکار بهێنە کە تۆ پێی خۆت تۆمار کرد.",
+  "identities.messages.1080005": "بەڵێ، ژمارەی تەلەفۆنت بە سەرکەوتوویی سڵەمەند کر."
 }

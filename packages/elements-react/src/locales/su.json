@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Lebetkeun nomer telepon nu valid",
   "captcha.error": "Verifikasi kaamanan gagal. Mangga cobian deui engké. Upami masalahna tetep, kontak dukungan.",
   "identities.messages.5000002": "Euweuh metodeu otentikasi anu sayogi. Mangga hubungi administrator sistem.",
-  "identities.messages.4010011": "Akun ieu geus dinonaktifkeun. Mangga hubungi dukungan pikeun bantuan."
+  "identities.messages.4010011": "Akun ieu geus dinonaktifkeun. Mangga hubungi dukungan pikeun bantuan.",
+  "identities.messages.1070018": "Alamat email atanapi nomor telepon.",
+  "identities.messages.1080004": "Pesen tèks anu ngandung kode vérifikasi geus dikirim ka nomor telepon anu anjeun paréntahkeun. Upami anjeun teu meunang pesen tèks, pariksa deui ejaan nomorna sareng pastikeun yén anjeun nganggo nomor anu anjeun daftarkeun.",
+  "identities.messages.1080005": "Anjeun parantos suksés ngaverifikasi nomer telepon anjeun."
 }

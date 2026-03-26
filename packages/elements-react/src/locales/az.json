@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Düzgün telefon nömrəsi daxil edin",
   "captcha.error": "Təhlükəsizlik yoxlaması uğursuz oldu. Zəhmət olmasa bir az sonra yenidən cəhd edin. Problem davam edərsə, dəstək xidməti ilə əlaqə saxlayın.",
   "identities.messages.5000002": "Mövcud olmayan autentikasiya metodları. Zəhmət olmasa, sistem administratoru ilə əlaqə saxlayın.",
-  "identities.messages.4010011": "Bu hesab deaktiv edilib. Zəhmət olmasa, yardım üçün dəstək xidməti ilə əlaqə saxlayın."
+  "identities.messages.4010011": "Bu hesab deaktiv edilib. Zəhmət olmasa, yardım üçün dəstək xidməti ilə əlaqə saxlayın.",
+  "identities.messages.1070018": "E-poçt ünvanı və ya telefon nömrəsi",
+  "identities.messages.1080004": "Təsdiq kodu olan bir SMS-mətn mesajı verdiyiniz telefon nömrəsinə göndərildi. Əgər SMS-mətn mesajı almadıysınızsa, nömrənin düzgün yazıldığından əmin olun və qeydiyyat zamanı istifadə etdiyiniz nömrəni istifadə etdiyinizə əmin olun.",
+  "identities.messages.1080005": "Telefon nömrəniz uğurla təsdiqləndi."
 }

@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Masukkan nombor telefon yang sah",
   "captcha.error": "Pengesahan keselamatan gagal. Sila cuba lagi kemudian. Jika masalah berterusan, hubungi sokongan.",
   "identities.messages.5000002": "Tiada kaedah pengesahan yang tersedia. Sila hubungi pentadbir sistem.",
-  "identities.messages.4010011": "Akaun ini telah dinyahaktifkan. Sila hubungi pasukan sokongan untuk mendapatkan bantuan."
+  "identities.messages.4010011": "Akaun ini telah dinyahaktifkan. Sila hubungi pasukan sokongan untuk mendapatkan bantuan.",
+  "identities.messages.1070018": "Alamat emel atau nombor telefon",
+  "identities.messages.1080004": "Satu mesej teks yang mengandungi kod pengesahan telah dihantar ke nombor telefon yang anda berikan. Jika anda tidak menerima mesej teks, sila semak ejaan nombor tersebut dan pastikan anda menggunakan nombor yang telah anda daftarkan.",
+  "identities.messages.1080005": "Anda telah berjaya mengesahkan nombor telefon anda."
 }

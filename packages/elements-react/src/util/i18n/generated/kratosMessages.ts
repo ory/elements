@@ -13,16 +13,16 @@ const KNOWN_KRATOS_MESSAGE_IDS = [
   1050018, 1050019, 1050020, 1060001, 1060002, 1060003, 1060004, 1060005,
   1060006, 1060007, 1070001, 1070002, 1070003, 1070004, 1070005, 1070006,
   1070007, 1070008, 1070009, 1070010, 1070011, 1070012, 1070013, 1070014,
-  1070015, 1070016, 1070017, 1080001, 1080002, 1080003, 4000001, 4000002,
-  4000003, 4000004, 4000005, 4000006, 4000007, 4000008, 4000009, 4000010,
-  4000011, 4000012, 4000013, 4000014, 4000015, 4000016, 4000017, 4000018,
-  4000019, 4000020, 4000021, 4000022, 4000023, 4000024, 4000025, 4000026,
-  4000027, 4000028, 4000029, 4000030, 4000031, 4000032, 4000033, 4000034,
-  4000035, 4000036, 4000037, 4000038, 4000039, 4000040, 4000041, 4010001,
-  4010002, 4010003, 4010004, 4010005, 4010006, 4010007, 4010008, 4010009,
-  4010010, 4010011, 4040001, 4040002, 4040003, 4050001, 4060001, 4060002,
-  4060004, 4060005, 4060006, 4070001, 4070002, 4070003, 4070005, 4070006,
-  5000001, 5000002,
+  1070015, 1070016, 1070017, 1070018, 1080001, 1080002, 1080003, 1080004,
+  1080005, 4000001, 4000002, 4000003, 4000004, 4000005, 4000006, 4000007,
+  4000008, 4000009, 4000010, 4000011, 4000012, 4000013, 4000014, 4000015,
+  4000016, 4000017, 4000018, 4000019, 4000020, 4000021, 4000022, 4000023,
+  4000024, 4000025, 4000026, 4000027, 4000028, 4000029, 4000030, 4000031,
+  4000032, 4000033, 4000034, 4000035, 4000036, 4000037, 4000038, 4000039,
+  4000040, 4000041, 4010001, 4010002, 4010003, 4010004, 4010005, 4010006,
+  4010007, 4010008, 4010009, 4010010, 4010011, 4040001, 4040002, 4040003,
+  4050001, 4060001, 4060002, 4060004, 4060005, 4060006, 4070001, 4070002,
+  4070003, 4070005, 4070006, 5000001, 5000002,
 ] as const
 
 export type KratosMessageId = (typeof KNOWN_KRATOS_MESSAGE_IDS)[number]
@@ -335,6 +335,10 @@ export const kratosMessages = defineMessages<number>({
     id: "identities.messages.1070017",
     defaultMessage: `Phone number`,
   },
+  1070018: {
+    id: "identities.messages.1070018",
+    defaultMessage: `Email or phone number`,
+  },
   1080001: {
     id: "identities.messages.1080001",
     defaultMessage: `An email containing a verification link has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.`,
@@ -346,6 +350,14 @@ export const kratosMessages = defineMessages<number>({
   1080003: {
     id: "identities.messages.1080003",
     defaultMessage: `An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.`,
+  },
+  1080004: {
+    id: "identities.messages.1080004",
+    defaultMessage: `A text message containing a verification code has been sent to the phone number you provided. If you have not received a text message, check the spelling of the number and make sure to use the number you registered with.`,
+  },
+  1080005: {
+    id: "identities.messages.1080005",
+    defaultMessage: `You successfully verified your phone number.`,
   },
   4000001: {
     id: "identities.messages.4000001",

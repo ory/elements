@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Įveskite galiojantį telefono numerį",
   "captcha.error": "Saugumo patikra nepavyko. Bandykite dar kartą vėliau. Jei problema išlieka, susisiekite su palaikymo komanda.",
   "identities.messages.5000002": "Šiuo metu nėra prieinamų autentifikacijos būdų. Prašome kreiptis į sistemos administratorių.",
-  "identities.messages.4010011": "Ši paskyra buvo deaktyvuota. Jei reikia pagalbos, kreipkitės į techninės pagalbos tarnybą."
+  "identities.messages.4010011": "Ši paskyra buvo deaktyvuota. Jei reikia pagalbos, kreipkitės į techninės pagalbos tarnybą.",
+  "identities.messages.1070018": "El. pašto adresas arba telefono numeris.",
+  "identities.messages.1080004": "Į jūsų nurodytą telefono numerį išsiųstas tekstinis pranešimas, kuriame yra patvirtinimo kodas. Jei negavote tekstinio pranešimo, patikrinkite, ar teisingai įvedėte numerį, ir įsitikinkite, kad naudojate numerį, kuriuo registravotės.",
+  "identities.messages.1080005": "Jūsų telefono numeris buvo sėkmingai patvirtintas."
 }

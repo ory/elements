@@ -248,5 +248,8 @@
   "error.action.go-back": "Go back",
   "captcha.error": "Security verification failed. Please try again later. If the problem persists, contact support.",
   "identities.messages.5000002": "No authentication methods are available. Please contact the system administrator.",
-  "identities.messages.4010011": "This account has been disabled. Please contact support for assistance."
+  "identities.messages.4010011": "This account has been disabled. Please contact support for assistance.",
+  "identities.messages.1070018": "Email or phone number",
+  "identities.messages.1080004": "A text message containing a verification code has been sent to the phone number you provided. If you have not received a text message, check the spelling of the number and make sure to use the number you registered with.",
+  "identities.messages.1080005": "You successfully verified your phone number."
 }

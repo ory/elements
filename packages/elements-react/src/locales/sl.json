@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Vnesite veljavno telefonsko številko",
   "captcha.error": "Varnostno preverjanje ni uspelo. Poskusite znova pozneje. Če težava ne izgine, se obrnite na podporo.",
   "identities.messages.5000002": "Nobena metoda preverjanja pristnosti ni na voljo. Obrnite se na sistemskega administratorja.",
-  "identities.messages.4010011": "Ta uporabniški račun je bil onemogočen. Za pomoč se obrnite na našo službo za podporo."
+  "identities.messages.4010011": "Ta uporabniški račun je bil onemogočen. Za pomoč se obrnite na našo službo za podporo.",
+  "identities.messages.1070018": "E-poštni naslov ali telefonska številka",
+  "identities.messages.1080004": "Na vašo vneseno telefonsko številko smo poslali sporočilo SMS, ki vsebuje kodo za potrditev. Če sporočila niste prejeli, preverite, ali ste pravilno vnesli številko, in se prepričajte, da uporabljate številko, s katero ste se registrirali.",
+  "identities.messages.1080005": "Število vaše mobilne telefonice je bilo uspešno potrjeno."
 }

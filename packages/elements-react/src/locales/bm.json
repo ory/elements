@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Telefɔni nimɔrɔ dafalen don",
   "captcha.error": "Kɔlɔsili kɛra kɔnɔ, a ma ɲɛ. Hakɛto, a ɲini tugun kɔfɛ. Ni gɛlɛya tora yen, a ɲini dɛmɛ.",
   "identities.messages.5000002": "O yala, o minɛ walima o lajɛla la, a ye. Ka bon ka sistemu lajɛli la.",
-  "identities.messages.4010011": "Konti nin bɛ se ka dɔn. Ka kɛ, ka kan ka bonya fɛ."
+  "identities.messages.4010011": "Konti nin bɛ se ka dɔn. Ka kɛ, ka kan ka bonya fɛ.",
+  "identities.messages.1070018": "Imɛrɛli tabi nimɛri.",
+  "identities.messages.1080004": "An ka taa, an ka kɛlɛ ka kɔrɔtɔrɔ kan, an ka bɔ an ka farikanin bila kan. I n’a fa an ka kɔrɔtɔrɔ la, an ka farikanin bila kan ka jija, o ka bon ka an ka farikanin bila kan ka kɛ ka an ka kɛlɛ an ka farikanin bila kan.",
+  "identities.messages.1080005": "I n’a fɔ i ni i ye telefoninuman la, o ka kan ka bon."
 }

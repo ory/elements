@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Zadajte platné telefónne číslo",
   "captcha.error": "Bezpečnostné overenie zlyhalo. Skúste to prosím neskôr. Ak problém pretrváva, kontaktujte podporu.",
   "identities.messages.5000002": "Žiadna z metód overovania nie je v súčasnosti k dispozícii. Obráťte sa, prosím, na správcu systému.",
-  "identities.messages.4010011": "Tento účet bol deaktivovaný. Ak potrebujete pomoc, obráťte sa na našu technickú podporu."
+  "identities.messages.4010011": "Tento účet bol deaktivovaný. Ak potrebujete pomoc, obráťte sa na našu technickú podporu.",
+  "identities.messages.1070018": "E-mailová adresa alebo telefónne číslo.",
+  "identities.messages.1080004": "Na vaše telefónne číslo, ktoré ste uviedli, bol odoslaný textový odkaz obsahujúci overovací kód. Ak ste textovú správu neobdržali, skontrolujte, či ste správne zadali telefónne číslo, a uistite sa, že používate číslo, na ktoré ste sa registrovali.",
+  "identities.messages.1080005": "Úspešne ste overili svoje telefónne číslo."
 }

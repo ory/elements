@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Tinye nọmba ekwentị ziri ezi",
   "captcha.error": "Nyocha nchekwa kụrụ afọ n'ala. Biko nwaa ọzọ mechaa. Ọ bụrụ na nsogbu ahụ anọgide, kpọtụrụ nkwado.",
   "identities.messages.5000002": "Enweghị ụzụ nnabata dị. Biko, kpọtụrụ onye na-ahụ maka usoro ahụ.",
-  "identities.messages.4010011": "Akaụntụ a agbachi ọsọ. Biko, kpọtụrụ ndị na-enyere aka maka enyemaka."
+  "identities.messages.4010011": "Akaụntụ a agbachi ọsọ. Biko, kpọtụrụ ndị na-enyere aka maka enyemaka.",
+  "identities.messages.1070018": "Adịresi email ma ọ bụ nọmba ekwentị",
+  "identities.messages.1080004": "Ozi ederede nwere koodu nnabata ezitere na nọmba ekwentị ị nyere. Ọ bụrụ na ị nwetabeghị ozi ederede, lelee otu ị deere nọmba ahụ ma hụ na ị na-eji nọmba ị debere aha na ya.",
+  "identities.messages.1080005": "Ị nọchiri nke ọma na ọnụọgụgụ ekwentị gị dị mma."
 }

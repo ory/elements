@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Voer een geldig telefoonnummer in",
   "captcha.error": "Beveiligingsverificatie mislukt. Probeer het later opnieuw. Als het probleem aanhoudt, neem dan contact op met de ondersteuning.",
   "identities.messages.5000002": "Er zijn geen authenticatiemethoden beschikbaar. Neem contact op met de systeembeheerder.",
-  "identities.messages.4010011": "Dit account is uitgeschakeld. Neem contact op met de klantenservice voor hulp."
+  "identities.messages.4010011": "Dit account is uitgeschakeld. Neem contact op met de klantenservice voor hulp.",
+  "identities.messages.1070018": "E-mailadres of telefoonnummer",
+  "identities.messages.1080004": "Er is een sms-bericht met een verificatiecode naar het door u opgegeven telefoonnummer gestuurd. Als u geen sms-bericht heeft ontvangen, controleer dan of het telefoonnummer correct is gespeld en zorg ervoor dat u het nummer gebruikt waarmee u zich heeft geregistreerd.",
+  "identities.messages.1080005": "U heeft uw telefoonnummer succesvol geverifieerd."
 }

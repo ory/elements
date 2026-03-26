@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Geli nambar telefoon sax ah",
   "captcha.error": "Xaqiijinta amniga waa fashilantay. Fadlan isku day mar dambe. Haddii dhibaatadu sii socoto, la xiriir taageerada.",
   "identities.messages.5000002": "Ma jiro habab la isticmaali karo oo lagu xaqiijiyo. Fadlan la xiriir maamulaha nidaamka.",
-  "identities.messages.4010011": "Koontadan waxaa la joojiyay. Fadlan la xiriir kooxda taageerada si aad u helto caawin."
+  "identities.messages.4010011": "Koontadan waxaa la joojiyay. Fadlan la xiriir kooxda taageerada si aad u helto caawin.",
+  "identities.messages.1070018": "Cinwaanka e-mailka ama lambarka taleefoonka",
+  "identities.messages.1080004": "Fariin qoraal ah oo ay ku jirtay lambarka xaqiijinta ayaa loo soo diray lambarka telefoonka aad bixisay. Haddii aadan helin fariinta, hubi sida lambarka loo qoray, isla markaana hubso in aad isticmaasho lambarka aad ku diiwaangashatay.",
+  "identities.messages.1080005": "Waxaad si guul leh u xaqiijisay lambarka taleefoonkaaga."
 }

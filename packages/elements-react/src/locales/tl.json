@@ -248,5 +248,8 @@
   "identities.messages.4000041": "Maglagay ng wastong numero ng telepono",
   "captcha.error": "Nabigo ang pag-verify ng seguridad. Pakisubukang muli mamaya. Kung magpapatuloy ang problema, makipag-ugnayan sa suporta.",
   "identities.messages.5000002": "Walang magagamit na paraan ng pagpapatunay. Mangyaring makipag-ugnayan sa administrador ng sistema.",
-  "identities.messages.4010011": "Hindi na aktibo ang account na ito. Mangyaring makipag-ugnayan sa aming suporta para sa tulong."
+  "identities.messages.4010011": "Hindi na aktibo ang account na ito. Mangyaring makipag-ugnayan sa aming suporta para sa tulong.",
+  "identities.messages.1070018": "E-mail o numero ng telepono",
+  "identities.messages.1080004": "Isang mensahe na naglalaman ng isang code para sa pagpapatunay ang ipinadala sa numero ng telepono na ibinigay mo. Kung hindi mo pa natatanggap ang mensahe, suriin ang pagbaybay ng numero at tiyaking ginagamit mo ang numerong iyong nirehistro.",
+  "identities.messages.1080005": "Matagumpay mong napatunayan ang iyong numero ng telepono."
 }
