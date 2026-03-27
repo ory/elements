@@ -46,6 +46,7 @@ export function MethodActiveForm({
                   n.group === UiNodeGroupEnum.Default ||
                   n.group === UiNodeGroupEnum.Profile,
               )
+              .sort(sortNodes)
               .map((node, k) => (
                 <Node node={node} key={k} />
               ))}

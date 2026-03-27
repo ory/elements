@@ -214,4 +214,46 @@ describe("defaultNodeSorter", () => {
       ).toMatchSnapshot()
     })
   })
+
+  describe("registration with boolean const:true (ToS checkbox)", () => {
+    it("should place profile text inputs before profile checkboxes", () => {
+      const emailInput = createMockNode("profile", "input", "email")
+      const nameInput = createMockNode("profile", "input", "text")
+      const tosCheckbox = createMockNode("profile", "input", "checkbox")
+
+      const nodes = [tosCheckbox, emailInput, nameInput]
+      const sorted = [...nodes].sort(defaultNodeSorter)
+
+      expect(sorted.map(extractNodeInfo)).toEqual([
+        { group: "profile", type: "input", inputType: "email" },
+        { group: "profile", type: "input", inputType: "text" },
+        { group: "profile", type: "input", inputType: "checkbox" },
+      ])
+    })
+
+    it("should always place inputs before checkboxes before buttons regardless of initial order", () => {
+      const emailInput = createMockNode("profile", "input", "email")
+      const tosCheckbox = createMockNode("profile", "input", "checkbox")
+      const submitButton = createMockNode("password", "input", "submit")
+
+      // Slots are: inputs (0), checkboxes (1), buttons (3)
+      // These three nodes are in different slots, so order is deterministic.
+      const order1 = [tosCheckbox, emailInput, submitButton]
+      const order2 = [submitButton, tosCheckbox, emailInput]
+      const order3 = [emailInput, submitButton, tosCheckbox]
+
+      const sorted1 = [...order1].sort(defaultNodeSorter).map(extractNodeInfo)
+      const sorted2 = [...order2].sort(defaultNodeSorter).map(extractNodeInfo)
+      const sorted3 = [...order3].sort(defaultNodeSorter).map(extractNodeInfo)
+
+      expect(sorted1).toEqual(sorted2)
+      expect(sorted2).toEqual(sorted3)
+      // Verify the expected order: input < checkbox < button
+      expect(sorted1).toEqual([
+        { group: "profile", type: "input", inputType: "email" },
+        { group: "profile", type: "input", inputType: "checkbox" },
+        { group: "password", type: "input", inputType: "submit" },
+      ])
+    })
+  })
 })
