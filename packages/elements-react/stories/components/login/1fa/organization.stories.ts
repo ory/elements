@@ -18,19 +18,37 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ShowForm: Story = {
+export const ShowFormOIDC: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/organization/initial-form.json"),
+      require("$snapshots/login/1fa/identifier_first/organization-oidc/initial-form.json"),
     ),
     config,
   },
 }
 
-export const ShowOrganizationIDPs: Story = {
+export const ShowOIDCOrganizationIDPs: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/identifier_first/organization/selected-email.json"),
+      require("$snapshots/login/1fa/identifier_first/organization-oidc/selected-email.json"),
+    ),
+    config,
+  },
+}
+
+export const ShowFormSAML: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/organization-saml/initial-form.json"),
+    ),
+    config,
+  },
+}
+
+export const ShowSAMLOrganizationIDPs: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/identifier_first/organization-saml/selected-email.json"),
     ),
     config,
   },

@@ -18,18 +18,35 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ShowForm: Story = {
+export const ShowSAMLForm: Story = {
   args: {
     flow: RegistrationFlowFromJSON(
-      require("$snapshots/registration/two-step/organization/initial-form.json"),
+      require("$snapshots/registration/two-step/organization-saml/initial-form.json"),
     ),
     config,
   },
 }
-export const ShowOrganizationIDPs: Story = {
+export const ShowSAMLOrganizationIDPs: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/registration/two-step/organization/organization-providers.json"),
+      require("$snapshots/registration/two-step/organization-saml/organization-providers.json"),
+    ),
+    config,
+  },
+}
+
+export const ShowOIDCForm: Story = {
+  args: {
+    flow: RegistrationFlowFromJSON(
+      require("$snapshots/registration/two-step/organization-oidc/initial-form.json"),
+    ),
+    config,
+  },
+}
+export const ShowOIDCOrganizationIDPs: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/registration/two-step/organization-oidc/organization-providers.json"),
     ),
     config,
   },

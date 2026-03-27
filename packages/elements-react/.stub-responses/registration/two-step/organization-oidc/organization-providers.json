@@ -33,29 +33,6 @@
       },
       {
         "type": "input",
-        "group": "saml",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "mycorp-saml-sso",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010002,
-            "text": "Sign in with mycorpSAML SSO",
-            "type": "info",
-            "context": {
-              "provider": "mycorpSAML SSO",
-              "provider_id": "mycorp-saml-sso"
-            }
-          }
-        }
-      },
-      {
-        "type": "input",
         "group": "default",
         "attributes": {
           "name": "csrf_token",

@@ -71,29 +71,6 @@
             }
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "oidc",
-        "attributes": {
-          "name": "provider",
-          "type": "submit",
-          "value": "mycorp-oidc-sso",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010002,
-            "text": "Sign in with mycorpOIDC SSO",
-            "type": "info",
-            "context": {
-              "provider": "mycorpOIDC SSO",
-              "provider_id": "mycorp-oidc-sso"
-            }
-          }
-        }
       }
     ]
   },
