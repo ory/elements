@@ -134,6 +134,7 @@ export type OryNodeCheckboxProps = {
 }
 
 export type OryNodeInputInputProps = {
+  id: string
   name: string
   value: string | number | readonly string[] | undefined
   onClick: MouseEventHandler
