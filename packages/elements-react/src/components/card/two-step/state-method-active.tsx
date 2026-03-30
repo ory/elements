@@ -28,9 +28,19 @@ export function MethodActiveForm({
   const nodeSorter = useNodeSorter()
   const sortNodes = (a: UiNode, b: UiNode) => nodeSorter(a, b, { flowType })
   const groupsToShow = useNodeGroupsWithVisibleNodes(ui.nodes)
-  const finalNodes = getFinalNodes(groupsToShow, formState.method).sort(
-    sortNodes,
-  )
+  const finalNodes = getFinalNodes(groupsToShow, formState.method)
+
+  const allNodes = [
+    ...new Set([
+      ...ui.nodes.filter(
+        (n) =>
+          isUiNodeScriptAttributes(n.attributes) ||
+          n.group === UiNodeGroupEnum.Default ||
+          n.group === UiNodeGroupEnum.Profile,
+      ),
+      ...finalNodes,
+    ]),
+  ].sort(sortNodes)
 
   return (
     <OryCard>
@@ -39,18 +49,7 @@ export function MethodActiveForm({
         <OryCardValidationMessages />
         <OryForm onAfterSubmit={handleAfterFormSubmit(dispatchFormState)}>
           <Form.Group>
-            {ui.nodes
-              .filter(
-                (n) =>
-                  isUiNodeScriptAttributes(n.attributes) ||
-                  n.group === UiNodeGroupEnum.Default ||
-                  n.group === UiNodeGroupEnum.Profile,
-              )
-              .sort(sortNodes)
-              .map((node, k) => (
-                <Node node={node} key={k} />
-              ))}
-            {finalNodes.map((node, k) => (
+            {allNodes.map((node, k) => (
               <Node node={node} key={k} />
             ))}
           </Form.Group>
