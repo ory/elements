@@ -621,7 +621,34 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n}"
+              "text": ">;\n    onSuccess?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySuccessHandler",
+              "canonicalReference": "@ory/elements-react!OrySuccessHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onValidationError?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryValidationErrorHandler",
+              "canonicalReference": "@ory/elements-react!OryValidationErrorHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onError?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryErrorHandler",
+              "canonicalReference": "@ory/elements-react!OryErrorHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
             },
             {
               "kind": "Content",
@@ -633,7 +660,7 @@
           "name": "FlowContextValue",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 11
+            "endIndex": 17
           }
         },
         {
@@ -1543,6 +1570,33 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    onSuccess?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySuccessHandler",
+              "canonicalReference": "@ory/elements-react!OrySuccessHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onValidationError?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryValidationErrorHandler",
+              "canonicalReference": "@ory/elements-react!OryValidationErrorHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onError?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryErrorHandler",
+              "canonicalReference": "@ory/elements-react!OryErrorHandler:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             },
             {
@@ -1568,7 +1622,7 @@
           ],
           "typeTokenRange": {
             "startIndex": 11,
-            "endIndex": 16
+            "endIndex": 22
           }
         },
         {
@@ -2356,6 +2410,50 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryConsentSuccessEvent:type",
+          "docComment": "/**\n * Event fired after a successful OAuth2 consent submission.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryConsentSuccessEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.OAuth2Consent",
+              "canonicalReference": "@ory/client-fetch!FlowType.OAuth2Consent:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    consentRequest: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryConsentSuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryElementsConfiguration:type",
           "docComment": "/**\n * The Ory Elements configuration object.\n *\n * @interface\n */\n",
           "excerptTokens": [
@@ -2393,6 +2491,157 @@
           "fileUrlPath": "dist/index.d.ts",
           "releaseTag": "Public",
           "name": "OryElementsConfiguration",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryErrorEvent:type",
+          "docComment": "/**\n * Discriminated union of infrastructure/flow error events. Uses SDK error types from `@ory/client-fetch`.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryErrorEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    type: \"flow_expired\";\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    body: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SelfServiceFlowExpiredError",
+              "canonicalReference": "@ory/client-fetch!SelfServiceFlowExpiredError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    type: \"csrf_error\";\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    body: "
+            },
+            {
+              "kind": "Reference",
+              "text": "GenericError",
+              "canonicalReference": "@ory/client-fetch!GenericError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    type: \"flow_not_found\";\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    type: \"flow_replaced\";\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    body: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ErrorFlowReplaced",
+              "canonicalReference": "@ory/client-fetch!ErrorFlowReplaced:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    type: \"consent_error\";\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.OAuth2Consent",
+              "canonicalReference": "@ory/client-fetch!FlowType.OAuth2Consent:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    consentRequest: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OAuth2ConsentRequest",
+              "canonicalReference": "@ory/client-fetch!OAuth2ConsentRequest:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryErrorEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 20
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryErrorHandler:type",
+          "docComment": "/**\n * Callback invoked on infrastructure or flow-level errors (expired flow, CSRF violation, flow not found, flow replaced).\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryErrorHandler = "
+            },
+            {
+              "kind": "Content",
+              "text": "(event: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryErrorEvent",
+              "canonicalReference": "@ory/elements-react!OryErrorEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryErrorHandler",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -3665,6 +3914,59 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryLoginSuccessEvent:type",
+          "docComment": "/**\n * Event fired after a successful login, before the redirect.\n *\n * `session.identity` contains the authenticated user. Use `session.identity.id` for analytics session stitching (e.g., `mixpanel.identify`).\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryLoginSuccessEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Login",
+              "canonicalReference": "@ory/client-fetch!FlowType.Login:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    session: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    method: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryLoginSuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryMessageContentProps:type",
           "docComment": "/**\n * Props for the OryMessageContent component.\n *\n * @interface\n */\n",
           "excerptTokens": [
@@ -4432,7 +4734,7 @@
             },
             {
               "kind": "Content",
-              "text": ": Components, config, ...oryFlowProps }: "
+              "text": ": Components, config, onSuccess, onValidationError, onError, ...oryFlowProps }: "
             },
             {
               "kind": "Reference",
@@ -4462,7 +4764,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, components: Components, config, ...oryFlowProps }",
+              "parameterName": "{ children, components: Components, config, onSuccess, onValidationError, onError, ...oryFlowProps }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -4501,6 +4803,33 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    onSuccess?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySuccessHandler",
+              "canonicalReference": "@ory/elements-react!OrySuccessHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onValidationError?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryValidationErrorHandler",
+              "canonicalReference": "@ory/elements-react!OryValidationErrorHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    onError?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryErrorHandler",
+              "canonicalReference": "@ory/elements-react!OryErrorHandler:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n} & "
             },
             {
@@ -4527,7 +4856,113 @@
           "name": "OryProviderProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 9
+            "endIndex": 15
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryRecoverySuccessEvent:type",
+          "docComment": "/**\n * Event fired after a successful recovery submission.\n *\n * This fires when the server accepts the recovery form (e.g., a code or email was submitted). The user may still need to complete additional steps.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryRecoverySuccessEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Recovery",
+              "canonicalReference": "@ory/client-fetch!FlowType.Recovery:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    method: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryRecoverySuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryRegistrationSuccessEvent:type",
+          "docComment": "/**\n * Event fired after a successful registration, before the redirect.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryRegistrationSuccessEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Registration",
+              "canonicalReference": "@ory/client-fetch!FlowType.Registration:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    identity: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Identity",
+              "canonicalReference": "@ory/client-fetch!Identity:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    session?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    method: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryRegistrationSuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
           }
         },
         {
@@ -4809,6 +5244,50 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsSuccessEvent:type",
+          "docComment": "/**\n * Event fired after a successful settings update.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsSuccessEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Settings",
+              "canonicalReference": "@ory/client-fetch!FlowType.Settings:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    method: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsSuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OrySettingsTotpProps:type",
           "docComment": "",
           "excerptTokens": [
@@ -4924,6 +5403,122 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySuccessEvent:type",
+          "docComment": "/**\n * Discriminated union of all success events emitted by Ory Elements.\n *\n * Use the `flowType` field to narrow:\n * ```ts\n * onSuccess={async (event) => {\n *   if (event.flowType === FlowType.Login) {\n *     await mixpanel.identify(event.session.identity.id)\n *   }\n * }}\n * ```\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySuccessEvent = "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryLoginSuccessEvent",
+              "canonicalReference": "@ory/elements-react!OryLoginSuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRegistrationSuccessEvent",
+              "canonicalReference": "@ory/elements-react!OryRegistrationSuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryVerificationSuccessEvent",
+              "canonicalReference": "@ory/elements-react!OryVerificationSuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRecoverySuccessEvent",
+              "canonicalReference": "@ory/elements-react!OryRecoverySuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsSuccessEvent",
+              "canonicalReference": "@ory/elements-react!OrySettingsSuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryConsentSuccessEvent",
+              "canonicalReference": "@ory/elements-react!OryConsentSuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 12
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySuccessHandler:type",
+          "docComment": "/**\n * Callback invoked on a successful flow submission. Returning a `Promise` delays the default behavior (redirect, flow update) until the promise resolves.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySuccessHandler = "
+            },
+            {
+              "kind": "Content",
+              "text": "(event: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySuccessEvent",
+              "canonicalReference": "@ory/elements-react!OrySuccessEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySuccessHandler",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!OryToastProps:type",
           "docComment": "",
           "excerptTokens": [
@@ -4955,6 +5550,210 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryValidationErrorEvent:type",
+          "docComment": "/**\n * Discriminated union of validation error events. Each variant carries the updated flow object. Consumers extract messages from `flow.ui` themselves.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryValidationErrorEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Login",
+              "canonicalReference": "@ory/client-fetch!FlowType.Login:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Registration",
+              "canonicalReference": "@ory/client-fetch!FlowType.Registration:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Verification",
+              "canonicalReference": "@ory/client-fetch!FlowType.Verification:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Recovery",
+              "canonicalReference": "@ory/client-fetch!FlowType.Recovery:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n} | {\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Settings",
+              "canonicalReference": "@ory/client-fetch!FlowType.Settings:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryValidationErrorEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 22
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryValidationErrorHandler:type",
+          "docComment": "/**\n * Callback invoked when the server returns validation errors for a form submission.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryValidationErrorHandler = "
+            },
+            {
+              "kind": "Content",
+              "text": "(event: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryValidationErrorEvent",
+              "canonicalReference": "@ory/elements-react!OryValidationErrorEvent:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryValidationErrorHandler",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryVerificationSuccessEvent:type",
+          "docComment": "/**\n * Event fired after a successful verification submission.\n *\n * This fires when the server accepts the verification form (e.g., a code was submitted). It does not necessarily mean the identity is verified — check the flow state for that.\n *\n * @group\n *\n * Events\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryVerificationSuccessEvent = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType.Verification",
+              "canonicalReference": "@ory/client-fetch!FlowType.Verification:member"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    flow: "
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    method: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryVerificationSuccessEvent",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
           }
         },
         {

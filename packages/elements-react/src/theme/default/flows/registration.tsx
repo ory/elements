@@ -5,9 +5,12 @@
 import { FlowType, RegistrationFlow } from "@ory/client-fetch"
 import {
   OryClientConfiguration,
+  OryErrorHandler,
   OryFlowComponentOverrides,
   OryProvider,
   OrySelfServiceFlowCard,
+  OrySuccessHandler,
+  OryValidationErrorHandler,
 } from "@ory/elements-react"
 import { getOryComponents } from "../components"
 
@@ -43,6 +46,27 @@ type RegistrationFlowContextProps = {
    * If not provided, the default OrySelfServiceFlowCard will be rendered.
    */
   children?: React.ReactNode
+
+  /**
+   * Optional callback invoked on successful flow completion.
+   *
+   * @see {@link OrySuccessHandler}
+   */
+  onSuccess?: OrySuccessHandler
+
+  /**
+   * Optional callback invoked when the flow returns validation errors.
+   *
+   * @see {@link OryValidationErrorHandler}
+   */
+  onValidationError?: OryValidationErrorHandler
+
+  /**
+   * Optional callback invoked on flow-level errors.
+   *
+   * @see {@link OryErrorHandler}
+   */
+  onError?: OryErrorHandler
 }
 
 /**
@@ -58,6 +82,9 @@ export function Registration({
   children,
   components: flowOverrideComponents,
   config,
+  onSuccess,
+  onValidationError,
+  onError,
 }: RegistrationFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
   return (
@@ -66,6 +93,9 @@ export function Registration({
       flow={flow}
       flowType={FlowType.Registration}
       components={components}
+      onSuccess={onSuccess}
+      onValidationError={onValidationError}
+      onError={onError}
     >
       {children ?? <OrySelfServiceFlowCard />}
     </OryProvider>

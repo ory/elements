@@ -12,6 +12,7 @@ import { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
+import { flowHasErrors } from "./flowHasErrors"
 
 /**
  * Use this method to submit a verification flow. This method is used in the `onSubmit` handler of the verification form.
@@ -29,19 +30,32 @@ export async function onSubmitVerification(
     setFlowContainer,
     body,
     onRedirect,
+    onSuccess,
+    onValidationError,
+    onError,
   }: OnSubmitHandlerProps<UpdateVerificationFlowBody>,
 ) {
+  const method = String(body.method)
+
   await config.sdk.frontend
     .updateVerificationFlowRaw({
       flow: flow.id,
       updateVerificationFlowBody: body,
     })
-    .then(async (res) =>
-      setFlowContainer({
-        flow: await res.value(),
+    .then(async (res) => {
+      const flow = await res.value()
+
+      await onSuccess?.({
         flowType: FlowType.Verification,
-      }),
-    )
+        method,
+        flow,
+      })
+
+      return setFlowContainer({
+        flow,
+        flowType: FlowType.Verification,
+      })
+    })
     .catch(
       handleFlowError({
         onRestartFlow: (useFlowId) => {
@@ -51,7 +65,13 @@ export async function onSubmitVerification(
             onRedirect(verificationUrl(config), true)
           }
         },
-        onValidationError: (body: VerificationFlow) => {
+        onValidationError: async (body: VerificationFlow) => {
+          if (flowHasErrors(body.ui)) {
+            await onValidationError?.({
+              flowType: FlowType.Verification,
+              flow: body,
+            })
+          }
           setFlowContainer({
             flow: body,
             flowType: FlowType.Verification,
@@ -59,6 +79,8 @@ export async function onSubmitVerification(
         },
         onRedirect,
         config,
+        flowType: FlowType.Verification,
+        onError,
       }),
     )
 }

@@ -14,6 +14,7 @@ import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
 import { OryElementsConfiguration } from "../context"
 import { handleFlowError } from "./sdk-helpers"
+import { flowHasErrors } from "./flowHasErrors"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.
@@ -31,6 +32,9 @@ export async function onSubmitLogin(
     setFlowContainer,
     body,
     onRedirect,
+    onSuccess,
+    onValidationError,
+    onError,
   }: OnSubmitHandlerProps<UpdateLoginFlowBody>,
 ) {
   if (!config.sdk.url) {
@@ -39,6 +43,8 @@ export async function onSubmitLogin(
     )
   }
 
+  const method = String(body.method)
+
   await frontendClient(config.sdk.url, config.sdk.options ?? {})
     .updateLoginFlowRaw({
       flow: flow.id,
@@ -46,6 +52,13 @@ export async function onSubmitLogin(
     })
     .then(async (res) => {
       const body = await res.value()
+
+      await onSuccess?.({
+        flowType: FlowType.Login,
+        method,
+        session: body.session,
+        flow,
+      })
 
       const didContinueWith = handleContinueWith(body.continue_with, {
         onRedirect,
@@ -68,7 +81,13 @@ export async function onSubmitLogin(
             onRedirect(loginUrl(config), true)
           }
         },
-        onValidationError: (body: LoginFlow) => {
+        onValidationError: async (body: LoginFlow) => {
+          if (flowHasErrors(body.ui)) {
+            await onValidationError?.({
+              flowType: FlowType.Login,
+              flow: body,
+            })
+          }
           setFlowContainer({
             flow: body,
             flowType: FlowType.Login,
@@ -76,6 +95,8 @@ export async function onSubmitLogin(
         },
         onRedirect,
         config,
+        flowType: FlowType.Login,
+        onError,
       }),
     )
 }

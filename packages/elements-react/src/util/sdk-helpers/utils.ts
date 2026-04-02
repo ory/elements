@@ -1,7 +1,13 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FetchError, ResponseError } from "@ory/client-fetch"
+import {
+  FetchError,
+  FlowType,
+  GenericError,
+  ResponseError,
+} from "@ory/client-fetch"
+import { OryErrorHandler } from "../events"
 import { OnRedirectHandler } from "./continueWith"
 import {
   isAddressNotVerified,
@@ -11,10 +17,11 @@ import {
   isNeedsPrivilegedSessionError,
   isResponseError,
   isSelfServiceFlowExpiredError,
+  isSelfServiceFlowReplaced,
 } from "./error"
 import { verificationUrl } from "./urlHelpers"
 
-export type ValidationErrorHandler<T> = (body: T) => void
+export type ValidationErrorHandler<T> = (body: T) => void | Promise<void>
 
 type FlowErrorHandlerProps<T> = {
   /**
@@ -43,6 +50,17 @@ type FlowErrorHandlerProps<T> = {
    * The configuration object.
    */
   config: { sdk: { url: string } }
+
+  /**
+   * The type of flow being handled.
+   */
+  flowType: FlowType
+
+  /**
+   * Optional callback invoked on infrastructure or flow-level errors before
+   * the default behavior (restart, redirect) proceeds.
+   */
+  onError?: OryErrorHandler
 }
 
 /**
@@ -70,6 +88,11 @@ export const handleFlowError =
       // Handle JSON content
       const body = await toBody(err.response)
       if (isSelfServiceFlowExpiredError(body)) {
+        await opts.onError?.({
+          type: "flow_expired",
+          flowType: opts.flowType,
+          body,
+        })
         opts.onRestartFlow(body.use_flow_id)
         return
       } else if (isAddressNotVerified(body)) {
@@ -97,7 +120,20 @@ export const handleFlowError =
       ) {
         opts.onRedirect(body.redirect_browser_to, true)
         return
+      } else if (isSelfServiceFlowReplaced(body)) {
+        await opts.onError?.({
+          type: "flow_replaced",
+          flowType: opts.flowType,
+          body,
+        })
+        opts.onRestartFlow()
+        return
       } else if (isCsrfError(body)) {
+        await opts.onError?.({
+          type: "csrf_error",
+          flowType: opts.flowType,
+          body,
+        })
         opts.onRestartFlow()
         return
       }
@@ -105,10 +141,18 @@ export const handleFlowError =
       // None of the above worked, but we have a JSON response and a status code. Let's do the best we can.
       switch (err.response.status) {
         case 404: // Does not exist
+          await opts.onError?.({
+            type: "flow_not_found",
+            flowType: opts.flowType,
+          })
           opts.onRestartFlow()
           return
         case 410: // Expired
           // Re-initialize the flow
+          await opts.onError?.({
+            type: "flow_not_found",
+            flowType: opts.flowType,
+          })
           opts.onRestartFlow()
           return
         case 400:
@@ -116,6 +160,11 @@ export const handleFlowError =
             (await err.response.json()) as unknown as T,
           )
         case 403: // This typically happens with CSRF violations.
+          await opts.onError?.({
+            type: "csrf_error",
+            flowType: opts.flowType,
+            body: body as GenericError,
+          })
           opts.onRestartFlow()
           return
         case 422: {

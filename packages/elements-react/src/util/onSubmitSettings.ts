@@ -15,6 +15,7 @@ import { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
+import { flowHasErrors } from "./flowHasErrors"
 
 /**
  * Use this method to submit a settings flow. This method is used in the `onSubmit` handler of the settings form.
@@ -32,8 +33,13 @@ export async function onSubmitSettings(
     setFlowContainer,
     body,
     onRedirect,
+    onSuccess,
+    onValidationError,
+    onError,
   }: OnSubmitHandlerProps<UpdateSettingsFlowBody>,
 ) {
+  const method = String(body.method)
+
   await config.sdk.frontend
     .updateSettingsFlowRaw({
       flow: flow.id,
@@ -41,6 +47,12 @@ export async function onSubmitSettings(
     })
     .then(async (res) => {
       const body = await res.value()
+
+      await onSuccess?.({
+        flowType: FlowType.Settings,
+        method,
+        flow: body,
+      })
 
       const didContinueWith = handleContinueWith(body.continue_with, {
         onRedirect,
@@ -65,7 +77,13 @@ export async function onSubmitSettings(
             onRedirect(settingsUrl(config), true)
           }
         },
-        onValidationError: (body: SettingsFlow) => {
+        onValidationError: async (body: SettingsFlow) => {
+          if (flowHasErrors(body.ui)) {
+            await onValidationError?.({
+              flowType: FlowType.Settings,
+              flow: body,
+            })
+          }
           setFlowContainer({
             flow: body,
             flowType: FlowType.Settings,
@@ -73,6 +91,8 @@ export async function onSubmitSettings(
         },
         onRedirect,
         config,
+        flowType: FlowType.Settings,
+        onError,
       }),
     )
     .catch((err) => {

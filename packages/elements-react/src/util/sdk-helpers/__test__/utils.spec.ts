@@ -3,7 +3,8 @@
 
 // utils.test.ts
 import { handleFlowError, toBody } from "../utils"
-import { FetchError, ResponseError } from "@ory/client-fetch"
+import { FetchError, FlowType, ResponseError } from "@ory/client-fetch"
+import { OryErrorEvent } from "../../events"
 
 // Define the props type since it's not exported
 interface FlowErrorHandlerProps<T> {
@@ -11,6 +12,8 @@ interface FlowErrorHandlerProps<T> {
   onValidationError: (error: T) => void
   onRedirect: (to: string, afterRender?: boolean) => void
   config: { sdk: { url: string } }
+  flowType: FlowType
+  onError?: jest.Mock
 }
 
 // Define proper types for mocks
@@ -38,6 +41,7 @@ describe("handleFlowError", () => {
       onValidationError: jest.fn(),
       onRedirect: jest.fn(),
       config: { sdk: { url: "https://example.com" } },
+      flowType: FlowType.Login,
     }
 
     mockResponse = {
@@ -378,6 +382,199 @@ describe("handleFlowError", () => {
     expect(opts.onRedirect).not.toHaveBeenCalled()
 
     expect(mockResponse.json).toHaveBeenCalled()
+  })
+})
+
+function makeResponseError(
+  status: number,
+  body: unknown,
+  contentType = "application/json",
+) {
+  const bodyStr = JSON.stringify(body)
+  const response = {
+    status,
+    json: () => Promise.resolve(body),
+    clone: () => response,
+    text: () => Promise.resolve(bodyStr),
+    headers: {
+      get: (name: string) => (name === "content-type" ? contentType : null),
+      entries: () => [["content-type", contentType]],
+    },
+  }
+  return Object.assign(new Error("ResponseError"), {
+    name: "ResponseError",
+    response,
+  })
+}
+
+describe("handleFlowError error event emission", () => {
+  const baseOpts = {
+    onRestartFlow: jest.fn(),
+    onValidationError: jest.fn(),
+    onRedirect: jest.fn(),
+    config: { sdk: { url: "https://example.com" } },
+    flowType: FlowType.Login,
+    onError: jest.fn(),
+  }
+
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it("should emit flow_expired error event", async () => {
+    const body = {
+      error: { id: "self_service_flow_expired" },
+      use_flow_id: "new-flow-id",
+    }
+    const err = makeResponseError(410, body)
+    const handler = handleFlowError(baseOpts)
+
+    await handler(err)
+
+    expect(baseOpts.onError).toHaveBeenCalledWith({
+      type: "flow_expired",
+      flowType: FlowType.Login,
+      body,
+    })
+    expect(baseOpts.onRestartFlow).toHaveBeenCalledWith("new-flow-id")
+  })
+
+  it("should emit csrf_error event for isCsrfError body", async () => {
+    const body = { error: { id: "security_csrf_violation" } }
+    const err = makeResponseError(403, body)
+    const handler = handleFlowError(baseOpts)
+
+    await handler(err)
+
+    expect(baseOpts.onError).toHaveBeenCalledWith({
+      type: "csrf_error",
+      flowType: FlowType.Login,
+      body,
+    })
+    expect(baseOpts.onRestartFlow).toHaveBeenCalled()
+  })
+
+  it("should emit flow_not_found event on 404", async () => {
+    const body = { message: "Not found" }
+    const err = makeResponseError(404, body)
+    const handler = handleFlowError(baseOpts)
+
+    await handler(err)
+
+    expect(baseOpts.onError).toHaveBeenCalledWith({
+      type: "flow_not_found",
+      flowType: FlowType.Login,
+    })
+    expect(baseOpts.onRestartFlow).toHaveBeenCalled()
+  })
+
+  it("should emit flow_not_found event on 410 (non-expired)", async () => {
+    const body = { message: "Gone" }
+    const err = makeResponseError(410, body)
+    const handler = handleFlowError(baseOpts)
+
+    await handler(err)
+
+    expect(baseOpts.onError).toHaveBeenCalledWith({
+      type: "flow_not_found",
+      flowType: FlowType.Login,
+    })
+    expect(baseOpts.onRestartFlow).toHaveBeenCalled()
+  })
+
+  it("should await async onError before calling onRestartFlow", async () => {
+    const callOrder: string[] = []
+    const opts = {
+      ...baseOpts,
+      onError: jest.fn(
+        () =>
+          new Promise<void>((resolve) => {
+            setTimeout(() => {
+              callOrder.push("onError resolved")
+              resolve()
+            }, 10)
+          }),
+      ),
+      onRestartFlow: jest.fn(() => {
+        callOrder.push("onRestartFlow called")
+      }),
+    }
+
+    const body = {
+      error: { id: "self_service_flow_expired" },
+      use_flow_id: "abc",
+    }
+    const err = makeResponseError(410, body)
+    const handler = handleFlowError(opts)
+
+    await handler(err)
+
+    expect(callOrder).toEqual(["onError resolved", "onRestartFlow called"])
+  })
+
+  it("should work without onError callback (no throw)", async () => {
+    const opts = {
+      onRestartFlow: jest.fn(),
+      onValidationError: jest.fn(),
+      onRedirect: jest.fn(),
+      config: { sdk: { url: "https://example.com" } },
+      flowType: FlowType.Login,
+    }
+
+    const body = {
+      error: { id: "self_service_flow_expired" },
+      use_flow_id: "new-flow-id",
+    }
+    const err = makeResponseError(410, body)
+    const handler = handleFlowError(opts)
+
+    await expect(handler(err)).resolves.toBeUndefined()
+    expect(opts.onRestartFlow).toHaveBeenCalledWith("new-flow-id")
+  })
+
+  it("should emit csrf_error event on 403 status code", async () => {
+    const body = { message: "Forbidden" }
+    const err = makeResponseError(403, body)
+    const handler = handleFlowError(baseOpts)
+
+    await handler(err)
+
+    expect(baseOpts.onError).toHaveBeenCalledWith({
+      type: "csrf_error",
+      flowType: FlowType.Login,
+      body,
+    })
+    expect(baseOpts.onRestartFlow).toHaveBeenCalled()
+  })
+
+  test("should emit flow_replaced error event", async () => {
+    const errors: OryErrorEvent[] = []
+    const onError = (event: OryErrorEvent) => {
+      errors.push(event)
+    }
+    const onRestartFlow = jest.fn()
+
+    const body = {
+      error: { id: "self_service_flow_replaced", message: "Flow replaced" },
+      use_flow_id: "replacement-flow-id",
+    }
+
+    await handleFlowError({
+      onRestartFlow,
+      onValidationError: jest.fn(),
+      onRedirect: jest.fn(),
+      config: { sdk: { url: "http://localhost" } },
+      flowType: FlowType.Login,
+      onError,
+    })(makeResponseError(410, body))
+
+    expect(errors).toHaveLength(1)
+    expect(errors[0]).toEqual({
+      type: "flow_replaced",
+      flowType: FlowType.Login,
+      body,
+    })
+    expect(onRestartFlow).toHaveBeenCalled()
   })
 })
 

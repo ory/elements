@@ -9,10 +9,11 @@ import {
   UpdateRegistrationFlowBody,
 } from "@ory/client-fetch"
 import { OryElementsConfiguration } from "../context"
-import { OryFlowContainer } from "./flowContainer"
+import { RegistrationFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
+import { flowHasErrors } from "./flowHasErrors"
 
 /**
  * Use this method to submit a registration flow. This method is used in the `onSubmit` handler of the registration form.
@@ -24,14 +25,19 @@ import { handleFlowError } from "./sdk-helpers"
  * @param onRedirect - This method is used to redirect the user to a different page.
  */
 export async function onSubmitRegistration(
-  { flow }: OryFlowContainer,
+  { flow }: RegistrationFlowContainer,
   config: OryElementsConfiguration,
   {
     setFlowContainer,
     body,
     onRedirect,
+    onSuccess,
+    onValidationError,
+    onError,
   }: OnSubmitHandlerProps<UpdateRegistrationFlowBody>,
 ) {
+  const method = String(body.method)
+
   await config.sdk.frontend
     .updateRegistrationFlowRaw({
       flow: flow.id,
@@ -39,6 +45,14 @@ export async function onSubmitRegistration(
     })
     .then(async (res) => {
       const body = await res.value()
+
+      await onSuccess?.({
+        flowType: FlowType.Registration,
+        method,
+        identity: body.identity,
+        session: body.session,
+        flow,
+      })
 
       const didContinueWith = handleContinueWith(body.continue_with, {
         onRedirect,
@@ -62,7 +76,13 @@ export async function onSubmitRegistration(
             onRedirect(registrationUrl(config), true)
           }
         },
-        onValidationError: (body: RegistrationFlow) => {
+        onValidationError: async (body: RegistrationFlow) => {
+          if (flowHasErrors(body.ui)) {
+            await onValidationError?.({
+              flowType: FlowType.Registration,
+              flow: body,
+            })
+          }
           setFlowContainer({
             flow: body,
             flowType: FlowType.Registration,
@@ -70,6 +90,8 @@ export async function onSubmitRegistration(
         },
         onRedirect,
         config,
+        flowType: FlowType.Registration,
+        onError,
       }),
     )
 }

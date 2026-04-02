@@ -9,6 +9,11 @@ import {
   useState,
 } from "react"
 import { OryFlowContainer } from "../util/flowContainer"
+import {
+  OryErrorHandler,
+  OrySuccessHandler,
+  OryValidationErrorHandler,
+} from "../util/events"
 import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
 
 /**
@@ -51,6 +56,21 @@ export type FlowContextValue = OryFlowContainer & {
    * Dispatch function to update the form state.
    */
   dispatchFormState: Dispatch<FormStateAction>
+
+  /**
+   * Optional callback invoked on successful flow completion.
+   */
+  onSuccess?: OrySuccessHandler
+
+  /**
+   * Optional callback invoked when the flow returns validation errors.
+   */
+  onValidationError?: OryValidationErrorHandler
+
+  /**
+   * Optional callback invoked when a flow error occurs.
+   */
+  onError?: OryErrorHandler
 }
 
 // This is fine, because we don't export the context itself and guard from it being null in useOryFlow
@@ -62,7 +82,13 @@ const OryFlowContext = createContext<FlowContextValue>(null!)
  * @hidden
  * @inline
  */
-export type OryFlowProviderProps = PropsWithChildren<OryFlowContainer>
+export type OryFlowProviderProps = PropsWithChildren<
+  OryFlowContainer & {
+    onSuccess?: OrySuccessHandler
+    onValidationError?: OryValidationErrorHandler
+    onError?: OryErrorHandler
+  }
+>
 
 /**
  *
@@ -71,6 +97,9 @@ export type OryFlowProviderProps = PropsWithChildren<OryFlowContainer>
  */
 export function OryFlowProvider({
   children,
+  onSuccess,
+  onValidationError,
+  onError,
   ...container
 }: OryFlowProviderProps) {
   const [flowContainer, setFlowContainer] = useState(container)
@@ -90,6 +119,9 @@ export function OryFlowProvider({
           },
           formState,
           dispatchFormState,
+          onSuccess,
+          onValidationError,
+          onError,
         } as FlowContextValue
       }
     >

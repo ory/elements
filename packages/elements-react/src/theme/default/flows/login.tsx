@@ -5,9 +5,12 @@
 import { FlowType, LoginFlow } from "@ory/client-fetch"
 import {
   OryClientConfiguration,
+  OryErrorHandler,
   OryFlowComponentOverrides,
   OryProvider,
   OrySelfServiceFlowCard,
+  OrySuccessHandler,
+  OryValidationErrorHandler,
 } from "@ory/elements-react"
 import { getOryComponents } from "../components"
 
@@ -41,6 +44,27 @@ export type LoginFlowContextProps = {
    * If not provided, the default OrySelfServiceFlowCard will be rendered.
    */
   children?: React.ReactNode
+
+  /**
+   * Optional callback invoked on successful flow completion.
+   *
+   * @see {@link OrySuccessHandler}
+   */
+  onSuccess?: OrySuccessHandler
+
+  /**
+   * Optional callback invoked when the flow returns validation errors.
+   *
+   * @see {@link OryValidationErrorHandler}
+   */
+  onValidationError?: OryValidationErrorHandler
+
+  /**
+   * Optional callback invoked on flow-level errors.
+   *
+   * @see {@link OryErrorHandler}
+   */
+  onError?: OryErrorHandler
 }
 
 /**
@@ -57,6 +81,9 @@ export function Login({
   config,
   children,
   components: flowOverrideComponents,
+  onSuccess,
+  onValidationError,
+  onError,
 }: LoginFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
   return (
@@ -65,6 +92,9 @@ export function Login({
       flow={flow}
       flowType={FlowType.Login}
       components={components}
+      onSuccess={onSuccess}
+      onValidationError={onValidationError}
+      onError={onError}
     >
       {children ?? <OrySelfServiceFlowCard />}
     </OryProvider>

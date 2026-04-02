@@ -1,0 +1,30 @@
+services:
+  matomo-db:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: matomo
+      MYSQL_DATABASE: matomo
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo
+    volumes:
+      - matomo-db:/var/lib/mysql
+
+  matomo:
+    image: matomo:5
+    ports:
+      - "8087:80"
+    environment:
+      MATOMO_DATABASE_HOST: matomo-db
+      MATOMO_DATABASE_ADAPTER: mysql
+      MATOMO_DATABASE_TABLES_PREFIX: matomo_
+      MATOMO_DATABASE_USERNAME: matomo
+      MATOMO_DATABASE_PASSWORD: matomo
+      MATOMO_DATABASE_DBNAME: matomo
+    volumes:
+      - matomo-data:/var/www/html
+    depends_on:
+      - matomo-db
+
+volumes:
+  matomo-db:
+  matomo-data:

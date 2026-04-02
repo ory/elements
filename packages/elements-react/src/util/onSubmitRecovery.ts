@@ -17,6 +17,7 @@ import { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
 import { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
+import { flowHasErrors } from "./flowHasErrors"
 
 /**
  * Use this method to submit a recovery flow. This method is used in the `onSubmit` handler of the recovery form.
@@ -34,8 +35,13 @@ export async function onSubmitRecovery(
     setFlowContainer,
     body,
     onRedirect,
+    onSuccess,
+    onValidationError,
+    onError,
   }: OnSubmitHandlerProps<UpdateRecoveryFlowBody>,
 ) {
+  const method = String(body.method)
+
   await config.sdk.frontend
     .updateRecoveryFlowRaw({
       flow: flow.id,
@@ -43,6 +49,12 @@ export async function onSubmitRecovery(
     })
     .then(async (res) => {
       const flow = await res.value()
+
+      await onSuccess?.({
+        flowType: FlowType.Recovery,
+        method,
+        flow,
+      })
 
       const didContinueWith = handleContinueWith(flow.continue_with, {
         onRedirect,
@@ -67,11 +79,19 @@ export async function onSubmitRecovery(
             onRedirect(recoveryUrl(config), true)
           }
         },
-        onValidationError: (body: RecoveryFlow | { error: GenericError }) => {
+        onValidationError: async (
+          body: RecoveryFlow | { error: GenericError },
+        ) => {
           if ("error" in body) {
             handleContinueWithRecoveryUIError(body.error, config, onRedirect)
             return
           } else {
+            if (flowHasErrors(body.ui)) {
+              await onValidationError?.({
+                flowType: FlowType.Recovery,
+                flow: body,
+              })
+            }
             setFlowContainer({
               flow: body,
               flowType: FlowType.Recovery,
@@ -80,6 +100,8 @@ export async function onSubmitRecovery(
         },
         onRedirect,
         config,
+        flowType: FlowType.Recovery,
+        onError,
       }),
     )
 }

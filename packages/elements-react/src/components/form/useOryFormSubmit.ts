@@ -36,6 +36,8 @@ export function useOryFormSubmit(
   const methods = useFormContext()
   const config = useOryConfiguration()
 
+  const { onSuccess, onValidationError, onError } = flowContainer
+
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.dispatchFormState({ type: "form_submit_end" })
     flowContainer.setFlowContainer(flow)
@@ -69,6 +71,9 @@ export function useOryFormSubmit(
             onRedirect,
             setFlowContainer: handleSuccess,
             body: submitData,
+            onSuccess,
+            onValidationError,
+            onError,
           })
           break
         }
@@ -85,6 +90,9 @@ export function useOryFormSubmit(
             onRedirect,
             setFlowContainer: handleSuccess,
             body: submitData,
+            onSuccess,
+            onValidationError,
+            onError,
           })
           break
         }
@@ -93,6 +101,9 @@ export function useOryFormSubmit(
             onRedirect,
             setFlowContainer: handleSuccess,
             body: data as unknown as UpdateVerificationFlowBody,
+            onSuccess,
+            onValidationError,
+            onError,
           })
           break
         case FlowType.Recovery: {
@@ -107,6 +118,9 @@ export function useOryFormSubmit(
             onRedirect,
             setFlowContainer: handleSuccess,
             body: submitData,
+            onSuccess,
+            onValidationError,
+            onError,
           })
           break
         }
@@ -153,6 +167,9 @@ export function useOryFormSubmit(
             onRedirect,
             setFlowContainer: handleSuccess,
             body: submitData,
+            onSuccess,
+            onValidationError,
+            onError,
           })
           break
         }
@@ -170,9 +187,18 @@ export function useOryFormSubmit(
             oauth2Success.redirect_to &&
             typeof oauth2Success.redirect_to === "string"
           ) {
+            await onSuccess?.({
+              flowType: FlowType.OAuth2Consent,
+              consentRequest: flowContainer.flow.consent_request,
+            })
             onRedirect(oauth2Success.redirect_to as string, true)
             break
           }
+          await onError?.({
+            type: "consent_error",
+            flowType: FlowType.OAuth2Consent,
+            consentRequest: flowContainer.flow.consent_request,
+          })
           throw new Error(
             `[Ory/Elements]: OAuth2 consent flow not completed. This indicates a bug in Ory. Please report this issue to github.com/ory/elements. \nResponse from ${flowContainer.flow.ui.action}: ${JSON.stringify(oauth2Success)}`,
           )

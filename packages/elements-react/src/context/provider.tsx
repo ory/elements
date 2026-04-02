@@ -6,6 +6,11 @@ import { PropsWithChildren } from "react"
 
 import { OryFlowComponents } from "../components"
 import { OryClientConfiguration } from "../util"
+import {
+  OryErrorHandler,
+  OrySuccessHandler,
+  OryValidationErrorHandler,
+} from "../util/events"
 import { OryFlowContainer } from "../util/flowContainer"
 import { OryComponentProvider } from "./component"
 import { OryConfigurationProvider } from "./config"
@@ -26,6 +31,57 @@ export type OryProviderProps = {
    * This includes the SDK and project configuration.
    */
   config: OryClientConfiguration
+  /**
+   * Optional callback invoked on successful flow completion.
+   *
+   * Use this for session stitching and post-authentication analytics.
+   *
+   * @example
+   * ```tsx
+   * <OryProvider
+   *   config={config}
+   *   flow={flow}
+   *   flowType={FlowType.Login}
+   *   components={components}
+   *   onSuccess={async (event) => {
+   *     if (event.flowType === FlowType.Login) {
+   *       await mixpanel.identify(event.session.identity.id)
+   *     }
+   *   }}
+   * />
+   * ```
+   */
+  onSuccess?: OrySuccessHandler
+
+  /**
+   * Optional callback invoked when the flow returns validation errors.
+   *
+   * Use this to track form friction in your analytics pipeline.
+   *
+   * @example
+   * ```tsx
+   * onValidationError={(event) => {
+   *   analytics.track("validation_error", { flow: event.flow.id })
+   * }}
+   * ```
+   */
+  onValidationError?: OryValidationErrorHandler
+
+  /**
+   * Optional callback invoked when a flow error occurs (expired, security violation, etc.).
+   *
+   * Use this to track error rates and detect integration issues.
+   *
+   * @example
+   * ```tsx
+   * onError={(event) => {
+   *   if (event.type === "flow_expired") {
+   *     analytics.track("flow_expired", { flowType: event.flowType })
+   *   }
+   * }}
+   * ```
+   */
+  onError?: OryErrorHandler
 } & OryFlowContainer &
   PropsWithChildren
 
@@ -75,6 +131,9 @@ export function OryProvider({
   children,
   components: Components,
   config,
+  onSuccess,
+  onValidationError,
+  onError,
   ...oryFlowProps
 }: OryProviderProps) {
   return (
@@ -83,7 +142,12 @@ export function OryProvider({
         locale={config.intl?.locale ?? "en"}
         customTranslations={config.intl?.customTranslations}
       >
-        <OryFlowProvider {...oryFlowProps}>
+        <OryFlowProvider
+          {...oryFlowProps}
+          onSuccess={onSuccess}
+          onValidationError={onValidationError}
+          onError={onError}
+        >
           <OryComponentProvider components={Components}>
             {children}
           </OryComponentProvider>

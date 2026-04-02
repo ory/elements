@@ -8,10 +8,13 @@ import { ComponentPropsWithoutRef } from 'react';
 import { ComponentType } from 'react';
 import { ConfigurationParameters } from '@ory/client-fetch';
 import { Dispatch } from 'react';
+import { ErrorFlowReplaced } from '@ory/client-fetch';
 import { FlowError } from '@ory/client-fetch';
 import { FlowType } from '@ory/client-fetch';
 import { FormEventHandler } from 'react';
 import { FrontendApi } from '@ory/client-fetch';
+import { GenericError } from '@ory/client-fetch';
+import { Identity } from '@ory/client-fetch';
 import { IntlShape } from 'react-intl';
 import { LoginFlow } from '@ory/client-fetch';
 import { MouseEventHandler } from 'react';
@@ -22,6 +25,7 @@ import * as react_jsx_runtime from 'react/jsx-runtime';
 import { ReactNode } from 'react';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
+import { SelfServiceFlowExpiredError } from '@ory/client-fetch';
 import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
 import { UiContainer } from '@ory/client-fetch';
@@ -76,6 +80,9 @@ export type FlowContextValue = OryFlowContainer & {
     setFlowContainer: FlowContainerSetter;
     formState: FormState;
     dispatchFormState: Dispatch<FormStateAction>;
+    onSuccess?: OrySuccessHandler;
+    onValidationError?: OryValidationErrorHandler;
+    onError?: OryErrorHandler;
 };
 
 // Warning: (ae-forgotten-export) The symbol "FlowFormState" needs to be exported by the entry point index.d.ts
@@ -185,6 +192,9 @@ export type OnSubmitHandlerProps<T extends UpdateLoginFlowBody | UpdateRegistrat
     setFlowContainer: (flowContainer: OryFlowContainer) => void;
     body: T;
     onRedirect: OnRedirectHandler;
+    onSuccess?: OrySuccessHandler;
+    onValidationError?: OryValidationErrorHandler;
+    onError?: OryErrorHandler;
 };
 
 // @public
@@ -261,10 +271,41 @@ export function OryConfigurationProvider({ children, sdk: initialConfig, project
 export function OryConsentCard(): react_jsx_runtime.JSX.Element;
 
 // @public
+export type OryConsentSuccessEvent = {
+    flowType: FlowType.OAuth2Consent;
+    consentRequest: OAuth2ConsentRequest;
+};
+
+// @public
 export type OryElementsConfiguration = {
     sdk: OrySDK;
     project: ProjectConfiguration;
 };
+
+// @public
+export type OryErrorEvent = {
+    type: "flow_expired";
+    flowType: FlowType;
+    body: SelfServiceFlowExpiredError;
+} | {
+    type: "csrf_error";
+    flowType: FlowType;
+    body: GenericError;
+} | {
+    type: "flow_not_found";
+    flowType: FlowType;
+} | {
+    type: "flow_replaced";
+    flowType: FlowType;
+    body: ErrorFlowReplaced;
+} | {
+    type: "consent_error";
+    flowType: FlowType.OAuth2Consent;
+    consentRequest: OAuth2ConsentRequest;
+};
+
+// @public
+export type OryErrorHandler = (event: OryErrorEvent) => void | Promise<void>;
 
 // @public
 export type OryFlowComponentOverrides = {
@@ -373,6 +414,14 @@ export type OryFormSsoRootProps = PropsWithChildren<{
 
 // @public (undocumented)
 export const OryLocales: LocaleMap;
+
+// @public
+export type OryLoginSuccessEvent = {
+    flowType: FlowType.Login;
+    flow: LoginFlow;
+    session: Session;
+    method: string;
+};
 
 // @public
 export type OryMessageContentProps = {
@@ -507,13 +556,32 @@ export const OryPageHeader: () => react_jsx_runtime.JSX.Element;
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public
-export function OryProvider({ children, components: Components, config, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
+export function OryProvider({ children, components: Components, config, onSuccess, onValidationError, onError, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type OryProviderProps = {
     components: OryFlowComponents;
     config: OryClientConfiguration;
+    onSuccess?: OrySuccessHandler;
+    onValidationError?: OryValidationErrorHandler;
+    onError?: OryErrorHandler;
 } & OryFlowContainer & PropsWithChildren;
+
+// @public
+export type OryRecoverySuccessEvent = {
+    flowType: FlowType.Recovery;
+    flow: RecoveryFlow;
+    method: string;
+};
+
+// @public
+export type OryRegistrationSuccessEvent = {
+    flowType: FlowType.Registration;
+    flow: RegistrationFlow;
+    identity: Identity;
+    session?: Session;
+    method: string;
+};
 
 // @public
 export function OrySelfServiceFlowCard(): react_jsx_runtime.JSX.Element;
@@ -551,6 +619,13 @@ export type OrySettingsSsoProps = {
     isSubmitting: boolean;
 };
 
+// @public
+export type OrySettingsSuccessEvent = {
+    flowType: FlowType.Settings;
+    flow: SettingsFlow;
+    method: string;
+};
+
 // @public (undocumented)
 export type OrySettingsTotpProps = {
     totpImage: UiNodeImage | undefined;
@@ -569,10 +644,44 @@ export type OrySettingsWebauthnProps = {
     isSubmitting: boolean;
 };
 
+// @public
+export type OrySuccessEvent = OryLoginSuccessEvent | OryRegistrationSuccessEvent | OryVerificationSuccessEvent | OryRecoverySuccessEvent | OrySettingsSuccessEvent | OryConsentSuccessEvent;
+
+// @public
+export type OrySuccessHandler = (event: OrySuccessEvent) => void | Promise<void>;
+
 // @public (undocumented)
 export type OryToastProps = {
     message: UiText;
     id: string | number;
+};
+
+// @public
+export type OryValidationErrorEvent = {
+    flowType: FlowType.Login;
+    flow: LoginFlow;
+} | {
+    flowType: FlowType.Registration;
+    flow: RegistrationFlow;
+} | {
+    flowType: FlowType.Verification;
+    flow: VerificationFlow;
+} | {
+    flowType: FlowType.Recovery;
+    flow: RecoveryFlow;
+} | {
+    flowType: FlowType.Settings;
+    flow: SettingsFlow;
+};
+
+// @public
+export type OryValidationErrorHandler = (event: OryValidationErrorEvent) => void | Promise<void>;
+
+// @public
+export type OryVerificationSuccessEvent = {
+    flowType: FlowType.Verification;
+    flow: VerificationFlow;
+    method: string;
 };
 
 // @public
@@ -690,9 +799,9 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:695:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:696:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:697:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:868:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:872:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1302:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1026:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1030:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1536:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

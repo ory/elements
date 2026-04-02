@@ -14,3 +14,4 @@ docs
 CHANGELOG.md
 **/api-report/*
 .changeset/
+**/next-env.d.ts

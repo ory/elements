@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 export * from "./clientConfiguration"
+export * from "./events"
 export * from "./flowContainer"
 export * from "./i18n"
 export * from "./submitHandler"
