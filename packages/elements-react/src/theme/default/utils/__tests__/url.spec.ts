@@ -43,11 +43,11 @@ describe("url utils", () => {
 
       // Not sure how to mock this.
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      ;(window.location.href =
+      ;((window.location.href =
         "http://example.com?return_to=http://example.com/return"),
         expect(initFlowUrl(sdkUrl, flowType, flow)).toBe(
           "http://example.com/self-service/login/browser?return_to=http%3A%2F%2Fexample.com%2Freturn",
-        )
+        ))
     })
 
     xit("should return sdkUrl with flowType if return_to is not present", () => {

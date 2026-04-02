@@ -76,7 +76,7 @@
     "jest-transform-stub": "2.0.0",
     "license-checker": "25.0.1",
     "nx": "21.3.11",
-    "prettier": "3.5.3",
+    "prettier": "3.8.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-intl": "6.8.9",
@@ -109,5 +109,10 @@
     "lodash": "4.17.23",
     "next": "15.5.13",
     "tsx": "4.20.2"
+  },
+  "prettier": {
+    "proseWrap": "always",
+    "semi": false,
+    "trailingComma": "all"
   }
 }

@@ -29,8 +29,7 @@ export type OrySettingsFormProps = Omit<
  * @hidden
  */
 export interface OryFormSectionProps
-  extends PropsWithChildren,
-    OrySettingsFormProps {
+  extends PropsWithChildren, OrySettingsFormProps {
   nodes?: UiNode[]
 }
 

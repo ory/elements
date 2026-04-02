@@ -14,8 +14,10 @@ interface FlowErrorHandlerProps<T> {
 }
 
 // Define proper types for mocks
-interface MockResponse
-  extends Omit<Response, "clone" | "json" | "text" | "headers"> {
+interface MockResponse extends Omit<
+  Response,
+  "clone" | "json" | "text" | "headers"
+> {
   headers: {
     get: jest.Mock
     entries: jest.Mock
