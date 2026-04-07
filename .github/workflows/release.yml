@@ -1,0 +1,108 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to publish (e.g. 1.0.0-rc.1, without 'v' prefix)"
+        required: true
+        type: string
+      dry_run:
+        description: "Perform a dry run without publishing to npm"
+        required: true
+        type: boolean
+        default: true
+      commit:
+        description: |
+          Commit-ish to release from (e.g. SHA, branch, tag). Defaults to the
+          default branch.
+        required: false
+        type: string
+      project:
+        description: "Project to release (e.g. @ory/elements-react)"
+        required: false
+        type: choice
+        default: "All"
+        options:
+          - "All"
+          - "@ory/elements-react"
+          - "@ory/nextjs"
+
+env:
+  DRY_RUN: ${{ inputs.dry_run || 'false' }}
+
+jobs:
+  release:
+    name: Build & Publish - ${{ matrix.package }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - package: "@ory/elements-react"
+            package_dir: packages/elements-react
+          - package: "@ory/nextjs"
+            package_dir: packages/nextjs
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.commit || '' }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+          always-auth: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Resolve version
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TAG="${GITHUB_REF#refs/tags/}"
+            VERSION="${TAG#v}"
+          else
+            VERSION="${{ inputs.version }}"
+          fi
+
+          echo "RELEASE_VERSION=${VERSION}" >> "$GITHUB_ENV"
+          echo "Releasing ${{ matrix.package }}@${VERSION}"
+
+      - name: Set package version
+        working-directory: ${{ matrix.package_dir }}
+        run: |
+          npm version "${RELEASE_VERSION}" --no-git-tag-version \
+            --allow-same-version
+
+      - name: Build
+        run: npx nx run "${{ matrix.package }}:build"
+
+      - name: Determine npm tag
+        run: |
+          if echo "${RELEASE_VERSION}" | grep -qE '[-]'; then
+            echo "NPM_TAG=next" >> "$GITHUB_ENV"
+            echo "Publishing with npm tag: next"
+          else
+            echo "NPM_TAG=latest" >> "$GITHUB_ENV"
+            echo "Publishing with npm tag: latest"
+          fi
+
+      - name: Publish
+        working-directory: ${{ matrix.package_dir }}
+        run:
+          npm publish --tag "${NPM_TAG}" --provenance --access public
+          --dry-run=${{ env.DRY_RUN }}
+        if: |
+          github.event_name == 'push' ||
+          (github.event_name == 'workflow_dispatch' && (github.event.inputs.project == 'All' || github.event.inputs.project == matrix.package))
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
