@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Ovaj je račun deaktiviran. Molimo, obratite se službi za podršku za pomoć.",
   "identities.messages.1070018": "Adresa e-pošte ili broj telefona",
   "identities.messages.1080004": "Na broj telefona koji ste naveli poslana je tekstualna poruka koja sadrži kod za potvrdu. Ako niste primili tekstualnu poruku, provjerite jeste li točno upisali broj i provjerite koristite li broj kojim ste se registrirali.",
-  "identities.messages.1080005": "Uspješno ste potvrdili svoj broj telefona."
+  "identities.messages.1080005": "Uspješno ste potvrdili svoj broj telefona.",
+  "identities.messages.5000003": "Vaša organizacija zahtijeva autentifikaciju putem jedinstvenog prijavljivanja (SSO), ali nije konfiguriran nijedan davatelj usluga SSO. Molimo, obratite se administratoru sustava."
 }

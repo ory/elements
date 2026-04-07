@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Le-akhawunti isusiwe. Sicela uxhumane nethimba elinikeza usizo.",
   "identities.messages.1070018": "I-imeyili noma inombolo yocingo",
   "identities.messages.1080004": "I-SMS equkethe ikhodi yokuqinisekisa ithunyelwe kunombolo yocingo owunikeze. Uma ungakatholi i-SMS, hlola ukuthi inombolo ibhalwe kahle, futhi qiniseka ukuthi usebenzisa inombolo obhalisele ngayo.",
-  "identities.messages.1080005": "Uphumelele ukuhlola inombolo yakho yocingo."
+  "identities.messages.1080005": "Uphumelele ukuhlola inombolo yakho yocingo.",
+  "identities.messages.5000003": "Inhlangano yakho idinga ukuqinisekiswa kwe-SSO, kodwa akukho mnikazi we-SSO olungiselelwe. Ngicela uxhumane nomlawuli wesistimu."
 }

@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Hierdie rekening is gedeaktiveer. Kontak asseblief die ondersteuningspan vir hulp.",
   "identities.messages.1070018": "E-posadres of telefoonnommer",
   "identities.messages.1080004": "’n SMS met ’n verifikasiekode is na die telefoonnommer wat jy verskaf het, gestuur. As jy nie ’n SMS ontvang het nie, kyk of die nommer korrek gespel is en maak seker dat jy die nommer gebruik wat jy by ons geregistreer het.",
-  "identities.messages.1080005": "U het u telefoonnommer suksesvol geverifieer."
+  "identities.messages.1080005": "U het u telefoonnommer suksesvol geverifieer.",
+  "identities.messages.5000003": "U organisasie vereis SSO-verifikasie, maar geen SSO-verskaffer is geconfigureer nie. Kontak asseblief die stelseladministrateur."
 }

@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Le akhawunti iye yalungiswa. Nceda uqhagamshelane neqela elinikeza uncedo ukuze ufumane uncedo.",
   "identities.messages.1070018": "I-imeyile okanye inombolo yefowuni",
   "identities.messages.1080004": "I-SMS equlethe ikhowudi yokuqinisekisa ithunyelwe kwinombolo yefowuni oye wayinikeza. Ukuba awufumanga i-SMS, hlola ukuba inombolo ibhalwe kakuhle, kwaye qiniseka ukuba usebenza nalomnye inombolo oye wabhalisa ngayo.",
-  "identities.messages.1080005": "Uqiniseke ngempumelelo inombolo yefowuni yakho."
+  "identities.messages.1080005": "Uqiniseke ngempumelelo inombolo yefowuni yakho.",
+  "identities.messages.5000003": "Inkampani yakho idinga uqhakamshelwano lwe-SSO, kodwa akukho naluphi na uphawu lwe-SSO olumiswe. Nceda uqhagamshelane nomlawuli wenkqubo."
 }

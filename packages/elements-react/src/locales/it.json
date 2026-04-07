@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Questo account è stato disattivato. Si prega di contattare l’assistenza per ricevere aiuto.",
   "identities.messages.1070018": "Indirizzo email o numero di telefono.",
   "identities.messages.1080004": "È stato inviato un messaggio di testo contenente un codice di verifica al numero di telefono che hai fornito. Se non hai ricevuto il messaggio, controlla che il numero sia corretto e assicurati di utilizzare il numero con cui ti sei registrato.",
-  "identities.messages.1080005": "Hai verificato con successo il tuo numero di telefono."
+  "identities.messages.1080005": "Hai verificato con successo il tuo numero di telefono.",
+  "identities.messages.5000003": "La vostra organizzazione richiede l’autenticazione SSO, ma non è stato configurato alcun provider SSO. Si prega di contattare l’amministratore di sistema."
 }

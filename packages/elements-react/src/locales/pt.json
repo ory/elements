@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Esta conta foi desativada. Contacte o suporte técnico para obter ajuda.",
   "identities.messages.1070018": "Endereço de e-mail ou número de telefone.",
   "identities.messages.1080004": "Uma mensagem de texto contendo um código de verificação foi enviada para o número de telefone que você forneceu. Se não tiver recebido a mensagem, verifique se o número está correto e certifique-se de que está a usar o número com o qual se registou.",
-  "identities.messages.1080005": "Verificou o seu número de telefone com sucesso."
+  "identities.messages.1080005": "Verificou o seu número de telefone com sucesso.",
+  "identities.messages.5000003": "A sua organização exige autenticação SSO, mas nenhum fornecedor SSO está configurado. Contacte o administrador do sistema."
 }

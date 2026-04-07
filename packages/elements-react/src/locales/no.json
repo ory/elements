@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Denne kontoen er blitt deaktivert. Vennligst kontakt kundestøtte for å få hjelp.",
   "identities.messages.1070018": "E-postadresse eller telefonnummer",
   "identities.messages.1080004": "En tekstmelding som inneholder en bekreftelseskode, er sendt til telefonnummeret du oppga. Hvis du ikke har mottatt tekstmeldingen, kan du kontrollere at telefonnummeret er skrevet riktig, og sørge for at du bruker det nummeret du registrerte deg med.",
-  "identities.messages.1080005": "Du har bekreftet telefonnummeret ditt."
+  "identities.messages.1080005": "Du har bekreftet telefonnummeret ditt.",
+  "identities.messages.5000003": "Organisasjonen din krever SSO-autentisering, men ingen SSO-leverandør er konfigurert. Vennligst kontakt systemadministratoren."
 }

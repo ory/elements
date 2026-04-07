@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Akun ini telah dinonaktifkan. Silakan hubungi layanan dukungan untuk mendapatkan bantuan.",
   "identities.messages.1070018": "Alamat email atau nomor telepon",
   "identities.messages.1080004": "Pesan teks yang berisi kode verifikasi telah dikirim ke nomor telepon yang Anda berikan. Jika Anda belum menerima pesan teks, periksa kembali apakah nomor yang Anda masukkan sudah benar, dan pastikan Anda menggunakan nomor yang sama dengan yang Anda daftarkan.",
-  "identities.messages.1080005": "Anda telah berhasil memverifikasi nomor telepon Anda."
+  "identities.messages.1080005": "Anda telah berhasil memverifikasi nomor telepon Anda.",
+  "identities.messages.5000003": "Organisasi Anda memerlukan autentikasi SSO, tetapi tidak ada penyedia SSO yang dikonfigurasi. Silakan hubungi administrator sistem."
 }

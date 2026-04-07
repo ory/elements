@@ -22,7 +22,7 @@ const KNOWN_KRATOS_MESSAGE_IDS = [
   4000040, 4000041, 4010001, 4010002, 4010003, 4010004, 4010005, 4010006,
   4010007, 4010008, 4010009, 4010010, 4010011, 4040001, 4040002, 4040003,
   4050001, 4060001, 4060002, 4060004, 4060005, 4060006, 4070001, 4070002,
-  4070003, 4070005, 4070006, 5000001, 5000002,
+  4070003, 4070005, 4070006, 5000001, 5000002, 5000003,
 ] as const
 
 export type KratosMessageId = (typeof KNOWN_KRATOS_MESSAGE_IDS)[number]
@@ -630,5 +630,9 @@ export const kratosMessages = defineMessages<number>({
   5000002: {
     id: "identities.messages.5000002",
     defaultMessage: `No authentication methods are available. Please contact the system administrator.`,
+  },
+  5000003: {
+    id: "identities.messages.5000003",
+    defaultMessage: `Your organization requires SSO authentication, but no SSO provider is configured. Please contact the system administrator.`,
   },
 })

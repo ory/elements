@@ -251,5 +251,6 @@
   "identities.messages.4010011": "See konto on deaktiveeritud. Palun võtke abi saamiseks ühendust tugiteenusega.",
   "identities.messages.1070018": "E-posti aadress või telefoninumber.",
   "identities.messages.1080004": "Teie poolt esitatud telefoninumbril registreeritud kontoga seotud kinnituskoodiga tekstisõnum on välja saadetud. Kui te ei ole tekstisõnumit saanud, kontrollige telefoni numbri õigsust ja veenduge, et kasutate just seda numbrit, millega olete konto registreerinud.",
-  "identities.messages.1080005": "Te kinnitasite oma telefoninumbri edukalt."
+  "identities.messages.1080005": "Te kinnitasite oma telefoninumbri edukalt.",
+  "identities.messages.5000003": "Teie organisatsioonile on vajalik ühtse sisselogimise (SSO) autentimine, kuid ühtegi SSO-teenuse pakkujat pole konfigureeritud. Palun võtke ühendust süsteemiadministraatoriga."
 }

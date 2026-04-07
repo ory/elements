@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Tài khoản này đã bị khóa. Vui lòng liên hệ với bộ phận hỗ trợ để được trợ giúp.",
   "identities.messages.1070018": "Địa chỉ email hoặc số điện thoại",
   "identities.messages.1080004": "Một tin nhắn chứa mã xác minh đã được gửi đến số điện thoại bạn cung cấp. Nếu bạn chưa nhận được tin nhắn, hãy kiểm tra lại số điện thoại và đảm bảo bạn đang sử dụng số điện thoại đã đăng ký.",
-  "identities.messages.1080005": "Bạn đã xác minh số điện thoại của mình thành công."
+  "identities.messages.1080005": "Bạn đã xác minh số điện thoại của mình thành công.",
+  "identities.messages.5000003": "Tổ chức của bạn yêu cầu xác thực bằng SSO, nhưng chưa có nhà cung cấp dịch \u001b[K\nvụ SSO nào được cấu hình. Vui lòng liên hệ với quản trị viên hệ thống."
 }

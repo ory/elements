@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Acest cont a fost dezactivat. Vă rugăm să contactați serviciul de asistență pentru ajutor.",
   "identities.messages.1070018": "Adresă de e-mail sau număr de telefon.",
   "identities.messages.1080004": "A fost trimis un mesaj text care conține un cod de verificare la numărul de telefon pe care l-ați furnizat. Dacă nu ați primit mesajul text, verificați dacă ați introdus corect numărul și asigurați-vă că utilizați numărul cu care v-ați înregistrat.",
-  "identities.messages.1080005": "Ați verificat cu succes numărul dumneavoastră de telefon."
+  "identities.messages.1080005": "Ați verificat cu succes numărul dumneavoastră de telefon.",
+  "identities.messages.5000003": "Organizația dumneavoastră necesită autentificare SSO, dar nu este configurat niciun furnizor SSO. Vă rugăm să contactați administratorul de sistem."
 }

@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Tento účet byl deaktivován. V případě potřeby se obraťte na technickou podporu.",
   "identities.messages.1070018": "E-mailová adresa nebo telefonní číslo",
   "identities.messages.1080004": "Na vámi uvedené telefonní číslo byla odeslána textová zpráva obsahující ověřovací kód. Pokud jste zprávu neobdrželi, zkontrolujte, zda jste správně zadali telefonní číslo, a ujistěte se, že používáte číslo, se kterým jste se registrovali.",
-  "identities.messages.1080005": "Úspěšně jste ověřili své telefonní číslo."
+  "identities.messages.1080005": "Úspěšně jste ověřili své telefonní číslo.",
+  "identities.messages.5000003": "Vaše organizace vyžaduje ověřování pomocí jednotného přihlašování (SSO), ale není nakonfigurován žádný poskytovatel tohoto řešení. Obraťte se prosím na správce systému."
 }

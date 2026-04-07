@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Dit account is uitgeschakeld. Neem contact op met de klantenservice voor hulp.",
   "identities.messages.1070018": "E-mailadres of telefoonnummer",
   "identities.messages.1080004": "Er is een sms-bericht met een verificatiecode naar het door u opgegeven telefoonnummer gestuurd. Als u geen sms-bericht heeft ontvangen, controleer dan of het telefoonnummer correct is gespeld en zorg ervoor dat u het nummer gebruikt waarmee u zich heeft geregistreerd.",
-  "identities.messages.1080005": "U heeft uw telefoonnummer succesvol geverifieerd."
+  "identities.messages.1080005": "U heeft uw telefoonnummer succesvol geverifieerd.",
+  "identities.messages.5000003": "Uw organisatie vereist eenmalige aanmelding (SSO), maar er is geen SSO-provider geconfigureerd. Neem contact op met de systeembeheerder."
 }

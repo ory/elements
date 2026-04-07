@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Ushbu akkaunt faoliyatdan toʻxtatildi. Yordam olish uchun qoʻllab-quvvatlash xizmatiga murojaat qiling.",
   "identities.messages.1070018": "Elektron pochta manzili yoki telefon raqami",
   "identities.messages.1080004": "Tasdiqlash kodini o‘z ichiga olgan SMS-xabar siz ko‘rsatgan telefon raqamingizga yuborildi. Agar siz SMS-xabar olmagan bo‘lsangiz, raqamning to‘g‘riligini tekshiring va ro‘yxatdan o‘tgan raqamingizni ishlatishingizga ishonch hosil qiling.",
-  "identities.messages.1080005": "Siz o'z telefon raqamingizni muvaffaqiyatli tasdiqladingiz."
+  "identities.messages.1080005": "Siz o'z telefon raqamingizni muvaffaqiyatli tasdiqladingiz.",
+  "identities.messages.5000003": "Sizning tashkilotingizga bitta kirish nuqtasi (SSO) autentifikatsiyasi kerak, ammo hech qanday SSO provayderi sozlanmagan. Iltimos, tizim administratoriga murojaat qiling."
 }

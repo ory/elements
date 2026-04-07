@@ -251,5 +251,6 @@
   "identities.messages.4010011": "An rufe wannan asusun. Da fatan za a tuntuɓi masu bada taimako.",
   "identities.messages.1070018": "Adireshin imel ko lambar waya",
   "identities.messages.1080004": "An aika da sakon rubutu wanda yake ɗauke da lambar tantancewa zuwa lambar wayar da ka bayar. Idan ba ka samu sakon rubutu ba, duba yadda ka rubuta lambar kuma tabbatar cewa kana amfani da lambar da ka yi rijista da ita.",
-  "identities.messages.1080005": "Kun tabbatar da lambar wayarku."
+  "identities.messages.1080005": "Kun tabbatar da lambar wayarku.",
+  "identities.messages.5000003": "Kungiyar ku na buƙatar tabbatar da amfani da SSO, amma babu wani mai ba da sabis na SSO da aka ƙaddara. Da fatan za a tuntuɓi mai kula da tsarin."
 }

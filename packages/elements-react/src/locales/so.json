@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Koontadan waxaa la joojiyay. Fadlan la xiriir kooxda taageerada si aad u helto caawin.",
   "identities.messages.1070018": "Cinwaanka e-mailka ama lambarka taleefoonka",
   "identities.messages.1080004": "Fariin qoraal ah oo ay ku jirtay lambarka xaqiijinta ayaa loo soo diray lambarka telefoonka aad bixisay. Haddii aadan helin fariinta, hubi sida lambarka loo qoray, isla markaana hubso in aad isticmaasho lambarka aad ku diiwaangashatay.",
-  "identities.messages.1080005": "Waxaad si guul leh u xaqiijisay lambarka taleefoonkaaga."
+  "identities.messages.1080005": "Waxaad si guul leh u xaqiijisay lambarka taleefoonkaaga.",
+  "identities.messages.5000003": "Ururkaagu wuxuu u baahan yahay in la isticmaalo habka SSO ee aqoonsiga, laakiin ma jiraan bixiyeyaal lagu habeeyay. Fadlan la xidhiidh maamulaha nidaamka."
 }

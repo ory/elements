@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Ta uporabniški račun je bil onemogočen. Za pomoč se obrnite na našo službo za podporo.",
   "identities.messages.1070018": "E-poštni naslov ali telefonska številka",
   "identities.messages.1080004": "Na vašo vneseno telefonsko številko smo poslali sporočilo SMS, ki vsebuje kodo za potrditev. Če sporočila niste prejeli, preverite, ali ste pravilno vnesli številko, in se prepričajte, da uporabljate številko, s katero ste se registrirali.",
-  "identities.messages.1080005": "Število vaše mobilne telefonice je bilo uspešno potrjeno."
+  "identities.messages.1080005": "Število vaše mobilne telefonice je bilo uspešno potrjeno.",
+  "identities.messages.5000003": "Vaša organizacija zahteva enotno prijavo (SSO), vendar ni konfiguriran noben ponudnik storitev SSO. Obrnite se na sistemskega skrbnika."
 }

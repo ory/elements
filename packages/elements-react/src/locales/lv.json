@@ -251,5 +251,6 @@
   "identities.messages.4010011": "Šis konts ir deaktivizēts. Lūdzu, sazinieties ar atbalsta dienestu, lai saņemtu palīdzību.",
   "identities.messages.1070018": "E-pasta adrese vai tālruņa numurs",
   "identities.messages.1080004": "Uz norādīto tālruņa numuru ir nosūtīta īsziņa, kas satur verifikācijas kodu. Ja neesat saņēmis īsziņu, pārbaudiet, vai numurs ir pareizi ierakstīts, un pārliecinieties, ka izmantojat numuru, ar kuru reģistrējāties.",
-  "identities.messages.1080005": "Jūs veiksmīgi apstiprinājāt savu tālruņa numuru."
+  "identities.messages.1080005": "Jūs veiksmīgi apstiprinājāt savu tālruņa numuru.",
+  "identities.messages.5000003": "Jūsu organizācijai ir nepieciešama vienotā pieteikšanās (SSO) autentifikācija, taču nav konfigurēts neviens SSO pakalpojumu sniedzējs. Lūdzu, sazinieties ar sistēmas administratoru."
 }
