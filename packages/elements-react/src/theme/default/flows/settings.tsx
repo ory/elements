@@ -11,6 +11,7 @@ import {
   OryProvider,
   OrySettingsCard,
   OrySuccessHandler,
+  OryTransientPayload,
   OryValidationErrorHandler,
 } from "@ory/elements-react"
 import { ComponentPropsWithoutRef } from "react"
@@ -67,6 +68,16 @@ export type SettingsFlowContextProps = {
    * @see {@link OryErrorHandler}
    */
   onError?: OryErrorHandler
+
+  /**
+   * Optional transient payload to include in flow submissions.
+   *
+   * Accepts a static object or a function that receives form values at
+   * submission time and returns the payload.
+   *
+   * @see {@link OryTransientPayload}
+   */
+  transientPayload?: OryTransientPayload
 } & Omit<ComponentPropsWithoutRef<"div">, "onError">
 
 /**
@@ -87,6 +98,7 @@ export function Settings({
   onSuccess,
   onValidationError,
   onError,
+  transientPayload,
   ...rest
 }: SettingsFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
@@ -100,6 +112,7 @@ export function Settings({
       onSuccess={onSuccess}
       onValidationError={onValidationError}
       onError={onError}
+      transientPayload={transientPayload}
     >
       {children ?? (
         <div className={cn("ory-elements", className)} {...rest}>

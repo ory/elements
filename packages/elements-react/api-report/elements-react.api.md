@@ -83,6 +83,7 @@ export type FlowContextValue = OryFlowContainer & {
     onSuccess?: OrySuccessHandler;
     onValidationError?: OryValidationErrorHandler;
     onError?: OryErrorHandler;
+    transientPayload?: OryTransientPayload;
 };
 
 // Warning: (ae-forgotten-export) The symbol "FlowFormState" needs to be exported by the entry point index.d.ts
@@ -556,7 +557,7 @@ export const OryPageHeader: () => react_jsx_runtime.JSX.Element;
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public
-export function OryProvider({ children, components: Components, config, onSuccess, onValidationError, onError, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
+export function OryProvider({ children, components: Components, config, onSuccess, onValidationError, onError, transientPayload, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type OryProviderProps = {
@@ -565,6 +566,7 @@ export type OryProviderProps = {
     onSuccess?: OrySuccessHandler;
     onValidationError?: OryValidationErrorHandler;
     onError?: OryErrorHandler;
+    transientPayload?: OryTransientPayload;
 } & OryFlowContainer & PropsWithChildren;
 
 // @public
@@ -655,6 +657,9 @@ export type OryToastProps = {
     message: UiText;
     id: string | number;
 };
+
+// @public
+export type OryTransientPayload = Record<string, unknown> | ((formValues: FormValues) => Record<string, unknown>);
 
 // @public
 export type OryValidationErrorEvent = {
@@ -799,9 +804,9 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:695:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:696:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:697:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1026:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1030:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1536:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1037:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1041:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1584:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

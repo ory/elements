@@ -21,6 +21,7 @@ import { onSubmitRegistration } from "../../util/onSubmitRegistration"
 import { onSubmitSettings } from "../../util/onSubmitSettings"
 import { onSubmitVerification } from "../../util/onSubmitVerification"
 import { removeEmptyStrings } from "../../util/removeFalsyValues"
+import { resolveTransientPayload } from "../../util/transientPayload"
 import { computeDefaultValues } from "./form-helpers"
 
 // The "select_account" prompt is supported by the following providers.
@@ -36,7 +37,8 @@ export function useOryFormSubmit(
   const methods = useFormContext()
   const config = useOryConfiguration()
 
-  const { onSuccess, onValidationError, onError } = flowContainer
+  const { onSuccess, onValidationError, onError, transientPayload } =
+    flowContainer
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.dispatchFormState({ type: "form_submit_end" })
@@ -52,6 +54,29 @@ export function useOryFormSubmit(
     window.location.assign(url)
   }
 
+  const mergeTransientPayload = (
+    data: FormValues,
+  ): Record<string, unknown> | undefined => {
+    if (!transientPayload && !data.transient_payload) {
+      return undefined
+    }
+
+    const existingNodeValues =
+      typeof data.transient_payload === "object" &&
+      data.transient_payload &&
+      !Array.isArray(data.transient_payload)
+        ? (data.transient_payload as unknown as Record<string, unknown>)
+        : undefined
+
+    const resolved = resolveTransientPayload(
+      transientPayload,
+      data,
+      existingNodeValues ?? undefined,
+    )
+
+    return Object.keys(resolved).length > 0 ? resolved : undefined
+  }
+
   const onSubmit: SubmitHandler<FormValues> = async (initialData) => {
     flowContainer.dispatchFormState({ type: "form_submit_start" })
     // This is necessary to avoid sending empty strings to the backend, which can cause validation errors.
@@ -65,6 +90,13 @@ export function useOryFormSubmit(
           }
           if (submitData.method === "code" && data.code) {
             submitData.resend = ""
+          }
+
+          const mergedTransientPayload = mergeTransientPayload(data)
+          if (mergedTransientPayload) {
+            Object.assign(submitData, {
+              transient_payload: mergedTransientPayload,
+            })
           }
 
           await onSubmitLogin(flowContainer, config, {
@@ -86,6 +118,13 @@ export function useOryFormSubmit(
             submitData.resend = ""
           }
 
+          const mergedTransientPayload = mergeTransientPayload(data)
+          if (mergedTransientPayload) {
+            Object.assign(submitData, {
+              transient_payload: mergedTransientPayload,
+            })
+          }
+
           await onSubmitRegistration(flowContainer, config, {
             onRedirect,
             setFlowContainer: handleSuccess,
@@ -96,16 +135,26 @@ export function useOryFormSubmit(
           })
           break
         }
-        case FlowType.Verification:
+        case FlowType.Verification: {
+          const submitData = {
+            ...(data as unknown as UpdateVerificationFlowBody),
+          }
+          const mergedTransientPayload = mergeTransientPayload(data)
+          if (mergedTransientPayload) {
+            Object.assign(submitData, {
+              transient_payload: mergedTransientPayload,
+            })
+          }
           await onSubmitVerification(flowContainer, config, {
             onRedirect,
             setFlowContainer: handleSuccess,
-            body: data as unknown as UpdateVerificationFlowBody,
+            body: submitData,
             onSuccess,
             onValidationError,
             onError,
           })
           break
+        }
         case FlowType.Recovery: {
           const submitData: UpdateRecoveryFlowBody = {
             ...(data as unknown as UpdateRecoveryFlowBody),
@@ -114,6 +163,14 @@ export function useOryFormSubmit(
           if (data.code) {
             submitData.email = ""
           }
+
+          const mergedTransientPayload = mergeTransientPayload(data)
+          if (mergedTransientPayload) {
+            Object.assign(submitData, {
+              transient_payload: mergedTransientPayload,
+            })
+          }
+
           await onSubmitRecovery(flowContainer, config, {
             onRedirect,
             setFlowContainer: handleSuccess,
@@ -161,6 +218,13 @@ export function useOryFormSubmit(
 
           if ("passkey_remove" in submitData) {
             submitData.method = "passkey"
+          }
+
+          const mergedTransientPayload = mergeTransientPayload(data)
+          if (mergedTransientPayload) {
+            Object.assign(submitData, {
+              transient_payload: mergedTransientPayload,
+            })
           }
 
           await onSubmitSettings(flowContainer, config, {

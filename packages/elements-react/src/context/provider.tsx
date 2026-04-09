@@ -12,6 +12,7 @@ import {
   OryValidationErrorHandler,
 } from "../util/events"
 import { OryFlowContainer } from "../util/flowContainer"
+import { OryTransientPayload } from "../util/transientPayload"
 import { OryComponentProvider } from "./component"
 import { OryConfigurationProvider } from "./config"
 import { OryFlowProvider } from "./flow-context"
@@ -82,6 +83,40 @@ export type OryProviderProps = {
    * ```
    */
   onError?: OryErrorHandler
+
+  /**
+   * Optional transient payload to include in all flow submissions.
+   *
+   * Accepts a static object or a function that receives form values at
+   * submission time and returns the payload. Values are merged with any
+   * transient payload fields from UI nodes (e.g., captcha), with
+   * user-provided values taking priority.
+   *
+   * @example
+   * ```tsx
+   * <OryProvider
+   *   config={config}
+   *   flow={flow}
+   *   flowType={FlowType.Registration}
+   *   components={components}
+   *   transientPayload={{ locale: "en-US", referral_code: "ABC123" }}
+   * />
+   * ```
+   *
+   * @example
+   * ```tsx
+   * <OryProvider
+   *   config={config}
+   *   flow={flow}
+   *   flowType={FlowType.Registration}
+   *   components={components}
+   *   transientPayload={(formValues) => ({
+   *     signup_method: String(formValues.method ?? "unknown"),
+   *   })}
+   * />
+   * ```
+   */
+  transientPayload?: OryTransientPayload
 } & OryFlowContainer &
   PropsWithChildren
 
@@ -134,6 +169,7 @@ export function OryProvider({
   onSuccess,
   onValidationError,
   onError,
+  transientPayload,
   ...oryFlowProps
 }: OryProviderProps) {
   return (
@@ -147,6 +183,7 @@ export function OryProvider({
           onSuccess={onSuccess}
           onValidationError={onValidationError}
           onError={onError}
+          transientPayload={transientPayload}
         >
           <OryComponentProvider components={Components}>
             {children}

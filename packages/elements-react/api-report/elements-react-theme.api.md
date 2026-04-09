@@ -113,7 +113,7 @@ export type ErrorFlowContextProps = {
 export function getOryComponents(overrides?: OryFlowComponentOverrides): OryFlowComponents;
 
 // @public
-export function Login({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, }: LoginFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Login({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: LoginFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type LoginFlowContextProps = {
@@ -124,6 +124,7 @@ export type LoginFlowContextProps = {
     onSuccess?: OrySuccessHandler;
     onValidationError?: OryValidationErrorHandler;
     onError?: OryErrorHandler;
+    transientPayload?: OryTransientPayload;
 };
 
 // @public
@@ -140,7 +141,7 @@ export type OryError = {
 });
 
 // @public
-export function Recovery({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, }: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Recovery({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type RecoveryFlowContextProps = {
@@ -151,15 +152,16 @@ export type RecoveryFlowContextProps = {
     onSuccess?: OrySuccessHandler;
     onValidationError?: OryValidationErrorHandler;
     onError?: OryErrorHandler;
+    transientPayload?: OryTransientPayload;
 };
 
 // Warning: (ae-forgotten-export) The symbol "RegistrationFlowContextProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function Registration({ flow, children, components: flowOverrideComponents, config, onSuccess, onValidationError, onError, }: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Registration({ flow, children, components: flowOverrideComponents, config, onSuccess, onValidationError, onError, transientPayload, }: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
-export function Settings({ flow, config, children, components: flowOverrideComponents, className, onSuccess, onValidationError, onError, ...rest }: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Settings({ flow, config, children, components: flowOverrideComponents, className, onSuccess, onValidationError, onError, transientPayload, ...rest }: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type SettingsFlowContextProps = {
@@ -170,10 +172,11 @@ export type SettingsFlowContextProps = {
     onSuccess?: OrySuccessHandler;
     onValidationError?: OryValidationErrorHandler;
     onError?: OryErrorHandler;
+    transientPayload?: OryTransientPayload;
 } & Omit<ComponentPropsWithoutRef<"div">, "onError">;
 
 // @public
-export function Verification({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, }: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Verification({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type VerificationFlowContextProps = {
@@ -184,15 +187,17 @@ export type VerificationFlowContextProps = {
     onSuccess?: OrySuccessHandler;
     onValidationError?: OryValidationErrorHandler;
     onError?: OryErrorHandler;
+    transientPayload?: OryTransientPayload;
 };
 
 // Warnings were encountered during analysis:
 //
 // dist/theme/default/index.d.ts:235:5 - (ae-forgotten-export) The symbol "OryValidationErrorHandler" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:512:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:535:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:547:5 - (ae-forgotten-export) The symbol "OrySuccessHandler" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:553:5 - (ae-forgotten-export) The symbol "OryErrorHandler" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:250:5 - (ae-forgotten-export) The symbol "OryTransientPayload" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:557:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:580:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:592:5 - (ae-forgotten-export) The symbol "OrySuccessHandler" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:598:5 - (ae-forgotten-export) The symbol "OryErrorHandler" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -648,6 +648,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    transientPayload?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryTransientPayload",
+              "canonicalReference": "@ory/elements-react!OryTransientPayload:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             },
             {
@@ -660,7 +669,7 @@
           "name": "FlowContextValue",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 17
+            "endIndex": 19
           }
         },
         {
@@ -4734,7 +4743,7 @@
             },
             {
               "kind": "Content",
-              "text": ": Components, config, onSuccess, onValidationError, onError, ...oryFlowProps }: "
+              "text": ": Components, config, onSuccess, onValidationError, onError, transientPayload, ...oryFlowProps }: "
             },
             {
               "kind": "Reference",
@@ -4764,7 +4773,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, components: Components, config, onSuccess, onValidationError, onError, ...oryFlowProps }",
+              "parameterName": "{ children, components: Components, config, onSuccess, onValidationError, onError, transientPayload, ...oryFlowProps }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -4830,6 +4839,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    transientPayload?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryTransientPayload",
+              "canonicalReference": "@ory/elements-react!OryTransientPayload:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n} & "
             },
             {
@@ -4856,7 +4874,7 @@
           "name": "OryProviderProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 15
+            "endIndex": 17
           }
         },
         {
@@ -5550,6 +5568,55 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryTransientPayload:type",
+          "docComment": "/**\n * A transient payload value or factory function.\n *\n * When a static object, it is included as-is in the submission body. When a function, it receives the current form values at submission time and must return the transient payload object.\n *\n * @group\n *\n * Utilities\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryTransientPayload = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, unknown> | ((formValues: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FormValues",
+              "canonicalReference": "@ory/elements-react!FormValues:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, unknown>)"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryTransientPayload",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
           }
         },
         {

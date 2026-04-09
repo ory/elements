@@ -14,6 +14,7 @@ import {
   OrySuccessHandler,
   OryValidationErrorHandler,
 } from "../util/events"
+import { OryTransientPayload } from "../util/transientPayload"
 import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
 
 /**
@@ -71,6 +72,11 @@ export type FlowContextValue = OryFlowContainer & {
    * Optional callback invoked when a flow error occurs.
    */
   onError?: OryErrorHandler
+
+  /**
+   * Optional transient payload to include in flow submissions.
+   */
+  transientPayload?: OryTransientPayload
 }
 
 // This is fine, because we don't export the context itself and guard from it being null in useOryFlow
@@ -87,6 +93,7 @@ export type OryFlowProviderProps = PropsWithChildren<
     onSuccess?: OrySuccessHandler
     onValidationError?: OryValidationErrorHandler
     onError?: OryErrorHandler
+    transientPayload?: OryTransientPayload
   }
 >
 
@@ -100,6 +107,7 @@ export function OryFlowProvider({
   onSuccess,
   onValidationError,
   onError,
+  transientPayload,
   ...container
 }: OryFlowProviderProps) {
   const [flowContainer, setFlowContainer] = useState(container)
@@ -122,6 +130,7 @@ export function OryFlowProvider({
           onSuccess,
           onValidationError,
           onError,
+          transientPayload,
         } as FlowContextValue
       }
     >

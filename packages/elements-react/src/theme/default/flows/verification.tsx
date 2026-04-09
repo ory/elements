@@ -10,6 +10,7 @@ import {
   OryProvider,
   OrySelfServiceFlowCard,
   OrySuccessHandler,
+  OryTransientPayload,
   OryValidationErrorHandler,
 } from "@ory/elements-react"
 import { getOryComponents } from "../components"
@@ -64,6 +65,16 @@ export type VerificationFlowContextProps = {
    * @see {@link OryErrorHandler}
    */
   onError?: OryErrorHandler
+
+  /**
+   * Optional transient payload to include in flow submissions.
+   *
+   * Accepts a static object or a function that receives form values at
+   * submission time and returns the payload.
+   *
+   * @see {@link OryTransientPayload}
+   */
+  transientPayload?: OryTransientPayload
 }
 
 /**
@@ -83,6 +94,7 @@ export function Verification({
   onSuccess,
   onValidationError,
   onError,
+  transientPayload,
 }: VerificationFlowContextProps) {
   const components = getOryComponents(flowOverrideComponents)
   return (
@@ -94,6 +106,7 @@ export function Verification({
       onSuccess={onSuccess}
       onValidationError={onValidationError}
       onError={onError}
+      transientPayload={transientPayload}
     >
       {children ?? <OrySelfServiceFlowCard />}
     </OryProvider>

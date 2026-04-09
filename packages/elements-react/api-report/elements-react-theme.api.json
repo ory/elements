@@ -1217,7 +1217,7 @@
             },
             {
               "kind": "Content",
-              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, }: "
+              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: "
             },
             {
               "kind": "Reference",
@@ -1247,7 +1247,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, }",
+              "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -1331,6 +1331,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    transientPayload?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryTransientPayload",
+              "canonicalReference": "@ory/elements-react!~OryTransientPayload:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             },
             {
@@ -1343,7 +1352,7 @@
           "name": "LoginFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 16
+            "endIndex": 18
           }
         },
         {
@@ -1441,7 +1450,7 @@
             },
             {
               "kind": "Content",
-              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, }: "
+              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: "
             },
             {
               "kind": "Reference",
@@ -1471,7 +1480,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, }",
+              "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -1555,6 +1564,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    transientPayload?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryTransientPayload",
+              "canonicalReference": "@ory/elements-react!~OryTransientPayload:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             },
             {
@@ -1567,7 +1585,7 @@
           "name": "RecoveryFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 16
+            "endIndex": 18
           }
         },
         {
@@ -1586,7 +1604,7 @@
             },
             {
               "kind": "Content",
-              "text": ": flowOverrideComponents, config, onSuccess, onValidationError, onError, }: "
+              "text": ": flowOverrideComponents, config, onSuccess, onValidationError, onError, transientPayload, }: "
             },
             {
               "kind": "Reference",
@@ -1616,7 +1634,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ flow, children, components: flowOverrideComponents, config, onSuccess, onValidationError, onError, }",
+              "parameterName": "{ flow, children, components: flowOverrideComponents, config, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -1642,7 +1660,7 @@
             },
             {
               "kind": "Content",
-              "text": ": flowOverrideComponents, className, onSuccess, onValidationError, onError, ...rest }: "
+              "text": ": flowOverrideComponents, className, onSuccess, onValidationError, onError, transientPayload, ...rest }: "
             },
             {
               "kind": "Reference",
@@ -1672,7 +1690,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ flow, config, children, components: flowOverrideComponents, className, onSuccess, onValidationError, onError, ...rest }",
+              "parameterName": "{ flow, config, children, components: flowOverrideComponents, className, onSuccess, onValidationError, onError, transientPayload, ...rest }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -1756,6 +1774,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    transientPayload?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryTransientPayload",
+              "canonicalReference": "@ory/elements-react!~OryTransientPayload:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n} & "
             },
             {
@@ -1786,7 +1813,7 @@
           "name": "SettingsFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 20
+            "endIndex": 22
           }
         },
         {
@@ -1805,7 +1832,7 @@
             },
             {
               "kind": "Content",
-              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, }: "
+              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: "
             },
             {
               "kind": "Reference",
@@ -1835,7 +1862,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, }",
+              "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
                 "endIndex": 4
@@ -1919,6 +1946,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    transientPayload?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryTransientPayload",
+              "canonicalReference": "@ory/elements-react!~OryTransientPayload:type"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             },
             {
@@ -1931,7 +1967,7 @@
           "name": "VerificationFlowContextProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 16
+            "endIndex": 18
           }
         }
       ]
