@@ -25,7 +25,8 @@
     "qs": ">=6.14.1",
     "ts-jest": {
       "handlebars": "4.7.9"
-    }
+    },
+    "axios": ">=1.15.0"
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
@@ -89,7 +90,7 @@
     "tsup": "8.5.0",
     "typescript": "5.8.3",
     "typescript-eslint": "8.32.1",
-    "vite": "6.4.1",
+    "vite": "6.4.2",
     "vite-plugin-require": "1.2.14",
     "vite-plugin-svgr": "4.3.0"
   },
