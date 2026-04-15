@@ -31,6 +31,10 @@ on:
           - "@ory/elements-react"
           - "@ory/nextjs"
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 env:
   DRY_RUN: ${{ inputs.dry_run || 'false' }}
 
@@ -39,10 +43,6 @@ jobs:
     name: Build & Publish - ${{ matrix.package }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
     strategy:
       fail-fast: true
       matrix:
@@ -56,9 +56,9 @@ jobs:
         with:
           ref: ${{ inputs.commit || '' }}
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
           always-auth: true
 
@@ -98,11 +98,8 @@ jobs:
 
       - name: Publish
         working-directory: ${{ matrix.package_dir }}
-        run:
-          npm publish --tag "${NPM_TAG}" --provenance --access public
-          --dry-run=${{ env.DRY_RUN }}
+        run: |
+          npm publish --tag "${NPM_TAG}" --provenance --access public --dry-run=${{ env.DRY_RUN }}
         if: |
           github.event_name == 'push' ||
           (github.event_name == 'workflow_dispatch' && (github.event.inputs.project == 'All' || github.event.inputs.project == matrix.package))
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
