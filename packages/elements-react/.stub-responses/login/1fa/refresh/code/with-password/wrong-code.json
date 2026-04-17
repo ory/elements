@@ -1,45 +1,36 @@
 {
-  "id": "dd087074-5bce-438c-9a1f-87184f74c314",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:01.978306Z",
-  "issued_at": "2025-04-24T15:07:01.978306Z",
-  "request_url": "https://exciting-rubin-khqlb5fyiz.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "active": "code",
   "ui": {
-    "action": "https://exciting-rubin-khqlb5fyiz.projects.oryapis:8080/self-service/login?flow=dd087074-5bce-438c-9a1f-87184f74c314",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
         "type": "input",
         "group": "default",
         "attributes": {
-          "name": "identifier",
+          "name": "csrf_token",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.a85yb5p9xat0.x98csb6pbxr@ory.dev",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "title": "E-Mail"
-            }
-          }
-        }
+        "meta": {}
       },
       {
         "type": "input",
-        "group": "code",
+        "group": "default",
         "attributes": {
-          "name": "method",
+          "name": "identifier",
           "type": "hidden",
-          "value": "code",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -69,25 +60,6 @@
         "type": "input",
         "group": "code",
         "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "code",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070009,
-            "text": "Continue",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "code",
-        "attributes": {
           "name": "resend",
           "type": "submit",
           "value": "code",
@@ -105,31 +77,48 @@
       },
       {
         "type": "input",
-        "group": "default",
+        "group": "code",
         "attributes": {
-          "name": "csrf_token",
+          "name": "method",
           "type": "hidden",
-          "value": "HaH0P9UXy9DwQN6SDsqjwJw8rYXwvOx5kTAABePFvlSF5DjJA29KKSBxwrW4z6wOeTf9da83j5vBPNjb+gXppg==",
-          "required": true,
+          "value": "code",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "code",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070009,
+            "text": "Continue",
+            "type": "info"
+          }
+        }
       }
     ],
     "messages": [
       {
-        "id": 1010014,
-        "text": "A code was sent to the address you provided. If you didn't receive it, please check the spelling of the address and try again.",
-        "type": "info"
+        "id": 4010008,
+        "text": "The login code is invalid or has already been used. Please try again.",
+        "type": "error"
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:02.093744Z",
-  "updated_at": "2025-04-24T15:07:02.093744Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
-  "state": "sent_email",
-  "transient_payload": {}
+  "state": "sent_email"
 }

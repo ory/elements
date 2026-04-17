@@ -1,12 +1,12 @@
 {
-  "id": "2198110e-31c3-4d79-8e56-66be11a1fe9e",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:06:55.711796221Z",
-  "issued_at": "2025-04-24T15:06:55.711796221Z",
-  "request_url": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://vigorous-leavitt-9h90v8s9ko.projects.oryapis:8080/self-service/login?flow=2198110e-31c3-4d79-8e56-66be11a1fe9e",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "O1Lg2fVgciPOfsWr4zHyKzRojuikAWQgBxAq4ZEALE9RAHW5CjbY/dEeBdAG84/3PNHEPNpAI/NaFeAAOAE3og==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.8d507fgmbeo0.nm0zo952jzr@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -84,8 +84,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:06:55.811603Z",
-  "updated_at": "2025-04-24T15:06:55.811603Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

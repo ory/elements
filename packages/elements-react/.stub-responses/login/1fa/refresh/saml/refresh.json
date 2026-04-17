@@ -1,12 +1,12 @@
 {
-  "id": "8109339d-18cf-49a1-bd8c-6aa78adbc0f3",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:20.614588725Z",
-  "issued_at": "2025-04-24T15:08:20.614588725Z",
-  "request_url": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://awesome-curran-99ndfg290s.projects.oryapis:8080/self-service/login?flow=8109339d-18cf-49a1-bd8c-6aa78adbc0f3",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -38,7 +38,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "pAl2Fyad1/o+Ie/esvAkVyarbXr8NE45UE8ZSMlApJ0ZP9RfEQAT0z3FiH9xdWKpPFQPIYvdZULgfY4fHAYSwQ==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -52,7 +52,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.hm3rmhsa89f0.58sbicdljln@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -107,8 +107,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:20.81379Z",
-  "updated_at": "2025-04-24T15:08:20.81379Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

@@ -1,12 +1,12 @@
 {
-  "id": "310f4dc0-4358-46ca-8db0-3884e38f1204",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:08:25.207793181Z",
-  "issued_at": "2025-04-24T15:08:25.207793181Z",
-  "request_url": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
   "ui": {
-    "action": "https://quizzical-einstein-4rbrpge0sy.projects.oryapis:8080/self-service/login?flow=310f4dc0-4358-46ca-8db0-3884e38f1204",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "YFB6eqrc2Re3Pg7Lumn9kjb7vNwvu2X6LehmA1hekBJVzJgPA6t/UAjYJw+IHLIxdfEp5tzRv2POch+oQ4vHbA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -68,11 +68,16 @@
         "id": 1010003,
         "text": "Please confirm this action by verifying that it is you.",
         "type": "info"
+      },
+      {
+        "id": 1010004,
+        "text": "Please complete the second authentication challenge.",
+        "type": "info"
       }
     ]
   },
-  "created_at": "2025-04-24T15:08:25.338997Z",
-  "updated_at": "2025-04-24T15:08:25.338997Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal2",
   "state": "choose_method"

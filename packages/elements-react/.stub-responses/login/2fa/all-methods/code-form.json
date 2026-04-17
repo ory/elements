@@ -1,13 +1,13 @@
 {
-  "id": "4347eea3-5352-428d-93b4-2b6a10306382",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:18.546042Z",
-  "issued_at": "2025-04-24T15:07:18.546042Z",
-  "request_url": "https://elastic-morse-c033dghiye.projects.oryapis:8080/self-service/login/browser?aal=aal2",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?aal=aal2",
   "active": "code",
   "ui": {
-    "action": "https://elastic-morse-c033dghiye.projects.oryapis:8080/self-service/login?flow=4347eea3-5352-428d-93b4-2b6a10306382",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -16,7 +16,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "identifier",
           "type": "hidden",
-          "value": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
@@ -37,10 +37,10 @@
         "meta": {
           "label": {
             "id": 1010023,
-            "text": "Send code to dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+            "text": "Send code to dev@ory.dev",
             "type": "info",
             "context": {
-              "address": "dev+orycye2eda2f162daf6142dd0.w4ykp04fxt0.j1u32dihatq@ory.dev",
+              "address": "dev@ory.dev",
               "channel": "email"
             }
           }
@@ -122,7 +122,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "2eVbYLYreXKHaiU0JHDMHboXgnoi2A62QVV9jera0tRw6XFEekKPOeBtLIlvpFmzfV7/yB07M4A8RukX+Cw8oA==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -139,8 +139,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:19.053587Z",
-  "updated_at": "2025-04-24T15:07:19.053587Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": false,
   "requested_aal": "aal2",
   "state": "sent_email",

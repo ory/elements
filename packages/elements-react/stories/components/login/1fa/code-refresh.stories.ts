@@ -30,7 +30,16 @@ export const ShowForm: Story = {
 export const ValidationMissingFields: Story = {
   args: {
     flow: LoginFlowFromJSON(
-      require("$snapshots/login/1fa/refresh/code/without-password/missing-code.json"),
+      require("$snapshots/login/1fa/refresh/code/without-password/missing-identifier.json"),
+    ),
+    config,
+  },
+}
+
+export const CodeSent: Story = {
+  args: {
+    flow: LoginFlowFromJSON(
+      require("$snapshots/login/1fa/refresh/code/without-password/code-sent.json"),
     ),
     config,
   },

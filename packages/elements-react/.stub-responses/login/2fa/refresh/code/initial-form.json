@@ -1,12 +1,12 @@
 {
-  "id": "1840e819-af64-4742-96f1-15b9d31e7854",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:06:54.920082758Z",
-  "issued_at": "2025-04-24T15:06:54.920082758Z",
-  "request_url": "https://objective-black-jcvlhmd94e.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
   "ui": {
-    "action": "https://objective-black-jcvlhmd94e.projects.oryapis:8080/self-service/login?flow=1840e819-af64-4742-96f1-15b9d31e7854",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "tt9Hi68rpjCgPgrb1QXeApf8B5cpRduofFtFlNhKKka/W8rXhhQh1cDYG8wRbzYLccR53RpgaZMmNZJmEp2EAQ==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -29,7 +29,7 @@
         "attributes": {
           "name": "address",
           "type": "submit",
-          "value": "dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+          "value": "+4900000000000",
           "disabled": false,
           "node_type": "input"
         },
@@ -37,10 +37,33 @@
         "meta": {
           "label": {
             "id": 1010023,
-            "text": "Send code to dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+            "text": "Send code to +4900000000000",
             "type": "info",
             "context": {
-              "address": "dev+orycye2eda2f162daf6142dd0.c251rhs2do0.zy9pecto3ol@ory.dev",
+              "address": "+4900000000000",
+              "channel": "sms"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "address",
+          "type": "submit",
+          "value": "dev@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010023,
+            "text": "Send code to dev@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev@ory.dev",
               "channel": "email"
             }
           }
@@ -60,8 +83,8 @@
       }
     ]
   },
-  "created_at": "2025-04-24T15:06:55.00187Z",
-  "updated_at": "2025-04-24T15:06:55.00187Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal2",
   "state": "choose_method"

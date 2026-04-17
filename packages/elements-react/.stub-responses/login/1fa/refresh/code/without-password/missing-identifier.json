@@ -1,12 +1,12 @@
 {
-  "id": "dd087074-5bce-438c-9a1f-87184f74c314",
+  "id": "00000000-0000-0000-0000-000000000000",
   "organization_id": null,
   "type": "browser",
-  "expires_at": "2025-04-24T16:07:01.978306Z",
-  "issued_at": "2025-04-24T15:07:01.978306Z",
-  "request_url": "https://exciting-rubin-khqlb5fyiz.projects.oryapis:8080/self-service/login/browser?refresh=true",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "ui": {
-    "action": "https://exciting-rubin-khqlb5fyiz.projects.oryapis:8080/self-service/login?flow=dd087074-5bce-438c-9a1f-87184f74c314",
+    "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
     "method": "POST",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "attributes": {
           "name": "csrf_token",
           "type": "hidden",
-          "value": "Z2LnxpG3eNAjx1FHq0XL3XOKyuJ2VPG0xGx8zjGo6u3/JyswR8/5KfP2TWAdQMQTloGaEinfklaUYKQQKGi9Hw==",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
           "required": true,
           "disabled": false,
           "node_type": "input"
@@ -50,6 +50,7 @@
             "text": "E-Mail",
             "type": "info",
             "context": {
+              "name": "traits.email",
               "title": "E-Mail"
             }
           }
@@ -73,50 +74,11 @@
             "type": "info"
           }
         }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "password",
-          "type": "password",
-          "required": true,
-          "autocomplete": "current-password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1070001,
-            "text": "Password",
-            "type": "info"
-          }
-        }
-      },
-      {
-        "type": "input",
-        "group": "password",
-        "attributes": {
-          "name": "method",
-          "type": "submit",
-          "value": "password",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {
-          "label": {
-            "id": 1010001,
-            "text": "Sign in",
-            "type": "info"
-          }
-        }
       }
     ]
   },
-  "created_at": "2025-04-24T15:07:02.093744Z",
-  "updated_at": "2025-04-24T15:07:02.093744Z",
+  "created_at": "0001-01-01T00:00:00Z",
+  "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
   "requested_aal": "aal1",
   "state": "choose_method"

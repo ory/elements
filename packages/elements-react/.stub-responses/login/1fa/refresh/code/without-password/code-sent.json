@@ -4,7 +4,7 @@
   "type": "browser",
   "expires_at": "0001-01-01T00:00:00Z",
   "issued_at": "0001-01-01T00:00:00Z",
-  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?aal=aal2&refresh=true",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/login/browser?refresh=true",
   "active": "code",
   "ui": {
     "action": "https://slug.projects.oryapis:8080/self-service/login?flow=00000000-0000-0000-0000-000000000000",
@@ -17,31 +17,19 @@
           "name": "identifier",
           "type": "hidden",
           "value": "dev@ory.dev",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "code",
-        "attributes": {
-          "name": "identifier",
-          "type": "hidden",
-          "value": "dev@ory.dev",
+          "required": true,
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010023,
-            "text": "Send code to dev@ory.dev",
+            "id": 1070002,
+            "text": "E-Mail",
             "type": "info",
             "context": {
-              "address": "dev@ory.dev",
-              "channel": "email"
+              "name": "traits.email",
+              "title": "E-Mail"
             }
           }
         }
@@ -142,7 +130,7 @@
   "created_at": "0001-01-01T00:00:00Z",
   "updated_at": "0001-01-01T00:00:00Z",
   "refresh": true,
-  "requested_aal": "aal2",
+  "requested_aal": "aal1",
   "state": "sent_email",
   "transient_payload": {}
 }
