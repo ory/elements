@@ -145,6 +145,302 @@ for (const tc of testCases) {
       })
     })
 
+    test("reattaches options stripped by the SDK FromJSON step", async () => {
+      const queryParams = {
+        flow: "1234",
+      }
+      const flowWithStrippedOptions = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+                // options intentionally missing — SDK FromJSON strips it.
+              },
+            },
+            {
+              attributes: {
+                name: "traits.email",
+                node_type: "input",
+                type: "email",
+              },
+            },
+          ],
+        },
+      }
+      const rawJson = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+                options: [{ value: "US" }, { value: "DE" }],
+              },
+            },
+            {
+              attributes: {
+                name: "traits.email",
+                node_type: "input",
+                type: "email",
+              },
+            },
+          ],
+        },
+      }
+      ;(tc.m as jest.Mock).mockResolvedValue({
+        raw: {
+          clone: () => ({
+            json: jest.fn().mockResolvedValue(rawJson),
+          }),
+        },
+        value: jest.fn().mockResolvedValue(flowWithStrippedOptions),
+      } as any)
+      const result = (await tc.fn(config, queryParams)) as typeof rawJson
+      expect(result.ui.nodes[0].attributes).toMatchObject({
+        name: "traits.country",
+        options: [{ value: "US" }, { value: "DE" }],
+      })
+      expect(result.ui.nodes[1].attributes).not.toHaveProperty("options")
+    })
+
+    test("matches reattached options by node name, not position", async () => {
+      const queryParams = {
+        flow: "1234",
+      }
+      // Parsed flow has country before email.
+      const parsed = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+              },
+            },
+            {
+              attributes: {
+                name: "traits.email",
+                node_type: "input",
+                type: "email",
+              },
+            },
+          ],
+        },
+      }
+      // Raw JSON has email before country. A positional reattach would copy
+      // country's options onto email.
+      const rawJson = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.email",
+                node_type: "input",
+                type: "email",
+              },
+            },
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+                options: [{ value: "US" }, { value: "DE" }],
+              },
+            },
+          ],
+        },
+      }
+      ;(tc.m as jest.Mock).mockResolvedValue({
+        raw: {
+          clone: () => ({
+            json: jest.fn().mockResolvedValue(rawJson),
+          }),
+        },
+        value: jest.fn().mockResolvedValue(parsed),
+      } as any)
+      const result = (await tc.fn(config, queryParams)) as typeof parsed
+      expect(result.ui.nodes[0].attributes).toMatchObject({
+        name: "traits.country",
+        options: [{ value: "US" }, { value: "DE" }],
+      })
+      expect(result.ui.nodes[1].attributes).not.toHaveProperty("options")
+    })
+
+    test("drops raw options with non-object entries", async () => {
+      const queryParams = {
+        flow: "1234",
+      }
+      const parsed = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+              },
+            },
+          ],
+        },
+      }
+      const rawJson = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+                // Primitives and null must be rejected.
+                options: ["US", null, 42],
+              },
+            },
+          ],
+        },
+      }
+      ;(tc.m as jest.Mock).mockResolvedValue({
+        raw: {
+          clone: () => ({
+            json: jest.fn().mockResolvedValue(rawJson),
+          }),
+        },
+        value: jest.fn().mockResolvedValue(parsed),
+      } as any)
+      const result = (await tc.fn(config, queryParams)) as typeof parsed
+      expect(result.ui.nodes[0].attributes).not.toHaveProperty("options")
+    })
+
+    test("returns parsed flow when rawResponse.raw is absent", async () => {
+      const queryParams = {
+        flow: "1234",
+      }
+      const parsed = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+              },
+            },
+          ],
+        },
+      }
+      ;(tc.m as jest.Mock).mockResolvedValue({
+        // No `raw` — simulates a mocked SDK response without a Response
+        // object. The code must fall through and return the parsed flow
+        // unchanged instead of throwing.
+        value: jest.fn().mockResolvedValue(parsed),
+      } as any)
+      const result = (await tc.fn(config, queryParams)) as typeof parsed
+      expect(result.ui.nodes[0].attributes).not.toHaveProperty("options")
+      expect(result.id).toEqual("1234")
+    })
+
+    test("returns parsed flow when rawClone.json() rejects", async () => {
+      const queryParams = {
+        flow: "1234",
+      }
+      const parsed = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+              },
+            },
+          ],
+        },
+      }
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {})
+      ;(tc.m as jest.Mock).mockResolvedValue({
+        raw: {
+          clone: () => ({
+            json: jest.fn().mockRejectedValue(new Error("not json")),
+          }),
+        },
+        value: jest.fn().mockResolvedValue(parsed),
+      } as any)
+      const result = (await tc.fn(config, queryParams)) as typeof parsed
+      expect(result.ui.nodes[0].attributes).not.toHaveProperty("options")
+      expect(warn).toHaveBeenCalled()
+      warn.mockRestore()
+    })
+
+    test("handles parsed and raw node arrays of different lengths", async () => {
+      const queryParams = {
+        flow: "1234",
+      }
+      // Parsed has only the country node; raw additionally has an email
+      // node. Length mismatch must not throw and must still reattach
+      // country's options correctly.
+      const parsed = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+              },
+            },
+          ],
+        },
+      }
+      const rawJson = {
+        id: "1234",
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: "traits.email",
+                node_type: "input",
+                type: "email",
+              },
+            },
+            {
+              attributes: {
+                name: "traits.country",
+                node_type: "input",
+                type: "text",
+                options: [{ value: "US" }],
+              },
+            },
+          ],
+        },
+      }
+      ;(tc.m as jest.Mock).mockResolvedValue({
+        raw: {
+          clone: () => ({
+            json: jest.fn().mockResolvedValue(rawJson),
+          }),
+        },
+        value: jest.fn().mockResolvedValue(parsed),
+      } as any)
+      const result = (await tc.fn(config, queryParams)) as typeof parsed
+      expect(result.ui.nodes[0].attributes).toMatchObject({
+        name: "traits.country",
+        options: [{ value: "US" }],
+      })
+    })
+
     test("fetches flow and calls error handler on error", async () => {
       const queryParams = {
         flow: "1234",

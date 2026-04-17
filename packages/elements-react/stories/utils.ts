@@ -216,3 +216,53 @@ export const patchMethodActive = (
   ...flow,
   active: method,
 })
+
+/**
+ * Re-attaches the `options` field to input nodes after the SDK has stripped
+ * it during `FromJSON` parsing.
+ *
+ * The external `@ory/client-fetch` SDK (v1.22.22) is auto-generated and its
+ * `UiNodeInputAttributesFromJSONTyped` explicitly rebuilds each attribute
+ * object from a known field list, which drops the newly-added `options`
+ * field carrying identity schema enum values. This helper walks the parsed
+ * flow and copies `options` back from the raw JSON so storybook can render
+ * the dropdown.
+ *
+ * Remove this helper once `@ory/client-fetch` ships a version that knows
+ * about `options`.
+ */
+export function reattachInputOptions<
+  T extends LoginFlow | RegistrationFlow | SettingsFlow,
+>(parsedFlow: T, rawFlow: unknown): T {
+  const raw = rawFlow as {
+    ui?: { nodes?: Array<{ attributes?: { options?: unknown } }> }
+  }
+  const rawNodes = raw?.ui?.nodes ?? []
+  const rawOptionsByName = new Map<string, unknown[]>()
+  for (const rawNode of rawNodes) {
+    const name = (rawNode as { attributes?: { name?: unknown } })?.attributes
+      ?.name
+    const opts = rawNode?.attributes?.options
+    if (
+      typeof name === "string" &&
+      Array.isArray(opts) &&
+      opts.length > 0 &&
+      opts.every((o) => typeof o === "object" && o !== null)
+    ) {
+      rawOptionsByName.set(name, opts)
+    }
+  }
+  for (const node of parsedFlow.ui.nodes) {
+    const attrs = node.attributes as unknown as {
+      name?: unknown
+    } & Record<string, unknown>
+    if (typeof attrs.name !== "string") {
+      continue
+    }
+    const opts = rawOptionsByName.get(attrs.name)
+    if (opts) {
+      attrs["options"] = opts
+    }
+  }
+  return parsedFlow
+}

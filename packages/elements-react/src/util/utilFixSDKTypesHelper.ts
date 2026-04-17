@@ -21,9 +21,28 @@ import {
 // TL;DR: We are fixing the SDK types to make them easier to work with.
 // Fixing these in the SDK directly would likely be a breaking change, so we do it here for now.
 
+/**
+ * A single selectable value for an input node backed by a JSON schema `enum`.
+ *
+ * TODO: remove this type widening once `@ory/client-fetch` publishes a release
+ * that ships `options` on `UiNodeInputAttributes`.
+ */
+export type UiNodeInputAttributesOption = {
+  value: unknown
+}
+
+/**
+ * Same as `UiNodeInputAttributes`, but additionally carries the optional
+ * `options` field used to render enum traits as a dropdown. The Kratos server
+ * populates this field whenever a JSON schema property declares an `enum`.
+ */
+export type UiNodeInputAttributesWithOptions = UiNodeInputAttributes & {
+  options?: UiNodeInputAttributesOption[]
+}
+
 export type UiNodeInput = UiNode & {
   type: "input"
-  attributes: UiNodeInputAttributes
+  attributes: UiNodeInputAttributesWithOptions
 }
 export function isUiNodeInput(node: UiNode): node is UiNodeInput {
   return node.type === "input"

@@ -25,6 +25,7 @@ import { DefaultHorizontalDivider } from "./form/horizontal-divider"
 import { DefaultImage } from "./form/image"
 import { DefaultInput } from "./form/input"
 import { DefaultLabel } from "./form/label"
+import { DefaultSelect } from "./form/select"
 import { DefaultLinkButton } from "./form/link-button"
 import { DefaultPinCodeInput } from "./form/pin-code-input"
 import {
@@ -83,6 +84,7 @@ export function getOryComponents(
       Button: overrides?.Node?.Button ?? DefaultButton,
       SsoButton: overrides?.Node?.SsoButton ?? DefaultButtonSocial,
       Input: overrides?.Node?.Input ?? DefaultInput,
+      Select: overrides?.Node?.Select ?? DefaultSelect,
       CodeInput: overrides?.Node?.CodeInput ?? DefaultPinCodeInput,
       Image: overrides?.Node?.Image ?? DefaultImage,
       Label: overrides?.Node?.Label ?? DefaultLabel,

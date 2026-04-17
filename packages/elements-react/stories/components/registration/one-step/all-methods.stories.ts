@@ -1,10 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { config } from "../../../utils"
+import { config, reattachInputOptions } from "../../../utils"
 import { LoginFlowFromJSON, RegistrationFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 import { Registration } from "../../../../src/theme/default"
+
+const initialFormRaw: unknown = require("$snapshots/registration/one-step/all-methods/initial-form.json")
 
 const meta = {
   title: "Ory Elements/Registration/Unified/Everything",
@@ -20,8 +22,9 @@ type Story = StoryObj<typeof meta>
 
 export const ShowForm: Story = {
   args: {
-    flow: RegistrationFlowFromJSON(
-      require("$snapshots/registration/one-step/all-methods/initial-form.json"),
+    flow: reattachInputOptions(
+      RegistrationFlowFromJSON(initialFormRaw),
+      initialFormRaw,
     ),
     config,
   },

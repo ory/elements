@@ -39,3 +39,29 @@ export function resolveLabel(text: UiText, intl: ReturnType<typeof useIntl>) {
   }
   return uiTextToFormattedMessage(text, intl)
 }
+
+/**
+ * Resolves the display text for a schema-driven enum option.
+ *
+ * Options come from Kratos carrying only the raw enum value. We give
+ * consumers a deterministic localization hook by looking up
+ * `forms.option.{name}.{value}` in the intl catalogue and fall back to the
+ * raw value when no translation is registered. This mirrors `resolveLabel`'s
+ * `forms.label.{name}` convention so apps can ship one set of custom
+ * translations for every form field.
+ */
+export function resolveOptionLabel(
+  name: string,
+  value: unknown,
+  intl: ReturnType<typeof useIntl>,
+) {
+  const stringValue = String(value)
+  // The descriptor is assigned to a variable so the FormatJS TS transformer
+  // does not try to statically extract the dynamic `id` — this mirrors the
+  // pattern used by `resolveLabel` above.
+  const msg = {
+    id: `forms.option.${name}.${stringValue}`,
+    defaultMessage: stringValue,
+  }
+  return intl.formatMessage(msg)
+}

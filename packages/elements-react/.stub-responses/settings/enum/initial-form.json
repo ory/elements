@@ -1,0 +1,149 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "type": "browser",
+  "expires_at": "0001-01-01T00:00:00Z",
+  "issued_at": "0001-01-01T00:00:00Z",
+  "request_url": "https://slug.projects.oryapis:8080/self-service/settings/browser",
+  "ui": {
+    "action": "https://slug.projects.oryapis:8080/self-service/settings?flow=00000000-0000-0000-0000-000000000000",
+    "method": "POST",
+    "nodes": [
+      {
+        "type": "input",
+        "group": "default",
+        "attributes": {
+          "name": "csrf_token",
+          "type": "hidden",
+          "value": "AAAAAAA/AAAAAA/2+AAAAAAAA==",
+          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.email",
+          "type": "email",
+          "value": "dev@ory.dev",
+          "required": true,
+          "autocomplete": "email",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "E-Mail",
+            "type": "info",
+            "context": {
+              "name": "traits.email",
+              "title": "E-Mail"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.country",
+          "type": "text",
+          "value": "DE",
+          "required": true,
+          "disabled": false,
+          "node_type": "input",
+          "options": [
+            { "value": "US" },
+            { "value": "UK" },
+            { "value": "DE" },
+            { "value": "AT" }
+          ]
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Country",
+            "type": "info",
+            "context": {
+              "name": "traits.country",
+              "title": "Country"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "traits.language",
+          "type": "text",
+          "value": "en",
+          "disabled": false,
+          "node_type": "input",
+          "options": [
+            { "value": "en" },
+            { "value": "es" },
+            { "value": "de" },
+            { "value": "de-at" }
+          ]
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070002,
+            "text": "Language",
+            "type": "info",
+            "context": {
+              "name": "traits.language",
+              "title": "Language"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "profile",
+        "attributes": {
+          "name": "method",
+          "type": "submit",
+          "value": "profile",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1070003,
+            "text": "Save",
+            "type": "info"
+          }
+        }
+      }
+    ]
+  },
+  "identity": {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "schema_id": "default",
+    "schema_url": "https://slug.projects.oryapis:8080/schemas/default",
+    "state": "active",
+    "state_changed_at": "0001-01-01T00:00:00Z",
+    "traits": {
+      "email": "dev@ory.dev",
+      "country": "DE",
+      "language": "en"
+    },
+    "verifiable_addresses": [],
+    "recovery_addresses": [],
+    "metadata_public": null,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "organization_id": null
+  },
+  "state": "show_form"
+}

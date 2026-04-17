@@ -1458,6 +1458,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    Select: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "SelectRenderer",
+              "canonicalReference": "@ory/elements-react!~SelectRenderer:function"
+            },
+            {
+              "kind": "Content",
               "text": ";\n}"
             }
           ],
@@ -1467,7 +1476,7 @@
           "name": "Node_2",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 20
+            "endIndex": 22
           }
         },
         {
@@ -2810,6 +2819,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        Select?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeSelectProps",
+              "canonicalReference": "@ory/elements-react!OryNodeSelectProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n        CodeInput: "
             },
             {
@@ -3362,7 +3389,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 138
+            "endIndex": 142
           }
         },
         {
@@ -4532,6 +4559,108 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryNodeSelectInputProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryNodeSelectInputProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeInputInputProps",
+              "canonicalReference": "@ory/elements-react!OryNodeInputInputProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"onClick\" | \"maxLength\" | \"autoComplete\" | \"type\">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryNodeSelectInputProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryNodeSelectProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryNodeSelectProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    attributes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributesWithOptions",
+              "canonicalReference": "@ory/elements-react!UiNodeInputAttributesWithOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInput",
+              "canonicalReference": "@ory/elements-react!UiNodeInput:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    inputProps: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeSelectInputProps",
+              "canonicalReference": "@ory/elements-react!OryNodeSelectInputProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    options: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributesOption",
+              "canonicalReference": "@ory/elements-react!UiNodeInputAttributesOption:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryNodeSelectProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
           }
         },
         {
@@ -6612,8 +6741,8 @@
             },
             {
               "kind": "Reference",
-              "text": "UiNodeInputAttributes",
-              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+              "text": "UiNodeInputAttributesWithOptions",
+              "canonicalReference": "@ory/elements-react!UiNodeInputAttributesWithOptions:type"
             },
             {
               "kind": "Content",
@@ -6627,6 +6756,72 @@
           "fileUrlPath": "dist/index.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeInput",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!UiNodeInputAttributesOption:type",
+          "docComment": "/**\n * A single selectable value for an input node backed by a JSON schema `enum`.\n *\n * TODO: remove this type widening once `@ory/client-fetch` publishes a release that ships `options` on `UiNodeInputAttributes`.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type UiNodeInputAttributesOption = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    value: unknown;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "UiNodeInputAttributesOption",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!UiNodeInputAttributesWithOptions:type",
+          "docComment": "/**\n * Same as `UiNodeInputAttributes`, but additionally carries the optional `options` field used to render enum traits as a dropdown. The Kratos server populates this field whenever a JSON schema property declares an `enum`.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type UiNodeInputAttributesWithOptions = "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributes",
+              "canonicalReference": "@ory/client-fetch!UiNodeInputAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n    options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeInputAttributesOption",
+              "canonicalReference": "@ory/elements-react!UiNodeInputAttributesOption:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "UiNodeInputAttributesWithOptions",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 5
