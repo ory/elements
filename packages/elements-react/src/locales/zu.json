@@ -252,5 +252,9 @@
   "identities.messages.1070018": "I-imeyili noma inombolo yocingo",
   "identities.messages.1080004": "I-SMS equkethe ikhodi yokuqinisekisa ithunyelwe kunombolo yocingo owunikeze. Uma ungakatholi i-SMS, hlola ukuthi inombolo ibhalwe kahle, futhi qiniseka ukuthi usebenzisa inombolo obhalisele ngayo.",
   "identities.messages.1080005": "Uphumelele ukuhlola inombolo yakho yocingo.",
-  "identities.messages.5000003": "Inhlangano yakho idinga ukuqinisekiswa kwe-SSO, kodwa akukho mnikazi we-SSO olungiselelwe. Ngicela uxhumane nomlawuli wesistimu."
+  "identities.messages.5000003": "Inhlangano yakho idinga ukuqinisekiswa kwe-SSO, kodwa akukho mnikazi we-SSO olungiselelwe. Ngicela uxhumane nomlawuli wesistimu.",
+  "identities.messages.1010024": "Ngena ngokusetshenziswa kwekhadi eliqinile.",
+  "identities.messages.4000042": "Awunaso isethi esisekelwe se-DeviceAuthn.",
+  "identities.messages.4000043": "Ukungena nge-web authn okunikezwe akusebenzi, ngicela uzame futhi.",
+  "identities.messages.4000044": "Isignesha ye-DeviceAuthn enikezwe ayivumelekile."
 }

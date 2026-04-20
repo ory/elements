@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-poštni naslov ali telefonska številka",
   "identities.messages.1080004": "Na vašo vneseno telefonsko številko smo poslali sporočilo SMS, ki vsebuje kodo za potrditev. Če sporočila niste prejeli, preverite, ali ste pravilno vnesli številko, in se prepričajte, da uporabljate številko, s katero ste se registrirali.",
   "identities.messages.1080005": "Število vaše mobilne telefonice je bilo uspešno potrjeno.",
-  "identities.messages.5000003": "Vaša organizacija zahteva enotno prijavo (SSO), vendar ni konfiguriran noben ponudnik storitev SSO. Obrnite se na sistemskega skrbnika."
+  "identities.messages.5000003": "Vaša organizacija zahteva enotno prijavo (SSO), vendar ni konfiguriran noben ponudnik storitev SSO. Obrnite se na sistemskega skrbnika.",
+  "identities.messages.1010024": "Prijava s pomočjo strojnega ključa.",
+  "identities.messages.4000042": "Ni vam nastavljena nobena naprava za preverjanje identitete.",
+  "identities.messages.4000043": "Navedena spletna prijava ni veljavna, poskusite znova.",
+  "identities.messages.4000044": "Predložena digitalna podpisna vrednost DeviceAuthn ni veljavna."
 }

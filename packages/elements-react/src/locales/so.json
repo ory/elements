@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Cinwaanka e-mailka ama lambarka taleefoonka",
   "identities.messages.1080004": "Fariin qoraal ah oo ay ku jirtay lambarka xaqiijinta ayaa loo soo diray lambarka telefoonka aad bixisay. Haddii aadan helin fariinta, hubi sida lambarka loo qoray, isla markaana hubso in aad isticmaasho lambarka aad ku diiwaangashatay.",
   "identities.messages.1080005": "Waxaad si guul leh u xaqiijisay lambarka taleefoonkaaga.",
-  "identities.messages.5000003": "Ururkaagu wuxuu u baahan yahay in la isticmaalo habka SSO ee aqoonsiga, laakiin ma jiraan bixiyeyaal lagu habeeyay. Fadlan la xidhiidh maamulaha nidaamka."
+  "identities.messages.5000003": "Ururkaagu wuxuu u baahan yahay in la isticmaalo habka SSO ee aqoonsiga, laakiin ma jiraan bixiyeyaal lagu habeeyay. Fadlan la xidhiidh maamulaha nidaamka.",
+  "identities.messages.1010024": "Gal si aad u isticmaasho furaha qalabka.",
+  "identities.messages.4000042": "Ma aadan aasaasin qalabka DeviceAuthn.",
+  "identities.messages.4000043": "Furaha waxa laga helay ee laga isticmaalay galitaanka webka ma shaqaynayo, fadlan isku day mar kale.",
+  "identities.messages.4000044": "Saaxiga la bixiyay ee DeviceAuthn waa mid aan sax aheyn."
 }

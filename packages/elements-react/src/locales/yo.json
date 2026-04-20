@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Àdèsì èlò-ìwélétà tí ó ní lórí ìnternẹ́tì tàbí númbá foonu rẹ.",
   "identities.messages.1080004": "Ọ̀ráǹráń kan tí o ní kóòdú ìdámímúra ti wá láti ojú-èrò rẹ̀ sí núm̀bá foonù tí o fún wà. Bí o bá kọ̀ ní o ti gbá ọ̀ráǹráń kan, ṣàyé kí o ríi bí o ti kọ́ núm̀bá náà, kí o tún rii pé o ń lo núm̀bá tí o ti fọ̀rán sẹ̀.",
   "identities.messages.1080005": "O ti ṣe ìdánimọ̀ nọ́mbà foonù rẹ.",
-  "identities.messages.5000003": "Àjọ rẹ nilo ìdánimọ́ SSO, ṣùgbọ́ kò sí onísọ́dí ìdánimọ́ SSO tí a ṣètò. Jọ̀wọ́, bá olùṣepọ̀ ètò náà sọ̀rọ̀."
+  "identities.messages.5000003": "Àjọ rẹ nilo ìdánimọ́ SSO, ṣùgbọ́ kò sí onísọ́dí ìdánimọ́ SSO tí a ṣètò. Jọ̀wọ́, bá olùṣepọ̀ ètò náà sọ̀rọ̀.",
+  "identities.messages.1010024": "Wọlé pẹ̀lú aami ohun elétíríkì",
+  "identities.messages.4000042": "Ẹ kò sọ́ ẹrọ DeviceAuthn kan tí o ti ṣètọ́.",
+  "identities.messages.4000043": "Ìfarabalẹ̀ wẹ́bù àmójúwọ́ tí o fúnni rẹ̀ kò tọ́, jọ̀wọ̀ gbìyànjú lẹ́ẹ̀kàn.",
+  "identities.messages.4000044": "Aamí tí a fún un láti ṣé ìdámọ́ pẹ̀lú ẹrọ rẹ̀, kíí ṣe."
 }

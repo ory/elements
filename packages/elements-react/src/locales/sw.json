@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Anwani ya barua pepe au nambari ya simu",
   "identities.messages.1080004": "Ujumbe mfupi unaojumuisha nambari ya uthibitishaji umetumwa kwenye nambari ya simu uliyotoa. Ikiwa hupokei ujumbe, angalia kama nambari uliyotoa imeandikwa vizuri na hakikisha unatumia nambari uliyojisajili nayo.",
   "identities.messages.1080005": "Umefanikiwa kuthibitisha nambari yako ya simu.",
-  "identities.messages.5000003": "Shirika lenu linahitaji uthibitishaji wa SSO, lakini hakuna mtoa huduma wa SSO aliyeanzishwa. Tafadhali wasiliana na msimamizi wa mfumo."
+  "identities.messages.5000003": "Shirika lenu linahitaji uthibitishaji wa SSO, lakini hakuna mtoa huduma wa SSO aliyeanzishwa. Tafadhali wasiliana na msimamizi wa mfumo.",
+  "identities.messages.1010024": "Ingia kwa kutumia kifaa cha usalama (kifaa cha kuingia).",
+  "identities.messages.4000042": "Huna kifaa cha DeviceAuthn kilichosanidiwa.",
+  "identities.messages.4000043": "Uthibitisho wa kuingia kwa mtumiaji kupitia mtandao haukufaa, tafadhali jaribu tena.",
+  "identities.messages.4000044": "Saini ya DeviceAuthn iliyotolewa ni batili."
 }

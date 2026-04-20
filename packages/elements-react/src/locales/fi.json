@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Sähköpostiosoite tai puhelinnumero",
   "identities.messages.1080004": "Vahvistuskoodin sisältävä tekstiviesti on lähetetty antamaasi puhelinnumeroon. Jos et ole saanut tekstiviestiä, tarkista, että puhelinnumero on oikein kirjoitettu, ja varmista, että käytät rekisteröinnissä käyttämääsi numeroa.",
   "identities.messages.1080005": "Puhelinnumerosi vahvistaminen onnistui.",
-  "identities.messages.5000003": "Organisaatiosi edellyttää SSO-todennusta, mutta mitään SSO-palveluntarjoajaa ei ole määritetty. Ota yhteyttä järjestelmänvalvojaan."
+  "identities.messages.5000003": "Organisaatiosi edellyttää SSO-todennusta, mutta mitään SSO-palveluntarjoajaa ei ole määritetty. Ota yhteyttä järjestelmänvalvojaan.",
+  "identities.messages.1010024": "Kirjaudu sisään laitteistopohjaisella avaimella.",
+  "identities.messages.4000042": "Sinulla ei ole käytössä yhtään DeviceAuthn-laitetta.",
+  "identities.messages.4000043": "Antamasi verkkosivuston tunnistautumistiedot ovat virheelliset, yritä uudelleen.",
+  "identities.messages.4000044": "Annettu DeviceAuthn-allekirjoitus on virheellinen."
 }

@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-posadres of telefoonnommer",
   "identities.messages.1080004": "’n SMS met ’n verifikasiekode is na die telefoonnommer wat jy verskaf het, gestuur. As jy nie ’n SMS ontvang het nie, kyk of die nommer korrek gespel is en maak seker dat jy die nommer gebruik wat jy by ons geregistreer het.",
   "identities.messages.1080005": "U het u telefoonnommer suksesvol geverifieer.",
-  "identities.messages.5000003": "U organisasie vereis SSO-verifikasie, maar geen SSO-verskaffer is geconfigureer nie. Kontak asseblief die stelseladministrateur."
+  "identities.messages.5000003": "U organisasie vereis SSO-verifikasie, maar geen SSO-verskaffer is geconfigureer nie. Kontak asseblief die stelseladministrateur.",
+  "identities.messages.1010024": "Meld aan met ’n hardeware-sleutel.",
+  "identities.messages.4000042": "U het nie ’n DeviceAuthn-toestel geaktiveer nie.",
+  "identities.messages.4000043": "Die voorsiene web-outentikasie-aanmeldingsvorm is ongeldig, probeer asseblief weer.",
+  "identities.messages.4000044": "Die voorsiene DeviceAuthn-handtekening is ongeldig."
 }

@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-mail cím vagy telefonszám",
   "identities.messages.1080004": "Egy szöveges üzenet, amely tartalmazza a visszaigazoló kódot, elküldésre került a megadott telefonszámra. Ha nem kapta meg az üzenetet, ellenőrizze a telefonszám helyesírását, és győződjön meg arról, hogy a regisztrációkor megadott telefonszámot használja.",
   "identities.messages.1080005": "Sikeresen ellenőriztük a telefonszámát.",
-  "identities.messages.5000003": "Szervezetének egyszeri bejelentkezést (SSO) kell használnia, azonban nincs beállítva megfelelő SSO-szolgáltató. Kérjük, vegye fel a kapcsolatot a rendszeradminisztrátorral."
+  "identities.messages.5000003": "Szervezetének egyszeri bejelentkezést (SSO) kell használnia, azonban nincs beállítva megfelelő SSO-szolgáltató. Kérjük, vegye fel a kapcsolatot a rendszeradminisztrátorral.",
+  "identities.messages.1010024": "Jelentkezzen be egy hardveres kulccsal.",
+  "identities.messages.4000042": "Nem állít be egyetlen DeviceAuthn-eszközt sem.",
+  "identities.messages.4000043": "A megadott webes hitelesítési azonosító érvénytelen, kérjük, próbálja meg újra.",
+  "identities.messages.4000044": "A megadott DeviceAuthn aláírás érvénytelen."
 }

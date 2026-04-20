@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Adresa e postës elektronike ose numri i telefonit.",
   "identities.messages.1080004": "Një mesazh tekst me një kod verifikimi është dërguar në numrin e telefonit që ju keni dhënë. Nëse nuk e keni marrë mesazhin, kontrolloni nëse numri është shkruar saktë dhe sigurohuni që të përdorni numrin me të cilin jeni regjistruar.",
   "identities.messages.1080005": "Ju keni verifikuar me sukses numrin tuaj të telefonit.",
-  "identities.messages.5000003": "Organizata juaj kërkon autentifikim SSO, por asnjë furnizues SSO nuk është konfiguruar. Ju lutemi, kontaktoni administratorin e sistemit."
+  "identities.messages.5000003": "Organizata juaj kërkon autentifikim SSO, por asnjë furnizues SSO nuk është konfiguruar. Ju lutemi, kontaktoni administratorin e sistemit.",
+  "identities.messages.1010024": "Hyni duke përdorur një çelës harduerik.",
+  "identities.messages.4000042": "Nuk keni asnjë pajisje të konfiguruar për autentifikimin e pajisjes (DeviceAuthn).",
+  "identities.messages.4000043": "Autentifikimi nëpërmjet lidhjes web nuk është i vlefshëm, ju lutemi provoni përsëri.",
+  "identities.messages.4000044": "Nënshkrimi i ofruar i DeviceAuthn është i pavlefshëm."
 }

@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-posta adresi veya telefon numarası",
   "identities.messages.1080004": "Kaydettiğiniz telefon numarasına, doğrulama kodu içeren bir kısa mesaj gönderildi. Eğer kısa mesajı almadıysanız, numaranın doğru yazıldığından emin olun ve kayıt sırasında kullandığınız numarayı kullandığınızdan emin olun.",
   "identities.messages.1080005": "Telefon numaranız başarıyla doğrulandı.",
-  "identities.messages.5000003": "Kurumunuzun Tek Oturum Açma (SSO) kimlik doğrulaması gerekliliği bulunmaktadır, ancak herhangi bir SSO sağlayıcısı yapılandırılmamıştır. Lütfen sistem yöneticisiyle iletişime geçin."
+  "identities.messages.5000003": "Kurumunuzun Tek Oturum Açma (SSO) kimlik doğrulaması gerekliliği bulunmaktadır, ancak herhangi bir SSO sağlayıcısı yapılandırılmamıştır. Lütfen sistem yöneticisiyle iletişime geçin.",
+  "identities.messages.1010024": "Donanım anahtarıyla giriş yapın",
+  "identities.messages.4000042": "Herhangi bir DeviceAuthn cihazı yapılandırılmamış.",
+  "identities.messages.4000043": "Sağlanan web kimlik doğrulama giriş bilgileri geçersiz, lütfen tekrar deneyin.",
+  "identities.messages.4000044": "Sağlanan DeviceAuthn imzası geçersizdir."
 }

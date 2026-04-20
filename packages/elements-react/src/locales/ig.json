@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Adịresi email ma ọ bụ nọmba ekwentị",
   "identities.messages.1080004": "Ozi ederede nwere koodu nnabata ezitere na nọmba ekwentị ị nyere. Ọ bụrụ na ị nwetabeghị ozi ederede, lelee otu ị deere nọmba ahụ ma hụ na ị na-eji nọmba ị debere aha na ya.",
   "identities.messages.1080005": "Ị nọchiri nke ọma na ọnụọgụgụ ekwentị gị dị mma.",
-  "identities.messages.5000003": "Nzukọ gị chọrọ nkwenye SSO, mana enweghị onye na-enye ọrụ SSO ahọrọla. Biko, kpọtụrụ onye na-ahụ maka usoro ahụ."
+  "identities.messages.5000003": "Nzukọ gị chọrọ nkwenye SSO, mana enweghị onye na-enye ọrụ SSO ahọrọla. Biko, kpọtụrụ onye na-ahụ maka usoro ahụ.",
+  "identities.messages.1010024": "Banye na ngwaọrụ ahụ.",
+  "identities.messages.4000042": "Enweghị ngwa DeviceAuthn ọ bụla ị tọrọ.",
+  "identities.messages.4000043": "Nnweta weebụ a na-eji maka nbanye adịghị mma, biko gbalịa ọzọ.",
+  "identities.messages.4000044": "Akaraaka DeviceAuthn e nyere adịghị mma."
 }

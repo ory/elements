@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Endereço de e-mail ou número de telefone.",
   "identities.messages.1080004": "Uma mensagem de texto contendo um código de verificação foi enviada para o número de telefone que você forneceu. Se não tiver recebido a mensagem, verifique se o número está correto e certifique-se de que está a usar o número com o qual se registou.",
   "identities.messages.1080005": "Verificou o seu número de telefone com sucesso.",
-  "identities.messages.5000003": "A sua organização exige autenticação SSO, mas nenhum fornecedor SSO está configurado. Contacte o administrador do sistema."
+  "identities.messages.5000003": "A sua organização exige autenticação SSO, mas nenhum fornecedor SSO está configurado. Contacte o administrador do sistema.",
+  "identities.messages.1010024": "Inicie sessão com uma chave de segurança física.",
+  "identities.messages.4000042": "Não tem nenhum dispositivo DeviceAuthn configurado.",
+  "identities.messages.4000043": "A autenticação na web fornecida é inválida, por favor tente novamente.",
+  "identities.messages.4000044": "A assinatura DeviceAuthn fornecida é inválida."
 }

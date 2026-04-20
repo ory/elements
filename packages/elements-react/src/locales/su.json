@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Alamat email atanapi nomor telepon.",
   "identities.messages.1080004": "Pesen tèks anu ngandung kode vérifikasi geus dikirim ka nomor telepon anu anjeun paréntahkeun. Upami anjeun teu meunang pesen tèks, pariksa deui ejaan nomorna sareng pastikeun yén anjeun nganggo nomor anu anjeun daftarkeun.",
   "identities.messages.1080005": "Anjeun parantos suksés ngaverifikasi nomer telepon anjeun.",
-  "identities.messages.5000003": "Organisasi anjeun merlukeun autentikasi SSO, tapi teu aya penyedia SSO anu dikonfigurasi. Mangga hubungi administrator sistem."
+  "identities.messages.5000003": "Organisasi anjeun merlukeun autentikasi SSO, tapi teu aya penyedia SSO anu dikonfigurasi. Mangga hubungi administrator sistem.",
+  "identities.messages.1010024": "Masuk nganggo konci fisik.",
+  "identities.messages.4000042": "Anjeun henteu ngagaduhan alat DeviceAuthn anu tos disetel.",
+  "identities.messages.4000043": "Masuk nganggo otentikasi wéb anu disadiakeun ieu henteu valid, mangga dicoba deui.",
+  "identities.messages.4000044": "Tanda tangan DeviceAuthn anu disadiakeun henteu valid."
 }

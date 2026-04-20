@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-mailadresse eller telefonnummer",
   "identities.messages.1080004": "En sms med en verifikationskode er blevet sendt til det telefonnummer, du har angivet. Hvis du ikke har modtaget en sms, skal du kontrollere, om telefonnummeret er tastet korrekt, og sørge for at bruge det nummer, du har registreret dig med.",
   "identities.messages.1080005": "Du har bekræftet dit telefonnummer.",
-  "identities.messages.5000003": "Din organisation kræver SSO-godkendelse, men der er ikke konfigureret nogen SSO-udbyder. Kontakt systemadministratoren."
+  "identities.messages.5000003": "Din organisation kræver SSO-godkendelse, men der er ikke konfigureret nogen SSO-udbyder. Kontakt systemadministratoren.",
+  "identities.messages.1010024": "Log ind med en fysisk sikkerhedsnøgle",
+  "identities.messages.4000042": "Du har ikke konfigureret nogen DeviceAuthn-enhed.",
+  "identities.messages.4000043": "Den angivne web-loginmetode er ugyldig. Prøv venligst igen.",
+  "identities.messages.4000044": "Den angivne DeviceAuthn-signatur er ugyldig."
 }

@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Alamat email atau nomor telepon",
   "identities.messages.1080004": "Pesan teks yang berisi kode verifikasi telah dikirim ke nomor telepon yang Anda berikan. Jika Anda belum menerima pesan teks, periksa kembali apakah nomor yang Anda masukkan sudah benar, dan pastikan Anda menggunakan nomor yang sama dengan yang Anda daftarkan.",
   "identities.messages.1080005": "Anda telah berhasil memverifikasi nomor telepon Anda.",
-  "identities.messages.5000003": "Organisasi Anda memerlukan autentikasi SSO, tetapi tidak ada penyedia SSO yang dikonfigurasi. Silakan hubungi administrator sistem."
+  "identities.messages.5000003": "Organisasi Anda memerlukan autentikasi SSO, tetapi tidak ada penyedia SSO yang dikonfigurasi. Silakan hubungi administrator sistem.",
+  "identities.messages.1010024": "Masuk menggunakan kunci perangkat keras.",
+  "identities.messages.4000042": "Anda belum mengatur perangkat DeviceAuthn.",
+  "identities.messages.4000043": "Autentikasi web yang Anda gunakan tidak valid, silakan coba lagi.",
+  "identities.messages.4000044": "Tanda tangan DeviceAuthn yang diberikan tidak valid."
 }

@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Adresă de e-mail sau număr de telefon.",
   "identities.messages.1080004": "A fost trimis un mesaj text care conține un cod de verificare la numărul de telefon pe care l-ați furnizat. Dacă nu ați primit mesajul text, verificați dacă ați introdus corect numărul și asigurați-vă că utilizați numărul cu care v-ați înregistrat.",
   "identities.messages.1080005": "Ați verificat cu succes numărul dumneavoastră de telefon.",
-  "identities.messages.5000003": "Organizația dumneavoastră necesită autentificare SSO, dar nu este configurat niciun furnizor SSO. Vă rugăm să contactați administratorul de sistem."
+  "identities.messages.5000003": "Organizația dumneavoastră necesită autentificare SSO, dar nu este configurat niciun furnizor SSO. Vă rugăm să contactați administratorul de sistem.",
+  "identities.messages.1010024": "Autentificați-vă folosind o cheie hardware.",
+  "identities.messages.4000042": "Nu aveți niciun dispozitiv DeviceAuthn configurat.",
+  "identities.messages.4000043": "Metoda de autentificare web furnizată nu este validă, vă rugăm să încercați din nou.",
+  "identities.messages.4000044": "Semnătura DeviceAuthn furnizată este invalidă."
 }

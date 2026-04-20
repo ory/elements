@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-pasta adrese vai tālruņa numurs",
   "identities.messages.1080004": "Uz norādīto tālruņa numuru ir nosūtīta īsziņa, kas satur verifikācijas kodu. Ja neesat saņēmis īsziņu, pārbaudiet, vai numurs ir pareizi ierakstīts, un pārliecinieties, ka izmantojat numuru, ar kuru reģistrējāties.",
   "identities.messages.1080005": "Jūs veiksmīgi apstiprinājāt savu tālruņa numuru.",
-  "identities.messages.5000003": "Jūsu organizācijai ir nepieciešama vienotā pieteikšanās (SSO) autentifikācija, taču nav konfigurēts neviens SSO pakalpojumu sniedzējs. Lūdzu, sazinieties ar sistēmas administratoru."
+  "identities.messages.5000003": "Jūsu organizācijai ir nepieciešama vienotā pieteikšanās (SSO) autentifikācija, taču nav konfigurēts neviens SSO pakalpojumu sniedzējs. Lūdzu, sazinieties ar sistēmas administratoru.",
+  "identities.messages.1010024": "Pieslēdzieties, izmantojot aparatūras atslēgu.",
+  "identities.messages.4000042": "Jums nav iestatīta neviena DeviceAuthn ierīce.",
+  "identities.messages.4000043": "Norādītā tīmekļa autentifikācijas metode nav derīga, lūdzu, mēģiniet vēlreiz.",
+  "identities.messages.4000044": "Nodrošinātā DeviceAuthn paraksta vērtība ir nederīga."
 }

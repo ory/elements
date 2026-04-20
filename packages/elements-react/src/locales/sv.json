@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-postadress eller telefonnummer",
   "identities.messages.1080004": "Ett sms med en verifieringskod har skickats till det telefonnummer du angav. Om du inte har mottagit något sms, kontrollera att telefonnumret är korrekt och se till att du använder det nummer som du registrerade dig med.",
   "identities.messages.1080005": "Du har verifierat ditt telefonnummer.",
-  "identities.messages.5000003": "Er organisation kräver SSO-autentisering, men ingen SSO-leverantör är konfigurerad. Vänligen kontakta systemadministratören."
+  "identities.messages.5000003": "Er organisation kräver SSO-autentisering, men ingen SSO-leverantör är konfigurerad. Vänligen kontakta systemadministratören.",
+  "identities.messages.1010024": "Logga in med en hårdvarunckel.",
+  "identities.messages.4000042": "Du har ingen enhet för DeviceAuthn konfigurerad.",
+  "identities.messages.4000043": "Den angivna webbaserade inloggningen är ogiltig, försök igen.",
+  "identities.messages.4000044": "Den angivna DeviceAuthn-signeringen är ogiltig."
 }

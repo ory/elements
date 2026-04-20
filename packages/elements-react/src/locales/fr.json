@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Adresse électronique ou numéro de téléphone",
   "identities.messages.1080004": "Un message texte contenant un code de vérification a été envoyé au numéro de téléphone que vous avez indiqué. Si vous n’avez pas reçu de message, vérifiez l’orthographe du numéro et assurez-vous d’utiliser le numéro avec lequel vous vous êtes inscrit.",
   "identities.messages.1080005": "Vous avez validé avec succès votre numéro de téléphone.",
-  "identities.messages.5000003": "Votre organisation exige une authentification SSO, mais aucun fournisseur SSO n’est configuré. Veuillez contacter l’administrateur du système."
+  "identities.messages.5000003": "Votre organisation exige une authentification SSO, mais aucun fournisseur SSO n’est configuré. Veuillez contacter l’administrateur du système.",
+  "identities.messages.1010024": "Connectez-vous à l’aide d’une clé matérielle.",
+  "identities.messages.4000042": "Aucun appareil DeviceAuthn n’est configuré.",
+  "identities.messages.4000043": "L’identifiant et le mot de passe que vous avez saisis pour l’authentification Web sont incorrects. Veuillez réessayer.",
+  "identities.messages.4000044": "La signature DeviceAuthn fournie est invalide."
 }

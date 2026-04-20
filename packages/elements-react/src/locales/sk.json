@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-mailová adresa alebo telefónne číslo.",
   "identities.messages.1080004": "Na vaše telefónne číslo, ktoré ste uviedli, bol odoslaný textový odkaz obsahujúci overovací kód. Ak ste textovú správu neobdržali, skontrolujte, či ste správne zadali telefónne číslo, a uistite sa, že používate číslo, na ktoré ste sa registrovali.",
   "identities.messages.1080005": "Úspešne ste overili svoje telefónne číslo.",
-  "identities.messages.5000003": "Vaša organizácia vyžaduje overovanie prostredníctvom jednotného prihlásenia (SSO), ale nie je nakonfigurovaný žiadny poskytovateľ služby SSO. Obráťte sa na správcu systému."
+  "identities.messages.5000003": "Vaša organizácia vyžaduje overovanie prostredníctvom jednotného prihlásenia (SSO), ale nie je nakonfigurovaný žiadny poskytovateľ služby SSO. Obráťte sa na správcu systému.",
+  "identities.messages.1010024": "Prihláste sa pomocou hardvérového kľúča.",
+  "identities.messages.4000042": "Nemáte nastavené žiadne zariadenie DeviceAuthn.",
+  "identities.messages.4000043": "Poskytnuté prihlasovacie údaje pre webovú autentifikáciu sú neplatné, skúste to znova.",
+  "identities.messages.4000044": "Poskytnutý digitálny podpis DeviceAuthn nie je platný."
 }

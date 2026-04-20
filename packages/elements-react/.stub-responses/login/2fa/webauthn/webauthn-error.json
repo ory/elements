@@ -42,7 +42,6 @@
         "attributes": {
           "name": "webauthn_login",
           "type": "hidden",
-          "value": "",
           "disabled": false,
           "node_type": "input"
         },
@@ -82,7 +81,7 @@
         "meta": {
           "label": {
             "id": 1010008,
-            "text": "Sign in with hardware key",
+            "text": "Sign in with a hardware key",
             "type": "info"
           }
         }

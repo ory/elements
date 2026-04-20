@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Adres e-mail lub numer telefonu.",
   "identities.messages.1080004": "Na podany przez Ciebie numer telefonu wysłano wiadomość SMS zawierającą kod weryfikacyjny. Jeśli nie otrzymałeś wiadomości, sprawdź, czy poprawnie wpisałeś numer, i upewnij się, że używasz numeru, który podałeś podczas rejestracji.",
   "identities.messages.1080005": "Pomyślnie zweryfikowano numer Twojego telefonu.",
-  "identities.messages.5000003": "W Państwa organizacji wymagane jest uwierzytelnianie za pomocą SSO, ale nie skonfigurowano żadnego dostawcy usług SSO. Prosimy o kontakt z administratorem systemu."
+  "identities.messages.5000003": "W Państwa organizacji wymagane jest uwierzytelnianie za pomocą SSO, ale nie skonfigurowano żadnego dostawcy usług SSO. Prosimy o kontakt z administratorem systemu.",
+  "identities.messages.1010024": "Zaloguj się za pomocą klucza sprzętowego.",
+  "identities.messages.4000042": "Nie masz skonfigurowanego żadnego urządzenia do uwierzytelniania DeviceAuthn.",
+  "identities.messages.4000043": "Podane dane logowania przez uwierzytelnianie internetowe są nieprawidłowe. Proszę spróbować ponownie.",
+  "identities.messages.4000044": "Podany podpis DeviceAuthn jest nieprawidłowy."
 }

@@ -252,5 +252,9 @@
   "identities.messages.1070018": "E-Mail-Adresse oder Telefonnummer",
   "identities.messages.1080004": "Eine SMS mit einem Bestätigungscode wurde an die von Ihnen angegebene Telefonnummer gesendet. Falls Sie keine SMS erhalten haben, überprüfen Sie bitte, ob die Telefonnummer korrekt ist, und stellen Sie sicher, dass Sie die Nummer verwenden, mit der Sie sich registriert haben.",
   "identities.messages.1080005": "Sie haben Ihre Telefonnummer erfolgreich verifiziert.",
-  "identities.messages.5000003": "Ihre Organisation benötigt eine SSO-Authentifizierung, aber es ist kein SSO-Anbieter konfiguriert. Bitte wenden Sie sich an den Systemadministrator."
+  "identities.messages.5000003": "Ihre Organisation benötigt eine SSO-Authentifizierung, aber es ist kein SSO-Anbieter konfiguriert. Bitte wenden Sie sich an den Systemadministrator.",
+  "identities.messages.1010024": "Melden Sie sich mit einem Hardware-Schlüssel an.",
+  "identities.messages.4000042": "Sie haben kein Gerät für die Geräteauthentifizierung eingerichtet.",
+  "identities.messages.4000043": "Die angegebene Web-Authentifizierungsanmeldung ist ungültig. Bitte versuchen Sie es erneut.",
+  "identities.messages.4000044": "Die bereitgestellte DeviceAuthn-Signatur ist ungültig."
 }

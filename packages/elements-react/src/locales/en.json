@@ -9,7 +9,7 @@
   "identities.messages.1010008": "Continue with hardware key",
   "identities.messages.1010009": "Continue",
   "identities.messages.1010010": "Continue",
-  "identities.messages.1010011": "Sign in with hardware key",
+  "identities.messages.1010011": "Sign in with a hardware key",
   "identities.messages.1010012": "Prepare your WebAuthn device (e.g. security key, biometrics scanner, ...) and press continue.",
   "identities.messages.1010013": "Continue",
   "identities.messages.1010014": "A code was sent to the address you provided. If you didn't receive it, please check the spelling of the address and try again.",
@@ -252,5 +252,9 @@
   "identities.messages.1070018": "Email or phone number",
   "identities.messages.1080004": "A text message containing a verification code has been sent to the phone number you provided. If you have not received a text message, check the spelling of the number and make sure to use the number you registered with.",
   "identities.messages.1080005": "You successfully verified your phone number.",
-  "identities.messages.5000003": "Your organization requires SSO authentication, but no SSO provider is configured. Please contact the system administrator."
+  "identities.messages.5000003": "Your organization requires SSO authentication, but no SSO provider is configured. Please contact the system administrator.",
+  "identities.messages.1010024": "Sign in with a hardware key",
+  "identities.messages.4000042": "You have no DeviceAuthn device set up.",
+  "identities.messages.4000043": "The provided web authn login is invalid, please try again.",
+  "identities.messages.4000044": "The provided DeviceAuthn signature is invalid."
 }
