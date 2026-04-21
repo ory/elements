@@ -55,8 +55,16 @@ const OryProvider = ({ children, components, flow }: OryProviderProps) => (
 export const renderWithOryElements = (
   ui: ReactElement,
   options?: Omit<RenderOptions, "wrapper"> & OryProviderProps,
-) =>
-  render(ui, {
-    wrapper: OryProvider,
-    ...options,
-  })
+) => {
+  const { flow, components, ...renderOptions } = options ?? {}
+  // Create a closure-capturing wrapper so that `flow` and `components` are
+  // forwarded to OryProvider. React Testing Library only passes `children` to
+  // the wrapper component, so we cannot pass extra props via `render()`
+  // options directly.
+  const Wrapper = ({ children }: PropsWithChildren) => (
+    <OryProvider flow={flow} components={components}>
+      {children}
+    </OryProvider>
+  )
+  return render(ui, { wrapper: Wrapper, ...renderOptions })
+}

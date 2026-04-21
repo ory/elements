@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  getNodeId,
   isUiNodeScriptAttributes,
   UiNode,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
+import { getNodeId } from "../../util/sdk-helpers/ui"
 import { useEffect } from "react"
 import { useIntl } from "react-intl"
 import { Toaster } from "sonner"
