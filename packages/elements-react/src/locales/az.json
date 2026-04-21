@@ -256,5 +256,6 @@
   "identities.messages.1010024": "fiziki açar ilə daxil olun",
   "identities.messages.4000042": "Sizin DeviceAuthn cihazınız qurulmayıb.",
   "identities.messages.4000043": "Təqdim edilən veb autentifikasiya giriş məlumatları düzgün deyil, zəhmət olmasa, yenidən cəhd edin.",
-  "identities.messages.4000044": "Təqdim edilən DeviceAuthn imzası etibarsızdır."
+  "identities.messages.4000044": "Təqdim edilən DeviceAuthn imzası etibarsızdır.",
+  "identities.messages.4050002": "Eyni vaxtda yalnız bir ünvana dəyişiklik edə bilərsiniz. Zəhmət olmasa, hər bir ünvana ayrı-ayrı olaraq düzəliş edin."
 }

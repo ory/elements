@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Jelentkezzen be egy hardveres kulccsal.",
   "identities.messages.4000042": "Nem állít be egyetlen DeviceAuthn-eszközt sem.",
   "identities.messages.4000043": "A megadott webes hitelesítési azonosító érvénytelen, kérjük, próbálja meg újra.",
-  "identities.messages.4000044": "A megadott DeviceAuthn aláírás érvénytelen."
+  "identities.messages.4000044": "A megadott DeviceAuthn aláírás érvénytelen.",
+  "identities.messages.4050002": "Egyszerre csak egy címet lehet módosítani. Kérjük, minden címet külön-külön frissítsen."
 }

@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Meld aan met ’n hardeware-sleutel.",
   "identities.messages.4000042": "U het nie ’n DeviceAuthn-toestel geaktiveer nie.",
   "identities.messages.4000043": "Die voorsiene web-outentikasie-aanmeldingsvorm is ongeldig, probeer asseblief weer.",
-  "identities.messages.4000044": "Die voorsiene DeviceAuthn-handtekening is ongeldig."
+  "identities.messages.4000044": "Die voorsiene DeviceAuthn-handtekening is ongeldig.",
+  "identities.messages.4050002": "Jy kan slegs een adres op ’n slag verander. Pas asseblief elke adres afsonderlik op."
 }

@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Logige sisse riistvaral põhineva võtmega.",
   "identities.messages.4000042": "Teil ei ole seadistatud ühtegi DeviceAuthn-seadet.",
   "identities.messages.4000043": "Esitatud veebipõhine autentimislink ei ole korrektne, palun proovige uuesti.",
-  "identities.messages.4000044": "Antud DeviceAuthn allkiri on vigane."
+  "identities.messages.4000044": "Antud DeviceAuthn allkiri on vigane.",
+  "identities.messages.4050002": "Korraldada saab korraga ainult ühe aadressi. Palume värskendada iga aadress eraldi."
 }

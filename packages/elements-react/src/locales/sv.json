@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Logga in med en hårdvarunckel.",
   "identities.messages.4000042": "Du har ingen enhet för DeviceAuthn konfigurerad.",
   "identities.messages.4000043": "Den angivna webbaserade inloggningen är ogiltig, försök igen.",
-  "identities.messages.4000044": "Den angivna DeviceAuthn-signeringen är ogiltig."
+  "identities.messages.4000044": "Den angivna DeviceAuthn-signeringen är ogiltig.",
+  "identities.messages.4050002": "Du kan bara ändra en adress åt gången. Vänligen uppdatera varje adress separat."
 }

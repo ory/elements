@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Đăng nhập bằng khóa bảo mật vật lý.",
   "identities.messages.4000042": "Bạn chưa cài đặt thiết bị xác thực nào.",
   "identities.messages.4000043": "Thông tin đăng nhập xác thực web đã cung cấp không hợp lệ, vui lòng thử lại.",
-  "identities.messages.4000044": "Chữ ký DeviceAuthn đã cung cấp không hợp lệ."
+  "identities.messages.4000044": "Chữ ký DeviceAuthn đã cung cấp không hợp lệ.",
+  "identities.messages.4050002": "Bạn chỉ có thể thay đổi một địa chỉ tại một thời điểm. Vui lòng cập nhật từng địa chỉ một cách riêng biệt."
 }

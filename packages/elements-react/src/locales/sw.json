@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Ingia kwa kutumia kifaa cha usalama (kifaa cha kuingia).",
   "identities.messages.4000042": "Huna kifaa cha DeviceAuthn kilichosanidiwa.",
   "identities.messages.4000043": "Uthibitisho wa kuingia kwa mtumiaji kupitia mtandao haukufaa, tafadhali jaribu tena.",
-  "identities.messages.4000044": "Saini ya DeviceAuthn iliyotolewa ni batili."
+  "identities.messages.4000044": "Saini ya DeviceAuthn iliyotolewa ni batili.",
+  "identities.messages.4050002": "Unaweza kubadilisha anwani moja kwa wakati. Tafadhali sasisha kila anwani kwa nyakati tofauti."
 }

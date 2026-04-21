@@ -256,5 +256,6 @@
   "identities.messages.1010024": "使用硬件密钥登录。",
   "identities.messages.4000042": "您尚未设置任何设备身份验证设备。",
   "identities.messages.4000043": "您提供的网页身份验证登录信息无效，请重试。",
-  "identities.messages.4000044": "提供的设备身份验证签名无效。"
+  "identities.messages.4000044": "提供的设备身份验证签名无效。",
+  "identities.messages.4050002": "您一次只能修改一个地址。请逐一更新每个地址。"
 }

@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Meld u aan met een hardware-sleutel.",
   "identities.messages.4000042": "Er is geen apparaat voor apparaatauthenticatie geconfigureerd.",
   "identities.messages.4000043": "De opgegeven web-authenticatiegegevens zijn ongeldig. Probeer het opnieuw.",
-  "identities.messages.4000044": "De aangeleverde DeviceAuthn-handtekening is ongeldig."
+  "identities.messages.4000044": "De aangeleverde DeviceAuthn-handtekening is ongeldig.",
+  "identities.messages.4050002": "U kunt slechts één adres tegelijk wijzigen. Gelieve elk adres afzonderlijk bij te werken."
 }

@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Banye na ngwaọrụ ahụ.",
   "identities.messages.4000042": "Enweghị ngwa DeviceAuthn ọ bụla ị tọrọ.",
   "identities.messages.4000043": "Nnweta weebụ a na-eji maka nbanye adịghị mma, biko gbalịa ọzọ.",
-  "identities.messages.4000044": "Akaraaka DeviceAuthn e nyere adịghị mma."
+  "identities.messages.4000044": "Akaraaka DeviceAuthn e nyere adịghị mma.",
+  "identities.messages.4050002": "Ị nwere ike gbanwee otu adresi n'otu oge. Biko, melite adresi ọ bụla n'otu n'otu."
 }

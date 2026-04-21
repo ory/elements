@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Ngena ngendlela esebenzisa iqhosha eliqhelekileyo.",
   "identities.messages.4000042": "Awunayo idivayisi ye-DeviceAuthn esekelwe.",
   "identities.messages.4000043": "Ukungena kwewebhu okunikezelweyo akusebenzi, yicoba kwakhona.",
-  "identities.messages.4000044": "Isigineri se-DeviceAuthn enikezelweyo asihambelani."
+  "identities.messages.4000044": "Isigineri se-DeviceAuthn enikezelweyo asihambelani.",
+  "identities.messages.4050002": "Ungatshintsha idilesi enye kuphela ngexesha. Nceda uhlaziye idilesi nganye ngokwahlukileyo."
 }

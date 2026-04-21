@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Prijavite se pomoću hardverskog ključa.",
   "identities.messages.4000042": "Nijedan uređaj za DeviceAuthn nije konfiguriran.",
   "identities.messages.4000043": "Pružena web autentifikacija za prijavu nije valjana, pokušajte ponovno.",
-  "identities.messages.4000044": "Dostavljeni digitalni potpis uređaja (DeviceAuthn) nije valjan."
+  "identities.messages.4000044": "Dostavljeni digitalni potpis uređaja (DeviceAuthn) nije valjan.",
+  "identities.messages.4050002": "Možete promijeniti samo jednu adresu odjednom. Molimo vas da ažurirate svaku adresu zasebno."
 }

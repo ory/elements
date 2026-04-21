@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Kirjaudu sisään laitteistopohjaisella avaimella.",
   "identities.messages.4000042": "Sinulla ei ole käytössä yhtään DeviceAuthn-laitetta.",
   "identities.messages.4000043": "Antamasi verkkosivuston tunnistautumistiedot ovat virheelliset, yritä uudelleen.",
-  "identities.messages.4000044": "Annettu DeviceAuthn-allekirjoitus on virheellinen."
+  "identities.messages.4000044": "Annettu DeviceAuthn-allekirjoitus on virheellinen.",
+  "identities.messages.4050002": "Voit muuttaa vain yhden osoitteen kerrallaan. Päivitä jokainen osoite erikseen."
 }

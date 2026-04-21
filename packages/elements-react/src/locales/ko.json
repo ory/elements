@@ -256,5 +256,6 @@
   "identities.messages.1010024": "하드웨어 키를 사용하여 로그인하세요.",
   "identities.messages.4000042": "디바이스 인증 장치가 설정되지 않았습니다.",
   "identities.messages.4000043": "제공된 웹 인증 로그인 정보가 유효하지 않습니다. 다시 시도해 주십시오.",
-  "identities.messages.4000044": "제공된 DeviceAuthn 서명이 유효하지 않습니다."
+  "identities.messages.4000044": "제공된 DeviceAuthn 서명이 유효하지 않습니다.",
+  "identities.messages.4050002": "한 번에 주소 하나만 변경할 수 있습니다. 각 주소를 따로 업데이트해 주세요."
 }

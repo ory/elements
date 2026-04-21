@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Melden Sie sich mit einem Hardware-Schlüssel an.",
   "identities.messages.4000042": "Sie haben kein Gerät für die Geräteauthentifizierung eingerichtet.",
   "identities.messages.4000043": "Die angegebene Web-Authentifizierungsanmeldung ist ungültig. Bitte versuchen Sie es erneut.",
-  "identities.messages.4000044": "Die bereitgestellte DeviceAuthn-Signatur ist ungültig."
+  "identities.messages.4000044": "Die bereitgestellte DeviceAuthn-Signatur ist ungültig.",
+  "identities.messages.4050002": "Sie können jeweils nur eine Adresse ändern. Bitte aktualisieren Sie jede Adresse einzeln."
 }

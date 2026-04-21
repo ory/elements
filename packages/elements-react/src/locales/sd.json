@@ -256,5 +256,6 @@
   "identities.messages.1010024": "هڪ هارڊويئر ڪي سان ساين ان ڪريو",
   "identities.messages.4000042": "توهان وٽ ڪو به DeviceAuthn ڊوائيس ترتيب نه آهي.",
   "identities.messages.4000043": "دي ويل ويب آٿين لاگ ان صحيح ناهي، مهرباني ڪري ٻيهر ڪوشش ڪريو.",
-  "identities.messages.4000044": "دي ويل آيل DeviceAuthn دستخط صحيح ناهي."
+  "identities.messages.4000044": "دي ويل آيل DeviceAuthn دستخط صحيح ناهي.",
+  "identities.messages.4050002": "تو صرف هڪ دفعي ۾ هڪ ئي پتو تبديل ڪري سگهين ٿو. مھرباني ڪري هر پتو الڳ الڳ اپڊيٽ ڪريو."
 }

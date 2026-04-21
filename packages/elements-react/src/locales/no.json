@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Logg på med en maskinvarenøkkel.",
   "identities.messages.4000042": "Du har ikke konfigurert noen DeviceAuthn-enhet.",
   "identities.messages.4000043": "Innloggingsinformasjonen du har oppgitt, er ugyldig. Vennligst prøv igjen.",
-  "identities.messages.4000044": "Den oppgitte DeviceAuthn-signaturen er ugyldig."
+  "identities.messages.4000044": "Den oppgitte DeviceAuthn-signaturen er ugyldig.",
+  "identities.messages.4050002": "Du kan bare endre én adresse om gangen. Vennligst oppdater hver adresse separat."
 }

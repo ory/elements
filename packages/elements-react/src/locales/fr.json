@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Connectez-vous à l’aide d’une clé matérielle.",
   "identities.messages.4000042": "Aucun appareil DeviceAuthn n’est configuré.",
   "identities.messages.4000043": "L’identifiant et le mot de passe que vous avez saisis pour l’authentification Web sont incorrects. Veuillez réessayer.",
-  "identities.messages.4000044": "La signature DeviceAuthn fournie est invalide."
+  "identities.messages.4000044": "La signature DeviceAuthn fournie est invalide.",
+  "identities.messages.4050002": "Vous ne pouvez modifier qu’une seule adresse à la fois. Veuillez mettre à jour chaque adresse séparément."
 }

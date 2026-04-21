@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Inicieu la sessió amb una clau de seguretat.",
   "identities.messages.4000042": "No teniu cap dispositiu DeviceAuthn configurat.",
   "identities.messages.4000043": "La sessió d’inici d’autenticació web proporcionada no és vàlida; si us plau, torneu-ho a provar.",
-  "identities.messages.4000044": "La signatura DeviceAuthn proporcionada no és vàlida."
+  "identities.messages.4000044": "La signatura DeviceAuthn proporcionada no és vàlida.",
+  "identities.messages.4050002": "Només podeu modificar una adreça a la vegada. Si us plau, actualitzeu cada adreça per separat."
 }

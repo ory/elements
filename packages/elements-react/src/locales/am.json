@@ -256,5 +256,6 @@
   "identities.messages.1010024": "የመግቢያ ቁልፍ በመጠቀም ይግቡ።",
   "identities.messages.4000042": "የመሳሪያ ማረጋገጫ መሳሪያዎ አልተዋቀረም።",
   "identities.messages.4000043": "የተሰጠው የዌብ መታወቂያ ማስገቢያ ትክክል አይደለም፣ እባክዎን እንደገና ይሞክሩ።",
-  "identities.messages.4000044": "የተሰጠው DeviceAuthn ፈረንሽ ትክክል አይደለም።"
+  "identities.messages.4000044": "የተሰጠው DeviceAuthn ፈረንሽ ትክክል አይደለም።",
+  "identities.messages.4050002": "በአንድ ጊዜ አንድ አድራሻ ብቻ መለወጥ ይችላሉ። እባክዎን እያንዳንዱን አድራሻ በተናጥል ያስተካክሉ።"
 }

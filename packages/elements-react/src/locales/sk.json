@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Prihláste sa pomocou hardvérového kľúča.",
   "identities.messages.4000042": "Nemáte nastavené žiadne zariadenie DeviceAuthn.",
   "identities.messages.4000043": "Poskytnuté prihlasovacie údaje pre webovú autentifikáciu sú neplatné, skúste to znova.",
-  "identities.messages.4000044": "Poskytnutý digitálny podpis DeviceAuthn nie je platný."
+  "identities.messages.4000044": "Poskytnutý digitálny podpis DeviceAuthn nie je platný.",
+  "identities.messages.4050002": "Môžete zmeniť iba jednu adresu naraz. Aktualizujte prosím každú adresu samostatne."
 }

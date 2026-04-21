@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Pieslēdzieties, izmantojot aparatūras atslēgu.",
   "identities.messages.4000042": "Jums nav iestatīta neviena DeviceAuthn ierīce.",
   "identities.messages.4000043": "Norādītā tīmekļa autentifikācijas metode nav derīga, lūdzu, mēģiniet vēlreiz.",
-  "identities.messages.4000044": "Nodrošinātā DeviceAuthn paraksta vērtība ir nederīga."
+  "identities.messages.4000044": "Nodrošinātā DeviceAuthn paraksta vērtība ir nederīga.",
+  "identities.messages.4050002": "Vienlaikus varat mainīt tikai vienu adresi. Lūdzu, atjauniniet katru adresi atsevišķi."
 }

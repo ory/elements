@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Fara dɔ la, kɔrɔ la.",
   "identities.messages.4000042": "I n’a ka faamako DeviceAuthn kan ka kɛ.",
   "identities.messages.4000043": "Wɛbɛ authn kɔnɔgilin la, a ka kan ka ta, ka kɛ ka fɔ.",
-  "identities.messages.4000044": "An ka labɛn ko DeviceAuthn kan siginatura fana."
+  "identities.messages.4000044": "An ka labɛn ko DeviceAuthn kan siginatura fana.",
+  "identities.messages.4050002": "I n’a fɔ i n’ bɛ se ka ka dɔrɔn dɔ ka bonya, i n’a fɔ, i n’a fɔ, i n’a fɔ. Ka kɔ, ka dɔrɔn walima ka kɛnɛya in dɔrɔn kan ka bonya."
 }

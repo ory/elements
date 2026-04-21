@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Log masuk menggunakan kunci perkakasan.",
   "identities.messages.4000042": "Anda belum memasang atau mengaktifkan peranti DeviceAuthn.",
   "identities.messages.4000043": "Log masuk web yang disediakan tidak sah, sila cuba lagi.",
-  "identities.messages.4000044": "Tandatangan DeviceAuthn yang diberikan tidak sah."
+  "identities.messages.4000044": "Tandatangan DeviceAuthn yang diberikan tidak sah.",
+  "identities.messages.4050002": "Anda hanya boleh mengubah satu alamat pada satu masa. Sila kemas kini setiap alamat secara berasingan."
 }

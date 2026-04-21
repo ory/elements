@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Prijava s pomočjo strojnega ključa.",
   "identities.messages.4000042": "Ni vam nastavljena nobena naprava za preverjanje identitete.",
   "identities.messages.4000043": "Navedena spletna prijava ni veljavna, poskusite znova.",
-  "identities.messages.4000044": "Predložena digitalna podpisna vrednost DeviceAuthn ni veljavna."
+  "identities.messages.4000044": "Predložena digitalna podpisna vrednost DeviceAuthn ni veljavna.",
+  "identities.messages.4050002": "Naenkrat lahko spremenite samo en naslov. Prosimo, posodobite vsak naslov posebej."
 }

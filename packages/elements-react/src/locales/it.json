@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Accedi utilizzando una chiave hardware.",
   "identities.messages.4000042": "Non hai configurato alcun dispositivo per l’autenticazione.",
   "identities.messages.4000043": "L’autenticazione web fornita non è valida, si prega di riprovare.",
-  "identities.messages.4000044": "La firma DeviceAuthn fornita non è valida."
+  "identities.messages.4000044": "La firma DeviceAuthn fornita non è valida.",
+  "identities.messages.4050002": "È possibile modificare un solo indirizzo alla volta. Si prega di aggiornare ogni indirizzo separatamente."
 }

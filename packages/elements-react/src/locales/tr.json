@@ -256,5 +256,6 @@
   "identities.messages.1010024": "Donanım anahtarıyla giriş yapın",
   "identities.messages.4000042": "Herhangi bir DeviceAuthn cihazı yapılandırılmamış.",
   "identities.messages.4000043": "Sağlanan web kimlik doğrulama giriş bilgileri geçersiz, lütfen tekrar deneyin.",
-  "identities.messages.4000044": "Sağlanan DeviceAuthn imzası geçersizdir."
+  "identities.messages.4000044": "Sağlanan DeviceAuthn imzası geçersizdir.",
+  "identities.messages.4050002": "Her seferinde yalnızca bir adresi değiştirebilirsiniz. Lütfen her adresi ayrı ayrı güncelleyin."
 }
