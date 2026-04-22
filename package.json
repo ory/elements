@@ -108,7 +108,7 @@
   ],
   "dependencies": {
     "lodash": "4.18.1",
-    "next": "15.5.13",
+    "next": "15.5.15",
     "tsx": "4.20.2"
   },
   "prettier": {
