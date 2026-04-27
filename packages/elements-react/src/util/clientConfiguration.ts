@@ -109,6 +109,12 @@ export interface ProjectConfiguration {
    */
   recovery_ui_url: string
   /**
+   * Whether to hide the Ory branding badge on the account experience card.
+   *
+   * Defaults to `false`. Customers on qualifying plans can opt into hiding it.
+   */
+  hide_ory_branding?: boolean
+  /**
    * Whether registration is enabled.
    *
    * Used to determine if the "Sign Up" link is shown on the login card.

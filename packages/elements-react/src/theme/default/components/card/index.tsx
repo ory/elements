@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryCardProps } from "@ory/elements-react"
+import { OryCardProps, useOryConfiguration } from "@ory/elements-react"
 import { Badge } from "./badge"
 import { DefaultCardContent } from "./content"
 import { DefaultCardFooter } from "./footer"
@@ -24,6 +24,8 @@ export function DefaultCard({
   className,
   ...rest
 }: OryCardProps & ComponentPropsWithoutRef<"div">) {
+  const { project } = useOryConfiguration()
+
   return (
     <div className={cn("ory-elements", className)} {...rest}>
       <div className="flex w-full flex-1 items-start justify-center font-sans-default sm:w-[480px] sm:max-w-[480px] sm:items-center">
@@ -32,7 +34,7 @@ export function DefaultCard({
           data-testid="ory/card"
         >
           {children}
-          <Badge />
+          {!project.hide_ory_branding && <Badge />}
         </div>
       </div>
     </div>

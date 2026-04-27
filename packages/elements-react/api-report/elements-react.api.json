@@ -6023,6 +6023,33 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#hide_ory_branding:member",
+              "docComment": "/**\n * Whether to hide the Ory branding badge on the account experience card.\n *\n * Defaults to `false`. Customers on qualifying plans can opt into hiding it.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "hide_ory_branding?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "hide_ory_branding",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@ory/elements-react!ProjectConfiguration#login_ui_url:member",
               "docComment": "/**\n * The URL for the login UI.\n */\n",
               "excerptTokens": [

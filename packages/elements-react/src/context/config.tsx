@@ -37,6 +37,7 @@ const defaultProject: ProjectConfiguration = {
   settings_ui_url: "/ui/settings",
   default_redirect_url: "/ui/welcome",
   error_ui_url: "/ui/error",
+  hide_ory_branding: false,
 }
 
 /**
