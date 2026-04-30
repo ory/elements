@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Sie haben Ihre Telefonnummer erfolgreich verifiziert.",
   "identities.messages.5000003": "Ihre Organisation benötigt eine SSO-Authentifizierung, aber es ist kein SSO-Anbieter konfiguriert. Bitte wenden Sie sich an den Systemadministrator.",
   "identities.messages.1010024": "Melden Sie sich mit einem Hardware-Schlüssel an.",
+  "identities.messages.1010025": "Ein Code wurde an Ihre Adresse gesendet. Falls Sie ihn nicht erhalten haben, versuchen Sie es bitte erneut.",
   "identities.messages.4000042": "Sie haben kein Gerät für die Geräteauthentifizierung eingerichtet.",
   "identities.messages.4000043": "Die angegebene Web-Authentifizierungsanmeldung ist ungültig. Bitte versuchen Sie es erneut.",
   "identities.messages.4000044": "Die bereitgestellte DeviceAuthn-Signatur ist ungültig.",

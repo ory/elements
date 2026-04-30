@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Ha verificado correctamente su número de teléfono.",
   "identities.messages.5000003": "Su organización requiere autenticación SSO, pero no se ha configurado ningún proveedor de SSO. Póngase en contacto con el administrador del sistema.",
   "identities.messages.1010024": "Inicie sesión con una clave de seguridad física.",
+  "identities.messages.1010025": "Se ha enviado un código a tu dirección. Si no lo has recibido, inténtalo de nuevo.",
   "identities.messages.4000042": "No tiene ningún dispositivo de autenticación configurado.",
   "identities.messages.4000043": "La información de inicio de sesión proporcionada para la autenticación web no es válida. Por favor, inténtelo de nuevo.",
   "identities.messages.4000044": "La firma de autenticación de dispositivos proporcionada no es válida.",

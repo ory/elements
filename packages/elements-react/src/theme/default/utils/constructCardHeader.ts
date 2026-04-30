@@ -349,11 +349,10 @@ export function useCardHeaderText(
         parts,
         intl.formatMessage({ id: "misc.or", defaultMessage: "or" }),
       )
+
       if (opts.flow.refresh) {
         const description = codeSent
-          ? intl.formatMessage(kratosMessages[1010014], {
-              parts: stringifiedParts,
-            })
+          ? intl.formatMessage(kratosMessages[1010025])
           : intl.formatMessage(
               {
                 id: "login.subtitle-refresh",
@@ -369,10 +368,11 @@ export function useCardHeaderText(
             defaultMessage: "Reauthenticate",
           }),
           description,
+          messageId: codeSent ? "1010025" : undefined,
         }
       } else if (opts.flow.requested_aal === "aal2") {
         const description = codeSent
-          ? intl.formatMessage(kratosMessages[1010014])
+          ? intl.formatMessage(kratosMessages[1010025])
           : opts.formState?.current === "method_active"
             ? intl.formatMessage(loginSubtitles[opts.formState.method])
             : intl.formatMessage({
@@ -386,6 +386,7 @@ export function useCardHeaderText(
             defaultMessage: "Second factor authentication",
           }),
           description,
+          messageId: codeSent ? "1010025" : undefined,
         }
       }
       const description =

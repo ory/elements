@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Kun tabbatar da lambar wayarku.",
   "identities.messages.5000003": "Kungiyar ku na buƙatar tabbatar da amfani da SSO, amma babu wani mai ba da sabis na SSO da aka ƙaddara. Da fatan za a tuntuɓi mai kula da tsarin.",
   "identities.messages.1010024": "Shiga ta amfani da maɓallin na'ura.",
+  "identities.messages.1010025": "An aika lambar zuwa adireshinka. Idan ba ka karɓa ba, da fatan za a sake gwadawa.",
   "identities.messages.4000042": "Ba ka kafa na'urar DeviceAuthn ba.",
   "identities.messages.4000043": "Shigar da aka yi ta hanyar intanet ba daidai ba, don Allah sake gwada.",
   "identities.messages.4000044": "Sanyar da aka bayar na DeviceAuthn ba daidai ba ne.",

@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Sikeresen ellenőriztük a telefonszámát.",
   "identities.messages.5000003": "Szervezetének egyszeri bejelentkezést (SSO) kell használnia, azonban nincs beállítva megfelelő SSO-szolgáltató. Kérjük, vegye fel a kapcsolatot a rendszeradminisztrátorral.",
   "identities.messages.1010024": "Jelentkezzen be egy hardveres kulccsal.",
+  "identities.messages.1010025": "Kódot küldtünk a címedre. Ha nem kaptad meg, próbáld újra.",
   "identities.messages.4000042": "Nem állít be egyetlen DeviceAuthn-eszközt sem.",
   "identities.messages.4000043": "A megadott webes hitelesítési azonosító érvénytelen, kérjük, próbálja meg újra.",
   "identities.messages.4000044": "A megadott DeviceAuthn aláírás érvénytelen.",

@@ -254,6 +254,7 @@
   "identities.messages.1080005": "휴대폰 번호 인증이 완료되었습니다.",
   "identities.messages.5000003": "귀사의 조직에서는 SSO(싱글 사인온) 인증이 필요하지만, 현재 SSO 제공업체가 구성되어 있지 않습니다. 시스템 관리자에게 문의해 주시기 바랍니다.",
   "identities.messages.1010024": "하드웨어 키를 사용하여 로그인하세요.",
+  "identities.messages.1010025": "코드가 주소로 전송되었습니다. 받지 못하셨다면 다시 시도해 주세요.",
   "identities.messages.4000042": "디바이스 인증 장치가 설정되지 않았습니다.",
   "identities.messages.4000043": "제공된 웹 인증 로그인 정보가 유효하지 않습니다. 다시 시도해 주십시오.",
   "identities.messages.4000044": "제공된 DeviceAuthn 서명이 유효하지 않습니다.",

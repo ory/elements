@@ -20,6 +20,7 @@
     "rootDir": ".",
     "paths": {
       "@ory/elements-react": ["./src/index.ts"],
+      "@ory/elements-react/client": ["./src/client/index.ts"],
       "$snapshots/*": ["./.stub-responses/*"]
     }
   },

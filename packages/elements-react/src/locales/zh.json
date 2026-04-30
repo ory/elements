@@ -254,6 +254,7 @@
   "identities.messages.1080005": "您已成功验证了您的手机号码。",
   "identities.messages.5000003": "您的组织需要使用单点登录 (SSO) 身份验证，但尚未配置任何 SSO 提供程序。请联系系统管理员。",
   "identities.messages.1010024": "使用硬件密钥登录。",
+  "identities.messages.1010025": "验证码已发送到您的地址。如果您没有收到，请重试。",
   "identities.messages.4000042": "您尚未设置任何设备身份验证设备。",
   "identities.messages.4000043": "您提供的网页身份验证登录信息无效，请重试。",
   "identities.messages.4000044": "提供的设备身份验证签名无效。",

@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Du har bekreftet telefonnummeret ditt.",
   "identities.messages.5000003": "Organisasjonen din krever SSO-autentisering, men ingen SSO-leverandør er konfigurert. Vennligst kontakt systemadministratoren.",
   "identities.messages.1010024": "Logg på med en maskinvarenøkkel.",
+  "identities.messages.1010025": "En kode er sendt til adressen din. Hvis du ikke har mottatt den, prøv igjen.",
   "identities.messages.4000042": "Du har ikke konfigurert noen DeviceAuthn-enhet.",
   "identities.messages.4000043": "Innloggingsinformasjonen du har oppgitt, er ugyldig. Vennligst prøv igjen.",
   "identities.messages.4000044": "Den oppgitte DeviceAuthn-signaturen er ugyldig.",

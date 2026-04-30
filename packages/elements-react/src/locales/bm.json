@@ -254,6 +254,7 @@
   "identities.messages.1080005": "I n’a fɔ i ni i ye telefoninuman la, o ka kan ka bon.",
   "identities.messages.5000003": "Nɔrɔgɔn dɔ la, a ka kan ka SSO ni fɛn, nka a ka SSO ni fɛn ye min bɛ. Ka kɔ, ka system administrator la.",
   "identities.messages.1010024": "Fara dɔ la, kɔrɔ la.",
+  "identities.messages.1010025": "Kódè cì i ka adɛrɛsi ma. Ni i ma a sɔrɔ, i bɛ a ɲini tugun.",
   "identities.messages.4000042": "I n’a ka faamako DeviceAuthn kan ka kɛ.",
   "identities.messages.4000043": "Wɛbɛ authn kɔnɔgilin la, a ka kan ka ta, ka kɛ ka fɔ.",
   "identities.messages.4000044": "An ka labɛn ko DeviceAuthn kan siginatura fana.",

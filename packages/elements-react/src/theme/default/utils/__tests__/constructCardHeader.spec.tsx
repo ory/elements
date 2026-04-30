@@ -378,4 +378,111 @@ describe("constructCardHeaderText", () => {
       })
     })
   }
+
+  describe("messageId on refresh and aal2 login flows", () => {
+    const codeSentFormState = {
+      current: "method_active",
+      method: "code" as UiNodeGroupEnum,
+      isReady: true,
+      isSubmitting: false,
+    } as const
+
+    const selectMethodFormState = {
+      current: "select_method",
+      isReady: true,
+      isSubmitting: false,
+    } as const
+
+    test("should set messageId to 1010025 on refresh login when the code was sent", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            { nodes: [code], action: "", method: "POST", messages: [] },
+            {
+              flowType: FlowType.Login,
+              flow: { refresh: true },
+              formState: codeSentFormState,
+            },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current).toEqual({
+        title: "Reauthenticate",
+        description:
+          "A code was sent to your address. If you didn't receive it, please try again.",
+        messageId: "1010025",
+      })
+    })
+
+    test("should set messageId to 1010025 on aal2 login when the code was sent", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            { nodes: [code], action: "", method: "POST", messages: [] },
+            {
+              flowType: FlowType.Login,
+              flow: { refresh: false, requested_aal: "aal2" },
+              formState: codeSentFormState,
+            },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current).toEqual({
+        title: "Second factor authentication",
+        description:
+          "A code was sent to your address. If you didn't receive it, please try again.",
+        messageId: "1010025",
+      })
+    })
+
+    test("should not set messageId on refresh login before the code is sent", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            { nodes: [code], action: "", method: "POST", messages: [] },
+            {
+              flowType: FlowType.Login,
+              flow: { refresh: true },
+              formState: selectMethodFormState,
+            },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current.messageId).toBeUndefined()
+      expect(res.result.current.title).toBe("Reauthenticate")
+    })
+
+    test("should not set messageId on aal2 login before the code is sent", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            { nodes: [code], action: "", method: "POST", messages: [] },
+            {
+              flowType: FlowType.Login,
+              flow: { refresh: false, requested_aal: "aal2" },
+              formState: selectMethodFormState,
+            },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current.messageId).toBeUndefined()
+      expect(res.result.current.title).toBe("Second factor authentication")
+    })
+
+    test("should not set messageId on refresh login when no code node is present", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            { nodes: [password], action: "", method: "POST", messages: [] },
+            {
+              flowType: FlowType.Login,
+              flow: { refresh: true },
+              formState: codeSentFormState,
+            },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current.messageId).toBeUndefined()
+    })
+  })
 })

@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Matagumpay mong napatunayan ang iyong numero ng telepono.",
   "identities.messages.5000003": "Kinakailangan ng inyong organisasyon ang pagpapatunay sa pamamagitan ng SSO, ngunit walang naka-configure na tagapagbigay ng serbisyo ng SSO. Mangyaring makipag-ugnayan sa tagapamahala ng sistema.",
   "identities.messages.1010024": "Mag-log in gamit ang isang hardware key.",
+  "identities.messages.1010025": "Isang code ang ipinadala sa iyong address. Kung hindi mo ito natanggap, paki subukan muli.",
   "identities.messages.4000042": "Wala kang naka-setup na DeviceAuthn device.",
   "identities.messages.4000043": "Hindi wasto ang ibinigay na pahina ng pag-login gamit ang web authentication, mangyaring subukan muli.",
   "identities.messages.4000044": "Hindi wasto ang ibinigay na lagda ng DeviceAuthn.",

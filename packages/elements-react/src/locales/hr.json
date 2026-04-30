@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Uspješno ste potvrdili svoj broj telefona.",
   "identities.messages.5000003": "Vaša organizacija zahtijeva autentifikaciju putem jedinstvenog prijavljivanja (SSO), ali nije konfiguriran nijedan davatelj usluga SSO. Molimo, obratite se administratoru sustava.",
   "identities.messages.1010024": "Prijavite se pomoću hardverskog ključa.",
+  "identities.messages.1010025": "Kod je poslan na vašu adresu. Ako ga niste primili, pokušajte ponovno.",
   "identities.messages.4000042": "Nijedan uređaj za DeviceAuthn nije konfiguriran.",
   "identities.messages.4000043": "Pružena web autentifikacija za prijavu nije valjana, pokušajte ponovno.",
   "identities.messages.4000044": "Dostavljeni digitalni potpis uređaja (DeviceAuthn) nije valjan.",

@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Du har verifierat ditt telefonnummer.",
   "identities.messages.5000003": "Er organisation kräver SSO-autentisering, men ingen SSO-leverantör är konfigurerad. Vänligen kontakta systemadministratören.",
   "identities.messages.1010024": "Logga in med en hårdvarunckel.",
+  "identities.messages.1010025": "En kod har skickats till din adress. Om du inte har fått den, försök igen.",
   "identities.messages.4000042": "Du har ingen enhet för DeviceAuthn konfigurerad.",
   "identities.messages.4000043": "Den angivna webbaserade inloggningen är ogiltig, försök igen.",
   "identities.messages.4000044": "Den angivna DeviceAuthn-signeringen är ogiltig.",

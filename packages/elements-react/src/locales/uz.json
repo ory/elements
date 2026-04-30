@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Siz o'z telefon raqamingizni muvaffaqiyatli tasdiqladingiz.",
   "identities.messages.5000003": "Sizning tashkilotingizga bitta kirish nuqtasi (SSO) autentifikatsiyasi kerak, ammo hech qanday SSO provayderi sozlanmagan. Iltimos, tizim administratoriga murojaat qiling.",
   "identities.messages.1010024": "Asbobiy kalit yordamida tizimga kiring.",
+  "identities.messages.1010025": "Kod manzilingizga yuborildi. Agar uni qabul qilmagan bo'lsangiz, qaytadan urinib ko'ring.",
   "identities.messages.4000042": "Sizda DeviceAuthn qurilmasi sozlanmagan.",
   "identities.messages.4000043": "Kiritilgan veb-avtorizatsiya maʼlumotlari notoʻgʻri, iltimos, qayta urinib koʻring.",
   "identities.messages.4000044": "Keltirilgan DeviceAuthn imzosi amal qilmaydi.",

@@ -51,8 +51,8 @@ export interface OryCardValidationMessagesProps {
  */
 export function OryCardValidationMessages({
   hiddenMessageIds = [
-    1040009, 1060003, 1080003, 1010004, 1010014, 1040005, 1010016, 1010003,
-    1060004, 1060005, 1060006,
+    1040009, 1060003, 1080003, 1010004, 1010014, 1010025, 1040005, 1010016,
+    1010003, 1060004, 1060005, 1060006,
   ],
 }: OryCardValidationMessagesProps) {
   const { flow } = useOryFlow()

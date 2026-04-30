@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Jūsų telefono numeris buvo sėkmingai patvirtintas.",
   "identities.messages.5000003": "Jūsų organizacijai reikalinga vienkartinė prisijungimo (SSO) autentifikacija, tačiau SSO paslaugos teikėjas nekonfigūruotas. Prašome kreiptis į sistemos administratorių.",
   "identities.messages.1010024": "Prisijunkite naudodami aparatinį raktą.",
+  "identities.messages.1010025": "Kodas išsiųstas jūsų adresu. Jei jo negavote, bandykite dar kartą.",
   "identities.messages.4000042": "Jūsų sistemoje nekonfigūruotas joks „DeviceAuthn“ įrenginys.",
   "identities.messages.4000043": "Pateiktas internetinis autentifikavimo prisijungimo vardas yra neteisingas, prašome bandyti dar kartą.",
   "identities.messages.4000044": "Pateiktas „DeviceAuthn“ parašas yra neteisingas.",

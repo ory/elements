@@ -254,6 +254,7 @@
   "identities.messages.1080005": "U heeft uw telefoonnummer succesvol geverifieerd.",
   "identities.messages.5000003": "Uw organisatie vereist eenmalige aanmelding (SSO), maar er is geen SSO-provider geconfigureerd. Neem contact op met de systeembeheerder.",
   "identities.messages.1010024": "Meld u aan met een hardware-sleutel.",
+  "identities.messages.1010025": "Er is een code naar je adres verzonden. Als je deze niet hebt ontvangen, probeer het opnieuw.",
   "identities.messages.4000042": "Er is geen apparaat voor apparaatauthenticatie geconfigureerd.",
   "identities.messages.4000043": "De opgegeven web-authenticatiegegevens zijn ongeldig. Probeer het opnieuw.",
   "identities.messages.4000044": "De aangeleverde DeviceAuthn-handtekening is ongeldig.",

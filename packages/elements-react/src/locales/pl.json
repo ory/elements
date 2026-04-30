@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Pomyślnie zweryfikowano numer Twojego telefonu.",
   "identities.messages.5000003": "W Państwa organizacji wymagane jest uwierzytelnianie za pomocą SSO, ale nie skonfigurowano żadnego dostawcy usług SSO. Prosimy o kontakt z administratorem systemu.",
   "identities.messages.1010024": "Zaloguj się za pomocą klucza sprzętowego.",
+  "identities.messages.1010025": "Kod został wysłany na Twój adres. Jeśli go nie otrzymałeś, spróbuj ponownie.",
   "identities.messages.4000042": "Nie masz skonfigurowanego żadnego urządzenia do uwierzytelniania DeviceAuthn.",
   "identities.messages.4000043": "Podane dane logowania przez uwierzytelnianie internetowe są nieprawidłowe. Proszę spróbować ponownie.",
   "identities.messages.4000044": "Podany podpis DeviceAuthn jest nieprawidłowy.",

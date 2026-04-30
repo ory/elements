@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Siz telefon belginiň dogrulygyny üstünlikli anykladylar.",
   "identities.messages.5000003": "Siziň guramanyz SSO awtentifikasiýasyny talap edýär, ýöne hiç bir SSO hyzmat berýän düzümi gurnalman. Iltimas, ulgam administratory bilen habarlasyň.",
   "identities.messages.1010024": "Gurşak açar bilen girip geçiň.",
+  "identities.messages.1010025": "Kod salgyňyza iberildi. Eger ony almadyk bolsaňyz, gaýtadan synanyşyň.",
   "identities.messages.4000042": "Sizde DeviceAuthn enjamynyň gurnalan nusgasy ýok.",
   "identities.messages.4000043": "Berlen web awtorişasiýa girizilen maglumatlar nädogry, ýene-de synap göräýiň.",
   "identities.messages.4000044": "Berlen DeviceAuthn gol ýazmasy dogry däldir.",

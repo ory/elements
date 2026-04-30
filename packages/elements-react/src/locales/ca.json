@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Heu verificat correctament el vostre número de telèfon.",
   "identities.messages.5000003": "La vostra organització requereix l’autenticació SSO, però no s’ha configurat cap proveïdor SSO. Si us plau, poseu-vos en contacte amb l’administrador del sistema.",
   "identities.messages.1010024": "Inicieu la sessió amb una clau de seguretat.",
+  "identities.messages.1010025": "S'ha enviat un codi a la teva adreça. Si no l'has rebut, torna-ho a provar.",
   "identities.messages.4000042": "No teniu cap dispositiu DeviceAuthn configurat.",
   "identities.messages.4000043": "La sessió d’inici d’autenticació web proporcionada no és vàlida; si us plau, torneu-ho a provar.",
   "identities.messages.4000044": "La signatura DeviceAuthn proporcionada no és vàlida.",

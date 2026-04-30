@@ -4,15 +4,18 @@
 import {
   FlowType,
   isUiNodeInputAttributes,
+  Session,
   UiNode,
   UiNodeInputAttributes,
 } from "@ory/client-fetch"
 import { useOryConfiguration, useOryFlow } from "@ory/elements-react"
+import { useSession } from "@ory/elements-react/client"
 import { useEffect, useState } from "react"
 // eslint-disable-next-line no-restricted-imports
 import { useFormContext } from "react-hook-form"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import { omitInputAttributes } from "../../../../util/omitAttributes"
+import { isUiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 import IconArrowLeft from "../../assets/icons/arrow-left.svg"
 import { restartFlowUrl } from "../../utils/url"
 
@@ -32,6 +35,7 @@ export function DefaultCurrentIdentifierButton() {
     string | undefined
   >()
   const config = useOryConfiguration()
+  const { session } = useSession()
   const ui = flow.ui
 
   // This workaround ensures that the screen/back button functions correctly. Without it, the button does not work as expected.
@@ -50,14 +54,42 @@ export function DefaultCurrentIdentifierButton() {
     return null
   }
 
+  const nodeBackButton = getBackButtonNodeAttributes(flowType, ui.nodes)
+
+  // On refresh and second factor login screens, show the current identifier as
+  // a non-interactive indicator (no arrow, no navigation). The user cannot
+  // change the identifier mid-flow, but they still need to see which account
+  // they are authenticating as. The identifier is read from the flow's hidden
+  // `identifier` node when present (e.g. refresh with password/code) and falls
+  // back to the authenticated session's identity when the flow carries none
+  // (e.g. the initial 2FA screen for totp or lookup secret).
   if (
     flowType === FlowType.Login &&
     (flow.requested_aal === "aal2" || flow.refresh)
   ) {
-    return null
+    const identifier =
+      nodeBackButton?.value ||
+      identifierFromUiNodes(ui.nodes) ||
+      identifierFromSession(session)
+    if (!identifier) {
+      return null
+    }
+    return (
+      <span
+        className={
+          "inline-flex max-w-full items-center gap-1 self-start rounded-identifier border border-button-identifier-border-border-default bg-button-identifier-background-default px-[11px] py-[5px]"
+        }
+        data-testid={`ory/screen/${flowType}/current-identifier`}
+      >
+        <span className="inline-flex min-h-5 items-center gap-2 overflow-hidden text-ellipsis">
+          <span className="overflow-hidden text-sm font-medium text-nowrap text-ellipsis text-button-identifier-foreground-default">
+            {identifier}
+          </span>
+        </span>
+      </span>
+    )
   }
 
-  const nodeBackButton = getBackButtonNodeAttributes(flowType, ui.nodes)
   if (!nodeBackButton) {
     return null
   }
@@ -235,4 +267,42 @@ export function guessRegistrationBackButton(
       backButtonCandiates.includes(node.attributes.name) &&
       node.group === "default",
   )?.attributes as UiNodeInputAttributes | undefined
+}
+
+// Resolves the identifier from any input node named `identifier` on the flow,
+// regardless of group. Used by the read-only current-identifier indicator on
+// refresh and second factor screens, where the identifier may be present in
+// groups other than `default` or `identifier_first` (for example, the `code`
+// group on the 2FA code-sent screen).
+function identifierFromUiNodes(nodes: UiNode[]): string | undefined {
+  for (const node of nodes) {
+    if (isUiNodeInput(node) && node.attributes.name === "identifier") {
+      const value = node.attributes.value
+      if (typeof value === "string" && value.length > 0) {
+        return value
+      }
+    }
+  }
+  return undefined
+}
+
+// Resolves a human-readable identifier (email, phone number, or username) from
+// the authenticated session's identity traits. Used as a fallback for the
+// current-identifier indicator on login screens where the flow itself does not
+// carry the identifier (for example, the initial second factor screens).
+function identifierFromSession(
+  session: Session | null | undefined,
+): string | undefined {
+  const traits = session?.identity?.traits
+  if (!traits || typeof traits !== "object") {
+    return undefined
+  }
+  const t = traits as Record<string, unknown>
+  for (const key of ["email", "phone_number", "username"]) {
+    const value = t[key]
+    if (typeof value === "string" && value.length > 0) {
+      return value
+    }
+  }
+  return undefined
 }

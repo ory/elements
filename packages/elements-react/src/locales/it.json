@@ -254,6 +254,7 @@
   "identities.messages.1080005": "Hai verificato con successo il tuo numero di telefono.",
   "identities.messages.5000003": "La vostra organizzazione richiede l’autenticazione SSO, ma non è stato configurato alcun provider SSO. Si prega di contattare l’amministratore di sistema.",
   "identities.messages.1010024": "Accedi utilizzando una chiave hardware.",
+  "identities.messages.1010025": "Un codice è stato inviato al tuo indirizzo. Se non lo hai ricevuto, riprova.",
   "identities.messages.4000042": "Non hai configurato alcun dispositivo per l’autenticazione.",
   "identities.messages.4000043": "L’autenticazione web fornita non è valida, si prega di riprovare.",
   "identities.messages.4000044": "La firma DeviceAuthn fornita non è valida.",
