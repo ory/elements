@@ -112,7 +112,8 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
   return (
     <>
       {formState.current === "provide_identifier" &&
-        config.project.registration_enabled && (
+        config.project.registration_enabled &&
+        !config.project.hide_registration_link && (
           <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
             {intl.formatMessage({
               id: "login.registration-label",

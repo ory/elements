@@ -6108,6 +6108,33 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@ory/elements-react!ProjectConfiguration#hide_registration_link:member",
+              "docComment": "/**\n * When true, hides the \"Sign up\" link on the login card footer even if registration is enabled. Cosmetic only; does not affect the registration flow itself. Defaults to false.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "hide_registration_link?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "hide_registration_link",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@ory/elements-react!ProjectConfiguration#login_ui_url:member",
               "docComment": "/**\n * The URL for the login UI.\n */\n",
               "excerptTokens": [

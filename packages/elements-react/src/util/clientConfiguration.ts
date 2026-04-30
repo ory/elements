@@ -121,6 +121,12 @@ export interface ProjectConfiguration {
    */
   registration_enabled: boolean
   /**
+   * When true, hides the "Sign up" link on the login card footer even
+   * if registration is enabled. Cosmetic only; does not affect the
+   * registration flow itself. Defaults to false.
+   */
+  hide_registration_link?: boolean
+  /**
    * The URL for the registration UI.
    */
   registration_ui_url: string

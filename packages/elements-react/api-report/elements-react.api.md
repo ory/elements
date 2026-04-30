@@ -707,6 +707,7 @@ export interface ProjectConfiguration {
     default_redirect_url: string;
     error_ui_url: string;
     hide_ory_branding?: boolean;
+    hide_registration_link?: boolean;
     login_ui_url: string;
     logo_dark_url?: string;
     logo_light_url?: string;
@@ -831,7 +832,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:737:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1077:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1081:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1630:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1636:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
