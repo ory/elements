@@ -31,7 +31,7 @@
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
     "@eslint/js": "9.27.0",
-    "@microsoft/api-extractor": "7.52.8",
+    "@microsoft/api-extractor": "7.58.7",
     "@nx/eslint": "21.3.11",
     "@nx/eslint-plugin": "21.3.11",
     "@nx/jest": "21.3.11",

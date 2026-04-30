@@ -73,7 +73,7 @@
     "postcss-scope": "^1.7.4",
     "tailwindcss-animate": "1.0.7",
     "tsup": "8.4.0",
-    "typedoc": "0.28.5"
+    "typedoc": "0.28.19"
   },
   "keywords": [
     "ory",

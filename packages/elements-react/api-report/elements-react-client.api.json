@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.8",
+    "toolVersion": "7.58.7",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -113,6 +113,22 @@
         {
           "tagName": "@virtual",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
         },
         {
           "tagName": "@author",
@@ -254,6 +270,10 @@
           "allowMultiple": true
         },
         {
+          "tagName": "@this",
+          "syntaxKind": "block"
+        },
+        {
           "tagName": "@linkcode",
           "syntaxKind": "inline",
           "allowMultiple": true
@@ -334,16 +354,16 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@jsx",
-          "syntaxKind": "block"
-        },
-        {
           "tagName": "@summary",
           "syntaxKind": "block"
         },
         {
           "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@sortStrategy",
+          "syntaxKind": "block"
         }
       ],
       "reportUnsupportedHtmlElements": false
@@ -421,16 +441,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function SessionProvider({ "
-            },
-            {
-              "kind": "Reference",
-              "text": "session",
-              "canonicalReference": "@ory/elements-react!~__type#session"
-            },
-            {
-              "kind": "Content",
-              "text": ": initialSession, children, baseUrl, }: "
+              "text": "declare function SessionProvider(input: "
             },
             {
               "kind": "Reference",
@@ -453,8 +464,8 @@
           ],
           "fileUrlPath": "dist/client/session-provider.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -462,8 +473,16 @@
             {
               "parameterName": "{ session: initialSession, children, baseUrl, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }

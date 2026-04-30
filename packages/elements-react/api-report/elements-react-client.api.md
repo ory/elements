@@ -17,7 +17,7 @@ export type SessionContextData = {
 };
 
 // @public
-export function SessionProvider({ session: initialSession, children, baseUrl, }: SessionProviderProps): react_jsx_runtime.JSX.Element;
+export function SessionProvider(input: SessionProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type SessionProviderProps = {

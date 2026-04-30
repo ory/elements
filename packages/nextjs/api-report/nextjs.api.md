@@ -44,7 +44,7 @@ export function getLoginFlow(config: {
 }, params: QueryParams | Promise<QueryParams>): Promise<LoginFlow | null | void>;
 
 // @public
-export function getLogoutFlow({ returnTo, }?: {
+export function getLogoutFlow(input?: {
     returnTo?: string;
 }): Promise<LogoutFlow>;
 

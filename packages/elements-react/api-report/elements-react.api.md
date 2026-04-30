@@ -172,7 +172,7 @@ export function messageTestId(message: {
 };
 
 // @public
-const Node_2: (({ node }: NodeProps) => ReactNode) & {
+const Node_2: ((input: NodeProps) => ReactNode) & {
     Button: typeof ButtonRenderer;
     SsoButton: typeof SSOButtonRenderer;
     ConsentCheckbox: typeof ConsentCheckboxRenderer;
@@ -200,7 +200,7 @@ export type OnSubmitHandlerProps<T extends UpdateLoginFlowBody | UpdateRegistrat
 };
 
 // @public
-export function OryCard({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element;
+export function OryCard(input: PropsWithChildren): react_jsx_runtime.JSX.Element;
 
 // @public
 export type OryCardAuthMethodListItemProps = {
@@ -210,7 +210,7 @@ export type OryCardAuthMethodListItemProps = {
 };
 
 // @public
-export function OryCardContent({ children }: OryCardContentProps): react_jsx_runtime.JSX.Element;
+export function OryCardContent(input: OryCardContentProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type OryCardContentProps = PropsWithChildren;
@@ -247,7 +247,7 @@ export interface OryCardSettingsSectionProps extends PropsWithChildren {
 }
 
 // @public
-export function OryCardValidationMessages({ hiddenMessageIds, }: OryCardValidationMessagesProps): react_jsx_runtime.JSX.Element | null;
+export function OryCardValidationMessages(input: OryCardValidationMessagesProps): react_jsx_runtime.JSX.Element | null;
 
 // @public
 export interface OryCardValidationMessagesProps {
@@ -267,7 +267,7 @@ export interface OryClientConfiguration {
 // Warning: (ae-forgotten-export) The symbol "OryConfigurationProviderProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function OryConfigurationProvider({ children, sdk: initialConfig, project, }: OryConfigurationProviderProps): react_jsx_runtime.JSX.Element;
+export function OryConfigurationProvider(input: OryConfigurationProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export function OryConsentCard(): react_jsx_runtime.JSX.Element;
@@ -369,7 +369,7 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer | ConsentFlowContainer;
 
 // @public
-export function OryForm({ children, onAfterSubmit }: OryFormProps): react_jsx_runtime.JSX.Element;
+export function OryForm(input: OryFormProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;
@@ -570,7 +570,7 @@ export const OryPageHeader: () => react_jsx_runtime.JSX.Element;
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public
-export function OryProvider({ children, components: Components, config, onSuccess, onValidationError, onError, transientPayload, ...oryFlowProps }: OryProviderProps): react_jsx_runtime.JSX.Element;
+export function OryProvider(input: OryProviderProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type OryProviderProps = {
@@ -608,7 +608,7 @@ export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
 export type OrySettingsFormProps = Omit<ComponentPropsWithoutRef<"form">, "action" | "method" | "onSubmit">;
 
 // @public
-export function OrySettingsFormSection({ children, nodes, ...rest }: OryFormSectionProps): react_jsx_runtime.JSX.Element;
+export function OrySettingsFormSection(input: OryFormSectionProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export type OrySettingsPasskeyProps = {
@@ -791,7 +791,7 @@ export type UiNodeText = UiNode & {
 };
 
 // @public
-export const uiTextToFormattedMessage: ({ id, context, text }: Omit<UiText, "type">, intl: IntlShape) => string;
+export const uiTextToFormattedMessage: (input: Omit<UiText, "type">, intl: IntlShape) => string;
 
 // @public
 export function useComponents(): OryFlowComponents;

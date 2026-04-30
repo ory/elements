@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.8",
+    "toolVersion": "7.58.7",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -113,6 +113,22 @@
         {
           "tagName": "@virtual",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
         },
         {
           "tagName": "@author",
@@ -254,6 +270,10 @@
           "allowMultiple": true
         },
         {
+          "tagName": "@this",
+          "syntaxKind": "block"
+        },
+        {
           "tagName": "@linkcode",
           "syntaxKind": "inline",
           "allowMultiple": true
@@ -334,16 +354,16 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@jsx",
-          "syntaxKind": "block"
-        },
-        {
           "tagName": "@summary",
           "syntaxKind": "block"
         },
         {
           "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@sortStrategy",
+          "syntaxKind": "block"
         }
       ],
       "reportUnsupportedHtmlElements": false
@@ -1650,7 +1670,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCard({ children }: "
+              "text": "declare function OryCard(input: "
             },
             {
               "kind": "Reference",
@@ -1681,6 +1701,14 @@
           "parameters": [
             {
               "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -1723,7 +1751,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCardContent({ children }: "
+              "text": "declare function OryCardContent(input: "
             },
             {
               "kind": "Reference",
@@ -1754,6 +1782,14 @@
           "parameters": [
             {
               "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2133,7 +2169,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCardValidationMessages({ hiddenMessageIds, }: "
+              "text": "declare function OryCardValidationMessages(input: "
             },
             {
               "kind": "Reference",
@@ -2168,6 +2204,14 @@
           "parameters": [
             {
               "parameterName": "{ hiddenMessageIds, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2348,16 +2392,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryConfigurationProvider({ children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "sdk",
-              "canonicalReference": "@ory/elements-react!~OryConfigurationProviderProps#sdk"
-            },
-            {
-              "kind": "Content",
-              "text": ": initialConfig, project, }: "
+              "text": "declare function OryConfigurationProvider(input: "
             },
             {
               "kind": "Reference",
@@ -2380,8 +2415,8 @@
           ],
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2389,8 +2424,16 @@
             {
               "parameterName": "{ children, sdk: initialConfig, project, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -3471,7 +3514,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryForm({ children, onAfterSubmit }: "
+              "text": "declare function OryForm(input: "
             },
             {
               "kind": "Reference",
@@ -3502,6 +3545,14 @@
           "parameters": [
             {
               "parameterName": "{ children, onAfterSubmit }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -4863,16 +4914,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryProvider({ children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": Components, config, onSuccess, onValidationError, onError, transientPayload, ...oryFlowProps }: "
+              "text": "declare function OryProvider(input: "
             },
             {
               "kind": "Reference",
@@ -4895,8 +4937,8 @@
           ],
           "fileUrlPath": "dist/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -4904,8 +4946,16 @@
             {
               "parameterName": "{ children, components: Components, config, onSuccess, onValidationError, onError, transientPayload, ...oryFlowProps }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -5217,7 +5267,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OrySettingsFormSection({ children, nodes, ...rest }: "
+              "text": "declare function OrySettingsFormSection(input: "
             },
             {
               "kind": "Reference",
@@ -5248,6 +5298,14 @@
           "parameters": [
             {
               "parameterName": "{ children, nodes, ...rest }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -6941,7 +6999,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "uiTextToFormattedMessage: ({ id, context, text }: "
+              "text": "uiTextToFormattedMessage: (input: "
             },
             {
               "kind": "Reference",
@@ -6989,6 +7047,14 @@
           "parameters": [
             {
               "parameterName": "{ id, context, text }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 5

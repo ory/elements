@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.8",
+    "toolVersion": "7.58.7",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -113,6 +113,22 @@
         {
           "tagName": "@virtual",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
         },
         {
           "tagName": "@author",
@@ -254,6 +270,10 @@
           "allowMultiple": true
         },
         {
+          "tagName": "@this",
+          "syntaxKind": "block"
+        },
+        {
           "tagName": "@linkcode",
           "syntaxKind": "inline",
           "allowMultiple": true
@@ -334,16 +354,16 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@jsx",
-          "syntaxKind": "block"
-        },
-        {
           "tagName": "@summary",
           "syntaxKind": "block"
         },
         {
           "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@sortStrategy",
+          "syntaxKind": "block"
         }
       ],
       "reportUnsupportedHtmlElements": false
@@ -792,7 +812,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLogoutFlow({ returnTo, }?: "
+              "text": "declare function getLogoutFlow(input?: "
             },
             {
               "kind": "Content",
@@ -835,6 +855,14 @@
           "parameters": [
             {
               "parameterName": "{ returnTo, }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": true
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.8",
+    "toolVersion": "7.58.7",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -113,6 +113,22 @@
         {
           "tagName": "@virtual",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
         },
         {
           "tagName": "@author",
@@ -254,6 +270,10 @@
           "allowMultiple": true
         },
         {
+          "tagName": "@this",
+          "syntaxKind": "block"
+        },
+        {
           "tagName": "@linkcode",
           "syntaxKind": "inline",
           "allowMultiple": true
@@ -334,16 +354,16 @@
           "syntaxKind": "modifier"
         },
         {
-          "tagName": "@jsx",
-          "syntaxKind": "block"
-        },
-        {
           "tagName": "@summary",
           "syntaxKind": "block"
         },
         {
           "tagName": "@useDeclaredType",
           "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@sortStrategy",
+          "syntaxKind": "block"
         }
       ],
       "reportUnsupportedHtmlElements": false
@@ -368,16 +388,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Consent({ consentChallenge, session, config, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": Passed, children, csrfToken, formActionUrl, onSuccess, onError, }: "
+              "text": "declare function Consent(input: "
             },
             {
               "kind": "Reference",
@@ -400,8 +411,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -409,8 +420,16 @@
             {
               "parameterName": "{ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, onSuccess, onError, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -513,16 +532,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultButtonSocial({ node, "
-            },
-            {
-              "kind": "Reference",
-              "text": "logos",
-              "canonicalReference": "@ory/elements-react!~DefaultSocialButtonProps#logos"
-            },
-            {
-              "kind": "Content",
-              "text": ": providedLogos, isSubmitting, buttonProps, provider, }: "
+              "text": "declare function DefaultButtonSocial(input: "
             },
             {
               "kind": "Reference",
@@ -545,8 +555,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -554,8 +564,16 @@
             {
               "parameterName": "{ node, logos: providedLogos, isSubmitting, buttonProps, provider, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -654,7 +672,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultCard({ children, className, ...rest }: "
+              "text": "declare function DefaultCard(input: "
             },
             {
               "kind": "Reference",
@@ -699,6 +717,14 @@
             {
               "parameterName": "{ children, className, ...rest }",
               "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 5
               },
@@ -714,7 +740,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultCardContent({ children }: "
+              "text": "declare function DefaultCardContent(input: "
             },
             {
               "kind": "Reference",
@@ -745,6 +771,14 @@
           "parameters": [
             {
               "parameterName": "{ children }",
+              "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -885,7 +919,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultFormContainer({ children, onSubmit, action, method, }: "
+              "text": "declare function DefaultFormContainer(input: "
             },
             {
               "kind": "Reference",
@@ -930,6 +964,14 @@
             {
               "parameterName": "{ children, onSubmit, action, method, }",
               "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 5
               },
@@ -945,7 +987,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultMessage({ message }: "
+              "text": "declare function DefaultMessage(input: "
             },
             {
               "kind": "Reference",
@@ -977,6 +1019,14 @@
             {
               "parameterName": "{ message }",
               "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               },
@@ -992,7 +1042,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function DefaultMessageContainer({ children }: "
+              "text": "declare function DefaultMessageContainer(input: "
             },
             {
               "kind": "Reference",
@@ -1028,6 +1078,14 @@
             {
               "parameterName": "{ children }",
               "parameterTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               },
@@ -1043,16 +1101,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Error({ error, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": Components, config, session, }: "
+              "text": "declare function Error(input: "
             },
             {
               "kind": "Reference",
@@ -1075,8 +1124,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1084,8 +1133,16 @@
             {
               "parameterName": "{ error, components: Components, config, session, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -1208,16 +1265,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Login({ flow, config, children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: "
+              "text": "declare function Login(input: "
             },
             {
               "kind": "Reference",
@@ -1240,8 +1288,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1249,8 +1297,16 @@
             {
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -1441,16 +1497,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Recovery({ flow, config, children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: "
+              "text": "declare function Recovery(input: "
             },
             {
               "kind": "Reference",
@@ -1473,8 +1520,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1482,8 +1529,16 @@
             {
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -1595,16 +1650,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Registration({ flow, children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": flowOverrideComponents, config, onSuccess, onValidationError, onError, transientPayload, }: "
+              "text": "declare function Registration(input: "
             },
             {
               "kind": "Reference",
@@ -1627,8 +1673,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1636,8 +1682,16 @@
             {
               "parameterName": "{ flow, children, components: flowOverrideComponents, config, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -1651,16 +1705,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Settings({ flow, config, children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": flowOverrideComponents, className, onSuccess, onValidationError, onError, transientPayload, ...rest }: "
+              "text": "declare function Settings(input: "
             },
             {
               "kind": "Reference",
@@ -1683,8 +1728,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1692,8 +1737,16 @@
             {
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, className, onSuccess, onValidationError, onError, transientPayload, ...rest }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
@@ -1823,16 +1876,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function Verification({ flow, config, children, "
-            },
-            {
-              "kind": "Reference",
-              "text": "components",
-              "canonicalReference": "@ory/elements-react!~__type#components"
-            },
-            {
-              "kind": "Content",
-              "text": ": flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: "
+              "text": "declare function Verification(input: "
             },
             {
               "kind": "Reference",
@@ -1855,8 +1899,8 @@
           ],
           "fileUrlPath": "dist/theme/default/index.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 5,
-            "endIndex": 6
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1864,8 +1908,16 @@
             {
               "parameterName": "{ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }",
               "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }

@@ -34,7 +34,7 @@ import { UiText } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
-export function Consent({ consentChallenge, session, config, components: Passed, children, csrfToken, formActionUrl, onSuccess, onError, }: ConsentFlowProps): react_jsx_runtime.JSX.Element;
+export function Consent(input: ConsentFlowProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type ConsentFlowProps = {
@@ -52,7 +52,7 @@ export type ConsentFlowProps = {
 // Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultButtonSocial({ node, logos: providedLogos, isSubmitting, buttonProps, provider, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
+export function DefaultButtonSocial(input: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
 
 // @public (undocumented)
 export namespace DefaultButtonSocial {
@@ -63,12 +63,12 @@ export namespace DefaultButtonSocial {
 // Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultCard({ children, className, ...rest }: OryCardRootProps & ComponentPropsWithoutRef<"div">): react_jsx_runtime.JSX.Element;
+export function DefaultCard(input: OryCardRootProps & ComponentPropsWithoutRef<"div">): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryCardContentProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultCardContent({ children }: OryCardContentProps): react.ReactNode;
+export function DefaultCardContent(input: OryCardContentProps): react.ReactNode;
 
 // @public
 export function DefaultCardFooter(): react_jsx_runtime.JSX.Element | null;
@@ -85,18 +85,18 @@ export function DefaultCurrentIdentifierButton(): react_jsx_runtime.JSX.Element 
 // Warning: (ae-forgotten-export) The symbol "OryFormRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultFormContainer({ children, onSubmit, action, method, }: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
+export function DefaultFormContainer(input: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryMessageContentProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultMessage({ message }: OryMessageContentProps): react_jsx_runtime.JSX.Element;
+export function DefaultMessage(input: OryMessageContentProps): react_jsx_runtime.JSX.Element;
 
 // @public
-export function DefaultMessageContainer({ children }: PropsWithChildren): react_jsx_runtime.JSX.Element | null;
+export function DefaultMessageContainer(input: PropsWithChildren): react_jsx_runtime.JSX.Element | null;
 
 // @public
-function Error_2({ error, components: Components, config, session, }: ErrorFlowContextProps): react_jsx_runtime.JSX.Element;
+function Error_2(input: ErrorFlowContextProps): react_jsx_runtime.JSX.Element;
 export { Error_2 as Error }
 
 // @public
@@ -113,7 +113,7 @@ export type ErrorFlowContextProps = {
 export function getOryComponents(overrides?: OryFlowComponentOverrides): OryFlowComponents;
 
 // @public
-export function Login({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: LoginFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Login(input: LoginFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type LoginFlowContextProps = {
@@ -141,7 +141,7 @@ export type OryError = {
 });
 
 // @public
-export function Recovery({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Recovery(input: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type RecoveryFlowContextProps = {
@@ -158,10 +158,10 @@ export type RecoveryFlowContextProps = {
 // Warning: (ae-forgotten-export) The symbol "RegistrationFlowContextProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function Registration({ flow, children, components: flowOverrideComponents, config, onSuccess, onValidationError, onError, transientPayload, }: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Registration(input: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
-export function Settings({ flow, config, children, components: flowOverrideComponents, className, onSuccess, onValidationError, onError, transientPayload, ...rest }: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Settings(input: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type SettingsFlowContextProps = {
@@ -176,7 +176,7 @@ export type SettingsFlowContextProps = {
 } & Omit<ComponentPropsWithoutRef<"div">, "onError">;
 
 // @public
-export function Verification({ flow, config, children, components: flowOverrideComponents, onSuccess, onValidationError, onError, transientPayload, }: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Verification(input: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;
 
 // @public
 export type VerificationFlowContextProps = {
