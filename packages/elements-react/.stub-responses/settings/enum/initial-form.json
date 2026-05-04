@@ -143,7 +143,8 @@
     "metadata_public": null,
     "created_at": "0001-01-01T00:00:00Z",
     "updated_at": "0001-01-01T00:00:00Z",
-    "organization_id": null
+    "organization_id": null,
+    "region": "eu-central"
   },
   "state": "show_form"
 }
