@@ -4,11 +4,11 @@
 import {
   FetchError,
   FlowType,
-  GenericError,
+  type GenericError,
   ResponseError,
 } from "@ory/client-fetch"
-import { OryErrorHandler } from "../events"
-import { OnRedirectHandler } from "./continueWith"
+import type { OryErrorHandler } from "../events"
+import type { OnRedirectHandler } from "./continueWith"
 import {
   isAddressNotVerified,
   isBrowserLocationChangeRequired,

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useOryFlow } from "../../context"
-import { FormValues } from "../../types"
+import type { FormValues } from "../../types"
 import { isUiNodeInputAttributes } from "@ory/client-fetch"
 
 function isCodeResendRequest(data: FormValues) {

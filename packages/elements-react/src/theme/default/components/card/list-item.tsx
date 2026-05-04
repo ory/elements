@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { PropsWithChildren } from "react"
-import { SVGIcon } from "../../assets/types"
+import type { PropsWithChildren } from "react"
+import type { SVGIcon } from "../../assets/types"
 import { cn } from "../../utils/cn"
 
 type ListItemProps<T extends React.ElementType = "div"> = {

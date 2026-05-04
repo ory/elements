@@ -5,13 +5,13 @@ import {
   AuthenticatorAssuranceLevel,
   FlowType,
   isUiNodeInputAttributes,
-  OAuth2ConsentRequest,
-  Session,
-  UiContainer,
+  type OAuth2ConsentRequest,
+  type Session,
+  type UiContainer,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
 import { defineMessages, useIntl } from "react-intl"
-import { FormState } from "../../../context"
+import type { FormState } from "../../../context"
 import { uiTextToFormattedMessage } from "../../../util"
 import { kratosMessages } from "../../../util/i18n/generated/kratosMessages"
 import { resolveLabel } from "../../../util/nodes"

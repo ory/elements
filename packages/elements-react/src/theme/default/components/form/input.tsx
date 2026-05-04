@@ -2,9 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType } from "@ory/client-fetch"
-import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
+import { type OryNodeInputProps, useOryFlow } from "@ory/elements-react"
 import * as PasswordToggleField from "@radix-ui/react-password-toggle-field"
-import { ComponentProps, ComponentPropsWithRef, forwardRef } from "react"
+import {
+  type ComponentProps,
+  type ComponentPropsWithRef,
+  forwardRef,
+} from "react"
 import EyeOff from "../../assets/icons/eye-off.svg"
 import Eye from "../../assets/icons/eye.svg"
 import { cn } from "../../utils/cn"

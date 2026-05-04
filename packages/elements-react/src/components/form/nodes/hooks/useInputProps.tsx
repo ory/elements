@@ -1,11 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNodeInputAttributes } from "@ory/client-fetch"
-import { MouseEventHandler } from "react"
+import type { UiNodeInputAttributes } from "@ory/client-fetch"
+import type { MouseEventHandler } from "react"
 import { useController } from "react-hook-form"
 import { triggerToWindowCall } from "../../../../util/ui"
-import { OryNodeInputInputProps } from "../../../../types"
+import type { OryNodeInputInputProps } from "../../../../types"
 import { useOryFlow } from "../../../../context"
 
 export function useInputProps(

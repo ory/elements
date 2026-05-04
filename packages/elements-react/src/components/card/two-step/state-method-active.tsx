@@ -3,11 +3,11 @@
 
 import {
   isUiNodeScriptAttributes,
-  UiNode,
+  type UiNode,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
 import { useComponents, useNodeSorter, useOryFlow } from "../../../context"
-import { FormStateMethodActive } from "../../../context/form-state"
+import type { FormStateMethodActive } from "../../../context/form-state"
 import { useNodeGroupsWithVisibleNodes } from "../../../util/ui"
 import { OryForm } from "../../form/form"
 import { OryCardValidationMessages } from "../../form/messages"

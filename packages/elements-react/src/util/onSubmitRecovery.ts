@@ -2,20 +2,20 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  ContinueWith,
+  type ContinueWith,
   FlowType,
-  GenericError,
+  type GenericError,
   handleContinueWith,
   instanceOfContinueWithRecoveryUi,
-  OnRedirectHandler,
-  RecoveryFlow,
+  type OnRedirectHandler,
+  type RecoveryFlow,
   recoveryUrl,
-  UpdateRecoveryFlowBody,
+  type UpdateRecoveryFlowBody,
 } from "@ory/client-fetch"
-import { OryElementsConfiguration } from "../context"
-import { OryFlowContainer } from "./flowContainer"
+import type { OryElementsConfiguration } from "../context"
+import type { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
-import { OnSubmitHandlerProps } from "./submitHandler"
+import type { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
 import { flowHasErrors } from "./flowHasErrors"
 

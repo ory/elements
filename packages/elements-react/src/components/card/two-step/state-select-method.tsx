@@ -3,15 +3,15 @@
 
 import {
   isUiNodeScriptAttributes,
-  UiNode,
+  type UiNode,
   UiNodeGroupEnum,
-  UiText,
+  type UiText,
 } from "@ory/client-fetch"
 import { useIntl } from "react-intl"
 import { useComponents, useNodeSorter, useOryFlow } from "../../../context"
 import { kratosMessages } from "../../../util/i18n/generated/kratosMessages"
 import {
-  GroupedNodes,
+  type GroupedNodes,
   hasSingleSignOnNodes,
   useFunctionalNodes,
   useNodeGroupsWithVisibleNodes,

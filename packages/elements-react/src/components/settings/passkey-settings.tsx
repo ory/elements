@@ -1,12 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
+import type { UiNode, UiNodeInputAttributes } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../context"
 import { triggerToWindowCall } from "../../util/ui"
-import { isUiNodeInput, UiNodeInput } from "../../util/utilFixSDKTypesHelper"
+import {
+  isUiNodeInput,
+  type UiNodeInput,
+} from "../../util/utilFixSDKTypesHelper"
 import { Node } from "../form/nodes/node"
 import {
   settingsCardDescriptions,

@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiText } from "@ory/client-fetch"
-import { defineMessages, IntlShape, useIntl } from "react-intl"
+import type { UiText } from "@ory/client-fetch"
+import { defineMessages, type IntlShape, useIntl } from "react-intl"
 import { isDynamicText } from "../nodes"
 import { isKratosMessageId, kratosMessages } from "./generated/kratosMessages"
 

@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  OAuth2ConsentRequest,
-  Session,
-  UiContainer,
-  UiNode,
+  type OAuth2ConsentRequest,
+  type Session,
+  type UiContainer,
+  type UiNode,
   UiTextTypeEnum,
 } from "@ory/client-fetch"
-import { ConsentFlow } from "../../../util"
+import type { ConsentFlow } from "../../../util"
 
 const rememberCheckbox: UiNode = {
   type: "input",

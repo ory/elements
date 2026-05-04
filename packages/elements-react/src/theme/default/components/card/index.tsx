@@ -1,14 +1,14 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryCardProps, useOryConfiguration } from "@ory/elements-react"
+import { type OryCardProps, useOryConfiguration } from "@ory/elements-react"
 import { Badge } from "./badge"
 import { DefaultCardContent } from "./content"
 import { DefaultCardFooter } from "./footer"
 import { DefaultCardHeader } from "./header"
 import { DefaultCardLogo } from "./logo"
 import { DefaultCurrentIdentifierButton } from "./current-identifier-button"
-import { ComponentPropsWithoutRef } from "react"
+import { type ComponentPropsWithoutRef } from "react"
 import { cn } from "../../utils/cn"
 
 /**

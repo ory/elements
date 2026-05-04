@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { UserInitials } from "../../utils/user"
+import { type ComponentPropsWithoutRef, forwardRef } from "react"
+import type { UserInitials } from "../../utils/user"
 import IconUser from "../../assets/icons/user.svg"
 
 type UserAvatarProps = {

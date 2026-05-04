@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiNodeTypeEnum } from "@ory/client-fetch"
+import { FlowType, type UiNode, UiNodeTypeEnum } from "@ory/client-fetch"
 import {
   getBackButtonNodeAttributes,
   guessRegistrationBackButton,

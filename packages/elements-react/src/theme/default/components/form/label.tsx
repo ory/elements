@@ -5,11 +5,11 @@ import {
   FlowType,
   getNodeLabel,
   instanceOfUiText,
-  UiNodeInputAttributes,
+  type UiNodeInputAttributes,
 } from "@ory/client-fetch"
 import {
   messageTestId,
-  OryNodeLabelProps,
+  type OryNodeLabelProps,
   useComponents,
   useOryConfiguration,
   useOryFlow,

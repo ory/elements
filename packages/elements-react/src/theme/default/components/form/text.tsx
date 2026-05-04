@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  OryNodeTextProps,
-  UiNodeInput,
+  type OryNodeTextProps,
+  type UiNodeInput,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { useIntl } from "react-intl"
 import { DefaultLabel } from "./label"
 import { DefaultInput } from "./input"
-import { UiNodeInputAttributes } from "@ory/client-fetch"
+import type { UiNodeInputAttributes } from "@ory/client-fetch"
 
 export function DefaultText({ node }: OryNodeTextProps) {
   const intl = useIntl()

@@ -1,7 +1,7 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryNodeConsentScopeCheckboxProps } from "@ory/elements-react"
+import type { OryNodeConsentScopeCheckboxProps } from "@ory/elements-react"
 import * as Switch from "@radix-ui/react-switch"
 import { defineMessages, useIntl } from "react-intl"
 import IconMessage from "../../assets/icons/message.svg"

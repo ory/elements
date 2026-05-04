@@ -4,9 +4,9 @@
 import {
   FlowType,
   isUiNodeInputAttributes,
-  Session,
-  UiNode,
-  UiNodeInputAttributes,
+  type Session,
+  type UiNode,
+  type UiNodeInputAttributes,
 } from "@ory/client-fetch"
 import { useOryConfiguration, useOryFlow } from "@ory/elements-react"
 import { useSession } from "@ory/elements-react/client"

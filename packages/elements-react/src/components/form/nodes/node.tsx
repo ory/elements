@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import { ReactNode } from "react"
+import { type UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import type { ReactNode } from "react"
 import { useComponents } from "../../../context"
 import {
   isUiNodeAnchor,

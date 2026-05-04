@@ -1,9 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ConfigurationParameters } from "@ory/client-fetch"
-import { Locale } from "../context/intl-context"
-import { LocaleMap } from "../locales"
+import type { ConfigurationParameters } from "@ory/client-fetch"
+import type { Locale } from "../context/intl-context"
+import type { LocaleMap } from "../locales"
 
 /**
  * The configuration for internationalization (i18n) in Ory Elements.

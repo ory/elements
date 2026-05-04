@@ -3,18 +3,18 @@
 
 import {
   FlowType,
-  OnRedirectHandler,
+  type OnRedirectHandler,
   UiNodeGroupEnum,
-  UpdateLoginFlowBody,
-  UpdateRecoveryFlowBody,
-  UpdateRegistrationFlowBody,
-  UpdateSettingsFlowBody,
-  UpdateVerificationFlowBody,
+  type UpdateLoginFlowBody,
+  type UpdateRecoveryFlowBody,
+  type UpdateRegistrationFlowBody,
+  type UpdateSettingsFlowBody,
+  type UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
-import { SubmitHandler, useFormContext } from "react-hook-form"
+import { type SubmitHandler, useFormContext } from "react-hook-form"
 import { useOryConfiguration, useOryFlow } from "../../context"
-import { FormValues } from "../../types"
-import { OryFlowContainer } from "../../util"
+import type { FormValues } from "../../types"
+import type { OryFlowContainer } from "../../util"
 import { onSubmitLogin } from "../../util/onSubmitLogin"
 import { onSubmitRecovery } from "../../util/onSubmitRecovery"
 import { onSubmitRegistration } from "../../util/onSubmitRegistration"

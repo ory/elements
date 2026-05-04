@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useComponents } from "../../../../context"
-import { UiNodeText } from "../../../../util/utilFixSDKTypesHelper"
+import type { UiNodeText } from "../../../../util/utilFixSDKTypesHelper"
 
 type TextRendererProps = {
   node: UiNodeText

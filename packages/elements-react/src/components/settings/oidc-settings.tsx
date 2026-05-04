@@ -1,16 +1,19 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client-fetch"
+import type { UiNode } from "@ory/client-fetch"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
-import { OryNodeSettingsButton } from "."
+import type { OryNodeSettingsButton } from "."
 import { useComponents } from "../../context"
 import {
   settingsCardDescriptions,
   settingsCardTitles,
 } from "../../util/i18n/settingsCardMessages"
-import { isUiNodeInput, UiNodeInput } from "../../util/utilFixSDKTypesHelper"
+import {
+  isUiNodeInput,
+  type UiNodeInput,
+} from "../../util/utilFixSDKTypesHelper"
 
 const getLinkButtons = (nodes: UiNode[]): UiNodeInput[] =>
   nodes

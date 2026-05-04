@@ -3,12 +3,12 @@
 
 // useSession.test.tsx
 
-import { Session } from "@ory/client-fetch"
+import type { Session } from "@ory/client-fetch"
 import { act, render, screen, waitFor } from "@testing-library/react"
 import { useSession } from "./useSession"
 import { frontendClient } from "./frontendClient"
 import { SessionProvider } from "./session-provider"
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 
 jest.mock("./frontendClient", () => ({
   frontendClient: jest.fn(() => ({

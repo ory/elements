@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { UiNodeGroupEnum } from "@ory/client-fetch"
-import { UiNodeInput } from "../../../util/utilFixSDKTypesHelper"
+import type { UiNodeInput } from "../../../util/utilFixSDKTypesHelper"
 import { NodeRenderer } from "./renderer"
 
 type NodeButtonProps = {

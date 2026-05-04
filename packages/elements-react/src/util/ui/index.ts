@@ -4,7 +4,7 @@
 import {
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
-  UiNode,
+  type UiNode,
 } from "@ory/client-fetch"
 
 import type {
@@ -15,7 +15,7 @@ import type {
 import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { useMemo } from "react"
 import { useGroupSorter } from "../../context/component"
-import { UiNodeInput } from "../utilFixSDKTypesHelper"
+import type { UiNodeInput } from "../utilFixSDKTypesHelper"
 
 export function triggerToWindowCall(
   trigger:

@@ -1,10 +1,10 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, LoginFlow, UiNode } from "@ory/client-fetch"
+import { FlowType, type LoginFlow, type UiNode } from "@ory/client-fetch"
 import { IntlProvider } from "../../context/intl-context"
 import { renderWithOryElements } from "../../tests/jest/test-utils"
-import { OryFlowContainer } from "../../util"
+import type { OryFlowContainer } from "../../util"
 import { OryFormSsoButtons } from "./social"
 
 const oidcNode = (provider: string): UiNode => ({

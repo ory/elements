@@ -1,9 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNodeInputAttributes } from "@ory/client-fetch"
-import { Node, OrySettingsTotpProps, useComponents } from "@ory/elements-react"
+import type { UiNodeInputAttributes } from "@ory/client-fetch"
 import {
+  Node,
+  type OrySettingsTotpProps,
+  useComponents,
+} from "@ory/elements-react"
+import type {
   UiNodeImage,
   UiNodeInput,
   UiNodeText,

@@ -6,7 +6,7 @@ import { useFormState } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents } from "../../../../context"
 import { resolvePlaceholder } from "../../../../util"
-import {
+import type {
   UiNodeInput,
   UiNodeInputAttributesOption,
 } from "../../../../util/utilFixSDKTypesHelper"

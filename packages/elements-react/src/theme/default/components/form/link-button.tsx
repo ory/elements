@@ -3,7 +3,7 @@
 
 import { getNodeLabel } from "@ory/client-fetch"
 import {
-  OryNodeAnchorProps,
+  type OryNodeAnchorProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { forwardRef } from "react"

@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "preserveWatchOutput": true,
