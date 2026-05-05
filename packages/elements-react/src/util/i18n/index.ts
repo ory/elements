@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { UiText } from "@ory/client-fetch"
-import { defineMessages, type IntlShape, useIntl } from "react-intl"
+import { defineMessages, type IntlShape, type useIntl } from "react-intl"
 import { isDynamicText } from "../nodes"
 import { isKratosMessageId, kratosMessages } from "./generated/kratosMessages"
 

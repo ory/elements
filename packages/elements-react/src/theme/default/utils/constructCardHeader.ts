@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  AuthenticatorAssuranceLevel,
+  type AuthenticatorAssuranceLevel,
   FlowType,
   isUiNodeInputAttributes,
   type OAuth2ConsentRequest,
