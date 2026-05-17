@@ -3,16 +3,16 @@
 
 "use client"
 import {
-  FlowError,
-  GenericError,
+  type FlowError,
+  type GenericError,
   instanceOfFlowError,
   instanceOfGenericError,
-  Session,
+  type Session,
 } from "@ory/client-fetch"
 import {
-  OryClientConfiguration,
+  type OryClientConfiguration,
   OryConfigurationProvider,
-  OryFlowComponentOverrides,
+  type OryFlowComponentOverrides,
   useOryConfiguration,
 } from "@ory/elements-react"
 import { useMemo } from "react"

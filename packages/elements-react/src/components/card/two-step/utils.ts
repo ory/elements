@@ -1,15 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import {
+import { FlowType, type UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import type {
   LoginFlowContainer,
   RegistrationFlowContainer,
 } from "../../../util/flowContainer"
 import { isGroupImmediateSubmit } from "../../../theme/default/utils/form"
-import { GroupedNodes, isUiNodeGroupEnum } from "../../../util/ui"
-import { Dispatch } from "react"
-import { FormStateAction } from "@ory/elements-react"
+import { type GroupedNodes, isUiNodeGroupEnum } from "../../../util/ui"
+import type { Dispatch } from "react"
+import type { FormStateAction } from "@ory/elements-react"
 
 function isScreenSelectionNode(node: UiNode) {
   if (

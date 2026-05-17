@@ -1,10 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
+import { FlowType, type UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { useReducer, useState } from "react"
 import { isChoosingMethod } from "../components/card/two-step/utils"
-import { OryFlowContainer } from "../util"
+import type { OryFlowContainer } from "../util"
 import { nodesToAuthMethodGroups } from "../util/ui"
 
 /**

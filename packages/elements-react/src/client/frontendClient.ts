@@ -3,7 +3,7 @@
 "use client"
 import {
   Configuration,
-  ConfigurationParameters,
+  type ConfigurationParameters,
   FrontendApi,
   OAuth2Api,
 } from "@ory/client-fetch"

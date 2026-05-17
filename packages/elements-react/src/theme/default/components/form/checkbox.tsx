@@ -5,7 +5,7 @@
 import { getNodeLabel } from "@ory/client-fetch"
 import {
   messageTestId,
-  OryNodeCheckboxProps,
+  type OryNodeCheckboxProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { useIntl } from "react-intl"

@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, LoginFlowFromJSON } from "@ory/client-fetch"
-import { render, RenderOptions } from "@testing-library/react"
-import { PropsWithChildren, ReactElement } from "react"
+import { render, type RenderOptions } from "@testing-library/react"
+import type { PropsWithChildren, ReactElement } from "react"
 import dummyFlow from "../../../.stub-responses/login/1fa/none/initial-form.json"
-import { OryFlowComponentOverrides } from "../../components"
+import type { OryFlowComponentOverrides } from "../../components"
 import { OryComponentProvider } from "../../context/component"
 import { OryFlowProvider } from "../../context/flow-context"
 import { getOryComponents } from "../../theme/default"
-import { OryClientConfiguration, OryFlowContainer } from "../../util"
+import type { OryClientConfiguration, OryFlowContainer } from "../../util"
 import { OryConfigurationProvider } from "../../context"
 import { OryFormProvider } from "../../components/form/form-provider"
 

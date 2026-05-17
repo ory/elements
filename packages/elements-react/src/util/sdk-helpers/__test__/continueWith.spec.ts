@@ -4,7 +4,7 @@
 // continueWith.test.ts
 import { handleContinueWith } from "../continueWith"
 import {
-  ContinueWith,
+  type ContinueWith,
   ContinueWithRecoveryUiActionEnum,
   ContinueWithSetOrySessionTokenActionEnum,
   ContinueWithSettingsUiActionEnum,

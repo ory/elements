@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useComponents } from "../../../../context"
-import { UiNodeImage } from "../../../../util/utilFixSDKTypesHelper"
+import type { UiNodeImage } from "../../../../util/utilFixSDKTypesHelper"
 
 type ImageRendererProps = {
   node: UiNodeImage

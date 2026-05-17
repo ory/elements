@@ -5,9 +5,9 @@ import { useCallback, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
 import { useComponents, useOryFlow } from "../../../../context"
-import { OryNodeButtonButtonProps } from "../../../../types"
+import type { OryNodeButtonButtonProps } from "../../../../types"
 import { triggerToWindowCall } from "../../../../util/ui"
-import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
+import type { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 
 type ButtonRendererProps = {
   node: UiNodeInput

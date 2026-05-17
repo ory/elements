@@ -1,9 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiText } from "@ory/client-fetch"
+import type { UiText } from "@ory/client-fetch"
 import { useComponents, useOryFlow } from "../../context"
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 
 /**
  * Props for the OryMessageContent component.

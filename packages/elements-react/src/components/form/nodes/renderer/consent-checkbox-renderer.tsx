@@ -4,8 +4,8 @@
 import { useMemo } from "react"
 import { useFormContext } from "react-hook-form"
 import { useComponents } from "../../../../context"
-import { OryNodeConsentScopeCheckboxProps } from "../../../../types"
-import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
+import type { OryNodeConsentScopeCheckboxProps } from "../../../../types"
+import type { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 
 export function ConsentCheckboxRenderer({ node }: { node: UiNodeInput }) {
   const attributes = node.attributes

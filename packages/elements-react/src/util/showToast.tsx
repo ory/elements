@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { toast as sonnerToast } from "sonner"
-import { OryToastProps } from "../components"
+import type { OryToastProps } from "../components"
 
 export function showToast(
   toast: Omit<OryToastProps, "id">,

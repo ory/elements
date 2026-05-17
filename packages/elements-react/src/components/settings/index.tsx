@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryNodeButtonButtonProps } from "../../types"
-import {
+import type { OryNodeButtonButtonProps } from "../../types"
+import type {
   UiNodeImage,
   UiNodeInput,
   UiNodeText,

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useComponents } from "../../../../context"
-import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
+import type { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 import { useInputProps } from "../hooks/useInputProps"
 
 type HiddenInputRendererProps = {
