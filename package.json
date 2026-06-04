@@ -26,11 +26,12 @@
     "ts-jest": {
       "handlebars": "4.7.9"
     },
-    "axios": "1.15.2",
+    "axios": "1.16.0",
     "postcss": "8.5.12",
     "lodash": "$lodash",
     "picomatch": "4.0.4",
-    "uuid": "$uuid"
+    "uuid": "$uuid",
+    "ws": "8.20.1"
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
@@ -112,7 +113,7 @@
   ],
   "dependencies": {
     "lodash": "4.18.1",
-    "next": "15.5.15",
+    "next": "15.5.18",
     "tsx": "4.20.2",
     "uuid": "14.0.0"
   },
