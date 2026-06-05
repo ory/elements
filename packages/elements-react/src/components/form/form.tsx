@@ -7,13 +7,13 @@ import {
   isUiNodeImageAttributes,
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
-  UiText,
+  type UiText,
 } from "@ory/client-fetch"
-import { ComponentType, PropsWithChildren } from "react"
+import type { ComponentType, PropsWithChildren } from "react"
 import { useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useComponents, useOryFlow } from "../../context"
-import {
+import type {
   OryCardAuthMethodListItemProps,
   OryCardLogoProps,
   OryFormGroupProps,
@@ -32,21 +32,21 @@ import {
   OryNodeSsoButtonProps,
   OryNodeTextProps,
 } from "../../types"
-import { OryCardFooterProps } from "../card"
-import { OryCardRootProps } from "../card/card"
-import { OryCardContentProps } from "../card/content"
-import { OryPageHeaderProps } from "../generic"
-import { OryCardDividerProps } from "../generic/divider"
-import {
+import type { OryCardFooterProps } from "../card"
+import type { OryCardRootProps } from "../card/card"
+import type { OryCardContentProps } from "../card/content"
+import type { OryPageHeaderProps } from "../generic"
+import type { OryCardDividerProps } from "../generic/divider"
+import type {
   OrySettingsSsoProps,
   OrySettingsPasskeyProps,
   OrySettingsRecoveryCodesProps,
   OrySettingsTotpProps,
   OrySettingsWebauthnProps,
 } from "../settings"
-import { OryMessageContentProps, OryMessageRootProps } from "./messages"
-import { OryCardSettingsSectionProps } from "./settings-section"
-import { OryFormSsoRootProps } from "./social"
+import type { OryMessageContentProps, OryMessageRootProps } from "./messages"
+import type { OryCardSettingsSectionProps } from "./settings-section"
+import type { OryFormSsoRootProps } from "./social"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 import { kratosMessages } from "../../util/i18n/generated/kratosMessages"
 

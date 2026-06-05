@@ -13,7 +13,7 @@ import {
   getNodeId,
   getNodeInputType,
 } from "../ui"
-import { UiNode } from "@ory/client-fetch"
+import type { UiNode } from "@ory/client-fetch"
 
 describe("getNodeLabel", () => {
   it("should return label from anchor attributes", () => {

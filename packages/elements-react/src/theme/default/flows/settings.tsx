@@ -2,19 +2,19 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { FlowType, SettingsFlow } from "@ory/client-fetch"
+import { FlowType, type SettingsFlow } from "@ory/client-fetch"
 import {
-  OryClientConfiguration,
-  OryErrorHandler,
-  OryFlowComponentOverrides,
+  type OryClientConfiguration,
+  type OryErrorHandler,
+  type OryFlowComponentOverrides,
   OryPageHeader,
   OryProvider,
   OrySettingsCard,
-  OrySuccessHandler,
-  OryTransientPayload,
-  OryValidationErrorHandler,
+  type OrySuccessHandler,
+  type OryTransientPayload,
+  type OryValidationErrorHandler,
 } from "@ory/elements-react"
-import { ComponentPropsWithoutRef } from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { getOryComponents } from "../components"
 import { cn } from "../utils/cn"
 

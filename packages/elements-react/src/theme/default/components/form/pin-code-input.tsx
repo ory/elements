@@ -3,7 +3,7 @@
 
 "use client"
 import { FlowType } from "@ory/client-fetch"
-import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
+import { type OryNodeInputProps, useOryFlow } from "@ory/elements-react"
 import { cn } from "../../utils/cn"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
 

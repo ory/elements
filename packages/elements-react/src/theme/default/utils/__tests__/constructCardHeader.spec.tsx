@@ -3,16 +3,16 @@
 
 import {
   FlowType,
-  UiNode,
+  type UiNode,
   UiNodeGroupEnum,
   UiTextTypeEnum,
 } from "@ory/client-fetch"
 import {
-  CardHeaderTextOptions,
+  type CardHeaderTextOptions,
   useCardHeaderText,
 } from "../constructCardHeader"
 import { renderHook } from "@testing-library/react"
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 import { IntlProvider } from "../../../../context/intl-context"
 import { OryLocales } from "../../../../locales"
 

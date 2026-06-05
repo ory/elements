@@ -1,11 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, LoginFlow } from "@ory/client-fetch"
-import { OryElementsConfiguration } from "../context"
+import { FlowType, type LoginFlow } from "@ory/client-fetch"
+import { type OryElementsConfiguration } from "../context"
 import { onSubmitLogin } from "./onSubmitLogin"
-import { OrySuccessEvent, OryValidationErrorEvent } from "./events"
-import { LoginFlowContainer } from "./flowContainer"
+import type { OrySuccessEvent, OryValidationErrorEvent } from "./events"
+import type { LoginFlowContainer } from "./flowContainer"
 
 beforeEach(() => {
   jest.clearAllMocks()

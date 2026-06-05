@@ -3,7 +3,7 @@
 
 import {
   Node,
-  OrySettingsWebauthnProps,
+  type OrySettingsWebauthnProps,
   useComponents,
 } from "@ory/elements-react"
 import { omitInputAttributes } from "../../../../util/omitAttributes"

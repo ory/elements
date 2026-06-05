@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { resolveTransientPayload } from "./transientPayload"
-import { FormValues } from "../types"
+import type { FormValues } from "../types"
 
 test("should return empty object when transientPayload is undefined", () => {
   const result = resolveTransientPayload(undefined, {})

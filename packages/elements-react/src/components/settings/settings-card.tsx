@@ -3,7 +3,7 @@
 
 import {
   isUiNodeScriptAttributes,
-  UiNode,
+  type UiNode,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
 import { getNodeId } from "../../util/sdk-helpers/ui"

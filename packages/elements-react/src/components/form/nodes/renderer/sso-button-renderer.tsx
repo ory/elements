@@ -5,8 +5,8 @@ import { useCallback, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
 import { useComponents, useOryFlow } from "../../../../context"
-import { OryNodeButtonButtonProps } from "../../../../types"
-import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
+import type { OryNodeButtonButtonProps } from "../../../../types"
+import type { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 
 type SsoButtonProps = {
   node: UiNodeInput

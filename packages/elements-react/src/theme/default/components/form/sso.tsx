@@ -3,12 +3,12 @@
 
 import { FlowType, UiNodeGroupEnum } from "@ory/client-fetch"
 import {
-  OryFormSsoRootProps,
-  OryNodeSsoButtonProps,
+  type OryFormSsoRootProps,
+  type OryNodeSsoButtonProps,
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
-import { ElementType } from "react"
+import type { ElementType } from "react"
 import { useIntl } from "react-intl"
 import defaultLogos from "../../provider-logos"
 import { cn } from "../../utils/cn"

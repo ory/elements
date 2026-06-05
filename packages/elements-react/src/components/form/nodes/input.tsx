@@ -3,14 +3,14 @@
 
 import {
   UiNodeGroupEnum,
-  UiNodeInputAttributes,
+  type UiNodeInputAttributes,
   UiNodeInputAttributesTypeEnum,
 } from "@ory/client-fetch"
-import { ReactNode, useEffect, useRef } from "react"
+import { type ReactNode, useEffect, useRef } from "react"
 import { useFormContext } from "react-hook-form"
 import { useComponents } from "../../../context"
 import { triggerToWindowCall } from "../../../util/ui"
-import { UiNodeInput } from "../../../util/utilFixSDKTypesHelper"
+import type { UiNodeInput } from "../../../util/utilFixSDKTypesHelper"
 import { NodeButton } from "./node-button"
 import { CheckboxRenderer } from "./renderer/checkbox-renderer"
 import { ConsentCheckboxRenderer } from "./renderer/consent-checkbox-renderer"

@@ -1,17 +1,17 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { PropsWithChildren, useContext } from "react"
+import { type PropsWithChildren, useContext } from "react"
 import {
   RawIntlProvider,
   IntlContext,
-  IntlShape,
+  type IntlShape,
   createIntl,
-  IntlCache,
+  type IntlCache,
   createIntlCache,
 } from "react-intl"
 import { OryLocales } from ".."
-import { LocaleMap } from "../locales"
+import type { LocaleMap } from "../locales"
 
 // ISO 639-1 language codes
 // https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes

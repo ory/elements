@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType } from "@ory/client-fetch"
-import { OryNodeSelectProps, useOryFlow } from "@ory/elements-react"
-import { ComponentPropsWithRef, forwardRef } from "react"
+import { type OryNodeSelectProps, useOryFlow } from "@ory/elements-react"
+import { type ComponentPropsWithRef, forwardRef } from "react"
 import { useIntl } from "react-intl"
 import { resolveOptionLabel } from "../../../../util/nodes"
 import { cn } from "../../utils/cn"

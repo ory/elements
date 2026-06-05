@@ -1,12 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryClientConfiguration } from "@ory/elements-react"
+import type { OryClientConfiguration } from "@ory/elements-react"
 import {
-  LoginFlow,
+  type LoginFlow,
   LoginFlowFromJSON,
-  RegistrationFlow,
-  SettingsFlow,
+  type RegistrationFlow,
+  type SettingsFlow,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
 import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"

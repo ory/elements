@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { LogoutFlow, Session } from "@ory/client-fetch"
+import type { LogoutFlow, Session } from "@ory/client-fetch"
 import { useOryConfiguration } from "@ory/elements-react"
 import IconLogout from "../../assets/icons/logout.svg"
 import IconSettings from "../../assets/icons/settings.svg"

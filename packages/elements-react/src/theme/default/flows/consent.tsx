@@ -1,14 +1,18 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, OAuth2ConsentRequest, Session } from "@ory/client-fetch"
 import {
-  OryClientConfiguration,
+  FlowType,
+  type OAuth2ConsentRequest,
+  type Session,
+} from "@ory/client-fetch"
+import {
+  type OryClientConfiguration,
   OryConsentCard,
-  OryErrorHandler,
-  OryFlowComponentOverrides,
+  type OryErrorHandler,
+  type OryFlowComponentOverrides,
   OryProvider,
-  OrySuccessHandler,
+  type OrySuccessHandler,
 } from "@ory/elements-react"
 import { getOryComponents } from "../components"
 import { translateConsentChallengeToUiNodes } from "../utils/oauth2"

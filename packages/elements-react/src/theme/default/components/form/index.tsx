@@ -1,16 +1,16 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 import { cn } from "../../utils/cn"
 import { useIntl } from "react-intl"
 import {
   messageTestId,
-  OryFormRootProps,
+  type OryFormRootProps,
   uiTextToFormattedMessage,
   useOryFlow,
 } from "@ory/elements-react"
-import { OryMessageContentProps } from "@ory/elements-react"
+import type { OryMessageContentProps } from "@ory/elements-react"
 import { FlowType } from "@ory/client-fetch"
 
 /**

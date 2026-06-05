@@ -4,7 +4,7 @@
 import { render } from "@testing-library/react"
 import { CheckboxLabel } from "./checkbox-label"
 import { IntlProvider } from "react-intl"
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 
 const wrapper = ({ children }: PropsWithChildren) => (
   <IntlProvider locale="en">{children}</IntlProvider>

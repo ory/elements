@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryCardContentProps } from "@ory/elements-react"
+import type { OryCardContentProps } from "@ory/elements-react"
 
 /**
  * Simply renders the children passed to it.

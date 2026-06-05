@@ -5,7 +5,7 @@
 // Helpers
 // ---------------------------------------------------------------------------
 
-import { UiContainer } from "@ory/client-fetch"
+import type { UiContainer } from "@ory/client-fetch"
 
 /**
  * Returns true if the flow UI contains any error-type messages, either at the

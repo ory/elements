@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { isUiNodeInputAttributes, UiNode } from "@ory/client-fetch"
-import { FormValues } from "../../types"
+import { isUiNodeInputAttributes, type UiNode } from "@ory/client-fetch"
+import type { FormValues } from "../../types"
 
 export function computeDefaultValues(flow: {
   active?: string

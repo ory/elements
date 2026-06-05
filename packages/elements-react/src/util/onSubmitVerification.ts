@@ -3,14 +3,14 @@
 
 import {
   FlowType,
-  UpdateVerificationFlowBody,
-  VerificationFlow,
+  type UpdateVerificationFlowBody,
+  type VerificationFlow,
   verificationUrl,
 } from "@ory/client-fetch"
-import { OryElementsConfiguration } from "../context"
-import { OryFlowContainer } from "./flowContainer"
+import type { OryElementsConfiguration } from "../context"
+import type { OryFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
-import { OnSubmitHandlerProps } from "./submitHandler"
+import type { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
 import { flowHasErrors } from "./flowHasErrors"
 

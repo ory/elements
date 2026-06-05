@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import {
+import type {
   OnRedirectHandler,
   UpdateLoginFlowBody,
   UpdateRecoveryFlowBody,
@@ -9,8 +9,8 @@ import {
   UpdateSettingsFlowBody,
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
-import { OryFlowContainer } from "./flowContainer"
-import {
+import type { OryFlowContainer } from "./flowContainer"
+import type {
   OryErrorHandler,
   OrySuccessHandler,
   OryValidationErrorHandler,

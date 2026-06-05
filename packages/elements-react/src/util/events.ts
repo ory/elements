@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  ErrorFlowReplaced,
+  type ErrorFlowReplaced,
   FlowType,
-  GenericError,
-  Identity,
-  LoginFlow,
-  OAuth2ConsentRequest,
-  RecoveryFlow,
-  RegistrationFlow,
-  SelfServiceFlowExpiredError,
-  Session,
-  SettingsFlow,
-  VerificationFlow,
+  type GenericError,
+  type Identity,
+  type LoginFlow,
+  type OAuth2ConsentRequest,
+  type RecoveryFlow,
+  type RegistrationFlow,
+  type SelfServiceFlowExpiredError,
+  type Session,
+  type SettingsFlow,
+  type VerificationFlow,
 } from "@ory/client-fetch"
 
 // ---------------------------------------------------------------------------

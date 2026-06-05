@@ -4,11 +4,11 @@
 import {
   AuthenticatorAssuranceLevel,
   FlowType,
-  UiNode,
-  UiNodeAttributes,
+  type UiNode,
+  type UiNodeAttributes,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
-import {
+import type {
   LoginFlowContainer,
   RegistrationFlowContainer,
 } from "@ory/elements-react"

@@ -5,7 +5,7 @@ import allMethodsInitialForm from "./.fixtures/initial-form.json"
 import omitHiddenInput from "./.fixtures/omit-hidden-input.json"
 
 import { useNodesGroups } from ".."
-import { UiNode, UiNodeTypeEnum } from "@ory/client-fetch"
+import { type UiNode, UiNodeTypeEnum } from "@ory/client-fetch"
 import { renderHook } from "@testing-library/react"
 
 import { UiNodeGroupEnum } from "@ory/client-fetch"

@@ -1,7 +1,7 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FormValues } from "../types"
+import type { FormValues } from "../types"
 
 /**
  * A transient payload value or factory function.

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { defaultNodeSorter } from "./defaultNodeSorter"
-import { UiNode, UiNodeInputAttributesTypeEnum } from "@ory/client-fetch"
+import { type UiNode, UiNodeInputAttributesTypeEnum } from "@ory/client-fetch"
 
 // Helper function to create mock UiNode objects for testing
 const createMockNode = (

@@ -3,7 +3,7 @@
 
 import { fireEvent, screen } from "@testing-library/react"
 import { IntlProvider } from "../../../../context/intl-context"
-import { LocaleMap } from "../../../../locales"
+import type { LocaleMap } from "../../../../locales"
 import { renderWithOryElements } from "../../../../tests/jest/test-utils"
 import { Node } from "../node"
 

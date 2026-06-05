@@ -1,10 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, LoginFlow } from "@ory/client-fetch"
+import { FlowType, type LoginFlow } from "@ory/client-fetch"
 import {
-  ConsentFlow,
-  FormState,
+  type ConsentFlow,
+  type FormState,
   Node,
   useOryConfiguration,
   useOryFlow,
@@ -19,7 +19,7 @@ import {
 } from "../../../../util/ui"
 import {
   isUiNodeInput,
-  UiNodeInput,
+  type UiNodeInput,
 } from "../../../../util/utilFixSDKTypesHelper"
 import { useClientLogout } from "../../utils/logout"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"

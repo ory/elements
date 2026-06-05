@@ -1,11 +1,11 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNode } from "@ory/client-fetch"
+import type { UiNode } from "@ory/client-fetch"
 import { useOryFlow } from "../../context"
 import { useOryFormSubmit } from "./useOryFormSubmit"
 import { computeDefaultValues } from "./form-helpers"
-import { FormValues } from "../../types"
+import type { FormValues } from "../../types"
 import { useCallback, useEffect, useState } from "react"
 import { useFormContext } from "react-hook-form"
 

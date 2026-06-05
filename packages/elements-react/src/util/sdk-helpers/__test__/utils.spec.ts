@@ -4,7 +4,7 @@
 // utils.test.ts
 import { handleFlowError, toBody } from "../utils"
 import { FetchError, FlowType, ResponseError } from "@ory/client-fetch"
-import { OryErrorEvent } from "../../events"
+import type { OryErrorEvent } from "../../events"
 
 // Define the props type since it's not exported
 interface FlowErrorHandlerProps<T> {

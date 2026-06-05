@@ -3,7 +3,7 @@
 
 import { FlowErrorFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Error, OryError } from "../../../src/theme/default"
+import { Error, type OryError } from "../../../src/theme/default"
 import { config } from "../../utils"
 
 const errors: Record<string, OryError> = {

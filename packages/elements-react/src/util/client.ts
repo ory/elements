@@ -3,7 +3,7 @@
 
 import {
   Configuration,
-  ConfigurationParameters,
+  type ConfigurationParameters,
   FrontendApi,
 } from "@ory/client-fetch"
 

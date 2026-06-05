@@ -4,14 +4,14 @@
 import {
   FlowType,
   handleContinueWith,
-  RegistrationFlow,
+  type RegistrationFlow,
   registrationUrl,
-  UpdateRegistrationFlowBody,
+  type UpdateRegistrationFlowBody,
 } from "@ory/client-fetch"
-import { OryElementsConfiguration } from "../context"
-import { RegistrationFlowContainer } from "./flowContainer"
+import type { OryElementsConfiguration } from "../context"
+import type { RegistrationFlowContainer } from "./flowContainer"
 import { replaceWindowFlowId } from "./internal"
-import { OnSubmitHandlerProps } from "./submitHandler"
+import type { OnSubmitHandlerProps } from "./submitHandler"
 import { handleFlowError } from "./sdk-helpers"
 import { flowHasErrors } from "./flowHasErrors"
 

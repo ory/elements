@@ -2,17 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 
-import { OryFlowComponents } from "../components"
-import { OryClientConfiguration } from "../util"
-import {
+import type { OryFlowComponents } from "../components"
+import type { OryClientConfiguration } from "../util"
+import type {
   OryErrorHandler,
   OrySuccessHandler,
   OryValidationErrorHandler,
 } from "../util/events"
-import { OryFlowContainer } from "../util/flowContainer"
-import { OryTransientPayload } from "../util/transientPayload"
+import type { OryFlowContainer } from "../util/flowContainer"
+import type { OryTransientPayload } from "../util/transientPayload"
 import { OryComponentProvider } from "./component"
 import { OryConfigurationProvider } from "./config"
 import { OryFlowProvider } from "./flow-context"

@@ -3,7 +3,7 @@
 
 import { getNodeLabel } from "@ory/client-fetch"
 import {
-  OryNodeButtonProps,
+  type OryNodeButtonProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { cva } from "class-variance-authority"

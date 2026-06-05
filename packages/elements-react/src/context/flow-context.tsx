@@ -2,20 +2,24 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  Dispatch,
-  PropsWithChildren,
+  type Dispatch,
+  type PropsWithChildren,
   createContext,
   useContext,
   useState,
 } from "react"
-import { OryFlowContainer } from "../util/flowContainer"
-import {
+import type { OryFlowContainer } from "../util/flowContainer"
+import type {
   OryErrorHandler,
   OrySuccessHandler,
   OryValidationErrorHandler,
 } from "../util/events"
-import { OryTransientPayload } from "../util/transientPayload"
-import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
+import type { OryTransientPayload } from "../util/transientPayload"
+import {
+  type FormState,
+  type FormStateAction,
+  useFormStateReducer,
+} from "./form-state"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.

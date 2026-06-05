@@ -1,6 +1,9 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-import { OrySettingsPasskeyProps, useComponents } from "@ory/elements-react"
+import {
+  type OrySettingsPasskeyProps,
+  useComponents,
+} from "@ory/elements-react"
 import Passkey from "../../assets/icons/passkey.svg"
 import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"

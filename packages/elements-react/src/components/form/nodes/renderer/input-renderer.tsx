@@ -3,7 +3,7 @@
 
 import { getNodeLabel } from "@ory/client-fetch"
 import { useComponents } from "../../../../context"
-import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
+import type { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 import { useIntl } from "react-intl"
 import { useFormState } from "react-hook-form"
 import { resolvePlaceholder } from "../../../../util"

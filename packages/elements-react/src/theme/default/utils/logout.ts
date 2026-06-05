@@ -1,7 +1,7 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { LogoutFlow } from "@ory/client-fetch"
+import type { LogoutFlow } from "@ory/client-fetch"
 import { useCallback, useEffect, useState } from "react"
 import { frontendClient } from "../../../util/client"
 export function useClientLogout(config: { sdk: { url: string } }) {

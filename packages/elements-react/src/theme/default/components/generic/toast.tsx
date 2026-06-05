@@ -3,7 +3,7 @@
 
 import {
   messageTestId,
-  OryToastProps,
+  type OryToastProps,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
 import { toast as sonnerToast } from "sonner"

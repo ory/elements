@@ -1,7 +1,7 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNodeInputAttributes } from "@ory/client-fetch"
+import type { UiNodeInputAttributes } from "@ory/client-fetch"
 import { omit } from "../theme/default/utils/attributes"
 
 export function omitInputAttributes({

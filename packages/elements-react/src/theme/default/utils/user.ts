@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Session } from "@ory/client-fetch"
+import type { Session } from "@ory/client-fetch"
 
 export type UserInitials = {
   primary: string

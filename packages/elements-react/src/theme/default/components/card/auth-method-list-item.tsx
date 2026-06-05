@@ -2,12 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  UiContainer,
-  UiNode,
+  type UiContainer,
+  type UiNode,
   UiNodeGroupEnum,
-  UiNodeInputAttributes,
+  type UiNodeInputAttributes,
 } from "@ory/client-fetch"
-import { OryCardAuthMethodListItemProps, useOryFlow } from "@ory/elements-react"
+import {
+  type OryCardAuthMethodListItemProps,
+  useOryFlow,
+} from "@ory/elements-react"
 import { useEffect, useState } from "react"
 import { defineMessages, useIntl } from "react-intl"
 import { useEventListener, useTimeout } from "usehooks-ts"

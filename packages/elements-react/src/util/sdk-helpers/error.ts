@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  ErrorBrowserLocationChangeRequired,
-  ErrorFlowReplaced,
-  GenericError,
-  NeedsPrivilegedSessionError,
+  type ErrorBrowserLocationChangeRequired,
+  type ErrorFlowReplaced,
+  type GenericError,
+  type NeedsPrivilegedSessionError,
   ResponseError,
-  SelfServiceFlowExpiredError,
+  type SelfServiceFlowExpiredError,
   FetchError,
-  ErrorGeneric,
-  ContinueWith,
+  type ErrorGeneric,
+  type ContinueWith,
 } from "@ory/client-fetch"
 import type { GenericErrorContent } from "@ory/client-fetch/src/models/GenericErrorContent"
 

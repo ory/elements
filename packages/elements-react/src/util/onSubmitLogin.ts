@@ -4,15 +4,15 @@
 import {
   FlowType,
   handleContinueWith,
-  LoginFlow,
+  type LoginFlow,
   loginUrl,
-  UpdateLoginFlowBody,
+  type UpdateLoginFlowBody,
 } from "@ory/client-fetch"
-import { OnSubmitHandlerProps } from "./submitHandler"
-import { LoginFlowContainer } from "./flowContainer"
+import type { OnSubmitHandlerProps } from "./submitHandler"
+import type { LoginFlowContainer } from "./flowContainer"
 import { frontendClient } from "./client"
 import { replaceWindowFlowId } from "./internal"
-import { OryElementsConfiguration } from "../context"
+import type { OryElementsConfiguration } from "../context"
 import { handleFlowError } from "./sdk-helpers"
 import { flowHasErrors } from "./flowHasErrors"
 

@@ -1,8 +1,8 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { getUserInitials, UserInitials } from "../user"
-import { Identity, Session } from "@ory/client-fetch"
+import { getUserInitials, type UserInitials } from "../user"
+import type { Identity, Session } from "@ory/client-fetch"
 
 const identityBase: Identity = {
   id: "",

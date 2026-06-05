@@ -3,8 +3,8 @@
 
 import { useController } from "react-hook-form"
 import { useComponents } from "../../../../context"
-import { OryNodeCheckboxInputProps } from "../../../../types"
-import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
+import type { OryNodeCheckboxInputProps } from "../../../../types"
+import type { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
 
 type CheckboxRendererProps = {
   node: UiNodeInput

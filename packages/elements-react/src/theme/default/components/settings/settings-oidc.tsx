@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import {
-  OrySettingsSsoProps,
-  UiNodeInput,
+  type OrySettingsSsoProps,
+  type UiNodeInput,
   useComponents,
 } from "@ory/elements-react"
 import { useEffect } from "react"

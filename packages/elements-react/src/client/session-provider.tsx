@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 "use client"
-import { Session } from "@ory/client-fetch"
+import type { Session } from "@ory/client-fetch"
 import { createContext, useCallback, useEffect, useRef, useState } from "react"
 import { frontendClient } from "./frontendClient"
 

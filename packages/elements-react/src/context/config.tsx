@@ -1,10 +1,15 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { ConfigurationParameters, FrontendApi } from "@ory/client-fetch"
-import { createContext, PropsWithChildren, useContext, useRef } from "react"
+import type { ConfigurationParameters, FrontendApi } from "@ory/client-fetch"
+import {
+  createContext,
+  type PropsWithChildren,
+  useContext,
+  useRef,
+} from "react"
 import { isProduction } from "../client/config"
-import { OryClientConfiguration, ProjectConfiguration } from "../util"
+import type { OryClientConfiguration, ProjectConfiguration } from "../util"
 import { frontendClient } from "../util/client"
 
 /**
