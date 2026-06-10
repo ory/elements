@@ -5,7 +5,7 @@ import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren, useEffect, useRef } from "react"
 import { FormProvider, useForm } from "react-hook-form"
 import { useOryFlow } from "../../context"
-import { computeDefaultValues } from "./form-helpers"
+import { computeDefaultValues, resolveLoginHint } from "./form-helpers"
 import { useOryFormResolver } from "./form-resolver"
 import { isNodeVisible } from "../../util/ui"
 import { isUiNodeInput } from "../../util"
@@ -37,12 +37,20 @@ export function OryFormProvider({
     : flowContainer.flow.ui.nodes
   const lastAutofocusField = useRef<string | null>(null)
 
+  // The login_hint pre-fills the identifier field as a UI convenience. It is
+  // resolved entirely from the flow (request_url, oidc_context), so it works
+  // the same during SSR and on the client.
+  const loginHint = resolveLoginHint(flowContainer)
+
   const methods = useForm({
     // TODO: Generify this, so we have typesafety in the submit handler.
-    defaultValues: computeDefaultValues({
-      active: flowContainer.flow.active,
-      ui: { nodes: defaultNodes },
-    }),
+    defaultValues: computeDefaultValues(
+      {
+        active: flowContainer.flow.active,
+        ui: { nodes: defaultNodes },
+      },
+      loginHint,
+    ),
     resolver: useOryFormResolver(),
   })
 
