@@ -258,5 +258,6 @@
   "identities.messages.4000042": "Nem állít be egyetlen DeviceAuthn-eszközt sem.",
   "identities.messages.4000043": "A megadott webes hitelesítési azonosító érvénytelen, kérjük, próbálja meg újra.",
   "identities.messages.4000044": "A megadott DeviceAuthn aláírás érvénytelen.",
-  "identities.messages.4050002": "Egyszerre csak egy címet lehet módosítani. Kérjük, minden címet külön-külön frissítsen."
+  "identities.messages.4050002": "Egyszerre csak egy címet lehet módosítani. Kérjük, minden címet külön-külön frissítsen.",
+  "identities.messages.1050023": "A felhasználói fiókját a szervezete kezeli. Ha módosítani szeretné ezeket a beállításokat, vegye fel a kapcsolatot a szervezet rendszergazdájával."
 }

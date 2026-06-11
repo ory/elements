@@ -258,5 +258,6 @@
   "identities.messages.4000042": "Não tem nenhum dispositivo DeviceAuthn configurado.",
   "identities.messages.4000043": "A autenticação na web fornecida é inválida, por favor tente novamente.",
   "identities.messages.4000044": "A assinatura DeviceAuthn fornecida é inválida.",
-  "identities.messages.4050002": "Só é possível alterar um endereço de cada vez. Atualize cada endereço individualmente."
+  "identities.messages.4050002": "Só é possível alterar um endereço de cada vez. Atualize cada endereço individualmente.",
+  "identities.messages.1050023": "A sua conta é gerida pela sua organização. Para alterar estas configurações, entre em contato com o administrador da sua organização."
 }

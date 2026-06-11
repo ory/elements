@@ -258,5 +258,6 @@
   "identities.messages.4000042": "Nuk keni asnjë pajisje të konfiguruar për autentifikimin e pajisjes (DeviceAuthn).",
   "identities.messages.4000043": "Autentifikimi nëpërmjet lidhjes web nuk është i vlefshëm, ju lutemi provoni përsëri.",
   "identities.messages.4000044": "Nënshkrimi i ofruar i DeviceAuthn është i pavlefshëm.",
-  "identities.messages.4050002": "Mund të ndryshoni vetëm një adresë në një kohë. Ju lutemi, azhurnoni secilën adresë veçmas."
+  "identities.messages.4050002": "Mund të ndryshoni vetëm një adresë në një kohë. Ju lutemi, azhurnoni secilën adresë veçmas.",
+  "identities.messages.1050023": "Llogaria juaj menaxhohet nga organizata juaj. Për të ndryshuar këto cilësime, kontaktoni administratorin e organizatës suaj."
 }

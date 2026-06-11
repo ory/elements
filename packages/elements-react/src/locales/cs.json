@@ -258,5 +258,6 @@
   "identities.messages.4000042": "Nemáte nastaveno žádné zařízení pro ověřování pomocí DeviceAuthn.",
   "identities.messages.4000043": "Zadané údaje pro webové ověření nejsou platné, zkuste to prosím znovu.",
   "identities.messages.4000044": "Poskytnutý podpis DeviceAuthn je neplatný.",
-  "identities.messages.4050002": "Můžete upravit pouze jednu adresu najednou. Aktualizujte prosím každou adresu zvlášť."
+  "identities.messages.4050002": "Můžete upravit pouze jednu adresu najednou. Aktualizujte prosím každou adresu zvlášť.",
+  "identities.messages.1050023": "Váš účet spravuje vaše organizace. Chcete-li změnit tato nastavení, obraťte se na správce vaší organizace."
 }
