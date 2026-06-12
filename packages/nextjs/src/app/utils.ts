@@ -62,7 +62,7 @@ export function startNewFlow(
   // return to automatically if they're logged in already.
   return redirect(
     new URL(
-      "/self-service/" +
+      "self-service/" +
         flowType.toString() +
         "/browser?" +
         urlQueryToSearchParams(params).toString(),
