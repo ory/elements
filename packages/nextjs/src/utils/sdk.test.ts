@@ -174,4 +174,123 @@ describe("guessPotentiallyProxiedOrySdkUrl", () => {
     )
     consoleWarnMock.mockRestore()
   })
+
+  describe("with a known visited origin", () => {
+    it("should return the SDK URL directly when the visited origin is same-site with it, even on Vercel previews", () => {
+      // A stable custom domain on a preview deployment, next to an Ory custom
+      // domain on the same registrable domain. Cookies are first-party either
+      // way, so no proxying is needed and VERCEL_URL must not win.
+      process.env["VERCEL_ENV"] = "preview"
+      process.env["VERCEL_URL"] = "web-eaa8ghtnm.vercel.app"
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://auth.e2b-staging.dev"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://e2b-staging.dev",
+        }),
+      ).toBe("https://auth.e2b-staging.dev")
+    })
+
+    it("should prefer the visited origin over VERCEL_URL when cross-site with the SDK URL", () => {
+      // A stable custom domain on a preview deployment without an Ory custom
+      // domain: proxy via the origin the user is actually on, not the
+      // deployment's generated URL.
+      process.env["VERCEL_ENV"] = "preview"
+      process.env["VERCEL_URL"] = "web-eaa8ghtnm.vercel.app"
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] =
+        "https://project.projects.oryapis.com"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://e2b-staging.dev",
+        }),
+      ).toBe("https://e2b-staging.dev")
+    })
+
+    it("should use window.location.origin for the same-site check in the browser", () => {
+      process.env["VERCEL_ENV"] = "preview"
+      process.env["VERCEL_URL"] = "web-eaa8ghtnm.vercel.app"
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://auth.e2b-staging.dev"
+      const originalWindow = global.window
+      global.window = {
+        location: { origin: "https://e2b-staging.dev" },
+      } as Window & typeof globalThis
+      try {
+        expect(guessPotentiallyProxiedOrySdkUrl()).toBe(
+          "https://auth.e2b-staging.dev",
+        )
+      } finally {
+        global.window = originalWindow
+      }
+    })
+
+    it("should respect multi-label public suffixes when comparing sites", () => {
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://auth.example.co.uk"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://app.example.co.uk",
+        }),
+      ).toBe("https://auth.example.co.uk")
+    })
+
+    it("should not treat two vercel.app deployments as same-site", () => {
+      // vercel.app is on the Public Suffix List, so myapp.vercel.app and
+      // other.vercel.app are different sites and cookies cannot be shared.
+      process.env["VERCEL_ENV"] = "preview"
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://other.vercel.app"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://myapp.vercel.app",
+        }),
+      ).toBe("https://myapp.vercel.app")
+    })
+
+    it("should treat equal hostnames on different ports as same-site", () => {
+      // Ory Tunnel on another localhost port: cookies ignore ports, so the
+      // tunnel can be used directly.
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "http://localhost:4000"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "http://localhost:3000",
+        }),
+      ).toBe("http://localhost:4000")
+    })
+
+    it("should return the SDK URL directly for same-site origins in production", () => {
+      process.env["VERCEL_ENV"] = "production"
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://auth.example.com"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://example.com",
+        }),
+      ).toBe("https://auth.example.com")
+    })
+
+    it("should keep returning the SDK URL for cross-site origins in production", () => {
+      process.env["VERCEL_ENV"] = "production"
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] =
+        "https://project.projects.oryapis.com"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://example.com",
+        }),
+      ).toBe("https://project.projects.oryapis.com")
+    })
+
+    it("should return the visited origin when no SDK URL is configured", () => {
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "http://localhost:3000",
+        }),
+      ).toBe("http://localhost:3000")
+    })
+
+    it("should strip a trailing slash from the visited origin", () => {
+      process.env["NEXT_PUBLIC_ORY_SDK_URL"] =
+        "https://project.projects.oryapis.com"
+      expect(
+        guessPotentiallyProxiedOrySdkUrl({
+          knownProxiedUrl: "https://e2b-staging.dev/",
+        }),
+      ).toBe("https://e2b-staging.dev")
+    })
+  })
 })

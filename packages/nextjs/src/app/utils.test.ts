@@ -70,13 +70,13 @@ describe("getPublicUrl", () => {
     expect(result).toBe("http://example.com")
   })
 
-  it("should handle missing host header gracefully", async () => {
+  it("should return undefined when the host header is missing", async () => {
     const headersMock = {
       get: jest.fn().mockReturnValue(undefined),
     }
     ;(headers as jest.Mock).mockResolvedValue(headersMock)
 
     const result = await getPublicUrl()
-    expect(result).toBe("http://undefined")
+    expect(result).toBeUndefined()
   })
 })
