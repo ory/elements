@@ -215,6 +215,7 @@
           "type": "text",
           "value": "",
           "required": true,
+          "autocomplete": "username",
           "disabled": false,
           "node_type": "input"
         },
