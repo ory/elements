@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Uthibitisho wa kuingia kwa mtumiaji kupitia mtandao haukufaa, tafadhali jaribu tena.",
   "identities.messages.4000044": "Saini ya DeviceAuthn iliyotolewa ni batili.",
   "identities.messages.4050002": "Unaweza kubadilisha anwani moja kwa wakati. Tafadhali sasisha kila anwani kwa nyakati tofauti.",
-  "identities.messages.1050023": "Akaunti yako inadhibitiwa na shirika lako. Ili kubadilisha mipangilio hii, wasiliana na msimamizi wa shirika lako."
+  "identities.messages.1050023": "Akaunti yako inadhibitiwa na shirika lako. Ili kubadilisha mipangilio hii, wasiliana na msimamizi wa shirika lako.",
+  "identities.messages.4000045": "Ufunguo huu wa DeviceAuthn hauwezi kutumika tena kwa sababu uthibitishaji uliolegezwa umeisha muda wake au umezimwa. Tafadhali sajili kifaa chako tena."
 }

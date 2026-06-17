@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Pateiktas internetinis autentifikavimo prisijungimo vardas yra neteisingas, prašome bandyti dar kartą.",
   "identities.messages.4000044": "Pateiktas „DeviceAuthn“ parašas yra neteisingas.",
   "identities.messages.4050002": "Galite keisti tik vieną adresą vienu metu. Prašome atnaujinti kiekvieną adresą atskirai.",
-  "identities.messages.1050023": "Jūsų paskyrą administruoja jūsų organizacija. Norėdami pakeisti šiuos nustatymus, kreipkitės į savo organizacijos administratorių."
+  "identities.messages.1050023": "Jūsų paskyrą administruoja jūsų organizacija. Norėdami pakeisti šiuos nustatymus, kreipkitės į savo organizacijos administratorių.",
+  "identities.messages.4000045": "Šio „DeviceAuthn“ rakto nebegalima naudoti, nes sušvelnintas patvirtinimas baigė galioti arba buvo išjungtas. Užregistruokite savo įrenginį iš naujo."
 }

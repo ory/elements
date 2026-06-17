@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Log masuk web yang disediakan tidak sah, sila cuba lagi.",
   "identities.messages.4000044": "Tandatangan DeviceAuthn yang diberikan tidak sah.",
   "identities.messages.4050002": "Anda hanya boleh mengubah satu alamat pada satu masa. Sila kemas kini setiap alamat secara berasingan.",
-  "identities.messages.1050023": "Akaun anda diurus oleh organisasi anda. Untuk mengubah tetapan ini, hubungi pentadbir organisasi anda."
+  "identities.messages.1050023": "Akaun anda diurus oleh organisasi anda. Untuk mengubah tetapan ini, hubungi pentadbir organisasi anda.",
+  "identities.messages.4000045": "Kunci DeviceAuthn ini tidak boleh digunakan lagi kerana pentauliahan yang dilonggarkan telah tamat tempoh atau dilumpuhkan. Sila daftarkan semula peranti anda."
 }

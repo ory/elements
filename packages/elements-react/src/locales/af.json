@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Die voorsiene web-outentikasie-aanmeldingsvorm is ongeldig, probeer asseblief weer.",
   "identities.messages.4000044": "Die voorsiene DeviceAuthn-handtekening is ongeldig.",
   "identities.messages.4050002": "Jy kan slegs een adres op ’n slag verander. Pas asseblief elke adres afsonderlik op.",
-  "identities.messages.1050023": "Jou rekening word deur jou organisasie bestuur. Om hierdie instellings te verander, kontak asseblief die administrateur van jou organisasie."
+  "identities.messages.1050023": "Jou rekening word deur jou organisasie bestuur. Om hierdie instellings te verander, kontak asseblief die administrateur van jou organisasie.",
+  "identities.messages.4000045": "Hierdie DeviceAuthn-sleutel kan nie meer gebruik word nie, want die verslapte attestasie het verval of is gedeaktiveer. Registreer asseblief jou toestel weer."
 }

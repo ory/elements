@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Innloggingsinformasjonen du har oppgitt, er ugyldig. Vennligst prøv igjen.",
   "identities.messages.4000044": "Den oppgitte DeviceAuthn-signaturen er ugyldig.",
   "identities.messages.4050002": "Du kan bare endre én adresse om gangen. Vennligst oppdater hver adresse separat.",
-  "identities.messages.1050023": "Kontoen din administreres av organisasjonen din. For å endre disse innstillingene, ta kontakt med administratoren for organisasjonen din."
+  "identities.messages.1050023": "Kontoen din administreres av organisasjonen din. For å endre disse innstillingene, ta kontakt med administratoren for organisasjonen din.",
+  "identities.messages.4000045": "Denne DeviceAuthn-nøkkelen kan ikke lenger brukes fordi den lempede attesteringen er utløpt eller deaktivert. Registrer enheten din på nytt."
 }

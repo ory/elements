@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Norādītā tīmekļa autentifikācijas metode nav derīga, lūdzu, mēģiniet vēlreiz.",
   "identities.messages.4000044": "Nodrošinātā DeviceAuthn paraksta vērtība ir nederīga.",
   "identities.messages.4050002": "Vienlaikus varat mainīt tikai vienu adresi. Lūdzu, atjauniniet katru adresi atsevišķi.",
-  "identities.messages.1050023": "Jūsu kontu pārvalda jūsu organizācija. Lai mainītu šos iestatījumus, sazinieties ar savas organizācijas administratoru."
+  "identities.messages.1050023": "Jūsu kontu pārvalda jūsu organizācija. Lai mainītu šos iestatījumus, sazinieties ar savas organizācijas administratoru.",
+  "identities.messages.4000045": "Šo DeviceAuthn atslēgu vairs nevar izmantot, jo atvieglotā apliecināšana ir beigusies vai atspējota. Lūdzu, reģistrējiet savu ierīci vēlreiz."
 }

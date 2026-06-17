@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Sağlanan web kimlik doğrulama giriş bilgileri geçersiz, lütfen tekrar deneyin.",
   "identities.messages.4000044": "Sağlanan DeviceAuthn imzası geçersizdir.",
   "identities.messages.4050002": "Her seferinde yalnızca bir adresi değiştirebilirsiniz. Lütfen her adresi ayrı ayrı güncelleyin.",
-  "identities.messages.1050023": "Hesabınız kurumunuz tarafından yönetilmektedir. Bu ayarları değiştirmek için kurumunuzun yöneticisiyle iletişime geçin."
+  "identities.messages.1050023": "Hesabınız kurumunuz tarafından yönetilmektedir. Bu ayarları değiştirmek için kurumunuzun yöneticisiyle iletişime geçin.",
+  "identities.messages.4000045": "Esnek doğrulamanın süresi dolduğu veya devre dışı bırakıldığı için bu DeviceAuthn anahtarı artık kullanılamaz. Lütfen cihazınızı yeniden kaydedin."
 }

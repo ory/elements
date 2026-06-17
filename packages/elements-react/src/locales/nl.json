@@ -259,5 +259,6 @@
   "identities.messages.4000043": "De opgegeven web-authenticatiegegevens zijn ongeldig. Probeer het opnieuw.",
   "identities.messages.4000044": "De aangeleverde DeviceAuthn-handtekening is ongeldig.",
   "identities.messages.4050002": "U kunt slechts één adres tegelijk wijzigen. Gelieve elk adres afzonderlijk bij te werken.",
-  "identities.messages.1050023": "Uw account wordt beheerd door uw organisatie. Neem contact op met de beheerder van uw organisatie om deze instellingen te wijzigen."
+  "identities.messages.1050023": "Uw account wordt beheerd door uw organisatie. Neem contact op met de beheerder van uw organisatie om deze instellingen te wijzigen.",
+  "identities.messages.4000045": "Deze DeviceAuthn-sleutel kan niet meer worden gebruikt omdat de versoepelde attestatie is verlopen of uitgeschakeld. Registreer uw apparaat opnieuw."
 }

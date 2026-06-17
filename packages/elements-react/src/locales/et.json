@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Esitatud veebipõhine autentimislink ei ole korrektne, palun proovige uuesti.",
   "identities.messages.4000044": "Antud DeviceAuthn allkiri on vigane.",
   "identities.messages.4050002": "Korraldada saab korraga ainult ühe aadressi. Palume värskendada iga aadress eraldi.",
-  "identities.messages.1050023": "Teie kontot haldab teie organisatsioon. Nende sätete muutmiseks võtke ühendust oma organisatsiooni administraatoriga."
+  "identities.messages.1050023": "Teie kontot haldab teie organisatsioon. Nende sätete muutmiseks võtke ühendust oma organisatsiooni administraatoriga.",
+  "identities.messages.4000045": "Seda DeviceAuthn-võtit ei saa enam kasutada, sest leevendatud kinnitus on aegunud või keelatud. Palun registreerige oma seade uuesti."
 }

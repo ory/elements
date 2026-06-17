@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Pružena web autentifikacija za prijavu nije valjana, pokušajte ponovno.",
   "identities.messages.4000044": "Dostavljeni digitalni potpis uređaja (DeviceAuthn) nije valjan.",
   "identities.messages.4050002": "Možete promijeniti samo jednu adresu odjednom. Molimo vas da ažurirate svaku adresu zasebno.",
-  "identities.messages.1050023": "Vašim računom upravlja vaša organizacija. Za promjenu ovih postavki obratite se administratoru vaše organizacije."
+  "identities.messages.1050023": "Vašim računom upravlja vaša organizacija. Za promjenu ovih postavki obratite se administratoru vaše organizacije.",
+  "identities.messages.4000045": "Ovaj ključ DeviceAuthn više se ne može upotrebljavati jer je ublažena ovjera istekla ili je onemogućena. Ponovno registrirajte svoj uređaj."
 }

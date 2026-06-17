@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Den angivna webbaserade inloggningen är ogiltig, försök igen.",
   "identities.messages.4000044": "Den angivna DeviceAuthn-signeringen är ogiltig.",
   "identities.messages.4050002": "Du kan bara ändra en adress åt gången. Vänligen uppdatera varje adress separat.",
-  "identities.messages.1050023": "Ditt konto hanteras av din organisation. Om du vill ändra dessa inställningar, kontakta din organisations administratör."
+  "identities.messages.1050023": "Ditt konto hanteras av din organisation. Om du vill ändra dessa inställningar, kontakta din organisations administratör.",
+  "identities.messages.4000045": "Den här DeviceAuthn-nyckeln kan inte längre användas eftersom den uppmjukade attesteringen har upphört att gälla eller har inaktiverats. Registrera din enhet igen."
 }

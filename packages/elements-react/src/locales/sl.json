@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Navedena spletna prijava ni veljavna, poskusite znova.",
   "identities.messages.4000044": "Predložena digitalna podpisna vrednost DeviceAuthn ni veljavna.",
   "identities.messages.4050002": "Naenkrat lahko spremenite samo en naslov. Prosimo, posodobite vsak naslov posebej.",
-  "identities.messages.1050023": "Vaš račun upravlja vaša organizacija. Če želite spremeniti te nastavitve, se obrnite na administratorja vaše organizacije."
+  "identities.messages.1050023": "Vaš račun upravlja vaša organizacija. Če želite spremeniti te nastavitve, se obrnite na administratorja vaše organizacije.",
+  "identities.messages.4000045": "Tega ključa DeviceAuthn ni več mogoče uporabljati, ker je sproščeno potrjevanje poteklo ali onemogočeno. Znova registrirajte svojo napravo."
 }

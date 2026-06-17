@@ -259,5 +259,6 @@
   "identities.messages.4000043": "Podane dane logowania przez uwierzytelnianie internetowe są nieprawidłowe. Proszę spróbować ponownie.",
   "identities.messages.4000044": "Podany podpis DeviceAuthn jest nieprawidłowy.",
   "identities.messages.4050002": "Można modyfikować tylko jeden adres naraz. Prosimy o aktualizację każdego adresu osobno.",
-  "identities.messages.1050023": "Twoim kontem zarządza Twoja organizacja. Aby zmienić te ustawienia, skontaktuj się z administratorem swojej organizacji."
+  "identities.messages.1050023": "Twoim kontem zarządza Twoja organizacja. Aby zmienić te ustawienia, skontaktuj się z administratorem swojej organizacji.",
+  "identities.messages.4000045": "Tego klucza DeviceAuthn nie można już używać, ponieważ złagodzone poświadczenie wygasło lub zostało wyłączone. Zarejestruj ponownie swoje urządzenie."
 }
