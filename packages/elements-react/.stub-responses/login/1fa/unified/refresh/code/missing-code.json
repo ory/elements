@@ -29,8 +29,6 @@
         "attributes": {
           "name": "identifier",
           "type": "text",
-          "value": "",
-          "required": true,
           "disabled": false,
           "node_type": "input"
         },
@@ -44,34 +42,28 @@
             }
           }
         ],
-        "meta": {
-          "label": {
-            "id": 1070002,
-            "text": "E-Mail",
-            "type": "info",
-            "context": {
-              "name": "traits.email",
-              "title": "E-Mail"
-            }
-          }
-        }
+        "meta": {}
       },
       {
         "type": "input",
         "group": "code",
         "attributes": {
-          "name": "method",
+          "name": "address",
           "type": "submit",
-          "value": "code",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1010015,
-            "text": "Send sign in code",
-            "type": "info"
+            "id": 1010023,
+            "text": "Send code to dev@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev@ory.dev",
+              "channel": "email"
+            }
           }
         }
       }

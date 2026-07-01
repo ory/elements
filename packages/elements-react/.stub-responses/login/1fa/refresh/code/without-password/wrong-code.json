@@ -41,6 +41,29 @@
         "type": "input",
         "group": "code",
         "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev@ory.dev",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {
+          "label": {
+            "id": 1010023,
+            "text": "Send code to dev@ory.dev",
+            "type": "info",
+            "context": {
+              "address": "dev@ory.dev",
+              "channel": "email"
+            }
+          }
+        }
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
           "name": "code",
           "type": "text",
           "required": true,

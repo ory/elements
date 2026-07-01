@@ -9,7 +9,21 @@ import {
 import { isGroupImmediateSubmit } from "../../../theme/default/utils/form"
 import { GroupedNodes, isUiNodeGroupEnum } from "../../../util/ui"
 import { Dispatch } from "react"
-import { FormStateAction } from "@ory/elements-react"
+import { FormStateAction, isUiNodeInput } from "@ory/elements-react"
+
+function isLegacyRefreshLoginCodeNode(n: UiNode) {
+  if (n.group !== "default") {
+    return false
+  }
+  if (!isUiNodeInput(n)) {
+    return false
+  }
+  if (n.attributes.name !== "identifier") {
+    return false
+  }
+  // In the updated flow, this node is hidden or doesn't exist (depending on configuration), so if we find it, it means we're in the legacy flow, and should not show the method chooser, but instead directly show the email input
+  return n.attributes.type === "text"
+}
 
 function isScreenSelectionNode(node: UiNode) {
   if (
@@ -42,7 +56,7 @@ export function isChoosingMethod(
       flow.flow.refresh &&
       // TODO: Once https://github.com/ory/kratos/issues/4194 is fixed, this can be removed
       // Without this, we show the method chooser, and an email input, which looks weird
-      !flow.flow.ui.nodes.some((n) => n.group === "code")
+      !flow.flow.ui.nodes.some(isLegacyRefreshLoginCodeNode)
     ) {
       return true
     }

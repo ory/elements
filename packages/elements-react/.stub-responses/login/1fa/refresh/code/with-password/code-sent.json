@@ -17,19 +17,31 @@
           "name": "identifier",
           "type": "hidden",
           "value": "dev@ory.dev",
-          "required": true,
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
+      },
+      {
+        "type": "input",
+        "group": "code",
+        "attributes": {
+          "name": "identifier",
+          "type": "hidden",
+          "value": "dev@ory.dev",
           "disabled": false,
           "node_type": "input"
         },
         "messages": [],
         "meta": {
           "label": {
-            "id": 1070002,
-            "text": "E-Mail",
+            "id": 1010023,
+            "text": "Send code to dev@ory.dev",
             "type": "info",
             "context": {
-              "name": "traits.email",
-              "title": "E-Mail"
+              "address": "dev@ory.dev",
+              "channel": "email"
             }
           }
         }
