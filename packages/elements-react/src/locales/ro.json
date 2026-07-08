@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Semnătura DeviceAuthn furnizată este invalidă.",
   "identities.messages.4050002": "Puteți modifica doar o adresă la un moment dat. Vă rugăm să actualizați fiecare adresă în mod individual.",
   "identities.messages.1050023": "Contul dumneavoastră este gestionat de organizația dumneavoastră. Pentru a modifica aceste setări, contactați administratorul organizației.",
-  "identities.messages.4000045": "Această cheie DeviceAuthn nu mai poate fi utilizată deoarece atestarea relaxată a expirat sau a fost dezactivată. Vă rugăm să vă înregistrați din nou dispozitivul."
+  "identities.messages.4000045": "Această cheie DeviceAuthn nu mai poate fi utilizată deoarece atestarea relaxată a expirat sau a fost dezactivată. Vă rugăm să vă înregistrați din nou dispozitivul.",
+  "identities.messages.4000046": "Această cheie DeviceAuthn a fost înregistrată înainte de introducerea verificării utilizatorului și nu mai poate fi utilizată. Vă rugăm să vă înregistrați din nou dispozitivul."
 }

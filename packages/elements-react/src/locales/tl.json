@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Hindi wasto ang ibinigay na lagda ng DeviceAuthn.",
   "identities.messages.4050002": "Maaari mo lamang baguhin ang isang address sa bawat pagkakataon. Pakisuyong i-update ang bawat address nang hiwalay.",
   "identities.messages.1050023": "Ang iyong account ay pinamamahalaan ng iyong organisasyon. Upang baguhin ang mga setting na ito, makipag-ugnayan sa administrador ng iyong organisasyon.",
-  "identities.messages.4000045": "Hindi na magagamit ang DeviceAuthn key na ito dahil nag-expire na o naka-disable ang pinaluwag na attestation. Pakirehistro muli ang iyong device."
+  "identities.messages.4000045": "Hindi na magagamit ang DeviceAuthn key na ito dahil nag-expire na o naka-disable ang pinaluwag na attestation. Pakirehistro muli ang iyong device.",
+  "identities.messages.4000046": "Ang DeviceAuthn key na ito ay nairehistro bago ipinakilala ang beripikasyon ng user at hindi na magagamit. Pakirehistro muli ang iyong device."
 }

@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Predložena digitalna podpisna vrednost DeviceAuthn ni veljavna.",
   "identities.messages.4050002": "Naenkrat lahko spremenite samo en naslov. Prosimo, posodobite vsak naslov posebej.",
   "identities.messages.1050023": "Vaš račun upravlja vaša organizacija. Če želite spremeniti te nastavitve, se obrnite na administratorja vaše organizacije.",
-  "identities.messages.4000045": "Tega ključa DeviceAuthn ni več mogoče uporabljati, ker je sproščeno potrjevanje poteklo ali onemogočeno. Znova registrirajte svojo napravo."
+  "identities.messages.4000045": "Tega ključa DeviceAuthn ni več mogoče uporabljati, ker je sproščeno potrjevanje poteklo ali onemogočeno. Znova registrirajte svojo napravo.",
+  "identities.messages.4000046": "Ta ključ DeviceAuthn je bil registriran pred uvedbo preverjanja uporabnika in ga ni več mogoče uporabljati. Znova registrirajte svojo napravo."
 }

@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Chữ ký DeviceAuthn đã cung cấp không hợp lệ.",
   "identities.messages.4050002": "Bạn chỉ có thể thay đổi một địa chỉ tại một thời điểm. Vui lòng cập nhật từng địa chỉ một cách riêng biệt.",
   "identities.messages.1050023": "Tài khoản của bạn được quản lý bởi tổ chức của bạn. Để thay đổi các cài đặt này, vui lòng liên hệ với quản trị viên của tổ chức.",
-  "identities.messages.4000045": "Không thể sử dụng khóa DeviceAuthn này nữa vì chứng thực nới lỏng đã hết hạn hoặc bị tắt. Vui lòng đăng ký lại thiết bị của bạn."
+  "identities.messages.4000045": "Không thể sử dụng khóa DeviceAuthn này nữa vì chứng thực nới lỏng đã hết hạn hoặc bị tắt. Vui lòng đăng ký lại thiết bị của bạn.",
+  "identities.messages.4000046": "Khóa DeviceAuthn này được đăng ký trước khi tính năng xác minh người dùng được áp dụng và không thể sử dụng được nữa. Vui lòng đăng ký lại thiết bị của bạn."
 }

@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Sanyar da aka bayar na DeviceAuthn ba daidai ba ne.",
   "identities.messages.4050002": "Zai yuwu ka canza adiressi daya a lokaci daya. Don Allah, sabunta kowanne adiressi daban.",
   "identities.messages.1050023": "Asusunka na karkashin kulawar kungiyarka. Don canza saitunan, tuntuɓi mai kula da kungiyarka.",
-  "identities.messages.4000045": "Ba za a iya amfani da wannan makullin DeviceAuthn ba kuma, saboda sassaucin tabbatarwa ya ƙare ko an kashe shi. Da fatan za a sake yin rajistar na'urarka."
+  "identities.messages.4000045": "Ba za a iya amfani da wannan makullin DeviceAuthn ba kuma, saboda sassaucin tabbatarwa ya ƙare ko an kashe shi. Da fatan za a sake yin rajistar na'urarka.",
+  "identities.messages.4000046": "An yi rajistar wannan makullin DeviceAuthn kafin a fara tantance mai amfani, kuma ba za a iya amfani da shi ba kuma. Da fatan za a sake yin rajistar na'urarka."
 }

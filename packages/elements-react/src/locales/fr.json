@@ -260,5 +260,6 @@
   "identities.messages.4000044": "La signature DeviceAuthn fournie est invalide.",
   "identities.messages.4050002": "Vous ne pouvez modifier qu’une seule adresse à la fois. Veuillez mettre à jour chaque adresse séparément.",
   "identities.messages.1050023": "Votre compte est géré par votre organisation. Pour modifier ces paramètres, veuillez contacter l’administrateur de votre organisation.",
-  "identities.messages.4000045": "Cette clé DeviceAuthn ne peut plus être utilisée, car l'attestation assouplie a expiré ou a été désactivée. Veuillez enregistrer à nouveau votre appareil."
+  "identities.messages.4000045": "Cette clé DeviceAuthn ne peut plus être utilisée, car l'attestation assouplie a expiré ou a été désactivée. Veuillez enregistrer à nouveau votre appareil.",
+  "identities.messages.4000046": "Cette clé DeviceAuthn a été enregistrée avant l'introduction de la vérification de l'utilisateur et ne peut plus être utilisée. Veuillez enregistrer à nouveau votre appareil."
 }

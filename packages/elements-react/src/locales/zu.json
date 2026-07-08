@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Isignesha ye-DeviceAuthn enikezwe ayivumelekile.",
   "identities.messages.4050002": "Ungashintsha ikheli elilodwa nje ngesikhathi. Sicela ubuyekeze ikheli ngalinye ngokwahlukana.",
   "identities.messages.1050023": "I-akhawunti yakho iqhutshwa yinhlangano yakho. Ukuze ushintshe lezi zilungiselelo, xhumana nomphathi wenhlangano yakho.",
-  "identities.messages.4000045": "Lo khiye we-DeviceAuthn ngeke usasebenziseke ngoba ukuqinisekisa okuxegisiwe kuphelelwe yisikhathi noma kukhutshaziwe. Sicela uphinde ubhalise idivayisi yakho."
+  "identities.messages.4000045": "Lo khiye we-DeviceAuthn ngeke usasebenziseke ngoba ukuqinisekisa okuxegisiwe kuphelelwe yisikhathi noma kukhutshaziwe. Sicela uphinde ubhalise idivayisi yakho.",
+  "identities.messages.4000046": "Lo khiye we-DeviceAuthn wabhaliswa ngaphambi kokwethulwa kokuqinisekiswa komsebenzisi futhi ngeke usasebenziseke. Sicela uphinde ubhalise idivayisi yakho."
 }

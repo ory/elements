@@ -57,7 +57,17 @@ export function handleContinueWith(
     // TODO: re-add url
     return redirectFlow(action.flow.id, "settings", action.flow.url)
   } else {
-    throw new Error("Unknown action: " + JSON.stringify(action))
+    // An unrecognized continue_with action — e.g. a newer server returning an
+    // action this version does not handle, or a device-targeted action such as
+    // `show_pin_entry_ui` whose HPKE-sealed payload only a native
+    // client can decrypt and use. A browser cannot act on it, so skip it
+    // gracefully (return false → the caller falls back to normal rendering)
+    // instead of crashing the whole flow.
+    console.warn(
+      "[Ory/Elements React] Ignoring unsupported continue_with action: " +
+        JSON.stringify(action),
+    )
+    return false
   }
 }
 
@@ -71,12 +81,17 @@ export function pickBestContinueWith(continueWith: ContinueWith[]) {
     return
   }
 
-  const sorted = continueWith.sort(
-    (a, b) =>
-      continueWithPriority.indexOf(a.action) -
-      continueWithPriority.indexOf(b.action),
-  )
-  return sorted[0]
+  // Actions missing from the priority list (e.g. a newer server returning an
+  // action this version does not know) must sort LAST, not first. `indexOf`
+  // returns -1 for them, and a raw -1 would win an ascending sort and get
+  // selected — so map -1 to a rank beyond the known actions. Sort a copy to
+  // avoid mutating the caller's array.
+  const rank = (action: string) => {
+    const index = continueWithPriority.indexOf(action)
+    return index === -1 ? continueWithPriority.length : index
+  }
+
+  return [...continueWith].sort((a, b) => rank(a.action) - rank(b.action))[0]
 }
 
 /**

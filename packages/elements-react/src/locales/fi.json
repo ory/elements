@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Annettu DeviceAuthn-allekirjoitus on virheellinen.",
   "identities.messages.4050002": "Voit muuttaa vain yhden osoitteen kerrallaan. Päivitä jokainen osoite erikseen.",
   "identities.messages.1050023": "Käyttäjätiliäsi hallinnoi organisaatiosi. Jos haluat muuttaa näitä asetuksia, ota yhteyttä organisaatiosi järjestelmänvalvojaan.",
-  "identities.messages.4000045": "Tätä DeviceAuthn-avainta ei voi enää käyttää, koska kevennetty vahvistus on vanhentunut tai poistettu käytöstä. Rekisteröi laitteesi uudelleen."
+  "identities.messages.4000045": "Tätä DeviceAuthn-avainta ei voi enää käyttää, koska kevennetty vahvistus on vanhentunut tai poistettu käytöstä. Rekisteröi laitteesi uudelleen.",
+  "identities.messages.4000046": "Tämä DeviceAuthn-avain rekisteröitiin ennen käyttäjävahvistuksen käyttöönottoa, eikä sitä voi enää käyttää. Rekisteröi laitteesi uudelleen."
 }

@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Den angivne DeviceAuthn-signatur er ugyldig.",
   "identities.messages.4050002": "Du kan kun ændre én adresse ad gangen. Opdater venligst hver adresse separat.",
   "identities.messages.1050023": "Din konto administreres af din organisation. Hvis du ønsker at ændre disse indstillinger, skal du kontakte din organisations administrator.",
-  "identities.messages.4000045": "Denne DeviceAuthn-nøgle kan ikke længere bruges, fordi den lempede attestering er udløbet eller deaktiveret. Tilmeld venligst din enhed igen."
+  "identities.messages.4000045": "Denne DeviceAuthn-nøgle kan ikke længere bruges, fordi den lempede attestering er udløbet eller deaktiveret. Tilmeld venligst din enhed igen.",
+  "identities.messages.4000046": "Denne DeviceAuthn-nøgle blev tilmeldt, før brugerbekræftelse blev indført, og kan ikke længere bruges. Tilmeld venligst din enhed igen."
 }

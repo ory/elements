@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Poskytnutý digitálny podpis DeviceAuthn nie je platný.",
   "identities.messages.4050002": "Môžete zmeniť iba jednu adresu naraz. Aktualizujte prosím každú adresu samostatne.",
   "identities.messages.1050023": "Váš účet spravuje vaša organizácia. Ak chcete zmeniť tieto nastavenia, kontaktujte správcu vašej organizácie.",
-  "identities.messages.4000045": "Tento kľúč DeviceAuthn už nie je možné použiť, pretože uvoľnené overenie vypršalo alebo bolo zakázané. Zaregistrujte svoje zariadenie znova."
+  "identities.messages.4000045": "Tento kľúč DeviceAuthn už nie je možné použiť, pretože uvoľnené overenie vypršalo alebo bolo zakázané. Zaregistrujte svoje zariadenie znova.",
+  "identities.messages.4000046": "Tento kľúč DeviceAuthn bol zaregistrovaný pred zavedením overenia používateľa a už ho nie je možné použiť. Zaregistrujte svoje zariadenie znova."
 }

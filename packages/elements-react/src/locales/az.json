@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Təqdim edilən DeviceAuthn imzası etibarsızdır.",
   "identities.messages.4050002": "Eyni vaxtda yalnız bir ünvana dəyişiklik edə bilərsiniz. Zəhmət olmasa, hər bir ünvana ayrı-ayrı olaraq düzəliş edin.",
   "identities.messages.1050023": "Sizin hesabınız təşkilatınız tərəfindən idarə edilir. Bu parametrləri dəyişdirmək üçün təşkilatınızın administratoru ilə əlaqə saxlayın.",
-  "identities.messages.4000045": "Bu DeviceAuthn açarı artıq istifadə oluna bilməz, çünki yumşaldılmış attestasiyanın müddəti bitib və ya o deaktiv edilib. Zəhmət olmasa, cihazınızı yenidən qeydiyyatdan keçirin."
+  "identities.messages.4000045": "Bu DeviceAuthn açarı artıq istifadə oluna bilməz, çünki yumşaldılmış attestasiyanın müddəti bitib və ya o deaktiv edilib. Zəhmət olmasa, cihazınızı yenidən qeydiyyatdan keçirin.",
+  "identities.messages.4000046": "Bu DeviceAuthn açarı istifadəçi doğrulaması tətbiq olunmazdan əvvəl qeydiyyatdan keçirilib və artıq istifadə oluna bilməz. Zəhmət olmasa, cihazınızı yenidən qeydiyyatdan keçirin."
 }

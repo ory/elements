@@ -260,5 +260,6 @@
   "identities.messages.4000044": "La firma de autenticación de dispositivos proporcionada no es válida.",
   "identities.messages.4050002": "Solo puede modificar una dirección a la vez. Por favor, actualice cada dirección por separado.",
   "identities.messages.1050023": "Su cuenta es gestionada por su organización. Para modificar estas opciones, póngase en contacto con el administrador de su organización.",
-  "identities.messages.4000045": "Esta clave de autenticación de dispositivo ya no se puede usar porque la atestación flexible ha caducado o está deshabilitada. Vuelva a registrar su dispositivo."
+  "identities.messages.4000045": "Esta clave de autenticación de dispositivo ya no se puede usar porque la atestación flexible ha caducado o está deshabilitada. Vuelva a registrar su dispositivo.",
+  "identities.messages.4000046": "Esta clave de autenticación de dispositivo se registró antes de que se introdujera la verificación de usuario y ya no se puede usar. Vuelva a registrar su dispositivo."
 }

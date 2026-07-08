@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Saaxiga la bixiyay ee DeviceAuthn waa mid aan sax aheyn.",
   "identities.messages.4050002": "Waxaad wax ka beddeli kartaa cinwaan keliya mar walba. Fadlan, cusboonaysii cinwaan kasta si gaar ah.",
   "identities.messages.1050023": "Koontadaada waxaa maamula hay’addaada. Si aad u beddesho dejimahan, la xidhiidh maamulaha hay’addaada.",
-  "identities.messages.4000045": "Furahaan DeviceAuthn lama isticmaali karo mar dambe, sababtoo ah xaqiijinta la deggaaneeyay way dhacday ama waa la damiyay. Fadlan diiwaangeli aaladaada mar kale."
+  "identities.messages.4000045": "Furahaan DeviceAuthn lama isticmaali karo mar dambe, sababtoo ah xaqiijinta la deggaaneeyay way dhacday ama waa la damiyay. Fadlan diiwaangeli aaladaada mar kale.",
+  "identities.messages.4000046": "Furahaan DeviceAuthn waxaa la diiwaangeliyay ka hor inta aan la soo bandhigin xaqiijinta isticmaalaha, mar dambena lama isticmaali karo. Fadlan diiwaangeli aaladaada mar kale."
 }

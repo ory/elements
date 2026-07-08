@@ -260,5 +260,6 @@
   "identities.messages.4000044": "A megadott DeviceAuthn aláírás érvénytelen.",
   "identities.messages.4050002": "Egyszerre csak egy címet lehet módosítani. Kérjük, minden címet külön-külön frissítsen.",
   "identities.messages.1050023": "A felhasználói fiókját a szervezete kezeli. Ha módosítani szeretné ezeket a beállításokat, vegye fel a kapcsolatot a szervezet rendszergazdájával.",
-  "identities.messages.4000045": "Ez a DeviceAuthn-kulcs többé nem használható, mert az enyhített tanúsítás lejárt vagy le van tiltva. Kérjük, regisztrálja újra az eszközét."
+  "identities.messages.4000045": "Ez a DeviceAuthn-kulcs többé nem használható, mert az enyhített tanúsítás lejárt vagy le van tiltva. Kérjük, regisztrálja újra az eszközét.",
+  "identities.messages.4000046": "Ezt a DeviceAuthn-kulcsot a felhasználó-ellenőrzés bevezetése előtt regisztrálták, ezért többé nem használható. Kérjük, regisztrálja újra az eszközét."
 }

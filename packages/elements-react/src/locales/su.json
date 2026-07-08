@@ -260,5 +260,6 @@
   "identities.messages.4000044": "Tanda tangan DeviceAuthn anu disadiakeun henteu valid.",
   "identities.messages.4050002": "Anjeun ngan bisa ngarobih hiji alamat unggal waktos. Tolong paranyata unggal alamat sacara misah.",
   "identities.messages.1050023": "Akun anjeun diatur ku organisasi anjeun. Pikeun ngarobih setélan ieu, hubungi administrator organisasi anjeun.",
-  "identities.messages.4000045": "Konci DeviceAuthn ieu teu tiasa dianggo deui kusabab attestation anu dilonggarkeun parantos kadaluwarsa atanapi dipareuman. Mangga daptarkeun deui alat anjeun."
+  "identities.messages.4000045": "Konci DeviceAuthn ieu teu tiasa dianggo deui kusabab attestation anu dilonggarkeun parantos kadaluwarsa atanapi dipareuman. Mangga daptarkeun deui alat anjeun.",
+  "identities.messages.4000046": "Konci DeviceAuthn ieu didaptarkeun samemeh verifikasi pangguna diwanohkeun sarta teu tiasa dianggo deui. Mangga daptarkeun deui alat anjeun."
 }

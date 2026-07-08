@@ -260,5 +260,6 @@
   "identities.messages.4000044": "제공된 DeviceAuthn 서명이 유효하지 않습니다.",
   "identities.messages.4050002": "한 번에 주소 하나만 변경할 수 있습니다. 각 주소를 따로 업데이트해 주세요.",
   "identities.messages.1050023": "귀하의 계정은 귀하의 조직에서 관리합니다. 설정을 변경하려면 조직 관리자에게 문의하십시오.",
-  "identities.messages.4000045": "완화된 증명이 만료되었거나 비활성화되어 이 DeviceAuthn 키를 더 이상 사용할 수 없습니다. 기기를 다시 등록해 주세요."
+  "identities.messages.4000045": "완화된 증명이 만료되었거나 비활성화되어 이 DeviceAuthn 키를 더 이상 사용할 수 없습니다. 기기를 다시 등록해 주세요.",
+  "identities.messages.4000046": "이 DeviceAuthn 키는 사용자 확인이 도입되기 전에 등록되어 더 이상 사용할 수 없습니다. 기기를 다시 등록해 주세요."
 }

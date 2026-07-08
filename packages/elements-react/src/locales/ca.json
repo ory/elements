@@ -260,5 +260,6 @@
   "identities.messages.4000044": "La signatura DeviceAuthn proporcionada no és vàlida.",
   "identities.messages.4050002": "Només podeu modificar una adreça a la vegada. Si us plau, actualitzeu cada adreça per separat.",
   "identities.messages.1050023": "El vostre compte està gestionat per la vostra organització. Per canviar aquests paràmetres, poseu-vos en contacte amb l’administrador de la vostra organització.",
-  "identities.messages.4000045": "Aquesta clau DeviceAuthn ja no es pot utilitzar perquè l'atestació flexible ha caducat o s'ha desactivat. Torneu a registrar el vostre dispositiu."
+  "identities.messages.4000045": "Aquesta clau DeviceAuthn ja no es pot utilitzar perquè l'atestació flexible ha caducat o s'ha desactivat. Torneu a registrar el vostre dispositiu.",
+  "identities.messages.4000046": "Aquesta clau DeviceAuthn es va registrar abans que s'introduís la verificació de l'usuari i ja no es pot utilitzar. Torneu a registrar el vostre dispositiu."
 }

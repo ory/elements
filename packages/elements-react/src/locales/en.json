@@ -260,5 +260,6 @@
   "identities.messages.4000044": "The provided DeviceAuthn signature is invalid.",
   "identities.messages.4050002": "You can only change one address at a time. Please update each address separately.",
   "identities.messages.1050023": "Your account is managed by your organization. To change these settings, contact your organization administrator.",
-  "identities.messages.4000045": "This DeviceAuthn key can no longer be used because relaxed attestation is expired or disabled. Please enroll your device again."
+  "identities.messages.4000045": "This DeviceAuthn key can no longer be used because relaxed attestation is expired or disabled. Please enroll your device again.",
+  "identities.messages.4000046": "This DeviceAuthn key was enrolled before user verification was introduced and can no longer be used. Please enroll your device again."
 }

@@ -260,5 +260,6 @@
   "identities.messages.4000044": "La firma DeviceAuthn fornita non è valida.",
   "identities.messages.4050002": "È possibile modificare un solo indirizzo alla volta. Si prega di aggiornare ogni indirizzo separatamente.",
   "identities.messages.1050023": "Il tuo account è gestito dalla tua organizzazione. Per modificare queste impostazioni, contatta l’amministratore della tua organizzazione.",
-  "identities.messages.4000045": "Questa chiave DeviceAuthn non può più essere utilizzata perché l'attestazione flessibile è scaduta o è stata disattivata. Registra di nuovo il tuo dispositivo."
+  "identities.messages.4000045": "Questa chiave DeviceAuthn non può più essere utilizzata perché l'attestazione flessibile è scaduta o è stata disattivata. Registra di nuovo il tuo dispositivo.",
+  "identities.messages.4000046": "Questa chiave DeviceAuthn è stata registrata prima dell'introduzione della verifica dell'utente e non può più essere utilizzata. Registra di nuovo il tuo dispositivo."
 }

@@ -147,17 +147,50 @@ describe("handleContinueWith", () => {
     expect(onRedirectMock).not.toHaveBeenCalled()
   })
 
-  it("should throw an error for unknown action", () => {
+  it("should skip an unknown action gracefully without throwing", () => {
+    const warnSpy = jest.spyOn(console, "warn").mockImplementation(() => {})
+    // e.g. the device-targeted show_pin_entry_ui action, whose
+    // HPKE-sealed payload only a native client can consume.
     const continueWith = [
       {
-        action: "unknown_action",
+        action: "show_pin_entry_ui",
       },
     ] as unknown as ContinueWith[]
 
-    expect(() => {
-      handleContinueWith(continueWith, { onRedirect: onRedirectMock })
-    }).toThrow(/Unknown action:/)
+    const result = handleContinueWith(continueWith, {
+      onRedirect: onRedirectMock,
+    })
+    expect(result).toBe(false)
     expect(onRedirectMock).not.toHaveBeenCalled()
+    expect(warnSpy).toHaveBeenCalled()
+    warnSpy.mockRestore()
+  })
+
+  it("should deprioritize an unknown action below a known one", () => {
+    const warnSpy = jest.spyOn(console, "warn").mockImplementation(() => {})
+    const continueWith = [
+      {
+        action: "show_pin_entry_ui",
+      },
+      {
+        action: ContinueWithSettingsUiActionEnum.ShowSettingsUi,
+        flow: {
+          id: "settings-id",
+        },
+      },
+    ] as unknown as ContinueWith[]
+
+    const result = handleContinueWith(continueWith, {
+      onRedirect: onRedirectMock,
+    })
+    // The known action wins even though the unknown one is listed first.
+    expect(result).toBe(true)
+    expect(onRedirectMock).toHaveBeenCalledWith(
+      "/settings?flow=settings-id",
+      false,
+    )
+    expect(warnSpy).not.toHaveBeenCalled()
+    warnSpy.mockRestore()
   })
 
   it("should pick the highest priority action", () => {
