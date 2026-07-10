@@ -15,7 +15,7 @@ import { FormState } from "../../../context"
 import { uiTextToFormattedMessage } from "../../../util"
 import { kratosMessages } from "../../../util/i18n/generated/kratosMessages"
 import { resolveLabel } from "../../../util/nodes"
-import { findNode } from "../../../util/ui"
+import { findCodeChannel, findNode } from "../../../util/ui"
 
 function joinWithCommaOr(list: string[], orText = "or"): string {
   if (list.length === 0) {
@@ -72,6 +72,13 @@ const loginSubtitles = defineMessages<string>({
   [UiNodeGroupEnum.LookupSecret]: {
     id: "login.lookup_secret.subtitle",
     defaultMessage: "Please enter one of your 8-digit backup recovery codes",
+  },
+})
+
+const loginSubtitlesSms = defineMessages({
+  code: {
+    id: "login.code.subtitle.sms",
+    defaultMessage: "A verification code will be sent by SMS",
   },
 })
 
@@ -150,33 +157,55 @@ export function useCardHeaderText(
           defaultMessage: "Update your account settings",
         }),
       }
-    case FlowType.Verification:
+    case FlowType.Verification: {
       if (
         nodes.find(
           (node) =>
             "name" in node.attributes && node.attributes.name === "code",
         )
       ) {
+        // Kratos replaces the "sent" message with a phone-specific one when
+        // the code was delivered via SMS. If the user submits a wrong code,
+        // Kratos clears the flow messages and replaces them with an error,
+        // so fall back to the resend node's address format to keep showing
+        // the SMS wording.
+        const sentViaSms =
+          container.messages?.some((m) => m.id === 1080004) ||
+          findCodeChannel(nodes) === "sms"
         return {
           title: intl.formatMessage({
             id: "verification.title",
             defaultMessage: "Verify your account",
           }),
-          description: intl.formatMessage(kratosMessages[1080003]),
-          messageId: "1080003",
+          description: intl.formatMessage(
+            kratosMessages[sentViaSms ? 1080004 : 1080003],
+          ),
+          messageId: sentViaSms ? "1080004" : "1080003",
         }
       }
+      // With an SMS courier channel configured, Kratos labels the input
+      // "Email or phone number" (message 1070018).
+      const acceptsPhone = nodes.some(
+        (node) => node.meta?.label?.id === 1070018,
+      )
       return {
         title: intl.formatMessage({
           id: "verification.title",
           defaultMessage: "Verify your account",
         }),
-        description: intl.formatMessage({
-          id: "verification.subtitle",
-          defaultMessage:
-            "Enter the email address associated with your account to verify it",
-        }),
+        description: acceptsPhone
+          ? intl.formatMessage({
+              id: "verification.subtitle.email-or-phone",
+              defaultMessage:
+                "Enter the email address or phone number associated with your account to verify it",
+            })
+          : intl.formatMessage({
+              id: "verification.subtitle",
+              defaultMessage:
+                "Enter the email address associated with your account to verify it",
+            }),
       }
+    }
     case FlowType.Login: {
       // account linking
       const accountLinkingMessage = container.messages?.find(
@@ -374,7 +403,12 @@ export function useCardHeaderText(
         const description = codeSent
           ? intl.formatMessage(kratosMessages[1010025])
           : opts.formState?.current === "method_active"
-            ? intl.formatMessage(loginSubtitles[opts.formState.method])
+            ? intl.formatMessage(
+                opts.formState.method === "code" &&
+                  findCodeChannel(nodes) === "sms"
+                  ? loginSubtitlesSms.code
+                  : loginSubtitles[opts.formState.method],
+              )
             : intl.formatMessage({
                 id: "login.subtitle-aal2",
                 defaultMessage:

@@ -5,6 +5,7 @@ import {
   isUiNodeInputAttributes,
   isUiNodeScriptAttributes,
   UiNode,
+  UiText,
 } from "@ory/client-fetch"
 
 import type {
@@ -376,4 +377,95 @@ export function findCodeIdentifierNode(
       node_type: "input",
       name: "address",
     })) as UiNodeInput | undefined
+}
+
+/** The delivery channel used to send a one-time code, either email or SMS. */
+export type CodeChannel = "email" | "sms"
+
+// Matches phone numbers in international format, including values that
+// Kratos masks with asterisks (e.g. "+4746****87").
+const phoneAddressPattern = /^\+[0-9*][0-9 *().-]{3,}$/
+
+function channelFromLabel(label?: UiText): CodeChannel | undefined {
+  if (
+    label?.id === 1010023 &&
+    label.context &&
+    typeof label.context === "object" &&
+    "channel" in label.context &&
+    (label.context.channel === "email" || label.context.channel === "sms")
+  ) {
+    return label.context.channel
+  }
+  return undefined
+}
+
+/**
+ * Classifies a raw address value as email or SMS based on its format.
+ *
+ * @param value - the address value to classify
+ */
+function channelFromAddressValue(value: unknown): CodeChannel | undefined {
+  if (typeof value !== "string") {
+    return undefined
+  }
+  if (value.includes("@")) {
+    return "email"
+  }
+  if (phoneAddressPattern.test(value.trim())) {
+    return "sms"
+  }
+  return undefined
+}
+
+/**
+ * Determines the delivery channel of the one-time code method, if it can be
+ * inferred from the flow's UI nodes.
+ *
+ * Kratos attaches the channel to the "Send code to {address}" node label
+ * (message 1010023) on second factor and refresh login flows. On
+ * identifier-first flows the channel is not part of the payload, so this
+ * falls back to the format of the identifier the user typed.
+ *
+ * @param nodes - the UI nodes of the current flow
+ * @returns the inferred delivery channel, or undefined if it cannot be determined
+ */
+export function findCodeChannel(nodes: UiNode[]): CodeChannel | undefined {
+  const identifierNode = findCodeIdentifierNode(nodes)
+
+  const fromIdentifierLabel = channelFromLabel(identifierNode?.meta?.label)
+  if (fromIdentifierLabel) {
+    return fromIdentifierLabel
+  }
+
+  // After the code was sent, Kratos renames the address node to a hidden
+  // "identifier" input but keeps its label, so scan all node labels.
+  for (const node of nodes) {
+    const channel = channelFromLabel(node.meta?.label)
+    if (channel) {
+      return channel
+    }
+  }
+
+  const fromIdentifierValue = channelFromAddressValue(
+    identifierNode?.attributes.value,
+  )
+  if (fromIdentifierValue) {
+    return fromIdentifierValue
+  }
+
+  // On verification flows, once a wrong code is submitted, Kratos clears the
+  // flow messages (including the 1010023 label above) and replaces them with
+  // an error. The only remaining signal is the resend submit node, which
+  // Kratos always names "email" (group "code") even when the address is a
+  // phone number, so classify its value the same way as the identifier node.
+  // Matching on type "submit" avoids picking up the recovery flow's email
+  // text input, which shares the same group and name but echoes raw user
+  // input.
+  const resendNode = findNode(nodes, {
+    node_type: "input",
+    group: "code",
+    name: "email",
+    type: "submit",
+  })
+  return channelFromAddressValue(resendNode?.attributes.value)
 }

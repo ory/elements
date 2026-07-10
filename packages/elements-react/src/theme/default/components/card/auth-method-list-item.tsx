@@ -12,7 +12,11 @@ import { useEffect, useState } from "react"
 import { defineMessages, useIntl } from "react-intl"
 import { useEventListener, useTimeout } from "usehooks-ts"
 import { kratosMessages } from "../../../../util/i18n/generated/kratosMessages"
-import { findCodeIdentifierNode, triggerToFunction } from "../../../../util/ui"
+import {
+  findCodeChannel,
+  findCodeIdentifierNode,
+  triggerToFunction,
+} from "../../../../util/ui"
 import AlertIcon from "../../assets/icons/alert-triangle.svg"
 import lookup_secret from "../../assets/icons/code-asterix.svg"
 import code from "../../assets/icons/code.svg"
@@ -21,6 +25,7 @@ import {
   default as passkey,
 } from "../../assets/icons/passkey.svg"
 import password from "../../assets/icons/password.svg"
+import phone from "../../assets/icons/phone.svg"
 import totp from "../../assets/icons/totp.svg"
 import webauthn from "../../assets/icons/webauthn.svg"
 import logos from "../../provider-logos"
@@ -92,6 +97,13 @@ export const descriptions = defineMessages<string>({
   },
 })
 
+const smsCodeMessages = defineMessages({
+  description: {
+    id: "two-step.code.description.sms",
+    defaultMessage: "A verification code will be sent to your phone",
+  },
+})
+
 // TODO: change group to UiNodeGroupEnum throughout
 function formatTitle(
   group: string,
@@ -118,8 +130,11 @@ export function DefaultAuthMethodListItem({
   disabled,
 }: OryCardAuthMethodListItemProps) {
   const intl = useIntl()
-  const Icon = iconsMap[group] || null
   const { flow } = useOryFlow()
+
+  const codeChannel =
+    group === "code" ? findCodeChannel(flow.ui.nodes) : undefined
+  const Icon = codeChannel === "sms" ? phone : iconsMap[group] || null
 
   if (group === "passkey") {
     const passkeyNode = findPasskeyNode(flow)
@@ -141,7 +156,9 @@ export function DefaultAuthMethodListItem({
       icon={Icon}
       title={formatTitle(group, flow.ui.nodes, intl)}
       description={intl.formatMessage(
-        descriptions[group] ?? fallbackDescription,
+        codeChannel === "sms"
+          ? smsCodeMessages.description
+          : (descriptions[group] ?? fallbackDescription),
       )}
       onClick={onClick}
       type={isGroupImmediateSubmit(group) ? "submit" : "button"}
