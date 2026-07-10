@@ -31,6 +31,8 @@ tests-dist/
 
 storybook-static
 
+packages/client-fetch/
+
 pnpm-lock.yaml
 /test-results/
 .nx

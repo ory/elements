@@ -11,6 +11,7 @@ docs
 .cache
 
 # Generated files
+packages/client-fetch
 CHANGELOG.md
 **/api-report/*
 .changeset/
