@@ -4,12 +4,12 @@
 import { OryClientConfiguration } from "@ory/elements-react"
 import {
   LoginFlow,
+  LoginFlowActiveEnum,
   LoginFlowFromJSON,
   RegistrationFlow,
   SettingsFlow,
   UiNodeGroupEnum,
 } from "@ory/client-fetch"
-import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 export const config: OryClientConfiguration = {
   sdk: {

@@ -1,11 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { LoginFlowFromJSON } from "@ory/client-fetch"
+import { LoginFlowActiveEnum, LoginFlowFromJSON } from "@ory/client-fetch"
 import type { Meta, StoryObj } from "@storybook/react"
 import { config, patchMethodActive } from "../../../utils"
 import { Login } from "../../../../src/theme/default"
-import { LoginFlowActiveEnum } from "@ory/client-fetch/src/models/LoginFlow"
 
 const meta = {
   title: "Ory Elements/Login/Second Factor/Refresh/All Methods",

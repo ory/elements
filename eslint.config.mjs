@@ -14,7 +14,6 @@ import path from "node:path"
 const config = tseslint.config([
   {
     ignores: [
-      "**/packages/client-fetch/**",
       "**/assets/*.js",
       "**/.storybook/**",
       "**/dist/**",

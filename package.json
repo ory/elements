@@ -109,7 +109,6 @@
   },
   "workspaces": [
     "packages/*",
-    "!packages/client-fetch",
     "examples/*",
     "scripts/*"
   ],

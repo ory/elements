@@ -11,8 +11,8 @@ import {
   FetchError,
   ErrorGeneric,
   ContinueWith,
+  type GenericErrorContent,
 } from "@ory/client-fetch"
-import type { GenericErrorContent } from "@ory/client-fetch/src/models/GenericErrorContent"
 
 export function isGenericErrorResponse(
   response: unknown,

@@ -1,13 +1,12 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, handleFlowError } from "@ory/client-fetch"
+import { FlowType, handleFlowError, type ApiResponse } from "@ory/client-fetch"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useSearchParams } from "next/navigation"
 import { handleRestartFlow, onValidationError, useOnRedirect } from "./utils"
 import { toValue } from "../utils/utils"
-import * as runtime from "@ory/client-fetch/src/runtime"
 
 interface Flow {
   id: string
@@ -15,8 +14,8 @@ interface Flow {
 
 export function createUseFlowFactory<T extends Flow>(
   flowType: FlowType,
-  createFlow: (params: URLSearchParams) => Promise<runtime.ApiResponse<T>>,
-  getFlow: (id: string) => Promise<runtime.ApiResponse<T>>,
+  createFlow: (params: URLSearchParams) => Promise<ApiResponse<T>>,
+  getFlow: (id: string) => Promise<ApiResponse<T>>,
 ): () => T | null | void {
   return () => {
     const [flow, setFlow] = useState<T>()
