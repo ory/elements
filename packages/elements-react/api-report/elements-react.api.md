@@ -21,7 +21,7 @@ import { MouseEventHandler } from 'react';
 import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import { OnRedirectHandler } from '@ory/client-fetch';
 import { PropsWithChildren } from 'react';
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 import { ReactNode } from 'react';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
@@ -200,7 +200,7 @@ export type OnSubmitHandlerProps<T extends UpdateLoginFlowBody | UpdateRegistrat
 };
 
 // @public
-export function OryCard(input: PropsWithChildren): react_jsx_runtime.JSX.Element;
+export function OryCard(input: PropsWithChildren): react.JSX.Element;
 
 // @public
 export type OryCardAuthMethodListItemProps = {
@@ -210,7 +210,7 @@ export type OryCardAuthMethodListItemProps = {
 };
 
 // @public
-export function OryCardContent(input: OryCardContentProps): react_jsx_runtime.JSX.Element;
+export function OryCardContent(input: OryCardContentProps): react.JSX.Element;
 
 // @public
 export type OryCardContentProps = PropsWithChildren;
@@ -219,13 +219,13 @@ export type OryCardContentProps = PropsWithChildren;
 export type OryCardDividerProps = Record<string, never>;
 
 // @public (undocumented)
-export function OryCardFooter(): react_jsx_runtime.JSX.Element;
+export function OryCardFooter(): react.JSX.Element;
 
 // @public (undocumented)
 export type OryCardFooterProps = Record<string, never>;
 
 // @public
-export function OryCardHeader(): react_jsx_runtime.JSX.Element;
+export function OryCardHeader(): react.JSX.Element;
 
 // @public (undocumented)
 export type OryCardHeaderProps = Record<string, never>;
@@ -247,7 +247,7 @@ export interface OryCardSettingsSectionProps extends PropsWithChildren {
 }
 
 // @public
-export function OryCardValidationMessages(input: OryCardValidationMessagesProps): react_jsx_runtime.JSX.Element | null;
+export function OryCardValidationMessages(input: OryCardValidationMessagesProps): react.JSX.Element | null;
 
 // @public
 export interface OryCardValidationMessagesProps {
@@ -267,10 +267,10 @@ export interface OryClientConfiguration {
 // Warning: (ae-forgotten-export) The symbol "OryConfigurationProviderProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function OryConfigurationProvider(input: OryConfigurationProviderProps): react_jsx_runtime.JSX.Element;
+export function OryConfigurationProvider(input: OryConfigurationProviderProps): react.JSX.Element;
 
 // @public
-export function OryConsentCard(): react_jsx_runtime.JSX.Element;
+export function OryConsentCard(): react.JSX.Element;
 
 // @public
 export type OryConsentSuccessEvent = {
@@ -369,10 +369,10 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer | ConsentFlowContainer;
 
 // @public
-export function OryForm(input: OryFormProps): react_jsx_runtime.JSX.Element;
+export function OryForm(input: OryFormProps): react.JSX.Element;
 
 // @public
-export function OryFormGroupDivider(): react_jsx_runtime.JSX.Element | null;
+export function OryFormGroupDivider(): react.JSX.Element | null;
 
 // @public
 export type OryFormGroupProps = PropsWithChildren;
@@ -405,10 +405,10 @@ export interface OryFormSectionProps extends PropsWithChildren, OrySettingsFormP
 }
 
 // @public
-export function OryFormSsoButtons(): react_jsx_runtime.JSX.Element | null;
+export function OryFormSsoButtons(): react.JSX.Element | null;
 
 // @public
-export function OryFormSsoForm(): react_jsx_runtime.JSX.Element | null;
+export function OryFormSsoForm(): react.JSX.Element | null;
 
 // @public (undocumented)
 export type OryFormSsoRootProps = PropsWithChildren<{
@@ -564,13 +564,13 @@ export type OryNodeTextProps = {
 };
 
 // @public
-export const OryPageHeader: () => react_jsx_runtime.JSX.Element;
+export const OryPageHeader: () => react.JSX.Element;
 
 // @public (undocumented)
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public
-export function OryProvider(input: OryProviderProps): react_jsx_runtime.JSX.Element;
+export function OryProvider(input: OryProviderProps): react.JSX.Element;
 
 // @public
 export type OryProviderProps = {
@@ -599,16 +599,16 @@ export type OryRegistrationSuccessEvent = {
 };
 
 // @public
-export function OrySelfServiceFlowCard(): react_jsx_runtime.JSX.Element;
+export function OrySelfServiceFlowCard(): react.JSX.Element;
 
 // @public
-export function OrySettingsCard(): react_jsx_runtime.JSX.Element;
+export function OrySettingsCard(): react.JSX.Element;
 
 // @public
 export type OrySettingsFormProps = Omit<ComponentPropsWithoutRef<"form">, "action" | "method" | "onSubmit">;
 
 // @public
-export function OrySettingsFormSection(input: OryFormSectionProps): react_jsx_runtime.JSX.Element;
+export function OrySettingsFormSection(input: OryFormSectionProps): react.JSX.Element;
 
 // @public (undocumented)
 export type OrySettingsPasskeyProps = {

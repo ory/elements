@@ -19,7 +19,6 @@ import { MouseEventHandler } from 'react';
 import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import { PropsWithChildren } from 'react';
 import * as react from 'react';
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
 import { SelfServiceFlowExpiredError } from '@ory/client-fetch';
@@ -34,7 +33,7 @@ import { UiText } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
-export function Consent(input: ConsentFlowProps): react_jsx_runtime.JSX.Element;
+export function Consent(input: ConsentFlowProps): react.JSX.Element;
 
 // @public
 export type ConsentFlowProps = {
@@ -52,18 +51,18 @@ export type ConsentFlowProps = {
 // Warning: (ae-forgotten-export) The symbol "DefaultSocialButtonProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultButtonSocial(input: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
+export function DefaultButtonSocial(input: DefaultSocialButtonProps): react.JSX.Element;
 
 // @public (undocumented)
 export namespace DefaultButtonSocial {
     var // (undocumented)
-    WithLogos: (logos: Record<string, ElementType>) => (props: DefaultSocialButtonProps) => react_jsx_runtime.JSX.Element;
+    WithLogos: (logos: Record<string, ElementType>) => (props: DefaultSocialButtonProps) => react.JSX.Element;
 }
 
 // Warning: (ae-forgotten-export) The symbol "OryCardRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultCard(input: OryCardRootProps & ComponentPropsWithoutRef<"div">): react_jsx_runtime.JSX.Element;
+export function DefaultCard(input: OryCardRootProps & ComponentPropsWithoutRef<"div">): react.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryCardContentProps" needs to be exported by the entry point index.d.ts
 //
@@ -71,32 +70,32 @@ export function DefaultCard(input: OryCardRootProps & ComponentPropsWithoutRef<"
 export function DefaultCardContent(input: OryCardContentProps): react.ReactNode;
 
 // @public
-export function DefaultCardFooter(): react_jsx_runtime.JSX.Element | null;
+export function DefaultCardFooter(): react.JSX.Element | null;
 
 // @public
-export function DefaultCardHeader(): react_jsx_runtime.JSX.Element;
+export function DefaultCardHeader(): react.JSX.Element;
 
 // @public
-export function DefaultCardLogo(): react_jsx_runtime.JSX.Element;
+export function DefaultCardLogo(): react.JSX.Element;
 
 // @public
-export function DefaultCurrentIdentifierButton(): react_jsx_runtime.JSX.Element | null;
+export function DefaultCurrentIdentifierButton(): react.JSX.Element | null;
 
 // Warning: (ae-forgotten-export) The symbol "OryFormRootProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultFormContainer(input: PropsWithChildren<OryFormRootProps>): react_jsx_runtime.JSX.Element;
+export function DefaultFormContainer(input: PropsWithChildren<OryFormRootProps>): react.JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "OryMessageContentProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function DefaultMessage(input: OryMessageContentProps): react_jsx_runtime.JSX.Element;
+export function DefaultMessage(input: OryMessageContentProps): react.JSX.Element;
 
 // @public
-export function DefaultMessageContainer(input: PropsWithChildren): react_jsx_runtime.JSX.Element | null;
+export function DefaultMessageContainer(input: PropsWithChildren): react.JSX.Element | null;
 
 // @public
-function Error_2(input: ErrorFlowContextProps): react_jsx_runtime.JSX.Element;
+function Error_2(input: ErrorFlowContextProps): react.JSX.Element;
 export { Error_2 as Error }
 
 // @public
@@ -113,7 +112,7 @@ export type ErrorFlowContextProps = {
 export function getOryComponents(overrides?: OryFlowComponentOverrides): OryFlowComponents;
 
 // @public
-export function Login(input: LoginFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Login(input: LoginFlowContextProps): react.JSX.Element;
 
 // @public
 export type LoginFlowContextProps = {
@@ -141,7 +140,7 @@ export type OryError = {
 });
 
 // @public
-export function Recovery(input: RecoveryFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Recovery(input: RecoveryFlowContextProps): react.JSX.Element;
 
 // @public
 export type RecoveryFlowContextProps = {
@@ -158,10 +157,10 @@ export type RecoveryFlowContextProps = {
 // Warning: (ae-forgotten-export) The symbol "RegistrationFlowContextProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function Registration(input: RegistrationFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Registration(input: RegistrationFlowContextProps): react.JSX.Element;
 
 // @public
-export function Settings(input: SettingsFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Settings(input: SettingsFlowContextProps): react.JSX.Element;
 
 // @public
 export type SettingsFlowContextProps = {
@@ -176,7 +175,7 @@ export type SettingsFlowContextProps = {
 } & Omit<ComponentPropsWithoutRef<"div">, "onError">;
 
 // @public
-export function Verification(input: VerificationFlowContextProps): react_jsx_runtime.JSX.Element;
+export function Verification(input: VerificationFlowContextProps): react.JSX.Element;
 
 // @public
 export type VerificationFlowContextProps = {
@@ -192,12 +191,12 @@ export type VerificationFlowContextProps = {
 
 // Warnings were encountered during analysis:
 //
-// dist/theme/default/index.d.ts:235:5 - (ae-forgotten-export) The symbol "OryValidationErrorHandler" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:250:5 - (ae-forgotten-export) The symbol "OryTransientPayload" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:557:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:580:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:592:5 - (ae-forgotten-export) The symbol "OrySuccessHandler" needs to be exported by the entry point index.d.ts
-// dist/theme/default/index.d.ts:598:5 - (ae-forgotten-export) The symbol "OryErrorHandler" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:234:5 - (ae-forgotten-export) The symbol "OryValidationErrorHandler" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:249:5 - (ae-forgotten-export) The symbol "OryTransientPayload" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:556:5 - (ae-forgotten-export) The symbol "OryClientConfiguration" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:579:5 - (ae-forgotten-export) The symbol "OryFlowComponentOverrides" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:591:5 - (ae-forgotten-export) The symbol "OrySuccessHandler" needs to be exported by the entry point index.d.ts
+// dist/theme/default/index.d.ts:597:5 - (ae-forgotten-export) The symbol "OryErrorHandler" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

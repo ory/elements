@@ -20,19 +20,24 @@
   "bugs": {
     "url": "https://github.com/ory/elements/issues"
   },
-  "overrides": {
-    "koa": ">= 2.16.0",
-    "qs": ">=6.14.1",
-    "ts-jest": {
-      "handlebars": "4.7.9"
-    },
-    "axios": "1.16.0",
-    "postcss": "8.5.12",
-    "lodash": "$lodash",
-    "picomatch": "4.0.4",
-    "uuid": "$uuid",
-    "ws": "8.20.1",
-    "undici": "7.28.0"
+  "pnpm": {
+    "overrides": {
+      "koa": ">= 2.16.0",
+      "qs": ">=6.14.1",
+      "ts-jest>handlebars": "4.7.9",
+      "axios": "1.16.0",
+      "postcss": "8.5.12",
+      "lodash": "$lodash",
+      "picomatch": "4.0.4",
+      "uuid": "$uuid",
+      "ws": "8.20.1",
+      "undici": "7.28.0",
+      "react": "$react",
+      "react-dom": "$react-dom",
+      "@types/react": "$@types/react",
+      "@types/react-dom": "$@types/react-dom",
+      "typescript": "5.9.3"
+    }
   },
   "homepage": "https://github.com/ory/elements#readme",
   "devDependencies": {
@@ -66,8 +71,8 @@
     "@testing-library/react": "16.3.0",
     "@types/jest": "29.5.14",
     "@types/node": "^22",
-    "@types/react": "18.3.21",
-    "@types/react-dom": "18.3.7",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "@typescript-eslint/parser": "8.32.1",
     "eslint": "9.27.0",
@@ -78,14 +83,15 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "0.12.0",
     "eslint-plugin-tsdoc": "0.4.0",
+    "globals": "15.15.0",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "jest-transform-stub": "2.0.0",
     "license-checker": "25.0.1",
     "nx": "21.3.11",
     "prettier": "3.8.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "react-intl": "6.8.9",
     "storybook": "8.6.17",
     "storybook-addon-mock": "5.0.0",
@@ -104,14 +110,8 @@
     "dist/*"
   ],
   "engines": {
-    "node": ">=22.18.0",
-    "npm": ">=8.11.0"
+    "node": ">=22.18.0"
   },
-  "workspaces": [
-    "packages/*",
-    "examples/*",
-    "scripts/*"
-  ],
   "dependencies": {
     "lodash": "4.18.1",
     "next": "15.5.18",

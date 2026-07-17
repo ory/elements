@@ -8,14 +8,16 @@ export default {
   preset: "../../jest.preset.cjs",
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(ts|tsx)$": [
+    "^.+\\.(ts|tsx|js|mjs)$": [
       "ts-jest",
       { tsconfig: __dirname + "/tsconfig.spec.json" },
     ],
     ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
       "jest-transform-stub",
   },
-  transformIgnorePatterns: ["/node_modules/(?!(@marsidev/react-turnstile)/)"],
+  transformIgnorePatterns: [
+    "node_modules/(?!(\\.pnpm/@marsidev\\+react-turnstile|@marsidev/react-turnstile))",
+  ],
   collectCoverageFrom: [
     "src/**/*.ts",
     "src/**/*.tsx",

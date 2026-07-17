@@ -10,13 +10,17 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.4
       - uses: actions/setup-node@v5
         with:
           node-version: "22"
+          cache: "pnpm"
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       - uses: nrwl/nx-set-shas@v4
-      - run: npx nx run-many --all -t lint test build api-extractor
+      - run: pnpm exec nx run-many --all -t lint test build api-extractor
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5

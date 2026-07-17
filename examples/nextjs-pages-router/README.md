@@ -12,8 +12,8 @@ router.
 5. Set `ORY_PROJECT_API_TOKEN` in the `.env` file to your project's **API
    token**. You can create an
    [API key in the Ory Console](https://www.ory.com/docs/concepts/personal-access-token).
-6. Run `npm install`
-7. Run `npm run dev` and open navigate to http://localhost:3000
+6. Run `pnpm install --frozen-lockfile`
+7. Run `pnpm run dev` and open navigate to http://localhost:3000
 
 ### Deploying to Vercel
 
@@ -55,5 +55,5 @@ instance, you will need to disable TLS verification and set the
 `NEXT_PUBLIC_ORY_SDK_URL` to `https://<slug>.projects.oryapis:8080`:
 
 ```sh
-NODE_TLS_REJECT_UNAUTHORIZED=0 npm run dev
+NODE_TLS_REJECT_UNAUTHORIZED=0 pnpm run dev
 ```

@@ -3,25 +3,24 @@
 
 "use client"
 import { cn } from "../../../utils/cn"
-import { OTPInput, OTPInputContext } from "input-otp"
+import { OTPInput, OTPInputContext, type OTPInputProps } from "input-otp"
 import * as React from "react"
 
 // This file is a copy from https://ui.shadcn.com/docs/components/input-otp
 
-const InputOTP = React.forwardRef<
-  React.ElementRef<typeof OTPInput>,
-  React.ComponentPropsWithoutRef<typeof OTPInput>
->(({ className, containerClassName, ...props }, ref) => (
-  <OTPInput
-    ref={ref}
-    containerClassName={cn(
-      "flex items-center gap-2 has-disabled:opacity-50",
-      containerClassName,
-    )}
-    className={cn("disabled:cursor-not-allowed", className)}
-    {...props}
-  />
-))
+const InputOTP = React.forwardRef<HTMLInputElement, OTPInputProps>(
+  ({ className, containerClassName, ...props }, ref) => (
+    <OTPInput
+      ref={ref}
+      containerClassName={cn(
+        "flex items-center gap-2 has-disabled:opacity-50",
+        containerClassName,
+      )}
+      className={cn("disabled:cursor-not-allowed", className)}
+      {...props}
+    />
+  ),
+)
 InputOTP.displayName = "InputOTP"
 
 const InputOTPGroup = React.forwardRef<

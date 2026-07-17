@@ -31,7 +31,7 @@ available on every Ory Elements flow component.
 3. Start the app on a local port
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 4. Open the app at <http://localhost:3000> and use any authentication flow.

@@ -1,12 +1,12 @@
 # Developing @ory/elements-react
 
 Ory Elements is built inside this monorepo and hooked up to the other packages
-via nx and npm workspaces.
+via nx and pnpm workspaces.
 
 To start a hot reloading development mode:
 
 ```bash
-npx nx dev @ory/elements-react
+pnpm exec nx dev @ory/elements-react
 ```
 
 ## API Extractor
@@ -20,7 +20,7 @@ If the report would change, the CI fails. If that happens, you can re-generate
 all reports by running
 
 ```bash
-npx nx api-extractor-refresh @ory/elements-react
+pnpm exec nx api-extractor-refresh @ory/elements-react
 ```
 
 Inspect the resulting changes carefully, and make sure it is in line with what
@@ -32,7 +32,7 @@ Unit tests use Jest and react-testing-library. To run the tests locally,
 execute:
 
 ```bash
-npx nx build @ory/elements-react
+pnpm exec nx build @ory/elements-react
 ```
 
 ### Test selectors
@@ -51,13 +51,13 @@ Each flow has its own story in the `packages/elements-react-stories` package. To
 run the storybook development environment, execute:
 
 ```bash
-npx nx storybook @ory/elements-react
+pnpm exec nx storybook @ory/elements-react
 ```
 
 You can also build the Storybook using:
 
 ```bash
-npx nx build @ory/elements-react
+pnpm exec nx build @ory/elements-react
 ```
 
 The stories use stub responses
@@ -82,17 +82,17 @@ Ory Internal only: Run these command in a local clone of @ory/elements!
 :::
 
 ```shell
-npx nx build @ory/elements-react
-npx nx release -g elements 1.0.1-rc.0 --dry-run
+pnpm exec nx build @ory/elements-react
+pnpm exec nx release -g elements 1.0.1-rc.0 --dry-run
 # if okay:
-npx nx release -g elements 1.0.1-rc.0
+pnpm exec nx release -g elements 1.0.1-rc.0
 
 # or
 
-npx nx build @ory/nextjs
-npx nx release -g nextjs 1.0.1-rc.0 --dry-run
+pnpm exec nx build @ory/nextjs
+pnpm exec nx release -g nextjs 1.0.1-rc.0 --dry-run
 # if okay:
-npx nx release -g nextjs 1.0.1-rc.0
+pnpm exec nx release -g nextjs 1.0.1-rc.0
 ```
 
 Don't commit any of the results and just re-set git to the previous commit.

@@ -3,6 +3,10 @@
   "version": "0.0.0-unused",
   "license": "Apache License 2.0",
   "type": "commonjs",
+  "scripts": {
+    "build": "tsup --clean --dts",
+    "prepare": "pnpm run build"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -15,10 +19,14 @@
   },
   "devDependencies": {
     "@types/cookie": "^0.6.0",
+    "@types/react": "19.2.17",
     "@types/set-cookie-parser": "^2.4.10",
     "babel-jest": "^29.7.0",
     "jest-esm-transformer": "^1.0.0",
-    "tsup": "8.5.0"
+    "react": "19.2.7",
+    "tsup": "8.5.0",
+    "typedoc": "0.28.19",
+    "typescript": "5.9.3"
   },
   "keywords": [
     "ory",

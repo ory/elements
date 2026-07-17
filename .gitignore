@@ -31,7 +31,6 @@ tests-dist/
 
 storybook-static
 
-pnpm-lock.yaml
 /test-results/
 .nx
 coverage/

@@ -56,14 +56,19 @@ jobs:
         with:
           ref: ${{ inputs.commit || '' }}
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.4
+
       - uses: actions/setup-node@v6
         with:
           node-version: "24"
+          cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
           always-auth: true
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Resolve version
         run: |
@@ -80,11 +85,11 @@ jobs:
       - name: Set package version
         working-directory: ${{ matrix.package_dir }}
         run: |
-          npm version "${RELEASE_VERSION}" --no-git-tag-version \
+          pnpm version "${RELEASE_VERSION}" --no-git-tag-version \
             --allow-same-version
 
       - name: Build
-        run: npx nx run "${{ matrix.package }}:build"
+        run: pnpm exec nx run "${{ matrix.package }}:build"
 
       - name: Determine npm tag
         run: |
@@ -99,7 +104,7 @@ jobs:
       - name: Publish
         working-directory: ${{ matrix.package_dir }}
         run: |
-          npm publish --tag "${NPM_TAG}" --provenance --access public --dry-run=${{ env.DRY_RUN }}
+          pnpm publish --tag "${NPM_TAG}" --provenance --access public --dry-run=${{ env.DRY_RUN }} --no-git-checks
         if: |
           github.event_name == 'push' ||
           (github.event_name == 'workflow_dispatch' && (github.event.inputs.project == 'All' || github.event.inputs.project == matrix.package))

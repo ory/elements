@@ -4,7 +4,7 @@
 
 ```ts
 
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 import { Session } from '@ory/client-fetch';
 
 // @public
@@ -17,7 +17,7 @@ export type SessionContextData = {
 };
 
 // @public
-export function SessionProvider(input: SessionProviderProps): react_jsx_runtime.JSX.Element;
+export function SessionProvider(input: SessionProviderProps): react.JSX.Element;
 
 // @public (undocumented)
 export type SessionProviderProps = {

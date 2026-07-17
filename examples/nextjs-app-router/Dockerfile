@@ -2,10 +2,12 @@
 # "bookworm" is Debian 12.
 FROM node:24-bookworm AS builder
 
+RUN corepack enable && corepack prepare pnpm@10.34.4 --activate
+
 WORKDIR /workspace
 
 # Copy monorepo root manifests and NX config.
-COPY package.json package-lock.json nx.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml nx.json ./
 
 # Copy workspace packages needed to build @ory/elements-react and @ory/nextjs.
 COPY packages/ ./packages/
@@ -14,10 +16,10 @@ COPY packages/ ./packages/
 COPY examples/nextjs-app-router/ ./examples/nextjs-app-router/
 
 # Install all workspace dependencies.
-RUN npm ci
+RUN pnpm install --frozen-lockfile
 
 # Build the workspace packages the example depends on.
-RUN npx nx run-many -t build -p @ory/elements-react -p @ory/nextjs
+RUN pnpm exec nx run-many -t build -p @ory/elements-react -p @ory/nextjs
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
@@ -25,7 +27,7 @@ ENV NODE_ENV=production
 WORKDIR /workspace/examples/nextjs-app-router
 
 # Build the Next.js app in standalone mode.
-RUN npm run build
+RUN pnpm run build
 
 # ---- Runtime stage ----
 FROM gcr.io/distroless/nodejs22-debian12:debug-nonroot AS runner

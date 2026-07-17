@@ -1,6 +1,10 @@
 {
   "name": "@ory/elements-react",
   "version": "0.0.0-unused",
+  "scripts": {
+    "build": "tsup --clean --dts",
+    "prepare": "pnpm run build"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -65,15 +69,23 @@
     "@babel/preset-react": "^7.26.3",
     "@hookform/devtools": "4.4.0",
     "@svgr/plugin-svgo": "8.1.0",
+    "@tailwindcss/postcss": "4.2.1",
     "@types/lodash.merge": "4.6.9",
+    "@types/node": "22.17.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
     "autoprefixer": "10.4.21",
     "esbuild-plugin-svgr": "3.1.1",
     "eslint-plugin-react": "7.37.5",
     "postcss": "8.5.12",
     "postcss-scope": "^1.7.4",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwindcss": "4.2.1",
     "tailwindcss-animate": "1.0.7",
     "tsup": "8.4.0",
-    "typedoc": "0.28.19"
+    "typedoc": "0.28.19",
+    "typescript": "5.9.3"
   },
   "keywords": [
     "ory",

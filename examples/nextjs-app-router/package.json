@@ -9,16 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ory/elements-react": "*",
-    "@ory/nextjs": "*",
+    "@ory/elements-react": "workspace:*",
+    "@ory/nextjs": "workspace:*",
     "next": "15.5.18",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
     "eslint": "^9.25.0",
     "eslint-config-next": "15.5.9",
     "postcss": "^8",

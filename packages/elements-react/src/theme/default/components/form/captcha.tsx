@@ -26,7 +26,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
   const intl = useIntl()
   const { setValue } = useFormContext()
   const { dispatchFormState, formState } = useOryFlow()
-  const ref = useRef<TurnstileInstance>()
+  const ref = useRef<TurnstileInstance>(null)
   const [isInteractive, setInteractive] = useState(false)
   const [errorMessage, setErrorMessage] = useState<UiText | undefined>()
   // In this node, we only care about the `captcha-turnstile-options` node as that contains

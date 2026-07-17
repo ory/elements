@@ -1683,8 +1683,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -1764,8 +1764,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -1868,8 +1868,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -1928,8 +1928,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -2182,8 +2182,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -2405,8 +2405,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -2451,8 +2451,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -3527,8 +3527,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -3573,8 +3573,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -3880,8 +3880,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -3913,8 +3913,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -4862,8 +4862,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             }
           ],
           "fileUrlPath": "dist/index.d.ts",
@@ -4927,8 +4927,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -5173,8 +5173,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -5202,8 +5202,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
@@ -5280,8 +5280,8 @@
             },
             {
               "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
+              "text": "react.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",

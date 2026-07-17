@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "declarationDir": "dist/types",
     "jsx": "react-jsx",
-    "lib": ["ES6", "DOM", "WebWorker"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "WebWorker"],
     "rootDir": ".",
     "paths": {
       "@ory/elements-react": ["./src/index.ts"],
