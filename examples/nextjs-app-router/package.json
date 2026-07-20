@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@csrf-armor/nextjs": "^1.4.1",
+    "@ory/client-fetch": "1.22.37",
     "@ory/elements-react": "workspace:*",
     "@ory/nextjs": "workspace:*",
     "next": "15.5.18",
