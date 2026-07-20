@@ -12,6 +12,7 @@ import { LoginFlow } from '@ory/client-fetch';
 import { LogoutFlow } from '@ory/client-fetch';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import * as _ory_client_fetch from '@ory/client-fetch';
 import { ParsedUrlQuery } from 'querystring';
 import { RecoveryFlow } from '@ory/client-fetch';
@@ -21,10 +22,25 @@ import { SettingsFlow } from '@ory/client-fetch';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
+export function acceptConsentRequest(consentChallenge: string, options: {
+    grantScope: string[];
+    remember?: boolean;
+    rememberFor?: number;
+    identityId?: string;
+    session?: {
+        accessToken?: Record<string, unknown>;
+        idToken?: Record<string, unknown>;
+    };
+}): Promise<string>;
+
+// @public
 export function createOryMiddleware(options: OryMiddlewareOptions): (r: NextRequest) => Promise<NextResponse<unknown>>;
 
 // Warning: (ae-forgotten-export) The symbol "QueryParams" needs to be exported by the entry point api-extractor-type-index.d.ts
 //
+// @public
+export function getConsentFlow(params: QueryParams | Promise<QueryParams>): Promise<OAuth2ConsentRequest | null>;
+
 // @public
 export function getError(searchParams: QueryParams | Promise<QueryParams>): Promise<{
     error: string;
@@ -66,6 +82,9 @@ export function getRegistrationFlow(config: {
 export function getServerSession(): Promise<Session | null>;
 
 // @public
+export function getServerSideConsentFlow(query: ParsedUrlQuery): Promise<OAuth2ConsentRequest | null>;
+
+// @public
 export function getSettingsFlow(config: {
     project: {
         settings_ui_url: string;
@@ -94,6 +113,13 @@ export interface OryPageParams {
     }>;
 }
 
+// @public
+export function rejectConsentRequest(consentChallenge: string, options?: {
+    error?: string;
+    errorDescription?: string;
+    identityId?: string;
+}): Promise<string>;
+
 // Warning: (ae-forgotten-export) The symbol "OryError" needs to be exported by the entry point api-extractor-type-index.d.ts
 //
 // @public
@@ -110,6 +136,13 @@ export const useRecoveryFlow: () => void | _ory_client_fetch.RecoveryFlow | null
 
 // @public
 export const useRegistrationFlow: () => void | _ory_client_fetch.RegistrationFlow | null;
+
+// @public
+export function useSession(): {
+    session: Session | null;
+    loading: boolean;
+    error: Error | null;
+};
 
 // @public
 export const useSettingsFlow: () => void | _ory_client_fetch.SettingsFlow | null;
