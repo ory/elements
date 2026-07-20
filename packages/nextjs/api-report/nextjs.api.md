@@ -26,7 +26,7 @@ export function acceptConsentRequest(consentChallenge: string, options: {
     grantScope: string[];
     remember?: boolean;
     rememberFor?: number;
-    identityId?: string;
+    identityId: string;
     session?: {
         accessToken?: Record<string, unknown>;
         idToken?: Record<string, unknown>;
@@ -114,10 +114,10 @@ export interface OryPageParams {
 }
 
 // @public
-export function rejectConsentRequest(consentChallenge: string, options?: {
+export function rejectConsentRequest(consentChallenge: string, options: {
     error?: string;
     errorDescription?: string;
-    identityId?: string;
+    identityId: string;
 }): Promise<string>;
 
 // Warning: (ae-forgotten-export) The symbol "OryError" needs to be exported by the entry point api-extractor-type-index.d.ts

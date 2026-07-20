@@ -39,21 +39,22 @@ export function rewriteUrls(
   const baseUrlNormalized = matchBaseUrl.replace(/\/$/, "")
   const selfUrlNormalized = new URL(selfUrl).toString().replace(/\/$/, "")
 
-  // Single-pass replacement for all Ory URLs
+  // Single-pass replacement for all Ory URLs. The lookahead enforces a domain
+  // boundary so longer hostnames sharing the prefix are left untouched.
   const regex = new RegExp(
-    escapeRegExp(baseUrlNormalized) + "(/[^\"'\\s]*)?",
+    escapeRegExp(baseUrlNormalized) + "(?=[/?#\\s\"']|$)(/[^\"'\\s]*)?",
     "g",
   )
 
   return source.replace(regex, (match: string, path: string | undefined) => {
     // OAuth2 paths must stay on Ory's domain
-    if (path && oauth2Paths.some((p) => path.startsWith(p))) {
+    if (path && oauth2Paths.some((p) => pathStartsWithSegment(path, p))) {
       return match
     }
 
     // Check for UI path overrides from config
     for (const [uiPath, configUrl] of Object.entries(uiPathMappings)) {
-      if (path && configUrl && path.startsWith(uiPath)) {
+      if (path && configUrl && pathStartsWithSegment(path, uiPath)) {
         return path.replace(uiPath, new URL(configUrl, selfUrl).toString())
       }
     }
@@ -61,6 +62,19 @@ export function rewriteUrls(
     // Default: rewrite to app's URL
     return selfUrlNormalized + (path || "")
   })
+}
+
+// Prefix match on whole path segments only, so "/login" does not match
+// "/login-methods".
+function pathStartsWithSegment(path: string, prefix: string) {
+  if (!path.startsWith(prefix)) {
+    return false
+  }
+  if (prefix.endsWith("/")) {
+    return true
+  }
+  const nextChar = path[prefix.length]
+  return !nextChar || nextChar === "/" || nextChar === "?" || nextChar === "#"
 }
 
 function escapeRegExp(string: string) {

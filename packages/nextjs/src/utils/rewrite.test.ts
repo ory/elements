@@ -44,6 +44,22 @@ describe("rewriteUrls", () => {
     expect(result).toBe("https://self.com/some/path")
   })
 
+  it("should not rewrite hostnames that only share the base URL prefix", () => {
+    const source = "https://example.com.evil.com/some/path"
+    const matchBaseUrl = "https://example.com"
+    const selfUrl = "https://self.com"
+    const result = rewriteUrls(source, matchBaseUrl, selfUrl, config)
+    expect(result).toBe("https://example.com.evil.com/some/path")
+  })
+
+  it("should not apply UI overrides to paths sharing a prefix segment", () => {
+    const source = "https://example.com/login-methods"
+    const matchBaseUrl = "https://example.com"
+    const selfUrl = "https://self.com"
+    const result = rewriteUrls(source, matchBaseUrl, selfUrl, config)
+    expect(result).toBe("https://self.com/login-methods")
+  })
+
   it("should NOT rewrite OAuth2 paths", () => {
     const matchBaseUrl = "https://example.com"
     const selfUrl = "https://self.com"
