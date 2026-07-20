@@ -47,7 +47,7 @@ export async function middleware(request: NextRequest) {
       { status: 403 },
     )
   }
-  return response
+  return result.response
 }
 
 export const config = {}
