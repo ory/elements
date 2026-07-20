@@ -1,0 +1,97 @@
+{
+  "name": "@ory/elements-vue",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elements-vue/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "tsup --config tsup.config.ts && vue-tsc --declaration --emitDeclarationOnly --outDir dist",
+        "cwd": "packages/elements-vue"
+      }
+    },
+    "dev": {
+      "command": "tsup --config tsup.config.ts --watch",
+      "options": {
+        "cwd": "packages/elements-vue"
+      }
+    },
+    "test": {
+      "command": "vitest run",
+      "options": {
+        "cwd": "packages/elements-vue"
+      }
+    },
+    "test:watch": {
+      "command": "vitest",
+      "options": {
+        "cwd": "packages/elements-vue"
+      }
+    },
+    "test:coverage": {
+      "command": "vitest run --coverage",
+      "options": {
+        "cwd": "packages/elements-vue"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/elements-vue/**/*.ts",
+          "packages/elements-vue/**/*.vue"
+        ]
+      }
+    },
+    "typecheck": {
+      "command": "vue-tsc --noEmit",
+      "options": {
+        "cwd": "packages/elements-vue"
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue",
+        "commands": [
+          "api-extractor run --verbose -c config/api-extractor-core.json",
+          "api-extractor run --verbose -c config/api-extractor-client.json",
+          "api-extractor run --verbose -c config/api-extractor-theme.json"
+        ]
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor-refresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue",
+        "commands": [
+          "api-extractor run --local --verbose -c config/api-extractor-core.json",
+          "api-extractor run --local --verbose -c config/api-extractor-client.json",
+          "api-extractor run --local --verbose -c config/api-extractor-theme.json"
+        ]
+      },
+      "dependsOn": ["build"]
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 6007,
+        "configDir": "packages/elements-vue/.storybook"
+      }
+    },
+    "storybook:build": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/elements-vue",
+        "configDir": "packages/elements-vue/.storybook"
+      }
+    }
+  }
+}

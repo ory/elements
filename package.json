@@ -65,7 +65,10 @@
     "@storybook/test-runner": "^0.23.0",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/types": "8.6.17",
+    "@storybook/vue3": "8.6.17",
+    "@storybook/vue3-vite": "8.6.17",
     "@tailwindcss/postcss": "4.1.12",
+    "@tailwindcss/vite": "4.1.12",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.7.0",
     "@testing-library/react": "16.3.0",
@@ -83,6 +86,7 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "0.12.0",
     "eslint-plugin-tsdoc": "0.4.0",
+    "eslint-plugin-vue": "10.7.0",
     "globals": "15.15.0",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
@@ -104,7 +108,8 @@
     "typescript-eslint": "8.32.1",
     "vite": "6.4.3",
     "vite-plugin-require": "1.2.14",
-    "vite-plugin-svgr": "4.3.0"
+    "vite-plugin-svgr": "4.3.0",
+    "vue-eslint-parser": "10.2.0"
   },
   "files": [
     "dist/*"
