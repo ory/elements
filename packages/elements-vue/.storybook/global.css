@@ -1,0 +1,13 @@
+/* Copyright © 2026 Ory Corp */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+@import "../src/theme/default/styles.css";
+
+html {
+  --font-sans:
+    "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
