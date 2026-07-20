@@ -320,7 +320,7 @@ export function isNodeVisible(node: UiNode): node is UiNodeInput {
 export type GroupedNodes = Partial<Record<UiNodeGroupEnum, UiNode[]>>
 
 /**
- * Returns a record which have at least one visible or interactive element (button,
+ * Returns a record of node groups which have at least one visible or interactive element (button,
  * text field, image).
  *
  * Groups which have only hidden or otherwise non-interactive elements (e.g. scripts or
@@ -329,33 +329,76 @@ export type GroupedNodes = Partial<Record<UiNodeGroupEnum, UiNode[]>>
  * @param nodes - Array of nodes to filter on.
  * @returns Record of groups with at least one visible element and their nodes.
  */
+export function nodeGroupsWithVisibleNodes(nodes: UiNode[]): GroupedNodes {
+  const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+  const groupRetained: Partial<Record<UiNodeGroupEnum, number>> = {}
+
+  for (const node of nodes) {
+    const groupNodes = groups[node.group] ?? []
+    const groupCount = groupRetained[node.group] ?? 0
+
+    groupNodes.push(node)
+    groups[node.group] = groupNodes
+    if (!isNodeVisible(node)) {
+      continue
+    }
+
+    groupRetained[node.group] = groupCount + 1
+  }
+
+  const finalGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
+  for (const [group, count] of Object.entries(groupRetained)) {
+    if (count > 0) {
+      finalGroups[group as UiNodeGroupEnum] = groups[group as UiNodeGroupEnum]
+    }
+  }
+
+  return finalGroups
+}
+
+/**
+ * Memoized hook variant of {@link nodeGroupsWithVisibleNodes}.
+ *
+ * @param nodes - Array of nodes to filter on.
+ * @returns Record of groups with at least one visible element and their nodes.
+ */
 export function useNodeGroupsWithVisibleNodes(nodes: UiNode[]): GroupedNodes {
-  return useMemo(() => {
-    const groups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
-    const groupRetained: Partial<Record<UiNodeGroupEnum, number>> = {}
+  return useMemo(() => nodeGroupsWithVisibleNodes(nodes), [nodes])
+}
 
-    for (const node of nodes) {
-      const groupNodes = groups[node.group] ?? []
-      const groupCount = groupRetained[node.group] ?? 0
+/**
+ * The groups that are never offered as selectable authentication methods: SSO groups
+ * (oidc, saml) render as separate buttons, and the remaining groups are functional
+ * (CSRF, identifier, profile, captcha) rather than authentication methods.
+ */
+const nonAuthMethodGroups: UiNodeGroupEnum[] = [
+  UiNodeGroupEnum.Oidc,
+  UiNodeGroupEnum.Saml,
+  UiNodeGroupEnum.Default,
+  UiNodeGroupEnum.IdentifierFirst,
+  UiNodeGroupEnum.Profile,
+  UiNodeGroupEnum.Captcha,
+]
 
-      groupNodes.push(node)
-      groups[node.group] = groupNodes
-      if (!isNodeVisible(node)) {
-        continue
-      }
-
-      groupRetained[node.group] = groupCount + 1
-    }
-
-    const finalGroups: Partial<Record<UiNodeGroupEnum, UiNode[]>> = {}
-    for (const [group, count] of Object.entries(groupRetained)) {
-      if (count > 0) {
-        finalGroups[group as UiNodeGroupEnum] = groups[group as UiNodeGroupEnum]
-      }
-    }
-
-    return finalGroups
-  }, [nodes])
+/**
+ * Returns the authentication method groups that have at least one visible node.
+ *
+ * Groups whose nodes are all hidden (e.g. a passkey group that only carries the
+ * browser conditional-UI plumbing) are not returned, because the user cannot select them.
+ *
+ * This is the single source of truth for "how many auth methods can the user choose
+ * from" — the form state shortcut, the method picker, and the footer back-link must
+ * all agree on it. SSO groups are excluded because they render as separate buttons
+ * on the chooser screen; decisions about skipping or leaving that screen must check
+ * {@link hasSingleSignOnNodes} in addition to this count.
+ *
+ * @param nodes - The nodes to extract the visible auth method groups from.
+ */
+export function visibleAuthMethodGroups(nodes: UiNode[]): UiNodeGroupEnum[] {
+  const visibleGroups = nodeGroupsWithVisibleNodes(nodes)
+  return Object.values(UiNodeGroupEnum)
+    .filter((group) => visibleGroups[group]?.length)
+    .filter((group) => !nonAuthMethodGroups.includes(group))
 }
 
 /**

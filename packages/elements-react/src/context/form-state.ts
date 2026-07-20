@@ -5,7 +5,7 @@ import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { useReducer, useState } from "react"
 import { isChoosingMethod } from "../components/card/two-step/utils"
 import { OryFlowContainer } from "../util"
-import { nodesToAuthMethodGroups } from "../util/ui"
+import { hasSingleSignOnNodes, visibleAuthMethodGroups } from "../util/ui"
 
 /**
  * Represents the state of the form when selecting an authentication method.
@@ -181,10 +181,14 @@ function parseStateFromFlow(flow: OryFlowContainer): FlowFormState {
         return { current: "method_active", method: flow.flow.active }
       } else if (isChoosingMethod(flow)) {
         // Login has a special case where we only have one method. Here, we
-        // do not want to display the chooser.
-        const authMethods = nodesToAuthMethodGroups(flow.flow.ui.nodes)
+        // do not want to display the chooser. Only methods the user can see
+        // count: groups that consist of hidden nodes only (e.g. the passkey
+        // conditional UI plumbing) are not selectable. SSO providers render
+        // exclusively on the chooser screen, so their presence keeps it.
+        const authMethods = visibleAuthMethodGroups(flow.flow.ui.nodes)
         if (
           authMethods.length === 1 &&
+          !hasSingleSignOnNodes(flow.flow.ui.nodes) &&
           !["code", "passkey"].includes(authMethods[0])
         ) {
           // TODO: https://github.com/ory/kratos/issues/4271 - once this is fixed in Kratos, we can remove the check for "code"
