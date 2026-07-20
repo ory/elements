@@ -81,11 +81,17 @@ describe("getConsentFlow", () => {
 
 describe("acceptConsentRequest", () => {
   const mockAcceptOAuth2ConsentRequest = jest.fn()
+  const mockGetOAuth2ConsentRequest = jest.fn()
 
   beforeEach(() => {
     jest.clearAllMocks()
     ;(serverSideOAuth2Client as jest.Mock).mockReturnValue({
       acceptOAuth2ConsentRequest: mockAcceptOAuth2ConsentRequest,
+      getOAuth2ConsentRequest: mockGetOAuth2ConsentRequest,
+    })
+    mockGetOAuth2ConsentRequest.mockResolvedValue({
+      challenge: "test-challenge",
+      subject: "identity-1",
     })
   })
 
@@ -96,6 +102,7 @@ describe("acceptConsentRequest", () => {
 
     const result = await acceptConsentRequest("test-challenge", {
       grantScope: ["openid", "profile"],
+      identityId: "identity-1",
     })
 
     expect(result).toBe("https://example.com/callback")
@@ -119,6 +126,7 @@ describe("acceptConsentRequest", () => {
       grantScope: ["openid"],
       remember: true,
       rememberFor: 3600,
+      identityId: "identity-1",
     })
 
     expect(mockAcceptOAuth2ConsentRequest).toHaveBeenCalledWith({
@@ -139,6 +147,7 @@ describe("acceptConsentRequest", () => {
 
     await acceptConsentRequest("test-challenge", {
       grantScope: ["openid"],
+      identityId: "identity-1",
       session: {
         accessToken: { custom_claim: "value" },
         idToken: { name: "Test User" },
@@ -158,15 +167,38 @@ describe("acceptConsentRequest", () => {
       },
     })
   })
+
+  it("should throw when identity does not match consent request subject", async () => {
+    mockGetOAuth2ConsentRequest.mockResolvedValue({
+      challenge: "test-challenge",
+      subject: "identity-1",
+    })
+
+    await expect(
+      acceptConsentRequest("test-challenge", {
+        grantScope: ["openid"],
+        identityId: "identity-2",
+      }),
+    ).rejects.toThrow(
+      "Forbidden: Session identity does not match consent request subject",
+    )
+    expect(mockAcceptOAuth2ConsentRequest).not.toHaveBeenCalled()
+  })
 })
 
 describe("rejectConsentRequest", () => {
   const mockRejectOAuth2ConsentRequest = jest.fn()
+  const mockGetOAuth2ConsentRequest = jest.fn()
 
   beforeEach(() => {
     jest.clearAllMocks()
     ;(serverSideOAuth2Client as jest.Mock).mockReturnValue({
       rejectOAuth2ConsentRequest: mockRejectOAuth2ConsentRequest,
+      getOAuth2ConsentRequest: mockGetOAuth2ConsentRequest,
+    })
+    mockGetOAuth2ConsentRequest.mockResolvedValue({
+      challenge: "test-challenge",
+      subject: "identity-1",
     })
   })
 
@@ -175,7 +207,9 @@ describe("rejectConsentRequest", () => {
       redirect_to: "https://example.com/error",
     })
 
-    const result = await rejectConsentRequest("test-challenge")
+    const result = await rejectConsentRequest("test-challenge", {
+      identityId: "identity-1",
+    })
 
     expect(result).toBe("https://example.com/error")
     expect(mockRejectOAuth2ConsentRequest).toHaveBeenCalledWith({
@@ -195,6 +229,7 @@ describe("rejectConsentRequest", () => {
     await rejectConsentRequest("test-challenge", {
       error: "invalid_scope",
       errorDescription: "The requested scope is invalid",
+      identityId: "identity-1",
     })
 
     expect(mockRejectOAuth2ConsentRequest).toHaveBeenCalledWith({
@@ -204,5 +239,14 @@ describe("rejectConsentRequest", () => {
         error_description: "The requested scope is invalid",
       },
     })
+  })
+
+  it("should throw when identity does not match consent request subject", async () => {
+    await expect(
+      rejectConsentRequest("test-challenge", { identityId: "identity-2" }),
+    ).rejects.toThrow(
+      "Forbidden: Session identity does not match consent request subject",
+    )
+    expect(mockRejectOAuth2ConsentRequest).not.toHaveBeenCalled()
   })
 })

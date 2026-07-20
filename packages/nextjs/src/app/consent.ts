@@ -1,10 +1,26 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OAuth2ConsentRequest } from "@ory/client-fetch"
+import { OAuth2Api, OAuth2ConsentRequest } from "@ory/client-fetch"
 
 import { QueryParams } from "../types"
 import { serverSideOAuth2Client } from "./client"
+
+async function assertConsentSubject(
+  oauth2Client: OAuth2Api,
+  consentChallenge: string,
+  identityId: string,
+): Promise<void> {
+  const consentRequest = await oauth2Client.getOAuth2ConsentRequest({
+    consentChallenge,
+  })
+
+  if (consentRequest.subject !== identityId) {
+    throw new Error(
+      "Forbidden: Session identity does not match consent request subject",
+    )
+  }
+}
 
 /**
  * Use this method in an app router page to fetch an OAuth2 consent request.
@@ -77,7 +93,7 @@ export async function getConsentFlow(
  *
  * export async function POST(request: Request) {
  *   const session = await getServerSession()
- *   if (!session) {
+ *   if (!session?.identity) {
  *     return new Response("Unauthorized", { status: 401 })
  *   }
  *
@@ -91,12 +107,12 @@ export async function getConsentFlow(
  *     const redirectTo = await acceptConsentRequest(consentChallenge, {
  *       grantScope,
  *       remember,
- *       identityId: session.identity?.id,
+ *       identityId: session.identity.id,
  *     })
  *     return redirect(redirectTo)
  *   } else {
  *     const redirectTo = await rejectConsentRequest(consentChallenge, {
- *       identityId: session.identity?.id,
+ *       identityId: session.identity.id,
  *     })
  *     return redirect(redirectTo)
  *   }
@@ -115,7 +131,7 @@ export async function acceptConsentRequest(
     grantScope: string[]
     remember?: boolean
     rememberFor?: number
-    identityId?: string
+    identityId: string
     session?: {
       accessToken?: Record<string, unknown>
       idToken?: Record<string, unknown>
@@ -125,17 +141,7 @@ export async function acceptConsentRequest(
   const oauth2Client = serverSideOAuth2Client()
 
   // Security: Verify session identity matches consent request subject
-  if (options.identityId) {
-    const consentRequest = await oauth2Client.getOAuth2ConsentRequest({
-      consentChallenge,
-    })
-
-    if (consentRequest.subject !== options.identityId) {
-      throw new Error(
-        "Forbidden: Session identity does not match consent request subject",
-      )
-    }
-  }
+  await assertConsentSubject(oauth2Client, consentChallenge, options.identityId)
 
   const response = await oauth2Client.acceptOAuth2ConsentRequest({
     consentChallenge,
@@ -170,33 +176,23 @@ export async function acceptConsentRequest(
  */
 export async function rejectConsentRequest(
   consentChallenge: string,
-  options?: {
+  options: {
     error?: string
     errorDescription?: string
-    identityId?: string
+    identityId: string
   },
 ): Promise<string> {
   const oauth2Client = serverSideOAuth2Client()
 
   // Security: Verify session identity matches consent request subject
-  if (options?.identityId) {
-    const consentRequest = await oauth2Client.getOAuth2ConsentRequest({
-      consentChallenge,
-    })
-
-    if (consentRequest.subject !== options.identityId) {
-      throw new Error(
-        "Forbidden: Session identity does not match consent request subject",
-      )
-    }
-  }
+  await assertConsentSubject(oauth2Client, consentChallenge, options.identityId)
 
   const response = await oauth2Client.rejectOAuth2ConsentRequest({
     consentChallenge,
     rejectOAuth2Request: {
-      error: options?.error ?? "access_denied",
+      error: options.error ?? "access_denied",
       error_description:
-        options?.errorDescription ?? "The resource owner denied the request",
+        options.errorDescription ?? "The resource owner denied the request",
     },
   })
 
