@@ -700,3 +700,216 @@ test("should set isReady to true only when all inputs are ready", () => {
     isSubmitting: false,
   })
 })
+
+test(`should skip the method chooser when the only other method has hidden nodes only`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  // An identifier-first login flow where the identity has a password credential
+  // and passkey conditional UI enabled: the passkey group carries only hidden
+  // plumbing nodes, so password is the only method the user can see.
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "identifier_first",
+      state: "choose_method",
+      requested_aal: "aal1",
+      refresh: false,
+      ui: {
+        nodes: [
+          {
+            type: "input",
+            group: "identifier_first",
+            attributes: {
+              name: "identifier",
+              type: "hidden",
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "default",
+            attributes: {
+              name: "csrf_token",
+              type: "hidden",
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "password",
+            attributes: {
+              name: "password",
+              type: "password",
+              required: true,
+              disabled: false,
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "passkey",
+            attributes: {
+              name: "passkey_login",
+              type: "hidden",
+              node_type: "input",
+              onload_trigger: "oryPasskeyLoginAutocompleteInit",
+            },
+          },
+          {
+            type: "input",
+            group: "passkey",
+            attributes: {
+              name: "passkey_challenge",
+              type: "hidden",
+              node_type: "input",
+            },
+          },
+        ],
+      },
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({
+    current: "method_active",
+    method: "password",
+    isReady: true,
+    isSubmitting: false,
+  })
+})
+
+test(`should show the method chooser when the passkey group has a visible button`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "identifier_first",
+      state: "choose_method",
+      requested_aal: "aal1",
+      refresh: false,
+      ui: {
+        nodes: [
+          {
+            type: "input",
+            group: "identifier_first",
+            attributes: {
+              name: "identifier",
+              type: "hidden",
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "password",
+            attributes: {
+              name: "password",
+              type: "password",
+              required: true,
+              disabled: false,
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "passkey",
+            attributes: {
+              name: "passkey_login_trigger",
+              type: "button",
+              node_type: "input",
+            },
+          },
+        ],
+      },
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({
+    current: "select_method",
+    isReady: true,
+    isSubmitting: false,
+  })
+})
+
+test(`should show the method chooser when SSO providers accompany a single visible method`, () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+  const [, dispatch] = result.current
+
+  // SSO buttons only render on the chooser screen, so the shortcut must not
+  // fire when the flow offers SSO providers next to a single credential method.
+  const mockFlow = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "identifier_first",
+      state: "choose_method",
+      requested_aal: "aal1",
+      refresh: false,
+      ui: {
+        nodes: [
+          {
+            type: "input",
+            group: "identifier_first",
+            attributes: {
+              name: "identifier",
+              type: "hidden",
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "password",
+            attributes: {
+              name: "password",
+              type: "password",
+              required: true,
+              disabled: false,
+              node_type: "input",
+            },
+          },
+          {
+            type: "input",
+            group: "oidc",
+            attributes: {
+              name: "provider",
+              type: "submit",
+              value: "google",
+              disabled: false,
+              node_type: "input",
+            },
+          },
+        ],
+      },
+    },
+  } as unknown as OryFlowContainer
+
+  act(() => {
+    dispatch({
+      type: "action_flow_update",
+      flow: mockFlow,
+    })
+  })
+
+  const [state] = result.current
+  expect(state).toEqual({
+    current: "select_method",
+    isReady: true,
+    isSubmitting: false,
+  })
+})

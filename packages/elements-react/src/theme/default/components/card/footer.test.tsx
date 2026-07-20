@@ -39,6 +39,8 @@ interface MockOptions {
   registrationEnabled?: boolean
   hideRegistrationLink?: boolean
   authMethods?: string[]
+  visibleAuthMethods?: string[]
+  hasSsoNodes?: boolean
   returnTo?: string
   hasLogout?: boolean
   didLoadLogout?: boolean
@@ -71,6 +73,8 @@ jest.mock("../../utils/logout", () => ({
 jest.mock("../../../../util/ui", () => ({
   nodesToAuthMethodGroups: jest.fn(),
   useNodeGroupsWithVisibleNodes: jest.fn((): UiNodeGroupEnum[] => []),
+  visibleAuthMethodGroups: jest.fn((): UiNodeGroupEnum[] => []),
+  hasSingleSignOnNodes: jest.fn((): boolean => false),
 }))
 
 describe("DefaultCardFooter", () => {
@@ -90,6 +94,8 @@ describe("DefaultCardFooter", () => {
         registrationEnabled = true,
         hideRegistrationLink = false,
         authMethods = [],
+        visibleAuthMethods = authMethods,
+        hasSsoNodes = false,
         returnTo = "https://example.com",
         hasLogout = false,
         didLoadLogout = false,
@@ -133,6 +139,12 @@ describe("DefaultCardFooter", () => {
       jest
         .spyOn(uiUtils, "nodesToAuthMethodGroups")
         .mockReturnValue(authMethods as UiNodeGroupEnum[])
+
+      jest
+        .spyOn(uiUtils, "visibleAuthMethodGroups")
+        .mockReturnValue(visibleAuthMethods as UiNodeGroupEnum[])
+
+      jest.spyOn(uiUtils, "hasSingleSignOnNodes").mockReturnValue(hasSsoNodes)
     }
 
     const renderWithIntl = (ui: React.ReactNode) => {
@@ -221,6 +233,43 @@ describe("DefaultCardFooter", () => {
       setupMocks({
         formState: { current: "method_active" } as FormState,
         authMethods: ["password", "totp"],
+      })
+      renderWithIntl(<DefaultCardFooter />)
+      expect(
+        screen.getByTestId("ory/screen/login/mfa/action/selectMethod"),
+      ).toBeInTheDocument()
+    })
+
+    it("does not render method selection link when only one auth method is visible", () => {
+      setupMocks({
+        formState: { current: "method_active" } as FormState,
+        authMethods: ["password", "passkey"],
+        visibleAuthMethods: ["password"],
+      })
+      renderWithIntl(<DefaultCardFooter />)
+      expect(
+        screen.queryByTestId("ory/screen/login/mfa/action/selectMethod"),
+      ).not.toBeInTheDocument()
+    })
+
+    it("renders method selection link when SSO providers accompany a single visible auth method", () => {
+      setupMocks({
+        formState: { current: "method_active" } as FormState,
+        authMethods: ["password"],
+        visibleAuthMethods: ["password"],
+        hasSsoNodes: true,
+      })
+      renderWithIntl(<DefaultCardFooter />)
+      expect(
+        screen.getByTestId("ory/screen/login/mfa/action/selectMethod"),
+      ).toBeInTheDocument()
+    })
+
+    it("renders method selection link when multiple auth methods are visible", () => {
+      setupMocks({
+        formState: { current: "method_active" } as FormState,
+        authMethods: ["password", "passkey"],
+        visibleAuthMethods: ["password", "passkey"],
       })
       renderWithIntl(<DefaultCardFooter />)
       expect(

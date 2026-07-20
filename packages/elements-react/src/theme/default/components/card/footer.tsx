@@ -10,12 +10,12 @@ import {
   useOryFlow,
 } from "@ory/elements-react"
 import { useIntl } from "react-intl"
-import { toAuthMethodPickerOptions } from "../../../../components/card/two-step/state-select-method"
 import { findScreenSelectionButton } from "../../../../util/nodes"
 import {
   findNode,
+  hasSingleSignOnNodes,
   nodesToAuthMethodGroups,
-  useNodeGroupsWithVisibleNodes,
+  visibleAuthMethodGroups,
 } from "../../../../util/ui"
 import {
   isUiNodeInput,
@@ -93,6 +93,11 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
   const intl = useIntl()
 
   const authMethods = nodesToAuthMethodGroups(flow.ui.nodes)
+  // SSO providers count as a way back to the chooser screen: they render only
+  // there, so the back-link must stay while any SSO node is present.
+  const hasOtherVisibleMethods =
+    visibleAuthMethodGroups(flow.ui.nodes).length > 1 ||
+    hasSingleSignOnNodes(flow.ui.nodes)
 
   let returnTo = config.project.default_redirect_url
   if (flow.return_to) {
@@ -131,7 +136,7 @@ function LoginCardFooter({ flow }: LoginCardFooterProps) {
             </a>
           </span>
         )}
-      {authMethods.length > 1 && formState.current === "method_active" && (
+      {hasOtherVisibleMethods && formState.current === "method_active" && (
         <span className="leading-normal font-normal text-interface-foreground-default-primary antialiased">
           <button
             className="text-button-link-brand-brand underline transition-colors hover:text-button-link-brand-brand-hover"
@@ -210,13 +215,12 @@ function RegistrationCardFooter() {
   const intl = useIntl()
   const { flow, formState, dispatchFormState } = useOryFlow()
   const config = useOryConfiguration()
-  const visibleGroups = useNodeGroupsWithVisibleNodes(flow.ui.nodes)
-  const authMethodBlocks = toAuthMethodPickerOptions(visibleGroups)
+  const authMethodBlocks = visibleAuthMethodGroups(flow.ui.nodes)
 
   const screenSelectionNode = findScreenSelectionButton(flow.ui.nodes)
   switch (formState.current) {
     case "method_active":
-      if (!screenSelectionNode || Object.entries(authMethodBlocks).length < 2) {
+      if (!screenSelectionNode || authMethodBlocks.length < 2) {
         return null
       }
 

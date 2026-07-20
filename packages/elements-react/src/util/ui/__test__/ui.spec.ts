@@ -16,6 +16,7 @@ import {
   withoutSingleSignOnNodes,
   isNodeVisible,
   useNodeGroupsWithVisibleNodes,
+  visibleAuthMethodGroups,
 } from ".."
 import { UiNodeInputAttributesTypeEnum } from "@ory/client-fetch"
 
@@ -360,5 +361,131 @@ describe("utils/ui", () => {
     expect(result.current.groups.passkey).toBeUndefined()
     expect(result.current.groups.password).toHaveLength(2)
     expect(result.current.groups.code).toHaveLength(1)
+  })
+})
+
+describe("visibleAuthMethodGroups", () => {
+  const visiblePasswordNode = {
+    type: "input",
+    group: UiNodeGroupEnum.Password,
+    attributes: {
+      name: "password",
+      type: "password",
+      required: true,
+      disabled: false,
+      node_type: "input",
+    },
+    messages: [],
+    meta: {},
+  } as UiNode
+
+  const hiddenPasskeyNodes = [
+    {
+      type: "input",
+      group: UiNodeGroupEnum.Passkey,
+      attributes: {
+        name: "passkey_login",
+        type: "hidden",
+        value: "",
+        disabled: false,
+        node_type: "input",
+        onload_trigger: "oryPasskeyLoginAutocompleteInit",
+      },
+      messages: [],
+      meta: {},
+    },
+    {
+      type: "input",
+      group: UiNodeGroupEnum.Passkey,
+      attributes: {
+        name: "passkey_challenge",
+        type: "hidden",
+        value: "{}",
+        disabled: false,
+        node_type: "input",
+      },
+      messages: [],
+      meta: {},
+    },
+  ] as UiNode[]
+
+  const hiddenCsrfNode = {
+    type: "input",
+    group: UiNodeGroupEnum.Default,
+    attributes: {
+      name: "csrf_token",
+      type: "hidden",
+      value: "token",
+      disabled: false,
+      node_type: "input",
+    },
+    messages: [],
+    meta: {},
+  } as UiNode
+
+  test("should drop auth method groups that only contain hidden nodes", () => {
+    const result = visibleAuthMethodGroups([
+      hiddenCsrfNode,
+      visiblePasswordNode,
+      ...hiddenPasskeyNodes,
+    ])
+
+    expect(result).toEqual([UiNodeGroupEnum.Password])
+  })
+
+  test("should keep the passkey group when it has a visible trigger button", () => {
+    const passkeyTrigger = {
+      type: "input",
+      group: UiNodeGroupEnum.Passkey,
+      attributes: {
+        name: "passkey_login_trigger",
+        type: "button",
+        value: "",
+        disabled: false,
+        node_type: "input",
+      },
+      messages: [],
+      meta: {},
+    } as UiNode
+
+    const result = visibleAuthMethodGroups([
+      hiddenCsrfNode,
+      visiblePasswordNode,
+      ...hiddenPasskeyNodes,
+      passkeyTrigger,
+    ])
+
+    expect(result).toHaveLength(2)
+    expect(result).toContain(UiNodeGroupEnum.Password)
+    expect(result).toContain(UiNodeGroupEnum.Passkey)
+  })
+
+  test("should exclude SSO and functional groups even when visible", () => {
+    const makeVisibleNode = (group: UiNodeGroupEnum, name: string) =>
+      ({
+        type: "input",
+        group,
+        attributes: {
+          name,
+          type: "submit",
+          value: name,
+          disabled: false,
+          node_type: "input",
+        },
+        messages: [],
+        meta: {},
+      }) as UiNode
+
+    const result = visibleAuthMethodGroups([
+      makeVisibleNode(UiNodeGroupEnum.Oidc, "provider"),
+      makeVisibleNode(UiNodeGroupEnum.Saml, "provider"),
+      makeVisibleNode(UiNodeGroupEnum.Default, "method"),
+      makeVisibleNode(UiNodeGroupEnum.IdentifierFirst, "identifier"),
+      makeVisibleNode(UiNodeGroupEnum.Profile, "screen"),
+      makeVisibleNode(UiNodeGroupEnum.Captcha, "captcha"),
+      visiblePasswordNode,
+    ])
+
+    expect(result).toEqual([UiNodeGroupEnum.Password])
   })
 })
