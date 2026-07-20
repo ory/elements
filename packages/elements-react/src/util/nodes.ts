@@ -29,13 +29,19 @@ export function isDynamicText(
 
 export function resolveLabel(text: UiText, intl: ReturnType<typeof useIntl>) {
   if (isDynamicText(text)) {
-    const field = text.context.name
-    const id = `forms.label.${field}`
+    // The forms.* ids are an opt-in hook for custom translations and exist in
+    // no bundled locale. Only ask react-intl for defined ids — formatMessage
+    // on a missing id logs a MISSING_TRANSLATION console error on every
+    // non-default locale. Check the value, not key presence: merged custom
+    // translations can hold undefined, which react-intl also treats as missing.
     const msg = {
-      id,
+      id: `forms.label.${text.context.name}`,
       defaultMessage: text.text,
     }
-    return intl.formatMessage(msg)
+    if (intl.messages[msg.id]) {
+      return intl.formatMessage(msg)
+    }
+    return text.text
   }
   return uiTextToFormattedMessage(text, intl)
 }
@@ -58,10 +64,16 @@ export function resolveOptionLabel(
   const stringValue = String(value)
   // The descriptor is assigned to a variable so the FormatJS TS transformer
   // does not try to statically extract the dynamic `id` — this mirrors the
-  // pattern used by `resolveLabel` above.
+  // pattern used by `resolveLabel` above. The id is only passed to
+  // formatMessage when its value is defined, since these opt-in ids exist in
+  // no bundled locale and formatMessage would log a MISSING_TRANSLATION
+  // console error.
   const msg = {
     id: `forms.option.${name}.${stringValue}`,
     defaultMessage: stringValue,
   }
-  return intl.formatMessage(msg)
+  if (intl.messages[msg.id]) {
+    return intl.formatMessage(msg)
+  }
+  return stringValue
 }

@@ -136,12 +136,18 @@ export function resolvePlaceholder(
     },
   )
   if (isDynamicText(text)) {
-    const field = text.context.name
+    // The forms.* ids are an opt-in hook for custom translations and exist in
+    // no bundled locale. Only ask react-intl for defined ids — formatMessage
+    // on a missing id logs a MISSING_TRANSLATION console error on every
+    // non-default locale. Check the value, not key presence: merged custom
+    // translations can hold undefined, which react-intl also treats as missing.
     const msg = {
-      id: `forms.input.placeholder.${field}`,
+      id: `forms.input.placeholder.${text.context.name}`,
       defaultMessage: fallback,
     }
-    return intl.formatMessage(msg)
+    if (intl.messages[msg.id]) {
+      return intl.formatMessage(msg)
+    }
   }
   return fallback
 }
