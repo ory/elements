@@ -11,7 +11,7 @@ import {
 } from "@ory/client-fetch"
 import { useOryFormContext } from "../../../../composables/useOryFormContext"
 import { useComponents } from "../../../../composables/useComponents"
-import { IconQrCode } from "../../assets/icons"
+import Icon from "../ui/Icon.vue"
 import { OryNode } from "../../../../components"
 import PinInput from "../form/PinInput.vue"
 import SettingsRemoveButton from "./SettingsRemoveButton.vue"
@@ -90,7 +90,7 @@ function handleUnlink(event: Event) {
     </div>
     <div class="col-span-full flex items-center gap-6">
       <div class="aspect-square size-8">
-        <IconQrCode :size="32" />
+        <Icon name="qr-code" :size="32" />
       </div>
       <div class="mr-auto flex flex-col">
         <p

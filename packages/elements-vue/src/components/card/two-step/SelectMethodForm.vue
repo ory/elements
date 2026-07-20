@@ -26,6 +26,7 @@ import OryCardHeader from "../OryCardHeader.vue"
 import OryCardContent from "../OryCardContent.vue"
 import OryCardFooter from "../OryCardFooter.vue"
 import OryForm from "../../form/OryForm.vue"
+import OryFormSsoForm from "../../form/OryFormSsoForm.vue"
 import OryMessages from "../../form/OryMessages.vue"
 import OryNode from "../../form/nodes/OryNode.vue"
 import { handleAfterFormSubmit, toAuthMethodPickerOptions } from "./utils"
@@ -109,7 +110,7 @@ function handleMethodClick(group: string) {
     <OryCardHeader />
     <OryCardContent>
       <OryMessages :messages="flowContainer.flow.ui.messages" />
-
+      <OryFormSsoForm />
       <OryForm
         v-if="hasAuthMethods"
         :on-after-submit="handleAfterFormSubmit(dispatchFormState)"

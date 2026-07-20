@@ -250,7 +250,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_17:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_18:type"
             },
             {
               "kind": "Content",
@@ -259,7 +259,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_17:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_18:var"
             },
             {
               "kind": "Content",
@@ -268,7 +268,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_17:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_18:type"
             },
             {
               "kind": "Content",
@@ -937,7 +937,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
             },
             {
               "kind": "Content",
@@ -982,7 +982,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
             },
             {
               "kind": "Content",
@@ -1415,7 +1415,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
             },
             {
               "kind": "Content",
@@ -1460,7 +1460,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_12:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_13:type"
             },
             {
               "kind": "Content",
@@ -1519,7 +1519,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
             },
             {
               "kind": "Content",
@@ -1564,7 +1564,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
             },
             {
               "kind": "Content",
@@ -1709,7 +1709,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
             },
             {
               "kind": "Content",
@@ -1754,7 +1754,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_15:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
             },
             {
               "kind": "Content",
@@ -2159,7 +2159,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
             },
             {
               "kind": "Content",
@@ -2204,7 +2204,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_17:type"
             },
             {
               "kind": "Content",
@@ -2250,52 +2250,6 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_9:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<typeof "
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_9:var"
-            },
-            {
-              "kind": "Content",
-              "text": ", "
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_9:type"
-            },
-            {
-              "kind": "Content",
-              "text": ">"
-            }
-          ],
-          "fileUrlPath": "src/theme/default/components/form/DefaultMessageContainer.vue",
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "DefaultMessageContainer",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 7
-          }
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "@ory/elements-vue!DefaultSettingsSection:var",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "_default: "
-            },
-            {
-              "kind": "Reference",
-              "text": "__VLS_WithSlots",
               "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_10:type"
             },
             {
@@ -2321,10 +2275,10 @@
               "text": ">"
             }
           ],
-          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSection.vue",
+          "fileUrlPath": "src/theme/default/components/form/DefaultMessageContainer.vue",
           "isReadonly": true,
           "releaseTag": "Public",
-          "name": "DefaultSettingsSection",
+          "name": "DefaultMessageContainer",
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
@@ -2332,7 +2286,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionContent:var",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSection:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -2367,10 +2321,10 @@
               "text": ">"
             }
           ],
-          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSectionContent.vue",
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSection.vue",
           "isReadonly": true,
           "releaseTag": "Public",
-          "name": "DefaultSettingsSectionContent",
+          "name": "DefaultSettingsSection",
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
@@ -2378,7 +2332,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionFooter:var",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionContent:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -2407,6 +2361,52 @@
               "kind": "Reference",
               "text": "__VLS_Slots",
               "canonicalReference": "@ory/elements-vue!~__VLS_Slots_12:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSettingsSectionContent.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSettingsSectionContent",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSettingsSectionFooter:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_13:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_13:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_13:type"
             },
             {
               "kind": "Content",
@@ -2524,6 +2524,52 @@
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 20
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-vue!DefaultSsoButtonContainer:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_WithSlots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_9:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_component",
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_9:var"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "__VLS_Slots",
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_9:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/theme/default/components/form/DefaultSsoButtonContainer.vue",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "DefaultSsoButtonContainer",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
           }
         },
         {
@@ -2655,7 +2701,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_28:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_29:type"
             },
             {
               "kind": "Content",
@@ -2700,7 +2746,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_28:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_29:type"
             },
             {
               "kind": "Content",
@@ -2936,7 +2982,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_14:type"
             },
             {
               "kind": "Content",
@@ -2945,7 +2991,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_13:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_14:var"
             },
             {
               "kind": "Content",
@@ -2954,7 +3000,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_13:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_14:type"
             },
             {
               "kind": "Content",
@@ -3172,7 +3218,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_22:type"
             },
             {
               "kind": "Content",
@@ -3217,7 +3263,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_22:type"
             },
             {
               "kind": "Content",
@@ -3263,7 +3309,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_15:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_16:type"
             },
             {
               "kind": "Content",
@@ -3272,7 +3318,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_15:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_16:var"
             },
             {
               "kind": "Content",
@@ -3281,7 +3327,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_15:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_16:type"
             },
             {
               "kind": "Content",
@@ -3411,7 +3457,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_15:type"
             },
             {
               "kind": "Content",
@@ -3420,7 +3466,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_14:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_15:var"
             },
             {
               "kind": "Content",
@@ -3429,7 +3475,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_14:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_15:type"
             },
             {
               "kind": "Content",
@@ -3559,7 +3605,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_18:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_19:type"
             },
             {
               "kind": "Content",
@@ -3568,7 +3614,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_18:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_19:var"
             },
             {
               "kind": "Content",
@@ -3577,7 +3623,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_18:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_19:type"
             },
             {
               "kind": "Content",
@@ -3806,7 +3852,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_20:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
             },
             {
               "kind": "Content",
@@ -3851,7 +3897,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Props",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Props_20:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Props_21:type"
             },
             {
               "kind": "Content",
@@ -3993,7 +4039,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_WithSlots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_WithSlots_17:type"
             },
             {
               "kind": "Content",
@@ -4002,7 +4048,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_component",
-              "canonicalReference": "@ory/elements-vue!~__VLS_component_16:var"
+              "canonicalReference": "@ory/elements-vue!~__VLS_component_17:var"
             },
             {
               "kind": "Content",
@@ -4011,7 +4057,7 @@
             {
               "kind": "Reference",
               "text": "__VLS_Slots",
-              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_16:type"
+              "canonicalReference": "@ory/elements-vue!~__VLS_Slots_17:type"
             },
             {
               "kind": "Content",

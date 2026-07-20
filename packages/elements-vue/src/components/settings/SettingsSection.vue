@@ -8,6 +8,7 @@ import {
   UiNode,
   UiNodeGroupEnum,
   isUiNodeInputAttributes,
+  isUiNodeTextAttributes,
 } from "@ory/client-fetch"
 import { useOryFlow } from "../../composables/useOryFlow"
 import { useComponents } from "../../composables/useComponents"
@@ -86,13 +87,48 @@ const hasTotpSetup = computed(() =>
   ),
 )
 
+const isTotpLinked = computed(() =>
+  props.nodes.some(
+    (node) =>
+      isUiNodeInputAttributes(node.attributes) &&
+      node.attributes.name === "totp_unlink",
+  ),
+)
+
+const totpFooterText = computed(() => {
+  if (isTotpLinked.value) {
+    return t("settings.totp.info.linked")
+  }
+  if (hasTotpSetup.value) {
+    return t("settings.totp.info.not-linked")
+  }
+  return undefined
+})
+
+const totpFooterButtons = computed(() =>
+  submitNodes.value.filter((node) => {
+    if (!isUiNodeInputAttributes(node.attributes)) return true
+    return node.attributes.name !== "totp_unlink"
+  }),
+)
+
+const hasLookupSecretCodes = computed(() =>
+  props.nodes.some(
+    (node) =>
+      isUiNodeTextAttributes(node.attributes) &&
+      node.attributes.id?.startsWith("lookup_secret_codes"),
+  ),
+)
+
 const lookupSecretFooterButtons = computed(() =>
   submitNodes.value.filter((node) => {
     if (!isUiNodeInputAttributes(node.attributes)) return true
     const name = node.attributes.name
-    return (
-      name !== "lookup_secret_reveal" && name !== "lookup_secret_regenerate"
-    )
+    if (name === "lookup_secret_reveal") return false
+    if (name === "lookup_secret_regenerate") {
+      return !hasLookupSecretCodes.value
+    }
+    return true
   }),
 )
 </script>
@@ -120,14 +156,10 @@ const lookupSecretFooterButtons = computed(() =>
       </component>
       <component
         :is="components.Card.SettingsSectionFooter"
-        :text="
-          hasTotpSetup
-            ? 'To enable scan the QR code with your authenticator and enter the code.'
-            : undefined
-        "
+        :text="totpFooterText"
       >
         <OryNode
-          v-for="node in submitNodes"
+          v-for="node in totpFooterButtons"
           :key="getNodeId(node)"
           :node="node"
         />
@@ -166,7 +198,10 @@ const lookupSecretFooterButtons = computed(() =>
         />
         <DefaultSettingsPasskey :nodes="nodes" />
       </component>
-      <component :is="components.Card.SettingsSectionFooter" />
+      <component
+        :is="components.Card.SettingsSectionFooter"
+        :text="t('settings.passkey.info')"
+      />
     </template>
 
     <template v-else-if="group === UiNodeGroupEnum.Oidc">
@@ -182,7 +217,10 @@ const lookupSecretFooterButtons = computed(() =>
         />
         <DefaultSettingsOidc :nodes="nodes" />
       </component>
-      <component :is="components.Card.SettingsSectionFooter" />
+      <component
+        :is="components.Card.SettingsSectionFooter"
+        :text="t('settings.oidc.info')"
+      />
     </template>
 
     <template v-else-if="group === UiNodeGroupEnum.LookupSecret">

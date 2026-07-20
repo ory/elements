@@ -7,7 +7,7 @@ import type { UiNode } from "@ory/client-fetch"
 import { isUiNodeInputAttributes } from "@ory/client-fetch"
 import { useOryFormContext } from "../../../../composables/useOryFormContext"
 import { useComponents } from "../../../../composables/useComponents"
-import { IconKey } from "../../assets/icons"
+import Icon from "../ui/Icon.vue"
 import { OryNode } from "../../../../components"
 import { getNodeContext, formatDate } from "./utils"
 import SettingsRemoveButton from "./SettingsRemoveButton.vue"
@@ -87,7 +87,8 @@ function handleRemove(node: UiNode, event: Event) {
           class="flex justify-between gap-6 md:items-center"
         >
           <div class="flex flex-1 items-center gap-2 truncate">
-            <IconKey
+            <Icon
+              name="key"
               :size="32"
               class="text-interface-foreground-default-primary"
             />
