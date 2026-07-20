@@ -1,8 +1,7 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import type { OryFlowContainer } from "../../../util/flowContainer"
+import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { isUiNodeGroupEnum, type GroupedNodes } from "../../../util/ui"
 import type { FormStateAction } from "../../../composables/useOryFlow"
 
@@ -42,45 +41,6 @@ export function toAuthMethodPickerOptions(
       )
       .map((g) => [g, {}]),
   )
-}
-
-function isScreenSelectionNode(node: UiNode) {
-  if (
-    "name" in node.attributes &&
-    node.attributes.name === "screen" &&
-    "value" in node.attributes &&
-    node.attributes.value === "previous"
-  ) {
-    return true
-  }
-  if (
-    node.group === UiNodeGroupEnum.IdentifierFirst &&
-    "name" in node.attributes &&
-    node.attributes.name === "identifier" &&
-    node.attributes.type === "hidden"
-  ) {
-    return true
-  }
-  return false
-}
-
-/**
- * Check if the flow is in choosing method state
- */
-export function isChoosingMethod(flow: OryFlowContainer): boolean {
-  if (flow.flowType === FlowType.Login) {
-    const loginFlow = flow.flow as { requested_aal?: string; refresh?: boolean }
-    if (loginFlow.requested_aal === "aal2") {
-      return true
-    }
-    if (
-      loginFlow.refresh &&
-      !flow.flow.ui.nodes.some((n) => n.group === "code")
-    ) {
-      return true
-    }
-  }
-  return flow.flow.ui.nodes.some(isScreenSelectionNode)
 }
 
 /**

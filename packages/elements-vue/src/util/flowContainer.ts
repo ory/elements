@@ -96,3 +96,18 @@ export type OryFlowContainer =
   | VerificationFlowContainer
   | SettingsFlowContainer
   | ConsentFlowContainer
+
+/**
+ * Type guard to check if a flow is a ConsentFlow
+ */
+export function isConsentFlow(
+  flow: OryFlowContainer["flow"],
+): flow is ConsentFlow {
+  return (
+    flow &&
+    "consent_request" in flow &&
+    "session" in flow &&
+    "active" in flow &&
+    flow.active === "oauth2_consent"
+  )
+}
