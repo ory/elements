@@ -114,7 +114,7 @@ function scopesToUiNodes(scopes: string[]): UiNode[] {
     },
     attributes: {
       node_type: "input",
-      name: `grant_scope`,
+      name: "grant_scope",
       value: scope,
       type: "checkbox",
       disabled: false,
