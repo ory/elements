@@ -11,6 +11,7 @@ import {
   OrySuccessHandler,
 } from "@ory/elements-react"
 import { getOryComponents } from "../components"
+import { getConfigWithOAuth2Logo } from "../utils/oauth2-config"
 import { translateConsentChallengeToUiNodes } from "../utils/oauth2"
 
 /**
@@ -116,9 +117,14 @@ export function Consent({
     session,
   )
 
+  const configWithLogo = getConfigWithOAuth2Logo(
+    config,
+    consentChallenge.client?.logo_uri,
+  )
+
   return (
     <OryProvider
-      config={config}
+      config={configWithLogo}
       flow={flow}
       flowType={FlowType.OAuth2Consent}
       components={components}

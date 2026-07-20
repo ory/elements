@@ -3,7 +3,6 @@
 
 import { OryMiddlewareOptions } from "src/middleware/middleware"
 import { orySdkUrl } from "./sdk"
-import { joinUrlPaths } from "./utils"
 
 export function rewriteUrls(
   source: string,
@@ -11,36 +10,75 @@ export function rewriteUrls(
   selfUrl: string,
   config: OryMiddlewareOptions,
 ) {
-  for (const [_, [matchPath, replaceWith]] of [
-    // TODO load these dynamically from the project config
+  // OAuth2 endpoints must stay on Ory's domain
+  const oauth2Paths = [
+    "/oauth2/",
+    "/userinfo",
+    "/.well-known/openid-configuration",
+    "/.well-known/jwks.json",
+  ]
 
+  // UI path mappings from project config
+  // TODO: load these dynamically from the project config
+  const uiPathMappings: Record<string, string | undefined> = {
     // Old AX routes
-    ["/ui/recovery", config.project?.recovery_ui_url],
-    ["/ui/registration", config.project?.registration_ui_url],
-    ["/ui/login", config.project?.login_ui_url],
-    ["/ui/verification", config.project?.verification_ui_url],
-    ["/ui/settings", config.project?.settings_ui_url],
-    ["/ui/welcome", config.project?.default_redirect_url],
-
+    "/ui/recovery": config.project?.recovery_ui_url,
+    "/ui/registration": config.project?.registration_ui_url,
+    "/ui/login": config.project?.login_ui_url,
+    "/ui/verification": config.project?.verification_ui_url,
+    "/ui/settings": config.project?.settings_ui_url,
+    "/ui/welcome": config.project?.default_redirect_url,
     // New AX routes
-    ["/recovery", config.project?.recovery_ui_url],
-    ["/registration", config.project?.registration_ui_url],
-    ["/login", config.project?.login_ui_url],
-    ["/verification", config.project?.verification_ui_url],
-    ["/settings", config.project?.settings_ui_url],
-  ].entries()) {
-    const match = joinUrlPaths(matchBaseUrl, matchPath || "")
-    if (replaceWith && source.startsWith(match)) {
-      source = source.replaceAll(
-        match,
-        new URL(replaceWith, selfUrl).toString(),
-      )
-    }
+    "/recovery": config.project?.recovery_ui_url,
+    "/registration": config.project?.registration_ui_url,
+    "/login": config.project?.login_ui_url,
+    "/verification": config.project?.verification_ui_url,
+    "/settings": config.project?.settings_ui_url,
   }
-  return source.replaceAll(
-    matchBaseUrl.replace(/\/$/, ""),
-    new URL(selfUrl).toString().replace(/\/$/, ""),
+
+  const baseUrlNormalized = matchBaseUrl.replace(/\/$/, "")
+  const selfUrlNormalized = new URL(selfUrl).toString().replace(/\/$/, "")
+
+  // Single-pass replacement for all Ory URLs. The lookahead enforces a domain
+  // boundary so longer hostnames sharing the prefix are left untouched.
+  const regex = new RegExp(
+    escapeRegExp(baseUrlNormalized) + "(?=[/?#\\s\"']|$)(/[^\"'\\s]*)?",
+    "g",
   )
+
+  return source.replace(regex, (match: string, path: string | undefined) => {
+    // OAuth2 paths must stay on Ory's domain
+    if (path && oauth2Paths.some((p) => pathStartsWithSegment(path, p))) {
+      return match
+    }
+
+    // Check for UI path overrides from config
+    for (const [uiPath, configUrl] of Object.entries(uiPathMappings)) {
+      if (path && configUrl && pathStartsWithSegment(path, uiPath)) {
+        return path.replace(uiPath, new URL(configUrl, selfUrl).toString())
+      }
+    }
+
+    // Default: rewrite to app's URL
+    return selfUrlNormalized + (path || "")
+  })
+}
+
+// Prefix match on whole path segments only, so "/login" does not match
+// "/login-methods".
+function pathStartsWithSegment(path: string, prefix: string) {
+  if (!path.startsWith(prefix)) {
+    return false
+  }
+  if (prefix.endsWith("/")) {
+    return true
+  }
+  const nextChar = path[prefix.length]
+  return !nextChar || nextChar === "/" || nextChar === "?" || nextChar === "#"
+}
+
+function escapeRegExp(string: string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
 
 /**
@@ -55,6 +93,10 @@ export function rewriteJsonResponse<T extends object>(
   obj: T,
   proxyUrl?: string,
 ): T {
+  // Handle null/undefined input to prevent runtime errors
+  if (!obj) {
+    return obj
+  }
   return Object.fromEntries(
     Object.entries(obj)
       .filter(([_, value]) => value !== undefined)
