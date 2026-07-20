@@ -34,3 +34,10 @@ storybook-static
 /test-results/
 .nx
 coverage/
+
+# Nuxt
+.nuxt/
+.output/
+
+# API Extractor temp files
+**/api-report/temp/

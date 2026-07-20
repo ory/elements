@@ -1,0 +1,69 @@
+{
+  "name": "@ory/nuxt",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nuxt/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "command": "nuxt-module-build build",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/nuxt"
+      }
+    },
+    "dev": {
+      "command": "nuxt-module-build build --watch",
+      "options": {
+        "cwd": "packages/nuxt"
+      }
+    },
+    "test": {
+      "command": "vitest run",
+      "options": {
+        "cwd": "packages/nuxt"
+      }
+    },
+    "test:watch": {
+      "command": "vitest",
+      "options": {
+        "cwd": "packages/nuxt"
+      }
+    },
+    "test:coverage": {
+      "command": "vitest run --coverage",
+      "options": {
+        "cwd": "packages/nuxt"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/nuxt/src/**/*.ts"]
+      }
+    },
+    "typecheck": {
+      "command": "tsc --noEmit",
+      "options": {
+        "cwd": "packages/nuxt"
+      }
+    },
+    "api-extractor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/nuxt",
+        "command": "api-extractor run --verbose -c config/api-extractor.json"
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor-refresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/nuxt",
+        "command": "api-extractor run --local --verbose -c config/api-extractor.json"
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}
