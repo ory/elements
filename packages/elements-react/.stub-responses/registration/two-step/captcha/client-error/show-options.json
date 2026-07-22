@@ -134,18 +134,6 @@
         "type": "input",
         "group": "passkey",
         "attributes": {
-          "name": "passkey_register",
-          "type": "hidden",
-          "disabled": false,
-          "node_type": "input"
-        },
-        "messages": [],
-        "meta": {}
-      },
-      {
-        "type": "input",
-        "group": "passkey",
-        "attributes": {
           "name": "passkey_register_trigger",
           "type": "button",
           "disabled": false,
@@ -161,6 +149,18 @@
             "type": "info"
           }
         }
+      },
+      {
+        "type": "input",
+        "group": "passkey",
+        "attributes": {
+          "name": "passkey_register",
+          "type": "hidden",
+          "disabled": false,
+          "node_type": "input"
+        },
+        "messages": [],
+        "meta": {}
       },
       {
         "type": "input",

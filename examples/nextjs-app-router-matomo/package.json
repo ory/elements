@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ory/client-fetch": "1.22.37",
+    "@ory/client-fetch": "1.22.57",
     "@ory/elements-react": "workspace:*",
     "@ory/nextjs": "workspace:*",
     "next": "15.5.18",

@@ -19,6 +19,7 @@ import { showToast } from "../../util/showToast"
 import { useNodesGroups } from "../../util/ui"
 import { Node } from "../form/nodes/node"
 import { OrySettingsFormSection } from "../form/settings-section"
+import { OrySettingsDeviceauthn } from "./deviceauthn-settings"
 import { OrySettingsOidc } from "./oidc-settings"
 import { OrySettingsPasskey } from "./passkey-settings"
 import { OrySettingsRecoveryCodes } from "./recovery-codes-settings"
@@ -104,6 +105,21 @@ function SettingsSectionContent({ group, nodes }: SettingsSectionProps) {
         data-testid="ory/screen/settings/group/passkey"
       >
         <OrySettingsPasskey nodes={groupedNodes.groups.passkey ?? []} />
+        {groupedNodes.groups.default?.map((node) => (
+          <Node key={getNodeId(node)} node={node} />
+        ))}
+      </OrySettingsFormSection>
+    )
+  }
+
+  if (group === UiNodeGroupEnum.Deviceauthn) {
+    const deviceauthnNodes = groupedNodes.groups.deviceauthn ?? []
+    return (
+      <OrySettingsFormSection
+        nodes={deviceauthnNodes}
+        data-testid="ory/screen/settings/group/deviceauthn"
+      >
+        <OrySettingsDeviceauthn nodes={deviceauthnNodes} />
         {groupedNodes.groups.default?.map((node) => (
           <Node key={getNodeId(node)} node={node} />
         ))}

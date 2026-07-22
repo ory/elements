@@ -6,6 +6,10 @@ import Trash from "../../assets/icons/trash.svg"
 import { DefaultHorizontalDivider } from "../form/horizontal-divider"
 import { Spinner } from "../form/spinner"
 
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  dateStyle: "long",
+})
+
 export function DefaultSettingsPasskey({
   triggerButton,
   removeButtons,
@@ -45,7 +49,7 @@ export function DefaultSettingsPasskey({
               return (
                 <div
                   className="flex justify-between gap-6 md:items-center"
-                  key={`passkey-remove-button-${i}`}
+                  key={`passkey-remove-button-${keyId ?? i}`}
                 >
                   <div className="flex flex-1 items-center gap-2 truncate">
                     <Passkey
@@ -63,9 +67,7 @@ export function DefaultSettingsPasskey({
                       </div>
                       {addedAt && (
                         <p className="text-sm text-interface-foreground-default-tertiary">
-                          {new Intl.DateTimeFormat(undefined, {
-                            dateStyle: "long",
-                          }).format(new Date(addedAt))}
+                          {dateFormatter.format(new Date(addedAt))}
                         </p>
                       )}
                     </div>

@@ -3294,6 +3294,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        DeviceauthnSettings: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySettingsDeviceauthnProps",
+              "canonicalReference": "@ory/elements-react!OrySettingsDeviceauthnProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n        PasskeySettings: "
             },
             {
@@ -3432,7 +3450,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 142
+            "endIndex": 146
           }
         },
         {
@@ -5219,6 +5237,41 @@
           "overloadIndex": 1,
           "parameters": [],
           "name": "OrySettingsCard"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OrySettingsDeviceauthnProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySettingsDeviceauthnProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    removeButtons: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeSettingsButton",
+              "canonicalReference": "@ory/elements-react!OryNodeSettingsButton:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n    isSubmitting: boolean;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySettingsDeviceauthnProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
         },
         {
           "kind": "TypeAlias",

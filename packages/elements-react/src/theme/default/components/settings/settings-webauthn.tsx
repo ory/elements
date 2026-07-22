@@ -11,6 +11,10 @@ import Key from "../../assets/icons/key.svg"
 import Trash from "../../assets/icons/trash.svg"
 import { Spinner } from "../form/spinner"
 
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  dateStyle: "long",
+})
+
 export function DefaultSettingsWebauthn({
   nameInput,
   triggerButton,
@@ -46,7 +50,7 @@ export function DefaultSettingsWebauthn({
               return (
                 <div
                   className="flex justify-between gap-6 md:items-center"
-                  key={`webauthn-remove-button-${i}`}
+                  key={`webauthn-remove-button-${keyId ?? i}`}
                 >
                   <div className="flex flex-1 items-center gap-2 truncate">
                     <Key
@@ -64,9 +68,7 @@ export function DefaultSettingsWebauthn({
                       </div>
                       {addedAt && (
                         <p className="text-sm text-interface-foreground-default-tertiary">
-                          {new Intl.DateTimeFormat(undefined, {
-                            dateStyle: "long",
-                          }).format(new Date(addedAt))}
+                          {dateFormatter.format(new Date(addedAt))}
                         </p>
                       )}
                     </div>
