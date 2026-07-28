@@ -8,7 +8,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "allowJs": false,
-    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
     "esModuleInterop": true,
     "importHelpers": true,
     "isolatedModules": true,
