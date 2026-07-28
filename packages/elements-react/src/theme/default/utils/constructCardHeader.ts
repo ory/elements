@@ -158,20 +158,36 @@ export function useCardHeaderText(
         }),
       }
     case FlowType.Verification: {
+      // The "code has been sent" message depends on the delivery channel:
+      // 1080003 for email, 1080004 for SMS. Prefer whichever the flow carries so
+      // the header matches the channel; fall back to the email wording.
+      const verificationCodeSentMessage = container.messages?.find((m) =>
+        [1080003, 1080004].includes(m.id),
+      )
+      if (verificationCodeSentMessage) {
+        return {
+          title: intl.formatMessage({
+            id: "verification.title",
+            defaultMessage: "Verify your account",
+          }),
+          description: uiTextToFormattedMessage(
+            verificationCodeSentMessage,
+            intl,
+          ),
+          messageId: verificationCodeSentMessage.id + "",
+        }
+      }
       if (
         nodes.find(
           (node) =>
             "name" in node.attributes && node.attributes.name === "code",
         )
       ) {
-        // Kratos replaces the "sent" message with a phone-specific one when
-        // the code was delivered via SMS. If the user submits a wrong code,
-        // Kratos clears the flow messages and replaces them with an error,
-        // so fall back to the resend node's address format to keep showing
+        // If the user submits a wrong code, Kratos clears the flow messages
+        // and replaces them with an error, so the code-sent message above is
+        // gone. Fall back to the resend node's address format to keep showing
         // the SMS wording.
-        const sentViaSms =
-          container.messages?.some((m) => m.id === 1080004) ||
-          findCodeChannel(nodes) === "sms"
+        const sentViaSms = findCodeChannel(nodes) === "sms"
         return {
           title: intl.formatMessage({
             id: "verification.title",

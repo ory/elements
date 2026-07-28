@@ -2239,7 +2239,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@ory/elements-react!OryCardValidationMessagesProps#hiddenMessageIds:member",
-              "docComment": "/**\n * An array of message IDs that should be hidden. This is useful for hiding specific messages that are not relevant to the user or are rendered elsewhere. If not provided, the default list of message IDs to hide will be used.\n *\n * @default\n *\n * [1040009, 1060003, 1080003, 1010004, 1010014, 1040005, 1010016, 1010003]\n *\n * @see\n *\n * https://www.ory.com/docs/kratos/concepts/ui-messages\n */\n",
+              "docComment": "/**\n * An array of message IDs that should be hidden. This is useful for hiding specific messages that are not relevant to the user or are rendered elsewhere. If not provided, the default list of message IDs to hide will be used.\n *\n * @default\n *\n * [1040009, 1060003, 1080003, 1080004, 1010004, 1010014, 1010025, 1040005, 1010016, 1010003, 1060004, 1060005, 1060006]\n *\n * @see\n *\n * https://www.ory.com/docs/kratos/concepts/ui-messages\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

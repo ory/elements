@@ -485,4 +485,62 @@ describe("constructCardHeaderText", () => {
       expect(res.result.current.messageId).toBeUndefined()
     })
   })
+
+  describe("verification code-sent message follows the delivery channel", () => {
+    test("should use the phone message when the SMS code-sent message is present", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            {
+              nodes: [code],
+              action: "",
+              method: "POST",
+              messages: [
+                {
+                  id: 1080004,
+                  type: UiTextTypeEnum.Info,
+                  text: "ignored — looked up by id",
+                },
+              ],
+            },
+            { flowType: FlowType.Verification },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current).toEqual({
+        title: "Verify your account",
+        description:
+          "A text message containing a verification code has been sent to the phone number you provided. If you have not received a text message, check the spelling of the number and make sure to use the number you registered with.",
+        messageId: "1080004",
+      })
+    })
+
+    test("should use the email message when the email code-sent message is present", () => {
+      const res = renderHook(
+        () =>
+          useCardHeaderText(
+            {
+              nodes: [code],
+              action: "",
+              method: "POST",
+              messages: [
+                {
+                  id: 1080003,
+                  type: UiTextTypeEnum.Info,
+                  text: "ignored — looked up by id",
+                },
+              ],
+            },
+            { flowType: FlowType.Verification },
+          ),
+        { wrapper: wrapper("en") },
+      )
+      expect(res.result.current).toEqual({
+        title: "Verify your account",
+        description:
+          "An email containing a verification code has been sent to the email address you provided. If you have not received an email, check the spelling of the address and make sure to use the address you registered with.",
+        messageId: "1080003",
+      })
+    })
+  })
 })
