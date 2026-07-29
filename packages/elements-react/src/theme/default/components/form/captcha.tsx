@@ -21,6 +21,36 @@ type Config = {
   response_field_name: string
 }
 
+/**
+ * Reads the CSP nonce the current document is enforcing against, so the
+ * Turnstile script tag is admitted by nonce rather than by host.
+ *
+ * Under a `'strict-dynamic'` policy, host sources in `script-src` are ignored
+ * entirely, so allow-listing the Turnstile host has no effect. The tag is
+ * otherwise admitted only by trust propagation from the script that injected
+ * it, which is a property of the runtime insertion path rather than of the
+ * policy, and therefore not something to rely on.
+ *
+ * The nonce is read from the document rather than accepted as a prop because a
+ * host that mints a nonce per request — as the Ory Account Experience proxy
+ * does — will hand out a different value on later requests than the one the
+ * document is enforcing against.
+ *
+ * Returns `undefined` during server rendering and when no nonce is in use, in
+ * which case the script tag is emitted without one, as before.
+ */
+function documentCspNonce(): string | undefined {
+  if (typeof document === "undefined") {
+    return undefined
+  }
+  // The nonce content attribute is masked after parsing to close a CSS-based
+  // exfiltration channel, so the IDL property is the only readable source.
+  return (
+    document.querySelector<HTMLScriptElement>("script[nonce]")?.nonce ||
+    undefined
+  )
+}
+
 export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
   const { Message } = useComponents()
   const intl = useIntl()
@@ -71,6 +101,7 @@ export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
         <Turnstile
           ref={ref}
           siteKey={options.sitekey}
+          scriptOptions={{ nonce: documentCspNonce() }}
           options={{
             action: options.action,
             size: "flexible",
