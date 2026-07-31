@@ -118,6 +118,68 @@ describe("unrollTrait", () => {
     const expected = { p: { q: 100 }, x: { y: { z: 200 } } }
     expect(output).toEqual(expected)
   })
+
+  // A Kratos UI node name is attacker-influenced: profile/registration echoes
+  // submitted trait keys back as node names, so a key like
+  // `traits.__proto__.polluted` reaches this function. Walking it with
+  // `current[key] || {}` would step onto `Object.prototype` and persist the
+  // write for the life of the shared SSR worker. See CWE-1321.
+  const dangerousSegments = ["__proto__", "constructor", "prototype"]
+
+  dangerousSegments.forEach((segment) => {
+    test(`should not pollute Object.prototype via a "${segment}" segment`, () => {
+      expect(Object.hasOwn({}, "polluted")).toBe(false)
+
+      const result = unrollTrait({
+        name: `traits.${segment}.polluted`,
+        value: "PWNED",
+      })
+
+      // The whole name is rejected: no prototype write, and nothing aliases
+      // onto a legitimate `traits.*` path either.
+      expect(result).toEqual({})
+      expect({}).not.toHaveProperty("polluted")
+      expect(Object.hasOwn(Object.prototype, "polluted")).toBe(false)
+    })
+  })
+
+  test("should not write onto an inherited member such as toString", () => {
+    // `current[key] || {}` would read the inherited `toString` and then write a
+    // property onto the shared `Object.prototype.toString` function object. Grab
+    // that function via its descriptor so the built-in isn't referenced as an
+    // unbound method (which the lint rule forbids).
+    const toStringFn = Object.getOwnPropertyDescriptor(
+      Object.prototype,
+      "toString",
+    )?.value as object
+    try {
+      const result = unrollTrait({
+        name: "traits.toString.polluted",
+        value: "PWNED",
+      })
+
+      expect(Object.hasOwn(toStringFn, "polluted")).toBe(false)
+      // The value stays confined to this call's own return value.
+      expect(result).toEqual({ traits: { toString: { polluted: "PWNED" } } })
+    } finally {
+      delete (toStringFn as { polluted?: unknown }).polluted
+    }
+  })
+
+  test("should not let a poisoned node name leak into the next computeDefaultValues call", () => {
+    // Request 1: the attacker's echoed-back flow, rendered by this worker.
+    computeDefaultValues({
+      ui: { nodes: [inputNode("traits.__proto__.method", "oidc")] },
+    })
+
+    // Request 2: an unrelated tenant's login flow with no active method.
+    const victim = computeDefaultValues({
+      ui: { nodes: [inputNode("identifier", "")] },
+    })
+
+    expect(victim).not.toHaveProperty("method")
+    expect(victim.method).toBeUndefined()
+  })
 })
 
 describe("computeDefaultValues login_hint pre-fill", () => {

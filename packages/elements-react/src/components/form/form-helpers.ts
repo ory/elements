@@ -173,11 +173,28 @@ function prefillIdentifierFromHint(
   }
 }
 
+// Node names are attacker-influenced: Kratos echoes submitted trait keys back as
+// UI node names, so a name like `traits.__proto__.x` reaches unrollTrait. Walking
+// such a name would step the accumulator onto `Object.prototype` and persist the
+// write for the life of the shared SSR worker. See CWE-1321.
+const prototypePollutingKeys = new Set([
+  "__proto__",
+  "constructor",
+  "prototype",
+])
+
 export function unrollTrait<T extends string, V>(
   input: { name: T; value: V },
   output: Partial<UnrollTrait<T, V>> = {},
 ): UnrollTrait<T, V> {
   const keys = input.name.split(".")
+
+  // Reject the whole name if any segment could climb onto Object.prototype.
+  // Skipping only the offending segment would silently alias a legitimate path
+  // (e.g. `traits.__proto__.email` -> `traits.email`), so drop the node entirely.
+  if (keys.some((key) => prototypePollutingKeys.has(key))) {
+    return output as UnrollTrait<T, V>
+  }
 
   // It's challenging to type this for deeply nested structures because the shape
   // of current changes dynamically as we navigate through levels.
@@ -186,8 +203,19 @@ export function unrollTrait<T extends string, V>(
   let current: any = output
   keys.forEach((key, index) => {
     if (!key) return
-    current = current[key] =
-      index === keys.length - 1 ? input.value : current[key] || {}
+    if (index === keys.length - 1) {
+      current = current[key] = input.value
+      return
+    }
+    // Only descend into an own object. Reusing `current[key]` unconditionally
+    // would follow an inherited member (e.g. `toString`) and write onto the
+    // shared prototype's object; a non-object own value is replaced instead.
+    const child = current[key]
+    const descend =
+      Object.hasOwn(current as object, key) &&
+      typeof child === "object" &&
+      child !== null
+    current = current[key] = descend ? child : {}
   })
 
   return output as UnrollTrait<T, V>
