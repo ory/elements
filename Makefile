@@ -4,27 +4,27 @@ export PATH               := .bin:${PATH}
 
 .PHONY: install
 install:
-	npm install
+	pnpm install --frozen-lockfile
 
 .PHONY: test
 test:
-	npm run test
+	pnpm run test
 
 .PHONY: build
 build:
-	npx nx run-many --target=build --all
-	npx nx run-many --all --target=build-storybook -- --stats-json
+	pnpm exec nx run-many --target=build --all
+	pnpm exec nx run-many --all --target=build-storybook -- --stats-json
 
 .PHONY: dev
 dev:
-	npx nx run-many --target=dev --all
+	pnpm exec nx run-many --target=dev --all
 
 PRETTIER_VERSION=$(shell cat package.json | jq -r '.devDependencies["prettier"] // .dependencies["prettier"]')
 
 format: .bin/ory
 	.bin/ory dev headers copyright --type=open-source
 	@echo "Prettier Version: $(PRETTIER_VERSION)"
-	npx --package=prettier@$(PRETTIER_VERSION)  prettier . --write
+	pnpm dlx prettier@$(PRETTIER_VERSION) . --write
 
 licenses: .bin/licenses node_modules  # checks open-source licenses
 	.bin/licenses
@@ -36,20 +36,6 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 	curl --retry 7 --retry-connrefused https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory $(cat .deps/ory.version)
 	touch .bin/ory
 
-node_modules: package-lock.json
-	npm ci
+node_modules: pnpm-lock.yaml package.json pnpm-workspace.yaml
+	pnpm install --frozen-lockfile
 	touch node_modules
-
-build-sdk:
-	(cd $$KRATOS_DIR; make sdk)
-	cp $$KRATOS_DIR/spec/api.json ./contrib/sdk/api.json
-	npx @openapitools/openapi-generator-cli generate -i "./contrib/sdk/api.json" \
-		-g typescript-axios \
-		-o "./contrib/sdk/generated" \
-		--git-user-id ory \
-		--git-repo-id sdk \
-		--git-host github.com \
-		-c ./contrib/sdk/typescript.yml
-	(cd ./contrib/sdk/generated; npm i; npm run build)
-	rm -rf node_modules/@ory/kratos-client/*
-	cp -r ./contrib/sdk/generated/* node_modules/@ory/client

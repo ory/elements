@@ -10,7 +10,7 @@
     "build:test": "nx run @ory/elements-test:build --skip-nx-cache",
     "test": "nx run-many --target=test --all",
     "lint": "nx run-many --target=lint,api-extractor --all",
-    "generate-locales": "cd scripts && npm run generate-locales"
+    "generate-locales": "cd scripts && pnpm run generate-locales"
   },
   "repository": {
     "type": "git",
