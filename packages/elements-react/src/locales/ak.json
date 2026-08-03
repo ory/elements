@@ -104,7 +104,7 @@
   "identities.messages.4000025": "nneɛma a ɛwɔ beae {index_a} ne {index_b} yɛ pɛ",
   "identities.messages.4000026": "na wɔrehwɛ {allowed_types_list}, nanso wunyaa {actual_type}",
   "identities.messages.4000027": "Akɔnt bi a ɛwɔ gyinahyɛde koro (email, telefon, din, ...) wɔ hɔ dedaw. Yɛsrɛ wo hyɛn mu fa wo akɔnt a ɛwɔ hɔ dedaw no mu sɛnea ɛbɛyɛ a wobɛfa wo asetra so kratafa bata ho.",
-  "identities.messages.4000028": "Wubɔɔ mmɔden sɛ wobɛhyɛn mu fa {credential_identifier_hint} a akɔnt foforo de redi dwuma dedaw. Wubetumi ahyɛn mu denam {available_credential_types_list} so. Wubetumi ahyɛn mu denam asetra so hyɛnmu a edidi so yi mu biako so: {available_oidc_providers_list}.",
+  "identities.messages.4000028": "Wubɔɔ mmɔden sɛ wobɛhyɛn mu fa {credential_identifier_hint} a akɔnt foforo de redi dwuma dedaw.{available_credential_types_count, plural, =0 {} other {Wubetumi ahyɛn mu denam {available_credential_types_list} so.{available_oidc_providers_count, plural, =0 {} other {}} Wubetumi ahyɛn mu denam asetra so hyɛnmu a edidi so yi mu biako so: {available_oidc_providers_list}.}}",
   "identities.messages.4000029": "ɛsɛ sɛ ɛne {expected} a ɛnsakra no yɛ pɛ",
   "identities.messages.4000030": "const no antumi anyɛ adwuma",
   "identities.messages.4000031": "Wɔrentumi mfa asɛmfua no nni dwuma efisɛ ɛte sɛ gyinahyɛde no pii.",

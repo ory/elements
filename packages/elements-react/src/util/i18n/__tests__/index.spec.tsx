@@ -14,10 +14,10 @@ const uiText: UiText = {
 }
 
 describe("uiTextToFormattedMessage", () => {
-  test("should fall back to server text when context contains an empty array", () => {
+  test("should format the translated message when context contains an empty array", () => {
     const duplicateCredentialMsg: UiText = {
       id: 4000028,
-      text: "You tried signing in with user@example.com which is already in use by another account. You can sign in using your password.",
+      text: "raw server text",
       type: "error",
       context: {
         available_credential_types: ["password"],
@@ -32,10 +32,44 @@ describe("uiTextToFormattedMessage", () => {
       </IntlProvider>,
     )
 
-    // With an empty array, it falls back to the original text from the API which
-    // omits the section about social sign in providers.
+    // The message is formatted from the locale template, not the raw API text,
+    // and the sentence about social sign in providers is omitted because the
+    // provider list is empty.
     const rendered = screen.getByText(/You tried signing in with/)
+    expect(rendered.textContent).toContain("user@example.com")
+    expect(rendered.textContent).toContain("You can sign in using")
     expect(rendered.textContent).not.toContain("social sign in providers")
+  })
+
+  test("should honor custom translations when context contains an empty array", () => {
+    const duplicateCredentialMsg: UiText = {
+      id: 4000028,
+      text: "raw server text",
+      type: "error",
+      context: {
+        available_credential_types: ["password"],
+        available_oidc_providers: [],
+        credential_identifier_hint: "user@example.com",
+      },
+    }
+
+    renderWithOryElements(
+      <IntlProvider
+        locale={"en"}
+        customTranslations={{
+          en: {
+            "identities.messages.4000028":
+              "Custom duplicate account message for {credential_identifier_hint}",
+          },
+        }}
+      >
+        <Inner uiText={duplicateCredentialMsg} />
+      </IntlProvider>,
+    )
+
+    expect(
+      screen.getByText("Custom duplicate account message for user@example.com"),
+    ).toBeTruthy()
   })
 
   test("should use intl formatted message when context arrays are non-empty", () => {

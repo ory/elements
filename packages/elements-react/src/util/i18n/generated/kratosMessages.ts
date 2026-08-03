@@ -482,7 +482,7 @@ export const kratosMessages = defineMessages<number>({
   },
   4000028: {
     id: "identities.messages.4000028",
-    defaultMessage: `You tried signing in with {credential_identifier_hint} which is already in use by another account. You can sign in using {available_credential_types_list}. You can sign in using one of the following social sign in providers: {available_oidc_providers_list}.`,
+    defaultMessage: `You tried signing in with {credential_identifier_hint} which is already in use by another account.{available_credential_types_count, plural, =0 {} other { You can sign in using {available_credential_types_list}.}}{available_oidc_providers_count, plural, =0 {} other { You can sign in using one of the following social sign in providers: {available_oidc_providers_list}.}}`,
   },
   4000029: {
     id: "identities.messages.4000029",

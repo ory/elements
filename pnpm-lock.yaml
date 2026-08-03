@@ -461,6 +461,9 @@ importers:
       '@babel/preset-react':
         specifier: ^7.26.3
         version: 7.29.7(@babel/core@7.29.7)
+      '@formatjs/icu-messageformat-parser':
+        specifier: 2.11.3
+        version: 2.11.3
       '@hookform/devtools':
         specifier: 4.4.0
         version: 4.4.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)

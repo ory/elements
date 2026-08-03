@@ -104,7 +104,7 @@
   "identities.messages.4000025": "インデックス{index_a}と{index_b}の項目が同じです。",
   "identities.messages.4000026": "期待される型は{allowed_types_list}ですが、{actual_type}です。",
   "identities.messages.4000027": "同じ識別子（メールアドレス、電話番号、ユーザー名など）のアカウントが既に存在します。既存のアカウントにログインして、ソーシャルプロフィールをリンクしてください。",
-  "identities.messages.4000028": "{credential_identifier_hint}でログインしようとしたのですが、このアカウントは別のアカウントで既に使用されています。{available_credential_types_list}でログインできます。以下のソーシャルログインプロバイダーでログインできます：{available_oidc_providers_list}。",
+  "identities.messages.4000028": "あなたは、すでに別の口座で使用されている{credential_identifier_hint}でサインインしようとしました。{available_credential_types_count, plural, =0 {} other {利用可能な認証情報の種類は次のとおりです：{available_credential_types_list}。{available_oidc_providers_count, plural, =0 {} other {}}また、以下のソーシャルログインプロバイダーのいずれかを使用してサインインすることもできます：{available_oidc_providers_list}。}}",
   "identities.messages.4000029": "定数{expected}と等しくなければなりません。",
   "identities.messages.4000030": "定数の検証に失敗しました。",
   "identities.messages.4000031": "パスワードは識別子と似すぎているため使用できません。",

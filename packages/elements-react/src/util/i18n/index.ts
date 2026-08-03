@@ -66,6 +66,9 @@ export const uiTextToFormattedMessage = (
           ...accumulator,
           [key]: value,
           [key + "_list"]: intl.formatList<string>(value),
+          // Allows templates to drop whole sentences for empty lists via
+          // ICU plural arguments, e.g. {foo_count, plural, =0 {} other {...}}.
+          [key + "_count"]: value.length,
         }
       } else if (key.endsWith("_unix")) {
         if (typeof value === "number") {
@@ -110,12 +113,6 @@ export const uiTextToFormattedMessage = (
   )
 
   if (isKratosMessageId(id)) {
-    const hasEmptyArrayContext = Object.values(context).some(
-      (v) => Array.isArray(v) && v.length === 0,
-    )
-    if (hasEmptyArrayContext) {
-      return text
-    }
     return intl.formatMessage(kratosMessages[id], contextInjectedMessage)
   }
 

@@ -1,27 +1,45 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import {
+  MessageFormatElement,
+  parse,
+  TYPE,
+} from "@formatjs/icu-messageformat-parser"
 import { OryLocales as supportedLanguages } from "../../../locales"
 
-type TemplateStrings = {
-  [k in keyof typeof supportedLanguages.en]: string[]
+// Collects the ICU argument names of a message, including plural/select
+// arguments and any arguments nested inside their branches. A regex over
+// "{...}" cannot handle the nesting of plural branches.
+function extractArgumentNames(message: string): string[] {
+  const names = new Set<string>()
+  const walk = (elements: MessageFormatElement[]) => {
+    for (const element of elements) {
+      switch (element.type) {
+        case TYPE.argument:
+        case TYPE.number:
+        case TYPE.date:
+        case TYPE.time:
+          names.add(element.value)
+          break
+        case TYPE.select:
+        case TYPE.plural:
+          names.add(element.value)
+          for (const option of Object.values(element.options)) {
+            walk(option.value)
+          }
+          break
+        case TYPE.tag:
+          walk(element.children)
+          break
+      }
+    }
+  }
+  walk(parse(message))
+  return [...names].sort()
 }
 
 describe("Translations", () => {
-  let templates: Partial<TemplateStrings>
-
-  beforeAll(() => {
-    const en = supportedLanguages.en
-    templates = {}
-    for (const [key, value] of Object.entries(en)) {
-      const matches = value.match(/\{.+?}/g)
-      if (!matches) {
-        continue
-      }
-      templates[key] = matches
-    }
-  })
-
   for (const [language, translation] of Object.entries(supportedLanguages)) {
     test(`language keys and templates match [${language}]`, () => {
       expect(Object.keys(translation).sort()).toEqual(
@@ -53,19 +71,22 @@ describe("Translations", () => {
           continue
         }
 
-        // Extract placeholders from English source (e.g., {provider}, {contactSupportEmail})
-        const enPlaceholders = (enValue.match(/\{[^}]+\}/g) || []).sort()
-        const translatedPlaceholders = (
-          translatedValue.match(/\{[^}]+\}/g) || []
-        ).sort()
+        let translatedArguments: string[]
+        try {
+          translatedArguments = extractArgumentNames(translatedValue)
+        } catch (error) {
+          issues.push(
+            `Key "${key}": message does not parse as ICU: ${(error as Error).message}`,
+          )
+          continue
+        }
 
-        // Check if placeholders match
+        const enArguments = extractArgumentNames(enValue)
         if (
-          JSON.stringify(enPlaceholders) !==
-          JSON.stringify(translatedPlaceholders)
+          JSON.stringify(enArguments) !== JSON.stringify(translatedArguments)
         ) {
           issues.push(
-            `Key "${key}": expected placeholders ${JSON.stringify(enPlaceholders)}, got ${JSON.stringify(translatedPlaceholders)}`,
+            `Key "${key}": expected arguments ${JSON.stringify(enArguments)}, got ${JSON.stringify(translatedArguments)}`,
           )
         }
       }

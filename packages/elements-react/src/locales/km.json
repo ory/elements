@@ -104,7 +104,7 @@
   "identities.messages.4000025": "ធាតុនៅសន្ទស្សន៍ {index_a} និង {index_b} ដូចគ្នា",
   "identities.messages.4000026": "រំពឹងទុក {allowed_types_list} ប៉ុន្តែបានទទួល {actual_type}",
   "identities.messages.4000027": "គណនីដែលមានលេខសម្គាល់ដូចគ្នា (អ៊ីមែល ទូរស័ព្ទ ឈ្មោះអ្នកប្រើ ...) មានរួចហើយ។ សូមចូលទៅគណនីដែលមានរួចហើយរបស់អ្នកដើម្បីភ្ជាប់ប្រវត្តិរូបសង្គមរបស់អ្នក។",
-  "identities.messages.4000028": "អ្នកបានព្យាយាមចូលដោយប្រើ {credential_identifier_hint} ដែលកំពុងប្រើដោយគណនីផ្សេងរួចហើយ។ អ្នកអាចចូលដោយប្រើ {available_credential_types_list}។ អ្នកអាចចូលដោយប្រើអ្នកផ្តល់សេវាចូលសង្គមដូចខាងក្រោម៖ {available_oidc_providers_list}។",
+  "identities.messages.4000028": "អ្នកបានព្យាយាមចូលដោយប្រើ {credential_identifier_hint} ដែលកំពុងប្រើដោយគណនីផ្សេងរួចហើយ។{available_credential_types_count, plural, =0 {} other {អ្នកអាចចូលដោយប្រើ {available_credential_types_list}។{available_oidc_providers_count, plural, =0 {} other {}} អ្នកអាចចូលដោយប្រើអ្នកផ្តល់សេវាចូលសង្គមដូចខាងក្រោម៖ {available_oidc_providers_list}។}}",
   "identities.messages.4000029": "ត្រូវតែស្មើនឹងថេរ {expected}",
   "identities.messages.4000030": "ថេរបានបរាជ័យ",
   "identities.messages.4000031": "ពាក្យសម្ងាត់មិនអាចប្រើបានទេដោយសារវាស្រដៀងគ្នានឹងលេខសម្គាល់ពេក។",
