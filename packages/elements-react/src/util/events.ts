@@ -161,6 +161,27 @@ export type OryErrorEvent =
       flowType: FlowType.OAuth2Consent
       consentRequest: OAuth2ConsentRequest
     }
+  | {
+      type: "rate_limited"
+      flowType: FlowType
+      /**
+       * Seconds to wait before retrying, parsed from the Retry-After header
+       * when present and numeric.
+       */
+      retryAfter?: number
+    }
+  | {
+      type: "unexpected_error"
+      flowType: FlowType
+      /**
+       * The HTTP response, when the error carried one.
+       */
+      response?: Response
+      /**
+       * The error that would be (or was) thrown.
+       */
+      error: unknown
+    }
 
 // ---------------------------------------------------------------------------
 // Handler types
@@ -187,7 +208,15 @@ export type OryValidationErrorHandler = (
 
 /**
  * Callback invoked on infrastructure or flow-level errors (expired flow, CSRF
- * violation, flow not found, flow replaced).
+ * violation, flow not found, flow replaced, rate limiting, unexpected errors).
+ *
+ * For `rate_limited`, the error is handled: nothing is thrown afterward, and
+ * the caller is expected to show feedback (e.g. using `retryAfter`) while
+ * keeping the form usable.
+ *
+ * For `unexpected_error`, the same error is still thrown immediately after
+ * this handler resolves — the default behavior is unchanged. Use this event
+ * only to observe/report the error (e.g. for analytics or logging).
  *
  * @group Events
  */

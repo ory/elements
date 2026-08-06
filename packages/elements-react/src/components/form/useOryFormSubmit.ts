@@ -12,14 +12,20 @@ import {
   UpdateVerificationFlowBody,
 } from "@ory/client-fetch"
 import { SubmitHandler, useFormContext } from "react-hook-form"
+import { useIntl } from "react-intl"
 import { useOryConfiguration, useOryFlow } from "../../context"
 import { FormValues } from "../../types"
 import { OryFlowContainer } from "../../util"
+import { OryErrorHandler } from "../../util/events"
 import { onSubmitLogin } from "../../util/onSubmitLogin"
 import { onSubmitRecovery } from "../../util/onSubmitRecovery"
 import { onSubmitRegistration } from "../../util/onSubmitRegistration"
 import { onSubmitSettings } from "../../util/onSubmitSettings"
 import { onSubmitVerification } from "../../util/onSubmitVerification"
+import {
+  appendUiMessage,
+  rateLimitedMessageId,
+} from "../../util/rateLimitedMessage"
 import { removeEmptyStrings } from "../../util/removeFalsyValues"
 import { resolveTransientPayload } from "../../util/transientPayload"
 import { computeDefaultValues } from "./form-helpers"
@@ -39,6 +45,35 @@ export function useOryFormSubmit(
 
   const { onSuccess, onValidationError, onError, transientPayload } =
     flowContainer
+
+  const intl = useIntl()
+
+  // Wraps the integrator's onError so vanilla Elements shows feedback on a
+  // rate limit instead of a silently frozen form. The integrator's handler is
+  // awaited first, matching the event ordering contract. Passing the full
+  // context value to appendUiMessage is safe: OryFlowProvider re-assigns
+  // setFlowContainer and the other extras after spreading the stored value.
+  const handleError: OryErrorHandler = async (event) => {
+    await onError?.(event)
+    if (event.type === "rate_limited") {
+      // A rate-limited submission is a handled error: handleFlowError returns
+      // without throwing, so onSubmit's catch never runs and would otherwise
+      // leave isSubmitting stuck true (action_flow_update preserves it),
+      // freezing the form. End the submit state so the form stays usable.
+      flowContainer.dispatchFormState({ type: "form_submit_end" })
+      flowContainer.setFlowContainer(
+        appendUiMessage(flowContainer, {
+          id: rateLimitedMessageId,
+          type: "error",
+          text: intl.formatMessage({
+            id: "messages.rate-limited",
+            defaultMessage:
+              "Too many requests. Please wait a moment and try again.",
+          }),
+        }),
+      )
+    }
+  }
 
   const handleSuccess = (flow: OryFlowContainer) => {
     flowContainer.dispatchFormState({ type: "form_submit_end" })
@@ -105,7 +140,7 @@ export function useOryFormSubmit(
             body: submitData,
             onSuccess,
             onValidationError,
-            onError,
+            onError: handleError,
           })
           break
         }
@@ -131,7 +166,7 @@ export function useOryFormSubmit(
             body: submitData,
             onSuccess,
             onValidationError,
-            onError,
+            onError: handleError,
           })
           break
         }
@@ -151,7 +186,7 @@ export function useOryFormSubmit(
             body: submitData,
             onSuccess,
             onValidationError,
-            onError,
+            onError: handleError,
           })
           break
         }
@@ -177,7 +212,7 @@ export function useOryFormSubmit(
             body: submitData,
             onSuccess,
             onValidationError,
-            onError,
+            onError: handleError,
           })
           break
         }
@@ -233,7 +268,7 @@ export function useOryFormSubmit(
             body: submitData,
             onSuccess,
             onValidationError,
-            onError,
+            onError: handleError,
           })
           break
         }
@@ -258,7 +293,7 @@ export function useOryFormSubmit(
             onRedirect(oauth2Success.redirect_to as string, true)
             break
           }
-          await onError?.({
+          await handleError({
             type: "consent_error",
             flowType: FlowType.OAuth2Consent,
             consentRequest: flowContainer.flow.consent_request,

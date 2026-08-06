@@ -304,6 +304,15 @@ export type OryErrorEvent = {
     type: "consent_error";
     flowType: FlowType.OAuth2Consent;
     consentRequest: OAuth2ConsentRequest;
+} | {
+    type: "rate_limited";
+    flowType: FlowType;
+    retryAfter?: number;
+} | {
+    type: "unexpected_error";
+    flowType: FlowType;
+    response?: Response;
+    error: unknown;
 };
 
 // @public
@@ -837,9 +846,9 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:743:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:744:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:745:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1085:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1089:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1644:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1112:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1116:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1671:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -316,6 +316,7 @@ describe("handleFlowError", () => {
   })
 
   it("should handle JSON parse errors", async () => {
+    opts.onError = jest.fn()
     mockResponse.json.mockRejectedValue(new Error("Invalid JSON"))
     mockResponse.text.mockResolvedValue("Invalid JSON format")
 
@@ -331,6 +332,13 @@ describe("handleFlowError", () => {
 
     await expect(handler(responseError)).rejects.toThrow(
       /Unable to decode API response using JSON/,
+    )
+    expect(opts.onError).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: "unexpected_error",
+        flowType: FlowType.Login,
+        response: mockResponse,
+      }),
     )
 
     console.error = originalConsoleError
@@ -382,6 +390,126 @@ describe("handleFlowError", () => {
     expect(opts.onRedirect).not.toHaveBeenCalled()
 
     expect(mockResponse.json).toHaveBeenCalled()
+  })
+
+  it("should emit rate_limited and not throw on 429", async () => {
+    opts.onError = jest.fn()
+    mockResponse.status = 429
+    mockResponse.headers.get = jest.fn((name: string) =>
+      name === "retry-after" ? "60" : "application/json",
+    )
+    mockResponse.json.mockResolvedValue({ error: { code: 429 } })
+
+    const responseError = new ResponseError(
+      mockResponse as unknown as Response,
+      "Too Many Requests",
+    )
+    const handler = handleFlowError(opts)
+
+    await expect(handler(responseError)).resolves.toBeUndefined()
+
+    expect(opts.onError).toHaveBeenCalledWith({
+      type: "rate_limited",
+      flowType: FlowType.Login,
+      retryAfter: 60,
+    })
+    expect(opts.onRestartFlow).not.toHaveBeenCalled()
+  })
+
+  it("should handle 429 without a retry-after header and without an onError handler", async () => {
+    mockResponse.status = 429
+    mockResponse.headers.get = jest.fn().mockReturnValue(null)
+
+    const responseError = new ResponseError(
+      mockResponse as unknown as Response,
+      "Too Many Requests",
+    )
+    const handler = handleFlowError(opts)
+
+    await expect(handler(responseError)).resolves.toBeUndefined()
+  })
+
+  it("should emit unexpected_error and still throw for unknown status codes", async () => {
+    opts.onError = jest.fn()
+    mockResponse.status = 500
+    mockResponse.json.mockResolvedValue({ error: "server error" })
+
+    const responseError = new ResponseError(
+      mockResponse as unknown as Response,
+      "Internal Server Error",
+    )
+    const handler = handleFlowError(opts)
+
+    await expect(handler(responseError)).rejects.toThrow(
+      /The Ory API endpoint returned a response code the SDK does not know how to handle/,
+    )
+    expect(opts.onError).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: "unexpected_error",
+        flowType: FlowType.Login,
+        response: mockResponse,
+      }),
+    )
+    // The response body is read once (via toBody's clone) and then reused, so
+    // the response handed to the unexpected_error observer stays readable.
+    expect(mockResponse.json).toHaveBeenCalledTimes(1)
+  })
+
+  it("should emit unexpected_error and still throw on 422", async () => {
+    opts.onError = jest.fn()
+    mockResponse.status = 422
+    mockResponse.json.mockResolvedValue({ error: "outdated sdk" })
+
+    const responseError = new ResponseError(
+      mockResponse as unknown as Response,
+      "Unprocessable Entity",
+    )
+    const handler = handleFlowError(opts)
+
+    await expect(handler(responseError)).rejects.toThrow(
+      /indicating a required redirect/,
+    )
+    expect(opts.onError).toHaveBeenCalledWith(
+      expect.objectContaining({ type: "unexpected_error" }),
+    )
+    // The 422 path must not re-read err.response after toBody already parsed it.
+    expect(mockResponse.json).toHaveBeenCalledTimes(1)
+  })
+
+  it("should not let a throwing onError mask the original error", async () => {
+    opts.onError = jest.fn().mockRejectedValue(new Error("observer boom"))
+    mockResponse.status = 500
+    mockResponse.json.mockResolvedValue({ error: "server error" })
+
+    const responseError = new ResponseError(
+      mockResponse as unknown as Response,
+      "Internal Server Error",
+    )
+    const handler = handleFlowError(opts)
+
+    const originalConsoleError = console.error
+    console.error = jest.fn()
+
+    // The original SDK error must surface, not the observer's error.
+    await expect(handler(responseError)).rejects.toThrow(
+      /The Ory API endpoint returned a response code the SDK does not know how to handle/,
+    )
+    expect(console.error).toHaveBeenCalled()
+
+    console.error = originalConsoleError
+  })
+
+  it("should emit unexpected_error and still throw for network errors", async () => {
+    opts.onError = jest.fn()
+    const fetchError = new FetchError(new Error("Network error"), "TypeError")
+    const handler = handleFlowError(opts)
+
+    await expect(handler(fetchError)).rejects.toThrow(
+      /Unable to call the API endpoint/,
+    )
+    expect(opts.onError).toHaveBeenCalledWith(
+      expect.objectContaining({ type: "unexpected_error" }),
+    )
   })
 })
 

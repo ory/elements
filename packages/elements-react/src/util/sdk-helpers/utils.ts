@@ -74,19 +74,38 @@ export const handleFlowError =
   async (err: unknown): Promise<void | T> => {
     if (!isResponseError(err)) {
       if (isFetchError(err)) {
-        throw new FetchError(
+        const wrapped = new FetchError(
           err,
           "Unable to call the API endpoint. Ensure that CORS is set up correctly and that you have provided a valid SDK URL to Ory Elements.",
         )
+        return emitUnexpectedErrorAndThrow(opts, wrapped)
       }
-      throw err
+      return emitUnexpectedErrorAndThrow(opts, err)
+    }
+
+    // A 429 comes from the edge rate limiter, not from the flow APIs, and can
+    // carry any content type (the stock Envoy response has an empty body), so it
+    // is handled before content-type sniffing. It is a handled error: the caller
+    // shows feedback and the form stays usable, so nothing is thrown.
+    if (err.response.status === 429) {
+      await opts.onError?.({
+        type: "rate_limited",
+        flowType: opts.flowType,
+        retryAfter: parseRetryAfter(err.response.headers.get("retry-after")),
+      })
+      return
     }
 
     // First we handle any known errors in case we receive a JSON response.
     const contentType = err.response.headers.get("content-type") || ""
     if (contentType.includes("application/json")) {
       // Handle JSON content
-      const body = await toBody(err.response)
+      let body: unknown
+      try {
+        body = await toBody(err.response)
+      } catch (decodeError) {
+        return emitUnexpectedErrorAndThrow(opts, decodeError, err.response)
+      }
       if (isSelfServiceFlowExpiredError(body)) {
         await opts.onError?.({
           type: "flow_expired",
@@ -156,9 +175,7 @@ export const handleFlowError =
           opts.onRestartFlow()
           return
         case 400:
-          return opts.onValidationError(
-            (await err.response.json()) as unknown as T,
-          )
+          return opts.onValidationError(body as T)
         case 403: // This typically happens with CSRF violations.
           await opts.onError?.({
             type: "csrf_error",
@@ -168,19 +185,21 @@ export const handleFlowError =
           opts.onRestartFlow()
           return
         case 422: {
-          throw new ResponseError(
+          const error = new ResponseError(
             err.response,
             "The API returned an error code indicating a required redirect, but the SDK is outdated and does not know how to handle the action. Received response: " +
-              (await err.response.json()),
+              JSON.stringify(body),
           )
+          return emitUnexpectedErrorAndThrow(opts, error, err.response)
         }
       }
 
-      throw new ResponseError(
+      const error = new ResponseError(
         err.response,
         "The Ory API endpoint returned a response code the SDK does not know how to handle. Please check the network tab for more information. Received response: " +
-          (await err.response.json()),
+          JSON.stringify(body),
       )
+      return emitUnexpectedErrorAndThrow(opts, error, err.response)
     } else if (
       // Not a JSON response? If it's a text response we will return an error informing the user that the response is not JSON.
       contentType.includes("text/") ||
@@ -189,22 +208,55 @@ export const handleFlowError =
     ) {
       // Handle human-readable content
       await logResponseError(err.response, true)
-      throw new ResponseError(
+      const error = new ResponseError(
         err.response,
         `The Ory API endpoint returned an unexpected HTML or text response. Check your console output for details.`,
       )
+      return emitUnexpectedErrorAndThrow(opts, error, err.response)
     }
 
     // Not sure what the error is. So we just return some error.
     await logResponseError(err.response, false)
     // Handle binary/unknown content
-    throw new ResponseError(
+    const error = new ResponseError(
       err.response,
       "The Ory API endpoint returned unexpected content type `" +
         contentType +
         "`.  Check your console output for details.",
     )
+    return emitUnexpectedErrorAndThrow(opts, error, err.response)
   }
+
+/**
+ * Emits an `unexpected_error` event (best-effort — awaited so ordering is
+ * deterministic) and then throws the given error, preserving its identity and
+ * message. Centralizes the emit-then-throw shape used at every
+ * `handleFlowError` throw site.
+ *
+ * The observer call is wrapped so a throwing `onError` cannot mask the original
+ * error: the whole point of this event is to surface `error`, so an observer
+ * failure must not replace it.
+ */
+async function emitUnexpectedErrorAndThrow<T>(
+  opts: FlowErrorHandlerProps<T>,
+  error: unknown,
+  response?: Response,
+): Promise<never> {
+  try {
+    await opts.onError?.({
+      type: "unexpected_error",
+      flowType: opts.flowType,
+      ...(response ? { response } : {}),
+      error,
+    })
+  } catch (observerError) {
+    console.error(
+      "[Ory/Elements React] The onError callback threw while handling an unexpected_error event. Ignoring it so the original error is preserved.",
+      observerError,
+    )
+  }
+  throw error
+}
 
 export async function toBody(response: Response): Promise<unknown> {
   try {
@@ -231,4 +283,14 @@ async function logResponseError(
     },
     errors: wrap,
   })
+}
+
+// Parses the numeric (delta-seconds) form of the Retry-After header. The
+// HTTP-date form is rare on rate limit responses and is ignored.
+function parseRetryAfter(value: string | null): number | undefined {
+  if (!value) {
+    return undefined
+  }
+  const seconds = Number(value)
+  return Number.isFinite(seconds) && seconds >= 0 ? seconds : undefined
 }

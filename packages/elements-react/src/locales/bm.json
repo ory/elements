@@ -267,5 +267,6 @@
   "identities.messages.4050002": "I n’a fɔ i n’ bɛ se ka ka dɔrɔn dɔ ka bonya, i n’a fɔ, i n’a fɔ, i n’a fɔ. Ka kɔ, ka dɔrɔn walima ka kɛnɛya in dɔrɔn kan ka bonya.",
   "identities.messages.1050023": "N’a ka kɔnɔmɔni ye min bɛ se ka ɲɛfɔ. N’i ka kɛlɛ ka ɲɛfɔw la, ka ɲɛfɔ kɔnɔmɔni lajijila kan.",
   "identities.messages.4000045": "DeviceAuthn kilísi in tɛ se ka baara kɛ tugun, bawo relaxed attestation waati banna walima a dabilala. Aw ye aw ka minɛn sɛbɛn kokura.",
-  "identities.messages.4000046": "DeviceAuthn kilísi in sɛbɛnna sanni user verification ka daminɛ, o la a tɛ se ka baara kɛ tugun. Aw ye aw ka minɛn sɛbɛn kokura."
+  "identities.messages.4000046": "DeviceAuthn kilísi in sɛbɛnna sanni user verification ka daminɛ, o la a tɛ se ka baara kɛ tugun. Aw ye aw ka minɛn sɛbɛn kokura.",
+  "messages.rate-limited": "An ka fɔ kɛrɛnkɛrɛn ma. Ka bon ka bɔ a kan ka taga la."
 }
