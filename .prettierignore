@@ -17,3 +17,4 @@ pnpm-lock.yaml
 **/api-report/*
 .changeset/
 **/next-env.d.ts
+**/routeTree.gen.ts

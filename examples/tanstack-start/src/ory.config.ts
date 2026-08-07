@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: Apache-2.0
+
+import type { OryClientConfiguration } from "@ory/elements-react"
+
+const config: OryClientConfiguration = {
+  project: {
+    default_redirect_url: "/",
+    error_ui_url: "/auth/error",
+    name: "Ory TanStack Start Example",
+    registration_enabled: true,
+    verification_enabled: true,
+    recovery_enabled: true,
+    registration_ui_url: "/auth/registration",
+    verification_ui_url: "/auth/verification",
+    recovery_ui_url: "/auth/recovery",
+    login_ui_url: "/auth/login",
+    settings_ui_url: "/settings",
+  },
+}
+
+export function withSdkUrl(sdkUrl: string): OryClientConfiguration {
+  return { ...config, sdk: { url: sdkUrl } }
+}
+
+export default config

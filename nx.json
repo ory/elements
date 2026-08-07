@@ -38,6 +38,11 @@
         "projects": ["@ory/nextjs"],
         "title": "Next.js",
         "releaseTagPattern": "release/{projectName}/{version}"
+      },
+      "tanstack-start": {
+        "projects": ["@ory/tanstack-start"],
+        "title": "TanStack Start",
+        "releaseTagPattern": "release/{projectName}/{version}"
       }
     }
   },
