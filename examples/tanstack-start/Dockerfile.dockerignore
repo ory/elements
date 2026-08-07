@@ -1,0 +1,20 @@
+**/node_modules
+**/.next
+**/.nx
+**/.git
+**/.github
+**/.changeset
+**/dist
+**/api-report
+**/.stub-responses
+**/.storybook
+**/.vscode
+**/coverage
+**/.nitro
+**/.output
+packages/elements-react/stories
+
+# Exclude all other examples; the Dockerfile only needs tanstack-start.
+examples
+!examples/tanstack-start
+!examples/tanstack-start/**

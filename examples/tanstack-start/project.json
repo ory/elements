@@ -1,0 +1,21 @@
+{
+  "name": "tanstack-start-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "examples/tanstack-start/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "command": "rsbuild build",
+      "options": {
+        "cwd": "examples/tanstack-start"
+      },
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "command": "tsc --noEmit",
+      "options": {
+        "cwd": "examples/tanstack-start"
+      }
+    }
+  }
+}

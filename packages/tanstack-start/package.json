@@ -1,0 +1,65 @@
+{
+  "name": "@ory/tanstack-start",
+  "version": "0.0.0-unused",
+  "license": "Apache License 2.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsup --clean --dts",
+    "prepare": "pnpm run build"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "private": false,
+  "dependencies": {
+    "@ory/client-fetch": "1.22.65",
+    "cookie": "2.0.1",
+    "psl": "^1.15.0",
+    "set-cookie-parser": "3.1.2"
+  },
+  "devDependencies": {
+    "@tanstack/react-router": "1.170.18",
+    "@tanstack/react-start": "1.168.32",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "@tanstack/react-router": ">=1.170.0",
+    "@tanstack/react-start": ">=1.168.0"
+  },
+  "typesVersions": {
+    "*": {
+      "server": [
+        "./dist/server/index.d.ts"
+      ],
+      "middleware": [
+        "./dist/middleware/index.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.ts",
+      "import": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    },
+    "./middleware": {
+      "types": "./dist/middleware/index.d.ts",
+      "import": "./dist/middleware/index.js",
+      "default": "./dist/middleware/index.js"
+    }
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "tanstack",
+    "tanstack-start",
+    "react",
+    "user management",
+    "authentication"
+  ]
+}
