@@ -30,6 +30,48 @@ import { removeEmptyStrings } from "../../util/removeFalsyValues"
 import { resolveTransientPayload } from "../../util/transientPayload"
 import { computeDefaultValues } from "./form-helpers"
 
+// The fields a single sign-on submission may carry, per
+// `UpdateLoginFlowWithOidcMethod` and its registration and SAML siblings.
+const ssoBodyFields = [
+  "csrf_token",
+  "id_token",
+  "id_token_nonce",
+  "method",
+  "provider",
+  "traits",
+  "transient_payload",
+  "upstream_parameters",
+]
+
+/**
+ * The single sign-on buttons share the form state of the card they render in, so that
+ * traits the user entered next to them are submitted with the provider. Everything else
+ * on that screen belongs to a different method: a typed password or one-time code means
+ * nothing to the provider redirect and must not be sent along with it.
+ *
+ * Settings is excluded: linking and unlinking a provider submits the `oidc` method too,
+ * but with `link` / `unlink` fields that are not part of a sign-in submission.
+ */
+export function withoutForeignMethodFields(
+  flowType: FlowType,
+  data: FormValues,
+): FormValues {
+  if (flowType !== FlowType.Login && flowType !== FlowType.Registration) {
+    return data
+  }
+
+  if (
+    data.method !== UiNodeGroupEnum.Oidc &&
+    data.method !== UiNodeGroupEnum.Saml
+  ) {
+    return data
+  }
+
+  return Object.fromEntries(
+    Object.entries(data).filter(([key]) => ssoBodyFields.includes(key)),
+  )
+}
+
 // The "select_account" prompt is supported by the following providers.
 // This prompt forces the user to select an account, even if they are already logged in.
 // This is useful when the user wants to link an account, for example.
@@ -117,7 +159,10 @@ export function useOryFormSubmit(
     // This is necessary to avoid sending empty strings to the backend, which can cause validation errors.
     // TODO: Kratos could be improved to handle this better, and treat empty strings as missing values.
     try {
-      const data = removeEmptyStrings(initialData)
+      const data = withoutForeignMethodFields(
+        flowContainer.flowType,
+        removeEmptyStrings(initialData),
+      )
       switch (flowContainer.flowType) {
         case FlowType.Login: {
           const submitData: UpdateLoginFlowBody = {

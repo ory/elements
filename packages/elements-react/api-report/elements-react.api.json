@@ -3950,7 +3950,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!OryFormSsoForm:function(1)",
-          "docComment": "/**\n * The `OryFormSsoForm` component renders the Ory Form for SSO methods (OIDC and SAML).\n *\n * It needs to be its own form, as the OIDC buttons are form submits but are not related to the main form.\n *\n * @returns a React component that renders the Ory Form for SSO methods.\n *\n * @group\n *\n * Components\n */\n",
+          "docComment": "/**\n * The `OryFormSsoForm` component renders the Ory Form for SSO methods (OIDC and SAML).\n *\n * It is its own `<form>` element, so that a click on a provider button submits the SSO method and not whichever method the main form is on. It shares the form state of the surrounding card though: on a one-step registration screen the traits render next to the provider buttons, and a value the user entered there (a consent checkbox, for example) has to survive the click. Fields belonging to another method are dropped from the payload at submission time instead.\n *\n * @returns a React component that renders the Ory Form for SSO methods.\n *\n * @group\n *\n * Components\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
