@@ -1,7 +1,11 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { OryMiddlewareOptions, proxyRequest } from "./middleware"
+import {
+  createOryMiddleware,
+  OryMiddlewareOptions,
+  proxyRequest,
+} from "./middleware"
 import { NextRequest, NextResponse } from "next/server"
 
 function stringToReadableStream(input: string): ReadableStream<Uint8Array> {
@@ -262,6 +266,103 @@ describe("proxyRequest", () => {
     expect(got).toEqual("")
   })
 
+  describe("trustedOrigins", () => {
+    afterEach(() => {
+      delete process.env["ORY_PROJECT_API_TOKEN"]
+    })
+
+    it("signs the base URL rewrite when the request origin matches a string entry", async () => {
+      process.env["ORY_PROJECT_API_TOKEN"] = "ory_pat_test"
+      const request = createMockLoginRequest()
+      const fetch = jest
+        .fn()
+        .mockResolvedValue(new Response("", { status: 200 }))
+      global.fetch = fetch
+
+      await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost"],
+      })
+
+      const fetchArgs = fetch.mock.calls[0][1]
+      expect(fetchArgs.headers.get("Ory-Base-URL-Rewrite")).toBe(
+        "http://localhost",
+      )
+      expect(fetchArgs.headers.get("Ory-Base-URL-Rewrite-Token")).toBe(
+        "ory_pat_test",
+      )
+    })
+
+    it("signs the base URL rewrite when the request origin matches a RegExp entry", async () => {
+      const request = createMockLoginRequest()
+      const fetch = jest
+        .fn()
+        .mockResolvedValue(new Response("", { status: 200 }))
+      global.fetch = fetch
+
+      await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: [/^http:\/\/localhost$/],
+      })
+
+      const fetchArgs = fetch.mock.calls[0][1]
+      expect(fetchArgs.headers.get("Ory-Base-URL-Rewrite")).toBe(
+        "http://localhost",
+      )
+    })
+
+    it("omits both rewrite headers for an untrusted host but still rewrites the response for the requester", async () => {
+      process.env["ORY_PROJECT_API_TOKEN"] = "ory_pat_test"
+      const request = createMockLoginRequest(undefined, {
+        host: "attacker.example",
+      })
+      const fetch = jest.fn().mockResolvedValue(
+        new Response(
+          JSON.stringify({
+            action:
+              "https://playground.projects.oryapis.com/self-service/login",
+          }),
+          { status: 200, headers: { "content-type": "application/json" } },
+        ),
+      )
+      global.fetch = fetch
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost"],
+      })
+
+      expect(fetch).toHaveBeenCalled()
+      const fetchArgs = fetch.mock.calls[0][1]
+      expect(fetchArgs.headers.has("Ory-Base-URL-Rewrite")).toBe(false)
+      expect(fetchArgs.headers.has("Ory-Base-URL-Rewrite-Token")).toBe(false)
+
+      const body = await response?.text()
+      expect(body).toEqual(
+        JSON.stringify({
+          action: "http://attacker.example/self-service/login",
+        }),
+      )
+    })
+
+    it("omits the rewrite headers when trustedOrigins is unset", async () => {
+      process.env["ORY_PROJECT_API_TOKEN"] = "ory_pat_test"
+      const request = createMockLoginRequest(undefined, {
+        host: "attacker.example",
+      })
+      const fetch = jest
+        .fn()
+        .mockResolvedValue(new Response("", { status: 200 }))
+      global.fetch = fetch
+
+      await proxyRequest(request, createOptions())
+
+      const fetchArgs = fetch.mock.calls[0][1]
+      expect(fetchArgs.headers.has("Ory-Base-URL-Rewrite")).toBe(false)
+      expect(fetchArgs.headers.has("Ory-Base-URL-Rewrite-Token")).toBe(false)
+    })
+  })
+
   it("preserves additional forwarded headers", async () => {
     const request = createMockLoginRequest(undefined, {
       "x-custom-header": "test-value",
@@ -288,5 +389,23 @@ describe("proxyRequest", () => {
 
     const body = await response?.text()
     expect(body).toEqual("http://localhost/self-service/login")
+  })
+})
+
+describe("createOryMiddleware", () => {
+  it("throws at construction when trustedOrigins is not configured", () => {
+    expect(() => createOryMiddleware({})).toThrow("trustedOrigins")
+  })
+
+  it("throws when trustedOrigins is an empty list", () => {
+    expect(() => createOryMiddleware({ trustedOrigins: [] })).toThrow(
+      "trustedOrigins",
+    )
+  })
+
+  it("does not throw when trustedOrigins is configured", () => {
+    expect(() =>
+      createOryMiddleware({ trustedOrigins: ["https://app.example.com"] }),
+    ).not.toThrow()
   })
 })

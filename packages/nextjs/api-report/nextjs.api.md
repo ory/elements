@@ -84,6 +84,7 @@ export type OryMiddlewareOptions = {
     forwardAdditionalHeaders?: string[];
     forceCookieDomain?: string;
     project?: Partial<AccountExperienceConfiguration>;
+    trustedOrigins?: Array<string | RegExp>;
 };
 
 // @public

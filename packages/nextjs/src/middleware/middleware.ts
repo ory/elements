@@ -8,6 +8,7 @@ import { defaultOmitHeaders } from "../utils/headers"
 import { rewriteUrls } from "../utils/rewrite"
 import { orySdkUrl } from "../utils/sdk"
 import { filterRequestHeaders, processSetCookieHeaders } from "../utils/utils"
+import { isTrustedOrigin } from "./trusted-origin"
 
 export function getProjectApiKey() {
   let baseUrl = ""
@@ -41,6 +42,17 @@ export type OryMiddlewareOptions = {
    * Make sure to pass the same project configuration that you pass to `@ory/elements-react`
    */
   project?: Partial<AccountExperienceConfiguration>
+  /**
+   * Origins this deployment is allowed to sign as its own base URL. The
+   * middleware only sends the `Ory-Base-URL-Rewrite` header when the incoming
+   * request's origin matches one of these entries; otherwise Ory falls back
+   * to the project's configured base URL. Required — `createOryMiddleware`
+   * throws when unset or empty. Provide exact origins, or RegExp patterns for
+   * preview deployments.
+   *
+   * @example ["https://app.example.com", /^https:\/\/[a-z0-9-]+\.myapp\.vercel\.app$/]
+   */
+  trustedOrigins?: Array<string | RegExp>
 }
 
 export async function proxyRequest(
@@ -76,9 +88,18 @@ export async function proxyRequest(
   )
   upstreamRequestHeaders.set("Host", upstreamUrl.host)
 
-  // Ensures we use the correct URL in redirects like OIDC redirects.
-  upstreamRequestHeaders.set("Ory-Base-URL-Rewrite", selfUrl.toString())
-  upstreamRequestHeaders.set("Ory-Base-URL-Rewrite-Token", getProjectApiKey())
+  // The signed base URL rewrite steers other users' courier links and OIDC
+  // redirects server-side, so it must not be derived from an untrusted Host
+  // header. A non-matching origin omits the pair so Ory falls back to the
+  // project's configured base URL.
+  if (
+    options.trustedOrigins &&
+    isTrustedOrigin(selfUrl, options.trustedOrigins)
+  ) {
+    // Ensures we use the correct URL in redirects like OIDC redirects.
+    upstreamRequestHeaders.set("Ory-Base-URL-Rewrite", selfUrl.toString())
+    upstreamRequestHeaders.set("Ory-Base-URL-Rewrite-Token", getProjectApiKey())
+  }
 
   // We disable custom domain redirects.
   upstreamRequestHeaders.set("Ory-No-Custom-Domain-Redirect", "true")
@@ -185,6 +206,7 @@ export async function proxyRequest(
  * import { createOryMiddleware } from "@ory/elements/nextjs";
  *
  * export default createOryMiddleware({
+ *   trustedOrigins: ["https://app.example.com"],
  *   forwardAdditionalHeaders: ["authorization", "x-custom-header"],
  *   forceCookieDomain: "example.com",
  *   project: {
@@ -198,6 +220,14 @@ export async function proxyRequest(
  * @public
  */
 export function createOryMiddleware(options: OryMiddlewareOptions) {
+  if (!options.trustedOrigins || options.trustedOrigins.length === 0) {
+    throw new Error(
+      "[@ory/nextjs] `trustedOrigins` is not configured. Set it to the " +
+        "origins this deployment serves, as exact origins or RegExp patterns " +
+        "for preview deployments. See " +
+        "https://www.ory.com/docs/elements/guides/configuration.",
+    )
+  }
   return (r: NextRequest) => {
     return proxyRequest(r, options)
   }
