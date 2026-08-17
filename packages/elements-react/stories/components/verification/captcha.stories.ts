@@ -3,7 +3,7 @@
 
 import { config } from "../../utils"
 import { VerificationFlowFromJSON } from "@ory/client-fetch"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Verification } from "../../../src/theme/default"
 
 const meta = {

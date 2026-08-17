@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { RecoveryFlowFromJSON } from "@ory/client-fetch"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Recovery } from "../../../src/theme/default"
 import { config } from "../../utils"
 

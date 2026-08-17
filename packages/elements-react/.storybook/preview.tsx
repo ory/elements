@@ -1,7 +1,7 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Decorator, Preview } from "@storybook/react"
+import type { Decorator, Preview } from "@storybook/react-vite"
 import { merge } from "lodash"
 import "./global.css"
 import { mockDateDecorator } from "storybook-mock-date-decorator"
@@ -9,11 +9,10 @@ import { mockDateDecorator } from "storybook-mock-date-decorator"
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: "light",
-      values: [
-        { name: "light", value: "#f5f5f5" },
-        { name: "dark", value: "#333333" },
-      ],
+      options: {
+        light: { name: "light", value: "#f5f5f5" },
+        dark: { name: "dark", value: "#333333" },
+      },
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -52,6 +51,12 @@ const preview: Preview = {
         // TODO: try to meet "wcag2aaa" (error messages are don't have enough contrast)
         // runOnly: ["wcag2a", "wcag2aa", "best-practice"],
       },
+    },
+  },
+
+  initialGlobals: {
+    backgrounds: {
+      value: "light",
     },
   },
 }

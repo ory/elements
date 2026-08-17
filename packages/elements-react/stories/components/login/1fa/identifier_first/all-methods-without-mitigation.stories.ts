@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { LoginFlowActiveEnum, LoginFlowFromJSON } from "@ory/client-fetch"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { config, patchMethodActive } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 import options from "$snapshots/login/1fa/identifier_first/all-methods/enumeration-protection-enabled/show-options.json"

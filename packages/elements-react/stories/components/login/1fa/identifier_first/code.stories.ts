@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { LoginFlowFromJSON } from "@ory/client-fetch"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { config } from "../../../../utils"
 import { Login } from "../../../../../src/theme/default"
 
