@@ -7,9 +7,11 @@ import path from "path"
 import { mergeConfig } from "vite"
 import vitePluginRequire from "vite-plugin-require"
 import svgr from "vite-plugin-svgr"
+import { snapshotIndexer, snapshotStoriesPlugin } from "./snapshot-stories"
 
 const config: StorybookConfig = {
-  stories: ["../**/*.stories.@(ts|tsx)"],
+  stories: ["../**/*.stories.@(ts|tsx)", "../.stub-responses/**/*.json"],
+  experimental_indexers: (indexers = []) => [snapshotIndexer, ...indexers],
   addons: [
     "@storybook/addon-docs",
     "@storybook/addon-a11y",
@@ -24,6 +26,7 @@ const config: StorybookConfig = {
   viteFinal: (config) => {
     return mergeConfig(config, {
       plugins: [
+        snapshotStoriesPlugin(),
         vitePluginRequire(),
         svgr({
           include: "**/*.svg",
