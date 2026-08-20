@@ -49,7 +49,7 @@ function HomeContent() {
         )}
         <div className="flex gap-2 text-sm">
           <a
-            href="https://github.com/ory/elements/tree/master/examples/nextjs-pages-router"
+            href="https://github.com/ory/elements/tree/main/examples/nextjs-app-router"
             className="underline"
             target="_blank"
             rel="noreferrer"
@@ -57,7 +57,7 @@ function HomeContent() {
             App Router Example
           </a>
           <a
-            href="https://github.com/ory/elements/tree/master/examples/nextjs-pages-router"
+            href="https://github.com/ory/elements/tree/main/examples/nextjs-pages-router"
             className="underline"
             target="_blank"
             rel="noreferrer"
