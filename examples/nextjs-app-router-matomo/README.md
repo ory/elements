@@ -11,7 +11,7 @@ available on every Ory Elements flow component.
 ## Prerequisites
 
 - Docker and Docker Compose
-- An [Ory Network](https://console.ory.sh/) project (or update `.env` to point
+- An [Ory Network](https://console.ory.com/) project (or update `.env` to point
   at a local Kratos instance)
 
 ## Quick start

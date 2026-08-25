@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED, DO NOT EDIT! -->
-<!-- Please edit the original at https://github.com/ory/meta/blob/master/templates/repository/common/CONTRIBUTING.md -->
+<!-- Please edit the original at scripts/sync-templates/templates/CONTRIBUTING.md -->
 
-# Contribute to Ory Ory Elements<!-- omit in toc -->
+# Contribute to Ory Elements<!-- omit in toc -->
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -22,26 +22,27 @@
 
 ## Introduction
 
-_Please note_: We take Ory Ory Elements's security and our users' trust very
-seriously. If you believe you have found a security issue in Ory Ory Elements,
+_Please note_: We take Ory Elements's security and our users' trust very
+seriously. If you believe you have found a security issue in Ory Elements,
 please disclose it by contacting us at security@ory.com.
 
 There are many ways in which you can contribute. The goal of this document is to
 provide a high-level overview of how you can get involved in Ory.
 
-As a potential contributor, your changes and ideas are welcome at any hour of
-the day or night, on weekdays, weekends, and holidays. Please do not ever
-hesitate to ask a question or send a pull request.
+The most valuable way to contribute is to report bugs and request features. If
+you would like to propose a change to the code, please **open an issue or a
+[discussion](https://github.com/orgs/ory/discussions) first** so we can align on
+the problem and the approach before any code is written. We generally do not
+accept unsolicited pull requests; see [Contribute code](#contribute-code) for
+the reasoning and the process.
 
-If you are unsure, just ask or submit the issue or pull request anyways. You
-won't be yelled at for giving it your best effort. The worst that can happen is
-that you'll be politely asked to change something. We appreciate any sort of
-contributions and don't want a wall of rules to get in the way of that.
+If you are unsure, just ask. You won't be yelled at for giving it your best
+effort. The worst that can happen is that you'll be politely asked to change
+something. We appreciate any sort of contribution and don't want a wall of rules
+to get in the way of that.
 
-That said, if you want to ensure that a pull request is likely to be merged,
-talk to us! You can find out our thoughts and ensure that your contribution
-won't clash with Ory Ory Elements's direction. A great way to do this is via
-[Ory Ory Elements Discussions](https://github.com/orgs/ory/discussions) or the
+A great way to start a conversation is via
+[Ory Elements Discussions](https://github.com/orgs/ory/discussions) or the
 [Ory Chat](https://www.ory.com/chat).
 
 ## FAQ
@@ -50,33 +51,36 @@ won't clash with Ory Ory Elements's direction. A great way to do this is via
   [Ory Community Code of Conduct?](https://github.com/ory/elements/blob/master/CODE_OF_CONDUCT.md)
 
 - I have a question. Where can I get
-  [answers to questions regarding Ory Ory Elements?](#communication)
+  [answers to questions regarding Ory Elements?](#communication)
 
 - I would like to contribute but I am not sure how. Are there
   [easy ways to contribute?](#how-can-i-contribute)
   [Or good first issues?](https://github.com/search?l=&o=desc&q=label%3A%22help+wanted%22+label%3A%22good+first+issue%22+is%3Aopen+user%3Aory+user%3Aory-corp&s=updated&type=Issues)
 
-- I want to talk to other Ory Ory Elements users.
+- I want to talk to other Ory Elements users.
   [How can I become a part of the community?](#communication)
 
-- I would like to know what I am agreeing to when I contribute to Ory Ory
-  Elements. Does Ory have
+- I would like to know what I am agreeing to when I contribute to Ory Elements.
+  Does Ory have
   [a Contributors License Agreement?](https://cla-assistant.io/ory/elements)
 
-- I would like updates about new versions of Ory Ory Elements.
+- I would like updates about new versions of Ory Elements.
   [How are new releases announced?](https://www.ory.com/l/sign-up-newsletter)
 
 ## How can I contribute?
 
-If you want to start to contribute code right away, take a look at the
-[list of good first issues](https://github.com/ory/elements/labels/good%20first%20issue).
+The single most useful thing you can do is to
+[open a well-written issue or discussion](https://github.com/ory/elements/issues):
+a clear bug report with a reproducer, or a feature request with concrete use
+cases and examples. This is far more valuable to us than a pull request, and it
+is the first step for any code change.
 
-There are many other ways you can contribute. Here are a few things you can do
-to help out:
+There are many other ways you can contribute without writing code. Here are a
+few things you can do to help out:
 
 - **Give us a star.** It may not seem like much, but it really makes a
-  difference. This is something that everyone can do to help out Ory Ory
-  Elements. Github stars help the project gain visibility and stand out.
+  difference. This is something that everyone can do to help out Ory Elements.
+  GitHub stars help the project gain visibility and stand out.
 
 - **Join the community.** Sometimes helping people can be as easy as listening
   to their problems and offering a different perspective. Join our Slack, have a
@@ -90,8 +94,16 @@ to help out:
   help, please share it! Bonus: You get GitHub achievements for answered
   discussions.
 
-- **Help with open issues.** We have a lot of open issues for Ory Ory Elements
-  and some of them may lack necessary information, some are duplicates of older
+- **Report bugs.** File a detailed issue when something does not work as
+  documented. A minimal, reproducible example is worth more than a thousand
+  words.
+
+- **Request features.** Tell us what you are trying to achieve and why. We would
+  rather understand the underlying problem than receive a proposed
+  implementation.
+
+- **Help with open issues.** We have a lot of open issues for Ory Elements and
+  some of them may lack necessary information, some are duplicates of older
   issues. You can help out by guiding people through the process of filling out
   the issue template, asking for clarifying information or pointing them to
   existing issues that match their description of the problem.
@@ -101,24 +113,20 @@ to help out:
   way, feel free to hit the `edit` button at the top of the page. More info on
   contributing to the documentation [here](#contribute-documentation).
 
-- **Help with tests.** Pull requests may lack proper tests or test plans. These
-  are needed for the change to be implemented safely.
-
 ## Communication
 
 We use [Slack](https://www.ory.com/chat). You are welcome to drop in and ask
 questions, discuss bugs and feature requests, talk to other users of Ory, etc.
 
-Check out
-[Ory Ory Elements Discussions](https://github.com/orgs/ory/discussions). This is
-a great place for in-depth discussions and lots of code examples, logs and
-similar data.
+Check out [Ory Elements Discussions](https://github.com/orgs/ory/discussions).
+This is a great place for in-depth discussions and lots of code examples, logs
+and similar data.
 
 You can also join our community calls if you want to speak to the Ory team
 directly or ask some questions. You can find more info and participate in
 [Slack](https://www.ory.com/chat) in the #community-call channel.
 
-If you want to receive regular notifications about updates to Ory Ory Elements,
+If you want to receive regular notifications about updates to Ory Elements,
 consider joining the mailing list. We will _only_ send you vital information on
 the projects that you are interested in.
 
@@ -137,28 +145,29 @@ to add your example or Ory-related project to the awesome-ory README.
 
 ## Contribute code
 
-**All code contributions require prior discussion and agreement with maintainers
-before opening a pull request.**
+**Please open an issue or [discussion](https://github.com/orgs/ory/discussions)
+before you write any code, and wait for a maintainer to agree on the approach.**
+We do not accept unsolicited pull requests. Pull requests opened without a
+prior, agreed-upon issue will usually be closed with a pointer back to this
+document.
 
-This applies to bug fixes, new features, and refactoring. Before writing code:
+This may sound unwelcoming, but reviewing an external patch end to end is often
+more work than writing the change ourselves.
 
-1. Open a [Discussion](https://github.com/ory/elements/discussions/new/choose)
-   or [Issue](https://github.com/ory/elements/issues/new/choose) describing the
-   problem and your proposed solution.
-2. Wait for maintainer feedback and explicit agreement on the implementation
-   approach.
-3. Only then begin writing code.
+So the process is:
 
-Pull requests without prior discussion may be closed without review. This policy
-exists to protect your time and maintainer time.
+1. Open an issue that describes the bug or feature. Include a reproducer,
+   examples, and the use case you are trying to solve.
+2. Wait for a maintainer to confirm the problem and agree on an approach. For
+   anything beyond a trivial, known bug fix, this step is required.
+3. If you would like to include a patch as a proof-of-concept, that is great and
+   welcome. Please don't be offended if we rewrite it from scratch, take a
+   different approach, or reimplement the idea.
 
-"Drive-by" PRs, even well-intentioned ones, often conflict with the project
-roadmap, duplicate ongoing work, or introduce architectural inconsistencies. A
-quick conversation can help avoid these problems.
-
-All contributions are made via pull requests. To make a pull request, you will
-need a GitHub account; if you are unclear on this process, see GitHub's
-documentation on [forking](https://help.github.com/articles/fork-a-repo) and
+Once a maintainer has agreed that a pull request is the right next step, open
+one. All contributions are made via pull requests, so you will need a GitHub
+account; if you are unclear on this process, see GitHub's documentation on
+[forking](https://help.github.com/articles/fork-a-repo) and
 [pull requests](https://help.github.com/articles/using-pull-requests). Pull
 requests should be targeted at the `master` branch. Before creating a pull
 request, go through this checklist:
@@ -166,12 +175,12 @@ request, go through this checklist:
 1. Create a feature branch off of `master` so that changes do not get mixed up.
 1. [Rebase](http://git-scm.com/book/en/Git-Branching-Rebasing) your local
    changes against the `master` branch.
-1. Run the full project test suite with the `go test ./...` (or
+1. Run the full project test suite with the `go test -tags sqlite ./...` (or
    equivalent) command and confirm that it passes.
 1. Run `make format`
 1. Add a descriptive prefix to commits. This ensures a uniform commit history
    and helps structure the changelog. Please refer to this
-   [Convential Commits configuration](https://github.com/ory/elements/blob/master/.github/workflows/conventional_commits.yml)
+   [Conventional Commits configuration](https://github.com/ory/elements/blob/master/.github/workflows/conventional_commits.yml)
    for the list of accepted prefixes. You can read more about the Conventional
    Commit specification
    [at their site](https://www.conventionalcommits.org/en/v1.0.0/).
@@ -194,14 +203,15 @@ failures until the tests pass.
 
 Pull requests eligible for review
 
-1. follow the repository's code formatting conventions;
-2. include tests that prove that the change works as intended and does not add
+1. reference an issue or discussion where a maintainer agreed to the change;
+2. follow the repository's code formatting conventions;
+3. include tests that prove that the change works as intended and does not add
    regressions;
-3. document the changes in the code and/or the project's documentation;
-4. pass the CI pipeline;
-5. have signed our
+4. document the changes in the code and/or the project's documentation;
+5. pass the CI pipeline;
+6. have signed our
    [Contributor License Agreement](https://cla-assistant.io/ory/elements);
-6. include a proper git commit message following the
+7. include a proper git commit message following the
    [Conventional Commit Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 
 If all of these items are checked, the pull request is ready to be reviewed and
@@ -259,10 +269,10 @@ Please run `make format` to format all source code following the Ory standard.
 
 ```bash
 # First you clone the original repository
-git clone git@github.com:ory/ory/elements.git
+git clone git@github.com:ory/elements.git
 
 # Next you add a git remote that is your fork:
-git remote add fork git@github.com:<YOUR-GITHUB-USERNAME-HERE>/ory/elements.git
+git remote add fork git@github.com:<YOUR-GITHUB-USERNAME-HERE>/elements.git
 
 # Next you fetch the latest changes from origin for master:
 git fetch origin

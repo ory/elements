@@ -3,9 +3,9 @@ router.
 
 ## Getting started
 
-1. Sign up for an account at https://console.ory.sh
+1. Sign up for an account at https://console.ory.com
 2. Create a new or use an existing project
-3. Go to https://console.ory.sh/projects/current/settings and copy the **API
+3. Go to https://console.ory.com/projects/current/settings and copy the **API
    endpoints** URL
 4. Set `NEXT_PUBLIC_ORY_SDK_URL` in the `.env` file to your project's **API
    endpoints** URL

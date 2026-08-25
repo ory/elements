@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED, DO NOT EDIT! -->
-<!-- Please edit the original at https://github.com/ory/meta/blob/master/templates/repository/common/CODE_OF_CONDUCT.md -->
+<!-- Please edit the original at scripts/sync-templates/templates/CODE_OF_CONDUCT.md -->
 
 # Contributor Covenant Code of Conduct
 

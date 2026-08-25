@@ -66,7 +66,7 @@ export function serverClientFrontend() {
 
 The Ory Identities APIs come with the ability to specify custom UI URLs. To make
 sure, Ory knows about your custom UI, specify the URLs of your application on
-https://console.ory.sh/projects/current/ui.
+https://console.ory.com/projects/current/ui.
 
 ### Initializing a new flow
 
