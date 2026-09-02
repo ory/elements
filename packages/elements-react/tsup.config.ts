@@ -2,7 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import svgr from "esbuild-plugin-svgr"
+import path from "node:path"
 import { defineConfig, type Options } from "tsup"
+import { rewriteEsmRelativeImportsInDir } from "./src/client/rewrite-esm-relative-imports"
 
 const baseConfig: Options = {
   dts: true,
@@ -34,8 +36,15 @@ export default defineConfig([
     sourcemap: true,
     bundle: false,
     format: ["cjs", "esm"],
-    entry: ["src/client/**/*.{ts,tsx}", "!src/**/*.spec.{tsx,ts}"],
+    entry: [
+      "src/client/**/*.{ts,tsx}",
+      "!src/**/*.spec.{tsx,ts}",
+      "!src/client/rewrite-esm-relative-imports.ts",
+    ],
     outDir: "dist/client",
+    onSuccess: () => {
+      rewriteEsmRelativeImportsInDir(path.resolve("dist/client"))
+    },
   },
   {
     ...baseConfig,
