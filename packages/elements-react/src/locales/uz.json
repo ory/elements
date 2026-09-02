@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Davom etish uchun ikkinchi autentifikatsiya omilini sozlang.",
   "identities.messages.4000045": "Bu DeviceAuthn kaliti endi ishlatib bo'lmaydi, chunki yumshatilgan attestatsiya muddati tugagan yoki o'chirilgan. Iltimos, qurilmangizni qaytadan ro'yxatdan o'tkazing.",
   "identities.messages.4000046": "Bu DeviceAuthn kaliti foydalanuvchini tekshirish joriy etilishidan oldin ro'yxatdan o'tkazilgan va endi ishlatib bo'lmaydi. Iltimos, qurilmangizni qaytadan ro'yxatdan o'tkazing.",
-  "messages.rate-limited": "Talablar juda koʻp. Iltimos, biroz kuting va yana urinib кўring."
+  "messages.rate-limited": "Talablar juda koʻp. Iltimos, biroz kuting va yana urinib кўring.",
+  "identities.messages.1010026": "Akkauntingizni tashkilot boshqaradi. Iltimos, tashkilotingizning bitta kirish nuqtasi (SSO) provayderi orqali kiring."
 }

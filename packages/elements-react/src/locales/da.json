@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Konfigurer venligst en ekstra godkendelsesfaktor for at fortsætte.",
   "identities.messages.4000045": "Denne DeviceAuthn-nøgle kan ikke længere bruges, fordi den lempede attestering er udløbet eller deaktiveret. Tilmeld venligst din enhed igen.",
   "identities.messages.4000046": "Denne DeviceAuthn-nøgle blev tilmeldt, før brugerbekræftelse blev indført, og kan ikke længere bruges. Tilmeld venligst din enhed igen.",
-  "messages.rate-limited": "Der er for mange forespørgsler i øjeblikket. Vent et øjeblik og prøv igen."
+  "messages.rate-limited": "Der er for mange forespørgsler i øjeblikket. Vent et øjeblik og prøv igen.",
+  "identities.messages.1010026": "Din konto administreres af en organisation. Log venligst ind med din organisations SSO-udbyder."
 }

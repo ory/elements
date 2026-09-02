@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Please set up a second authentication factor to continue.",
   "identities.messages.4000045": "This DeviceAuthn key can no longer be used because relaxed attestation is expired or disabled. Please enroll your device again.",
   "identities.messages.4000046": "This DeviceAuthn key was enrolled before user verification was introduced and can no longer be used. Please enroll your device again.",
-  "messages.rate-limited": "Too many requests. Please wait a moment and try again."
+  "messages.rate-limited": "Too many requests. Please wait a moment and try again.",
+  "identities.messages.1010026": "Your account is managed by an organization. Please sign in using your organization's single sign-on provider."
 }

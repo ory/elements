@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Ju lutemi konfiguroni një faktor të dytë vërtetimi për të vazhduar.",
   "identities.messages.4000045": "Ky çelës DeviceAuthn nuk mund të përdoret më, sepse vërtetimi i lehtësuar ka skaduar ose është çaktivizuar. Ju lutemi, regjistroni përsëri pajisjen tuaj.",
   "identities.messages.4000046": "Ky çelës DeviceAuthn u regjistrua përpara se të prezantohej verifikimi i përdoruesit dhe nuk mund të përdoret më. Ju lutemi, regjistroni përsëri pajisjen tuaj.",
-  "messages.rate-limited": "Ka shumë kërkesa. Ju lutemi, prisni një çast dhe provoni përsëri."
+  "messages.rate-limited": "Ka shumë kërkesa. Ju lutemi, prisni një çast dhe provoni përsëri.",
+  "identities.messages.1010026": "Llogaria juaj menaxhohet nga një organizatë. Ju lutemi, identifikohuni me furnizuesin SSO të organizatës suaj."
 }

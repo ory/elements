@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Bitte richten Sie einen zweiten Authentifizierungsfaktor ein, um fortzufahren.",
   "identities.messages.4000045": "Dieser DeviceAuthn-Schlüssel kann nicht mehr verwendet werden, da die gelockerte Attestierung abgelaufen oder deaktiviert ist. Bitte registrieren Sie Ihr Gerät erneut.",
   "identities.messages.4000046": "Dieser DeviceAuthn-Schlüssel wurde registriert, bevor die Nutzerverifizierung eingeführt wurde, und kann nicht mehr verwendet werden. Bitte registrieren Sie Ihr Gerät erneut.",
-  "messages.rate-limited": "Zu viele Anfragen. Bitte warten Sie einen Moment und versuchen Sie es erneut."
+  "messages.rate-limited": "Zu viele Anfragen. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
+  "identities.messages.1010026": "Ihr Konto wird von einer Organisation verwaltet. Bitte melden Sie sich über den SSO-Anbieter Ihrer Organisation an."
 }

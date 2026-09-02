@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Lai turpinātu, lūdzu, iestatiet otru autentifikācijas faktoru.",
   "identities.messages.4000045": "Šo DeviceAuthn atslēgu vairs nevar izmantot, jo atvieglotā apliecināšana ir beigusies vai atspējota. Lūdzu, reģistrējiet savu ierīci vēlreiz.",
   "identities.messages.4000046": "Šī DeviceAuthn atslēga tika reģistrēta pirms lietotāja verifikācijas ieviešanas, un to vairs nevar izmantot. Lūdzu, reģistrējiet savu ierīci vēlreiz.",
-  "messages.rate-limited": "Pārāk daudz pieprasījumu. Lūdzu, pagaidiet un mēģiniet vēlreiz."
+  "messages.rate-limited": "Pārāk daudz pieprasījumu. Lūdzu, pagaidiet un mēģiniet vēlreiz.",
+  "identities.messages.1010026": "Jūsu kontu pārvalda organizācija. Lūdzu, piesakieties, izmantojot savas organizācijas vienotās pieteikšanās (SSO) pakalpojumu sniedzēju."
 }

@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Configure um segundo fator de autenticação para continuar.",
   "identities.messages.4000045": "Esta chave DeviceAuthn já não pode ser utilizada porque a atestação flexível expirou ou foi desativada. Registe novamente o seu dispositivo.",
   "identities.messages.4000046": "Esta chave DeviceAuthn foi registada antes da introdução da verificação do utilizador e já não pode ser utilizada. Registe novamente o seu dispositivo.",
-  "messages.rate-limited": "Número excessivo de pedidos. Aguarde um momento e tente novamente."
+  "messages.rate-limited": "Número excessivo de pedidos. Aguarde um momento e tente novamente.",
+  "identities.messages.1010026": "A sua conta é gerida por uma organização. Inicie sessão através do fornecedor SSO da sua organização."
 }

@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Nceda usete ifektha yesibini yokuqinisekisa ukuze uqhubeke.",
   "identities.messages.4000045": "Esi sitshixo se-DeviceAuthn asisenakusetyenziswa kuba uqinisekiso oluthambileyo luphelelwe lixesha okanye lucinyiwe. Nceda ubhalise isixhobo sakho kwakhona.",
   "identities.messages.4000046": "Esi sitshixo se-DeviceAuthn sabhaliswa ngaphambi kokuba kwaziswe uqinisekiso lomsebenzisi kwaye asisenakusetyenziswa. Nceda ubhalise isixhobo sakho kwakhona.",
-  "messages.rate-limited": "Kukho izicelo ezininzi. Nceda linda okomzuzwana ke ulinge ukwenza kwakhona."
+  "messages.rate-limited": "Kukho izicelo ezininzi. Nceda linda okomzuzwana ke ulinge ukwenza kwakhona.",
+  "identities.messages.1010026": "I-akhawunti yakho iphathwa ngumbutho. Nceda ungene usebenzisa umboneleli we-SSO wombutho wakho."
 }

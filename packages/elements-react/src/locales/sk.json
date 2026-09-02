@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Ak chcete pokračovať, nastavte si druhý overovací faktor.",
   "identities.messages.4000045": "Tento kľúč DeviceAuthn už nie je možné použiť, pretože uvoľnené overenie vypršalo alebo bolo zakázané. Zaregistrujte svoje zariadenie znova.",
   "identities.messages.4000046": "Tento kľúč DeviceAuthn bol zaregistrovaný pred zavedením overenia používateľa a už ho nie je možné použiť. Zaregistrujte svoje zariadenie znova.",
-  "messages.rate-limited": "Príliš veľa žiadostí. Prosím, chvíľu počkajte a skúste to znova."
+  "messages.rate-limited": "Príliš veľa žiadostí. Prosím, chvíľu počkajte a skúste to znova.",
+  "identities.messages.1010026": "Váš účet spravuje organizácia. Prihláste sa prosím prostredníctvom poskytovateľa jednotného prihlásenia (SSO) vašej organizácie."
 }

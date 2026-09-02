@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Silakan siapkan faktor autentikasi kedua untuk melanjutkan.",
   "identities.messages.4000045": "Kunci DeviceAuthn ini tidak dapat digunakan lagi karena atestasi yang dilonggarkan telah kedaluwarsa atau dinonaktifkan. Silakan daftarkan kembali perangkat Anda.",
   "identities.messages.4000046": "Kunci DeviceAuthn ini didaftarkan sebelum verifikasi pengguna diperkenalkan dan tidak dapat digunakan lagi. Silakan daftarkan kembali perangkat Anda.",
-  "messages.rate-limited": "Terlalu banyak permintaan. Mohon tunggu sebentar dan coba lagi."
+  "messages.rate-limited": "Terlalu banyak permintaan. Mohon tunggu sebentar dan coba lagi.",
+  "identities.messages.1010026": "Akun Anda dikelola oleh sebuah organisasi. Silakan masuk menggunakan penyedia SSO organisasi Anda."
 }

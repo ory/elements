@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Stel een tweede authenticatiefactor in om door te gaan.",
   "identities.messages.4000045": "Deze DeviceAuthn-sleutel kan niet meer worden gebruikt omdat de versoepelde attestatie is verlopen of uitgeschakeld. Registreer uw apparaat opnieuw.",
   "identities.messages.4000046": "Deze DeviceAuthn-sleutel is geregistreerd voordat gebruikersverificatie werd ingevoerd en kan niet meer worden gebruikt. Registreer uw apparaat opnieuw.",
-  "messages.rate-limited": "Er zijn te veel verzoeken ingediend. Wacht even en probeer het opnieuw."
+  "messages.rate-limited": "Er zijn te veel verzoeken ingediend. Wacht even en probeer het opnieuw.",
+  "identities.messages.1010026": "Uw account wordt beheerd door een organisatie. Meld u aan via de SSO-provider van uw organisatie."
 }

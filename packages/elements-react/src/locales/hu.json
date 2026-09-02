@@ -269,5 +269,6 @@
   "identities.messages.1050024": "A folytatáshoz állítson be egy második hitelesítési faktort.",
   "identities.messages.4000045": "Ez a DeviceAuthn-kulcs többé nem használható, mert az enyhített tanúsítás lejárt vagy le van tiltva. Kérjük, regisztrálja újra az eszközét.",
   "identities.messages.4000046": "Ezt a DeviceAuthn-kulcsot a felhasználó-ellenőrzés bevezetése előtt regisztrálták, ezért többé nem használható. Kérjük, regisztrálja újra az eszközét.",
-  "messages.rate-limited": "Túl sok kérés érkezett. Kérjük, várjon egy pillanatot, majd próbálja meg újra."
+  "messages.rate-limited": "Túl sok kérés érkezett. Kérjük, várjon egy pillanatot, majd próbálja meg újra.",
+  "identities.messages.1010026": "A felhasználói fiókját egy szervezet kezeli. Kérjük, jelentkezzen be a szervezete egyszeri bejelentkezési (SSO) szolgáltatóján keresztül."
 }

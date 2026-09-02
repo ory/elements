@@ -269,5 +269,6 @@
   "identities.messages.1050024": "请设置第二个身份验证因素以继续。",
   "identities.messages.4000045": "此设备身份验证密钥已无法使用，因为宽松证明已过期或被禁用。请重新注册您的设备。",
   "identities.messages.4000046": "此设备身份验证密钥是在引入用户验证之前注册的，已无法使用。请重新注册您的设备。",
-  "messages.rate-limited": "请求次数过多。请稍等片刻后重试。"
+  "messages.rate-limited": "请求次数过多。请稍等片刻后重试。",
+  "identities.messages.1010026": "您的账户由组织管理。请使用您所在组织的单点登录 (SSO) 提供程序登录。"
 }

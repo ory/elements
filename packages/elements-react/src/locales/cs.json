@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Chcete-li pokračovat, nastavte si druhý ověřovací faktor.",
   "identities.messages.4000045": "Tento klíč DeviceAuthn už nelze použít, protože uvolněná atestace vypršela nebo byla zakázána. Zaregistrujte prosím své zařízení znovu.",
   "identities.messages.4000046": "Tento klíč DeviceAuthn byl zaregistrován před zavedením ověření uživatele a už jej nelze použít. Zaregistrujte prosím své zařízení znovu.",
-  "messages.rate-limited": "Příliš mnoho požadavků. Počkejte prosím chvíli a zkuste to znovu."
+  "messages.rate-limited": "Příliš mnoho požadavků. Počkejte prosím chvíli a zkuste to znovu.",
+  "identities.messages.1010026": "Váš účet spravuje organizace. Přihlaste se prosím pomocí poskytovatele jednotného přihlašování (SSO) vaší organizace."
 }

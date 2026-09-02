@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Sila sediakan faktor pengesahan kedua untuk meneruskan.",
   "identities.messages.4000045": "Kunci DeviceAuthn ini tidak boleh digunakan lagi kerana pentauliahan yang dilonggarkan telah tamat tempoh atau dilumpuhkan. Sila daftarkan semula peranti anda.",
   "identities.messages.4000046": "Kunci DeviceAuthn ini didaftarkan sebelum pengesahan pengguna diperkenalkan dan tidak boleh digunakan lagi. Sila daftarkan semula peranti anda.",
-  "messages.rate-limited": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi."
+  "messages.rate-limited": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi.",
+  "identities.messages.1010026": "Akaun anda diurus oleh sebuah organisasi. Sila log masuk menggunakan penyedia SSO organisasi anda."
 }

@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Mangyaring mag-set up ng pangalawang authentication factor upang magpatuloy.",
   "identities.messages.4000045": "Hindi na magagamit ang DeviceAuthn key na ito dahil nag-expire na o naka-disable ang pinaluwag na attestation. Pakirehistro muli ang iyong device.",
   "identities.messages.4000046": "Ang DeviceAuthn key na ito ay nairehistro bago ipinakilala ang beripikasyon ng user at hindi na magagamit. Pakirehistro muli ang iyong device.",
-  "messages.rate-limited": "Maraming kahilingan. Pakiusap, maghintay ng ilang sandali at subukan muli."
+  "messages.rate-limited": "Maraming kahilingan. Pakiusap, maghintay ng ilang sandali at subukan muli.",
+  "identities.messages.1010026": "Ang iyong account ay pinamamahalaan ng isang organisasyon. Mangyaring mag-sign in gamit ang SSO provider ng iyong organisasyon."
 }

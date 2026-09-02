@@ -269,5 +269,6 @@
   "identities.messages.1050024": "Tafadhali weka kipengele cha pili cha uthibitishaji ili kuendelea.",
   "identities.messages.4000045": "Ufunguo huu wa DeviceAuthn hauwezi kutumika tena kwa sababu uthibitishaji uliolegezwa umeisha muda wake au umezimwa. Tafadhali sajili kifaa chako tena.",
   "identities.messages.4000046": "Ufunguo huu wa DeviceAuthn ulisajiliwa kabla ya uthibitishaji wa mtumiaji kuanzishwa na hauwezi kutumika tena. Tafadhali sajili kifaa chako tena.",
-  "messages.rate-limited": "Maombi mengi sana. Tafadhali subiri kidogo na ujaribu tena."
+  "messages.rate-limited": "Maombi mengi sana. Tafadhali subiri kidogo na ujaribu tena.",
+  "identities.messages.1010026": "Akaunti yako inadhibitiwa na shirika. Tafadhali ingia kwa kutumia mtoa huduma wa SSO wa shirika lako."
 }
