@@ -144,11 +144,13 @@ export async function getFlowFactory<T extends object>(
       ? parsed
       : rewriteJsonResponse(parsed, baseUrl)
   } catch (error) {
-    const errorHandler = handleFlowError({
+    const errorHandlerOptions = {
+      flowType,
       onValidationError,
       onRestartFlow,
       onRedirect: onRedirect,
-    })
+    }
+    const errorHandler = handleFlowError<T>(errorHandlerOptions)
 
     return await errorHandler(error)
   }

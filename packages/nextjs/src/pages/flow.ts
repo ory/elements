@@ -24,11 +24,13 @@ export function createUseFlowFactory<T extends Flow>(
     const onRestartFlow = handleRestartFlow(searchParams, flowType)
     const onRedirect = useOnRedirect()
 
-    const errorHandler = handleFlowError({
+    const errorHandlerOptions = {
+      flowType,
       onValidationError,
       onRestartFlow,
       onRedirect,
-    })
+    }
+    const errorHandler = handleFlowError<T>(errorHandlerOptions)
 
     const handleSetFlow = async (flow: T) => {
       setFlow(flow)

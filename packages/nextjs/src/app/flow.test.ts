@@ -12,6 +12,7 @@ import {
   getLoginFlow,
   getRecoveryFlow,
   getRegistrationFlow,
+  getSettingsFlow,
   getVerificationFlow,
 } from "."
 import { QueryParams } from "../types"
@@ -33,6 +34,7 @@ jest.mock("./client", () => ({
     getRegistrationFlowRaw: jest.fn(),
     getRecoveryFlowRaw: jest.fn(),
     getVerificationFlowRaw: jest.fn(),
+    getSettingsFlowRaw: jest.fn(),
   }),
 }))
 
@@ -84,6 +86,11 @@ beforeEach(() => {
 })
 
 const testCases = [
+  {
+    fn: getSettingsFlow,
+    flowType: FlowType.Settings,
+    m: serverSideFrontendClient().getSettingsFlowRaw,
+  },
   {
     fn: getLoginFlow,
     flowType: FlowType.Login,
@@ -448,7 +455,9 @@ for (const tc of testCases) {
       ;(tc.m as jest.Mock).mockRejectedValue(new Error("error"))
       const result = await tc.fn(config, queryParams)
       expect(result).toBeUndefined()
-      expect(handleFlowError).toHaveBeenCalled()
+      expect(handleFlowError).toHaveBeenCalledWith(
+        expect.objectContaining({ flowType: tc.flowType }),
+      )
     })
   })
 }
