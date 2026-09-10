@@ -56,6 +56,21 @@ The project files reside in the `app/` directory:
 If you have any issues using this examples, or Ory's products, don't hesitate to
 reach out via the [Ory Community Slack](https://slack.ory.com).
 
+## Run against a local self-hosted Kratos
+
+From the repository root, run:
+
+```sh
+make dev-local
+```
+
+This starts Kratos (built from a checkout next to this repository if one exists,
+otherwise the latest release) with the configuration in `examples/kratos/` and
+this example app on http://localhost:3000. The identity database is in-memory
+and resets on restart. Recovery and verification emails are sent to
+`localhost:1025`; run a local SMTP catcher such as
+[Mailpit](https://github.com/axllent/mailpit) to receive them.
+
 ## Run against local Ory Network instance
 
 This section is relevant to Ory engineers only. When running a local Ory Network

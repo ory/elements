@@ -1,0 +1,98 @@
+# Kratos configuration for running the example apps against a local,
+# self-hosted Kratos. Paths are relative to the repository root; start it with
+# `make dev-kratos` from there.
+
+dsn: memory
+
+serve:
+  public:
+    base_url: http://localhost:4433/
+  admin:
+    base_url: http://localhost:4434/
+
+selfservice:
+  default_browser_return_url: http://localhost:3000/
+  allowed_return_urls:
+    - http://localhost:3000
+
+  methods:
+    password:
+      enabled: true
+    totp:
+      config:
+        issuer: Ory Elements Example
+      enabled: true
+    lookup_secret:
+      enabled: true
+    code:
+      enabled: true
+
+  flows:
+    error:
+      ui_url: http://localhost:3000/auth/error
+
+    settings:
+      ui_url: http://localhost:3000/settings
+      privileged_session_max_age: 15m
+      required_aal: highest_available
+
+    recovery:
+      enabled: true
+      ui_url: http://localhost:3000/auth/recovery
+      use: code
+
+    verification:
+      enabled: true
+      ui_url: http://localhost:3000/auth/verification
+      use: code
+      after:
+        default_browser_return_url: http://localhost:3000/
+
+    logout:
+      after:
+        default_browser_return_url: http://localhost:3000/auth/login
+
+    login:
+      ui_url: http://localhost:3000/auth/login
+      lifespan: 10m
+
+    registration:
+      lifespan: 10m
+      ui_url: http://localhost:3000/auth/registration
+      after:
+        password:
+          hooks:
+            - hook: session
+            - hook: show_verification_ui
+
+log:
+  level: debug
+  format: text
+  leak_sensitive_values: true
+
+secrets:
+  cookie:
+    - PLEASE-CHANGE-ME-I-AM-VERY-INSECURE
+  cipher:
+    - 32-LONG-SECRET-NOT-SECURE-AT-ALL
+
+ciphers:
+  algorithm: xchacha20-poly1305
+
+hashers:
+  algorithm: bcrypt
+  bcrypt:
+    cost: 8
+
+identity:
+  default_schema_id: default
+  schemas:
+    - id: default
+      url: file://examples/kratos/identity.schema.json
+
+courier:
+  smtp:
+    connection_uri: smtp://localhost:1025/?disable_starttls=true
+
+feature_flags:
+  use_continue_with_transitions: true
