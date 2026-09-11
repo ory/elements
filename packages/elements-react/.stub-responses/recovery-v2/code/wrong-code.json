@@ -137,5 +137,6 @@
       }
     ]
   },
-  "state": "recovery_awaiting_code"
+  "state": "recovery_awaiting_code",
+  "transient_payload": {}
 }

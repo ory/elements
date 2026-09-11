@@ -29,6 +29,7 @@
         "attributes": {
           "name": "email",
           "type": "email",
+          "value": "",
           "required": true,
           "disabled": false,
           "node_type": "input"
