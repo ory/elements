@@ -11,6 +11,7 @@ import {
 } from "@ory/client-fetch"
 import * as oryFlow from "@ory/elements-react"
 import {
+  ConsentFlow,
   FlowContextValue,
   FormState,
   FormStateProvideIdentifier,
@@ -70,7 +71,8 @@ jest.mock("../../utils/logout", () => ({
   useClientLogout: jest.fn(),
 }))
 
-jest.mock("../../../../util/ui", () => ({
+jest.mock("../../../../util/ui", (): unknown => ({
+  ...jest.requireActual("../../../../util/ui"),
   nodesToAuthMethodGroups: jest.fn(),
   useNodeGroupsWithVisibleNodes: jest.fn((): UiNodeGroupEnum[] => []),
   visibleAuthMethodGroups: jest.fn((): UiNodeGroupEnum[] => []),
@@ -289,6 +291,61 @@ describe("DefaultCardFooter", () => {
       // Updated to match the actual data-testid
       expect(
         screen.getByTestId("ory/screen/login/action/cancel"),
+      ).toBeInTheDocument()
+    })
+  })
+
+  describe("ConsentCardFooter", () => {
+    beforeEach(() => {
+      jest.clearAllMocks()
+    })
+
+    const setupConsentMocks = (requestUrl: string) => {
+      jest.spyOn(oryFlow, "useOryFlow").mockReturnValue({
+        flowType: FlowType.OAuth2Consent,
+        flow: {
+          ui: {
+            nodes: [],
+            action: "https://example.com/action",
+            method: "POST",
+          } as UiContainer,
+          consent_request: {
+            challenge: "consent-challenge",
+            client: { client_name: "Example App" },
+            request_url: requestUrl,
+          },
+        } as ConsentFlow,
+        formState: { current: "provide_identifier" } as FormState,
+      } as FlowContextValue)
+    }
+
+    const renderWithIntl = (ui: React.ReactNode) =>
+      render(
+        <IntlProvider locale="en" messages={enMessages}>
+          {ui}
+        </IntlProvider>,
+      )
+
+    it("announces the redirect for a redirect-based flow", () => {
+      setupConsentMocks("https://ory.example.com/oauth2/auth?client_id=abcd")
+      renderWithIntl(<DefaultCardFooter />)
+      expect(
+        screen.getByTestId("ory/screen/consent/redirect-notice"),
+      ).toHaveTextContent("Authorizing will redirect to Example App")
+    })
+
+    it("omits the redirect notice for a device flow", () => {
+      setupConsentMocks(
+        "https://ory.example.com/oauth2/device/verify?client_id=abcd",
+      )
+      renderWithIntl(<DefaultCardFooter />)
+      expect(
+        screen.queryByTestId("ory/screen/consent/redirect-notice"),
+      ).not.toBeInTheDocument()
+      // The rest of the footer still renders, so the missing notice is the
+      // only difference.
+      expect(
+        screen.getByText("Make sure you trust Example App"),
       ).toBeInTheDocument()
     })
   })

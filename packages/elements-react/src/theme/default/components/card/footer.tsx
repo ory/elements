@@ -22,6 +22,7 @@ import {
   UiNodeInput,
 } from "../../../../util/utilFixSDKTypesHelper"
 import { useClientLogout } from "../../utils/logout"
+import { isDeviceFlowConsentRequest } from "../../utils/oauth2"
 import { initFlowUrl, restartFlowUrl } from "../../utils/url"
 
 /**
@@ -316,12 +317,14 @@ function ConsentCardFooter({ flow }: ConsentCardFooterProps) {
             return <Node.Button key={n.attributes.value} node={n} />
           })}
       </div>
-      <p className="text-sm">
-        <span className="text-interface-foreground-default-tertiary">
-          Authorizing will redirect to{" "}
-          {flow.consent_request.client?.client_name}
-        </span>
-      </p>
+      {!isDeviceFlowConsentRequest(flow.consent_request) && (
+        <p className="text-sm" data-testid="ory/screen/consent/redirect-notice">
+          <span className="text-interface-foreground-default-tertiary">
+            Authorizing will redirect to{" "}
+            {flow.consent_request.client?.client_name}
+          </span>
+        </p>
+      )}
     </div>
   )
 }

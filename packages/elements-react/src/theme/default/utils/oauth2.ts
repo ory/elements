@@ -68,6 +68,40 @@ const rejectButton: UiNode = {
   messages: [],
 }
 
+/**
+ * Hydra's device verification endpoint. It is the `request_url` of every OAuth
+ * 2.0 device authorization grant (RFC 8628), and the consent request carries no
+ * other device marker, so the path is the signal.
+ */
+const deviceVerificationPath = "/oauth2/device/verify"
+
+/**
+ * Whether a consent request belongs to a device authorization grant.
+ *
+ * A device flow has no redirect URI: the browser stays on the authorization
+ * server and ends on its device success page, while the device itself polls for
+ * the tokens.
+ *
+ * @param consentChallenge - The consent request to inspect.
+ * @returns whether the request was created by a device authorization grant.
+ */
+export function isDeviceFlowConsentRequest(
+  consentChallenge: OAuth2ConsentRequest,
+): boolean {
+  if (!consentChallenge.request_url) {
+    return false
+  }
+  try {
+    // The base only resolves a relative request_url; an absolute one ignores it.
+    return new URL(
+      consentChallenge.request_url,
+      "http://localhost",
+    ).pathname.endsWith(deviceVerificationPath)
+  } catch {
+    return false
+  }
+}
+
 export function translateConsentChallengeToUiNodes(
   consentChallenge: OAuth2ConsentRequest,
   csrfToken: string,

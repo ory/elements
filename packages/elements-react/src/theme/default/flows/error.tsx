@@ -51,6 +51,33 @@ function isOAuth2Error(error: unknown): error is OAuth2Error {
 }
 
 /**
+ * Error codes that say the end user turned the request down, rather than that
+ * something went wrong. Hydra falls back to the last three names when a login
+ * or consent rejection does not name an error itself.
+ *
+ * RFC 6749's own `access_denied` is not one of them: Ory answers a stale,
+ * reused or unknown verifier with that code too, and those need the guidance a
+ * real error gets.
+ */
+const declinedErrorCodes = [
+  "user_rejected_consent",
+  "request_denied",
+  "consent request denied",
+  "login request denied",
+]
+
+/**
+ * Whether the error describes a request the end user declined.
+ *
+ * A declined request is an outcome, not a fault: there is nothing to retry and
+ * nothing to report, so the card leaves out the instructions and the details
+ * that a real error needs.
+ */
+function isDeclinedByUser(error: OryError): boolean {
+  return isOAuth2Error(error) && declinedErrorCodes.includes(error.error)
+}
+
+/**
  * Props for the Error component.
  *
  * @inline
@@ -145,6 +172,10 @@ export function Error({
   const Card = Components?.Card?.Root ?? DefaultCard
   const Divider = Components?.Card?.Divider ?? DefaultHorizontalDivider
   const parsed = useStandardize(error)
+  const declined = isDeclinedByUser(error)
+  // A declined request has no instructions, so the section is only worth
+  // rendering while it still carries an action.
+  const hasAction = !!session || "default_redirect_url" in config.project
 
   const description = errorDescriptions[Math.floor(parsed.code / 100)]
 
@@ -180,74 +211,90 @@ export function Error({
                 )}
               </div>
             </header>
-            <Divider />
+            {(!declined || hasAction) && (
+              <>
+                <Divider />
 
-            <div className="flex flex-col gap-2">
-              <h2 className="text-lg leading-normal font-semibold text-interface-foreground-default-primary">
-                <FormattedMessage
-                  id="error.title.what-can-i-do"
-                  defaultMessage="What can I do?"
-                />
-              </h2>
-              <p className="leading-normal text-interface-foreground-default-secondary">
-                <FormattedMessage
-                  id="error.instructions"
-                  defaultMessage="Please try again in a few minutes or contact the website operator."
-                />
-              </p>
-              <div>{session ? <LoggedInActions /> : <GoBackButton />}</div>
-            </div>
+                <div className="flex flex-col gap-2">
+                  <h2 className="text-lg leading-normal font-semibold text-interface-foreground-default-primary">
+                    <FormattedMessage
+                      id="error.title.what-can-i-do"
+                      defaultMessage="What can I do?"
+                    />
+                  </h2>
+                  {!declined && (
+                    <p
+                      className="leading-normal text-interface-foreground-default-secondary"
+                      data-testid="ory/screen/error/instructions"
+                    >
+                      <FormattedMessage
+                        id="error.instructions"
+                        defaultMessage="Please try again in a few minutes or contact the website operator."
+                      />
+                    </p>
+                  )}
+                  <div>{session ? <LoggedInActions /> : <GoBackButton />}</div>
+                </div>
+              </>
+            )}
 
-            <Divider />
-            <div className="flex flex-col gap-2 leading-normal font-normal antialiased">
-              <span className="text-sm text-interface-foreground-default-primary">
-                <FormattedMessage
-                  id="error.footer.text"
-                  defaultMessage="When reporting this error, please include the following information:"
-                />
-              </span>
+            {!declined && (
+              <>
+                <Divider />
+                <div
+                  className="flex flex-col gap-2 leading-normal font-normal antialiased"
+                  data-testid="ory/screen/error/report"
+                >
+                  <span className="text-sm text-interface-foreground-default-primary">
+                    <FormattedMessage
+                      id="error.footer.text"
+                      defaultMessage="When reporting this error, please include the following information:"
+                    />
+                  </span>
 
-              {parsed.id && (
-                <p className="text-sm text-interface-foreground-default-secondary">
-                  ID: <code>{parsed.id}</code>
-                </p>
-              )}
-              <p className="text-sm text-interface-foreground-default-secondary">
-                Time: <code>{parsed.timestamp?.toUTCString()}</code>
-              </p>
-              {error.correlationId && (
-                <p className="text-sm text-interface-foreground-default-secondary">
-                  Correlation ID: <code>{error.correlationId}</code>
-                </p>
-              )}
-              {parsed.reason && (
-                <p className="text-sm text-interface-foreground-default-secondary">
-                  Message:{" "}
-                  <code data-testid={"ory/screen/error/message"}>
-                    {parsed.reason}
-                  </code>
-                </p>
-              )}
+                  {parsed.id && (
+                    <p className="text-sm text-interface-foreground-default-secondary">
+                      ID: <code>{parsed.id}</code>
+                    </p>
+                  )}
+                  <p className="text-sm text-interface-foreground-default-secondary">
+                    Time: <code>{parsed.timestamp?.toUTCString()}</code>
+                  </p>
+                  {error.correlationId && (
+                    <p className="text-sm text-interface-foreground-default-secondary">
+                      Correlation ID: <code>{error.correlationId}</code>
+                    </p>
+                  )}
+                  {parsed.reason && (
+                    <p className="text-sm text-interface-foreground-default-secondary">
+                      Message:{" "}
+                      <code data-testid={"ory/screen/error/message"}>
+                        {parsed.reason}
+                      </code>
+                    </p>
+                  )}
 
-              <div>
-                <button
-                  className="cursor-pointer text-interface-foreground-default-primary underline"
-                  onClick={() => {
-                    const text = `${parsed.id ? `ID: ${parsed.id}` : ""}
+                  <div>
+                    <button
+                      className="cursor-pointer text-interface-foreground-default-primary underline"
+                      onClick={() => {
+                        const text = `${parsed.id ? `ID: ${parsed.id}` : ""}
 Time: ${parsed.timestamp?.toUTCString()}
 ${parsed.reason ? `Message: ${parsed.reason}` : ""}
 ${error.correlationId ? `Correlation ID: ${error.correlationId}` : ""}
 `
-                    void navigator.clipboard.writeText(text)
-                  }}
-                >
-                  <FormattedMessage
-                    id="error.footer.copy"
-                    defaultMessage="Copy"
-                  />
-                </button>
-              </div>
-            </div>
+                        void navigator.clipboard.writeText(text)
+                      }}
+                    >
+                      <FormattedMessage
+                        id="error.footer.copy"
+                        defaultMessage="Copy"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </Card>
       </IntlProvider>

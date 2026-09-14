@@ -1,7 +1,10 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { translateConsentChallengeToUiNodes } from "../oauth2"
+import {
+  isDeviceFlowConsentRequest,
+  translateConsentChallengeToUiNodes,
+} from "../oauth2"
 
 describe("translate consent challenge to flow", () => {
   const testCases = {
@@ -25,6 +28,56 @@ describe("translate consent challenge to flow", () => {
         { id: "session-id" },
       )
       expect(consentFlow).toMatchSnapshot()
+    })
+  }
+})
+
+describe("device flow consent request", () => {
+  const testCases: Record<string, { request_url?: string; expected: boolean }> =
+    {
+      "device verification endpoint": {
+        request_url: "https://ory.example.com/oauth2/device/verify",
+        expected: true,
+      },
+      // Hydra adds client_id to the flow's request_url while accepting the
+      // user code, so the stored URL is never bare.
+      "device verification endpoint with a query": {
+        request_url:
+          "https://ory.example.com/oauth2/device/verify?client_id=abcd",
+        expected: true,
+      },
+      "device verification endpoint behind a path prefix": {
+        request_url: "https://ory.example.com/ory/oauth2/device/verify",
+        expected: true,
+      },
+      "authorization endpoint": {
+        request_url:
+          "https://ory.example.com/oauth2/auth?client_id=abcd&response_type=code",
+        expected: false,
+      },
+      "verification path in the query only": {
+        request_url:
+          "https://ory.example.com/oauth2/auth?redirect_uri=https://ory.example.com/oauth2/device/verify",
+        expected: false,
+      },
+      "verification path in the fragment only": {
+        request_url:
+          "https://ory.example.com/oauth2/auth#/oauth2/device/verify",
+        expected: false,
+      },
+      "relative URL": { request_url: "/oauth2/device/verify", expected: true },
+      "empty URL": { request_url: "", expected: false },
+      "missing URL": { expected: false },
+    }
+
+  for (const [tc, { request_url, expected }] of Object.entries(testCases)) {
+    test(`- ${tc}`, () => {
+      expect(
+        isDeviceFlowConsentRequest({
+          challenge: "consent-challenge",
+          request_url,
+        }),
+      ).toBe(expected)
     })
   }
 })
