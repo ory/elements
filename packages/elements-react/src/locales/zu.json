@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Lo khiye we-DeviceAuthn ngeke usasebenziseke ngoba ukuqinisekisa okuxegisiwe kuphelelwe yisikhathi noma kukhutshaziwe. Sicela uphinde ubhalise idivayisi yakho.",
   "identities.messages.4000046": "Lo khiye we-DeviceAuthn wabhaliswa ngaphambi kokwethulwa kokuqinisekiswa komsebenzisi futhi ngeke usasebenziseke. Sicela uphinde ubhalise idivayisi yakho.",
   "messages.rate-limited": "Kuningi izicelo. Ngiyacela ukuba nilinde okwesikhashana bese nizama futhi.",
-  "identities.messages.1010026": "I-akhawunti yakho iphathwa yinhlangano. Sicela ungene ngokusebenzisa umnikezeli we-SSO wenhlangano yakho."
+  "identities.messages.1010026": "I-akhawunti yakho iphathwa yinhlangano. Sicela ungene ngokusebenzisa umnikezeli we-SSO wenhlangano yakho.",
+  "identities.messages.4000047": "Kufanele uvume lokhu ukuze uqhubeke."
 }

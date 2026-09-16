@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Aquesta clau DeviceAuthn ja no es pot utilitzar perquè l'atestació flexible ha caducat o s'ha desactivat. Torneu a registrar el vostre dispositiu.",
   "identities.messages.4000046": "Aquesta clau DeviceAuthn es va registrar abans que s'introduís la verificació de l'usuari i ja no es pot utilitzar. Torneu a registrar el vostre dispositiu.",
   "messages.rate-limited": "Hi ha massa peticions. Si us plau, espereu un moment i torneu-ho a provar.",
-  "identities.messages.1010026": "El vostre compte està gestionat per una organització. Inicieu la sessió amb el proveïdor d’inici de sessió únic (SSO) de la vostra organització."
+  "identities.messages.1010026": "El vostre compte està gestionat per una organització. Inicieu la sessió amb el proveïdor d’inici de sessió únic (SSO) de la vostra organització.",
+  "identities.messages.4000047": "Heu d’acceptar-ho per continuar."
 }

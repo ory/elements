@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Kọ́kọ́rọ́ DeviceAuthn yìí kò ṣeé lò mọ́, nítorí pé ìjẹ́rìí tí a tú sílẹ̀ ti pé tàbí a ti pa á. Jọ̀wọ́ forúkọ ẹrọ rẹ sílẹ̀ lẹ́ẹ̀kan sí i.",
   "identities.messages.4000046": "A ti forúkọ kọ́kọ́rọ́ DeviceAuthn yìí sílẹ̀ ṣáájú kí ìfẹ̀rílàrí olùmúlò tó bẹ̀rẹ̀, kò sì ṣeé lò mọ́. Jọ̀wọ́ forúkọ ẹrọ rẹ sílẹ̀ lẹ́ẹ̀kan sí i.",
   "messages.rate-limited": "Àwọn ìbéèrè pọ̀ ju. Jọ̀wọ́, duro díẹ̀ kí o gbìyànjú lẹ́ẹ̀kan mọ́.",
-  "identities.messages.1010026": "Àkọ́ọ́ntì rẹ ni àjọ kan ń ṣakóso. Jọ̀wọ́ wọlé nípa lílo olùpèsè SSO ti àjọ rẹ."
+  "identities.messages.1010026": "Àkọ́ọ́ntì rẹ ni àjọ kan ń ṣakóso. Jọ̀wọ́ wọlé nípa lílo olùpèsè SSO ti àjọ rẹ.",
+  "identities.messages.4000047": "O gbọ́dọ̀ gbá pẹ́lú èyí kí o tó lè tẹ̀síwájú."
 }

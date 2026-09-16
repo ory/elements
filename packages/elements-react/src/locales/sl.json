@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Tega ključa DeviceAuthn ni več mogoče uporabljati, ker je sproščeno potrjevanje poteklo ali onemogočeno. Znova registrirajte svojo napravo.",
   "identities.messages.4000046": "Ta ključ DeviceAuthn je bil registriran pred uvedbo preverjanja uporabnika in ga ni več mogoče uporabljati. Znova registrirajte svojo napravo.",
   "messages.rate-limited": "Preveč zahtev. Prosimo, počakajte nekaj časa in poskusite znova.",
-  "identities.messages.1010026": "Vaš račun upravlja organizacija. Prijavite se s ponudnikom enotne prijave (SSO) vaše organizacije."
+  "identities.messages.1010026": "Vaš račun upravlja organizacija. Prijavite se s ponudnikom enotne prijave (SSO) vaše organizacije.",
+  "identities.messages.4000047": "To, da boste lahko nadaljevali, morate s tem soglasiti."
 }

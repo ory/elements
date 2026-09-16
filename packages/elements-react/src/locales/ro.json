@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Această cheie DeviceAuthn nu mai poate fi utilizată deoarece atestarea relaxată a expirat sau a fost dezactivată. Vă rugăm să vă înregistrați din nou dispozitivul.",
   "identities.messages.4000046": "Această cheie DeviceAuthn a fost înregistrată înainte de introducerea verificării utilizatorului și nu mai poate fi utilizată. Vă rugăm să vă înregistrați din nou dispozitivul.",
   "messages.rate-limited": "Prea multe solicitări. Vă rugăm să așteptați un moment și să încercați din nou.",
-  "identities.messages.1010026": "Contul dumneavoastră este gestionat de o organizație. Vă rugăm să vă autentificați folosind furnizorul SSO al organizației dumneavoastră."
+  "identities.messages.1010026": "Contul dumneavoastră este gestionat de o organizație. Vă rugăm să vă autentificați folosind furnizorul SSO al organizației dumneavoastră.",
+  "identities.messages.4000047": "Trebuie să acceptați acest lucru pentru a continua."
 }

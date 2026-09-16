@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Esi sitshixo se-DeviceAuthn asisenakusetyenziswa kuba uqinisekiso oluthambileyo luphelelwe lixesha okanye lucinyiwe. Nceda ubhalise isixhobo sakho kwakhona.",
   "identities.messages.4000046": "Esi sitshixo se-DeviceAuthn sabhaliswa ngaphambi kokuba kwaziswe uqinisekiso lomsebenzisi kwaye asisenakusetyenziswa. Nceda ubhalise isixhobo sakho kwakhona.",
   "messages.rate-limited": "Kukho izicelo ezininzi. Nceda linda okomzuzwana ke ulinge ukwenza kwakhona.",
-  "identities.messages.1010026": "I-akhawunti yakho iphathwa ngumbutho. Nceda ungene usebenzisa umboneleli we-SSO wombutho wakho."
+  "identities.messages.1010026": "I-akhawunti yakho iphathwa ngumbutho. Nceda ungene usebenzisa umboneleli we-SSO wombutho wakho.",
+  "identities.messages.4000047": "Kufuneka uvuma oku ukuze uqhubeke."
 }

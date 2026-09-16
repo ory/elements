@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Không thể sử dụng khóa DeviceAuthn này nữa vì chứng thực nới lỏng đã hết hạn hoặc bị tắt. Vui lòng đăng ký lại thiết bị của bạn.",
   "identities.messages.4000046": "Khóa DeviceAuthn này được đăng ký trước khi tính năng xác minh người dùng được áp dụng và không thể sử dụng được nữa. Vui lòng đăng ký lại thiết bị của bạn.",
   "messages.rate-limited": "Có quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại.",
-  "identities.messages.1010026": "Tài khoản của bạn được quản lý bởi một tổ chức. Vui lòng đăng nhập bằng nhà cung cấp SSO của tổ chức bạn."
+  "identities.messages.1010026": "Tài khoản của bạn được quản lý bởi một tổ chức. Vui lòng đăng nhập bằng nhà cung cấp SSO của tổ chức bạn.",
+  "identities.messages.4000047": "Bạn phải chấp nhận điều này để tiếp tục."
 }

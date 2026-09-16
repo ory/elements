@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Questa chiave DeviceAuthn non può più essere utilizzata perché l'attestazione flessibile è scaduta o è stata disattivata. Registra di nuovo il tuo dispositivo.",
   "identities.messages.4000046": "Questa chiave DeviceAuthn è stata registrata prima dell'introduzione della verifica dell'utente e non può più essere utilizzata. Registra di nuovo il tuo dispositivo.",
   "messages.rate-limited": "Troppe richieste. Si prega di attendere un momento e riprovare.",
-  "identities.messages.1010026": "Il tuo account è gestito da un’organizzazione. Accedi utilizzando il provider SSO della tua organizzazione."
+  "identities.messages.1010026": "Il tuo account è gestito da un’organizzazione. Accedi utilizzando il provider SSO della tua organizzazione.",
+  "identities.messages.4000047": "È necessario accettare questa condizione per poter proseguire."
 }

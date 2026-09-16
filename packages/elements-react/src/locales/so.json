@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Furahaan DeviceAuthn lama isticmaali karo mar dambe, sababtoo ah xaqiijinta la deggaaneeyay way dhacday ama waa la damiyay. Fadlan diiwaangeli aaladaada mar kale.",
   "identities.messages.4000046": "Furahaan DeviceAuthn waxaa la diiwaangeliyay ka hor inta aan la soo bandhigin xaqiijinta isticmaalaha, mar dambena lama isticmaali karo. Fadlan diiwaangeli aaladaada mar kale.",
   "messages.rate-limited": "Wey badan yihiin codsiyada. Fadlan sug daqiiqad oo isku day mar kale.",
-  "identities.messages.1010026": "Koontadaada waxaa maamula hay’ad. Fadlan ku gal adigoo isticmaalaya bixiyaha SSO ee hay’addaada."
+  "identities.messages.1010026": "Koontadaada waxaa maamula hay’ad. Fadlan ku gal adigoo isticmaalaya bixiyaha SSO ee hay’addaada.",
+  "identities.messages.4000047": "Waa inaad aqbaltaa si aad u sii wato."
 }

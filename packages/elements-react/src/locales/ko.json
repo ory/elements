@@ -270,5 +270,6 @@
   "identities.messages.4000045": "완화된 증명이 만료되었거나 비활성화되어 이 DeviceAuthn 키를 더 이상 사용할 수 없습니다. 기기를 다시 등록해 주세요.",
   "identities.messages.4000046": "이 DeviceAuthn 키는 사용자 확인이 도입되기 전에 등록되어 더 이상 사용할 수 없습니다. 기기를 다시 등록해 주세요.",
   "messages.rate-limited": "요청이 너무 많습니다. 잠시 기다렸다가 다시 시도해 주세요.",
-  "identities.messages.1010026": "귀하의 계정은 조직에서 관리합니다. 조직의 SSO(싱글 사인온) 제공업체를 통해 로그인해 주십시오."
+  "identities.messages.1010026": "귀하의 계정은 조직에서 관리합니다. 조직의 SSO(싱글 사인온) 제공업체를 통해 로그인해 주십시오.",
+  "identities.messages.4000047": "계속 진행하려면 동의해야 합니다."
 }

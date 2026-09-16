@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Cette clé DeviceAuthn ne peut plus être utilisée, car l'attestation assouplie a expiré ou a été désactivée. Veuillez enregistrer à nouveau votre appareil.",
   "identities.messages.4000046": "Cette clé DeviceAuthn a été enregistrée avant l'introduction de la vérification de l'utilisateur et ne peut plus être utilisée. Veuillez enregistrer à nouveau votre appareil.",
   "messages.rate-limited": "Trop de requêtes. Veuillez patienter un instant et réessayer.",
-  "identities.messages.1010026": "Votre compte est géré par une organisation. Veuillez vous connecter via le fournisseur SSO de votre organisation."
+  "identities.messages.1010026": "Votre compte est géré par une organisation. Veuillez vous connecter via le fournisseur SSO de votre organisation.",
+  "identities.messages.4000047": "Vous devez accepter ces conditions pour continuer."
 }

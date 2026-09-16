@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Esta clave de autenticación de dispositivo ya no se puede usar porque la atestación flexible ha caducado o está deshabilitada. Vuelva a registrar su dispositivo.",
   "identities.messages.4000046": "Esta clave de autenticación de dispositivo se registró antes de que se introdujera la verificación de usuario y ya no se puede usar. Vuelva a registrar su dispositivo.",
   "messages.rate-limited": "Se han recibido demasiadas solicitudes. Por favor, espere un momento e inténtelo de nuevo.",
-  "identities.messages.1010026": "Su cuenta es gestionada por una organización. Inicie sesión con el proveedor de SSO de su organización."
+  "identities.messages.1010026": "Su cuenta es gestionada por una organización. Inicie sesión con el proveedor de SSO de su organización.",
+  "identities.messages.4000047": "Debe aceptar esto para continuar."
 }

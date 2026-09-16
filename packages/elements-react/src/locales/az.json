@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Bu DeviceAuthn açarı artıq istifadə oluna bilməz, çünki yumşaldılmış attestasiyanın müddəti bitib və ya o deaktiv edilib. Zəhmət olmasa, cihazınızı yenidən qeydiyyatdan keçirin.",
   "identities.messages.4000046": "Bu DeviceAuthn açarı istifadəçi doğrulaması tətbiq olunmazdan əvvəl qeydiyyatdan keçirilib və artıq istifadə oluna bilməz. Zəhmət olmasa, cihazınızı yenidən qeydiyyatdan keçirin.",
   "messages.rate-limited": "Çoxlu sayda sorğu daxil edilib. Zəhmət olmasa, bir an gözləyin və yenidən cəhd edin.",
-  "identities.messages.1010026": "Hesabınız bir təşkilat tərəfindən idarə olunur. Zəhmət olmasa, təşkilatınızın SSO provayderi ilə daxil olun."
+  "identities.messages.1010026": "Hesabınız bir təşkilat tərəfindən idarə olunur. Zəhmət olmasa, təşkilatınızın SSO provayderi ilə daxil olun.",
+  "identities.messages.4000047": "Davama keçmək üçün bunu qəbul etməlisiniz."
 }

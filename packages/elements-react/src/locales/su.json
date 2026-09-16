@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Konci DeviceAuthn ieu teu tiasa dianggo deui kusabab attestation anu dilonggarkeun parantos kadaluwarsa atanapi dipareuman. Mangga daptarkeun deui alat anjeun.",
   "identities.messages.4000046": "Konci DeviceAuthn ieu didaptarkeun samemeh verifikasi pangguna diwanohkeun sarta teu tiasa dianggo deui. Mangga daptarkeun deui alat anjeun.",
   "messages.rate-limited": "Réquestna loba teuing. Mangga, sudi waktos saeutik sarta coba deui.",
-  "identities.messages.1010026": "Akun anjeun diatur ku hiji organisasi. Mangga lebet nganggo panyadia SSO organisasi anjeun."
+  "identities.messages.1010026": "Akun anjeun diatur ku hiji organisasi. Mangga lebet nganggo panyadia SSO organisasi anjeun.",
+  "identities.messages.4000047": "Anjeun kedah narima ieu kanggo diteraskeun."
 }

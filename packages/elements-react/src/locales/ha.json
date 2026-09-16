@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Ba za a iya amfani da wannan makullin DeviceAuthn ba kuma, saboda sassaucin tabbatarwa ya ƙare ko an kashe shi. Da fatan za a sake yin rajistar na'urarka.",
   "identities.messages.4000046": "An yi rajistar wannan makullin DeviceAuthn kafin a fara tantance mai amfani, kuma ba za a iya amfani da shi ba kuma. Da fatan za a sake yin rajistar na'urarka.",
   "messages.rate-limited": "An yi bukatar da yawa. Da fatan zauna ka dan jira sannan ka sake gwada.",
-  "identities.messages.1010026": "Asusunka na karkashin kulawar wata kungiya. Da fatan za a shiga ta amfani da mai ba da sabis na SSO na kungiyarka."
+  "identities.messages.1010026": "Asusunka na karkashin kulawar wata kungiya. Da fatan za a shiga ta amfani da mai ba da sabis na SSO na kungiyarka.",
+  "identities.messages.4000047": "Dole ne ku amince da wannan don ku ci gaba."
 }

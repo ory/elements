@@ -270,5 +270,6 @@
   "identities.messages.4000045": "Seda DeviceAuthn-võtit ei saa enam kasutada, sest leevendatud kinnitus on aegunud või keelatud. Palun registreerige oma seade uuesti.",
   "identities.messages.4000046": "See DeviceAuthn-võti registreeriti enne kasutaja kinnituse kasutuselevõttu ja seda ei saa enam kasutada. Palun registreerige oma seade uuesti.",
   "messages.rate-limited": "Liiga palju taotlusi. Palun oota hetk ja proovi uuesti.",
-  "identities.messages.1010026": "Teie kontot haldab organisatsioon. Palun logige sisse oma organisatsiooni ühtse sisselogimise (SSO) teenusepakkuja kaudu."
+  "identities.messages.1010026": "Teie kontot haldab organisatsioon. Palun logige sisse oma organisatsiooni ühtse sisselogimise (SSO) teenusepakkuja kaudu.",
+  "identities.messages.4000047": "Jätkamiseks peate selle heaks kiitma."
 }

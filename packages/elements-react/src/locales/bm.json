@@ -270,5 +270,6 @@
   "identities.messages.4000045": "DeviceAuthn kilísi in tɛ se ka baara kɛ tugun, bawo relaxed attestation waati banna walima a dabilala. Aw ye aw ka minɛn sɛbɛn kokura.",
   "identities.messages.4000046": "DeviceAuthn kilísi in sɛbɛnna sanni user verification ka daminɛ, o la a tɛ se ka baara kɛ tugun. Aw ye aw ka minɛn sɛbɛn kokura.",
   "messages.rate-limited": "An ka fɔ kɛrɛnkɛrɛn ma. Ka bon ka bɔ a kan ka taga la.",
-  "identities.messages.1010026": "I ka jate bɛ tɔn dɔ bolo. I ka don ni i ka tɔn ka SSO baarakɛla ye."
+  "identities.messages.1010026": "I ka jate bɛ tɔn dɔ bolo. I ka don ni i ka tɔn ka SSO baarakɛla ye.",
+  "identities.messages.4000047": "I ka kan ka sɔn nin ma walasa ka taa ɲɛ."
 }
