@@ -9,6 +9,7 @@ import {
   createIntl,
   IntlCache,
   createIntlCache,
+  ReactIntlErrorCode,
 } from "react-intl"
 import { OryLocales } from ".."
 import { LocaleMap } from "../locales"
@@ -156,6 +157,17 @@ export const LanguageCodes = [
 
 export type Locale = keyof typeof OryLocales
 
+const defaultOnError = createIntl({ locale: "en" }).onError
+
+// Locale files may lag the source; react-intl renders the call site's
+// defaultMessage for a missing key, so that case is not an error.
+function onError(error: Parameters<typeof defaultOnError>[0]) {
+  if (error.code === ReactIntlErrorCode.MISSING_TRANSLATION) {
+    return
+  }
+  defaultOnError(error)
+}
+
 export type IntlContextProps = {
   locale: Locale
   customTranslations?: Partial<LocaleMap>
@@ -189,7 +201,10 @@ export const IntlProvider = ({
   }
 
   const cache: IntlCache = createIntlCache()
-  const intl: IntlShape = createIntl({ locale, messages: messages }, cache)
+  const intl: IntlShape = createIntl(
+    { locale, defaultLocale: "en", messages, onError },
+    cache,
+  )
 
   return <RawIntlProvider value={intl}>{children}</RawIntlProvider>
 }

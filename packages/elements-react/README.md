@@ -498,6 +498,9 @@ const config = {
 For a full list of messages, see
 [en.json](https://github.com/ory/elements/blob/main/packages/elements-react/src/locales/en.json).
 
+A locale that lacks a message renders the English default from the call site. To
+add or translate messages, see [src/locales/README.md](./src/locales/README.md).
+
 ## Development
 
 See [DEVELOPMENT.md](./DEVELOPMENT.md).

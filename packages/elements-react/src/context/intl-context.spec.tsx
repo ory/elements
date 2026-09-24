@@ -5,9 +5,15 @@ import { render } from "@testing-library/react"
 import { IntlProvider as OriginalIntlProvider, useIntl } from "react-intl"
 import { IntlProvider } from "./intl-context"
 
-function Render({ messageId }: { messageId: string }) {
+function Render({
+  messageId,
+  defaultMessage,
+}: {
+  messageId: string
+  defaultMessage?: string
+}) {
   const intl = useIntl()
-  return intl.formatMessage({ id: messageId })
+  return intl.formatMessage({ id: messageId, defaultMessage })
 }
 
 describe("intl-context", () => {
@@ -58,5 +64,20 @@ describe("intl-context", () => {
       </OriginalIntlProvider>,
     )
     expect(container).toMatchSnapshot()
+  })
+
+  test("renders the default message when the locale lacks the key", () => {
+    const error = jest.spyOn(console, "error").mockImplementation(() => {})
+    const { container } = render(
+      <IntlProvider locale="de">
+        <Render
+          messageId="test.only-in-source"
+          defaultMessage="Only in source"
+        />
+      </IntlProvider>,
+    )
+    expect(container).toHaveTextContent("Only in source")
+    expect(error).not.toHaveBeenCalled()
+    error.mockRestore()
   })
 })
