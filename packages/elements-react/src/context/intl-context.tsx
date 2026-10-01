@@ -177,12 +177,19 @@ function mergeTranslations(
   locale: Locale,
   customTranslations: Partial<Record<string, string>>,
 ) {
-  return Object.keys(customTranslations).reduce((acc, key) => {
-    return {
-      ...acc,
-      [key]: customTranslations[key] ?? OryLocales[locale][key],
+  const messages: Record<string, string> = { ...OryLocales[locale] }
+  for (const [key, value] of Object.entries(customTranslations)) {
+    if (typeof value === "string") {
+      // Assigning with messages[key] would invoke the prototype setter for a "__proto__" key.
+      Object.defineProperty(messages, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      })
     }
-  }, OryLocales[locale])
+  }
+  return messages
 }
 
 export const IntlProvider = ({
@@ -191,7 +198,6 @@ export const IntlProvider = ({
   customTranslations,
 }: PropsWithChildren<IntlContextProps>) => {
   const existingIntlContext = useContext(IntlContext)
-  const messages = mergeTranslations(locale, customTranslations?.[locale] ?? {})
 
   if (existingIntlContext) {
     // If the original context is available, we assume we're in a nested provider
@@ -200,6 +206,7 @@ export const IntlProvider = ({
     return children
   }
 
+  const messages = mergeTranslations(locale, customTranslations?.[locale] ?? {})
   const cache: IntlCache = createIntlCache()
   const intl: IntlShape = createIntl(
     { locale, defaultLocale: "en", messages, onError },
