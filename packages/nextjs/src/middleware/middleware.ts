@@ -27,13 +27,17 @@ export function getProjectApiKey() {
  */
 export type OryMiddlewareOptions = {
   /**
-   * By default headers are filtered to forward only a fixed list.
+   * By default headers are filtered to forward only a fixed list, which
+   * includes the browser's `Origin` and `Sec-Fetch-*` headers.
    *
    * If you need to forward additional headers you can use this setting to define them.
    */
   forwardAdditionalHeaders?: string[]
   /**
    * If you want to force a specific cookie domain, you can set it here.
+   *
+   * Cookies with the `__Host-` prefix never get a domain and stay bound to the
+   * host that set them.
    */
   forceCookieDomain?: string
   /**

@@ -43,12 +43,13 @@ export function processSetCookieHeaders(
   return parse(
     splitCookiesString(fetchResponse.headers.get("set-cookie") || ""),
   )
-    .map((cookie) => ({
-      ...cookie,
-      domain,
-      secure: isTls,
-      encode: (v: string) => v,
-    }))
+    .map((cookie) =>
+      // Browsers reject a __Host- cookie that has a Domain attribute or lacks
+      // Secure (RFC 6265bis, section 4.1.3.2), so it is forwarded unchanged.
+      cookie.name.startsWith("__Host-")
+        ? { ...cookie, encode: (v: string) => v }
+        : { ...cookie, domain, secure: isTls, encode: (v: string) => v },
+    )
     .map(({ value, name, ...options }) =>
       serialize(name, value, options as SerializeOptions),
     )

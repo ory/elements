@@ -134,6 +134,37 @@ describe("processSetCookieHeaders", () => {
       })
     },
   )
+  ;["https:", "http:"].forEach((protocol) => {
+    test(`keeps __Host- cookies host-only and secure over ${protocol}`, () => {
+      const requestHeaders = new Headers([["host", "app.example.com"]])
+      const fetchResponse = new Response(null, {
+        headers: new Headers([
+          [
+            "set-cookie",
+            "__Host-ory_kratos_browser_abc=secret; Path=/; Secure; HttpOnly; SameSite=Lax",
+          ],
+          ["set-cookie", "ory_kratos_session=abc123; Path=/; HttpOnly"],
+        ]),
+      })
+
+      const result = processSetCookieHeaders(
+        protocol,
+        fetchResponse,
+        {},
+        requestHeaders,
+      )
+
+      const flow = result.find((c) => c.startsWith("__Host-"))
+      expect(flow).toBeDefined()
+      expect(flow).not.toMatch(/Domain=/i)
+      expect(flow).toMatch(/; Secure/)
+      expect(flow).toMatch(/Path=\//)
+      expect(flow).toMatch(/HttpOnly/)
+
+      const session = result.find((c) => c.startsWith("ory_kratos_session="))
+      expect(session).toMatch(/Domain=example\.com/)
+    })
+  })
 })
 
 describe("filterRequestHeaders", () => {
@@ -167,6 +198,25 @@ describe("filterRequestHeaders", () => {
     expect(result.get("authorization")).toBe("Bearer token")
     expect(result.get("content-type")).toBe("application/json")
     expect(result.has("x-custom-header")).toBe(false)
+  })
+
+  it("forwards the browser's origin and fetch metadata headers by default", () => {
+    const headers = new Headers()
+    headers.set("origin", "https://app.example.com")
+    headers.set("sec-fetch-site", "same-origin")
+    headers.set("sec-fetch-mode", "cors")
+    headers.set("sec-fetch-dest", "empty")
+    headers.set("sec-fetch-user", "?1")
+    headers.set("sec-ch-ua", '"Chromium";v="130"')
+
+    const result = filterRequestHeaders(headers)
+
+    expect(result.get("origin")).toBe("https://app.example.com")
+    expect(result.get("sec-fetch-site")).toBe("same-origin")
+    expect(result.get("sec-fetch-mode")).toBe("cors")
+    expect(result.get("sec-fetch-dest")).toBe("empty")
+    expect(result.get("sec-fetch-user")).toBe("?1")
+    expect(result.has("sec-ch-ua")).toBe(false)
   })
 })
 

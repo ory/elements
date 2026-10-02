@@ -363,6 +363,29 @@ describe("proxyRequest", () => {
     })
   })
 
+  it("forwards the origin and fetch metadata headers to the upstream request", async () => {
+    const request = createMockLoginRequest("/self-service/login", {
+      origin: "http://localhost",
+      "sec-fetch-site": "same-origin",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-user": "?1",
+      "sec-ch-ua": '"Chromium";v="130"',
+    })
+    const fetch = jest.fn().mockResolvedValue(new Response("", { status: 200 }))
+    global.fetch = fetch
+
+    await proxyRequest(request, createOptions())
+
+    const upstreamHeaders: Headers = fetch.mock.calls[0][1].headers
+    expect(upstreamHeaders.get("origin")).toBe("http://localhost")
+    expect(upstreamHeaders.get("sec-fetch-site")).toBe("same-origin")
+    expect(upstreamHeaders.get("sec-fetch-mode")).toBe("cors")
+    expect(upstreamHeaders.get("sec-fetch-dest")).toBe("empty")
+    expect(upstreamHeaders.get("sec-fetch-user")).toBe("?1")
+    expect(upstreamHeaders.has("sec-ch-ua")).toBe(false)
+  })
+
   it("preserves additional forwarded headers", async () => {
     const request = createMockLoginRequest(undefined, {
       "x-custom-header": "test-value",

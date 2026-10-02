@@ -11,8 +11,13 @@ export const defaultForwardedHeaders = [
   "content-type",
   "cookie",
   "host",
-  "user-agent",
+  "origin",
   "referer",
+  "sec-fetch-dest",
+  "sec-fetch-mode",
+  "sec-fetch-site",
+  "sec-fetch-user",
+  "user-agent",
 ]
 
 export const defaultOmitHeaders = [
