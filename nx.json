@@ -15,7 +15,6 @@
   },
   "release": {
     "projectsRelationship": "independent",
-    "releaseTagPattern": "release/{projectName}/{version}",
     "git": {
       "commit": false,
       "tag": true,
@@ -32,13 +31,20 @@
       "elements": {
         "projects": ["@ory/elements-react"],
         "title": "Elements",
-        "releaseTagPattern": "release/{projectName}/{version}"
+        "releaseTag": {
+          "pattern": "release/{projectName}/{version}"
+        }
       },
       "nextjs": {
         "projects": ["@ory/nextjs"],
         "title": "Next.js",
-        "releaseTagPattern": "release/{projectName}/{version}"
+        "releaseTag": {
+          "pattern": "release/{projectName}/{version}"
+        }
       }
+    },
+    "releaseTag": {
+      "pattern": "release/{projectName}/{version}"
     }
   },
   "affected": {
