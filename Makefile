@@ -2,6 +2,20 @@ SHELL=/bin/bash -o pipefail
 
 export PATH               := .bin:${PATH}
 
+ORY_META_INSTALL = https://raw.githubusercontent.com/ory/meta/acbf1878c12e483e882f478bad9aeceb6f030965/install.sh
+ORY_META_INSTALL_SHA256 = 4fe2b338f3b8a2efe5b0a5993c3667bc86a5bd864299bc865bdc7a207e385d49
+ORY_CI_REF = 35878b67f40c377bcb14dce2c26cf92e53586b4a
+ORY_CI_LICENSES_INSTALL_SHA256 = 94024ec2da0627c38c438286d650b3913fd85e2c1aaa7944deeaf2935b96a65b
+
+# Downloads $(1) to $(2) and fails, removing the file, unless its SHA-256 digest is $(3).
+define download_verified
+	@mkdir -p $(dir $(2))
+	curl --retry 7 --retry-connrefused -sSfL -o $(2) $(1)
+	if command -v sha256sum >/dev/null 2>&1; then sum=sha256sum; elif command -v shasum >/dev/null 2>&1; then sum="shasum -a 256"; \
+	else echo "download_verified: sha256sum or shasum is required" >&2; rm -f $(2); exit 1; fi; \
+	echo "$(3)  $(2)" | $$sum -c - || { rm -f $(2); exit 1; }
+endef
+
 .PHONY: install
 install:
 	pnpm install --frozen-lockfile
@@ -53,10 +67,12 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 	.bin/licenses
 
 .bin/licenses: Makefile
-	curl --retry 7 --retry-connrefused https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
+	$(call download_verified,https://raw.githubusercontent.com/ory/ci/$(ORY_CI_REF)/licenses/install,.bin/licenses-install.sh,$(ORY_CI_LICENSES_INSTALL_SHA256))
+	sh .bin/licenses-install.sh
 
 .bin/ory: .deps/ory.version
-	curl --retry 7 --retry-connrefused https://raw.githubusercontent.com/ory/meta/master/install.sh | bash -s -- -b .bin ory $(cat .deps/ory.version)
+	$(call download_verified,$(ORY_META_INSTALL),.bin/ory-install.sh,$(ORY_META_INSTALL_SHA256))
+	bash .bin/ory-install.sh -b .bin ory $(shell cat .deps/ory.version)
 	touch .bin/ory
 
 node_modules: pnpm-lock.yaml package.json pnpm-workspace.yaml
