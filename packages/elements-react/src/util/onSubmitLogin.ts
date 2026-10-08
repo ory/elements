@@ -15,6 +15,7 @@ import { replaceWindowFlowId } from "./internal"
 import { OryElementsConfiguration } from "../context"
 import { handleFlowError } from "./sdk-helpers"
 import { flowHasErrors } from "./flowHasErrors"
+import { rememberLastIdentifier } from "./lastIdentifier"
 
 /**
  * Use this method to submit a login flow. This method is used in the `onSubmit` handler of the login form.
@@ -44,6 +45,10 @@ export async function onSubmitLogin(
   }
 
   const method = String(body.method)
+
+  if (body.method === "identifier_first" && body.identifier) {
+    rememberLastIdentifier(body.identifier)
+  }
 
   await frontendClient(config.sdk.url, config.sdk.options ?? {})
     .updateLoginFlowRaw({

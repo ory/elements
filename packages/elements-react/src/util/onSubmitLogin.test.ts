@@ -6,9 +6,11 @@ import { OryElementsConfiguration } from "../context"
 import { onSubmitLogin } from "./onSubmitLogin"
 import { OrySuccessEvent, OryValidationErrorEvent } from "./events"
 import { LoginFlowContainer } from "./flowContainer"
+import { readLastIdentifier } from "./lastIdentifier"
 
 beforeEach(() => {
   jest.clearAllMocks()
+  window.sessionStorage.clear()
   console.warn = jest.fn()
   console.error = jest.fn()
 })
@@ -308,5 +310,72 @@ describe("onSubmitLogin", () => {
         setFlowContainer,
       }),
     ).resolves.not.toThrow()
+  })
+
+  describe("last typed identifier", () => {
+    async function submit(body: Record<string, unknown>) {
+      jest
+        .spyOn(await import("./client"), "frontendClient")
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        .mockReturnValue({
+          updateLoginFlowRaw: jest.fn().mockResolvedValue({
+            value: () => Promise.resolve({ continue_with: [] }),
+          }),
+        } as any)
+
+      await onSubmitLogin(mockFlow, mockConfig, {
+        body: body as any,
+        onRedirect: jest.fn(),
+        setFlowContainer: jest.fn(),
+      })
+    }
+
+    test("should remember the identifier submitted in the identifier step", async () => {
+      await submit({ method: "identifier_first", identifier: "a@example.com" })
+
+      expect(readLastIdentifier()).toBe("a@example.com")
+    })
+
+    test("should overwrite the remembered identifier on the next identifier step", async () => {
+      await submit({ method: "identifier_first", identifier: "a@example.com" })
+      await submit({ method: "identifier_first", identifier: "b@example.com" })
+
+      expect(readLastIdentifier()).toBe("b@example.com")
+    })
+
+    test("should remember the identifier even when the submission is rejected", async () => {
+      jest
+        .spyOn(await import("./client"), "frontendClient")
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        .mockReturnValue({
+          updateLoginFlowRaw: jest.fn().mockRejectedValue(new Error("boom")),
+        } as any)
+
+      await onSubmitLogin(mockFlow, mockConfig, {
+        body: {
+          method: "identifier_first",
+          identifier: "a@example.com",
+        } as any,
+        onRedirect: jest.fn(),
+        setFlowContainer: jest.fn(),
+      }).catch(() => undefined)
+
+      expect(readLastIdentifier()).toBe("a@example.com")
+    })
+
+    const otherMethods = ["password", "code", "oidc", "passkey", "webauthn"]
+    otherMethods.forEach((method) => {
+      test(`should not remember the identifier of a ${method} submission`, async () => {
+        await submit({ method, identifier: "a@example.com" })
+
+        expect(readLastIdentifier()).toBeUndefined()
+      })
+    })
+
+    test("should not remember anything when the identifier step carries no identifier", async () => {
+      await submit({ method: "identifier_first" })
+
+      expect(readLastIdentifier()).toBeUndefined()
+    })
   })
 })

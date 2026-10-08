@@ -5,10 +5,15 @@ import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { PropsWithChildren, useEffect, useRef } from "react"
 import { FormProvider, useForm } from "react-hook-form"
 import { useOryFlow } from "../../context"
-import { computeDefaultValues, resolveLoginHint } from "./form-helpers"
+import {
+  computeDefaultValues,
+  resolveLoginHint,
+  resolveRecoveryPrefill,
+} from "./form-helpers"
 import { useOryFormResolver } from "./form-resolver"
 import { isNodeVisible } from "../../util/ui"
 import { isUiNodeInput } from "../../util"
+import { readLastIdentifier } from "../../util/lastIdentifier"
 
 function pickAutofocusField(nodes: UiNode[]) {
   const node = nodes.find((node) => {
@@ -53,6 +58,18 @@ export function OryFormProvider({
     ),
     resolver: useOryFormResolver(),
   })
+
+  // Browser storage is invisible to the server, so the last typed identifier
+  // is applied after mount to keep server and hydrated markup identical.
+  useEffect(() => {
+    if (flowContainer.flowType !== FlowType.Recovery) {
+      return
+    }
+    const prefill = resolveRecoveryPrefill(defaultNodes, readLastIdentifier())
+    if (prefill) {
+      methods.setValue(prefill.name, prefill.value)
+    }
+  }, [flowContainer.flowType, defaultNodes, methods])
 
   useEffect(() => {
     if (

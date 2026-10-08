@@ -12,6 +12,7 @@ import {
   computeDefaultValues,
   getLoginHint,
   resolveLoginHint,
+  resolveRecoveryPrefill,
   unrollTrait,
 } from "./form-helpers"
 
@@ -367,5 +368,92 @@ describe("resolveLoginHint", () => {
       oidcLoginHint: "oidc@example.com",
     })
     expect(resolveLoginHint(container)).toBe("oidc@example.com")
+  })
+})
+
+describe("resolveRecoveryPrefill", () => {
+  const emailStep = [inputNode("email", undefined, "email")]
+  const addressStep = [inputNode("recovery_address", undefined, "text")]
+
+  test("should fill the email field with an email identifier", () => {
+    expect(resolveRecoveryPrefill(emailStep, "jane@example.com")).toEqual({
+      name: "email",
+      value: "jane@example.com",
+    })
+  })
+
+  test("should fill the recovery address field with an email identifier", () => {
+    expect(resolveRecoveryPrefill(addressStep, "jane@example.com")).toEqual({
+      name: "recovery_address",
+      value: "jane@example.com",
+    })
+  })
+
+  const phones = ["+4915112345678", "+49 151 1234-5678", "+1 (555) 010 9999"]
+  phones.forEach((phone) => {
+    test(`should fill the recovery address field with the phone number ${phone}`, () => {
+      expect(resolveRecoveryPrefill(addressStep, phone)).toEqual({
+        name: "recovery_address",
+        value: phone,
+      })
+    })
+  })
+
+  test("should not fill the email field with a phone number", () => {
+    expect(resolveRecoveryPrefill(emailStep, "+4915112345678")).toBeUndefined()
+  })
+
+  const nonAddresses = [
+    "jane",
+    "jane.doe",
+    "4915112345678",
+    "+49151",
+    "+49151123456789012",
+    "+49151abc45678",
+    "jane@",
+    "@example.com",
+    "jane@doe@example.com",
+    "jane doe@example.com",
+    "",
+  ]
+  nonAddresses.forEach((identifier) => {
+    test(`should not fill any field with the identifier "${identifier}"`, () => {
+      expect(resolveRecoveryPrefill(emailStep, identifier)).toBeUndefined()
+      expect(resolveRecoveryPrefill(addressStep, identifier)).toBeUndefined()
+    })
+  })
+
+  test("should not fill anything when no identifier is remembered", () => {
+    expect(resolveRecoveryPrefill(emailStep, undefined)).toBeUndefined()
+  })
+
+  test("should not overwrite a value the flow already carries", () => {
+    expect(
+      resolveRecoveryPrefill(
+        [inputNode("email", "other@example.com", "email")],
+        "jane@example.com",
+      ),
+    ).toBeUndefined()
+  })
+
+  const nonEditableTypes = ["hidden", "submit", "button"]
+  nonEditableTypes.forEach((type) => {
+    test(`should not fill a ${type} recovery address node`, () => {
+      expect(
+        resolveRecoveryPrefill(
+          [inputNode("recovery_address", undefined, type)],
+          "jane@example.com",
+        ),
+      ).toBeUndefined()
+    })
+  })
+
+  test("should not fill fields other than the recovery address fields", () => {
+    expect(
+      resolveRecoveryPrefill(
+        [inputNode("code", undefined, "text")],
+        "jane@example.com",
+      ),
+    ).toBeUndefined()
   })
 })

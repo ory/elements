@@ -173,6 +173,69 @@ function prefillIdentifierFromHint(
   }
 }
 
+const emailShape = /^[^\s@]+@[^\s@]+$/
+const phoneShape = /^\+[\d\s()-]+$/
+
+function isPhoneShaped(value: string): boolean {
+  const digits = value.replace(/\D/g, "").length
+  return phoneShape.test(value) && digits >= 7 && digits <= 15
+}
+
+/**
+ * Field names of the initial recovery address step, mapped to whether the
+ * field accepts a phone number in addition to an email address.
+ */
+const recoveryAddressFields: Record<string, { acceptsPhone: boolean }> = {
+  email: { acceptsPhone: false },
+  recovery_address: { acceptsPhone: true },
+}
+
+const editableInputTypes = ["text", "email"]
+
+/**
+ * Resolves which field of a recovery flow to pre-fill with the identifier the
+ * user last typed at login.
+ *
+ * Only an empty, editable address field is filled, and only with a value of a
+ * shape the field accepts. Usernames and other non-address identifiers never
+ * match.
+ *
+ * @param nodes - The UI nodes of the recovery flow.
+ * @param identifier - The identifier the user last typed, if any.
+ * @returns The field name and value to set, or `undefined` to leave the form untouched.
+ */
+export function resolveRecoveryPrefill(
+  nodes: UiNode[],
+  identifier: string | undefined,
+): { name: string; value: string } | undefined {
+  if (!identifier) {
+    return undefined
+  }
+  const isEmail = emailShape.test(identifier)
+  const isPhone = isPhoneShaped(identifier)
+  if (!isEmail && !isPhone) {
+    return undefined
+  }
+
+  for (const node of nodes) {
+    const attrs = node.attributes
+    if (!isUiNodeInputAttributes(attrs)) {
+      continue
+    }
+    if (
+      !Object.hasOwn(recoveryAddressFields, attrs.name) ||
+      !editableInputTypes.includes(attrs.type) ||
+      attrs.value
+    ) {
+      continue
+    }
+    if (isEmail || recoveryAddressFields[attrs.name].acceptsPhone) {
+      return { name: attrs.name, value: identifier }
+    }
+  }
+  return undefined
+}
+
 // Node names are attacker-influenced: Kratos echoes submitted trait keys back as
 // UI node names, so a name like `traits.__proto__.x` reaches unrollTrait. Walking
 // such a name would step the accumulator onto `Object.prototype` and persist the
