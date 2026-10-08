@@ -41,28 +41,58 @@ At runtime, a key that a locale lacks renders the `defaultMessage` from the call
 site. That also applies to `en`.
 
 Translations, including the `en.json` line, arrive in a separate pull request
-opened by a scheduled job. The job runs the command below with `--ollama` and
+opened by a scheduled job. The job runs the command below with `--translate` and
 the existing locale tests gate its output.
 
 ## Running the translator locally
 
-Install [Ollama](https://ollama.com/download) and pull `translategemma:27b`.
-Then:
+Export an OpenAI API key, then:
 
 ```bash
 cd scripts/elements-helpers
-./cli.ts locales --ollama
+OPENAI_API_KEY=... ./cli.ts locales --translate
 ```
 
 Options:
 
+- `--model <name>` selects the OpenAI model. Defaults to `gpt-6-sol`.
 - `--reTranslate <id...>` translates the given ids again in every locale.
 - `--max-minutes <n>` stops starting new locales once `n` minutes have elapsed;
   the locales not reached are listed in the summary.
 - `--summary-file <path>` writes the run summary as JSON.
 - `--fail-on-missing` exits non-zero when any locale still lacks a key.
 
-Translating one key across all locales takes several minutes on a laptop.
+Each model call sees the message's `description`, a hint derived from the key,
+the matching glossary entries and up to five already-translated messages from
+the same locale. ICU arguments such as `{provider}` are replaced by markers
+before translation and restored afterwards. A result that drops, adds or alters
+an argument, or that changes a term listed under `doNotTranslate`, is retried
+twice and then aborts the run.
+
+Messages with an ICU `plural`, `select`, `selectordinal` or tag are not
+translated. They are listed as skipped in the summary and have to be translated
+by hand in every locale.
+
+Translating one key across all locales takes a few minutes.
+
+## Glossary
+
+`scripts/elements-helpers/input/glossary.json` steers terminology:
+
+```json
+{
+  "doNotTranslate": ["Ory", "WebAuthn"],
+  "terms": {
+    "passkey": { "de": "Passkey", "fr": "clé d'accès" }
+  }
+}
+```
+
+`doNotTranslate` entries must appear unchanged in every translation. `terms` map
+an English term to its preferred translation per language; a language without an
+entry gets no steering for that term. Matching is case-insensitive on word
+boundaries. Edit the file and rerun with `--reTranslate` to apply a change to
+existing translations.
 
 ## Tests
 
