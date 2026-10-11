@@ -60,6 +60,10 @@ export default async function handler(
     return res.status(400).json({ error: "Missing consent_challenge" })
   }
 
+  if (action !== "accept" && action !== "reject") {
+    return res.status(400).json({ error: "Unknown action" })
+  }
+
   // Defense in depth: the CSRF middleware validates the signed cookie pair,
   // but the token extraction of @csrf-armor/nextjs falls back to the cookie
   // itself, so the submitted field must be compared against it explicitly.

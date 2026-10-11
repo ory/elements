@@ -99,6 +99,16 @@ export async function POST(request: Request) {
     )
   }
 
+  if (action !== "accept" && action !== "reject") {
+    return NextResponse.json(
+      {
+        error: "invalid_request",
+        error_description: "Unknown action",
+      },
+      { status: 400 },
+    )
+  }
+
   try {
     let redirectTo: string
 
