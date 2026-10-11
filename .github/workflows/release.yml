@@ -30,6 +30,8 @@ on:
           - "All"
           - "@ory/elements-react"
           - "@ory/nextjs"
+          - "@ory/elements-vue"
+          - "@ory/nuxt"
 
 permissions:
   id-token: write # Required for OIDC
@@ -51,6 +53,10 @@ jobs:
             package_dir: packages/elements-react
           - package: "@ory/nextjs"
             package_dir: packages/nextjs
+          - package: "@ory/elements-vue"
+            package_dir: packages/elements-vue
+          - package: "@ory/nuxt"
+            package_dir: packages/nuxt
     steps:
       - uses: actions/checkout@v5
         with:
