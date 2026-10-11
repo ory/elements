@@ -60,6 +60,17 @@ describe("rewriteUrls", () => {
     expect(result).toBe("https://self.com/login-methods")
   })
 
+  it("should keep replacement patterns in UI overrides literal", () => {
+    const source = "https://example.com/ui/login?flow=123"
+    const matchBaseUrl = "https://example.com"
+    const selfUrl = "https://self.com"
+    const result = rewriteUrls(source, matchBaseUrl, selfUrl, {
+      ...config,
+      project: { ...config.project, login_ui_url: "/custom/$&/login" },
+    })
+    expect(result).toBe("https://self.com/custom/$&/login?flow=123")
+  })
+
   it("should NOT rewrite OAuth2 paths", () => {
     const matchBaseUrl = "https://example.com"
     const selfUrl = "https://self.com"

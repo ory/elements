@@ -55,7 +55,9 @@ export function rewriteUrls(
     // Check for UI path overrides from config
     for (const [uiPath, configUrl] of Object.entries(uiPathMappings)) {
       if (path && configUrl && pathStartsWithSegment(path, uiPath)) {
-        return path.replace(uiPath, new URL(configUrl, selfUrl).toString())
+        return (
+          new URL(configUrl, selfUrl).toString() + path.slice(uiPath.length)
+        )
       }
     }
 
