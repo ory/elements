@@ -25,7 +25,8 @@
     "overrides": {
       "koa": "2.16.4",
       "qs": ">=6.16.0",
-      "ts-jest>handlebars": "4.7.9",
+      "ts-jest>handlebars": "4.7.10",
+      "proxy-addr": "2.0.8",
       "axios": "1.20.0",
       "postcss": "8.5.23",
       "@ory/nextjs>next": "$next",
