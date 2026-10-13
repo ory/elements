@@ -64,9 +64,9 @@ export function serverClientFrontend() {
 
 ### Ory Network project setup
 
-The Ory Identities APIs come with the ability to specify custom UI URLs. To make
-sure, Ory knows about your custom UI, specify the URLs of your application on
-https://console.ory.com/projects/current/ui.
+The Ory Kratos Identities APIs come with the ability to specify custom UI URLs.
+To make sure Ory Kratos Identities knows about your custom UI, specify the URLs
+of your application on https://console.ory.com/projects/current/ui.
 
 ### Initializing a new flow
 

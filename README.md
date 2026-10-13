@@ -2,15 +2,16 @@
 
 # Ory Elements
 
-Ory Elements is a component library that makes building login, registration and
-account pages for Ory a breeze:
+Ory Elements is a component library that makes building login, registration,
+account, and consent pages for Ory Kratos Identities and Ory Hydra Authorization
+a breeze:
 
 - Reduces time to add complex auth flows to your customer experience, including
   multi-factor authentication and account recovery.
 - Customizable, themeable, and replaceable components.
 - Works with the React ecosystem (Next.js, plain React).
-- Dynamically adapts the user interface to your Ory identity schema, sign-in and
-  flow configuration.
+- Dynamically adapts the user interface to your Ory Kratos identity schema,
+  sign-in and flow configuration.
 
 Ory Elements has several packages:
 
