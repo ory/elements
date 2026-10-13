@@ -13,6 +13,7 @@ import { FlowError } from '@ory/client-fetch';
 import { FlowType } from '@ory/client-fetch';
 import { FormEventHandler } from 'react';
 import { GenericError } from '@ory/client-fetch';
+import { HTMLAttributes } from 'react';
 import { Identity } from '@ory/client-fetch';
 import { LoginFlow } from '@ory/client-fetch';
 import { MouseEventHandler } from 'react';

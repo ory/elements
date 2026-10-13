@@ -4531,7 +4531,25 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onChange: (event: any) => void;\n    onBlur: () => void;\n    ref: (instance: any) => void;\n    disabled?: boolean;\n    type: string;\n    autoComplete?: string;\n    maxLength?: number;\n    placeholder: string;\n}"
+              "text": ";\n    onChange: (event: any) => void;\n    onBlur: () => void;\n    ref: (instance: any) => void;\n    disabled?: boolean;\n    type: string;\n    autoComplete?: string;\n    inputMode?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAttributes",
+              "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLInputElement",
+              "canonicalReference": "!HTMLInputElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">[\"inputMode\"];\n    maxLength?: number;\n    placeholder: string;\n}"
             },
             {
               "kind": "Content",
@@ -4543,7 +4561,7 @@
           "name": "OryNodeInputInputProps",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 4
+            "endIndex": 8
           }
         },
         {
@@ -6982,7 +7000,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!UiNodeInputAttributesWithOptions:type",
-          "docComment": "/**\n * Same as `UiNodeInputAttributes`, but additionally carries the optional `options` field used to render enum traits as a dropdown. The Kratos server populates this field whenever a JSON schema property declares an `enum`.\n */\n",
+          "docComment": "/**\n * Same as `UiNodeInputAttributes`, but additionally carries the optional `options` field used to render enum traits as a dropdown, and the optional `inputmode` field that hints at the virtual keyboard to show. The Kratos server populates `options` whenever a JSON schema property declares an `enum`, and `inputmode` on one-time code inputs.\n *\n * TODO: remove the `inputmode` widening once `@ory/client-fetch` publishes a release that ships `inputmode` on `UiNodeInputAttributes`.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -7004,7 +7022,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n}"
+              "text": "[];\n    inputmode?: \"numeric\" | \"text\";\n}"
             },
             {
               "kind": "Content",

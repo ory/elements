@@ -1,15 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { UiNodeInputAttributes } from "@ory/client-fetch"
 import { MouseEventHandler } from "react"
 import { useController } from "react-hook-form"
 import { triggerToWindowCall } from "../../../../util/ui"
 import { OryNodeInputInputProps } from "../../../../types"
 import { useOryFlow } from "../../../../context"
+import { UiNodeInputAttributesWithOptions } from "../../../../util/utilFixSDKTypesHelper"
 
 export function useInputProps(
-  attributes: UiNodeInputAttributes,
+  attributes: UiNodeInputAttributesWithOptions,
   placeholder?: string,
 ): OryNodeInputInputProps {
   const {
@@ -34,6 +34,7 @@ export function useInputProps(
     onClick: handleClick,
     maxLength: attributes.maxlength,
     autoComplete: attributes.autocomplete,
+    inputMode: attributes.inputmode,
     placeholder: placeholder || "",
     disabled:
       attributes.disabled || !controller.formState.isReady || isSubmitting,

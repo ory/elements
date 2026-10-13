@@ -5,16 +5,21 @@
 import { FlowType } from "@ory/client-fetch"
 import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
 import { cn } from "../../utils/cn"
+import { DefaultInput } from "./input"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "./shadcn/otp-input"
 
-export const DefaultPinCodeInput = ({
-  node,
-  inputProps,
-}: OryNodeInputProps) => {
+// Longer codes do not fit one box per character on narrow screens.
+const maxPinCodeLength = 8
+
+export const DefaultPinCodeInput = (props: OryNodeInputProps) => {
+  const { node, inputProps } = props
   const { flowType } = useOryFlow()
 
   const { value, maxLength, ...restInputProps } = inputProps
   const elements = maxLength ?? 6
+  if (elements > maxPinCodeLength) {
+    return <DefaultInput {...props} />
+  }
 
   const valueCasted = value as string
 

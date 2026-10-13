@@ -11,6 +11,7 @@ import {
 import {
   ComponentPropsWithoutRef,
   FormEventHandler,
+  HTMLAttributes,
   MouseEventHandler,
   PropsWithChildren,
 } from "react"
@@ -149,6 +150,7 @@ export type OryNodeInputInputProps = {
   disabled?: boolean
   type: string
   autoComplete?: string
+  inputMode?: HTMLAttributes<HTMLInputElement>["inputMode"]
   maxLength?: number
   placeholder: string
 }
