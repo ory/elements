@@ -99,7 +99,8 @@ export type FormStateAction =
       /**
        * Action to clear the active authentication method.
        * This action is dispatched when the user wants to clear the currently active method
-       * and return to the method selection state.
+       * and return to the screen the flow implies without an active method:
+       * the method selection, or the identifier input of an identifier-first login.
        */
       type: "action_clear_active_method"
     }
@@ -160,6 +161,10 @@ function findMethodWithMessage(nodes?: UiNode[]) {
     ?.find((node) => node.messages?.length > 0)
 }
 
+function isLinkingAccounts(flow: OryFlowContainer) {
+  return flow.flow.ui.messages?.some((m) => m.id === 1010016)
+}
+
 function parseStateFromFlow(flow: OryFlowContainer): FlowFormState {
   switch (flow.flowType) {
     case FlowType.Registration:
@@ -171,8 +176,7 @@ function parseStateFromFlow(flow: OryFlowContainer): FlowFormState {
         return { current: "method_active", method: "code" }
       } else if (methodWithMessage) {
         return { current: "method_active", method: methodWithMessage.group }
-      } else if (flow.flow.ui.messages?.some((m) => m.id === 1010016)) {
-        // Account linking edge case
+      } else if (isLinkingAccounts(flow)) {
         return { current: "select_method" }
       } else if (
         flow.flow.active &&
@@ -220,6 +224,18 @@ function parseStateFromFlow(flow: OryFlowContainer): FlowFormState {
   throw new Error("Unknown form state")
 }
 
+function parseStateWithoutActiveMethod(flow: OryFlowContainer): FlowFormState {
+  if (
+    (flow.flowType === FlowType.Login ||
+      flow.flowType === FlowType.Registration) &&
+    !isChoosingMethod(flow) &&
+    !isLinkingAccounts(flow)
+  ) {
+    return { current: "provide_identifier" }
+  }
+  return { current: "select_method" }
+}
+
 /**
  * The `useFormStateReducer` hook manages the state of the form based on the flow data.
  *
@@ -244,56 +260,39 @@ export function useFormStateReducer(flow: OryFlowContainer) {
     state: FormState,
     action: FormStateAction,
   ): FormState => {
+    const transitionTo = (next: FlowFormState): FormState => ({
+      ...next,
+      isReady: state.isReady,
+      isSubmitting: state.isSubmitting,
+    })
+
     switch (action.type) {
       case "action_flow_update": {
         if (selectedMethod) {
           setLoadingInputs(new Set())
-          return {
+          return transitionTo({
             current: "method_active",
             method: selectedMethod,
-            isReady: state.isReady,
-            isSubmitting: state.isSubmitting,
-          }
+          })
         }
-        const flowFormState = parseStateFromFlow(action.flow)
-        return {
-          ...flowFormState,
-          isReady: state.isReady,
-          isSubmitting: state.isSubmitting,
-        }
+        return transitionTo(parseStateFromFlow(action.flow))
       }
       case "action_select_method": {
         setSelectedMethod(action.method)
-        return {
-          current: "method_active",
-          method: action.method,
-          isReady: state.isReady,
-          isSubmitting: state.isSubmitting,
-        }
+        return transitionTo({ current: "method_active", method: action.method })
       }
       case "action_clear_active_method": {
-        return {
-          current: "select_method",
-          isReady: state.isReady,
-          isSubmitting: state.isSubmitting,
-        }
+        setSelectedMethod(undefined)
+        return transitionTo(parseStateWithoutActiveMethod(flow))
       }
       case "form_input_loading":
         setLoadingInputs((prev) => new Set(prev).add(action.group))
-        return {
-          ...state,
-          isReady: false,
-          isSubmitting: state.isSubmitting,
-        }
+        return { ...state, isReady: false }
       case "form_input_ready": {
         const newLoadingInputs = new Set(loadingInputs)
         newLoadingInputs.delete(action.input)
         setLoadingInputs(newLoadingInputs)
-        return {
-          ...state,
-          isReady: newLoadingInputs.size === 0,
-          isSubmitting: state.isSubmitting,
-        }
+        return { ...state, isReady: newLoadingInputs.size === 0 }
       }
       case "form_submit_start":
         return {

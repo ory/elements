@@ -851,7 +851,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:757:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1124:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1128:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1683:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1684:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

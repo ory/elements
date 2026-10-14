@@ -913,3 +913,208 @@ test(`should show the method chooser when SSO providers accompany a single visib
     isSubmitting: false,
   })
 })
+
+describe('"action_clear_active_method"', () => {
+  const identifierFirstNodes = [
+    {
+      type: "input",
+      group: "default",
+      attributes: {
+        name: "csrf_token",
+        type: "hidden",
+        value: "csrf",
+        node_type: "input",
+      },
+      messages: [],
+      meta: {},
+    },
+    {
+      type: "input",
+      group: "oidc",
+      attributes: {
+        name: "provider",
+        type: "submit",
+        value: "google",
+        node_type: "input",
+      },
+      messages: [],
+      meta: {},
+    },
+    {
+      type: "input",
+      group: "identifier_first",
+      attributes: {
+        name: "identifier",
+        type: "text",
+        node_type: "input",
+      },
+      messages: [],
+      meta: {},
+    },
+    {
+      type: "input",
+      group: "identifier_first",
+      attributes: {
+        name: "method",
+        type: "submit",
+        value: "identifier_first",
+        node_type: "input",
+      },
+      messages: [],
+      meta: {},
+    },
+  ]
+
+  const identifierFirstLogin = (active?: string) =>
+    ({
+      flowType: FlowType.Login,
+      flow: { active, ui: { nodes: identifierFirstNodes } },
+    }) as unknown as OryFlowContainer
+
+  test("should return to the identifier step of an identifier-first login", () => {
+    const flow = identifierFirstLogin("oidc")
+    const { result } = renderHook(() => useFormStateReducer(flow))
+    expect(result.current[0]).toMatchObject({
+      current: "method_active",
+      method: "oidc",
+    })
+
+    act(() => {
+      result.current[1]({ type: "action_clear_active_method" })
+    })
+
+    expect(result.current[0]).toEqual({
+      current: "provide_identifier",
+      isReady: true,
+      isSubmitting: false,
+    })
+  })
+
+  test("should return to the method chooser on an aal2 login", () => {
+    const flow = {
+      flowType: FlowType.Login,
+      flow: {
+        requested_aal: "aal2",
+        ui: {
+          nodes: [
+            {
+              type: "input",
+              group: "totp",
+              attributes: {
+                name: "totp_code",
+                type: "text",
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+            {
+              type: "input",
+              group: "lookup_secret",
+              attributes: {
+                name: "lookup_secret",
+                type: "text",
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+          ],
+        },
+      },
+    } as unknown as OryFlowContainer
+    const { result } = renderHook(() => useFormStateReducer(flow))
+
+    act(() => {
+      result.current[1]({
+        type: "action_select_method",
+        method: UiNodeGroupEnum.Totp,
+      })
+    })
+    act(() => {
+      result.current[1]({ type: "action_clear_active_method" })
+    })
+
+    expect(result.current[0]).toEqual({
+      current: "select_method",
+      isReady: true,
+      isSubmitting: false,
+    })
+  })
+
+  test("should return to the method chooser when linking accounts", () => {
+    const flow = {
+      flowType: FlowType.Login,
+      flow: {
+        ui: {
+          nodes: [
+            {
+              type: "input",
+              group: "password",
+              attributes: {
+                name: "password",
+                type: "password",
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+            {
+              type: "input",
+              group: "passkey",
+              attributes: {
+                name: "passkey_login_trigger",
+                type: "button",
+                node_type: "input",
+              },
+              messages: [],
+              meta: {},
+            },
+          ],
+          messages: [{ id: 1010016, type: "info", text: "Link accounts" }],
+        },
+      },
+    } as unknown as OryFlowContainer
+    const { result } = renderHook(() => useFormStateReducer(flow))
+
+    act(() => {
+      result.current[1]({
+        type: "action_select_method",
+        method: UiNodeGroupEnum.Password,
+      })
+    })
+    act(() => {
+      result.current[1]({ type: "action_clear_active_method" })
+    })
+
+    expect(result.current[0]).toEqual({
+      current: "select_method",
+      isReady: true,
+      isSubmitting: false,
+    })
+  })
+
+  test("should not reopen the previously selected method on the next flow update", () => {
+    const flow = identifierFirstLogin()
+    const { result } = renderHook(() => useFormStateReducer(flow))
+
+    act(() => {
+      result.current[1]({
+        type: "action_select_method",
+        method: UiNodeGroupEnum.Oidc,
+      })
+    })
+    act(() => {
+      result.current[1]({ type: "action_clear_active_method" })
+    })
+    act(() => {
+      result.current[1]({ type: "action_flow_update", flow })
+    })
+
+    expect(result.current[0]).toEqual({
+      current: "provide_identifier",
+      isReady: true,
+      isSubmitting: false,
+    })
+  })
+})

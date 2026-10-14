@@ -111,7 +111,7 @@ export function OryFlowProvider({
   ...container
 }: OryFlowProviderProps) {
   const [flowContainer, setFlowContainer] = useState(container)
-  const [formState, dispatchFormState] = useFormStateReducer(container)
+  const [formState, dispatchFormState] = useFormStateReducer(flowContainer)
 
   return (
     <OryFlowContext.Provider
