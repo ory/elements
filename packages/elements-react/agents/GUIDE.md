@@ -5,6 +5,27 @@ installed. Prefer it over anything you remember about Ory Elements and over
 older tutorials. The package's test suite type-checks every TypeScript block in
 this file against the package.
 
+<!-- compatibility:start -->
+
+## Compatibility
+
+<!-- Generated from package.json by `nx run @ory/elements-react:compatibility`. Do not edit. -->
+
+This version of `@ory/elements-react` works with Ory Network and with the Ory
+Enterprise License (OEL) 26.3 or later.
+
+The application installs these packages itself, in these ranges:
+
+- `react`: `^18.0.0 || ^19.0.0 || ^19.0.0-0`
+- `react-dom`: `^18.0.0 || ^19.0.0 || ^19.0.0-0`
+
+`@ory/elements-react` brings these packages. If the application imports one of
+them itself, use a version in the same range, so that there is a single copy:
+
+- `@ory/client-fetch`: `1.22.65`
+
+<!-- compatibility:end -->
+
 ## This is not `@ory/elements`
 
 `@ory/elements-react` is a rewrite. It shares no API with these legacy packages:

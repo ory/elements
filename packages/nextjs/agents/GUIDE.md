@@ -7,6 +7,27 @@ this file against the package. To add login, registration, and the other flows
 to an application, follow
 `node_modules/@ory/nextjs/skills/add-ory-auth-to-nextjs/SKILL.md`.
 
+<!-- compatibility:start -->
+
+## Compatibility
+
+<!-- Generated from package.json by `nx run @ory/elements-react:compatibility`. Do not edit. -->
+
+This version of `@ory/nextjs` works with Ory Network and with the Ory Enterprise
+License (OEL) 26.3 or later.
+
+The application installs these packages itself, in these ranges:
+
+- `next`: `>=13.1.0`
+- `react`: `>=16.0.0`
+
+`@ory/nextjs` brings these packages. If the application imports one of them
+itself, use a version in the same range, so that there is a single copy:
+
+- `@ory/client-fetch`: `1.22.65`
+
+<!-- compatibility:end -->
+
 ## What this package does, and what it replaces
 
 `@ory/nextjs` connects a Next.js application to Ory. It has three entry points:

@@ -2,6 +2,9 @@
   "name": "@ory/nextjs",
   "version": "0.0.0-unused",
   "license": "Apache License 2.0",
+  "ory": {
+    "oel": ">=26.3"
+  },
   "type": "commonjs",
   "scripts": {
     "build": "tsup --clean --dts",

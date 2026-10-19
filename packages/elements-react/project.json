@@ -45,6 +45,9 @@
     "slot-map": {
       "command": "tsx packages/elements-react/scripts/generate-slot-map.ts"
     },
+    "compatibility": {
+      "command": "tsx packages/elements-react/scripts/generate-compatibility.ts"
+    },
     "api-extractor": {
       "executor": "nx:run-commands",
       "options": {

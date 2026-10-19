@@ -106,6 +106,9 @@
   "homepage": "https://github.com/ory/elements#readme",
   "author": "Ory Corp",
   "license": "Apache License 2.0",
+  "ory": {
+    "oel": ">=26.3"
+  },
   "description": "Ory Elements React - a collection of React components for authentication UIs.",
   "publishConfig": {
     "access": "public"
