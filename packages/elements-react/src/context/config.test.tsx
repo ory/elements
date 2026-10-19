@@ -102,7 +102,7 @@ describe("test config provider", () => {
             expect(() =>
               render(<OryConfigurationProvider project={{ name: "test" }} />),
             ).toThrow(
-              "Unable to determine SDK URL. Please set NEXT_PUBLIC_ORY_SDK_URL and/or ORY_SDK_URL in production environments.",
+              "[@ory/elements-react] Unable to determine SDK URL. In production, set `sdk.url` in the `config` prop or the environment variable `NEXT_PUBLIC_ORY_SDK_URL`",
             )
 
             consoleErrorSpy.mockRestore()

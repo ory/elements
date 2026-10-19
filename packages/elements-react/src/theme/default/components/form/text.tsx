@@ -41,7 +41,9 @@ export function DefaultText({ node }: OryNodeTextProps) {
     // This node is rendered by the settings directly, so we don't need to render it here.
     // The problem is that it would cause an exception in the translation system, because
     // this node has an array of nodes in its context.
-    throw new Error("node `lookup_secret_codes` cannot be rendered as text")
+    throw new Error(
+      "[@ory/elements-react] node `lookup_secret_codes` cannot be rendered as text. The settings flow renders it through the `Form.RecoveryCodesSettings` component. Don't pass this node to `Node.Text`.",
+    )
   }
 
   return (

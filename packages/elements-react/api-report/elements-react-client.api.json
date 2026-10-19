@@ -437,7 +437,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!SessionProvider:function(1)",
-          "docComment": "/**\n * A provider that fetches the session from the Ory Network and provides it to the children.\n *\n * To use this provider, wrap your application in it:\n * ```tsx\n * import { SessionProvider } from \"@ory/elements-react\"\n *\n * export default function App() {\n *   return (\n *     <SessionProvider>\n *       <MyApp />\n *     </SessionProvider>\n *   )\n * }\n * ```\n *\n * If you have a session from the server, you can pass it to the provider:\n * ```tsx\n * <SessionProvider session={serverSession}>\n * ```\n *\n * @param props - The provider props\n *\n * @see\n *\n * {@link useSession}\n */\n",
+          "docComment": "/**\n * A provider that fetches the session from the Ory Network and provides it to the children.\n *\n * To use this provider, wrap your application in it:\n * ```tsx\n * import { SessionProvider } from \"@ory/elements-react/client\"\n *\n * export default function App() {\n *   return (\n *     <SessionProvider>\n *       <MyApp />\n *     </SessionProvider>\n *   )\n * }\n * ```\n *\n * If you have a session from the server, you can pass it to the provider:\n * ```tsx\n * <SessionProvider session={serverSession}>\n * ```\n *\n * @param props - The provider props\n *\n * @see\n *\n * {@link useSession}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -532,7 +532,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/elements-react!useSession:function(1)",
-          "docComment": "/**\n * A hook to get the current session from the Ory Network.\n *\n * Usage:\n * ```ts\n * const session = useSession()\n *\n * if (session.state == \"loading\") {\n *  return <div>Loading...</div>\n * }\n *\n * if (session.state == \"authenticated\") {\n *  return <div>Session: {session.session.id}</div>\n * }\n * ```\n *\n * :::note This is a client-side hook and must be used within a React component. On the server, you can use the getServerSession function from `@ory/nextjs` and hydrate SessionProvider with the session. :::\n *\n * @returns The current session, and error or loading state.\n */\n",
+          "docComment": "/**\n * A hook to get the current session from the Ory Network.\n *\n * Usage:\n * ```tsx\n * const { session, isLoading } = useSession()\n *\n * if (isLoading) {\n *  return <div>Loading...</div>\n * }\n *\n * if (session) {\n *  return <div>Session: {session.id}</div>\n * }\n * ```\n *\n * :::note This is a client-side hook and must be used within a React component. On the server, you can use the getServerSession function from `@ory/nextjs` and hydrate SessionProvider with the session. :::\n *\n * @returns The current session, and error or loading state.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

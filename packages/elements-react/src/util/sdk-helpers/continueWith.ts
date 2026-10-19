@@ -45,7 +45,9 @@ export function handleContinueWith(
   }
 
   if (isSetOrySessionToken(action)) {
-    throw new Error("Ory Elements does not support API flows yet.")
+    throw new Error(
+      "[@ory/elements-react] Ory Elements does not support API flows yet. The flow returned a session token, which only native API flows do. Create the flow with the browser endpoint `/self-service/<flow>/browser`.",
+    )
   } else if (isRedirectBrowserTo(action) && action.redirect_browser_to) {
     onRedirect(action.redirect_browser_to, true)
     return true
@@ -64,7 +66,7 @@ export function handleContinueWith(
     // gracefully (return false → the caller falls back to normal rendering)
     // instead of crashing the whole flow.
     console.warn(
-      "[Ory/Elements React] Ignoring unsupported continue_with action: " +
+      "[@ory/elements-react] Ignoring unsupported continue_with action: " +
         JSON.stringify(action),
     )
     return false

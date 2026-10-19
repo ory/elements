@@ -40,7 +40,7 @@ export async function onSubmitLogin(
 ) {
   if (!config.sdk.url) {
     throw new Error(
-      `Please supply your Ory Network SDK url to the Ory Elements configuration.`,
+      "[@ory/elements-react] The Ory SDK URL is missing from the configuration. Set `sdk.url` in the `config` prop or the environment variable `NEXT_PUBLIC_ORY_SDK_URL`. See https://www.ory.com/docs/elements/guides/configuration#base-url",
     )
   }
 

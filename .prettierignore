@@ -15,5 +15,7 @@ CHANGELOG.md
 # pnpm manages the lockfile format; prettier would fight it
 pnpm-lock.yaml
 **/api-report/*
+**/agents/slots.json
+**/agents/slots.md
 .changeset/
 **/next-env.d.ts

@@ -6,3 +6,5 @@ tsconfig*.json
 src/
 api-report/
 config/
+/AGENTS.md
+/CLAUDE.md

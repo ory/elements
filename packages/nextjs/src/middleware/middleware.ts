@@ -54,7 +54,7 @@ export type OryMiddlewareOptions = {
    * throws when unset or empty. Provide exact origins, or RegExp patterns for
    * preview deployments.
    *
-   * @example ["https://app.example.com", /^https:\/\/[a-z0-9-]+\.myapp\.vercel\.app$/]
+   * @example ["http://localhost:3000", /^https:\/\/my-app-[a-z0-9-]+-my-team\.vercel\.app$/]
    */
   trustedOrigins?: Array<string | RegExp>
 }
@@ -171,9 +171,9 @@ export async function proxyRequest(
     // Therefore, we throw a more helpful error message here.
     if (!location.startsWith("http")) {
       throw new Error(
-        "The HTTP location header must be an absolute URL in NextJS middlewares. However, it is not. The resulting HTTP location is `" +
+        "[@ory/nextjs] The HTTP location header must be an absolute URL in Next.js middleware. However, it is not. The resulting HTTP location is `" +
           location +
-          "`. This is either a configuration or code bug. Please open an issue on https://github.com/ory/elements.",
+          "`. Check that `NEXT_PUBLIC_ORY_SDK_URL` is an absolute URL that includes the scheme. If it is, open an issue on https://github.com/ory/elements/issues.",
       )
     }
 
@@ -207,12 +207,14 @@ export async function proxyRequest(
  *
  * @example
  * ```ts title="middleware.ts"
- * import { createOryMiddleware } from "@ory/elements/nextjs";
+ * import { createOryMiddleware } from "@ory/nextjs/middleware";
  *
- * export default createOryMiddleware({
- *   trustedOrigins: ["https://app.example.com"],
+ * export const middleware = createOryMiddleware({
+ *   trustedOrigins: [
+ *     "http://localhost:3000",
+ *     /^https:\/\/my-app-[a-z0-9-]+-my-team\.vercel\.app$/,
+ *   ],
  *   forwardAdditionalHeaders: ["authorization", "x-custom-header"],
- *   forceCookieDomain: "example.com",
  *   project: {
  *     name: "my-project",
  *   },
@@ -229,7 +231,7 @@ export function createOryMiddleware(options: OryMiddlewareOptions) {
       "[@ory/nextjs] `trustedOrigins` is not configured. Set it to the " +
         "origins this deployment serves, as exact origins or RegExp patterns " +
         "for preview deployments. See " +
-        "https://www.ory.com/docs/elements/guides/configuration.",
+        "https://www.ory.com/docs/elements/guides/configuration#trusted-origins",
     )
   }
   return (r: NextRequest) => {

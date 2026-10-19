@@ -73,7 +73,9 @@ export const NodeInput = ({
       return <NodeButton node={node} />
     }
     case UiNodeInputAttributesTypeEnum.DatetimeLocal:
-      throw new Error("Not implemented")
+      throw new Error(
+        "[@ory/elements-react] Input nodes of type `datetime-local` are not implemented. Remove the field from the flow or report the use case at https://github.com/ory/elements/issues.",
+      )
     case UiNodeInputAttributesTypeEnum.Checkbox:
       if (
         node.group === "oauth2_consent" &&

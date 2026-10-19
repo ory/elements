@@ -3,7 +3,10 @@ project.json
 tsconfig.spec.json
 !dist/
 api-report/
-DEVELOPEMENT.md
+DEVELOPMENT.md
+/AGENTS.md
+/CLAUDE.md
+scripts/
 *.config.ts
 config/
 .vscode

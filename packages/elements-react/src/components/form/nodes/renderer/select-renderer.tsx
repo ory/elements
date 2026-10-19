@@ -32,9 +32,9 @@ export function SelectRenderer({ node }: SelectRendererProps) {
   // component set fails loudly instead of crashing inside React.
   if (!Node.Select) {
     throw new Error(
-      "[Ory/Elements React] SelectRenderer was reached without a Node.Select " +
+      "[@ory/elements-react] SelectRenderer was reached without a Node.Select " +
         "component. Provide one via OryProvider's `components` prop or call " +
-        "`getOryComponents()` to inherit the default.",
+        "`getOryComponents()` to inherit the default. See https://www.ory.com/docs/elements/reference/@ory/elements-react/type-aliases/OryFlowComponents",
     )
   }
 

@@ -251,7 +251,7 @@ async function emitUnexpectedErrorAndThrow<T>(
     })
   } catch (observerError) {
     console.error(
-      "[Ory/Elements React] The onError callback threw while handling an unexpected_error event. Ignoring it so the original error is preserved.",
+      "[@ory/elements-react] The onError callback threw while handling an unexpected_error event. Ignoring it so the original error is preserved.",
       observerError,
     )
   }
@@ -265,7 +265,7 @@ export async function toBody(response: Response): Promise<unknown> {
     await logResponseError(response, true, [e])
     throw new ResponseError(
       response,
-      "Unable to decode API response using JSON.",
+      "[@ory/elements-react] Unable to decode API response using JSON. The Ory SDK URL may point to something other than the Ory APIs. The response status, headers, and body are logged to the console.",
     )
   }
 }
@@ -275,7 +275,7 @@ async function logResponseError(
   printBody: boolean,
   wrap?: unknown[],
 ) {
-  console.error("Unable to decode API response", {
+  console.error("[@ory/elements-react] Unable to decode API response", {
     response: {
       status: response.status,
       headers: Object.fromEntries(response.headers.entries()),

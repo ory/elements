@@ -8,6 +8,7 @@ import { startNewFlow, onRedirect } from "./utils"
 import { QueryParams } from "../types"
 import { onValidationError } from "../utils/utils"
 import { rewriteJsonResponse } from "../utils/rewrite"
+import { isProduction } from "../utils/sdk"
 
 /**
  * Restores the `options` field on input node attributes that the pinned
@@ -73,6 +74,19 @@ function reattachInputOptions<T>(parsed: T, rawJson: unknown): void {
   }
 }
 
+function warnOnMissingFlow(
+  flow: unknown,
+  flowType: FlowType,
+  flowId: string | string[],
+) {
+  if (flow || isProduction()) {
+    return
+  }
+  console.warn(
+    `[@ory/nextjs] No ${flowType} flow was returned for flow ID "${flowId.toString()}". A page that returns \`null\` for a missing flow renders blank. Check that \`NEXT_PUBLIC_ORY_SDK_URL\` is the URL of your Ory project and that \`middleware.ts\` exports the middleware from \`@ory/nextjs/middleware\`. See https://www.ory.com/docs/getting-started/integrate-auth/nextjs-app-router-quickstart`,
+  )
+}
+
 /**
  * A function that creates a flow fetcher. The flow fetcher can be used
  * to fetch a login, registration, recovery, settings, or verification flow
@@ -135,14 +149,16 @@ export async function getFlowFactory<T extends object>(
         // visible in server logs during incident diagnosis.
         // eslint-disable-next-line no-console
         console.warn(
-          "reattachInputOptions: failed to read raw flow response; enum options on input nodes may be missing",
+          "[@ory/nextjs] Failed to read the raw flow response. Select fields from `enum` constraints in the identity schema may render as plain inputs.",
           err,
         )
       }
     }
-    return options.disableRewrite
+    const flow = options.disableRewrite
       ? parsed
       : rewriteJsonResponse(parsed, baseUrl)
+    warnOnMissingFlow(flow, flowType, params["flow"])
+    return flow
   } catch (error) {
     const errorHandlerOptions = {
       flowType,
@@ -152,6 +168,8 @@ export async function getFlowFactory<T extends object>(
     }
     const errorHandler = handleFlowError<T>(errorHandlerOptions)
 
-    return await errorHandler(error)
+    const flow = await errorHandler(error)
+    warnOnMissingFlow(flow, flowType, params["flow"])
+    return flow
   }
 }

@@ -158,7 +158,7 @@ function getSDKUrl() {
         process.env["NEXT_PUBLIC_ORY_SDK_URL"] ?? process.env["ORY_SDK_URL"]
       if (!sdkUrl) {
         throw new Error(
-          "Unable to determine SDK URL. Please set NEXT_PUBLIC_ORY_SDK_URL and/or ORY_SDK_URL in production environments.",
+          "[@ory/elements-react] Unable to determine SDK URL. In production, set `sdk.url` in the `config` prop or the environment variable `NEXT_PUBLIC_ORY_SDK_URL` (or `ORY_SDK_URL`) to the URL of your Ory project. See https://www.ory.com/docs/elements/guides/configuration#base-url",
         )
       }
       return sdkUrl.replace(/\/$/, "")
@@ -181,6 +181,6 @@ function getSDKUrl() {
   // This is probably a test environment, so we can't guess the SDK URL.
 
   throw new Error(
-    "Unable to determine SDK URL. Please set NEXT_PUBLIC_ORY_SDK_URL and/or ORY_SDK_URL or supply the sdk.url parameter in the Ory configuration.",
+    "[@ory/elements-react] Unable to determine SDK URL. Set `sdk.url` in the `config` prop or the environment variable `NEXT_PUBLIC_ORY_SDK_URL` (or `ORY_SDK_URL`) to the URL of your Ory project. See https://www.ory.com/docs/elements/guides/configuration#base-url",
   )
 }

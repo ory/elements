@@ -29,7 +29,9 @@ const ComponentContext = createContext<ComponentContextValue>({
 export function useComponents() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {
-    throw new Error("useComponents must be used within a ComponentProvider")
+    throw new Error(
+      "[@ory/elements-react] useComponents must be used inside <OryProvider> from `@ory/elements-react`, or inside a flow component such as <Login> from `@ory/elements-react/theme`. See https://www.ory.com/docs/elements/reference/@ory/elements-react/functions/OryProvider",
+    )
   }
   return ctx.components
 }
@@ -47,7 +49,9 @@ export function useComponents() {
 export function useNodeSorter() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {
-    throw new Error("useNodeSorter must be used within a ComponentProvider")
+    throw new Error(
+      "[@ory/elements-react] useNodeSorter must be used inside <OryProvider> from `@ory/elements-react`, or inside a flow component such as <Login> from `@ory/elements-react/theme`. See https://www.ory.com/docs/elements/reference/@ory/elements-react/functions/OryProvider",
+    )
   }
   return ctx.nodeSorter
 }
@@ -55,7 +59,9 @@ export function useNodeSorter() {
 export function useGroupSorter() {
   const ctx = useContext(ComponentContext)
   if (!ctx) {
-    throw new Error("useGroupSorter must be used within a ComponentProvider")
+    throw new Error(
+      "[@ory/elements-react] useGroupSorter must be used inside <OryProvider> from `@ory/elements-react`, or inside a flow component such as <Login> from `@ory/elements-react/theme`. See https://www.ory.com/docs/elements/reference/@ory/elements-react/functions/OryProvider",
+    )
   }
   return ctx.groupSorter
 }

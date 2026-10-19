@@ -68,7 +68,7 @@ export type SessionProviderProps = {
  * To use this provider, wrap your application in it:
  *
  * ```tsx
- * import { SessionProvider } from "@ory/elements-react"
+ * import { SessionProvider } from "@ory/elements-react/client"
  *
  * export default function App() {
  *   return (

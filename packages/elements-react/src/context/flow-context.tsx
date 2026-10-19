@@ -26,7 +26,9 @@ import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
 export function useOryFlow() {
   const ctx = useContext(OryFlowContext)
   if (!ctx) {
-    throw new Error("useOryFlow must be used within a OryFlowProvider")
+    throw new Error(
+      "[@ory/elements-react] useOryFlow must be used inside <OryProvider> from `@ory/elements-react`, or inside a flow component such as <Login> from `@ory/elements-react/theme`. See https://www.ory.com/docs/elements/reference/@ory/elements-react/functions/OryProvider",
+    )
   }
 
   return ctx

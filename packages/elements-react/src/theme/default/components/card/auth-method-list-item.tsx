@@ -142,7 +142,9 @@ export function DefaultAuthMethodListItem({
       // If the passkey node is not found, we return null
       // to avoid rendering the list item.
       // Shouldn't happen, but just in case.
-      console.error("Passkey node not found")
+      console.error(
+        "[@ory/elements-react] The flow lists the passkey method but has no passkey trigger node. The passkey option is not rendered.",
+      )
       return null
     }
 
@@ -201,20 +203,26 @@ function PasskeyListItem({ passkeyNode, disabled }: PasskeyListItemProps) {
 
   const clickHandler = () => {
     if (!passkeyNode.attributes.onclickTrigger) {
-      console.error("Passkey node not found")
+      console.error(
+        "[@ory/elements-react] The passkey node has no `onclickTrigger`. The passkey option cannot start the passkey prompt.",
+      )
       return
     }
     const fn = triggerToFunction(passkeyNode.attributes.onclickTrigger)
     if (fn) {
       fn()
     } else {
-      console.error("Passkey node trigger function not found")
+      console.error(
+        "[@ory/elements-react] The passkey trigger function is not available on `window`. Check that Ory's WebAuthn script `/.well-known/ory/webauthn.js` loaded.",
+      )
     }
   }
 
   useEffect(() => {
     if (!passkeyNode.attributes.onclickTrigger) {
-      console.error("Passkey node not found")
+      console.error(
+        "[@ory/elements-react] The passkey node has no `onclickTrigger`. The passkey option cannot start the passkey prompt.",
+      )
       return
     }
     const fn = triggerToFunction(passkeyNode.attributes.onclickTrigger)

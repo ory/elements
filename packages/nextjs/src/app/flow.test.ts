@@ -152,6 +152,48 @@ for (const tc of testCases) {
       })
     })
 
+    describe("when the Ory API returns no flow", () => {
+      const env = process.env
+      let warn: jest.SpyInstance
+
+      beforeEach(() => {
+        process.env = { ...env }
+        delete process.env["NEXT_PUBLIC_VERCEL_ENV"]
+        delete process.env["VERCEL_ENV"]
+        delete process.env["NEXT_PUBLIC_NODE_ENV"]
+        process.env["NODE_ENV"] = "test"
+        warn = jest.spyOn(console, "warn").mockImplementation(() => {})
+        ;(tc.m as jest.Mock).mockRejectedValue(new Error("gone"))
+      })
+
+      afterEach(() => {
+        warn.mockRestore()
+        process.env = env
+      })
+
+      test("warns with the next step outside of production", async () => {
+        const result = await tc.fn(config, { flow: "1234" })
+
+        expect(result).toBeUndefined()
+        expect(warn).toHaveBeenCalledTimes(1)
+        expect(warn).toHaveBeenCalledWith(
+          expect.stringMatching(
+            new RegExp(
+              `^\\[@ory/nextjs\\] No ${tc.flowType} flow was returned for flow ID "1234".*NEXT_PUBLIC_ORY_SDK_URL.*https://www\\.ory\\.com/docs/`,
+            ),
+          ),
+        )
+      })
+
+      test("stays silent in production", async () => {
+        process.env["NODE_ENV"] = "production"
+
+        await tc.fn(config, { flow: "1234" })
+
+        expect(warn).not.toHaveBeenCalled()
+      })
+    })
+
     test("reattaches options stripped by the SDK FromJSON step", async () => {
       const queryParams = {
         flow: "1234",

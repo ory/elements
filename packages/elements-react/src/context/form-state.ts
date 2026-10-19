@@ -218,10 +218,9 @@ function parseStateFromFlow(flow: OryFlowContainer): FlowFormState {
     case FlowType.OAuth2Consent:
       return { current: "method_active", method: "oauth2_consent" }
   }
-  console.warn(
-    `[Ory/Elements React] Encountered an unknown form state on ${flow.flowType} flow with ID ${flow.flow.id}`,
+  throw new Error(
+    `[@ory/elements-react] Unknown form state on ${flow.flowType} flow with ID ${flow.flow.id}. The flow is in a state this version of Ory Elements cannot render. Upgrade \`@ory/elements-react\`, and report the flow at https://github.com/ory/elements/issues if the error persists.`,
   )
-  throw new Error("Unknown form state")
 }
 
 function parseStateWithoutActiveMethod(flow: OryFlowContainer): FlowFormState {

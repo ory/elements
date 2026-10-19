@@ -42,6 +42,9 @@
         "updateSnapshot": true
       }
     },
+    "slot-map": {
+      "command": "tsx packages/elements-react/scripts/generate-slot-map.ts"
+    },
     "api-extractor": {
       "executor": "nx:run-commands",
       "options": {

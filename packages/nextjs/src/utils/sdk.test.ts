@@ -33,7 +33,7 @@ describe("orySdkUrl", () => {
 
   it("should throw error when neither NEXT_PUBLIC_ORY_SDK_URL nor ORY_SDK_URL is set", () => {
     expect(() => orySdkUrl()).toThrow(
-      "You need to set environment variable `NEXT_PUBLIC_ORY_SDK_URL` to your Ory Network SDK URL.",
+      "[@ory/nextjs] The Ory SDK URL is not set. Set the environment variable `NEXT_PUBLIC_ORY_SDK_URL` to the URL of your Ory project",
     )
   })
 })
@@ -170,7 +170,9 @@ describe("guessPotentiallyProxiedOrySdkUrl", () => {
     const consoleWarnMock = jest.spyOn(console, "warn").mockImplementation()
     expect(guessPotentiallyProxiedOrySdkUrl()).toBe("https://example.com")
     expect(consoleWarnMock).toHaveBeenCalledWith(
-      'Unable to determine a suitable SDK URL for setting up the Next.js integration of Ory Elements. Will proceed using default Ory SDK URL "https://example.com". This is likely not what you want for local development and your authentication and login may not work.',
+      expect.stringContaining(
+        '[@ory/nextjs] Unable to determine the URL this application is served on. Requests go directly to the Ory SDK URL "https://example.com"',
+      ),
     )
     consoleWarnMock.mockRestore()
   })

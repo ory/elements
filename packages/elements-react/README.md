@@ -23,9 +23,18 @@ of Ory into your React application. It simplifies the process of adding
 authentication and other identity features to your application using the Ory
 Network.
 
+> [!WARNING]  
+> `@ory/elements-react` is not the legacy `@ory/elements` package (0.x,
+> `<UserAuthCard />`). Don't install `@ory/elements`, `@ory/elements-markup`,
+> `@ory/elements-preact`, or `@ory/integrations` for a new integration. Their
+> APIs don't exist in this package. To move from 0.x, see the
+> [upgrade guide](https://www.ory.com/docs/elements/guides/upgrade).
+
 ## Documentation
 
-Visit https://ory.com/docs to see the full Ory documentation.
+- [Ory Elements documentation](https://www.ory.com/docs/elements)
+- [Next.js App Router quickstart](https://www.ory.com/docs/getting-started/integrate-auth/nextjs-app-router-quickstart)
+- [API reference](https://www.ory.com/docs/elements/reference)
 
 ## Getting started
 
@@ -41,16 +50,115 @@ Visit https://ory.com/docs to see the full Ory documentation.
 npm install @ory/elements-react
 ```
 
-## Usage
+## Usage with Next.js
+
+Use [`@ory/nextjs`](https://www.npmjs.com/package/@ory/nextjs) together with Ory
+Elements in a Next.js application. It creates and fetches flows for you and
+ships a middleware that serves the Ory APIs on your application's own origin.
+
+> [!WARNING]  
+> Don't run Ory Tunnel and don't set the SDK URL to `http://localhost:4000` when
+> you use the `@ory/nextjs` middleware. The middleware already serves the Ory
+> APIs on your application's origin, in local development and in preview
+> deployments. Set `NEXT_PUBLIC_ORY_SDK_URL` to your Ory Network project URL
+> instead.
+
+```sh
+npm install @ory/elements-react @ory/nextjs
+```
+
+Set the SDK URL of your Ory Network project:
+
+```sh
+# .env
+NEXT_PUBLIC_ORY_SDK_URL=https://$PROJECT_SLUG.projects.oryapis.com
+```
+
+Describe your application's routes:
+
+```ts
+// ory.config.ts
+import type { OryClientConfiguration } from "@ory/elements-react"
+
+const config: OryClientConfiguration = {
+  project: {
+    name: "My application",
+    default_redirect_url: "/",
+    error_ui_url: "/auth/error",
+    login_ui_url: "/auth/login",
+    registration_ui_url: "/auth/registration",
+    recovery_ui_url: "/auth/recovery",
+    verification_ui_url: "/auth/verification",
+    settings_ui_url: "/settings",
+    registration_enabled: true,
+    recovery_enabled: true,
+    verification_enabled: true,
+  },
+}
+
+export default config
+```
+
+Add the middleware. `trustedOrigins` is required and lists the origins your
+deployment serves:
+
+```ts
+// middleware.ts
+import { createOryMiddleware } from "@ory/nextjs/middleware"
+import oryConfig from "@/ory.config"
+
+export const middleware = createOryMiddleware({
+  ...oryConfig,
+  trustedOrigins: ["http://localhost:3000"],
+})
+
+export const config = {}
+```
+
+Render a flow:
+
+```tsx
+// app/auth/login/page.tsx
+import { Login } from "@ory/elements-react/theme"
+import "@ory/elements-react/theme/styles.css"
+import { getLoginFlow, OryPageParams } from "@ory/nextjs/app"
+
+import config from "@/ory.config"
+
+export default async function LoginPage(props: OryPageParams) {
+  const flow = await getLoginFlow(config, props.searchParams)
+
+  if (!flow) {
+    return null
+  }
+
+  return <Login flow={flow} config={config} />
+}
+```
+
+`@ory/nextjs/app` also exports `getRegistrationFlow`, `getRecoveryFlow`,
+`getVerificationFlow`, `getSettingsFlow`, `getLogoutFlow`, `getServerSession`,
+and `getError`. Pair them with `Registration`, `Recovery`, `Verification`,
+`Settings`, and `Error` from `@ory/elements-react/theme`. The
+[example application](https://github.com/ory/elements/tree/main/examples/nextjs-app-router)
+has every page.
+
+## Usage with other React frameworks
 
 Ory Elements provides components that can aggregate flow objects and display
 user authentication flows based on the data.
 
-To feed Ory Elements with flow data you need to use Ory client.
+Without `@ory/nextjs`, you create and fetch the flow objects yourself using the
+Ory client. The browser must reach the Ory APIs on the same site as your
+application, otherwise the browser doesn't send Ory's cookies. In production,
+use a [custom domain](https://www.ory.com/docs/guides/custom-domains). For local
+development, run
+[Ory Tunnel](https://www.ory.com/docs/guides/cli/proxy-and-tunnel), which serves
+the Ory APIs on `http://localhost:4000`.
 
 ```ts
 export function serverClientFrontend() {
-  // For testing purposes we're using Ory tunnel
+  // The address Ory Tunnel listens on during local development.
 
   const config = new Configuration({
     headers: {
@@ -112,7 +220,7 @@ type QueryParams = {
   flow?: string
 }
 export function serverClientFrontend() {
-  // For testing purposes we're using Ory tunnel
+  // The address Ory Tunnel listens on during local development.
 
   const config = new Configuration({
     headers: {
@@ -137,7 +245,7 @@ export function init(params: QueryParams, flowType: FlowType) {
 
 export async function getOrCreateRegistrationFlow(params: {
   flow?: string
-}): Promise<RegistrationFlow> {
+}): Promise<RegistrationFlow | void> {
   const onRestartFlow = () => init(params, FlowType.Registration)
 
   // If flow ID doesn't exist in params simply trigger the init function.
@@ -175,23 +283,28 @@ function onRedirect(url: string, external: boolean) {
 ```
 
 As soon as we have our flow data we can render the `<Registration/>` component
-from `@ory/elements-react` package.
+from `@ory/elements-react` package. Pass it the `OryClientConfiguration` object
+from `ory.config.ts` shown above.
 
 ```tsx
 import { Registration } from "@ory/elements-react/theme"
 
-export default async function RegistrationPage({ searchParams }: PageProps) {
-  const flow = await getOrCreateRegistrationFlow(searchParams)
+import config from "./ory.config"
+
+export default async function RegistrationPage(props: {
+  searchParams: Promise<{ flow?: string }>
+}) {
+  const flow = await getOrCreateRegistrationFlow(await props.searchParams)
 
   if (!flow) {
     return <div>Flow not found</div>
   }
 
-  return <Registration flow={flow} config={oryConfiguration} />
+  return <Registration flow={flow} config={config} />
 }
 ```
 
-### Styling
+## Styling
 
 To include the default styles, add the following import to your app. Make sure
 it's included on all pages, that use Ory Elements.
@@ -200,14 +313,16 @@ it's included on all pages, that use Ory Elements.
 import "@ory/elements-react/theme/styles.css"
 ```
 
-### Theming
+## Theming
 
 The styling for specific elements or groups of elements in the UI can be
-overwritten by providing your own custom CSS variables. For more complex
-customizations see the [Component System](#component-system).
+overwritten by providing your own custom CSS variables. The default theme
+declares its variables on the `.ory-elements` class, so override them on the
+same selector. For more complex customizations see the
+[Component System](#component-system).
 
 ```css
-:root {
+.ory-elements {
   /* primitives */
   /* Overriding these may affect more variables "down stream" */
   --ui-100: #f1f5f9;
@@ -428,47 +543,59 @@ customizations see the [Component System](#component-system).
   /* Specific elements end */
 
   /* border radius */
-  --border-radius-buttons: 0.25rem;
-  --border-radius-forms: 0.25rem;
-  --border-radius-general: 0.25rem;
-  --border-radius-branding: 0.5rem;
-  --border-radius-cards: 0.75rem;
-  --border-radius-identifier: 62.4375rem;
+  --radius-buttons: 0.25rem;
+  --radius-forms: 0.25rem;
+  --radius-general: 0.25rem;
+  --radius-branding: 0.5rem;
+  --radius-cards: 0.75rem;
+  --radius-identifier: 62.4375rem;
   /* border radius end*/
 }
 ```
 
-### Component system
+## Component system
 
-Many components in Ory Elements can be overriden with your own implementation.
-Ory Elements also provides useful hooks that be used inside of your custom
+Many components in Ory Elements can be overridden with your own implementation.
+Ory Elements also provides useful hooks that can be used inside of your custom
 components to get access to the library configuration, or the current flow.
 
 **Example:**
 
 ```tsx
-import { Registration } from "@ory/elements-react/theme"
+// components/custom-card-header.tsx
+"use client"
 
-function CustomCardHeader() {
+import { useOryFlow } from "@ory/elements-react"
+
+export function CustomCardHeader() {
   const { flowType } = useOryFlow()
 
   return <div>My Custom {flowType} Card header</div>
 }
+```
 
-export default async function RegistrationPage({ searchParams }: PageProps) {
-  const flow = await getOrCreateRegistrationFlow(searchParams)
+```tsx
+// app/auth/registration/page.tsx
+import { Registration } from "@ory/elements-react/theme"
+import { getRegistrationFlow, OryPageParams } from "@ory/nextjs/app"
+
+import { CustomCardHeader } from "@/components/custom-card-header"
+import config from "@/ory.config"
+
+export default async function RegistrationPage(props: OryPageParams) {
+  const flow = await getRegistrationFlow(config, props.searchParams)
 
   if (!flow) {
-    return <div>Flow not found</div>
+    return null
   }
 
   return (
     <Registration
       flow={flow}
-      config={oryConfiguration}
+      config={config}
       components={{
         Card: {
-          CardHeader: CustomCardHeader,
+          Header: CustomCardHeader,
         },
       }}
     />
@@ -476,14 +603,21 @@ export default async function RegistrationPage({ searchParams }: PageProps) {
 }
 ```
 
-### internationalization (i18n)
+The overridable slots are the keys of the `OryFlowComponents` type: `Card`,
+`Node`, `Form`, `Message`, and `Page`. The package ships a generated list of
+every slot with its props and default component in
+[`agents/slots.md`](https://github.com/ory/elements/blob/main/packages/elements-react/agents/slots.md),
+and the same data as JSON in `agents/slots.json`. See also the
+[`OryFlowComponents` reference](https://www.ory.com/docs/elements/reference/@ory/elements-react/type-aliases/OryFlowComponents).
+
+## Internationalization (i18n)
 
 `@ory/elements-react` comes with default translations for many languages.
 Additionally, it provides a way to override the default messages, through the
-`locale` property of the `OryClientConfiguration`.
+`intl` property of the `OryClientConfiguration`.
 
 ```ts
-const config = {
+const config: Pick<OryClientConfiguration, "intl"> = {
   intl: {
     locale: "en", // Or any of the other supported locales.
     customTranslations: {
@@ -499,8 +633,31 @@ For a full list of messages, see
 [en.json](https://github.com/ory/elements/blob/main/packages/elements-react/src/locales/en.json).
 
 A locale that lacks a message renders the English default from the call site. To
-add or translate messages, see [src/locales/README.md](./src/locales/README.md).
+add or translate messages, see
+[src/locales/README.md](https://github.com/ory/elements/blob/main/packages/elements-react/src/locales/README.md).
+
+## Coding agents
+
+The package ships documentation for coding agents that matches the installed
+version:
+
+- `node_modules/@ory/elements-react/agents/GUIDE.md`: an integration guide.
+- `node_modules/@ory/elements-react/skills/customize-ory-elements/SKILL.md`: a
+  skill for theming and component overrides.
+- `node_modules/@ory/elements-react/agents/slots.md` and `slots.json`: every
+  component slot that can be overridden, generated from the types.
+
+Agents don't look into `node_modules` unless something points them there. Paste
+this line into your project's `AGENTS.md`, `CLAUDE.md`, or the file your agent
+reads:
+
+```md
+- Ory Elements (`@ory/elements-react`, not the legacy `@ory/elements`): read
+  `node_modules/@ory/elements-react/agents/GUIDE.md` before changing
+  authentication UI code.
+```
 
 ## Development
 
-See [DEVELOPMENT.md](./DEVELOPMENT.md).
+See
+[DEVELOPMENT.md](https://github.com/ory/elements/blob/main/packages/elements-react/DEVELOPMENT.md).

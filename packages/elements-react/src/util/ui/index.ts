@@ -42,7 +42,7 @@ export function triggerToWindowCall(
     if (i > 100) {
       clearInterval(interval)
       throw new Error(
-        "Unable to load Ory's WebAuthn script. Is it being blocked or otherwise failing to load? If you are running an old version of Ory Elements, please upgrade. For more information, please check your browser's developer console.",
+        "[@ory/elements-react] Unable to load Ory's WebAuthn script. Check the network tab of your browser's developer tools for a blocked or failed request to `/.well-known/ory/webauthn.js`, for example by a content security policy or an ad blocker. If you are running an old version of Ory Elements, upgrade `@ory/elements-react`.",
       )
     }
 
@@ -62,20 +62,22 @@ export function triggerToFunction(
 ) {
   if (typeof window === "undefined") {
     console.debug(
-      "The Ory SDK is missing a required function: window is undefined.",
+      "[@ory/elements-react] The Ory SDK is missing a required function: window is undefined.",
     )
     return undefined
   }
 
   const typedWindow = window as { [key: string]: any } // eslint-disable-line @typescript-eslint/no-explicit-any
   if (!(trigger in typedWindow) || !typedWindow[trigger]) {
-    console.debug(`The Ory SDK is missing a required function: ${trigger}.`)
+    console.debug(
+      `[@ory/elements-react] The Ory SDK is missing a required function: ${trigger}.`,
+    )
     return undefined
   }
   const triggerFn = typedWindow[trigger]
   if (typeof triggerFn !== "function") {
     console.debug(
-      `The Ory SDK is missing a required function: ${trigger}. It is not a function.`,
+      `[@ory/elements-react] The Ory SDK is missing a required function: ${trigger}. It is not a function.`,
     )
     return undefined
   }

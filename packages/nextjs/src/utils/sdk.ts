@@ -19,7 +19,7 @@ export function orySdkUrl() {
 
   if (!baseUrl) {
     throw new Error(
-      "You need to set environment variable `NEXT_PUBLIC_ORY_SDK_URL` to your Ory Network SDK URL.",
+      "[@ory/nextjs] The Ory SDK URL is not set. Set the environment variable `NEXT_PUBLIC_ORY_SDK_URL` to the URL of your Ory project, for example `https://<slug>.projects.oryapis.com`, in `.env.local` and in your deployment. See https://www.ory.com/docs/getting-started/integrate-auth/nextjs-app-router-quickstart",
     )
   }
 
@@ -118,7 +118,7 @@ export function guessPotentiallyProxiedOrySdkUrl(options?: {
   // We tried everything. Let's use the SDK URL.
   const final = orySdkUrl()
   console.warn(
-    `Unable to determine a suitable SDK URL for setting up the Next.js integration of Ory Elements. Will proceed using default Ory SDK URL "${final}". This is likely not what you want for local development and your authentication and login may not work.`,
+    `[@ory/nextjs] Unable to determine the URL this application is served on. Requests go directly to the Ory SDK URL "${final}", so the browser does not send Ory's cookies unless the application runs on the same site and login may not work. Call the flow functions from a request scope and register the middleware from \`@ory/nextjs/middleware\` in \`middleware.ts\`. See https://www.ory.com/docs/getting-started/integrate-auth/nextjs-app-router-quickstart`,
   )
 
   return final

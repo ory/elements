@@ -9,15 +9,15 @@ import { SessionContext } from "./session-provider"
  * A hook to get the current session from the Ory Network.
  *
  * Usage:
- * ```ts
- * const session = useSession()
+ * ```tsx
+ * const { session, isLoading } = useSession()
  *
- * if (session.state == "loading") {
+ * if (isLoading) {
  *  return <div>Loading...</div>
  * }
  *
- * if (session.state == "authenticated") {
- *  return <div>Session: {session.session.id}</div>
+ * if (session) {
+ *  return <div>Session: {session.id}</div>
  * }
  * ```
  *
@@ -32,7 +32,9 @@ import { SessionContext } from "./session-provider"
 
 export function useSession() {
   if (!SessionContext) {
-    throw new Error("[Ory/Elements] useSession must be used on the client")
+    throw new Error(
+      '[@ory/elements-react] useSession must be used on the client. Add the "use client" directive to the file that calls it and wrap the tree in <SessionProvider> from `@ory/elements-react/client`. On the server, use getServerSession from `@ory/nextjs/app`.',
+    )
   }
   return useContext(SessionContext)
 }

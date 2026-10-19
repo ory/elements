@@ -344,7 +344,7 @@ export function useOryFormSubmit(
             consentRequest: flowContainer.flow.consent_request,
           })
           throw new Error(
-            `[Ory/Elements]: OAuth2 consent flow not completed. This indicates a bug in Ory. Please report this issue to github.com/ory/elements. \nResponse from ${flowContainer.flow.ui.action}: ${JSON.stringify(oauth2Success)}`,
+            `[@ory/elements-react] OAuth2 consent flow not completed. This indicates a bug in Ory. Report this issue at https://github.com/ory/elements/issues. \nResponse from ${flowContainer.flow.ui.action}: ${JSON.stringify(oauth2Success)}`,
           )
         }
       }

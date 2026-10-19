@@ -1,0 +1,1047 @@
+{
+  "package": "@ory/elements-react",
+  "componentsType": "OryFlowComponents",
+  "overridesType": "OryFlowComponentOverrides",
+  "slots": [
+    {
+      "path": "Node.Button",
+      "group": "Node",
+      "name": "Button",
+      "required": true,
+      "description": "Button component, rendered whenever a button is encountered in the Ory UI Nodes.",
+      "propsType": "OryNodeButtonProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultButton",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "Use node.attributes instead."
+        },
+        {
+          "name": "buttonProps",
+          "type": "OryNodeButtonButtonProps",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": "Indicates whether the form is currently being submitted via this button."
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.SsoButton",
+      "group": "Node",
+      "name": "SsoButton",
+      "required": true,
+      "description": "The SsoButton component is rendered whenever a button of group \"oidc\" or \"saml\" node is encountered. It renders the \"Login with Google\", \"Login with Facebook\" etc. buttons.",
+      "propsType": "OryNodeSsoButtonProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultButtonSocial",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "Use node.attributes instead."
+        },
+        {
+          "name": "buttonProps",
+          "type": "OryNodeButtonButtonProps",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "provider",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.Anchor",
+      "group": "Node",
+      "name": "Anchor",
+      "required": true,
+      "description": "Anchor component, rendered whenever an \"anchor\" node is encountered",
+      "propsType": "OryNodeAnchorProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultLinkButton",
+      "defaultImport": null,
+      "inheritedProps": 286,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeAnchorAttributes",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNode",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.Input",
+      "group": "Node",
+      "name": "Input",
+      "required": true,
+      "description": "The Input component is rendered whenever a \"input\" node is encountered.",
+      "propsType": "OryNodeInputProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultInput",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "use node.attributes"
+        },
+        {
+          "name": "inputProps",
+          "type": "OryNodeInputInputProps",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onClick",
+          "type": "MouseEventHandler",
+          "optional": true,
+          "description": "",
+          "deprecated": "use inputProps.onClick"
+        }
+      ]
+    },
+    {
+      "path": "Node.Select",
+      "group": "Node",
+      "name": "Select",
+      "required": false,
+      "description": "The Select component is rendered whenever an \"input\" node declares a non-empty `options` list, typically the result of an `enum` constraint in the identity schema. Optional for backward compatibility: when not provided, the dispatch falls back to the regular `Input` renderer so older consumers that constructed `OryFlowComponents` by hand keep compiling and rendering.",
+      "propsType": "OryNodeSelectProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSelect",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributesWithOptions",
+          "optional": false,
+          "description": "",
+          "deprecated": "use node.attributes"
+        },
+        {
+          "name": "inputProps",
+          "type": "OryNodeSelectInputProps",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "options",
+          "type": "UiNodeInputAttributesOption[]",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.CodeInput",
+      "group": "Node",
+      "name": "CodeInput",
+      "required": true,
+      "description": "Special version of the Input component for OTP codes.",
+      "propsType": "OryNodeInputProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultPinCodeInput",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "use node.attributes"
+        },
+        {
+          "name": "inputProps",
+          "type": "OryNodeInputInputProps",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onClick",
+          "type": "MouseEventHandler",
+          "optional": true,
+          "description": "",
+          "deprecated": "use inputProps.onClick"
+        }
+      ]
+    },
+    {
+      "path": "Node.Image",
+      "group": "Node",
+      "name": "Image",
+      "required": true,
+      "description": "The Image component is rendered whenever an \"image\" node is encountered. For example used in the \"Logo\" node.",
+      "propsType": "OryNodeImageProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultImage",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeImageAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "Use node.attributes instead."
+        },
+        {
+          "name": "node",
+          "type": "UiNodeImage",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.Label",
+      "group": "Node",
+      "name": "Label",
+      "required": true,
+      "description": "The Label component is rendered around Input components and is used to render form labels.",
+      "propsType": "OryNodeLabelProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultLabel",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "Use node.attributes instead."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "fieldError",
+          "type": "object",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.Checkbox",
+      "group": "Node",
+      "name": "Checkbox",
+      "required": true,
+      "description": "The Checkbox component is rendered whenever an input node with of boolean type is encountered.",
+      "propsType": "OryNodeCheckboxProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCheckbox",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "use node.attributes"
+        },
+        {
+          "name": "inputProps",
+          "type": "OryNodeCheckboxInputProps",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onClick",
+          "type": "MouseEventHandler",
+          "optional": false,
+          "description": "",
+          "deprecated": "use inputProps.onClick"
+        }
+      ]
+    },
+    {
+      "path": "Node.Text",
+      "group": "Node",
+      "name": "Text",
+      "required": true,
+      "description": "The Text component is rendered whenever a \"text\" node is encountered.",
+      "propsType": "OryNodeTextProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultText",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeTextAttributes",
+          "optional": false,
+          "description": "",
+          "deprecated": "Use node.attributes instead."
+        },
+        {
+          "name": "node",
+          "type": "UiNodeText",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.Captcha",
+      "group": "Node",
+      "name": "Captcha",
+      "required": true,
+      "description": "The Captcha component is rendered whenever a \"captcha\" group is encountered.",
+      "propsType": "OryNodeCaptchaProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCaptcha",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "node",
+          "type": "UiNode",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Node.ConsentScopeCheckbox",
+      "group": "Node",
+      "name": "ConsentScopeCheckbox",
+      "required": true,
+      "description": "Special version of the Input component for scopes in OAuth2 flows.",
+      "propsType": "OryNodeConsentScopeCheckboxProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultConsentScopeCheckbox",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "attributes",
+          "type": "UiNodeInputAttributes",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "inputProps",
+          "type": "{ name: string disabled?: boolean checked: boolean value: string }",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "node",
+          "type": "UiNode",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean) => void",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.Root",
+      "group": "Card",
+      "name": "Root",
+      "required": true,
+      "description": "The card container is the main container of the card.",
+      "propsType": "OryCardProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCard",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.Footer",
+      "group": "Card",
+      "name": "Footer",
+      "required": true,
+      "description": "The card footer is the footer of the card container.",
+      "propsType": "OryCardFooterProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCardFooter",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": []
+    },
+    {
+      "path": "Card.Header",
+      "group": "Card",
+      "name": "Header",
+      "required": true,
+      "description": "The card header is the header of the card container.",
+      "propsType": "OryCardProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCardHeader",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.Content",
+      "group": "Card",
+      "name": "Content",
+      "required": true,
+      "description": "The card content is the main content of the card container.",
+      "propsType": "OryCardContentProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCardContent",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.Logo",
+      "group": "Card",
+      "name": "Logo",
+      "required": true,
+      "description": "The card logo is the logo of the card container.",
+      "propsType": "OryCardLogoProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultCardLogo",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": []
+    },
+    {
+      "path": "Card.Divider",
+      "group": "Card",
+      "name": "Divider",
+      "required": true,
+      "description": "The HorizontalDivider component is rendered between groups.",
+      "propsType": "OryCardDividerProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultHorizontalDivider",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": []
+    },
+    {
+      "path": "Card.AuthMethodListContainer",
+      "group": "Card",
+      "name": "AuthMethodListContainer",
+      "required": true,
+      "description": "The AuthMethodListContainer component is rendered around the \"method\" chooser step in the identifier_first login flow. This is only used, if login is configured to use identifier_first authentication.",
+      "propsType": "PropsWithChildren",
+      "propsImport": "react",
+      "defaultComponent": "DefaultAuthMethodListContainer",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.AuthMethodListItem",
+      "group": "Card",
+      "name": "AuthMethodListItem",
+      "required": true,
+      "description": "The AuthMethodListItem component is rendered on the \"method\" chooser step in the identifier_first login flow. This is only used, if login is configured to use identifier_first authentication.",
+      "propsType": "OryCardAuthMethodListItemProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultAuthMethodListItem",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "group",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.SettingsSection",
+      "group": "Card",
+      "name": "SettingsSection",
+      "required": true,
+      "description": "The SettingsSection component is rendered around each section of the settings.",
+      "propsType": "OryCardSettingsSectionProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultFormSection",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "action",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onSubmit",
+          "type": "FormEventHandler<HTMLFormElement>",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.SettingsSectionContent",
+      "group": "Card",
+      "name": "SettingsSectionContent",
+      "required": true,
+      "description": "The SettingsSectionContent component is rendered around the content of each section of the settings.",
+      "propsType": "OryFormSectionContentProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultFormSectionContent",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Card.SettingsSectionFooter",
+      "group": "Card",
+      "name": "SettingsSectionFooter",
+      "required": true,
+      "description": "The SettingsSectionFooter component is rendered around the footer of each section of the settings.",
+      "propsType": "OryFormSectionFooterProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultFormSectionFooter",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.Root",
+      "group": "Form",
+      "name": "Root",
+      "required": true,
+      "description": "The FormContainer component is the main container of the form. It should render its children. You most likely don't want to override this component directly.",
+      "propsType": "OryFormRootProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultFormContainer",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 286,
+      "props": [
+        {
+          "name": "onSubmit",
+          "type": "FormEventHandler<HTMLFormElement>",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.SsoRoot",
+      "group": "Form",
+      "name": "SsoRoot",
+      "required": true,
+      "description": "A special form group container for the social buttons. This is required, because the social buttons need to be in its form, to not influence the other form groups. You most likely don't want to override this component directly.",
+      "propsType": "OryFormSsoRootProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSocialButtonContainer",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        },
+        {
+          "name": "nodes",
+          "type": "UiNode[]",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.Group",
+      "group": "Form",
+      "name": "Group",
+      "required": true,
+      "description": "The FormGroup is rendered around each group of nodes in the UI nodes.",
+      "propsType": "OryFormGroupProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultGroupContainer",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.SsoSettings",
+      "group": "Form",
+      "name": "SsoSettings",
+      "required": true,
+      "description": "The section on the settings page, rendering the OIDC settings",
+      "propsType": "OrySettingsSsoProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSettingsOidc",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "linkButtons",
+          "type": "OryNodeSettingsButton[]",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "unlinkButtons",
+          "type": "OryNodeSettingsButton[]",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.WebauthnSettings",
+      "group": "Form",
+      "name": "WebauthnSettings",
+      "required": true,
+      "description": "The section on the settings page, rendering the Webauthn settings",
+      "propsType": "OrySettingsWebauthnProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSettingsWebauthn",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "nameInput",
+          "type": "UiNodeInput",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "removeButtons",
+          "type": "OryNodeSettingsButton[]",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "triggerButton",
+          "type": "OryNodeSettingsButton",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.DeviceauthnSettings",
+      "group": "Form",
+      "name": "DeviceauthnSettings",
+      "required": true,
+      "description": "The section on the settings page, rendering the DeviceAuthn settings.",
+      "propsType": "OrySettingsDeviceauthnProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSettingsDeviceauthn",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "removeButtons",
+          "type": "OryNodeSettingsButton[]",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.PasskeySettings",
+      "group": "Form",
+      "name": "PasskeySettings",
+      "required": true,
+      "description": "The section on the settings page, rendering the Passkey settings",
+      "propsType": "OrySettingsPasskeyProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSettingsPasskey",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "removeButtons",
+          "type": "OryNodeSettingsButton[]",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "triggerButton",
+          "type": "OryNodeSettingsButton",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.TotpSettings",
+      "group": "Form",
+      "name": "TotpSettings",
+      "required": true,
+      "description": "The section on the settings page, rendering the TOTP settings",
+      "propsType": "OrySettingsTotpProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSettingsTotp",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onUnlink",
+          "type": "() => void",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "totpImage",
+          "type": "UiNodeImage | undefined",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "totpInput",
+          "type": "UiNodeInput | undefined",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "totpSecret",
+          "type": "UiNodeText | undefined",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "totpUnlink",
+          "type": "UiNodeInput | undefined",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Form.RecoveryCodesSettings",
+      "group": "Form",
+      "name": "RecoveryCodesSettings",
+      "required": true,
+      "description": "The section on the settings page, rendering the recovery code settings",
+      "propsType": "OrySettingsRecoveryCodesProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultSettingsRecoveryCodes",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "codes",
+          "type": "string[]",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "isSubmitting",
+          "type": "boolean",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onRegenerate",
+          "type": "() => void",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "onReveal",
+          "type": "() => void",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "regenerateButton",
+          "type": "UiNodeInput | undefined",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "revealButton",
+          "type": "UiNodeInput | undefined",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Message.Root",
+      "group": "Message",
+      "name": "Root",
+      "required": true,
+      "description": "The MessageContainer is rendered around the messages.",
+      "propsType": "OryMessageRootProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultMessageContainer",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | undefined",
+          "optional": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Message.Content",
+      "group": "Message",
+      "name": "Content",
+      "required": true,
+      "description": "The Message component is rendered whenever a message is encountered.",
+      "propsType": "OryMessageContentProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultMessage",
+      "defaultImport": "@ory/elements-react/theme",
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "message",
+          "type": "UiText",
+          "optional": false,
+          "description": "The message to display."
+        }
+      ]
+    },
+    {
+      "path": "Message.Toast",
+      "group": "Message",
+      "name": "Toast",
+      "required": true,
+      "description": "The Toast component is rendered for toast messages. Currently only used in the settings page to display messages.",
+      "propsType": "OryToastProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultToast",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "id",
+          "type": "string | number",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "message",
+          "type": "UiText",
+          "optional": false,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "path": "Page.Header",
+      "group": "Page",
+      "name": "Header",
+      "required": true,
+      "description": "",
+      "propsType": "OryPageHeaderProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultPageHeader",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": []
+    }
+  ]
+}
