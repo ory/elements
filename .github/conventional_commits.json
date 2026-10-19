@@ -1,5 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/ory/ci/master/conventional_commit_config/dist/config.schema.json",
   "addTypes": [],
-  "addScopes": ["deps-dev", "core", "theme"]
+  "addScopes": [
+    "deps-dev",
+    "elements-react",
+    "nextjs",
+    "ssr",
+    "react-router",
+    "tanstack-start"
+  ]
 }
