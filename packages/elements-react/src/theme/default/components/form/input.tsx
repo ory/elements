@@ -4,7 +4,11 @@
 import { FlowType } from "@ory/client-fetch"
 import { OryNodeInputProps, useOryFlow } from "@ory/elements-react"
 import * as PasswordToggleField from "@radix-ui/react-password-toggle-field"
-import { ComponentProps, ComponentPropsWithRef, forwardRef } from "react"
+import {
+  ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
+  forwardRef,
+} from "react"
 import EyeOff from "../../assets/icons/eye-off.svg"
 import Eye from "../../assets/icons/eye.svg"
 import { cn } from "../../utils/cn"
@@ -22,37 +26,36 @@ function isAutocompletePassword(
   return autocomplete === "new-password" || autocomplete === "current-password"
 }
 
-function PasswordInput({
-  className,
-  ...rest
-}: ComponentProps<typeof PasswordToggleField.Input>) {
-  return (
-    <PasswordToggleField.Root>
-      <div
+const PasswordInput = forwardRef<
+  HTMLInputElement,
+  ComponentPropsWithoutRef<typeof PasswordToggleField.Input>
+>(({ className, ...rest }, ref) => (
+  <PasswordToggleField.Root>
+    <div
+      className={cn(
+        defaultInputClassName,
+        "flex justify-stretch not-focus-within:hover:border-input-border-hover",
+        "data-[disabled=true]:border-input-border-disabled data-[disabled=true]:bg-input-background-disabled data-[disabled=true]:text-input-foreground-disabled",
+      )}
+      data-disabled={rest.disabled}
+    >
+      <PasswordToggleField.Input
+        {...rest}
+        ref={ref}
         className={cn(
-          defaultInputClassName,
-          "flex justify-stretch not-focus-within:hover:border-input-border-hover",
-          "data-[disabled=true]:border-input-border-disabled data-[disabled=true]:bg-input-background-disabled data-[disabled=true]:text-input-foreground-disabled",
+          "w-full rounded-l-forms rounded-r-none bg-transparent px-4 py-[13px] text-input-foreground-primary placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:outline-none disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
+          className,
         )}
-        data-disabled={rest.disabled}
+      ></PasswordToggleField.Input>
+      <PasswordToggleField.Toggle
+        id={undefined}
+        className="cursor-pointer bg-transparent px-2 py-[13px]"
       >
-        <PasswordToggleField.Input
-          {...rest}
-          className={cn(
-            "w-full rounded-l-forms rounded-r-none bg-transparent px-4 py-[13px] text-input-foreground-primary placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:outline-none disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
-            className,
-          )}
-        ></PasswordToggleField.Input>
-        <PasswordToggleField.Toggle
-          id={undefined}
-          className="cursor-pointer bg-transparent px-2 py-[13px]"
-        >
-          <PasswordToggleField.Icon visible={<EyeOff />} hidden={<Eye />} />
-        </PasswordToggleField.Toggle>
-      </div>
-    </PasswordToggleField.Root>
-  )
-}
+        <PasswordToggleField.Icon visible={<EyeOff />} hidden={<Eye />} />
+      </PasswordToggleField.Toggle>
+    </div>
+  </PasswordToggleField.Root>
+))
 
 type InputProps = ComponentPropsWithRef<"input">
 

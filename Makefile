@@ -24,6 +24,19 @@ install:
 test:
 	pnpm run test
 
+REACT_18_DEPS = {"react": "18.3.1", "react-dom": "18.3.1", "@types/react": "18.3.31", "@types/react-dom": "18.3.7"}
+
+# The slot map test is skipped because the shipped slot map is generated
+# against the React 19 types.
+.PHONY: test-react-18
+test-react-18:
+	@mkdir -p .bin/react-18
+	cp package.json pnpm-lock.yaml .bin/react-18/
+	trap 'status=$$?; { cp .bin/react-18/package.json .bin/react-18/pnpm-lock.yaml . && pnpm install --frozen-lockfile; } || [ $$status -ne 0 ] || status=1; exit $$status' EXIT; \
+	jq '.devDependencies += $(REACT_18_DEPS)' .bin/react-18/package.json > package.json && \
+	pnpm install --no-frozen-lockfile && \
+	pnpm exec nx run @ory/elements-react:test --skip-nx-cache --testPathIgnorePatterns=slot-map
+
 .PHONY: build
 build:
 	pnpm exec nx run-many --target=build --all
