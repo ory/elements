@@ -2,7 +2,7 @@
 # "bookworm" is Debian 12.
 FROM node:24-bookworm AS builder
 
-RUN corepack enable && corepack prepare pnpm@10.34.5 --activate
+RUN corepack enable
 
 WORKDIR /workspace
 
