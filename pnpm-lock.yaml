@@ -553,7 +553,7 @@ importers:
         specifier: ^1.1.0
         version: 1.5.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@ory/client-fetch':
-        specifier: 1.22.65
+        specifier: ^1.22.65
         version: 1.22.65
       '@radix-ui/react-dropdown-menu':
         specifier: 2.1.14
@@ -662,7 +662,7 @@ importers:
   packages/nextjs:
     dependencies:
       '@ory/client-fetch':
-        specifier: 1.22.65
+        specifier: ^1.22.65
         version: 1.22.65
       cookie:
         specifier: ^1.0.1
