@@ -2,3 +2,58 @@ packages:
   - "packages/*"
   - "examples/*"
   - "scripts/*"
+
+# Scripts run in whichever tree installed their package, which in the monorepo
+# is the root install for packages/elements-react and packages/nextjs.
+verifyDepsBeforeRun: false
+
+overrides:
+  "koa": "2.16.4"
+  "qs": ">=6.16.0"
+  "ts-jest>handlebars": "4.7.10"
+  "proxy-addr": "2.0.8"
+  "axios": "1.20.0"
+  "postcss": "8.5.23"
+  "@ory/nextjs>next": "$next"
+  "lodash": "$lodash"
+  "picomatch": "4.0.4"
+  "uuid": "$uuid"
+  "ws": "8.21.0"
+  "undici": "7.29.1"
+  "vitest": "4.1.11"
+  "adm-zip": "0.6.1"
+  "sharp": "0.35.4"
+  "svgo": "3.3.5"
+  "ajv@8": "8.20.0"
+  "body-parser": "1.20.6"
+  "fast-uri": "3.1.8"
+  "markdown-it": "14.3.2"
+  "tar": "7.5.21"
+  "js-yaml@3": "3.15.2"
+  "js-yaml@4": "4.3.2"
+  "nanoid@3": "3.3.18"
+  "minimatch@>=9.0.0 <9.0.7": "9.0.7"
+  "brace-expansion@1": "1.1.21"
+  "brace-expansion@2": "2.1.7"
+  "brace-expansion@5": "5.0.12"
+  "react": "$react"
+  "react-dom": "$react-dom"
+  "@types/react": "$@types/react"
+  "@types/react-dom": "$@types/react-dom"
+  "typescript": "5.9.3"
+  "smol-toml": "1.7.1"
+allowBuilds:
+  "@swc/core": false
+  "@tailwindcss/oxide": false
+  "esbuild": false
+  "nx": false
+  "unrs-resolver": false
+
+# Coding agents read linked skills as instructions, so pnpm links none; a
+# dependency that ships skills is also denied by name to silence the approval
+# prompt.
+skills:
+  dirs: []
+permissions:
+  "@marsidev/react-turnstile":
+    skills: false
