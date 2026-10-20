@@ -19,12 +19,12 @@ License (OEL) 26.3 or later.
 The application installs these packages itself, in these ranges:
 
 - `next`: `>=13.1.0`
-- `react`: `>=16.0.0`
+- `react`: `>=18.2.0`
 
 `@ory/nextjs` brings these packages. If the application imports one of them
 itself, use a version in the same range, so that there is a single copy:
 
-- `@ory/client-fetch`: `1.22.65`
+- `@ory/client-fetch`: `^1.22.65`
 
 <!-- compatibility:end -->
 

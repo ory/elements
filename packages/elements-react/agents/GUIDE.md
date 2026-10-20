@@ -22,7 +22,7 @@ The application installs these packages itself, in these ranges:
 `@ory/elements-react` brings these packages. If the application imports one of
 them itself, use a version in the same range, so that there is a single copy:
 
-- `@ory/client-fetch`: `1.22.65`
+- `@ory/client-fetch`: `^1.22.65`
 
 <!-- compatibility:end -->
 
