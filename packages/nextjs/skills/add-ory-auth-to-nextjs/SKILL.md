@@ -97,13 +97,15 @@ export const config = {}
 
 The middleware is meant for local development and preview deployments. If the
 project deploys previews, add a `RegExp` for their origins to `trustedOrigins`,
-anchored to the project and team. Production use of the middleware is
-discouraged, so don't add the production origin and don't present the middleware
-as the production setup. In production, the application needs an Ory custom
-domain on its own site, with `NEXT_PUBLIC_ORY_SDK_URL` set to that domain. Say
-so in your summary to the user. If the project already has a `middleware.ts`,
-keep its logic and return the Ory middleware's response at the end. The Ory
-middleware passes every request that is not for an Ory API through unchanged.
+anchored to the project and team. The middleware isn't supported in production,
+so don't add the production origin and don't present the middleware as the
+production setup. In production, the application needs Ory on its own site, with
+`NEXT_PUBLIC_ORY_SDK_URL` set to that domain: a custom domain (CNAME) on Ory
+Network, or the user's own domain on the Ory Enterprise License (OEL). Say so in
+your summary to the user. The flow pages and session checks below work unchanged
+in production. If the project already has a `middleware.ts`, keep its logic and
+return the Ory middleware's response at the end. The Ory middleware passes every
+request that is not for an Ory API through unchanged.
 
 ```ts
 // reference/combined-middleware.ts

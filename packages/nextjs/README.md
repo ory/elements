@@ -12,6 +12,17 @@ interact with the Ory ecosystem.
 
 ## Use case
 
+The package has two parts:
+
+- The functions in `@ory/nextjs/app` fetch flows and sessions, and the hooks in
+  `@ory/nextjs/pages` fetch flows, for your custom UI. They work in every
+  deployment, on Ory Network and on the Ory Enterprise License (OEL).
+- The middleware in `@ory/nextjs/middleware` is for local development, where
+  your application runs on `localhost` and Ory doesn't. In production, put Ory
+  on your application's domain: a
+  [custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) on Ory
+  Network, or your own domains on OEL.
+
 This package includes a middleware for the app and page router that enables
 local development and preview environments to work with
 [Ory's cookie security model](https://www.ory.com/docs/security-model). The
@@ -21,7 +32,8 @@ middleware serves the Ory APIs on your application's own origin.
 > Don't run Ory Tunnel and don't set the SDK URL to `http://localhost:4000` when
 > you use the `@ory/nextjs` middleware. Guides that tell you to start
 > `ory tunnel` for local development describe integrations without this package.
-> Set `NEXT_PUBLIC_ORY_SDK_URL` to your Ory Network project URL instead.
+> Set `NEXT_PUBLIC_ORY_SDK_URL` to the URL of your Ory APIs instead: the Ory
+> Network project URL or custom domain, or the domain you serve Ory on with OEL.
 
 ## Installation
 
@@ -31,11 +43,9 @@ To render the flows, also install
 
 ## Configuration
 
-This middleware expects environment variable `NEXT_PUBLIC_ORY_SDK_URL` to be set
-to your Ory Network Project SDK URL. This is the URL that you would use to
-access the Ory API. If you have a custom domain for your Ory Network Project,
-you should use the custom domain for `NEXT_PUBLIC_ORY_SDK_URL`. `ORY_SDK_URL` is
-read as a fallback.
+Set `NEXT_PUBLIC_ORY_SDK_URL` to the URL of your Ory APIs: on Ory Network, the
+project SDK URL or the project's custom domain; on OEL, the domain you serve Ory
+on. `ORY_SDK_URL` is read as a fallback.
 
 Set `ORY_PROJECT_API_TOKEN` to an
 [API key](https://www.ory.com/docs/concepts/personal-access-token) of your Ory
@@ -50,10 +60,11 @@ Create the middleware. `trustedOrigins` is required: `createOryMiddleware`
 throws when it is unset or empty. List the local development origin and a
 `RegExp` for your preview deployments, anchored to your project and team.
 
-The middleware is meant for local development and preview deployments. Using it
-for production traffic is discouraged. In production, give your Ory project a
-[custom domain](https://www.ory.com/docs/guides/custom-domains) on the same site
-as your application and set `NEXT_PUBLIC_ORY_SDK_URL` to it.
+The middleware is meant for local development and preview deployments. It isn't
+supported for production traffic. In production, put Ory on the same site as
+your application and set `NEXT_PUBLIC_ORY_SDK_URL` to that URL: a
+[custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) on Ory
+Network, or your own domains on OEL.
 
 ```ts
 // middleware.ts

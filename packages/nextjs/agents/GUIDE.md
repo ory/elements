@@ -83,9 +83,13 @@ export const pagesRouter = {
 ```
 
 - `@ory/nextjs/middleware` serves the Ory APIs on the application's own origin
-  in local development and preview deployments.
+  in local development and preview deployments. It isn't supported in
+  production.
 - `@ory/nextjs/app` has server functions for the app router.
 - `@ory/nextjs/pages` has client hooks for the pages router.
+- The functions and hooks work in every deployment, on Ory Network and on the
+  Ory Enterprise License (OEL). Without the middleware, Ory must be on the
+  application's site so that requests carry the session cookie.
 - The root entry `@ory/nextjs` exports nothing. Always import from a subpath.
 
 It replaces these older approaches. Don't use them together with this package:
@@ -282,21 +286,25 @@ The hooks return `undefined` until the flow has loaded. The middleware and
 
 ## Production
 
-The middleware is meant for local development and preview deployments. Using it
-for production traffic is discouraged. In production, set up a
-[custom domain](https://www.ory.com/docs/guides/custom-domains) for the Ory
-project on the same site as the application, for example `auth.example.com` for
-an application on `app.example.com`, and set `NEXT_PUBLIC_ORY_SDK_URL` to it.
-The package then sends the browser to the custom domain directly. When a user
-asks to deploy to production, tell them they need the custom domain.
+The middleware is meant for local development and preview deployments. It isn't
+supported for production traffic. In production, put Ory on the same site as the
+application, for example `auth.example.com` for an application on
+`app.example.com`, and set `NEXT_PUBLIC_ORY_SDK_URL` to it. On Ory Network, that
+is a [custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) of
+the project. On OEL, it is the domain the user serves Ory on. The flow functions
+then send the browser to that domain directly to start a flow. When a user asks
+to deploy to production, tell them they need that domain. The application needs
+its own domain too: Ory can't be on the same site as a default `vercel.app`
+domain, so add a custom domain for the application before going to production.
 
 ## Mistakes to avoid
 
 - Don't call `getLoginFlow(searchParams)`. The first argument is the
   configuration: `getLoginFlow(config, props.searchParams)`.
 - Don't call `createOryMiddleware(oryConfig)` without `trustedOrigins`.
-- Don't present the middleware as the production setup. Production uses an Ory
-  custom domain on the application's site.
+- Don't present the middleware as the production setup. Production puts Ory on
+  the application's site: a custom domain on Ory Network, or the user's own
+  domain on OEL.
 - Don't import from `@ory/nextjs` or `@ory/elements/nextjs`. The subpaths are
   `@ory/nextjs/app`, `@ory/nextjs/pages`, and `@ory/nextjs/middleware`.
 - Don't look for `OryPageLayout` or `getFlowError` in `@ory/nextjs/app`. They
@@ -304,8 +312,8 @@ asks to deploy to production, tell them they need the custom domain.
 - Don't create a `FrontendApi` client by hand for the flows above, and don't
   call `fetch` on `/self-service/...` yourself.
 - Don't set `NEXT_PUBLIC_ORY_SDK_URL` to the application's own URL or to the
-  tunnel address. It is the URL of the Ory APIs: the Ory Network project URL, or
-  the public URL of a self-hosted Ory Kratos.
+  tunnel address. It is the URL of the Ory APIs: the Ory Network project URL or
+  custom domain, or the domain the user serves self-hosted Ory on.
 
 ## Check your work
 
