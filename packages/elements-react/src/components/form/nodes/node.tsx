@@ -12,6 +12,7 @@ import {
   isUiNodeText,
 } from "../../../util/utilFixSDKTypesHelper"
 import { NodeInput } from "./input"
+import { NodeScript } from "./node-script"
 import { NodeRenderer } from "./renderer"
 
 export type NodeProps = {
@@ -41,22 +42,7 @@ const NodeBase = ({ node }: NodeProps): ReactNode => {
     isUiNodeScript(node) &&
     !ignoredScriptGroups.includes(node.group)
   ) {
-    const {
-      crossorigin,
-      referrerpolicy,
-      node_type: _nodeType,
-      ...attributes
-    } = node.attributes
-
-    return (
-      <script
-        crossOrigin={
-          crossorigin as "anonymous" | "use-credentials" | "" | undefined
-        }
-        referrerPolicy={referrerpolicy as React.HTMLAttributeReferrerPolicy}
-        {...attributes}
-      />
-    )
+    return <NodeScript attributes={node.attributes} />
   }
   return null
 }

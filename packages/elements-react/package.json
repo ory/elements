@@ -2,7 +2,7 @@
   "name": "@ory/elements-react",
   "version": "0.0.0-unused",
   "scripts": {
-    "build": "tsup --clean --dts",
+    "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tsup --dts",
     "prepare": "pnpm run build"
   },
   "exports": {

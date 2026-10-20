@@ -19,7 +19,7 @@
       }
     },
     "build": {
-      "command": "tsup --clean --dts",
+      "command": "pnpm run build",
       "options": {
         "cwd": "packages/elements-react"
       }
