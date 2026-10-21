@@ -1,0 +1,91 @@
+name: Set up pnpm
+description: >-
+  Installs the pnpm version that a package.json packageManager field pins,
+  through a pinned Corepack that verifies the field's sha512 integrity hash,
+  and optionally restores or saves the pnpm store. Run it after
+  actions/setup-node.
+inputs:
+  project:
+    description: >-
+      Directory whose package.json declares packageManager, relative to the
+      workspace.
+    required: false
+    default: '.'
+  cache:
+    description: >-
+      "none" leaves the pnpm store alone. "restore" restores it. "save" also
+      saves it at the end of the job when the key missed. For the root
+      pnpm-lock.yaml, only jobs that install the whole workspace may save,
+      because a filtered install would claim the key with a partial store.
+    required: false
+    default: none
+  cache-lockfile:
+    description: >-
+      Lockfile path or glob, relative to the workspace, that keys the store
+      cache. Defaults to the project's pnpm-lock.yaml.
+    required: false
+    default: ''
+outputs:
+  version:
+    description: The pnpm version that packageManager declares.
+    value: ${{ steps.install.outputs.version }}
+  store-path:
+    description: The pnpm store directory.
+    value: ${{ steps.install.outputs.store-path }}
+  cache-key:
+    description: The store cache key, empty when no file matches the cache lockfile.
+    value: ${{ steps.key.outputs.key }}
+  cache-hit:
+    description: Whether the store was restored from an exact key match.
+    value: ${{ steps.restore.outputs.cache-hit || steps.save.outputs.cache-hit }}
+runs:
+  using: composite
+  steps:
+    - name: Verify the pnpm integrity hash and install pnpm
+      id: install
+      shell: bash
+      env:
+        SETUP_PNPM_PROJECT: ${{ inputs.project }}
+        SETUP_PNPM_CACHE: ${{ inputs.cache }}
+        SETUP_PNPM_CACHE_LOCKFILE: ${{ inputs.cache-lockfile }}
+      run: node "$GITHUB_ACTION_PATH/setup-pnpm.mjs"
+
+    - name: Compute the pnpm store cache key
+      id: key
+      shell: bash
+      env:
+        CACHE: ${{ inputs.cache }}
+        LAYOUT: ${{ steps.install.outputs.store-layout }}
+        LOCKFILE: ${{ steps.install.outputs.lockfile }}
+        LOCKFILE_HASH: ${{ hashFiles(steps.install.outputs.lockfile) }}
+      run: |
+        if [ -z "$LOCKFILE_HASH" ]; then
+          if [ "$CACHE" != none ]; then
+            echo "::error::No file matches the cache lockfile ${LOCKFILE}."
+            exit 1
+          fi
+          exit 0
+        fi
+        prefix="pnpm-store-${LAYOUT}-${RUNNER_OS}-${LOCKFILE}-"
+        {
+          echo "prefix=${prefix}"
+          echo "key=${prefix}${LOCKFILE_HASH}"
+        } >> "$GITHUB_OUTPUT"
+
+    - name: Restore the pnpm store
+      id: restore
+      if: inputs.cache == 'restore'
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+      with:
+        path: ${{ steps.install.outputs.store-path }}
+        key: ${{ steps.key.outputs.key }}
+        restore-keys: ${{ steps.key.outputs.prefix }}
+
+    - name: Restore the pnpm store and save it at the end of the job
+      id: save
+      if: inputs.cache == 'save'
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+      with:
+        path: ${{ steps.install.outputs.store-path }}
+        key: ${{ steps.key.outputs.key }}
+        restore-keys: ${{ steps.key.outputs.prefix }}
