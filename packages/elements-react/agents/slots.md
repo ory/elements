@@ -4,7 +4,7 @@
 
 Every part of the UI that `@ory/elements-react` renders is a slot of the `OryFlowComponents` type. Replace a slot by passing a component under the same path in the `components` prop of a flow component (`OryFlowComponentOverrides`). A slot that you don't pass keeps its default component.
 
-This file lists all 36 slots of the installed version. A path that is not listed here does not exist. The same data is in `slots.json` next to this file.
+This file lists all 37 slots of the installed version. A path that is not listed here does not exist. The same data is in `slots.json` next to this file.
 
 ```tsx
 <Login
@@ -32,6 +32,7 @@ A replacement component receives the props type listed for its slot. Import the 
 | `Node.Text` | `OryNodeTextProps` | `DefaultText` (internal) | The Text component is rendered whenever a "text" node is encountered. |
 | `Node.Captcha` | `OryNodeCaptchaProps` | `DefaultCaptcha` (internal) | The Captcha component is rendered whenever a "captcha" group is encountered. |
 | `Node.ConsentScopeCheckbox` | `OryNodeConsentScopeCheckboxProps` | `DefaultConsentScopeCheckbox` (internal) | Special version of the Input component for scopes in OAuth2 flows. |
+| `Node.ConsentResource` (optional) | `OryNodeConsentResourceProps` | `DefaultConsentResource` (internal) | Renders one RFC 8707 resource indicator of an OAuth2 consent request. Optional for backward compatibility: when not provided, the resource is rendered with the `Text` component. |
 
 ## Card
 
@@ -193,6 +194,15 @@ Used by `Node.ConsentScopeCheckbox`. Import it from `@ory/elements-react`.
 | `inputProps` | `{ name: string disabled?: boolean checked: boolean value: string }` |  |
 | `node` | `UiNode` |  |
 | `onCheckedChange` | `(checked: boolean) => void` |  |
+
+### `OryNodeConsentResourceProps`
+
+Used by `Node.ConsentResource`. Import it from `@ory/elements-react`.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `node` | `UiNodeText` |  |
+| `resource` | `string` | The RFC 8707 resource indicator, usually an absolute URI. |
 
 ### `OryCardProps`
 

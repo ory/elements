@@ -3,6 +3,7 @@
 
 import {
   OryNodeTextProps,
+  requestedResourcesTitleNodeId,
   UiNodeInput,
   uiTextToFormattedMessage,
 } from "@ory/elements-react"
@@ -43,6 +44,22 @@ export function DefaultText({ node }: OryNodeTextProps) {
     // this node has an array of nodes in its context.
     throw new Error(
       "[@ory/elements-react] node `lookup_secret_codes` cannot be rendered as text. The settings flow renders it through the `Form.RecoveryCodesSettings` component. Don't pass this node to `Node.Text`.",
+    )
+  }
+
+  if (node.attributes.id === requestedResourcesTitleNodeId) {
+    return (
+      <p
+        className="col-span-2 pt-2 leading-normal text-interface-foreground-default-secondary"
+        data-testid={`ory/form/node/text/${node.attributes.id}/label`}
+        id={node.attributes.id}
+      >
+        {intl.formatMessage({
+          id: "consent.resources.title",
+          defaultMessage:
+            "This application will access these services on your behalf:",
+        })}
+      </p>
     )
   }
 

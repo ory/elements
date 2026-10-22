@@ -963,6 +963,62 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@ory/elements-react!isRequestedResourceNode:function(1)",
+          "docComment": "/**\n * Whether a node lists one requested resource of an OAuth2 consent request.\n *\n * @param node - The node to check.\n *\n * @returns whether the node is a requested resource text node.\n *\n * @group\n *\n * Utilities\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function isRequestedResourceNode(node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNode",
+              "canonicalReference": "@ory/client-fetch!UiNode:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "node",
+              "canonicalReference": "@ory/elements-react!~node"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeText",
+              "canonicalReference": "@ory/elements-react!UiNodeText:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "node",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isRequestedResourceNode"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@ory/elements-react!isUiNodeAnchor:function(1)",
           "docComment": "",
           "excerptTokens": [
@@ -1442,6 +1498,15 @@
             },
             {
               "kind": "Content",
+              "text": ";\n    ConsentResource: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "ConsentResourceRenderer",
+              "canonicalReference": "@ory/elements-react!~ConsentResourceRenderer:function"
+            },
+            {
+              "kind": "Content",
               "text": ";\n    Input: typeof "
             },
             {
@@ -1496,7 +1561,7 @@
           "name": "Node_2",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 22
+            "endIndex": 24
           }
         },
         {
@@ -3033,6 +3098,24 @@
             },
             {
               "kind": "Content",
+              "text": ">;\n        ConsentResource?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryNodeConsentResourceProps",
+              "canonicalReference": "@ory/elements-react!OryNodeConsentResourceProps:type"
+            },
+            {
+              "kind": "Content",
               "text": ">;\n    };\n    Card: {\n        Root: "
             },
             {
@@ -3477,7 +3560,7 @@
           "name": "OryFlowComponents",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 146
+            "endIndex": 150
           }
         },
         {
@@ -4421,6 +4504,41 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 10
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryNodeConsentResourceProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryNodeConsentResourceProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UiNodeText",
+              "canonicalReference": "@ory/elements-react!UiNodeText:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    resource: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryNodeConsentResourceProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
           }
         },
         {
@@ -6617,6 +6735,60 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-react!requestedResourceNodeIdPrefix:var",
+          "docComment": "/**\n * The ID prefix of the text nodes that list the RFC 8707 resource indicators of an OAuth2 consent request.\n *\n * @group\n *\n * Utilities\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "requestedResourceNodeIdPrefix = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"requested_resource_\""
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "requestedResourceNodeIdPrefix",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/elements-react!requestedResourcesTitleNodeId:var",
+          "docComment": "/**\n * The ID of the text node that introduces the requested resources of an OAuth2 consent request.\n *\n * @group\n *\n * Utilities\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "requestedResourcesTitleNodeId = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"requested_resources_title\""
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "requestedResourcesTitleNodeId",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
           }
         },
         {

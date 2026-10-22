@@ -193,6 +193,14 @@ export type OryNodeConsentScopeCheckboxProps = {
   }
 }
 
+export type OryNodeConsentResourceProps = {
+  node: UiNodeText
+  /**
+   * The RFC 8707 resource indicator, usually an absolute URI.
+   */
+  resource: string
+}
+
 export type OryFormSectionContentProps = PropsWithChildren<{
   title?: string
   description?: string

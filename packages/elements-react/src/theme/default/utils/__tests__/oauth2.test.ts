@@ -1,6 +1,13 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
+import { isUiNodeInputAttributes } from "@ory/client-fetch"
+import { computeDefaultValues } from "../../../../components/form/form-helpers"
+import {
+  requestedResourceNodeIdPrefix,
+  requestedResourcesTitleNodeId,
+} from "../../../../util/consent"
+import { isUiNodeText } from "../../../../util/utilFixSDKTypesHelper"
 import {
   isDeviceFlowConsentRequest,
   translateConsentChallengeToUiNodes,
@@ -30,6 +37,96 @@ describe("translate consent challenge to flow", () => {
       expect(consentFlow).toMatchSnapshot()
     })
   }
+
+  const resourceRequest = (requested_resources?: string[]) =>
+    ({
+      challenge: "consent-challenge",
+      requested_scope: ["openid"],
+      requested_resources,
+    }) as Parameters<typeof translateConsentChallengeToUiNodes>[0]
+
+  test("should show a heading and one text node per requested resource", () => {
+    const consentFlow = translateConsentChallengeToUiNodes(
+      resourceRequest([
+        "https://resource.example.com/calendar",
+        "https://mcp.example.com/",
+      ]),
+      "csrfToken",
+      "/foo/bar/oauth",
+      { id: "session-id" },
+    )
+
+    const textNodes = consentFlow.ui.nodes.filter(isUiNodeText)
+    expect(textNodes.map((node) => node.attributes.id)).toEqual([
+      requestedResourcesTitleNodeId,
+      `${requestedResourceNodeIdPrefix}0`,
+      `${requestedResourceNodeIdPrefix}1`,
+    ])
+    expect(textNodes.map((node) => node.group)).toEqual([
+      "oauth2_consent",
+      "oauth2_consent",
+      "oauth2_consent",
+    ])
+    expect(textNodes.slice(1).map((node) => node.attributes.text.text)).toEqual(
+      ["https://resource.example.com/calendar", "https://mcp.example.com/"],
+    )
+  })
+
+  test("should place the resources between the scopes and the remember checkbox", () => {
+    const consentFlow = translateConsentChallengeToUiNodes(
+      resourceRequest(["https://resource.example.com/calendar"]),
+      "csrfToken",
+      "/foo/bar/oauth",
+      { id: "session-id" },
+    )
+
+    const keys = consentFlow.ui.nodes.map((node) =>
+      isUiNodeText(node)
+        ? node.attributes.id
+        : isUiNodeInputAttributes(node.attributes)
+          ? node.attributes.name
+          : node.type,
+    )
+    expect(keys.slice(0, 4)).toEqual([
+      "grant_scope",
+      requestedResourcesTitleNodeId,
+      `${requestedResourceNodeIdPrefix}0`,
+      "remember",
+    ])
+  })
+
+  for (const [tc, resources] of Object.entries({
+    "no resources": undefined,
+    "empty resources": [],
+  })) {
+    test(`should not show a resource heading for ${tc}`, () => {
+      const consentFlow = translateConsentChallengeToUiNodes(
+        resourceRequest(resources),
+        "csrfToken",
+        "/foo/bar/oauth",
+        { id: "session-id" },
+      )
+
+      expect(consentFlow.ui.nodes.filter(isUiNodeText)).toEqual([])
+    })
+  }
+
+  test("should not submit the requested resources", () => {
+    const consentFlow = translateConsentChallengeToUiNodes(
+      resourceRequest(["https://resource.example.com/calendar"]),
+      "csrfToken",
+      "/foo/bar/oauth",
+      { id: "session-id" },
+    )
+
+    expect(computeDefaultValues(consentFlow)).toEqual({
+      consent_challenge: "consent-challenge",
+      csrf_token: "csrfToken",
+      grant_scope: ["openid"],
+      method: "oauth2_consent",
+      remember: false,
+    })
+  })
 })
 
 describe("device flow consent request", () => {

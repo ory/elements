@@ -24,6 +24,7 @@ import {
   OryNodeButtonProps,
   OryNodeCaptchaProps,
   OryNodeCheckboxProps,
+  OryNodeConsentResourceProps,
   OryNodeConsentScopeCheckboxProps,
   OryNodeImageProps,
   OryNodeInputProps,
@@ -114,6 +115,13 @@ export type OryFlowComponents = {
      * Special version of the Input component for scopes in OAuth2 flows.
      */
     ConsentScopeCheckbox: ComponentType<OryNodeConsentScopeCheckboxProps>
+
+    /**
+     * Renders one RFC 8707 resource indicator of an OAuth2 consent request.
+     * Optional for backward compatibility: when not provided, the resource is
+     * rendered with the `Text` component.
+     */
+    ConsentResource?: ComponentType<OryNodeConsentResourceProps>
   }
   Card: {
     /**

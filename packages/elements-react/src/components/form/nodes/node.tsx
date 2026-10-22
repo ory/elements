@@ -4,6 +4,7 @@
 import { UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
 import { ReactNode } from "react"
 import { useComponents } from "../../../context"
+import { isRequestedResourceNode } from "../../../util/consent"
 import {
   isUiNodeAnchor,
   isUiNodeImage,
@@ -32,6 +33,8 @@ const NodeBase = ({ node }: NodeProps): ReactNode => {
 
   if (isUiNodeImage(node)) {
     return <NodeRenderer.Image node={node} />
+  } else if (isRequestedResourceNode(node)) {
+    return <NodeRenderer.ConsentResource node={node} />
   } else if (isUiNodeText(node)) {
     return <NodeRenderer.Text node={node} />
   } else if (isUiNodeInput(node)) {

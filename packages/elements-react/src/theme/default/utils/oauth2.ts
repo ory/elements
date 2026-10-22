@@ -8,7 +8,11 @@ import {
   UiNode,
   UiTextTypeEnum,
 } from "@ory/client-fetch"
-import { ConsentFlow } from "../../../util"
+import {
+  ConsentFlow,
+  requestedResourceNodeIdPrefix,
+  requestedResourcesTitleNodeId,
+} from "@ory/elements-react"
 
 const rememberCheckbox: UiNode = {
   type: "input",
@@ -112,6 +116,13 @@ export function translateConsentChallengeToUiNodes(
     action: formAction,
     nodes: [
       ...scopesToUiNodes(consentChallenge.requested_scope ?? []),
+      ...resourcesToUiNodes(
+        (
+          consentChallenge as OAuth2ConsentRequest & {
+            requested_resources?: string[]
+          }
+        ).requested_resources ?? [],
+      ),
       rememberCheckbox,
       rejectButton,
       acceptButton,
@@ -132,6 +143,40 @@ export function translateConsentChallengeToUiNodes(
     ui,
     consent_request: consentChallenge,
     session,
+  }
+}
+
+function resourcesToUiNodes(resources: string[]): UiNode[] {
+  if (resources.length === 0) {
+    return []
+  }
+  return [
+    consentTextNode(
+      requestedResourcesTitleNodeId,
+      "This application will access these services on your behalf:",
+    ),
+    ...resources.map((resource, index) =>
+      consentTextNode(`${requestedResourceNodeIdPrefix}${index}`, resource),
+    ),
+  ]
+}
+
+function consentTextNode(id: string, text: string): UiNode {
+  return {
+    type: "text",
+    group: "oauth2_consent",
+    meta: {},
+    attributes: {
+      id,
+      node_type: "text",
+      text: {
+        id: 9999111,
+        text,
+        type: UiTextTypeEnum.Info,
+        context: {},
+      },
+    },
+    messages: [],
   }
 }
 

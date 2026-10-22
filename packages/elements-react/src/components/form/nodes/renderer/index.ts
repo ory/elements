@@ -4,6 +4,7 @@
 import { ButtonRenderer } from "./button-renderer"
 import { CheckboxRenderer } from "./checkbox-renderer"
 import { ConsentCheckboxRenderer } from "./consent-checkbox-renderer"
+import { ConsentResourceRenderer } from "./consent-resource-renderer"
 import { ImageRenderer } from "./image-renderer"
 import { InputRenderer } from "./input-renderer"
 import { SelectRenderer } from "./select-renderer"
@@ -15,6 +16,7 @@ export const NodeRenderer = {
   Button: ButtonRenderer,
   SsoButton: SSOButtonRenderer,
   ConsentCheckbox: ConsentCheckboxRenderer,
+  ConsentResource: ConsentResourceRenderer,
   Input: InputRenderer,
   Checkbox: CheckboxRenderer,
   Image: ImageRenderer,

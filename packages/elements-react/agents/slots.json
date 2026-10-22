@@ -424,6 +424,32 @@
       ]
     },
     {
+      "path": "Node.ConsentResource",
+      "group": "Node",
+      "name": "ConsentResource",
+      "required": false,
+      "description": "Renders one RFC 8707 resource indicator of an OAuth2 consent request. Optional for backward compatibility: when not provided, the resource is rendered with the `Text` component.",
+      "propsType": "OryNodeConsentResourceProps",
+      "propsImport": "@ory/elements-react",
+      "defaultComponent": "DefaultConsentResource",
+      "defaultImport": null,
+      "inheritedProps": 0,
+      "props": [
+        {
+          "name": "node",
+          "type": "UiNodeText",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "resource",
+          "type": "string",
+          "optional": false,
+          "description": "The RFC 8707 resource indicator, usually an absolute URI."
+        }
+      ]
+    },
+    {
       "path": "Card.Root",
       "group": "Card",
       "name": "Root",

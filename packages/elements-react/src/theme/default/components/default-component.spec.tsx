@@ -46,4 +46,10 @@ describe("DefaultComponent", () => {
     })
     expect(result.Node.ConsentScopeCheckbox).toBe(CustomComponent)
   })
+  test("can override consent resource component", () => {
+    const result = getOryComponents({
+      Node: { ConsentResource: CustomComponent },
+    })
+    expect(result.Node.ConsentResource).toBe(CustomComponent)
+  })
 })
