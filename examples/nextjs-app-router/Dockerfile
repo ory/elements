@@ -1,6 +1,6 @@
 # Keep build and run base images in sync for libc compatibility.
 # "bookworm" is Debian 12.
-FROM node:24-bookworm AS builder
+FROM node:24.22.1-bookworm AS builder
 
 RUN corepack enable
 
@@ -30,7 +30,7 @@ WORKDIR /workspace/examples/nextjs-app-router
 RUN pnpm run build
 
 # ---- Runtime stage ----
-FROM gcr.io/distroless/nodejs22-debian12:debug-nonroot AS runner
+FROM gcr.io/distroless/nodejs22-debian13:debug-nonroot@sha256:d6d150c5146a79238a52e2c8aa363b78494c4c53db9fe6784886334d9a69b5d4 AS runner
 
 WORKDIR /app
 
