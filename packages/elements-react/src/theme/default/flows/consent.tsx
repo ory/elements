@@ -10,6 +10,7 @@ import {
   OryProvider,
   OrySuccessHandler,
 } from "@ory/elements-react"
+import { withAttachedBaseUrl } from "../../../util/attachedBaseUrl"
 import { getOryComponents } from "../components"
 import { translateConsentChallengeToUiNodes } from "../utils/oauth2"
 
@@ -118,7 +119,10 @@ export function Consent({
 
   return (
     <OryProvider
-      config={config}
+      config={{
+        ...config,
+        sdk: withAttachedBaseUrl(config.sdk, consentChallenge),
+      }}
       flow={flow}
       flowType={FlowType.OAuth2Consent}
       components={components}

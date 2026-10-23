@@ -5,6 +5,7 @@
 import { PropsWithChildren } from "react"
 
 import { OryFlowComponents } from "../components"
+import { withAttachedBaseUrl } from "../util/attachedBaseUrl"
 import { OryClientConfiguration } from "../util"
 import {
   OryErrorHandler,
@@ -173,7 +174,10 @@ export function OryProvider({
   ...oryFlowProps
 }: OryProviderProps) {
   return (
-    <OryConfigurationProvider sdk={config.sdk} project={config.project}>
+    <OryConfigurationProvider
+      sdk={withAttachedBaseUrl(config.sdk, oryFlowProps.flow)}
+      project={config.project}
+    >
       <IntlProvider
         locale={config.intl?.locale ?? "en"}
         customTranslations={config.intl?.customTranslations}

@@ -110,3 +110,40 @@ test("should submit the pre-filled recovery address when effects run twice", asy
     global.fetch = originalFetch
   }
 })
+
+test("should keep the attached base URL after the flow is replaced", async () => {
+  const originalFetch = global.fetch
+  const fetchSpy = jest.fn().mockResolvedValue({
+    status: 200,
+    json: () => Promise.resolve(recoveryV2Initial),
+  })
+  global.fetch = fetchSpy
+  rememberLastIdentifier("jane@example.com")
+  try {
+    render(
+      <Recovery
+        flow={Object.assign(RecoveryFlowFromJSON(recoveryV2Initial), {
+          ory_base_url: "https://attached.example.com",
+        })}
+        config={config}
+        components={components}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole("button", { name: /continue/i }))
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(1))
+    await waitFor(() =>
+      expect(screen.getByRole("button", { name: /continue/i })).toBeEnabled(),
+    )
+    fireEvent.click(screen.getByRole("button", { name: /continue/i }))
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(2))
+
+    for (const [url] of fetchSpy.mock.calls as [string][]) {
+      expect(url).toMatch(
+        /^https:\/\/attached\.example\.com\/self-service\/recovery/,
+      )
+    }
+  } finally {
+    global.fetch = originalFetch
+  }
+})

@@ -131,6 +131,10 @@ export const optional: Pick<OryClientConfiguration, "sdk" | "intl"> = {
 When `sdk.url` is unset, the SDK URL comes from the environment variable
 `NEXT_PUBLIC_ORY_SDK_URL`, then `ORY_SDK_URL`.
 
+A server-side fetcher can resolve the URL per request and attach it to the flow,
+error, or consent request as `ory_base_url`. The components use it before
+`sdk.url`.
+
 ## Render a flow
 
 A flow component needs the flow object and the configuration. In Next.js, get

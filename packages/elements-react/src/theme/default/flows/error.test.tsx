@@ -2,7 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { render, screen } from "@testing-library/react"
+import { Session } from "@ory/client-fetch"
 import { defaultConfiguration } from "../../../tests/jest/test-utils"
+import { useClientLogout } from "../utils/logout"
 import { Error as ErrorCard, OryError } from "./error"
 
 jest.mock("../utils/logout", () => ({
@@ -101,5 +103,24 @@ describe("Error", () => {
       screen.getByTestId("ory/screen/error/instructions"),
     ).toBeInTheDocument()
     expect(screen.getByTestId("ory/screen/error/report")).toBeInTheDocument()
+  })
+
+  test("should create the logout flow at the base URL attached to the error", () => {
+    render(
+      <ErrorCard
+        error={Object.assign(
+          { error: "server_error", error_description: "Something went wrong." },
+          { ory_base_url: "https://attached.example.com" },
+        )}
+        config={config}
+        session={{ id: "session-id" } as Session}
+      />,
+    )
+
+    expect(useClientLogout).toHaveBeenCalledWith(
+      expect.objectContaining({
+        sdk: expect.objectContaining({ url: "https://attached.example.com" }),
+      }),
+    )
   })
 })

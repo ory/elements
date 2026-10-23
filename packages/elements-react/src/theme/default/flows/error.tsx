@@ -18,6 +18,7 @@ import {
 import { useMemo } from "react"
 import { FormattedMessage } from "react-intl"
 import { IntlProvider } from "../../../context/intl-context"
+import { withAttachedBaseUrl } from "../../../util/attachedBaseUrl"
 import { DefaultCard } from "../components"
 import { DefaultHorizontalDivider } from "../components/form/horizontal-divider"
 import { useClientLogout } from "../utils/logout"
@@ -180,7 +181,10 @@ export function Error({
   const description = errorDescriptions[Math.floor(parsed.code / 100)]
 
   return (
-    <OryConfigurationProvider sdk={config.sdk} project={config.project}>
+    <OryConfigurationProvider
+      sdk={withAttachedBaseUrl(config.sdk, error)}
+      project={config.project}
+    >
       <IntlProvider
         locale={config.intl?.locale ?? "en"}
         customTranslations={config.intl?.customTranslations}
