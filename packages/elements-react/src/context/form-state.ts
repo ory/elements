@@ -154,6 +154,15 @@ export type FormStateAction =
        */
       type: "page_redirect"
     }
+  | {
+      /**
+       * Action to indicate that a page redirect will not necessarily unload the page.
+       * This action is dispatched after a redirect to Apple's native Sign in with Apple sheet,
+       * which leaves the page as it is when the user cancels the sheet. It ends the submission
+       * that the page redirect kept in the submitting state.
+       */
+      type: "page_redirect_end"
+    }
 
 function findMethodWithMessage(nodes?: UiNode[]) {
   return nodes
@@ -310,6 +319,12 @@ export function useFormStateReducer(flow: OryFlowContainer) {
         return {
           ...state,
           isSubmitting: true,
+        }
+      case "page_redirect_end":
+        setRedirecting(false)
+        return {
+          ...state,
+          isSubmitting: false,
         }
     }
     return state

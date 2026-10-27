@@ -775,7 +775,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"form_submit_start\";\n} | {\n    type: \"form_submit_end\";\n} | {\n    type: \"page_redirect\";\n}"
+              "text": ";\n} | {\n    type: \"form_submit_start\";\n} | {\n    type: \"form_submit_end\";\n} | {\n    type: \"page_redirect\";\n} | {\n    type: \"page_redirect_end\";\n}"
             },
             {
               "kind": "Content",

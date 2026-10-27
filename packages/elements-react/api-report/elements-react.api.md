@@ -114,6 +114,8 @@ export type FormStateAction = {
     type: "form_submit_end";
 } | {
     type: "page_redirect";
+} | {
+    type: "page_redirect_end";
 };
 
 // @public
@@ -869,7 +871,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:775:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1142:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1146:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1725:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1733:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

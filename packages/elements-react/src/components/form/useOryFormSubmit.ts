@@ -16,6 +16,7 @@ import { useIntl } from "react-intl"
 import { useOryConfiguration, useOryFlow } from "../../context"
 import { FormValues } from "../../types"
 import { OryFlowContainer } from "../../util"
+import { opensAppleSignInSheet } from "../../util/apple-sign-in-sheet"
 import { OryErrorHandler } from "../../util/events"
 import { onSubmitLogin } from "../../util/onSubmitLogin"
 import { onSubmitRecovery } from "../../util/onSubmitRecovery"
@@ -29,6 +30,8 @@ import {
 import { removeEmptyStrings } from "../../util/removeFalsyValues"
 import { resolveTransientPayload } from "../../util/transientPayload"
 import { computeDefaultValues } from "./form-helpers"
+
+const appleSignInSheetDelayMs = 1000
 
 // The fields a single sign-on submission may carry, per
 // `UpdateLoginFlowWithOidcMethod` and its registration and SAML siblings.
@@ -129,6 +132,14 @@ export function useOryFormSubmit(
   const onRedirect: OnRedirectHandler = (url, _external) => {
     flowContainer.dispatchFormState({ type: "page_redirect" })
     window.location.assign(url)
+    if (opensAppleSignInSheet(url, window.navigator)) {
+      // The sheet covers the page by then. If the user cancels it, the page
+      // stays without any event, so the form must not wait for an unload.
+      window.setTimeout(
+        () => flowContainer.dispatchFormState({ type: "page_redirect_end" }),
+        appleSignInSheetDelayMs,
+      )
+    }
   }
 
   const mergeTransientPayload = (

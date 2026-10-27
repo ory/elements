@@ -35,17 +35,18 @@ function rateLimitedResponseError() {
 
 // Captures the submit handler so the test can drive a real submission through
 // production code, and renders the form's submitting state plus its messages.
-let triggerSubmit: (() => Promise<void>) | undefined
+let triggerSubmit: ((data?: FormValues) => Promise<void>) | undefined
 
 function SubmitHarness() {
   const { formState, flow } = useOryFlow()
   const onSubmit = useOryFormSubmit()
-  triggerSubmit = () =>
-    onSubmit({
+  triggerSubmit = (
+    data = {
       method: "password",
       identifier: "user@example.com",
       password: "secret",
-    } as never) as Promise<void>
+    },
+  ) => onSubmit(data as never) as Promise<void>
   return (
     <>
       <span data-testid="submitting">{String(formState.isSubmitting)}</span>
@@ -92,6 +93,130 @@ test("should end the submit state after a rate-limited (429) submission so the f
       screen.getByText(/Too many requests\. Please wait a moment/i),
     ).toBeInTheDocument(),
   )
+})
+
+function locationChangeRequiredError(redirectBrowserTo: string) {
+  const body = {
+    error: {
+      id: "browser_location_change_required",
+      code: 422,
+      status: "Unprocessable Entity",
+      message: "browser location change required",
+    },
+    redirect_browser_to: redirectBrowserTo,
+  }
+  const response = {
+    status: 422,
+    json: () => Promise.resolve(body),
+    clone: () => response,
+    text: () => Promise.resolve(JSON.stringify(body)),
+    headers: {
+      get: (name: string) =>
+        name === "content-type" ? "application/json" : null,
+    },
+  }
+  return Object.assign(new Error("Unprocessable Entity"), {
+    name: "ResponseError",
+    response,
+  })
+}
+
+function useBrowser(userAgent: string, maxTouchPoints: number) {
+  jest.spyOn(navigator, "userAgent", "get").mockReturnValue(userAgent)
+  Object.defineProperty(navigator, "maxTouchPoints", {
+    configurable: true,
+    get: () => maxTouchPoints,
+  })
+}
+
+const iPhoneSafari =
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.7 Mobile/15E148 Safari/604.1"
+const macChrome =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+const appleAuthorizeUrl =
+  "https://appleid.apple.com/auth/authorize?client_id=com.example&response_mode=form_post"
+const googleAuthorizeUrl =
+  "https://accounts.google.com/o/oauth2/v2/auth?client_id=example"
+
+async function submitSingleSignOnRedirectingTo(
+  redirectBrowserTo: string,
+  provider: string,
+) {
+  jest
+    .spyOn(await import("../../util/client"), "frontendClient")
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    .mockReturnValue({
+      updateLoginFlowRaw: jest
+        .fn()
+        .mockRejectedValue(locationChangeRequiredError(redirectBrowserTo)),
+    } as any)
+  // jsdom does not implement navigation and reports location.assign as an error.
+  jest.spyOn(console, "error").mockImplementation(() => {})
+
+  renderWithOryElements(
+    <IntlProvider locale="en">
+      <SubmitHarness />
+    </IntlProvider>,
+  )
+
+  await act(async () => {
+    await triggerSubmit?.({ method: "oidc", provider })
+  })
+}
+
+describe("redirect to a single sign-on provider", () => {
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    Reflect.deleteProperty(navigator, "maxTouchPoints")
+  })
+
+  test("should keep the form submitting until Apple's sign-in sheet has had time to open", async () => {
+    useBrowser(iPhoneSafari, 5)
+    await submitSingleSignOnRedirectingTo(appleAuthorizeUrl, "apple")
+
+    act(() => {
+      jest.advanceTimersByTime(999)
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("true")
+  })
+
+  test("should end the submit once Apple's sign-in sheet covers the page", async () => {
+    useBrowser(iPhoneSafari, 5)
+    await submitSingleSignOnRedirectingTo(appleAuthorizeUrl, "apple")
+
+    act(() => {
+      jest.advanceTimersByTime(1000)
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("false")
+  })
+
+  test("should keep the form submitting until the page unloads for other providers", async () => {
+    useBrowser(iPhoneSafari, 5)
+    await submitSingleSignOnRedirectingTo(googleAuthorizeUrl, "google")
+
+    act(() => {
+      jest.advanceTimersByTime(60_000)
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("true")
+  })
+
+  test("should keep the form submitting until the page unloads for Apple in browsers without the sheet", async () => {
+    useBrowser(macChrome, 0)
+    await submitSingleSignOnRedirectingTo(appleAuthorizeUrl, "apple")
+
+    act(() => {
+      jest.advanceTimersByTime(60_000)
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("true")
+  })
 })
 
 test("should keep the traits a single sign-on submission is allowed to carry", () => {

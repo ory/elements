@@ -631,6 +631,35 @@ test("should preserve current state and method on page_redirect", () => {
   })
 })
 
+test("should end the submit and the redirect on page_redirect_end", () => {
+  const { result } = renderHook(() => useFormStateReducer(init))
+
+  act(() => {
+    result.current[1]({ type: "form_submit_start" })
+  })
+  act(() => {
+    result.current[1]({ type: "page_redirect" })
+  })
+  act(() => {
+    result.current[1]({ type: "page_redirect_end" })
+  })
+
+  expect(result.current[0]).toEqual({
+    current: "provide_identifier",
+    isReady: true,
+    isSubmitting: false,
+  })
+
+  act(() => {
+    result.current[1]({ type: "form_submit_start" })
+  })
+  act(() => {
+    result.current[1]({ type: "form_submit_end" })
+  })
+
+  expect(result.current[0].isSubmitting).toBe(false)
+})
+
 test("should set isReady to false on when input loading", () => {
   const { result } = renderHook(() => useFormStateReducer(init))
   const [, dispatch] = result.current
