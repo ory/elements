@@ -11,3 +11,7 @@ component_management:
       name: "@ory/nextjs" # this is a display name, and can be changed freely
       paths:
         - packages/nextjs
+    - component_id: ssr
+      name: "@ory/ssr"
+      paths:
+        - packages/ssr

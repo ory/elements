@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`oryBaseUrlWarning explains a cross-site origin without a proxy 1`] = `"The app (http://localhost:3000) and Ory (https://slug.projects.oryapis.com) are on different sites, and the Ory proxy did not handle this request. The browser calls Ory directly, so Ory's session cookies will not reach the app. Make sure the Ory proxy runs for this page. See https://www.ory.com/docs/elements/guides/configuration#base-url"`;
+
+exports[`oryBaseUrlWarning explains a proxied origin that is not trusted 1`] = `"The Ory proxy handled a request for http://127.0.0.1:3000, which is not in \`trustedOrigins\`. The browser calls Ory directly at https://slug.projects.oryapis.com, so Ory's session cookies will not reach the app. In local development or a preview deployment, add the origin to \`trustedOrigins\`. In production, serve Ory on a custom domain on the app's site. See https://www.ory.com/docs/elements/guides/configuration#base-url"`;
+
+exports[`oryBaseUrlWarning explains an invalid origin 1`] = `"The request's \`Host\` header is not a valid origin, so the browser calls Ory directly at https://slug.projects.oryapis.com. Make sure the server that runs the app receives the host the browser visited. See https://www.ory.com/docs/elements/guides/configuration#base-url"`;

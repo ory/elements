@@ -96,10 +96,13 @@ export const config = {}
 ```
 
 The middleware is meant for local development and preview deployments. If the
-project deploys previews, add a `RegExp` for their origins to `trustedOrigins`,
-anchored to the project and team. The middleware isn't supported in production,
-so don't add the production origin and don't present the middleware as the
-production setup. In production, the application needs Ory on its own site, with
+project deploys previews, add a glob for them to `trustedOrigins`, such as
+`https://my-app-*-my-team.vercel.app`, with the project and team in it. `*`
+matches one or more letters, digits, or hyphens and never a dot. Tell the user
+to create a dedicated API key for previews and set it only in the preview
+environment. The middleware isn't supported in production, so don't add the
+production origin and don't present the middleware as the production setup. In
+production, the application needs Ory on its own site, with
 `NEXT_PUBLIC_ORY_SDK_URL` set to that domain: a custom domain (CNAME) on Ory
 Network, or the user's own domain on the Ory Enterprise License (OEL). Say so in
 your summary to the user. The flow pages and session checks below work unchanged
@@ -143,7 +146,9 @@ export default function AuthLayout({ children }: PropsWithChildren) {
 ```
 
 Create one page for each `*_ui_url` in `ory.config.ts`. The route has to match
-the URL exactly.
+the URL exactly. The flow functions and `getError` attach the URL the browser
+uses to reach Ory to what they return, so the components reach Ory at the same
+URL as the server.
 
 ```tsx
 // app/auth/login/page.tsx
@@ -222,7 +227,11 @@ export default async function VerificationPage(props: OryPageParams) {
 import { SessionProvider } from "@ory/elements-react/client"
 import { Settings } from "@ory/elements-react/theme"
 import "@ory/elements-react/theme/styles.css"
-import { getSettingsFlow, type OryPageParams } from "@ory/nextjs/app"
+import {
+  getOryBaseUrl,
+  getSettingsFlow,
+  type OryPageParams,
+} from "@ory/nextjs/app"
 
 import config from "@/ory.config"
 
@@ -234,7 +243,7 @@ export default async function SettingsPage(props: OryPageParams) {
   }
 
   return (
-    <SessionProvider>
+    <SessionProvider baseUrl={await getOryBaseUrl()}>
       <Settings flow={flow} config={config} />
     </SessionProvider>
   )

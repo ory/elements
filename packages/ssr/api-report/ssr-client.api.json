@@ -1,0 +1,1769 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.58.7",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@author",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@module",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@mergeModuleWith",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@type",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@typedef",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@callback",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@prop",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@property",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@group",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@groupDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@disableGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@category",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@categoryDescription",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@hidden",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@ignore",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@class",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@abstract",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@document",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@default",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@extends",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@augments",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@return",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@yields",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@enum",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@event",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@expand",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventExpand",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@expandType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inline",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@preventInline",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@inlineType",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@primaryExport",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@template",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@this",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@linkcode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@linkplain",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@include",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@includeCode",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@private",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@protected",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@satisfies",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@since",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@license",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@import",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@overload",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@namespace",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@interface",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@function",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideCategories",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@showGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideGroups",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@hideconstructor",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@summary",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@useDeclaredType",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@sortStrategy",
+          "syntaxKind": "block"
+        }
+      ],
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/ssr!",
+  "docComment": "",
+  "name": "@ory/ssr",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/ssr!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!createLogoutFlow:function(1)",
+          "docComment": "/**\n * Creates a logout flow for the session of the request's cookies. Ory URLs in the flow, including `logout_url`, are rewritten to `baseUrl`.\n *\n * @param req - The incoming request.\n *\n * @param opts - The Ory SDK URL, the browser URL from {@link resolveOryBaseUrl}, and where to return after logout.\n *\n * @returns The logout flow.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function createLogoutFlow(req: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Pick",
+              "canonicalReference": "!Pick:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRequest",
+              "canonicalReference": "@ory/ssr!OryRequest:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"headers\">"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdkUrl: string;\n    baseUrl: string;\n    returnTo?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LogoutFlow",
+              "canonicalReference": "@ory/client-fetch!LogoutFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 12
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "req",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "createLogoutFlow"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!FlowResolution:type",
+          "docComment": "/**\n * The result of {@link resolveFlow}.\n *\n * `restart` is `true` when the redirect starts a new flow or continues with a replacement flow, and `false` when Ory requires the browser to go somewhere else, for example to the login page before changing settings.\n *\n * `flow` is the parsed flow, or the error body of a validation error.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FlowResolution<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flow: T | void;\n} | {\n    redirectTo: string;\n    restart: boolean;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "releaseTag": "Public",
+          "name": "FlowResolution",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!FlowResult:type",
+          "docComment": "/**\n * The result of fetching a flow: the flow, or the URL the browser must be redirected to.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FlowResult<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    flow: T;\n} | {\n    redirectTo: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "releaseTag": "Public",
+          "name": "FlowResult",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!getError:function(1)",
+          "docComment": "/**\n * Fetches the error shown on an error page. The error comes from the `error` and `error_description` query parameters, or from Ory for the flow error in the `id` query parameter.\n *\n * @param req - The error page request.\n *\n * @param opts - The Ory SDK URL, and the URL the browser uses to reach Ory. The latter is attached to the result as `ory_base_url`.\n *\n * @returns An object containing the error and error description, or a FlowError object if the error is a flow error. If the error is not a flow error, the error description will be \"An unknown error occurred.\".\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getError(req: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRequest",
+              "canonicalReference": "@ory/ssr!OryRequest:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdkUrl: string;\n    baseUrl: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    error: string;\n    error_description: string;\n} | "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "req",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!getFlow:function(1)",
+          "docComment": "/**\n * Fetches the login, registration, recovery, verification, or settings flow of a page request, forwarding the request's cookies to Ory.\n *\n * Without a `flow` query parameter, or when the flow is missing or expired, it returns the URL to redirect the browser to. Ory URLs in the flow are rewritten to `baseUrl`.\n *\n * @param flowType - The type of the flow.\n *\n * @param req - The page request.\n *\n * @param opts - The Ory SDK URL, the app's route for the flow, and the browser URL.\n *\n * @returns The flow, or the URL to redirect the browser to.\n *\n * @example\n * ```ts\n * const sdkUrl = \"https://<slug>.projects.oryapis.com\"\n * const { url: baseUrl } = resolveOryBaseUrl({\n *   sdkUrl,\n *   origin: requestOrigin(request),\n *   proxy: \"absent\",\n * })\n * const result = await getFlow<LoginFlow>(FlowType.Login, request, {\n *   sdkUrl,\n *   route: \"/login\",\n *   baseUrl,\n * })\n * if (\"redirectTo\" in result) {\n *   // Redirect the browser with your framework.\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getFlow<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "object"
+            },
+            {
+              "kind": "Content",
+              "text": ">(flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", req: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRequest",
+              "canonicalReference": "@ory/ssr!OryRequest:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Reference",
+              "text": "GetFlowOptions",
+              "canonicalReference": "@ory/ssr!GetFlowOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowResult",
+              "canonicalReference": "@ory/ssr!FlowResult:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 13
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "flowType",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "req",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "getFlow"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!GetFlowOptions:type",
+          "docComment": "/**\n * Options for {@link getFlow}.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type GetFlowOptions = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdkUrl: string;\n    route: string;\n    baseUrl: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "GetFlowOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!getSession:function(1)",
+          "docComment": "/**\n * Fetches the session of the request's cookies.\n *\n * @param req - The incoming request.\n *\n * @param opts - The Ory SDK URL.\n *\n * @returns The session object or null if no session is found.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getSession(req: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Pick",
+              "canonicalReference": "!Pick:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRequest",
+              "canonicalReference": "@ory/ssr!OryRequest:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"headers\">"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdkUrl: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 12
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "req",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getSession"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!handleOryProxy:function(1)",
+          "docComment": "/**\n * Proxies a request for an Ory path to Ory and rewrites the response so the browser keeps talking to the app's origin: `Set-Cookie` domains, the `Location` header, and Ory URLs in text and JSON bodies.\n *\n * Use it for local development and preview deployments. Through the proxy, Ory sees every request coming from the app server instead of the user's browser. In production, serve Ory on a custom domain of your Ory Network project, or on your own domain with the Ory Enterprise License.\n *\n * @param request - The incoming request.\n *\n * @param opts - The proxy options.\n *\n * @returns The response for the browser, or `null` when the request is not for an Ory path.\n *\n * @example\n * ```ts\n * const response = await handleOryProxy(request, {\n *   sdkUrl: \"https://<slug>.projects.oryapis.com\",\n *   trustedOrigins: [\"http://localhost:3000\"],\n * })\n * if (response) {\n *   return response\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function handleOryProxy(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyOptions",
+              "canonicalReference": "@ory/ssr!OryProxyOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Response",
+              "canonicalReference": "!Response:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "handleOryProxy"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!isOryProxyPath:function(1)",
+          "docComment": "/**\n * Returns whether the proxy handles requests to this path.\n *\n * @param pathname - The path of the request URL.\n *\n * @returns Whether the path belongs to Ory.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function isOryProxyPath(pathname: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "boolean"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "pathname",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isOryProxyPath"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!isSameSite:function(1)",
+          "docComment": "/**\n * Two origins are the same site when their hostnames are equal or share the same registrable domain (eTLD+1). Cookies scoped to the registrable domain are visible to both, so the app can talk to Ory directly without proxying.\n *\n * @param originA - The first origin or URL.\n *\n * @param originB - The second origin or URL.\n *\n * @returns Whether both are on the same site.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function isSameSite(originA: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", originB: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "boolean"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "originA",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "originB",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isSameSite"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!OryBaseUrlReason:type",
+          "docComment": "/**\n * Why {@link resolveOryBaseUrl} chose the browser URL:\n *\n * - `same-site`: the app and Ory are on the same site, so the browser calls Ory directly. - `proxy`: the Ory proxy serves Ory on the app's trusted origin. - `proxy-untrusted-origin`: the Ory proxy handled the request, but the origin is not in `trustedOrigins`. - `cross-site-no-proxy`: the app and Ory are on different sites, and the Ory proxy did not handle the request. - `invalid-origin`: the request's origin is not a valid origin.\n *\n * Only `same-site` and `proxy` produce a working setup. For the others, {@link oryBaseUrlWarning} explains what to change.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryBaseUrlReason = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"same-site\" | \"proxy\" | \"proxy-untrusted-origin\" | \"cross-site-no-proxy\" | \"invalid-origin\""
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryBaseUrlReason",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!oryBaseUrlWarning:function(1)",
+          "docComment": "/**\n * Returns the warning for a resolution that does not produce a working setup, or `null` for `same-site` and `proxy`. The text has no package prefix; adapters add their own and log it once per reason.\n *\n * @param resolved - The result of {@link resolveOryBaseUrl}.\n *\n * @param opts - The options passed to {@link resolveOryBaseUrl}.\n *\n * @returns The warning text, or `null`.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function oryBaseUrlWarning(resolved: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ResolvedOryBaseUrl",
+              "canonicalReference": "@ory/ssr!ResolvedOryBaseUrl:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ResolveOryBaseUrlOptions",
+              "canonicalReference": "@ory/ssr!ResolveOryBaseUrlOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "resolved",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "oryBaseUrlWarning"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!OryProxyOptions:type",
+          "docComment": "/**\n * Options for {@link handleOryProxy}.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryProxyOptions = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdkUrl: string;\n    projectApiKey?: string;\n    forwardAdditionalHeaders?: string[];\n    forceCookieDomain?: string;\n    project?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "AccountExperienceConfiguration",
+              "canonicalReference": "@ory/client-fetch!AccountExperienceConfiguration:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    trustedOrigins?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReadonlyArray",
+              "canonicalReference": "!ReadonlyArray:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryProxyOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ory/ssr!oryProxyPaths:var",
+          "docComment": "/**\n * The path prefixes the proxy forwards to Ory.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "oryProxyPaths: "
+            },
+            {
+              "kind": "Content",
+              "text": "readonly string[]"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "oryProxyPaths",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!OryProxyState:type",
+          "docComment": "/**\n * What the Ory proxy reported for a request:\n *\n * - `trusted-origin`: the proxy handled the request, and its origin is in `trustedOrigins`. - `untrusted-origin`: the proxy handled the request, and its origin is not in `trustedOrigins`. - `absent`: the proxy did not mark the request.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryProxyState = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"trusted-origin\" | \"untrusted-origin\" | \"absent\""
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryProxyState",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!OryRequest:type",
+          "docComment": "/**\n * The parts of an incoming request that `@ory/ssr` reads. A standard `Request` satisfies it.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryRequest = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    url: string | "
+            },
+            {
+              "kind": "Reference",
+              "text": "URL",
+              "canonicalReference": "!URL:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    headers: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Headers",
+              "canonicalReference": "!Headers:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "releaseTag": "Public",
+          "name": "OryRequest",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!QueryParams:type",
+          "docComment": "/**\n * Query parameters as frameworks expose them. A repeated parameter is an array.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type QueryParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [key: string]: string | string[] | undefined;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "releaseTag": "Public",
+          "name": "QueryParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!requestOrigin:function(1)",
+          "docComment": "/**\n * Returns the origin the browser used for a request: the protocol of the request URL and the `Host` header, falling back to the host of the URL.\n *\n * @param req - The incoming request.\n *\n * @returns The origin, for example `http://localhost:3000`.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function requestOrigin(req: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryRequest",
+              "canonicalReference": "@ory/ssr!OryRequest:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "req",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "requestOrigin"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!ResolvedOryBaseUrl:type",
+          "docComment": "/**\n * The URL the browser uses to reach Ory, and why it was chosen.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ResolvedOryBaseUrl = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    url: string;\n    reason: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryBaseUrlReason",
+              "canonicalReference": "@ory/ssr!OryBaseUrlReason:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ResolvedOryBaseUrl",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!resolveError:function(1)",
+          "docComment": "/**\n * Resolves the error of an error page from its query parameters, with a caller-provided function that fetches a flow error from Ory.\n *\n * Use {@link getError} unless you need to control how the error is fetched.\n *\n * @param query - The query parameters of the error page request.\n *\n * @param fetchFlowError - Fetches the flow error with the ID from the `id` query parameter.\n *\n * @param opts - The URL the browser uses to reach Ory, from {@link resolveOryBaseUrl}. It is attached to the result as `ory_base_url`.\n *\n * @returns An object containing the error and error description, or a FlowError object if the error is a flow error. If the error is not a flow error, the error description will be \"An unknown error occurred.\".\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function resolveError(query: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/ssr!QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", fetchFlowError: "
+            },
+            {
+              "kind": "Content",
+              "text": "(params: {\n    id: string;\n}) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    baseUrl: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    error: string;\n    error_description: string;\n} | "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 11,
+            "endIndex": 15
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "query",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "fetchFlowError",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 8
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "resolveError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!resolveFlow:function(1)",
+          "docComment": "/**\n * Resolves a self-service flow from the query parameters of a page request, with a caller-provided function that fetches the flow from Ory.\n *\n * Without a `flow` query parameter, it returns a redirect that starts a new flow. When Ory reports the flow as missing or expired, or requires the browser to go somewhere else, it returns that redirect instead of the flow.\n *\n * Use {@link getFlow} unless you need to control how the flow is fetched.\n *\n * @param flowType - The type of the flow.\n *\n * @param query - The query parameters of the page request.\n *\n * @param fetchFlowRaw - Fetches the flow with the ID from the `flow` query parameter.\n *\n * @param opts - The browser URL, the app's route for the flow, and optional hooks.\n *\n * @returns The flow, or the redirect.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function resolveFlow<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "object"
+            },
+            {
+              "kind": "Content",
+              "text": ">(flowType: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowType",
+              "canonicalReference": "@ory/client-fetch!FlowType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", query: "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueryParams",
+              "canonicalReference": "@ory/ssr!QueryParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", fetchFlowRaw: "
+            },
+            {
+              "kind": "Content",
+              "text": "() => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiResponse",
+              "canonicalReference": "@ory/client-fetch!ApiResponse:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ", opts: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ResolveFlowOptions",
+              "canonicalReference": "@ory/ssr!ResolveFlowOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowResolution",
+              "canonicalReference": "@ory/ssr!FlowResolution:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 16,
+            "endIndex": 20
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "flowType",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "query",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "fetchFlowRaw",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 12
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 13,
+                "endIndex": 15
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "resolveFlow"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!ResolveFlowOptions:type",
+          "docComment": "/**\n * Options for {@link resolveFlow}.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ResolveFlowOptions<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    baseUrl: string;\n    route: string;\n    transform?: (flow: T) => T;\n    onRawResponseError?: (error: unknown) => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ResolveFlowOptions",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/ssr!resolveOryBaseUrl:function(1)",
+          "docComment": "/**\n * Resolves the URL the browser uses to reach Ory for one request. The first matching rule wins:\n *\n * 1. The origin is not a valid origin: the SDK URL (`invalid-origin`). 2. The origin and the SDK URL are on the same site: the SDK URL (`same-site`). 3. The proxy handled the request for a trusted origin: the origin (`proxy`). 4. The proxy handled the request for an untrusted origin: the SDK URL (`proxy-untrusted-origin`). 5. Otherwise: the SDK URL (`cross-site-no-proxy`).\n *\n * @param opts - The SDK URL, the request's origin, and what the proxy reported.\n *\n * @returns The browser URL and the reason.\n *\n * @example\n * ```ts\n * const { url, reason } = resolveOryBaseUrl({\n *   sdkUrl: \"https://<slug>.projects.oryapis.com\",\n *   origin: requestOrigin(request),\n *   proxy: \"absent\",\n * })\n * ```\n *\n * @throws\n *\n * TypeError when `sdkUrl` is not an absolute `http:` or `https:` URL.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function resolveOryBaseUrl(opts: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ResolveOryBaseUrlOptions",
+              "canonicalReference": "@ory/ssr!ResolveOryBaseUrlOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "ResolvedOryBaseUrl",
+              "canonicalReference": "@ory/ssr!ResolvedOryBaseUrl:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "opts",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "resolveOryBaseUrl"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/ssr!ResolveOryBaseUrlOptions:type",
+          "docComment": "/**\n * Options for {@link resolveOryBaseUrl}.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ResolveOryBaseUrlOptions = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    sdkUrl: string;\n    origin: string;\n    proxy: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyState",
+              "canonicalReference": "@ory/ssr!OryProxyState:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "ResolveOryBaseUrlOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        }
+      ]
+    }
+  ]
+}

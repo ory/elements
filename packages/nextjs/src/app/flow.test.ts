@@ -17,10 +17,13 @@ import {
 } from "."
 import { QueryParams } from "../types"
 import { serverSideFrontendClient } from "./client"
-import { getPublicUrl } from "./utils"
+import { getOryBaseUrl } from "./ory-url"
+
+jest.mock("./ory-url", () => ({
+  getOryBaseUrl: jest.fn(),
+}))
 
 jest.mock("./utils", () => ({
-  getPublicUrl: jest.fn(),
   toFlowParams: jest.fn().mockImplementation((params: QueryParams) => params),
   startNewFlow: jest.requireActual("./utils").startNewFlow,
   toGetFlowParameter: jest
@@ -79,8 +82,8 @@ const config = {
 }
 
 beforeEach(() => {
-  ;(getPublicUrl as jest.Mock).mockResolvedValue("https://example.com")
   jest.clearAllMocks()
+  ;(getOryBaseUrl as jest.Mock).mockResolvedValue("https://example.com")
   process.env["NEXT_PUBLIC_ORY_SDK_URL"] = "https://ory.sh/"
   ;(handleFlowError as jest.Mock).mockReturnValue(async () => {})
 })
@@ -149,6 +152,7 @@ for (const tc of testCases) {
       expect(result).toEqual({
         foo: "https://example.com/a",
         bar: "https://example.com/",
+        ory_base_url: "https://example.com",
       })
     })
 
@@ -171,7 +175,7 @@ for (const tc of testCases) {
         process.env = env
       })
 
-      test("warns with the next step outside of production", async () => {
+      test("warns with the next step", async () => {
         const result = await tc.fn(config, { flow: "1234" })
 
         expect(result).toBeUndefined()
@@ -185,12 +189,13 @@ for (const tc of testCases) {
         )
       })
 
-      test("stays silent in production", async () => {
+      test("warns in production too", async () => {
         process.env["NODE_ENV"] = "production"
+        process.env["VERCEL_ENV"] = "production"
 
         await tc.fn(config, { flow: "1234" })
 
-        expect(warn).not.toHaveBeenCalled()
+        expect(warn).toHaveBeenCalledTimes(1)
       })
     })
 

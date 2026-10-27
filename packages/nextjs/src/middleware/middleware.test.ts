@@ -266,6 +266,100 @@ describe("proxyRequest", () => {
     expect(got).toEqual("")
   })
 
+  describe("proxy marker", () => {
+    const marker = (response: Response) =>
+      response.headers.get("x-middleware-request-x-ory-proxy")
+
+    it("marks a pass-through request for a trusted origin", async () => {
+      const request = createMockRequest("http://localhost:3000/login", {
+        headers: new Headers({ host: "localhost:3000" }),
+      })
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost:3000"],
+      })
+
+      expect(marker(response)).toBe("1")
+    })
+
+    it("marks a pass-through request for an untrusted origin as untrusted", async () => {
+      const request = createMockRequest("http://127.0.0.1:3000/login", {
+        headers: new Headers({ host: "127.0.0.1:3000" }),
+      })
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost:3000"],
+      })
+
+      expect(marker(response)).toBe("untrusted-origin")
+    })
+
+    it("replaces a marker the client sent", async () => {
+      const request = createMockRequest("http://localhost:3000/login", {
+        headers: new Headers({
+          host: "app.example.org",
+          "x-ory-proxy": "1",
+        }),
+      })
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost:3000"],
+      })
+
+      expect(marker(response)).toBe("untrusted-origin")
+    })
+
+    it("checks the trusted origin with the scheme the page sees", async () => {
+      const request = createMockRequest("http://localhost:3000/login", {
+        headers: new Headers({
+          host: "localhost:3000",
+          "x-forwarded-proto": "https",
+        }),
+      })
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost:3000"],
+      })
+
+      expect(marker(response)).toBe("untrusted-origin")
+    })
+
+    it("keeps the other request headers", async () => {
+      const request = createMockRequest("http://localhost:3000/login", {
+        headers: new Headers({ host: "localhost:3000", cookie: "a=b" }),
+      })
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost:3000"],
+      })
+
+      expect(response.headers.get("x-middleware-request-cookie")).toBe("a=b")
+    })
+
+    it("does not send the marker to Ory or set it on proxied responses", async () => {
+      const fetch = jest
+        .fn()
+        .mockResolvedValue(new Response("", { status: 200 }))
+      global.fetch = fetch
+      const request = createMockLoginRequest(undefined, { "x-ory-proxy": "1" })
+
+      const response = await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://localhost"],
+      })
+
+      const fetchArgs = fetch.mock.calls[0][1]
+      expect(fetchArgs.headers.has("x-ory-proxy")).toBe(false)
+      expect(response.headers.has("x-middleware-override-headers")).toBe(false)
+      expect(marker(response)).toBeNull()
+    })
+  })
+
   describe("trustedOrigins", () => {
     afterEach(() => {
       delete process.env["ORY_PROJECT_API_TOKEN"]
@@ -293,8 +387,10 @@ describe("proxyRequest", () => {
       )
     })
 
-    it("signs the base URL rewrite when the request origin matches a RegExp entry", async () => {
-      const request = createMockLoginRequest()
+    it("signs the base URL rewrite with the scheme the page sees", async () => {
+      const request = createMockLoginRequest(undefined, {
+        "x-forwarded-proto": "https",
+      })
       const fetch = jest
         .fn()
         .mockResolvedValue(new Response("", { status: 200 }))
@@ -302,12 +398,12 @@ describe("proxyRequest", () => {
 
       await proxyRequest(request, {
         ...createOptions(),
-        trustedOrigins: [/^http:\/\/localhost$/],
+        trustedOrigins: ["https://localhost"],
       })
 
       const fetchArgs = fetch.mock.calls[0][1]
       expect(fetchArgs.headers.get("Ory-Base-URL-Rewrite")).toBe(
-        "http://localhost",
+        "https://localhost",
       )
     })
 
@@ -342,6 +438,26 @@ describe("proxyRequest", () => {
         JSON.stringify({
           action: "http://attacker.example/self-service/login",
         }),
+      )
+    })
+
+    it("signs the base URL rewrite when the request origin matches a glob", async () => {
+      const request = createMockLoginRequest(undefined, {
+        host: "pr-7.preview.example.com",
+      })
+      const fetch = jest
+        .fn()
+        .mockResolvedValue(new Response("", { status: 200 }))
+      global.fetch = fetch
+
+      await proxyRequest(request, {
+        ...createOptions(),
+        trustedOrigins: ["http://pr-*.preview.example.com"],
+      })
+
+      const fetchArgs = fetch.mock.calls[0][1]
+      expect(fetchArgs.headers.get("Ory-Base-URL-Rewrite")).toBe(
+        "http://pr-7.preview.example.com",
       )
     })
 
@@ -423,6 +539,19 @@ describe("createOryMiddleware", () => {
   it("throws when trustedOrigins is an empty list", () => {
     expect(() => createOryMiddleware({ trustedOrigins: [] })).toThrow(
       "trustedOrigins",
+    )
+  })
+
+  it("throws at construction for an entry that is not an origin", () => {
+    expect(() =>
+      createOryMiddleware({ trustedOrigins: ["localhost:3000"] }),
+    ).toThrow(/^\[@ory\/nextjs\] /)
+  })
+
+  it("throws at construction for a RegExp entry", () => {
+    const entry = /^http:\/\/localhost:3000$/ as unknown as string
+    expect(() => createOryMiddleware({ trustedOrigins: [entry] })).toThrow(
+      /^\[@ory\/nextjs\] `trustedOrigins` accepts only strings/,
     )
   })
 

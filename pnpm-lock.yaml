@@ -604,6 +604,9 @@ importers:
       '@hookform/devtools':
         specifier: 4.4.0
         version: 4.4.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(supports-color@8.1.1)
+      '@ory/ssr':
+        specifier: workspace:^
+        version: link:../ssr
       '@svgr/plugin-svgo':
         specifier: 8.1.0
         version: 8.1.0(@svgr/core@8.1.0(supports-color@8.1.1)(typescript@5.9.3))(typescript@5.9.3)
@@ -664,12 +667,43 @@ importers:
       '@ory/client-fetch':
         specifier: ^1.22.65
         version: 1.22.65
-      cookie:
-        specifier: ^1.0.1
-        version: 1.1.1
+      '@ory/ssr':
+        specifier: workspace:^
+        version: link:../ssr
       next:
         specifier: 15.5.28
         version: 15.5.28(@babel/core@7.29.7(supports-color@8.1.1))(@types/node@22.17.1)(babel-plugin-macros@3.1.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+    devDependencies:
+      '@types/react':
+        specifier: 19.2.17
+        version: 19.2.17
+      babel-jest:
+        specifier: ^29.7.0
+        version: 29.7.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
+      jest-esm-transformer:
+        specifier: ^1.0.0
+        version: 1.0.0(supports-color@8.1.1)
+      react:
+        specifier: 19.2.7
+        version: 19.2.7
+      tsup:
+        specifier: 8.5.0
+        version: 8.5.0(@microsoft/api-extractor@7.58.7(@types/node@22.17.1))(@swc/core@1.15.43(@swc/helpers@0.5.15))(jiti@2.7.0)(postcss@8.5.23)(supports-color@8.1.1)(tsx@4.20.2)(typescript@5.9.3)(yaml@2.9.0)
+      typedoc:
+        specifier: 0.28.19
+        version: 0.28.19(typescript@5.9.3)
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
+
+  packages/ssr:
+    dependencies:
+      '@ory/client-fetch':
+        specifier: ^1.22.65
+        version: 1.22.65
+      cookie:
+        specifier: ^1.0.1
+        version: 1.1.1
       psl:
         specifier: ^1.15.0
         version: 1.15.0
@@ -680,21 +714,9 @@ importers:
       '@types/cookie':
         specifier: ^0.6.0
         version: 0.6.0
-      '@types/react':
-        specifier: 19.2.17
-        version: 19.2.17
       '@types/set-cookie-parser':
         specifier: ^2.4.10
         version: 2.4.10
-      babel-jest:
-        specifier: ^29.7.0
-        version: 29.7.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      jest-esm-transformer:
-        specifier: ^1.0.0
-        version: 1.0.0(supports-color@8.1.1)
-      react:
-        specifier: 19.2.7
-        version: 19.2.7
       tsup:
         specifier: 8.5.0
         version: 8.5.0(@microsoft/api-extractor@7.58.7(@types/node@22.17.1))(@swc/core@1.15.43(@swc/helpers@0.5.15))(jiti@2.7.0)(postcss@8.5.23)(supports-color@8.1.1)(tsx@4.20.2)(typescript@5.9.3)(yaml@2.9.0)

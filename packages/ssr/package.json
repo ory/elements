@@ -1,0 +1,60 @@
+{
+  "name": "@ory/ssr",
+  "version": "0.0.0-unused",
+  "description": "Framework-neutral server-side helpers for building Ory Elements framework adapters.",
+  "license": "Apache License 2.0",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsup --clean --dts",
+    "prepare": "pnpm run build"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "private": false,
+  "sideEffects": false,
+  "dependencies": {
+    "@ory/client-fetch": "^1.22.65",
+    "cookie": "^1.0.1",
+    "psl": "^1.15.0",
+    "set-cookie-parser": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.6.0",
+    "@types/set-cookie-parser": "^2.4.10",
+    "tsup": "8.5.0",
+    "typedoc": "0.28.19",
+    "typescript": "5.9.3"
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "ssr",
+    "server-side rendering",
+    "login",
+    "authentication",
+    "user management"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./proxy": {
+      "types": "./dist/proxy/index.d.ts",
+      "import": "./dist/proxy/index.mjs",
+      "require": "./dist/proxy/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./dist/index.d.ts"
+      ],
+      "proxy": [
+        "./dist/proxy/index.d.ts"
+      ]
+    }
+  }
+}

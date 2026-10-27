@@ -4,6 +4,8 @@
 import { QueryParams } from "src/types"
 import { serverSideFrontendClient } from "./client"
 import { FlowError } from "@ory/client-fetch"
+import { resolveError } from "@ory/ssr"
+import { getOryBaseUrl } from "./ory-url"
 
 /**
  * Use this method in an app router page to fetch an error from the Ory SDK. This method works with server-side rendering.
@@ -38,31 +40,9 @@ import { FlowError } from "@ory/client-fetch"
 export async function getError(
   searchParams: QueryParams | Promise<QueryParams>,
 ): Promise<{ error: string; error_description: string } | FlowError> {
-  const params = await searchParams
-  if ("error" in params) {
-    return {
-      error: params["error"] as string,
-      error_description:
-        (params["error_description"] as string | undefined) ??
-        "An unknown error occurred.",
-    }
-  }
-
-  const id = params["id"]?.toString() ?? ""
-  if (!id) {
-    return {
-      error: "unknown_error",
-      error_description: "An unknown error occurred.",
-    }
-  }
-
-  try {
-    return await serverSideFrontendClient().getFlowError({ id })
-  } catch (error) {
-    return {
-      error: "unknown_error",
-      error_description:
-        error instanceof Error ? error.message : "An unknown error occurred.",
-    }
-  }
+  return resolveError(
+    await searchParams,
+    (params) => serverSideFrontendClient().getFlowError(params),
+    { baseUrl: await getOryBaseUrl() },
+  )
 }

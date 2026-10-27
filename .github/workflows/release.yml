@@ -30,6 +30,7 @@ on:
           - "All"
           - "@ory/elements-react"
           - "@ory/nextjs"
+          - "@ory/ssr"
 
 permissions:
   id-token: write # Required for OIDC
@@ -51,6 +52,8 @@ jobs:
             package_dir: packages/elements-react
           - package: "@ory/nextjs"
             package_dir: packages/nextjs
+          - package: "@ory/ssr"
+            package_dir: packages/ssr
     steps:
       - uses: actions/checkout@v5
         with:

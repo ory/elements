@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { SessionProvider } from "@ory/elements-react/client"
-import { getLogoutFlow, getServerSession } from "@ory/nextjs/app"
+import { getLogoutFlow, getOryBaseUrl, getServerSession } from "@ory/nextjs/app"
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout() {
   const session = await getServerSession()
+  const url = await getOryBaseUrl()
   const traits = session?.identity?.traits as {
     email: string
     username: string
@@ -21,7 +22,7 @@ export default async function RootLayout() {
   }
 
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session} baseUrl={url}>
       <div className="flex items-center justify-center min-h-screen bg-gray-50">
         <div className="flex flex-col items-center gap-4">
           <Image src={OryLogo as string} alt="Ory Logo" width={160} />

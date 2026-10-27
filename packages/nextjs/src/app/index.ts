@@ -11,5 +11,6 @@ export { getLogoutFlow } from "./logout"
 export { getServerSession } from "./session"
 export { getFlowFactory } from "./flow"
 export { getError } from "./error"
+export { getOryBaseUrl } from "./ory-url"
 
 export type { OryPageParams } from "./utils"

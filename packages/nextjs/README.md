@@ -17,9 +17,9 @@ The package has two parts:
 - The functions in `@ory/nextjs/app` fetch flows and sessions, and the hooks in
   `@ory/nextjs/pages` fetch flows, for your custom UI. They work in every
   deployment, on Ory Network and on the Ory Enterprise License (OEL).
-- The middleware in `@ory/nextjs/middleware` is for local development, where
-  your application runs on `localhost` and Ory doesn't. In production, put Ory
-  on your application's domain: a
+- The middleware in `@ory/nextjs/middleware` is for local development and
+  preview deployments, where your application and Ory are on different sites. In
+  production, put Ory on your application's domain: a
   [custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) on Ory
   Network, or your own domains on OEL.
 
@@ -52,17 +52,29 @@ Set `ORY_PROJECT_API_TOKEN` to an
 project. The middleware sends it so that Ory accepts your application's origin
 as the base URL. Without it, links in recovery and verification emails point to
 the Ory project URL, and social sign-in and SAML don't return to your
-application. Keep the key server-side: don't prefix it with `NEXT_PUBLIC_`.
+application. Keep the key server-side: don't prefix it with `NEXT_PUBLIC_`. For
+preview deployments, create a dedicated API key and set it only in the preview
+environment.
 
 ## Usage
 
 Create the middleware. `trustedOrigins` is required: `createOryMiddleware`
-throws when it is unset or empty. List the local development origin and a
-`RegExp` for your preview deployments, anchored to your project and team.
+throws when it is unset, empty, or has an invalid entry. List the local
+development origin as an exact origin, and your preview deployments as a glob
+that includes your project and team. In a glob, `*` matches one or more letters,
+digits, or hyphens and never a dot, and it can't make up the whole label right
+before a public suffix from the [Public Suffix List](https://publicsuffix.org/),
+such as `vercel.app` or `com`: `https://*.vercel.app` is rejected.
+
+The middleware serves only the origins in `trustedOrigins`. For any other
+origin, the flow functions use `NEXT_PUBLIC_ORY_SDK_URL` and log a warning. The
+middleware's `matcher` must cover every page that calls a function from
+`@ory/nextjs/app`; the default `export const config = {}` does.
 
 The middleware is meant for local development and preview deployments. It isn't
-supported for production traffic. In production, put Ory on the same site as
-your application and set `NEXT_PUBLIC_ORY_SDK_URL` to that URL: a
+supported for production traffic: through the middleware, Ory sees every request
+coming from your server instead of your users. In production, put Ory on the
+same site as your application and set `NEXT_PUBLIC_ORY_SDK_URL` to that URL: a
 [custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) on Ory
 Network, or your own domains on OEL.
 
@@ -75,7 +87,7 @@ export const middleware = createOryMiddleware({
   ...oryConfig,
   trustedOrigins: [
     "http://localhost:3000",
-    /^https:\/\/my-app-[a-z0-9-]+-my-team\.vercel\.app$/,
+    "https://my-app-*-my-team.vercel.app",
   ],
 })
 
@@ -105,13 +117,36 @@ export default async function LoginPage(props: OryPageParams) {
 
 `@/ory.config` exports the `OryClientConfiguration` object from
 `@ory/elements-react`. The middleware and the flow functions read its `project`
-property to find the route of each flow.
+property to find the route of each flow. The flow functions and `getError`
+attach the URL the browser uses to reach Ory to what they return, so the
+component uses the same URL as the server. `SessionProvider` fetches the session
+itself: pass it `baseUrl={await getOryBaseUrl()}`.
 
-| Entry point              | Exports                                                                                                                                             |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@ory/nextjs/middleware` | `createOryMiddleware`                                                                                                                               |
-| `@ory/nextjs/app`        | `getLoginFlow`, `getRegistrationFlow`, `getRecoveryFlow`, `getVerificationFlow`, `getSettingsFlow`, `getLogoutFlow`, `getServerSession`, `getError` |
-| `@ory/nextjs/pages`      | `useLoginFlow`, `useRegistrationFlow`, `useRecoveryFlow`, `useVerificationFlow`, `useSettingsFlow`, `useLogoutFlow`, `useError`                     |
+### Which URL the browser uses
+
+When Ory is on the same site as the application, the URL is
+`NEXT_PUBLIC_ORY_SDK_URL`. Otherwise it is the page's origin when the middleware
+handled the page and the origin is in `trustedOrigins`, and
+`NEXT_PUBLIC_ORY_SDK_URL` if not. `getOryBaseUrl()` returns the same URL.
+
+When the browser would call Ory on another site, Ory's session cookies don't
+reach the application, and the package logs a warning once:
+
+| Warning                                                                        | Fix                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `The Ory proxy handled a request for <origin>, which is not in trustedOrigins` | In local development or a preview deployment, add the origin to `trustedOrigins`. In production, use a custom domain on the app's site.                                                              |
+| `The app (<origin>) and Ory (<url>) are on different sites`                    | The middleware didn't run for this page. Export it from `proxy.ts` (`middleware.ts` before Next.js 16) in the project root, or in `src/` if the app uses one, and make its `matcher` cover the page. |
+| `The request's Host header is not a valid origin`                              | Configure the reverse proxy in front of the application to forward the `Host` header the browser sent.                                                                                               |
+
+The pages router hooks can't see the middleware: they use
+`NEXT_PUBLIC_ORY_SDK_URL` when it is on the same site as the page, and the
+page's origin otherwise.
+
+| Entry point              | Exports                                                                                                                                                              |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@ory/nextjs/middleware` | `createOryMiddleware`                                                                                                                                                |
+| `@ory/nextjs/app`        | `getLoginFlow`, `getRegistrationFlow`, `getRecoveryFlow`, `getVerificationFlow`, `getSettingsFlow`, `getLogoutFlow`, `getServerSession`, `getError`, `getOryBaseUrl` |
+| `@ory/nextjs/pages`      | `useLoginFlow`, `useRegistrationFlow`, `useRecoveryFlow`, `useVerificationFlow`, `useSettingsFlow`, `useLogoutFlow`, `useError`                                      |
 
 Check the
 [app router](https://github.com/ory/elements/blob/main/examples/nextjs-app-router/middleware.ts)

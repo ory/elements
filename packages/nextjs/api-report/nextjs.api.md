@@ -49,6 +49,9 @@ export function getLogoutFlow(input?: {
 }): Promise<LogoutFlow>;
 
 // @public
+export function getOryBaseUrl(): Promise<string>;
+
+// @public
 export function getRecoveryFlow(config: {
     project: {
         recovery_ui_url: string;
@@ -84,7 +87,7 @@ export type OryMiddlewareOptions = {
     forwardAdditionalHeaders?: string[];
     forceCookieDomain?: string;
     project?: Partial<AccountExperienceConfiguration>;
-    trustedOrigins?: Array<string | RegExp>;
+    trustedOrigins?: string[];
 };
 
 // @public

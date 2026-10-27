@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { Configuration, FrontendApi } from "@ory/client-fetch"
 
-import { guessPotentiallyProxiedOrySdkUrl } from "../utils/sdk"
+import { browserOryUrl } from "./utils"
 
 export const clientSideFrontendClient = () =>
   new FrontendApi(
@@ -11,8 +11,6 @@ export const clientSideFrontendClient = () =>
         Accept: "application/json",
       },
       credentials: "include",
-      basePath: guessPotentiallyProxiedOrySdkUrl({
-        knownProxiedUrl: window.location.origin,
-      }),
+      basePath: browserOryUrl(),
     }),
   )

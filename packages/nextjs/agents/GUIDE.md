@@ -25,6 +25,7 @@ The application installs these packages itself, in these ranges:
 itself, use a version in the same range, so that there is a single copy:
 
 - `@ory/client-fetch`: `^1.22.65`
+- `@ory/ssr`: `workspace:^`
 
 <!-- compatibility:end -->
 
@@ -38,6 +39,7 @@ import {
   getError,
   getLoginFlow,
   getLogoutFlow,
+  getOryBaseUrl,
   getRecoveryFlow,
   getRegistrationFlow,
   getServerSession,
@@ -70,6 +72,7 @@ export const appRouter = {
   getLogoutFlow,
   getServerSession,
   getError,
+  getOryBaseUrl,
 }
 export const pagesRouter = {
   useLoginFlow,
@@ -122,7 +125,9 @@ project. The middleware sends it so that Ory accepts the application's origin as
 the base URL. Without it, the application still works, but links in recovery and
 verification emails point to the Ory project URL, and social sign-in and SAML
 don't return to the application. The key is a secret: never prefix it with
-`NEXT_PUBLIC_` and never commit it. Ask the user for it; don't create one.
+`NEXT_PUBLIC_` and never commit it. Ask the user for it; don't create one. For
+preview deployments, tell the user to create a dedicated API key and set it only
+in the preview environment.
 
 ## Configuration and middleware
 
@@ -159,18 +164,27 @@ export const middleware = createOryMiddleware({
   ...oryConfig,
   trustedOrigins: [
     "http://localhost:3000",
-    /^https:\/\/my-app-[a-z0-9-]+-my-team\.vercel\.app$/,
+    "https://my-app-*-my-team.vercel.app",
   ],
 })
 
 export const config = {}
 ```
 
-`trustedOrigins` is required. `createOryMiddleware` throws when it is missing or
-empty. List the local development server as an exact origin
-(`scheme://host:port`) and preview deployments as a `RegExp`. Anchor the pattern
-to the project and team, so it doesn't match other applications on the same
-hosting domain.
+`trustedOrigins` is required. `createOryMiddleware` throws when it is missing,
+empty, or has an invalid entry. List the local development server as an exact
+origin (`scheme://host:port`, no path) and preview deployments as a glob. In a
+glob, `*` matches one or more letters, digits, or hyphens and never a dot. A `*`
+can't make up the whole label right before a public suffix from the
+[Public Suffix List](https://publicsuffix.org/), such as `vercel.app` or `com`,
+so `https://*.vercel.app` is rejected. On a hosting provider's domain, include
+your project and team in the glob, so it doesn't match other customers'
+deployments.
+
+The middleware serves only the origins in `trustedOrigins`. For any other
+origin, the flow functions use `NEXT_PUBLIC_ORY_SDK_URL` and log a warning. Keep
+`export const config = {}`, or a `matcher` that covers every page that calls a
+function from `@ory/nextjs/app`.
 
 The middleware does not protect routes. It has no `protectedPaths` or
 `publicPaths` option. Check the session in the page, as shown below.
@@ -179,6 +193,8 @@ The middleware does not protect routes. It has no `protectedPaths` or
 
 Each flow function takes the configuration and the `searchParams` promise of the
 page. It redirects to Ory to create a flow when the URL has no `flow` parameter.
+The flow functions and `getError` attach the URL the browser uses to reach Ory
+to what they return, so the component uses the same URL as the server.
 
 ```tsx
 // app/auth/login/page.tsx
@@ -257,8 +273,28 @@ export default async function DashboardPage() {
 ```
 
 `getServerSession` returns `null` when no user is signed in. In client
-components, use `SessionProvider` and `useSession` from
-`@ory/elements-react/client`.
+components, use `useSession` from `@ory/elements-react/client` below a
+`SessionProvider` that a server component renders with
+`baseUrl={await getOryBaseUrl()}`. `getOryBaseUrl` reads the request headers, so
+it only works in server components.
+
+## Which URL the browser uses
+
+When Ory is on the same site as the application, `getOryBaseUrl()` returns
+`NEXT_PUBLIC_ORY_SDK_URL`. Otherwise it returns the page's origin when the
+middleware handled the page and the origin is in `trustedOrigins`, and
+`NEXT_PUBLIC_ORY_SDK_URL` if not. When login doesn't work, look for the
+package's warning in the server log:
+
+| Warning                                                                        | Fix                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `The Ory proxy handled a request for <origin>, which is not in trustedOrigins` | In local development or a preview deployment, add the origin to `trustedOrigins`. In production, use a custom domain on the app's site.                                                              |
+| `The app (<origin>) and Ory (<url>) are on different sites`                    | The middleware didn't run for this page. Export it from `proxy.ts` (`middleware.ts` before Next.js 16) in the project root, or in `src/` if the app uses one, and make its `matcher` cover the page. |
+| `The request's Host header is not a valid origin`                              | Configure the reverse proxy in front of the application to forward the `Host` header the browser sent.                                                                                               |
+
+The pages router hooks can't see the middleware: they use
+`NEXT_PUBLIC_ORY_SDK_URL` when it is on the same site as the page, and the
+page's origin otherwise.
 
 ## Pages router
 
@@ -287,21 +323,25 @@ The hooks return `undefined` until the flow has loaded. The middleware and
 ## Production
 
 The middleware is meant for local development and preview deployments. It isn't
-supported for production traffic. In production, put Ory on the same site as the
-application, for example `auth.example.com` for an application on
-`app.example.com`, and set `NEXT_PUBLIC_ORY_SDK_URL` to it. On Ory Network, that
-is a [custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) of
-the project. On OEL, it is the domain the user serves Ory on. The flow functions
+supported for production traffic: through the middleware, Ory sees every request
+coming from the application's server instead of the user's browser. In
+production, put Ory on the same site as the application, for example
+`auth.example.com` for an application on `app.example.com`, and set
+`NEXT_PUBLIC_ORY_SDK_URL` to it. On Ory Network, that is a
+[custom domain](https://www.ory.com/docs/guides/custom-domains) (CNAME) of the
+project. On OEL, it is the domain the user serves Ory on. The flow functions
 then send the browser to that domain directly to start a flow. When a user asks
 to deploy to production, tell them they need that domain. The application needs
 its own domain too: Ory can't be on the same site as a default `vercel.app`
-domain, so add a custom domain for the application before going to production.
+domain. Don't add the production origin to `trustedOrigins`; add a custom domain
+for the application before going to production.
 
 ## Mistakes to avoid
 
 - Don't call `getLoginFlow(searchParams)`. The first argument is the
   configuration: `getLoginFlow(config, props.searchParams)`.
 - Don't call `createOryMiddleware(oryConfig)` without `trustedOrigins`.
+- Don't render `SessionProvider` without `baseUrl={await getOryBaseUrl()}`.
 - Don't present the middleware as the production setup. Production puts Ory on
   the application's site: a custom domain on Ory Network, or the user's own
   domain on OEL.

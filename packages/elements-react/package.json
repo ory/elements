@@ -69,6 +69,7 @@
     "@babel/preset-react": "^7.26.3",
     "@formatjs/icu-messageformat-parser": "2.11.3",
     "@hookform/devtools": "4.4.0",
+    "@ory/ssr": "workspace:^",
     "@svgr/plugin-svgo": "8.1.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/lodash.merge": "4.6.9",

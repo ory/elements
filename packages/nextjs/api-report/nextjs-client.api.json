@@ -384,7 +384,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!createOryMiddleware:function(1)",
-          "docComment": "/**\n * Creates a Next.js middleware function that proxies requests to the Ory SDK.\n *\n * This middleware function intercepts requests to the Ory SDK and rewrites the URLs if in development mode or on vercel.com domains.\n *\n * @param options - The Ory configuration to use for the middleware.\n *\n * @returns The Ory Next.js middleware function\n *\n * @example\n * ```ts title=\"middleware.ts\"\n * import { createOryMiddleware } from \"@ory/nextjs/middleware\";\n *\n * export const middleware = createOryMiddleware({\n *   trustedOrigins: [\n *     \"http://localhost:3000\",\n *     /^https:\\/\\/my-app-[a-z0-9-]+-my-team\\.vercel\\.app$/,\n *   ],\n *   forwardAdditionalHeaders: [\"authorization\", \"x-custom-header\"],\n *   project: {\n *     name: \"my-project\",\n *   },\n * });\n * ```\n *\n * @public\n */\n",
+          "docComment": "/**\n * Creates a Next.js middleware function that proxies requests to the Ory SDK.\n *\n * The middleware serves Ory's paths on the app's origin. Use it for local development and preview deployments.\n *\n * @param options - The Ory configuration to use for the middleware.\n *\n * @returns The Ory Next.js middleware function\n *\n * @example\n * ```ts title=\"middleware.ts\"\n * import { createOryMiddleware } from \"@ory/nextjs/middleware\";\n *\n * export const middleware = createOryMiddleware({\n *   trustedOrigins: [\n *     \"http://localhost:3000\",\n *     \"https://my-app-*-my-team.vercel.app\",\n *   ],\n *   forwardAdditionalHeaders: [\"authorization\", \"x-custom-header\"],\n *   project: {\n *     name: \"my-project\",\n *   },\n * });\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -539,7 +539,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@ory/nextjs!getFlowFactory:function(1)",
-          "docComment": "/**\n * A function that creates a flow fetcher. The flow fetcher can be used to fetch a login, registration, recovery, settings, or verification flow from the SDK.\n *\n * Unless you are building something very custom, you will not need this method. Use it with care and expect potential breaking changes.\n *\n * @param params - The query parameters of the request.\n *\n * @param fetchFlowRaw - A function that fetches the flow from the SDK.\n *\n * @param flowType - The type of the flow.\n *\n * @param baseUrl - The base URL of the application.\n *\n * @param route - The route of the application.\n *\n * @param options - Additional options.\n *\n * @public\n */\n",
+          "docComment": "/**\n * A function that creates a flow fetcher. The flow fetcher can be used to fetch a login, registration, recovery, settings, or verification flow from the SDK.\n *\n * Unless you are building something very custom, you will not need this method. Use it with care and expect potential breaking changes.\n *\n * @param params - The query parameters of the request.\n *\n * @param fetchFlowRaw - A function that fetches the flow from the SDK.\n *\n * @param flowType - The type of the flow.\n *\n * @param baseUrl - The URL the browser uses to reach Ory, from `getOryBaseUrl`.\n *\n * @param route - The route of the application.\n *\n * @param options - Additional options.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -871,6 +871,39 @@
             }
           ],
           "name": "getLogoutFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/nextjs!getOryBaseUrl:function(1)",
+          "docComment": "/**\n * Returns the URL the browser uses to reach Ory for the current request. The flow functions and `getError` attach it to what they return, so the Ory Elements flow components need no `baseUrl`. Pass it as `baseUrl` to `SessionProvider`, which fetches the session itself.\n *\n * The URL is the request's origin only when the middleware from `@ory/nextjs/middleware` handled the request and the origin is in its `trustedOrigins`. Otherwise it is `NEXT_PUBLIC_ORY_SDK_URL`, and a warning with the fix is logged once when that cannot work.\n *\n * @returns The browser URL.\n *\n * @example\n * ```tsx\n * import { SessionProvider } from \"@ory/elements-react/client\"\n * import { getOryBaseUrl, getServerSession } from \"@ory/nextjs/app\"\n *\n * export default async function Layout({ children }: { children: React.ReactNode }) {\n *   return (\n *     <SessionProvider\n *       session={await getServerSession()}\n *       baseUrl={await getOryBaseUrl()}\n *     >\n *       {children}\n *     </SessionProvider>\n *   )\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getOryBaseUrl(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/app/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "getOryBaseUrl"
         },
         {
           "kind": "Function",
@@ -1335,25 +1368,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    trustedOrigins?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Array",
-              "canonicalReference": "!Array:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<string | "
-            },
-            {
-              "kind": "Reference",
-              "text": "RegExp",
-              "canonicalReference": "!RegExp:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n}"
+              "text": ">;\n    trustedOrigins?: string[];\n}"
             },
             {
               "kind": "Content",
@@ -1365,7 +1380,7 @@
           "name": "OryMiddlewareOptions",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 10
+            "endIndex": 6
           }
         },
         {

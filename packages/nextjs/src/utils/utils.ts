@@ -1,14 +1,15 @@
 // Copyright © 2024 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
-import { serialize, SerializeOptions } from "cookie"
-import { parse, splitCookiesString } from "set-cookie-parser"
 
 import { ApiResponse } from "@ory/client-fetch"
-import { OryMiddlewareOptions } from "src/middleware/middleware"
 import { FlowParams, QueryParams } from "../types"
-import { guessCookieDomain } from "./cookie"
-import { defaultForwardedHeaders } from "./headers"
 import { rewriteJsonResponse } from "./rewrite"
+
+export {
+  filterRequestHeaders,
+  joinUrlPaths,
+  processSetCookieHeaders,
+} from "@ory/ssr/proxy"
 
 export function onValidationError<T>(value: T): T {
   return value
@@ -23,64 +24,6 @@ export async function toFlowParams(
     cookie: await getCookieHeader(),
     return_to: params["return_to"]?.toString() ?? "",
   }
-}
-export function processSetCookieHeaders(
-  protocol: string,
-  fetchResponse: Response,
-  options: OryMiddlewareOptions,
-  requestHeaders: Headers,
-) {
-  const isTls =
-    protocol === "https:" || requestHeaders.get("x-forwarded-proto") === "https"
-
-  const forwarded = requestHeaders.get("x-forwarded-host")
-  const host = forwarded ? forwarded : requestHeaders.get("host")
-  const domain =
-    host && !options.forceCookieDomain
-      ? guessCookieDomain(host ?? "")
-      : options.forceCookieDomain
-
-  return parse(
-    splitCookiesString(fetchResponse.headers.get("set-cookie") || ""),
-  )
-    .map((cookie) =>
-      // Browsers reject a __Host- cookie that has a Domain attribute or lacks
-      // Secure (RFC 6265bis, section 4.1.3.2), so it is forwarded unchanged.
-      cookie.name.startsWith("__Host-")
-        ? { ...cookie, encode: (v: string) => v }
-        : { ...cookie, domain, secure: isTls, encode: (v: string) => v },
-    )
-    .map(({ value, name, ...options }) =>
-      serialize(name, value, options as SerializeOptions),
-    )
-}
-
-export function filterRequestHeaders(
-  headers: Headers,
-  forwardAdditionalHeaders?: string[],
-): Headers {
-  const filteredHeaders = new Headers()
-
-  headers.forEach((value, key) => {
-    const isValid =
-      defaultForwardedHeaders.includes(key) ||
-      (forwardAdditionalHeaders ?? []).includes(key)
-    if (isValid) filteredHeaders.set(key, value)
-  })
-
-  return filteredHeaders
-}
-
-export function joinUrlPaths(baseUrl: string, relativeUrl: string): string {
-  const base = new URL(baseUrl)
-  const relative = new URL(relativeUrl, baseUrl)
-
-  relative.pathname =
-    base.pathname.replace(/\/$/, "") +
-    "/" +
-    relative.pathname.replace(/^\//, "")
-
-  return new URL(relative.toString(), baseUrl).href
 }
 
 export function toValue<T extends object>(res: ApiResponse<T>): Promise<T> {

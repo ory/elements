@@ -3,7 +3,7 @@
 
 import { headers } from "next/headers"
 
-import { getCookieHeader, getPublicUrl } from "./utils"
+import { getCookieHeader } from "./utils"
 
 // Mocking dependencies
 jest.mock("next/headers", () => ({
@@ -38,45 +38,6 @@ describe("getCookieHeader", () => {
 
     const result = await getCookieHeader()
     expect(headersMock.get).toHaveBeenCalledWith("cookie")
-    expect(result).toBeUndefined()
-  })
-})
-
-describe("getPublicUrl", () => {
-  it("should construct the URL with the x-forwarded-proto header when available", async () => {
-    const headersMock = {
-      get: jest.fn((key: string) => {
-        if (key === "host") return "example.com"
-        if (key === "x-forwarded-proto") return "https"
-        return undefined
-      }),
-    }
-    ;(headers as jest.Mock).mockResolvedValue(headersMock)
-
-    const result = await getPublicUrl()
-    expect(result).toBe("https://example.com")
-  })
-
-  it("should default to http if x-forwarded-proto is not present", async () => {
-    const headersMock = {
-      get: jest.fn((key: string) => {
-        if (key === "host") return "example.com"
-        return undefined
-      }),
-    }
-    ;(headers as jest.Mock).mockResolvedValue(headersMock)
-
-    const result = await getPublicUrl()
-    expect(result).toBe("http://example.com")
-  })
-
-  it("should return undefined when the host header is missing", async () => {
-    const headersMock = {
-      get: jest.fn().mockReturnValue(undefined),
-    }
-    ;(headers as jest.Mock).mockResolvedValue(headersMock)
-
-    const result = await getPublicUrl()
     expect(result).toBeUndefined()
   })
 })

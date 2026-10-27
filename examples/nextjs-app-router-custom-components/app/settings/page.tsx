@@ -4,7 +4,7 @@
 import { SessionProvider } from "@ory/elements-react/client"
 import { Settings } from "@ory/elements-react/theme"
 import "@ory/elements-react/theme/styles.css"
-import { getSettingsFlow, OryPageParams } from "@ory/nextjs/app"
+import { getOryBaseUrl, getSettingsFlow, OryPageParams } from "@ory/nextjs/app"
 
 import { myCustomComponents } from "@/components"
 import config from "@/ory.config"
@@ -18,7 +18,7 @@ export default async function SettingsPage(props: OryPageParams) {
 
   return (
     <div className="flex flex-col gap-8 items-center mb-8">
-      <SessionProvider>
+      <SessionProvider baseUrl={await getOryBaseUrl()}>
         <Settings flow={flow} config={config} components={myCustomComponents} />
       </SessionProvider>
     </div>

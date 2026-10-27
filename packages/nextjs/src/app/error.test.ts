@@ -5,6 +5,11 @@
 import { FlowError } from "@ory/client-fetch"
 import { getError } from "./error"
 import { serverSideFrontendClient } from "./client"
+import { getOryBaseUrl } from "./ory-url"
+
+jest.mock("./ory-url", () => ({
+  getOryBaseUrl: jest.fn(),
+}))
 
 jest.mock("./client", () => ({
   serverSideFrontendClient: jest.fn().mockReturnValue({
@@ -14,6 +19,7 @@ jest.mock("./client", () => ({
 
 beforeEach(() => {
   jest.clearAllMocks()
+  ;(getOryBaseUrl as jest.Mock).mockResolvedValue("https://example.com")
 })
 
 describe("getError", () => {
@@ -27,6 +33,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "access_denied",
         error_description: "The user denied the request.",
       })
@@ -40,6 +47,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "access_denied",
         error_description: "An unknown error occurred.",
       })
@@ -53,6 +61,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "unknown_error",
         error_description: "An unknown error occurred.",
       })
@@ -64,6 +73,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "unknown_error",
         error_description: "An unknown error occurred.",
       })
@@ -88,7 +98,10 @@ describe("getError", () => {
       expect(serverSideFrontendClient().getFlowError).toHaveBeenCalledWith({
         id: "err-1234",
       })
-      expect(result).toEqual(flowError)
+      expect(result).toEqual({
+        ...flowError,
+        ory_base_url: "https://example.com",
+      })
     })
 
     test("returns unknown_error with error message when SDK call throws an Error", async () => {
@@ -101,6 +114,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "unknown_error",
         error_description: "Network failure",
       })
@@ -116,6 +130,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "unknown_error",
         error_description: "An unknown error occurred.",
       })
@@ -132,6 +147,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "session_expired",
         error_description: "Your session has expired.",
       })
@@ -154,7 +170,10 @@ describe("getError", () => {
       expect(serverSideFrontendClient().getFlowError).toHaveBeenCalledWith({
         id: "err-5678",
       })
-      expect(result).toEqual(flowError)
+      expect(result).toEqual({
+        ...flowError,
+        ory_base_url: "https://example.com",
+      })
     })
 
     test("resolves the promise and returns unknown_error when empty", async () => {
@@ -163,6 +182,7 @@ describe("getError", () => {
       const result = await getError(searchParams)
 
       expect(result).toEqual({
+        ory_base_url: "https://example.com",
         error: "unknown_error",
         error_description: "An unknown error occurred.",
       })

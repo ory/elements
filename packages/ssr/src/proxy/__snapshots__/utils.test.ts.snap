@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`processSetCookieHeaders should respect forwarded headers 1`] = `
+[
+  "sessionid=abc123; Domain=ory.sh; Path=/; HttpOnly; Secure",
+]
+`;
+
+exports[`processSetCookieHeaders should respect regular headers 1`] = `
+[
+  "sessionid=abc123; Domain=ory.sh; Path=/; HttpOnly",
+]
+`;
+
+exports[`processSetCookieHeaders supports insecure 1`] = `
+[
+  "sessionid=abc123; Domain=ory.sh; Path=/; HttpOnly",
+]
+`;
+
+exports[`processSetCookieHeaders supports multiple cookies comma separated 1`] = `
+[
+  "sessionid1=abc123; Domain=ory.sh; Path=/; HttpOnly",
+  "sessionid2=123abc; Domain=ory.sh; Path=/abc; HttpOnly",
+]
+`;
+
+exports[`processSetCookieHeaders supports multiple cookies in record 1`] = `
+[
+  "sessionid1=abc123; Domain=ory.sh; Path=/; HttpOnly",
+  "sessionid2=123abc; Domain=ory.sh; Path=/abc; HttpOnly",
+]
+`;
