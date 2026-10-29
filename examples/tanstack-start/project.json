@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "typecheck": {
+      "command": "tsc --noEmit",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "examples/tanstack-start"
+      }
+    },
+    "test": {
+      "command": "vitest run",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "examples/tanstack-start"
+      }
+    }
+  }
+}

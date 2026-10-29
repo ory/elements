@@ -1,0 +1,61 @@
+{
+  "name": "@ory/tanstack-start",
+  "version": "0.0.0-unused",
+  "description": "Ory authentication flows, sessions, and a local development proxy for TanStack Start.",
+  "license": "Apache License 2.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsup --clean --dts",
+    "prepare": "pnpm run build"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "private": false,
+  "dependencies": {
+    "@ory/client-fetch": "^1.22.65",
+    "@ory/ssr": "workspace:^"
+  },
+  "devDependencies": {
+    "@tanstack/react-router": "1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "@tanstack/router-core": "1.171.34",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "seroval": "1.6.9",
+    "tsup": "8.5.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "peerDependencies": {
+    "@tanstack/react-router": "^1.170.41",
+    "@tanstack/react-start": "^1.168.60"
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "authentication",
+    "login",
+    "passwordless",
+    "user management",
+    "tanstack",
+    "tanstack start",
+    "tanstack router"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./proxy": {
+      "types": "./dist/proxy/index.d.ts",
+      "import": "./dist/proxy/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "proxy": [
+        "./dist/proxy/index.d.ts"
+      ]
+    }
+  }
+}

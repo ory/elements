@@ -1,0 +1,6 @@
+node_modules
+.output
+.nitro
+.tanstack
+dist
+.env*.local

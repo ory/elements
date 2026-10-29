@@ -19,3 +19,4 @@ pnpm-lock.yaml
 **/agents/slots.md
 .changeset/
 **/next-env.d.ts
+**/routeTree.gen.ts

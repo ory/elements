@@ -1,0 +1,949 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.58.7",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/tanstack-start!",
+  "docComment": "",
+  "name": "@ory/tanstack-start",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/tanstack-start!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getError:function(1)",
+          "docComment": "/**\n * Fetches the error that Ory redirected the browser to the error page with. Call it from the handler of a `createServerFn`, like {@link getLoginFlow}.\n *\n * @param search - The search params of the error page.\n *\n * @returns The flow error, or an error and description from the search params.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getError(search?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | {\n    error: string;\n    error_description: string;\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "search",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getLoginFlow:function(1)",
+          "docComment": "/**\n * Fetches the login flow named by the `flow` search param, or redirects to Ory to create a new one. Call it from the handler of a `createServerFn` so it runs on the server with the browser's cookies.\n *\n * @param config - The Ory configuration. `project.login_ui_url` is the route of the login page.\n *\n * @param search - The search params of the login page.\n *\n * @returns The login flow.\n *\n * @example\n * ```ts\n * // src/ory.functions.ts\n * import { createServerFn } from \"@tanstack/react-start\"\n * import { getLoginFlow, validateOrySearch } from \"@ory/tanstack-start\"\n * import config from \"./ory.config\"\n *\n * export const loginFlowFn = createServerFn({ method: \"GET\" })\n *   .validator(validateOrySearch)\n *   .handler(({ data }) => getLoginFlow(config, data))\n *\n * // src/routes/login.tsx\n * export const Route = createFileRoute(\"/login\")({\n *   loaderDeps: ({ search }) => search,\n *   loader: ({ deps }) => loginFlowFn({ data: deps }),\n *   component: LoginPage,\n * })\n * ```\n *\n * @throws\n *\n * A TanStack Router redirect when the flow must be created or restarted.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getLoginFlow(config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        login_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ", search?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "search",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getLoginFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getLogoutFlow:function(1)",
+          "docComment": "/**\n * Creates a logout flow for the browser that sent the current request. Link to its `logout_url` to sign the user out. Call it from the handler of a `createServerFn`.\n *\n * @param options - `returnTo` is where Ory sends the browser after logout.\n *\n * @returns The logout flow.\n *\n * @example\n * ```ts\n * export const logoutFlowFn = createServerFn({ method: \"GET\" }).handler(() =>\n *   getLogoutFlow(),\n * )\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getLogoutFlow(options?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    returnTo?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LogoutFlow",
+              "canonicalReference": "@ory/client-fetch!LogoutFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getLogoutFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getOryBaseUrl:function(1)",
+          "docComment": "/**\n * Returns the URL the browser uses to reach Ory for the current request, and marks the response as private and not storable. The flow, logout, and error helpers use the same URL, and the flow and error helpers attach it to what they return, where the Ory Elements components read it. Call it from the handler of a `createServerFn`, and pass the result as `baseUrl` to `SessionProvider`.\n *\n * The URL is the app's origin only when `oryProxyMiddleware` handled the request and the origin is in its `trustedOrigins`. Otherwise it is `ORY_SDK_URL`, and a warning with the fix is logged once when that cannot work.\n *\n * @returns The browser URL, without a trailing slash.\n *\n * @example\n * ```ts\n * export const oryBaseUrlFn = createServerFn({ method: \"GET\" }).handler(() =>\n *   getOryBaseUrl(),\n * )\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getOryBaseUrl(): "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "getOryBaseUrl"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getRecoveryFlow:function(1)",
+          "docComment": "/**\n * Fetches the recovery flow named by the `flow` search param, or redirects to Ory to create a new one. Call it from the handler of a `createServerFn`, like {@link getLoginFlow}.\n *\n * @param config - The Ory configuration. `project.recovery_ui_url` is the route of the recovery page.\n *\n * @param search - The search params of the recovery page.\n *\n * @returns The recovery flow.\n *\n * @throws\n *\n * A TanStack Router redirect when the flow must be created or restarted.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getRecoveryFlow(config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        recovery_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ", search?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "search",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getRecoveryFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getRegistrationFlow:function(1)",
+          "docComment": "/**\n * Fetches the registration flow named by the `flow` search param, or redirects to Ory to create a new one. Call it from the handler of a `createServerFn`, like {@link getLoginFlow}.\n *\n * @param config - The Ory configuration. `project.registration_ui_url` is the route of the registration page.\n *\n * @param search - The search params of the registration page.\n *\n * @returns The registration flow.\n *\n * @throws\n *\n * A TanStack Router redirect when the flow must be created or restarted.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getRegistrationFlow(config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        registration_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ", search?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "search",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getRegistrationFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getServerSession:function(1)",
+          "docComment": "/**\n * Returns the session of the browser that sent the current request, or `null` when it has none. Call it from the handler of a `createServerFn`.\n *\n * @returns The session, or `null`.\n *\n * @example\n * ```ts\n * export const sessionFn = createServerFn({ method: \"GET\" }).handler(() =>\n *   getServerSession(),\n * )\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getServerSession(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "getServerSession"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getSettingsFlow:function(1)",
+          "docComment": "/**\n * Fetches the settings flow named by the `flow` search param, or redirects to Ory to create a new one. Ory redirects to the login page when there is no session. Call it from the handler of a `createServerFn`, like {@link getLoginFlow}.\n *\n * @param config - The Ory configuration. `project.settings_ui_url` is the route of the settings page.\n *\n * @param search - The search params of the settings page.\n *\n * @returns The settings flow.\n *\n * @throws\n *\n * A TanStack Router redirect when the flow must be created or restarted.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getSettingsFlow(config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        settings_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ", search?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "search",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getSettingsFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!getVerificationFlow:function(1)",
+          "docComment": "/**\n * Fetches the verification flow named by the `flow` search param, or redirects to Ory to create a new one. Call it from the handler of a `createServerFn`, like {@link getLoginFlow}.\n *\n * @param config - The Ory configuration. `project.verification_ui_url` is the route of the verification page.\n *\n * @param search - The search params of the verification page.\n *\n * @returns The verification flow.\n *\n * @throws\n *\n * A TanStack Router redirect when the flow must be created or restarted.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getVerificationFlow(config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        verification_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ", search?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "search",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getVerificationFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!oryProxyMiddleware:function(1)",
+          "docComment": "/**\n * Creates request middleware that serves Ory's APIs on the app's own origin, so Ory's cookies are first-party during local development and on preview deployments. In production, use a custom domain on Ory Network, or your own domain with the Ory Enterprise License: through the proxy, Ory sees your server as the client instead of your users.\n *\n * Register it after Start's CSRF middleware. Once `src/start.ts` defines a `startInstance`, Start no longer adds its default CSRF middleware.\n *\n * @param options - The proxy options. `trustedOrigins` is required.\n *\n * @returns The request middleware.\n *\n * @example\n * ```ts\n * // src/start.ts\n * import { oryProxyMiddleware } from \"@ory/tanstack-start/proxy\"\n * import { createCsrfMiddleware, createStart } from \"@tanstack/react-start\"\n *\n * const csrfMiddleware = createCsrfMiddleware({\n *   filter: (ctx) => ctx.handlerType === \"serverFn\",\n * })\n *\n * const oryProxy = oryProxyMiddleware({\n *   trustedOrigins: [\"http://localhost:3000\"],\n * })\n *\n * export const startInstance = createStart(() => ({\n *   requestMiddleware: [csrfMiddleware, oryProxy],\n * }))\n * ```\n *\n * @throws\n *\n * TypeError when `trustedOrigins` is empty or has an invalid entry.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function oryProxyMiddleware(options: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyMiddlewareOptions",
+              "canonicalReference": "@ory/tanstack-start!OryProxyMiddlewareOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "_tanstack_react_start.RequestMiddlewareAfterServer",
+              "canonicalReference": "@tanstack/start-client-core!RequestMiddlewareAfterServer:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<{}, undefined, {\n    oryProxy: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyState",
+              "canonicalReference": "@ory/ssr!OryProxyState:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "oryProxyMiddleware"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/tanstack-start!OryProxyMiddlewareOptions:type",
+          "docComment": "/**\n * Options for {@link oryProxyMiddleware}. The SDK URL and the API token come from the `ORY_SDK_URL` and `ORY_PROJECT_API_TOKEN` environment variables.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryProxyMiddlewareOptions = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyOptions",
+              "canonicalReference": "@ory/ssr!OryProxyOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"sdkUrl\" | \"projectApiKey\" | \"trustedOrigins\"> & {\n    trustedOrigins: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReadonlyArray",
+              "canonicalReference": "!ReadonlyArray:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryProxyMiddlewareOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/tanstack-start!OrySearchParams:type",
+          "docComment": "/**\n * The query parameters of the page that renders an Ory flow, such as `flow` and `return_to`.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OrySearchParams = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, string | string[]>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OrySearchParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/tanstack-start!validateOrySearch:function(1)",
+          "docComment": "/**\n * Validates the input of a server function that fetches an Ory flow. Pass it to `createServerFn().validator()` and call the server function with the route's search params.\n *\n * TanStack Router parses search params as JSON, so `?flow=123` arrives as a number. This turns every value back into its query string form and drops values that have none.\n *\n * @param input - The route's search params, as an object or a query string.\n *\n * @returns The search params as strings.\n *\n * @example\n * ```ts\n * export const loginFlowFn = createServerFn({ method: \"GET\" })\n *   .validator(validateOrySearch)\n *   .handler(({ data }) => getLoginFlow(config, data))\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function validateOrySearch(input: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OrySearchParams",
+              "canonicalReference": "@ory/tanstack-start!OrySearchParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "input",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "validateOrySearch"
+        }
+      ]
+    }
+  ]
+}

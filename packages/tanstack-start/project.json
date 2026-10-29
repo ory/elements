@@ -1,0 +1,57 @@
+{
+  "name": "@ory/tanstack-start",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/tanstack-start/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "command": "tsup --clean --dts",
+      "options": {
+        "cwd": "packages/tanstack-start"
+      }
+    },
+    "dev": {
+      "command": "tsup --watch --dts",
+      "options": {
+        "cwd": "packages/tanstack-start"
+      }
+    },
+    "typecheck": {
+      "command": "tsc -p tsconfig.json",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "packages/tanstack-start"
+      }
+    },
+    "lint": {
+      "command": "eslint packages/tanstack-start",
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "command": "vitest run",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "packages/tanstack-start"
+      }
+    },
+    "api-extractor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/tanstack-start",
+        "commands": ["api-extractor run --verbose -c config/api-extractor.json"]
+      },
+      "dependsOn": ["build"]
+    },
+    "api-extractor-refresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/tanstack-start",
+        "commands": [
+          "api-extractor run --local --verbose -c config/api-extractor.json"
+        ]
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}
