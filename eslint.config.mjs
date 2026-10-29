@@ -28,6 +28,8 @@ const config = tseslint.config([
       "**/examples/nextjs-pages-router/next-env.d.ts",
       "**/examples/nextjs-app-router-custom-components/.next/**",
       "**/examples/nextjs-app-router-custom-components/next-env.d.ts",
+      "**/examples/react-router/build/**",
+      "**/examples/react-router/.react-router/**",
     ],
   },
   eslint.configs.recommended,

@@ -1,0 +1,1041 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.58.7",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ory/react-router!",
+  "docComment": "",
+  "name": "@ory/react-router",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ory/react-router!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!createOryProxyHandler:function(1)",
+          "docComment": "/**\n * Creates the handler of a resource route that serves the Ory APIs on the app's origin, so Ory's cookies are first-party in local development and preview deployments. In production, use a custom domain on Ory Network, or your own domain with Ory Enterprise License.\n *\n * Reads `ORY_SDK_URL`, and `ORY_PROJECT_API_TOKEN` to sign the base URL rewrite for origins in `trustedOrigins`.\n *\n * Creating the handler registers the proxy for the whole process: the flow helpers and `getOryBaseUrl` then use the request's origin for origins in `trustedOrigins`. A process has one proxy configuration, so call it only in the proxy route module.\n *\n * @param options - The proxy configuration. `trustedOrigins` is required.\n *\n * @example\n * ```ts title=\"app/routes/ory-proxy.ts\"\n * import { createOryProxyHandler } from \"@ory/react-router/proxy\"\n * import config from \"../ory.config\"\n *\n * const proxy = createOryProxyHandler({\n *   ...config,\n *   trustedOrigins: [\"http://localhost:5173\"],\n * })\n *\n * export const loader = proxy\n * export const action = proxy\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function createOryProxyHandler(options: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyHandlerOptions",
+              "canonicalReference": "@ory/react-router!OryProxyHandlerOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyHandler",
+              "canonicalReference": "@ory/react-router!OryProxyHandler:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "createOryProxyHandler"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getError:function(1)",
+          "docComment": "/**\n * Fetches the error shown on the error page. Reads the `id` query parameter for errors from Ory, or `error` and `error_description` for OAuth2 errors.\n *\n * @param request - The `request` passed to the loader.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getError(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowError",
+              "canonicalReference": "@ory/client-fetch!FlowError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | {\n    error: string;\n    error_description: string;\n}>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getLoginFlow:function(1)",
+          "docComment": "/**\n * Fetches the login flow for a React Router `loader`. Without a `flow` query parameter, or when the flow expired, it throws a redirect that starts a new flow.\n *\n * @param request - The `request` passed to the loader.\n *\n * @param config - The Ory configuration object.\n *\n * @example\n * ```tsx\n * import { Login } from \"@ory/elements-react/theme\"\n * import { getLoginFlow } from \"@ory/react-router\"\n * import type { Route } from \"./+types/login\"\n * import config from \"../ory.config\"\n *\n * export async function loader({ request }: Route.LoaderArgs) {\n *   return { flow: await getLoginFlow(request, config) }\n * }\n *\n * export default function LoginPage({ loaderData }: Route.ComponentProps) {\n *   return <Login flow={loaderData.flow} config={config} />\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getLoginFlow(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        login_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LoginFlow",
+              "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getLoginFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getLogoutFlow:function(1)",
+          "docComment": "/**\n * Creates a logout flow for the session of the request's cookies. Link to `logout_url` to sign the user out.\n *\n * @param request - The `request` passed to the loader.\n *\n * @param options - Where Ory sends the browser after logout.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getLogoutFlow(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    returnTo?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LogoutFlow",
+              "canonicalReference": "@ory/client-fetch!LogoutFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "getLogoutFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getOryBaseUrl:function(1)",
+          "docComment": "/**\n * Returns the URL the browser uses to reach Ory for this request. The flow, logout, and error helpers use the same URL and attach it to the flows and errors they return, where the Ory Elements components read it. Return it from the loader and pass it as `baseUrl` to `SessionProvider`.\n *\n * The URL is the request's origin only when the app registers the proxy route from `@ory/react-router/proxy` and the origin is in its `trustedOrigins`. Otherwise it is `ORY_SDK_URL`, and a warning with the fix is logged once when that cannot work.\n *\n * @param request - The `request` passed to the loader.\n *\n * @returns The browser URL.\n *\n * @example\n * ```tsx\n * import { SessionProvider } from \"@ory/elements-react/client\"\n * import { Settings } from \"@ory/elements-react/theme\"\n * import { getOryBaseUrl, getSettingsFlow } from \"@ory/react-router\"\n * import type { Route } from \"./+types/settings\"\n * import config from \"../ory.config\"\n *\n * export async function loader({ request }: Route.LoaderArgs) {\n *   return {\n *     flow: await getSettingsFlow(request, config),\n *     baseUrl: getOryBaseUrl(request),\n *   }\n * }\n *\n * export default function SettingsPage({ loaderData }: Route.ComponentProps) {\n *   return (\n *     <SessionProvider baseUrl={loaderData.baseUrl}>\n *       <Settings flow={loaderData.flow} config={config} />\n *     </SessionProvider>\n *   )\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getOryBaseUrl(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getOryBaseUrl"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getRecoveryFlow:function(1)",
+          "docComment": "/**\n * Fetches the recovery flow for a React Router `loader`. Without a `flow` query parameter, or when the flow expired, it throws a redirect that starts a new flow.\n *\n * @param request - The `request` passed to the loader.\n *\n * @param config - The Ory configuration object.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getRecoveryFlow(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        recovery_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "RecoveryFlow",
+              "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getRecoveryFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getRegistrationFlow:function(1)",
+          "docComment": "/**\n * Fetches the registration flow for a React Router `loader`. Without a `flow` query parameter, or when the flow expired, it throws a redirect that starts a new flow.\n *\n * @param request - The `request` passed to the loader.\n *\n * @param config - The Ory configuration object.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getRegistrationFlow(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        registration_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "RegistrationFlow",
+              "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getRegistrationFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getServerSession:function(1)",
+          "docComment": "/**\n * Fetches the session of the request's cookies.\n *\n * @param request - The `request` passed to the loader.\n *\n * @returns The session, or `null` when the request has no valid session.\n *\n * @example\n * ```ts\n * import { getServerSession } from \"@ory/react-router\"\n *\n * export async function loader({ request }: Route.LoaderArgs) {\n *   return { session: await getServerSession(request) }\n * }\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getServerSession(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Session",
+              "canonicalReference": "@ory/client-fetch!Session:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getServerSession"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getSettingsFlow:function(1)",
+          "docComment": "/**\n * Fetches the settings flow for a React Router `loader`. Without a `flow` query parameter, or when the flow expired, it throws a redirect that starts a new flow. Without a session, Ory redirects to the login page.\n *\n * @param request - The `request` passed to the loader.\n *\n * @param config - The Ory configuration object.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getSettingsFlow(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        settings_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "SettingsFlow",
+              "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getSettingsFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!getVerificationFlow:function(1)",
+          "docComment": "/**\n * Fetches the verification flow for a React Router `loader`. Without a `flow` query parameter, or when the flow expired, it throws a redirect that starts a new flow.\n *\n * @param request - The `request` passed to the loader.\n *\n * @param config - The Ory configuration object.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function getVerificationFlow(request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    project: {\n        verification_ui_url: string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "VerificationFlow",
+              "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "request",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getVerificationFlow"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/react-router!OryProxyHandler:type",
+          "docComment": "/**\n * The handler to export as the `loader` and `action` of the proxy route.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryProxyHandler = "
+            },
+            {
+              "kind": "Content",
+              "text": "(args: {\n    request: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Request",
+              "canonicalReference": "!Request:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Response",
+              "canonicalReference": "!Response:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryProxyHandler",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/react-router!OryProxyHandlerOptions:type",
+          "docComment": "/**\n * Options for {@link createOryProxyHandler}.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryProxyHandlerOptions = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyOptions",
+              "canonicalReference": "@ory/ssr!OryProxyOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"sdkUrl\" | \"projectApiKey\" | \"trustedOrigins\"> & {\n    trustedOrigins: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReadonlyArray",
+              "canonicalReference": "!ReadonlyArray:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryProxyHandlerOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/react-router!OryProxyRouteConfigEntry:type",
+          "docComment": "/**\n * A route entry for `app/routes.ts`.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryProxyRouteConfigEntry = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    id: string;\n    path: string;\n    file: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryProxyRouteConfigEntry",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/react-router!oryProxyRoutes:function(1)",
+          "docComment": "/**\n * Registers the Ory API paths on the proxy resource route. React Router only runs a route's code for URLs that match a route, so each Ory path needs an entry.\n *\n * @param file - The route module that exports {@link createOryProxyHandler} as `loader` and `action`, relative to the `app` directory.\n *\n * @example\n * ```ts title=\"app/routes.ts\"\n * import { type RouteConfig, index, route } from \"@react-router/dev/routes\"\n * import { oryProxyRoutes } from \"@ory/react-router/proxy\"\n *\n * export default [\n *   index(\"routes/home.tsx\"),\n *   route(\"auth/login\", \"routes/login.tsx\"),\n *   ...oryProxyRoutes(\"routes/ory-proxy.ts\"),\n * ] satisfies RouteConfig\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function oryProxyRoutes(file: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryProxyRouteConfigEntry",
+              "canonicalReference": "@ory/react-router!OryProxyRouteConfigEntry:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/proxy/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "file",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "oryProxyRoutes"
+        }
+      ]
+    }
+  ]
+}

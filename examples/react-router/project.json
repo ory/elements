@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "check": {
+      "command": "pnpm run typecheck",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "examples/react-router"
+      }
+    },
+    "lint": {
+      "command": "eslint",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "examples/react-router"
+      }
+    }
+  }
+}

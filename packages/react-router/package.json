@@ -1,0 +1,51 @@
+{
+  "name": "@ory/react-router",
+  "version": "0.0.0-unused",
+  "description": "Server-side helpers to use Ory Elements with React Router framework mode.",
+  "license": "Apache License 2.0",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsup --clean --dts",
+    "prepare": "pnpm run build"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@ory/client-fetch": "^1.22.65",
+    "@ory/ssr": "workspace:^"
+  },
+  "devDependencies": {
+    "react-router": "7.18.4",
+    "tsup": "8.5.0",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "react-router": "^7.9.0 || ^8.0.0"
+  },
+  "keywords": [
+    "ory",
+    "auth",
+    "login",
+    "authentication",
+    "react-router",
+    "remix"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./proxy": {
+      "types": "./dist/proxy/index.d.ts",
+      "import": "./dist/proxy/index.mjs",
+      "require": "./dist/proxy/index.js"
+    },
+    "./package.json": "./package.json"
+  }
+}
