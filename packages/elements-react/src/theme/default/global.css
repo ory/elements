@@ -13,6 +13,12 @@
   --font-sans: initial;
   --font-sans-default: var(--font-sans);
   --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+  --animate-busy-dim: busy-dim 150ms ease-out 300ms both;
+  @keyframes busy-dim {
+    to {
+      opacity: 50%;
+    }
+  }
   @keyframes caret-blink {
     0%,
     70%,
@@ -52,6 +58,23 @@
 
 @custom-variant loading {
   &[data-loading="true"] {
+    @slot;
+  }
+}
+
+/* Disabled for a reason other than the surrounding form being busy. */
+@custom-variant locked {
+  &:is(:disabled, [data-disabled="true"]):where(
+      :not([data-busy] *),
+      [data-node-disabled="true"]
+    ) {
+    @slot;
+  }
+}
+
+/* Inside a busy form, except the control that started the submit. */
+@custom-variant busy {
+  &:where([data-busy] *):not([data-loading="true"]) {
     @slot;
   }
 }

@@ -31,6 +31,7 @@ function renderInput(type: string) {
       onBlur: jest.fn(),
       ref,
     },
+    node: { attributes: { name: type, type, disabled: false } },
   } as unknown as OryNodeInputProps
   const { container } = render(<DefaultInput {...props} />)
   return { ref, input: container.querySelector(`input[name="${type}"]`) }

@@ -9,6 +9,7 @@ import {
   OryFormRootProps,
   uiTextToFormattedMessage,
   useOryFlow,
+  useOryFormBusy,
 } from "@ory/elements-react"
 import { OryMessageContentProps } from "@ory/elements-react"
 import { FlowType } from "@ory/client-fetch"
@@ -27,8 +28,11 @@ export function DefaultFormContainer({
   action,
   method,
 }: PropsWithChildren<OryFormRootProps>) {
+  const busy = useOryFormBusy()
   return (
     <form
+      aria-busy={busy ? true : undefined}
+      data-busy={busy}
       onSubmit={onSubmit}
       noValidate
       action={action}

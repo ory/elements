@@ -79,12 +79,13 @@ export function DefaultButtonSocial({
       })}
       data-testid={`ory/form/node/input/${node.attributes.name}`}
       data-loading={isSubmitting}
+      data-node-disabled={node.attributes.disabled || undefined}
       aria-label={label}
       {...buttonProps}
     >
       <span
         className={cn(
-          "relative group-disabled:opacity-20 group-loading:opacity-20",
+          "relative group-loading:opacity-20 group-locked:opacity-20",
           showLabel ? "size-4" : "size-5",
         )}
       >
@@ -100,7 +101,7 @@ export function DefaultButtonSocial({
       )}
       {showLabel && node.meta.label ? (
         <>
-          <span className="grow group-disabled:opacity-20 group-loading:opacity-20">
+          <span className="grow group-loading:opacity-20 group-locked:opacity-20">
             {label}
           </span>
           <span className={cn("block", showLabel ? "size-4" : "size-5")}></span>

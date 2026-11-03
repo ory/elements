@@ -6,6 +6,7 @@ import { useController } from "react-hook-form"
 import { triggerToWindowCall } from "../../../../util/ui"
 import { OryNodeInputInputProps } from "../../../../types"
 import { useOryFlow } from "../../../../context"
+import { useIsOryNativeSubmitBlocked } from "../../../../context/submit-gate"
 import { UiNodeInputAttributesWithOptions } from "../../../../util/utilFixSDKTypesHelper"
 
 export function useInputProps(
@@ -15,6 +16,7 @@ export function useInputProps(
   const {
     formState: { isSubmitting },
   } = useOryFlow()
+  const isNativeSubmitBlocked = useIsOryNativeSubmitBlocked()
   const controller = useController({
     name: attributes.name,
     control: undefined,
@@ -37,6 +39,9 @@ export function useInputProps(
     inputMode: attributes.inputmode,
     placeholder: placeholder || "",
     disabled:
-      attributes.disabled || !controller.formState.isReady || isSubmitting,
+      attributes.disabled ||
+      !controller.formState.isReady ||
+      isSubmitting ||
+      (!!attributes.onclickTrigger && isNativeSubmitBlocked),
   }
 }

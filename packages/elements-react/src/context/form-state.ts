@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiNode, UiNodeGroupEnum } from "@ory/client-fetch"
-import { useReducer, useState } from "react"
+import { Dispatch, useMemo, useReducer } from "react"
 import { isChoosingMethod } from "../components/card/two-step/utils"
 import { OryFlowContainer } from "../util"
 import { hasSingleSignOnNodes, visibleAuthMethodGroups } from "../util/ui"
@@ -62,7 +62,7 @@ type CommonFormStateProperties = {
  *
  * In addition, it includes a common properties:
  * - `isSubmitting`: A boolean indicating whether the form is currently being submitted.
- * - `isReady`: A boolean indicating whether the form is ready.
+ * - `isReady`: A boolean indicating that no input group reported `form_input_loading` without a matching `form_input_ready`.
  */
 export type FormState = FlowFormState & CommonFormStateProperties
 
@@ -244,6 +244,100 @@ function parseStateWithoutActiveMethod(flow: OryFlowContainer): FlowFormState {
   return { current: "select_method" }
 }
 
+type FormLifecycle = {
+  isSubmitting: boolean
+  isRedirecting: boolean
+  loadingInputs: readonly UiNodeGroupEnum[]
+}
+
+export type FormStateMachine = {
+  flow: OryFlowContainer
+  screen: FlowFormState
+  selectedMethod?: UiNodeGroupEnum
+  lifecycle: FormLifecycle
+}
+
+export function initFormStateMachine(flow: OryFlowContainer): FormStateMachine {
+  return {
+    flow,
+    screen: parseStateFromFlow(flow),
+    lifecycle: { isSubmitting: false, isRedirecting: false, loadingInputs: [] },
+  }
+}
+
+function withLifecycle(
+  state: FormStateMachine,
+  lifecycle: Partial<FormLifecycle>,
+): FormStateMachine {
+  return { ...state, lifecycle: { ...state.lifecycle, ...lifecycle } }
+}
+
+export function formStateReducer(
+  state: FormStateMachine,
+  action: FormStateAction,
+): FormStateMachine {
+  switch (action.type) {
+    case "action_flow_update":
+      if (state.selectedMethod) {
+        return {
+          ...withLifecycle(state, { loadingInputs: [] }),
+          flow: action.flow,
+          screen: { current: "method_active", method: state.selectedMethod },
+        }
+      }
+      return {
+        ...state,
+        flow: action.flow,
+        screen: parseStateFromFlow(action.flow),
+      }
+    case "action_select_method":
+      return {
+        ...state,
+        selectedMethod: action.method,
+        screen: { current: "method_active", method: action.method },
+      }
+    case "action_clear_active_method":
+      return {
+        ...state,
+        selectedMethod: undefined,
+        screen: parseStateWithoutActiveMethod(state.flow),
+      }
+    case "form_input_loading":
+      if (state.lifecycle.loadingInputs.includes(action.group)) {
+        return state
+      }
+      return withLifecycle(state, {
+        loadingInputs: [...state.lifecycle.loadingInputs, action.group],
+      })
+    case "form_input_ready":
+      return withLifecycle(state, {
+        loadingInputs: state.lifecycle.loadingInputs.filter(
+          (group) => group !== action.input,
+        ),
+      })
+    case "form_submit_start":
+      return withLifecycle(state, { isSubmitting: true })
+    case "form_submit_end":
+      // A redirect unloads the page, so the form stays submitting until it does.
+      return withLifecycle(state, {
+        isSubmitting: state.lifecycle.isRedirecting,
+      })
+    case "page_redirect":
+      return withLifecycle(state, { isSubmitting: true, isRedirecting: true })
+    case "page_redirect_end":
+      return withLifecycle(state, { isSubmitting: false, isRedirecting: false })
+  }
+  return state
+}
+
+function toFormState({ screen, lifecycle }: FormStateMachine): FormState {
+  return {
+    ...screen,
+    isReady: lifecycle.loadingInputs.length === 0,
+    isSubmitting: lifecycle.isSubmitting,
+  }
+}
+
 /**
  * The `useFormStateReducer` hook manages the state of the form based on the flow data.
  *
@@ -254,85 +348,14 @@ function parseStateWithoutActiveMethod(flow: OryFlowContainer): FlowFormState {
  * @param flow - The flow container that contains the flow data.
  * @returns a tuple containing the current form state and a dispatch function to update the state.
  */
-export function useFormStateReducer(flow: OryFlowContainer) {
-  const action = parseStateFromFlow(flow)
-  const [selectedMethod, setSelectedMethod] = useState<
-    UiNodeGroupEnum | undefined
-  >()
-  const [isRedirecting, setRedirecting] = useState(false)
-  const [loadingInputs, setLoadingInputs] = useState<Set<UiNodeGroupEnum>>(
-    new Set(),
+export function useFormStateReducer(
+  flow: OryFlowContainer,
+): [FormState, Dispatch<FormStateAction>] {
+  const [machine, dispatch] = useReducer(
+    formStateReducer,
+    flow,
+    initFormStateMachine,
   )
-
-  const formStateReducer = (
-    state: FormState,
-    action: FormStateAction,
-  ): FormState => {
-    const transitionTo = (next: FlowFormState): FormState => ({
-      ...next,
-      isReady: state.isReady,
-      isSubmitting: state.isSubmitting,
-    })
-
-    switch (action.type) {
-      case "action_flow_update": {
-        if (selectedMethod) {
-          setLoadingInputs(new Set())
-          return transitionTo({
-            current: "method_active",
-            method: selectedMethod,
-          })
-        }
-        return transitionTo(parseStateFromFlow(action.flow))
-      }
-      case "action_select_method": {
-        setSelectedMethod(action.method)
-        return transitionTo({ current: "method_active", method: action.method })
-      }
-      case "action_clear_active_method": {
-        setSelectedMethod(undefined)
-        return transitionTo(parseStateWithoutActiveMethod(flow))
-      }
-      case "form_input_loading":
-        setLoadingInputs((prev) => new Set(prev).add(action.group))
-        return { ...state, isReady: false }
-      case "form_input_ready": {
-        const newLoadingInputs = new Set(loadingInputs)
-        newLoadingInputs.delete(action.input)
-        setLoadingInputs(newLoadingInputs)
-        return { ...state, isReady: newLoadingInputs.size === 0 }
-      }
-      case "form_submit_start":
-        return {
-          ...state,
-          isSubmitting: true,
-        }
-      case "form_submit_end":
-        return {
-          ...state,
-          // If we ever dispatched a page redirect, we want to keep the submitting state true
-          // This is because the page will redirect/is redirecting to a potentially slow loading external page.
-          isSubmitting: isRedirecting,
-        }
-      case "page_redirect":
-        setRedirecting(true)
-        return {
-          ...state,
-          isSubmitting: true,
-        }
-      case "page_redirect_end":
-        setRedirecting(false)
-        return {
-          ...state,
-          isSubmitting: false,
-        }
-    }
-    return state
-  }
-
-  return useReducer(formStateReducer, {
-    ...action,
-    isReady: true,
-    isSubmitting: false,
-  })
+  const formState = useMemo(() => toFormState(machine), [machine])
+  return [formState, dispatch]
 }

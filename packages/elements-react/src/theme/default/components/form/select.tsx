@@ -34,7 +34,7 @@ const defaultSelectClassName = cn(
   "focus-within:border-input-border-focus focus-visible:border-input-border-focus",
   "hover:border-input-border-hover hover:bg-input-background-hover",
   "px-4 py-[13px] pr-10",
-  "disabled:border-input-border-disabled disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
+  "locked:border-input-border-disabled locked:bg-input-background-disabled locked:text-input-foreground-disabled busy:animate-busy-dim",
 )
 
 type SelectElementProps = ComponentPropsWithRef<"select">
@@ -89,6 +89,7 @@ function DefaultSelectRoot({
       id={inputProps.id}
       name={inputProps.name}
       disabled={inputProps.disabled}
+      data-node-disabled={attributes.disabled || undefined}
       onBlur={inputProps.onBlur}
       onChange={inputProps.onChange}
       ref={inputProps.ref}

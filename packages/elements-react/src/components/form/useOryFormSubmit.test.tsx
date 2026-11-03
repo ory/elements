@@ -5,6 +5,11 @@ import { FlowType } from "@ory/client-fetch"
 import { act, screen, waitFor } from "@testing-library/react"
 import { IntlProvider } from "../../context/intl-context"
 import { useOryFlow } from "../../context/flow-context"
+import {
+  OrySubmitGate,
+  OrySubmitGateResult,
+  useOrySubmitGate,
+} from "../../context/submit-gate"
 import { renderWithOryElements } from "../../tests/jest/test-utils"
 import { FormValues } from "../../types"
 import {
@@ -268,4 +273,102 @@ test("should leave provider linking in the settings flow untouched", () => {
   // part of a sign-in submission.
   const data = { method: "oidc", link: "google", csrf_token: "token" }
   expect(withoutForeignMethodFields(FlowType.Settings, data)).toEqual(data)
+})
+
+describe("submit gates", () => {
+  let gate: OrySubmitGate
+  let updateLoginFlowRaw: jest.Mock
+
+  function GateHarness() {
+    useOrySubmitGate(() => gate())
+    return <SubmitHarness />
+  }
+
+  async function renderGated() {
+    updateLoginFlowRaw = jest.fn().mockRejectedValue(rateLimitedResponseError())
+    jest
+      .spyOn(await import("../../util/client"), "frontendClient")
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      .mockReturnValue({ updateLoginFlowRaw } as any)
+
+    renderWithOryElements(
+      <IntlProvider locale="en">
+        <GateHarness />
+      </IntlProvider>,
+    )
+  }
+
+  test("should stay submitting and call Ory only after a pending gate passes", async () => {
+    let pass: (result: OrySubmitGateResult) => void = () => {}
+    gate = () => new Promise((resolve) => (pass = resolve))
+    await renderGated()
+
+    let submission: Promise<void> | undefined
+    act(() => {
+      submission = triggerSubmit?.()
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("true")
+    expect(updateLoginFlowRaw).not.toHaveBeenCalled()
+
+    await act(async () => {
+      pass({
+        proceed: true,
+        values: { "transient_payload.captcha_turnstile_response": "token" },
+      })
+      await submission
+    })
+
+    expect(updateLoginFlowRaw).toHaveBeenCalledTimes(1)
+    expect(updateLoginFlowRaw.mock.calls[0][0]).toMatchObject({
+      updateLoginFlowBody: {
+        method: "password",
+        transient_payload: { captcha_turnstile_response: "token" },
+      },
+    })
+  })
+
+  test("should return to idle without calling Ory when a pending gate cancels", async () => {
+    let pass: (result: OrySubmitGateResult) => void = () => {}
+    gate = () => new Promise((resolve) => (pass = resolve))
+    await renderGated()
+
+    let submission: Promise<void> | undefined
+    act(() => {
+      submission = triggerSubmit?.()
+    })
+    expect(screen.getByTestId("submitting").textContent).toBe("true")
+
+    await act(async () => {
+      pass({ proceed: false })
+      await submission
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("false")
+    expect(updateLoginFlowRaw).not.toHaveBeenCalled()
+    expect(screen.getByTestId("messages")).toBeEmptyDOMElement()
+  })
+
+  test("should not start the submit when a gate cancels right away", async () => {
+    gate = () => ({ proceed: false })
+    await renderGated()
+
+    const submitting: string[] = []
+    const observer = new MutationObserver(() =>
+      submitting.push(screen.getByTestId("submitting").textContent ?? ""),
+    )
+    observer.observe(screen.getByTestId("submitting"), {
+      characterData: true,
+      childList: true,
+      subtree: true,
+    })
+
+    await act(async () => {
+      await triggerSubmit?.()
+    })
+    observer.disconnect()
+
+    expect(submitting).not.toContain("true")
+    expect(updateLoginFlowRaw).not.toHaveBeenCalled()
+  })
 })

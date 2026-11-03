@@ -28,22 +28,25 @@ function isAutocompletePassword(
 
 const PasswordInput = forwardRef<
   HTMLInputElement,
-  ComponentPropsWithoutRef<typeof PasswordToggleField.Input>
+  ComponentPropsWithoutRef<typeof PasswordToggleField.Input> & {
+    "data-node-disabled"?: boolean
+  }
 >(({ className, ...rest }, ref) => (
   <PasswordToggleField.Root>
     <div
       className={cn(
         defaultInputClassName,
         "flex justify-stretch not-focus-within:hover:border-input-border-hover",
-        "data-[disabled=true]:border-input-border-disabled data-[disabled=true]:bg-input-background-disabled data-[disabled=true]:text-input-foreground-disabled",
+        "locked:border-input-border-disabled locked:bg-input-background-disabled locked:text-input-foreground-disabled busy:animate-busy-dim",
       )}
       data-disabled={rest.disabled}
+      data-node-disabled={rest["data-node-disabled"]}
     >
       <PasswordToggleField.Input
         {...rest}
         ref={ref}
         className={cn(
-          "w-full rounded-l-forms rounded-r-none bg-transparent px-4 py-[13px] text-input-foreground-primary placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:outline-none disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
+          "w-full rounded-l-forms rounded-r-none bg-transparent px-4 py-[13px] text-input-foreground-primary placeholder:h-[20px] placeholder:text-input-foreground-tertiary focus:outline-none locked:bg-input-background-disabled locked:text-input-foreground-disabled",
           className,
         )}
       ></PasswordToggleField.Input>
@@ -68,7 +71,7 @@ export const TextInput = forwardRef<HTMLInputElement, InputProps>(
         className={cn(
           defaultInputClassName,
           "px-4 py-[13px] hover:border-input-border-hover",
-          "placeholder:h-[20px] placeholder:text-input-foreground-tertiary disabled:border-input-border-disabled disabled:bg-input-background-disabled disabled:text-input-foreground-disabled",
+          "placeholder:h-[20px] placeholder:text-input-foreground-tertiary locked:border-input-border-disabled locked:bg-input-background-disabled locked:text-input-foreground-disabled busy:animate-busy-dim",
           // The settings flow input fields are supposed to be dense, so we don't need the extra padding we want on the user flows.
           flowType === FlowType.Settings && "max-w-[488px]",
           className,
@@ -79,7 +82,7 @@ export const TextInput = forwardRef<HTMLInputElement, InputProps>(
   },
 )
 
-const DefaultInputRoot = ({ inputProps }: OryNodeInputProps) => {
+const DefaultInputRoot = ({ inputProps, node }: OryNodeInputProps) => {
   if (inputProps.type === "password") {
     // Typescript doesn't narrow the type correctly here, so we need to do an explicit check
     const autoComplete = isAutocompletePassword(inputProps.autoComplete)
@@ -89,6 +92,7 @@ const DefaultInputRoot = ({ inputProps }: OryNodeInputProps) => {
     return (
       <PasswordInput
         data-testid={`ory/form/node/input/${inputProps.name}`}
+        data-node-disabled={node.attributes.disabled || undefined}
         {...inputProps}
         autoComplete={autoComplete}
       />
@@ -107,6 +111,7 @@ const DefaultInputRoot = ({ inputProps }: OryNodeInputProps) => {
   return (
     <TextInput
       data-testid={`ory/form/node/input/${inputProps.name}`}
+      data-node-disabled={node.attributes.disabled || undefined}
       {...inputProps}
     />
   )

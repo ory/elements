@@ -5,8 +5,11 @@ import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile"
 import { isUiNodeInputAttributes, UiText } from "@ory/client-fetch"
 import {
   OryNodeCaptchaProps,
+  OrySubmitGateResult,
   useComponents,
+  useOryBlockNativeSubmit,
   useOryFlow,
+  useOrySubmitGate,
 } from "@ory/elements-react"
 import { useEffect, useRef, useState } from "react"
 // eslint-disable-next-line no-restricted-imports
@@ -51,111 +54,167 @@ function documentCspNonce(): string | undefined {
   )
 }
 
-export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
+const tokenWaitTimeoutMs = 30_000
+
+type WidgetState = {
+  token?: string
+  isChallengeShowing: boolean
+  hasFailed: boolean
+}
+
+function TurnstileCaptcha({ options }: { options: Config }) {
   const { Message } = useComponents()
   const intl = useIntl()
   const { setValue } = useFormContext()
-  const { dispatchFormState, formState } = useOryFlow()
+  const { formState } = useOryFlow()
   const ref = useRef<TurnstileInstance>(null)
   const [isInteractive, setInteractive] = useState(false)
   const [errorMessage, setErrorMessage] = useState<UiText | undefined>()
-  // In this node, we only care about the `captcha-turnstile-options` node as that contains
-  // all required information to render the captcha.
+  const widget = useRef<WidgetState>({
+    isChallengeShowing: false,
+    hasFailed: false,
+  })
+  const [isTokenUsed, setTokenUsed] = useState(false)
+  const [canSubmitNatively, setCanSubmitNatively] = useState(false)
+  const settleWait = useRef<(result: OrySubmitGateResult) => void>(undefined)
 
-  // Reset widget whenever form is done submitting
-  useEffect(() => {
-    if (!formState.isSubmitting) {
-      dispatchFormState({
-        type: "form_input_loading",
-        group: "captcha",
-      })
-      // Adding a small timeout to ensure the form submission process has completed
-      setTimeout(() => {
-        if (ref.current) {
-          ref.current.reset()
-        }
-      }, 100)
-    }
-  }, [formState.isSubmitting, dispatchFormState])
-
-  useEffect(() => {
-    dispatchFormState({
-      type: "form_input_loading",
-      group: "captcha",
+  const markFailed = () => {
+    widget.current.hasFailed = true
+    setCanSubmitNatively(true)
+    setErrorMessage({
+      id: 5000000,
+      text: intl.formatMessage({
+        id: "captcha.error",
+        defaultMessage:
+          "Security verification failed. Please try again later. If the problem persists, contact support.",
+      }),
+      type: "error",
     })
-  }, [dispatchFormState])
+  }
 
-  if (!isUiNodeInputAttributes(node.attributes)) {
+  const takeToken = (): OrySubmitGateResult => {
+    const token = widget.current.token
+    widget.current.token = undefined
+    setTokenUsed(true)
+    return token
+      ? { proceed: true, values: { [options.response_field_name]: token } }
+      : { proceed: true }
+  }
+
+  const endWait = (result: OrySubmitGateResult) => {
+    const settle = settleWait.current
+    settleWait.current = undefined
+    settle?.(result)
+  }
+
+  useOrySubmitGate(() => {
+    if (widget.current.token || widget.current.hasFailed) {
+      return takeToken()
+    }
+    if (widget.current.isChallengeShowing) {
+      return { proceed: false }
+    }
+    endWait({ proceed: false })
+    return new Promise<OrySubmitGateResult>((resolve) => {
+      const timeout = setTimeout(() => {
+        markFailed()
+        endWait({ proceed: false })
+      }, tokenWaitTimeoutMs)
+      settleWait.current = (result) => {
+        clearTimeout(timeout)
+        resolve(result)
+      }
+    })
+  })
+
+  useEffect(() => {
+    if (!isTokenUsed || formState.isSubmitting) {
+      return
+    }
+    // Ory accepts each token once, so the next submit needs a fresh one.
+    setTokenUsed(false)
+    setCanSubmitNatively(false)
+    widget.current = { isChallengeShowing: false, hasFailed: false }
+    setValue(options.response_field_name, "")
+    ref.current?.reset()
+  }, [
+    isTokenUsed,
+    formState.isSubmitting,
+    options.response_field_name,
+    setValue,
+  ])
+
+  useEffect(() => () => endWait({ proceed: false }), [])
+
+  useOryBlockNativeSubmit(!canSubmitNatively)
+
+  return (
+    <>
+      <Turnstile
+        ref={ref}
+        siteKey={options.sitekey}
+        scriptOptions={{ nonce: documentCspNonce() }}
+        options={{
+          action: options.action,
+          size: "flexible",
+          theme: options.theme,
+          responseField: true,
+          responseFieldName: options.response_field_name,
+          appearance: "interaction-only",
+        }}
+        className={cn("!block !h-[65px] !w-full !min-w-[300px]", {
+          "!hidden": !isInteractive,
+        })}
+        onBeforeInteractive={() => {
+          setInteractive(true)
+          widget.current.isChallengeShowing = true
+          endWait({ proceed: false })
+        }}
+        onExpire={() => {
+          widget.current.token = undefined
+          setCanSubmitNatively(false)
+          setValue(options.response_field_name, "")
+          ref.current?.reset()
+          endWait({ proceed: false })
+        }}
+        onSuccess={(token) => {
+          setValue(options.response_field_name, token)
+          setErrorMessage(undefined)
+          setCanSubmitNatively(true)
+          widget.current = {
+            ...widget.current,
+            token,
+            isChallengeShowing: false,
+            hasFailed: false,
+          }
+          if (settleWait.current) {
+            endWait(takeToken())
+          }
+        }}
+        onError={(error) => {
+          console.error(
+            "[@ory/elements-react] Cloudflare Turnstile Error:",
+            error,
+          )
+          markFailed()
+          endWait({ proceed: false })
+        }}
+      />
+      {errorMessage && (
+        <Message.Content key={errorMessage.id} message={errorMessage} />
+      )}
+    </>
+  )
+}
+
+export const DefaultCaptcha = ({ node }: OryNodeCaptchaProps) => {
+  if (
+    !isUiNodeInputAttributes(node.attributes) ||
+    node.attributes.name !== "captcha_turnstile_options"
+  ) {
     return null
   }
 
-  if (node.attributes.name === "transient_payload.captcha_turnstile_response") {
-    // This is the hidden field that gets populated.
-    return null
-  } else if (node.attributes.name === "captcha_turnstile_options") {
-    // This is the actual widget
-    const options: Config = JSON.parse(node.attributes.value as string)
-
-    return (
-      <>
-        <Turnstile
-          ref={ref}
-          siteKey={options.sitekey}
-          scriptOptions={{ nonce: documentCspNonce() }}
-          options={{
-            action: options.action,
-            size: "flexible",
-            theme: options.theme,
-            responseField: true,
-            responseFieldName: options.response_field_name,
-            appearance: "interaction-only",
-          }}
-          className={cn("!block !h-[65px] !w-full !min-w-[300px]", {
-            "!hidden": !isInteractive,
-          })}
-          onBeforeInteractive={() => {
-            setInteractive(true)
-            dispatchFormState({
-              type: "form_input_ready",
-              input: "captcha",
-            })
-          }}
-          onExpire={() => {
-            ref.current?.reset()
-            dispatchFormState({
-              type: "form_input_loading",
-              group: "captcha",
-            })
-          }}
-          onSuccess={(token) => {
-            setValue(options.response_field_name, token)
-            dispatchFormState({
-              type: "form_input_ready",
-              input: "captcha",
-            })
-          }}
-          onError={(error) => {
-            console.error(
-              "[@ory/elements-react] Cloudflare Turnstile Error:",
-              error,
-            )
-            setErrorMessage({
-              id: 5000000,
-              text: intl.formatMessage({
-                id: "captcha.error",
-                defaultMessage:
-                  "Security verification failed. Please try again later. If the problem persists, contact support.",
-              }),
-              type: "error",
-            })
-          }}
-        />
-        {errorMessage && (
-          <Message.Content key={errorMessage.id} message={errorMessage} />
-        )}
-      </>
-    )
-  }
-
-  return null
+  const options: Config = JSON.parse(node.attributes.value as string)
+  return <TurnstileCaptcha options={options} />
 }

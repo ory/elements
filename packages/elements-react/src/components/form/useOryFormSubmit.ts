@@ -14,6 +14,7 @@ import {
 import { SubmitHandler, useFormContext } from "react-hook-form"
 import { useIntl } from "react-intl"
 import { useOryConfiguration, useOryFlow } from "../../context"
+import { useRunSubmitGates } from "../../context/submit-gate"
 import { FormValues } from "../../types"
 import { OryFlowContainer } from "../../util"
 import { opensAppleSignInSheet } from "../../util/apple-sign-in-sheet"
@@ -75,6 +76,29 @@ export function withoutForeignMethodFields(
   )
 }
 
+function withValuesAtPaths(
+  data: FormValues,
+  values: Record<string, string> | undefined,
+): FormValues {
+  const result: Record<string, unknown> = { ...data }
+  for (const [path, value] of Object.entries(values ?? {})) {
+    const keys = path.split(".")
+    let target = result
+    for (const key of keys.slice(0, -1)) {
+      const next = target[key]
+      const copy: Record<string, unknown> =
+        typeof next === "object" && next !== null && !Array.isArray(next)
+          ? { ...next }
+          : {}
+      target[key] = copy
+      target = copy
+    }
+    target[keys[keys.length - 1]] = value
+  }
+  // FormValues does not model nested objects, but react-hook-form produces them for dotted field names.
+  return result as FormValues
+}
+
 // The "select_account" prompt is supported by the following providers.
 // This prompt forces the user to select an account, even if they are already logged in.
 // This is useful when the user wants to link an account, for example.
@@ -87,6 +111,7 @@ export function useOryFormSubmit(
   const flowContainer = useOryFlow()
   const methods = useFormContext()
   const config = useOryConfiguration()
+  const runSubmitGates = useRunSubmitGates()
 
   const { onSuccess, onValidationError, onError, transientPayload } =
     flowContainer
@@ -166,13 +191,22 @@ export function useOryFormSubmit(
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (initialData) => {
+    const pendingGate = runSubmitGates()
+    if (!(pendingGate instanceof Promise) && !pendingGate.proceed) {
+      return
+    }
     flowContainer.dispatchFormState({ type: "form_submit_start" })
-    // This is necessary to avoid sending empty strings to the backend, which can cause validation errors.
-    // TODO: Kratos could be improved to handle this better, and treat empty strings as missing values.
     try {
+      const gate = await pendingGate
+      if (!gate.proceed) {
+        flowContainer.dispatchFormState({ type: "form_submit_end" })
+        return
+      }
+      // This is necessary to avoid sending empty strings to the backend, which can cause validation errors.
+      // TODO: Kratos could be improved to handle this better, and treat empty strings as missing values.
       const data = withoutForeignMethodFields(
         flowContainer.flowType,
-        removeEmptyStrings(initialData),
+        removeEmptyStrings(withValuesAtPaths(initialData, gate.values)),
       )
       switch (flowContainer.flowType) {
         case FlowType.Login: {

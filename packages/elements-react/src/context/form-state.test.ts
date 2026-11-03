@@ -4,7 +4,11 @@
 import { FlowType, UiNodeGroupEnum, UiText } from "@ory/client-fetch"
 import { act, renderHook } from "@testing-library/react"
 import { OryFlowContainer } from "../util"
-import { useFormStateReducer } from "./form-state" // Adjust path as needed
+import {
+  formStateReducer,
+  initFormStateMachine,
+  useFormStateReducer,
+} from "./form-state"
 
 const init = {
   flowType: FlowType.Login,
@@ -1145,5 +1149,88 @@ describe('"action_clear_active_method"', () => {
       isReady: true,
       isSubmitting: false,
     })
+  })
+})
+
+describe("formStateReducer", () => {
+  const linkingAccounts = {
+    flowType: FlowType.Login,
+    flow: {
+      active: "",
+      ui: { nodes: [], messages: [{ id: 1010016, type: "info", text: "" }] },
+    },
+  } as unknown as OryFlowContainer
+
+  test("should not mutate the previous state", () => {
+    const before = initFormStateMachine(init)
+    const snapshot = JSON.parse(JSON.stringify(before)) as unknown
+
+    formStateReducer(before, { type: "form_input_loading", group: "captcha" })
+    formStateReducer(before, { type: "page_redirect" })
+    formStateReducer(before, { type: "action_select_method", method: "code" })
+
+    expect(before).toEqual(snapshot)
+  })
+
+  test("should not lose an update when two inputs report ready in one tick", () => {
+    const { result } = renderHook(() => useFormStateReducer(init))
+
+    act(() => {
+      result.current[1]({ type: "form_input_loading", group: "captcha" })
+      result.current[1]({ type: "form_input_loading", group: "webauthn" })
+    })
+    expect(result.current[0].isReady).toBe(false)
+
+    act(() => {
+      result.current[1]({ type: "form_input_ready", input: "captcha" })
+      result.current[1]({ type: "form_input_ready", input: "webauthn" })
+    })
+    expect(result.current[0].isReady).toBe(true)
+  })
+
+  test("should stay submitting when the redirect is dispatched in the same tick as the submit end", () => {
+    const { result } = renderHook(() => useFormStateReducer(init))
+
+    act(() => {
+      result.current[1]({ type: "form_submit_start" })
+      result.current[1]({ type: "page_redirect" })
+      result.current[1]({ type: "form_submit_end" })
+    })
+
+    expect(result.current[0].isSubmitting).toBe(true)
+  })
+
+  test("should keep the lifecycle on screen transitions", () => {
+    let state = initFormStateMachine(init)
+    state = formStateReducer(state, {
+      type: "form_input_loading",
+      group: "captcha",
+    })
+    state = formStateReducer(state, { type: "form_submit_start" })
+    const lifecycle = state.lifecycle
+
+    state = formStateReducer(state, {
+      type: "action_select_method",
+      method: "password",
+    })
+    expect(state.lifecycle).toBe(lifecycle)
+
+    state = formStateReducer(state, { type: "action_clear_active_method" })
+    expect(state.lifecycle).toBe(lifecycle)
+  })
+
+  test("should clear the active method against the latest flow", () => {
+    let state = initFormStateMachine(init)
+    state = formStateReducer(state, {
+      type: "action_flow_update",
+      flow: linkingAccounts,
+    })
+    state = formStateReducer(state, {
+      type: "action_select_method",
+      method: "password",
+    })
+    state = formStateReducer(state, { type: "action_clear_active_method" })
+
+    expect(state.screen).toEqual({ current: "select_method" })
   })
 })

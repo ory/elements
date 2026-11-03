@@ -13,7 +13,7 @@ const InputOTP = React.forwardRef<HTMLInputElement, OTPInputProps>(
     <OTPInput
       ref={ref}
       containerClassName={cn(
-        "flex items-center gap-2 has-disabled:opacity-50",
+        "flex items-center gap-2 has-locked:opacity-50 busy:animate-busy-dim",
         containerClassName,
       )}
       className={cn("disabled:cursor-not-allowed", className)}

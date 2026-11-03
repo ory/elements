@@ -1,7 +1,11 @@
 // Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { useComponents, useOryFlow } from "@ory/elements-react"
+import {
+  useComponents,
+  useIsOryNativeSubmitBlocked,
+  useOryFlow,
+} from "@ory/elements-react"
 import { useFormContext } from "react-hook-form"
 import { UiNodeGroupEnum } from "@ory/client-fetch"
 import { isGroupImmediateSubmit } from "../../../theme/default/utils/form"
@@ -19,6 +23,7 @@ export function AuthMethodList({
   const { Card } = useComponents()
   const { setValue, getValues, formState } = useFormContext()
   const { formState: oryFormState, flow } = useOryFlow()
+  const isNativeSubmitBlocked = useIsOryNativeSubmitBlocked()
 
   if (options.length === 0) {
     return null
@@ -51,7 +56,8 @@ export function AuthMethodList({
           disabled={
             !formState.isReady ||
             !oryFormState.isReady ||
-            formState.isSubmitting
+            formState.isSubmitting ||
+            (group === UiNodeGroupEnum.Passkey && isNativeSubmitBlocked)
           }
         />
       ))}

@@ -390,6 +390,9 @@ export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | 
 export function OryForm(input: OryFormProps): react.JSX.Element;
 
 // @public
+export type OryFormBusyState = "hydrating" | "submitting" | undefined;
+
+// @public
 export function OryFormGroupDivider(): react.JSX.Element | null;
 
 // @public
@@ -690,6 +693,21 @@ export type OrySettingsWebauthnProps = {
     isSubmitting: boolean;
 };
 
+// Warning: (ae-internal-missing-underscore) The name "OrySubmitGate" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export type OrySubmitGate = () => OrySubmitGateResult | Promise<OrySubmitGateResult>;
+
+// Warning: (ae-internal-missing-underscore) The name "OrySubmitGateResult" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export type OrySubmitGateResult = {
+    proceed: false;
+} | {
+    proceed: true;
+    values?: Record<string, string>;
+};
+
 // @public
 export type OrySuccessEvent = OryLoginSuccessEvent | OryRegistrationSuccessEvent | OryVerificationSuccessEvent | OryRecoverySuccessEvent | OrySettingsSuccessEvent | OryConsentSuccessEvent;
 
@@ -835,16 +853,34 @@ export const uiTextToFormattedMessage: (input: Omit<UiText, "type">, intl: IntlS
 // @public
 export function useComponents(): OryFlowComponents;
 
+// Warning: (ae-internal-missing-underscore) The name "useIsOryNativeSubmitBlocked" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export function useIsOryNativeSubmitBlocked(): boolean;
+
 // @public
 export function useNodeSorter(): (a: UiNode, b: UiNode, ctx: {
     flowType: string;
 }) => number;
+
+// Warning: (ae-internal-missing-underscore) The name "useOryBlockNativeSubmit" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export function useOryBlockNativeSubmit(blocked: boolean): void;
 
 // @public
 export function useOryConfiguration(): OryElementsConfiguration;
 
 // @public
 export function useOryFlow(): FlowContextValue;
+
+// @public
+export function useOryFormBusy(): OryFormBusyState;
+
+// Warning: (ae-internal-missing-underscore) The name "useOrySubmitGate" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export function useOrySubmitGate(gate: OrySubmitGate): void;
 
 // @public
 export function useResendCode(): {
@@ -871,7 +907,7 @@ export type VerificationFlowContainer = {
 // dist/index.d.ts:775:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1142:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
 // dist/index.d.ts:1146:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1733:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:1795:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

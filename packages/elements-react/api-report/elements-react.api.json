@@ -695,7 +695,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@ory/elements-react!FormState:type",
-          "docComment": "/**\n * Represents the state of the form based on the flow type and active method. This type is used to determine which part of the form should be displayed.\n *\n * It can be one of the following: - `select_method`: The user is selecting an authentication method. - `provide_identifier`: The user is providing an identifier (e.g., email or username). - `method_active`: An authentication method is active, and the user is interacting with it. - `success_screen`: The flow has successfully completed (only used in the verification flow). - `settings`: The user is in the settings flow.\n *\n * In addition, it includes a common properties: - `isSubmitting`: A boolean indicating whether the form is currently being submitted. - `isReady`: A boolean indicating whether the form is ready.\n */\n",
+          "docComment": "/**\n * Represents the state of the form based on the flow type and active method. This type is used to determine which part of the form should be displayed.\n *\n * It can be one of the following: - `select_method`: The user is selecting an authentication method. - `provide_identifier`: The user is providing an identifier (e.g., email or username). - `method_active`: An authentication method is active, and the user is interacting with it. - `success_screen`: The flow has successfully completed (only used in the verification flow). - `settings`: The user is in the settings flow.\n *\n * In addition, it includes a common properties: - `isSubmitting`: A boolean indicating whether the form is currently being submitted. - `isReady`: A boolean indicating that no input group reported `form_input_loading` without a matching `form_input_ready`.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3689,6 +3689,32 @@
             }
           ],
           "name": "OryForm"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ory/elements-react!OryFormBusyState:type",
+          "docComment": "/**\n * Why the surrounding form cannot be used right now.\n *\n * - `hydrating`: the form was rendered on the server and React has not taken it over yet. Controls are disabled. - `submitting`: the form is being submitted, or the page is redirecting after a submit. - `undefined`: the form is idle.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OryFormBusyState = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"hydrating\" | \"submitting\" | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "releaseTag": "Public",
+          "name": "OryFormBusyState",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "Function",
@@ -7501,6 +7527,35 @@
           "overloadIndex": 1,
           "parameters": [],
           "name": "useOryFlow"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@ory/elements-react!useOryFormBusy:function(1)",
+          "docComment": "/**\n * Returns the busy state of the surrounding form, from the first server render on. Use it in a custom `Form.Root` to show a loading state.\n *\n * @returns the busy state of the form.\n *\n * @group\n *\n * Hooks\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function useOryFormBusy(): "
+            },
+            {
+              "kind": "Reference",
+              "text": "OryFormBusyState",
+              "canonicalReference": "@ory/elements-react!OryFormBusyState:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useOryFormBusy"
         },
         {
           "kind": "Function",

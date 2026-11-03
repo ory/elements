@@ -71,11 +71,9 @@ export function OryFormProvider({
     }
   }, [flowContainer.flowType, defaultNodes, methods])
 
+  const isHydrated = methods.formState.isReady
   useEffect(() => {
-    if (
-      !flowContainer.formState.isReady ||
-      flowContainer.flowType === FlowType.Settings
-    ) {
+    if (!isHydrated || flowContainer.flowType === FlowType.Settings) {
       return
     }
     const field = pickAutofocusField(defaultNodes)
@@ -90,7 +88,7 @@ export function OryFormProvider({
       })
     }
   }, [
-    flowContainer.formState.isReady,
+    isHydrated,
     flowContainer.flowType,
     methods.setFocus,
     defaultNodes,

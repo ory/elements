@@ -16,6 +16,7 @@ import {
 } from "../util/events"
 import { OryTransientPayload } from "../util/transientPayload"
 import { FormState, FormStateAction, useFormStateReducer } from "./form-state"
+import { OrySubmitGateProvider } from "./submit-gate"
 
 /**
  * Returns an object that contains the current flow and the flow type, as well as the configuration.
@@ -136,7 +137,7 @@ export function OryFlowProvider({
         } as FlowContextValue
       }
     >
-      {children}
+      <OrySubmitGateProvider>{children}</OrySubmitGateProvider>
     </OryFlowContext.Provider>
   )
 }

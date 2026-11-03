@@ -7,10 +7,11 @@ import {
   RecoveryFlow,
   VerificationFlow,
 } from "@ory/client-fetch"
-import { fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
+import { PropsWithChildren, useEffect } from "react"
 import { renderToString } from "react-dom/server"
 import { useFormContext } from "react-hook-form"
-import { OryFlowProvider } from "../../context/flow-context"
+import { OryFlowProvider, useOryFlow } from "../../context/flow-context"
 import { rememberLastIdentifier } from "../../util/lastIdentifier"
 import { OryFormProvider } from "./form-provider"
 
@@ -245,4 +246,34 @@ test("should not render the last typed identifier on the server", () => {
   )
 
   expect(html).not.toContain("jane@example.com")
+})
+
+test("should focus the identifier field while an input group is still loading", async () => {
+  function LoadingInputThenForm({ children }: PropsWithChildren) {
+    const { dispatchFormState, formState } = useOryFlow()
+    useEffect(() => {
+      dispatchFormState({ type: "form_input_loading", group: "captcha" })
+    }, [dispatchFormState])
+    return formState.isReady ? null : children
+  }
+  function IdentifierInput() {
+    const { register } = useFormContext()
+    return <input data-testid="identifier-input" {...register("identifier")} />
+  }
+  const flow = loginFlowWithIdentifier()
+  flow.ui.nodes[0].type = "input"
+
+  render(
+    <OryFlowProvider flow={flow} flowType={FlowType.Login}>
+      <LoadingInputThenForm>
+        <OryFormProvider>
+          <IdentifierInput />
+        </OryFormProvider>
+      </LoadingInputThenForm>
+    </OryFlowProvider>,
+  )
+
+  await waitFor(() =>
+    expect(screen.getByTestId("identifier-input")).toHaveFocus(),
+  )
 })

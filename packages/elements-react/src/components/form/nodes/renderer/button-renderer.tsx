@@ -5,6 +5,7 @@ import { useCallback, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 import { useDebounceValue } from "usehooks-ts"
 import { useComponents, useOryFlow } from "../../../../context"
+import { useIsOryNativeSubmitBlocked } from "../../../../context/submit-gate"
 import { OryNodeButtonButtonProps } from "../../../../types"
 import { triggerToWindowCall } from "../../../../util/ui"
 import { UiNodeInput } from "../../../../util/utilFixSDKTypesHelper"
@@ -18,6 +19,7 @@ export function ButtonRenderer({ node }: ButtonRendererProps) {
   const { formState, setValue } = useFormContext()
   const { formState: oryFormState } = useOryFlow()
   const [clicked, setClicked] = useDebounceValue(false, 100)
+  const isNativeSubmitBlocked = useIsOryNativeSubmitBlocked()
 
   const handleClick = useCallback(() => {
     setValue(node.attributes.name, node.attributes.value)
@@ -36,7 +38,8 @@ export function ButtonRenderer({ node }: ButtonRendererProps) {
       node.attributes.disabled ||
       !formState.isReady ||
       !oryFormState.isReady ||
-      oryFormState.isSubmitting,
+      oryFormState.isSubmitting ||
+      (!!node.attributes.onclickTrigger && isNativeSubmitBlocked),
   } satisfies OryNodeButtonButtonProps
 
   useEffect(() => {

@@ -42,7 +42,7 @@ export const DefaultCheckbox = ({ node, inputProps }: OryNodeCheckboxProps) => {
         <input
           {...inputProps}
           className={cn(
-            "peer size-4 appearance-none rounded-forms border border-checkbox-border-checkbox-border-default bg-checkbox-background-default checked:border-checkbox-border-checkbox-border-checked checked:bg-checkbox-background-checked",
+            "peer size-4 appearance-none rounded-forms border border-checkbox-border-checkbox-border-default bg-checkbox-background-default checked:border-checkbox-border-checkbox-border-checked checked:bg-checkbox-background-checked busy:animate-busy-dim",
             hasError && "border-interface-border-validation-danger",
           )}
           data-testid={`ory/form/node/input/${node.attributes.name}`}

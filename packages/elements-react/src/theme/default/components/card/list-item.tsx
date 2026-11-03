@@ -28,7 +28,7 @@ export function ListItem<T extends React.ElementType = "div">({
       {...props}
       className={cn(
         "flex w-full cursor-pointer items-start gap-3 rounded-buttons p-2 text-left hover:bg-interface-background-default-primary-hover",
-        "disabled:cursor-default disabled:opacity-50 disabled:hover:bg-ui-transparent",
+        "disabled:cursor-default disabled:hover:bg-ui-transparent locked:opacity-50 busy:animate-busy-dim",
         className as string,
       )}
     >
