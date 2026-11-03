@@ -2,68 +2,95 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches: [main]
+    paths: ["packages/*/package.json"]
   workflow_dispatch:
     inputs:
-      version:
-        description: "Version to publish (e.g. 1.0.0-rc.1, without 'v' prefix)"
-        required: true
-        type: string
       dry_run:
         description: "Perform a dry run without publishing to npm"
         required: true
         type: boolean
         default: true
-      commit:
+      prerelease:
         description: |
-          Commit-ish to release from (e.g. SHA, branch, tag). Defaults to the
-          default branch.
-        required: false
+          Prerelease identifier (e.g. rc). Versions the pending changesets as
+          X.Y.Z-<id>.N in the runner and publishes them to the next dist-tag.
+        required: true
         type: string
-      project:
-        description: "Project to release (e.g. @ory/elements-react)"
-        required: false
-        type: choice
-        default: "All"
-        options:
-          - "All"
-          - "@ory/elements-react"
-          - "@ory/nextjs"
-          - "@ory/ssr"
 
 permissions:
-  id-token: write # Required for OIDC
   contents: read
 
-env:
-  DRY_RUN: ${{ inputs.dry_run || 'false' }}
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 jobs:
-  release:
-    name: Build & Publish - ${{ matrix.package }}
+  plan:
+    name: Find release commits
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    strategy:
-      fail-fast: true
-      matrix:
-        include:
-          - package: "@ory/elements-react"
-            package_dir: packages/elements-react
-          - package: "@ory/nextjs"
-            package_dir: packages/nextjs
-          - package: "@ory/ssr"
-            package_dir: packages/ssr
+    timeout-minutes: 10
+    outputs:
+      commits: ${{ steps.commits.outputs.commits }}
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.commit || '' }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        if: ${{ github.event_name == 'push' }}
+        with:
+          node-version: "24"
+      - uses: ./.github/actions/setup-pnpm
+        if: ${{ github.event_name == 'push' }}
+        with:
+          cache: restore
+
+      - name: Install dependencies
+        if: ${{ github.event_name == 'push' }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Find release commits
+        id: commits
+        run: |
+          set -euo pipefail
+          if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            commits="$(node scripts/changesets/release-commits.ts)"
+          else
+            commits="$(jq -cn --arg sha "$(git rev-parse HEAD)" '[$sha]')"
+          fi
+          echo "commits=${commits}" >> "${GITHUB_OUTPUT}"
+          echo "Release commits: ${commits}"
+
+  release:
+    name: Build & publish ${{ matrix.commit }}
+    needs: plan
+    if: ${{ needs.plan.outputs.commits != '[]' }}
+    strategy:
+      max-parallel: 1
+      matrix:
+        commit: ${{ fromJSON(needs.plan.outputs.commits) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      id-token: write # Required for OIDC
+      contents: write # GitHub releases and their tags
+    env:
+      DRY_RUN:
+        ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false
+        }}
+      PRERELEASE: ${{ inputs.prerelease }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ matrix.commit }}
+          fetch-depth: 0
+          persist-credentials: false
 
       - uses: actions/setup-node@v6
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
-          always-auth: true
       # The checkout above can hold another commit, so `$/` loads the action from the workflow commit instead.
       - uses: $/.github/actions/setup-pnpm
         with:
@@ -72,41 +99,75 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Resolve version
+      - name: Plan release
         run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            TAG="${GITHUB_REF#refs/tags/}"
-            VERSION="${TAG#v}"
-          else
-            VERSION="${{ inputs.version }}"
+          set -euo pipefail
+          args=(--out "${RUNNER_TEMP}/release-plan.json")
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            if ! [[ "${PRERELEASE}" =~ ^[a-z]+$ ]]; then
+              echo "::error::Prerelease identifier must be lowercase letters, got '${PRERELEASE}'."
+              exit 1
+            fi
+            args+=(--prerelease "${PRERELEASE}")
           fi
-
-          echo "RELEASE_VERSION=${VERSION}" >> "$GITHUB_ENV"
-          echo "Releasing ${{ matrix.package }}@${VERSION}"
-
-      - name: Set package version
-        working-directory: ${{ matrix.package_dir }}
-        run: |
-          pnpm version "${RELEASE_VERSION}" --no-git-tag-version \
-            --allow-same-version
+          node scripts/changesets/prepare-release.ts "${args[@]}"
 
       - name: Build
-        run: pnpm exec nx run "${{ matrix.package }}:build"
-
-      - name: Determine npm tag
         run: |
-          if echo "${RELEASE_VERSION}" | grep -qE '[-]'; then
-            echo "NPM_TAG=next" >> "$GITHUB_ENV"
-            echo "Publishing with npm tag: next"
-          else
-            echo "NPM_TAG=latest" >> "$GITHUB_ENV"
-            echo "Publishing with npm tag: latest"
+          set -euo pipefail
+          projects="$(jq -r 'map(select(.alreadyPublished | not) | .name) | join(",")' "${RUNNER_TEMP}/release-plan.json")"
+          if [ -n "${projects}" ]; then
+            pnpm exec nx run-many -t build --projects="${projects}"
           fi
 
       - name: Publish
-        working-directory: ${{ matrix.package_dir }}
         run: |
-          pnpm publish --tag "${NPM_TAG}" --provenance --access public --dry-run=${{ env.DRY_RUN }} --no-git-checks
-        if: |
-          github.event_name == 'push' ||
-          (github.event_name == 'workflow_dispatch' && (github.event.inputs.project == 'All' || github.event.inputs.project == matrix.package))
+          set -euo pipefail
+          mapfile -t releases < <(jq -c '.[]' "${RUNNER_TEMP}/release-plan.json")
+          for release in "${releases[@]}"; do
+            name="$(jq -r .name <<<"${release}")"
+            dir="$(jq -r .dir <<<"${release}")"
+            version="$(jq -r .version <<<"${release}")"
+            dist_tag="$(jq -r .distTag <<<"${release}")"
+
+            if [[ "${version}" == *-* && "${dist_tag}" == "latest" ]]; then
+              echo "::error::Refusing to publish prerelease ${name}@${version} to latest."
+              exit 1
+            fi
+
+            if [ "$(jq -r .alreadyPublished <<<"${release}")" = "true" ]; then
+              echo "${name}@${version} is already on npm, skipping publish."
+            else
+              (cd "${dir}" && pnpm publish --tag "${dist_tag}" --provenance --access public --dry-run="${DRY_RUN}" --no-git-checks)
+            fi
+          done
+
+      - name: Create GitHub releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          commit="$(git rev-parse HEAD)"
+          mapfile -t releases < <(jq -c '.[]' "${RUNNER_TEMP}/release-plan.json")
+          for release in "${releases[@]}"; do
+            name="$(jq -r .name <<<"${release}")"
+            version="$(jq -r .version <<<"${release}")"
+            git_tag="$(jq -r .gitTag <<<"${release}")"
+
+            if [ "${DRY_RUN}" = "true" ]; then
+              echo "Dry run: would create ${git_tag} at ${commit}."
+              continue
+            fi
+
+            if ! gh release view "${git_tag}" >/dev/null 2>&1; then
+              prerelease_flag=()
+              if [[ "${version}" == *-* ]]; then
+                prerelease_flag=(--prerelease)
+              fi
+              jq -r .notes <<<"${release}" > "${RUNNER_TEMP}/notes.md"
+              gh release create "${git_tag}" --target "${commit}" \
+                --title "${name} v${version}" \
+                --notes-file "${RUNNER_TEMP}/notes.md" \
+                "${prerelease_flag[@]}"
+            fi
+          done

@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements-react",
-  "version": "0.0.0-unused",
+  "version": "1.2.1",
   "scripts": {
     "build": "tsup --dts",
     "prepare": "pnpm run build"

@@ -13,40 +13,6 @@
       "dependsOn": ["^build"]
     }
   },
-  "release": {
-    "projectsRelationship": "independent",
-    "git": {
-      "commit": false,
-      "tag": true,
-      "push": true
-    },
-    "changelog": {
-      "workspaceChangelog": false,
-      "projectChangelogs": {
-        "createRelease": "github",
-        "file": false
-      }
-    },
-    "groups": {
-      "elements": {
-        "projects": ["@ory/elements-react"],
-        "title": "Elements",
-        "releaseTag": {
-          "pattern": "release/{projectName}/{version}"
-        }
-      },
-      "nextjs": {
-        "projects": ["@ory/nextjs"],
-        "title": "Next.js",
-        "releaseTag": {
-          "pattern": "release/{projectName}/{version}"
-        }
-      }
-    },
-    "releaseTag": {
-      "pattern": "release/{projectName}/{version}"
-    }
-  },
   "affected": {
     "defaultBase": "main"
   },

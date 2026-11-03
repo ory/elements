@@ -64,35 +64,28 @@ The stories use stub responses
 
 ## Releasing
 
-@ory/elements-react and @ory/nextjs are released using nx releases.
-
-Preparation:
-
-Check https://www.npmjs.com/package/@ory/elements-react for the latest released
-version and determine what kind of version you want to release.
-
-This is necessary, because of Ory's monorepo setup, and nx needing to push the
-resulting change of `package.json` to master to automatically determine which
-version to release!
-
-:::note
-
-Ory Internal only: Run these command in a local clone of @ory/elements!
-
-:::
+Packages are versioned with
+[changesets](https://github.com/changesets/changesets). A pull request that
+changes a published package adds a changeset that names each package it changes
+and the bump:
 
 ```shell
-pnpm exec nx build @ory/elements-react
-pnpm exec nx release -g elements 1.0.1-rc.0 --dry-run
-# if okay:
-pnpm exec nx release -g elements 1.0.1-rc.0
-
-# or
-
-pnpm exec nx build @ory/nextjs
-pnpm exec nx release -g nextjs 1.0.1-rc.0 --dry-run
-# if okay:
-pnpm exec nx release -g nextjs 1.0.1-rc.0
+pnpm exec changeset
 ```
 
-Don't commit any of the results and just re-set git to the previous commit.
+A stable release goes through a release pull request:
+
+1. Run the `Elements - Release PR` workflow in `ory-corp/cloud`. It runs
+   `changeset version` and opens or updates the
+   `chore(elements): release packages` pull request with the new versions and
+   changelogs. Review and merge it.
+2. When the merge is exported to `ory/elements`, the `Release` workflow there
+   publishes every package whose committed version is not on npm yet to
+   `latest`. It builds and publishes from the commit that set the version, tags
+   `release/@ory/<package>/v<version>` on it, and creates a GitHub release from
+   the changelog. To retry a failed release, re-run that workflow run.
+
+To publish a prerelease of the pending changesets, run the `Release` workflow
+manually with `prerelease` set (for example `rc`). Start with `dry_run` enabled.
+It versions them as `X.Y.Z-rc.N` in the runner, publishes to the `next`
+dist-tag, and commits nothing.

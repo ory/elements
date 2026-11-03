@@ -113,6 +113,12 @@ const config = tseslint.config([
     },
   },
   {
+    files: ["scripts/**/*.test.ts"],
+    rules: {
+      "@typescript-eslint/no-floating-promises": "off",
+    },
+  },
+  {
     files: [
       "examples/nextjs-app-router/**/*.ts",
       "examples/nextjs-app-router/**/*.tsx",

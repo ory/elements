@@ -1,6 +1,6 @@
 {
   "name": "@ory/nextjs",
-  "version": "0.0.0-unused",
+  "version": "1.0.0-rc.1",
   "license": "Apache License 2.0",
   "description": "Ory for Next.js: server functions that fetch Ory flows and sessions, client hooks that fetch Ory flows, and a middleware for local development.",
   "ory": {
