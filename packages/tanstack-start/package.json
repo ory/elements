@@ -41,6 +41,11 @@
     "tanstack start",
     "tanstack router"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/tanstack-start"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

@@ -35,6 +35,11 @@
     "react-router",
     "remix"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/react-router"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

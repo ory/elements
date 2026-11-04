@@ -35,6 +35,11 @@
     "authentication",
     "user management"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/ssr"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

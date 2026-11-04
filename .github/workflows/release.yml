@@ -138,6 +138,11 @@ jobs:
             if [ "$(jq -r .alreadyPublished <<<"${release}")" = "true" ]; then
               echo "${name}@${version} is already on npm, skipping publish."
             else
+              # npm rejects provenance unless repository.url names the publishing repository.
+              jq --arg url "git+https://github.com/${GITHUB_REPOSITORY}.git" --arg dir "${dir}" \
+                '.repository = {type: "git", url: $url, directory: $dir}' \
+                "${dir}/package.json" > "${RUNNER_TEMP}/package.json"
+              mv "${RUNNER_TEMP}/package.json" "${dir}/package.json"
               (cd "${dir}" && pnpm publish --tag "${dist_tag}" --provenance --access public --dry-run="${DRY_RUN}" --no-git-checks)
             fi
           done

@@ -42,6 +42,11 @@
     "app router",
     "pages router"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ory/elements.git",
+    "directory": "packages/nextjs"
+  },
   "peerDependencies": {
     "next": ">=13.1.0",
     "react": ">=18.2.0"
