@@ -1,6 +1,6 @@
 {
   "name": "@ory/ssr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Framework-neutral server-side helpers for building Ory Elements framework adapters.",
   "license": "Apache License 2.0",
   "type": "commonjs",

@@ -1,6 +1,6 @@
 {
   "name": "@ory/tanstack-start",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Ory authentication flows, sessions, and a local development proxy for TanStack Start.",
   "license": "Apache License 2.0",
   "type": "module",
