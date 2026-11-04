@@ -73,6 +73,11 @@ and the bump:
 pnpm exec changeset
 ```
 
+CI fails when an `api-report/*.api.md` or `agents/slots.json` file adds, removes
+or changes an export or slot without a changeset for that package, and when a
+removed or changed export or a removed slot comes without a `major` changeset
+(`minor` for packages on `0.x`).
+
 A stable release goes through a release pull request:
 
 1. Run the `Elements - Release PR` workflow in `ory-corp/cloud`. It runs

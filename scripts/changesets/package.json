@@ -8,6 +8,7 @@
     "test": "node --test"
   },
   "dependencies": {
+    "@changesets/parse": "1.0.0",
     "semver": "7.8.5"
   },
   "devDependencies": {

@@ -1,0 +1,39 @@
+diff --git a/packages/elements-react/api-report/elements-react-theme.api.md b/packages/elements-react/api-report/elements-react-theme.api.md
+index 1a5163781a4..4a313731514 100644
+--- a/packages/elements-react/api-report/elements-react-theme.api.md
++++ b/packages/elements-react/api-report/elements-react-theme.api.md
+@@ -15,0 +16 @@ import { GenericError } from '@ory/client-fetch';
++import { HTMLAttributes } from 'react';
+diff --git a/packages/elements-react/api-report/elements-react.api.md b/packages/elements-react/api-report/elements-react.api.md
+index 536850ed286..1cc01c7cf5d 100644
+--- a/packages/elements-react/api-report/elements-react.api.md
++++ b/packages/elements-react/api-report/elements-react.api.md
+@@ -16,0 +17 @@ import { GenericError } from '@ory/client-fetch';
++import { HTMLAttributes } from 'react';
+@@ -524,0 +526 @@ export type OryNodeInputInputProps = {
++    inputMode?: HTMLAttributes<HTMLInputElement>["inputMode"];
+@@ -795,0 +798 @@ export type UiNodeInputAttributesWithOptions = UiNodeInputAttributes & {
++    inputmode?: "numeric" | "text";
+@@ -841,11 +844,11 @@ export type VerificationFlowContainer = {
+-// dist/index.d.ts:743:5 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:744:5 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:745:5 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:746:5 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:747:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:748:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:749:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:750:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:1117:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:1121:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
+-// dist/index.d.ts:1676:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:750:5 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:751:5 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:752:5 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:753:5 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:754:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:755:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:756:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:757:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:1124:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:1128:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:1683:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts

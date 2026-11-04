@@ -1,0 +1,6 @@
+diff --git a/packages/nextjs/api-report/nextjs.api.md b/packages/nextjs/api-report/nextjs.api.md
+index 24c7140e603..4306d757590 100644
+--- a/packages/nextjs/api-report/nextjs.api.md
++++ b/packages/nextjs/api-report/nextjs.api.md
+@@ -86,0 +87 @@ export type OryMiddlewareOptions = {
++    trustedOrigins?: Array<string | RegExp>;

@@ -1,0 +1,7 @@
+diff --git a/packages/elements-react/api-report/elements-react.api.md b/packages/elements-react/api-report/elements-react.api.md
+index 1cc01c7cf5d..3717235be9c 100644
+--- a/packages/elements-react/api-report/elements-react.api.md
++++ b/packages/elements-react/api-report/elements-react.api.md
+@@ -854 +854 @@ export type VerificationFlowContainer = {
+-// dist/index.d.ts:1683:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:1684:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts

@@ -1,0 +1,31 @@
+{
+  "package": "@ory/elements-react",
+  "componentsType": "OryFlowComponents",
+  "overridesType": "OryFlowComponentOverrides",
+  "slots": [
+    {
+      "path": "Node.Button",
+      "group": "Node",
+      "name": "Button",
+      "required": true,
+      "description": "Button component, rendered whenever a button is encountered in the Ory UI Nodes.",
+      "propsType": "OryNodeButtonProps"
+    },
+    {
+      "path": "Node.SsoButton",
+      "group": "Node",
+      "name": "SsoButton",
+      "required": true,
+      "description": "The SsoButton component is rendered whenever a button of group \"oidc\" or \"saml\" node is encountered. It renders the \"Login with Google\", \"Login with Facebook\" etc. buttons.",
+      "propsType": "OryNodeSsoButtonProps"
+    },
+    {
+      "path": "Node.Anchor",
+      "group": "Node",
+      "name": "Anchor",
+      "required": true,
+      "description": "Anchor component, rendered whenever an \"anchor\" node is encountered",
+      "propsType": "OryNodeAnchorProps"
+    }
+  ]
+}

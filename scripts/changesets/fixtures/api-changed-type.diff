@@ -1,0 +1,39 @@
+diff --git a/packages/elements-react/api-report/elements-react-theme.api.md b/packages/elements-react/api-report/elements-react-theme.api.md
+index de71c078fc8..9e2bd28886a 100644
+--- a/packages/elements-react/api-report/elements-react-theme.api.md
++++ b/packages/elements-react/api-report/elements-react-theme.api.md
+@@ -7 +6,0 @@
+-import { AccountExperienceConfiguration } from '@ory/client-fetch';
+diff --git a/packages/elements-react/api-report/elements-react.api.md b/packages/elements-react/api-report/elements-react.api.md
+index a1c9692dc39..4769c8c05f6 100644
+--- a/packages/elements-react/api-report/elements-react.api.md
++++ b/packages/elements-react/api-report/elements-react.api.md
+@@ -7 +6,0 @@
+-import { AccountExperienceConfiguration } from '@ory/client-fetch';
+@@ -253 +252 @@ export interface OryClientConfiguration {
+-    project: AccountExperienceConfiguration;
++    project: ProjectConfiguration;
+@@ -271 +270 @@ export type OryElementsConfiguration = {
+-    project: AccountExperienceConfiguration;
++    project: ProjectConfiguration;
+@@ -581,0 +581,17 @@ export type OryToastProps = {
++// @public
++export interface ProjectConfiguration {
++    default_redirect_url: string;
++    error_ui_url: string;
++    login_ui_url: string;
++    logo_dark_url?: string;
++    logo_light_url?: string;
++    name: string;
++    recovery_enabled: boolean;
++    recovery_ui_url: string;
++    registration_enabled: boolean;
++    registration_ui_url: string;
++    settings_ui_url: string;
++    verification_enabled: boolean;
++    verification_ui_url: string;
++}
++
+@@ -682 +698 @@ export type VerificationFlowContainer = {
+-// dist/index.d.ts:1236:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
++// dist/index.d.ts:1305:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts

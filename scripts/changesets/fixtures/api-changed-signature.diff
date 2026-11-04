@@ -1,0 +1,7 @@
+diff --git a/packages/elements-react/api-report/elements-react-theme.api.md b/packages/elements-react/api-report/elements-react-theme.api.md
+index 9e2bd28886a..d85b694af12 100644
+--- a/packages/elements-react/api-report/elements-react-theme.api.md
++++ b/packages/elements-react/api-report/elements-react-theme.api.md
+@@ -49 +49 @@ export type ConsentFlowProps = {
+-export function DefaultButtonSocial({ node, logos: providedLogos, isSubmitting, buttonProps, provider, attributes, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;
++export function DefaultButtonSocial({ node, logos: providedLogos, isSubmitting, buttonProps, provider, }: DefaultSocialButtonProps): react_jsx_runtime.JSX.Element;

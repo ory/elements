@@ -18,6 +18,8 @@ jobs:
           cache: save
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Require changesets for API report and slot changes
+        run: node scripts/changesets/check-changesets.ts --base HEAD^1
       - uses: nrwl/nx-set-shas@v4
       - run: pnpm exec nx run-many --all -t lint test build api-extractor
 
