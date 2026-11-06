@@ -169,6 +169,11 @@ export type OryErrorEvent =
        * when present and numeric.
        */
       retryAfter?: number
+      /**
+       * The Ory error, when the response carried one. A login refused by
+       * brute-force protection carries the error ID `login_throttled`.
+       */
+      body?: { error: GenericError }
     }
   | {
       type: "unexpected_error"

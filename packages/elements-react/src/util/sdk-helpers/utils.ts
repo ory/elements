@@ -14,6 +14,7 @@ import {
   isBrowserLocationChangeRequired,
   isCsrfError,
   isFetchError,
+  isGenericErrorResponse,
   isNeedsPrivilegedSessionError,
   isResponseError,
   isSelfServiceFlowExpiredError,
@@ -83,15 +84,18 @@ export const handleFlowError =
       return emitUnexpectedErrorAndThrow(opts, err)
     }
 
-    // A 429 comes from the edge rate limiter, not from the flow APIs, and can
-    // carry any content type (the stock Envoy response has an empty body), so it
-    // is handled before content-type sniffing. It is a handled error: the caller
-    // shows feedback and the form stays usable, so nothing is thrown.
+    // A 429 comes from the edge rate limiter or from login brute-force
+    // protection. The edge's response can carry any content type, including
+    // JSON with an empty body, so it is handled before content-type sniffing
+    // and a body that does not decode is ignored. It is a handled error: the
+    // caller shows feedback and the form stays usable, so nothing is thrown.
     if (err.response.status === 429) {
+      const body = await rateLimitBody(err.response)
       await opts.onError?.({
         type: "rate_limited",
         flowType: opts.flowType,
         retryAfter: parseRetryAfter(err.response.headers.get("retry-after")),
+        ...(body ? { body } : {}),
       })
       return
     }
@@ -283,6 +287,20 @@ async function logResponseError(
     },
     errors: wrap,
   })
+}
+
+async function rateLimitBody(
+  response: Response,
+): Promise<{ error: GenericError } | undefined> {
+  if (!response.headers.get("content-type")?.includes("application/json")) {
+    return undefined
+  }
+  try {
+    const body: unknown = await response.clone().json()
+    return isGenericErrorResponse(body) ? body : undefined
+  } catch {
+    return undefined
+  }
 }
 
 // Parses the numeric (delta-seconds) form of the Retry-After header. The

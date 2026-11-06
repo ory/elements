@@ -2723,7 +2723,16 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    retryAfter?: number;\n} | {\n    type: \"unexpected_error\";\n    flowType: "
+              "text": ";\n    retryAfter?: number;\n    body?: {\n        error: "
+            },
+            {
+              "kind": "Reference",
+              "text": "GenericError",
+              "canonicalReference": "@ory/client-fetch!GenericError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    };\n} | {\n    type: \"unexpected_error\";\n    flowType: "
             },
             {
               "kind": "Reference",
@@ -2753,7 +2762,7 @@
           "name": "OryErrorEvent",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 26
+            "endIndex": 28
           }
         },
         {

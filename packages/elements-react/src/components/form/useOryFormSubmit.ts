@@ -26,7 +26,7 @@ import { onSubmitSettings } from "../../util/onSubmitSettings"
 import { onSubmitVerification } from "../../util/onSubmitVerification"
 import {
   appendUiMessage,
-  rateLimitedMessageId,
+  rateLimitedMessage,
 } from "../../util/rateLimitedMessage"
 import { removeEmptyStrings } from "../../util/removeFalsyValues"
 import { resolveTransientPayload } from "../../util/transientPayload"
@@ -132,15 +132,7 @@ export function useOryFormSubmit(
       // freezing the form. End the submit state so the form stays usable.
       flowContainer.dispatchFormState({ type: "form_submit_end" })
       flowContainer.setFlowContainer(
-        appendUiMessage(flowContainer, {
-          id: rateLimitedMessageId,
-          type: "error",
-          text: intl.formatMessage({
-            id: "messages.rate-limited",
-            defaultMessage:
-              "Too many requests. Please wait a moment and try again.",
-          }),
-        }),
+        appendUiMessage(flowContainer, rateLimitedMessage(event, intl)),
       )
     }
   }

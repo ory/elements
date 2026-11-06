@@ -89,6 +89,7 @@ export const uiTextToFormattedMessage = (
             [key + "_until_minutes"]: Math.ceil(
               (value - new Date().getTime() / 1000) / 60,
             ).toFixed(0),
+            [key + "_until_relative"]: formatRelativeUntil(value, intl),
           }
         }
       } else if (key === "property") {
@@ -117,6 +118,28 @@ export const uiTextToFormattedMessage = (
   }
 
   return text
+}
+
+/**
+ * Formats the time until a Unix timestamp as a relative time, for example
+ * "in 5 minutes". The wait rounds up to the largest unit that counts at least
+ * two, and a timestamp in the past formats as "now".
+ */
+function formatRelativeUntil(unixSeconds: number, intl: IntlShape) {
+  const seconds = Math.max(0, Math.ceil(unixSeconds - Date.now() / 1000))
+  const units = [
+    ["day", 24 * 60 * 60],
+    ["hour", 60 * 60],
+    ["minute", 60],
+  ] as const
+  for (const [unit, size] of units) {
+    if (seconds >= 2 * size) {
+      return intl.formatRelativeTime(Math.ceil(seconds / size), unit, {
+        numeric: "auto",
+      })
+    }
+  }
+  return intl.formatRelativeTime(seconds, "second", { numeric: "auto" })
 }
 
 export function resolvePlaceholder(

@@ -2,8 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { FlowType, UiText } from "@ory/client-fetch"
+import { createIntl } from "react-intl"
 import { OryFlowContainer } from "../flowContainer"
-import { appendUiMessage, rateLimitedMessageId } from "../rateLimitedMessage"
+import {
+  appendUiMessage,
+  rateLimitedMessage,
+  rateLimitedMessageId,
+} from "../rateLimitedMessage"
 
 const message: UiText = {
   id: rateLimitedMessageId,
@@ -39,4 +44,85 @@ test("should not mutate the input container", () => {
   const container = makeContainer([])
   appendUiMessage(container, message)
   expect(container.flow.ui.messages).toEqual([])
+})
+
+const intl = createIntl({ locale: "en", messages: {}, onError: () => {} })
+
+test("should return the generic message for a rate limit without an Ory error", () => {
+  expect(
+    rateLimitedMessage(
+      { type: "rate_limited", flowType: FlowType.Login, retryAfter: 5 },
+      intl,
+    ),
+  ).toEqual(message)
+})
+
+describe("login throttle", () => {
+  const now = new Date("2026-01-01T00:00:00Z")
+
+  beforeEach(() => {
+    jest.useFakeTimers().setSystemTime(now)
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+  })
+
+  test("should return the login throttle message with the seconds from the error details", () => {
+    // The Retry-After header is unreadable cross-origin unless the server
+    // exposes it, so the error details are the source that always arrives.
+    expect(
+      rateLimitedMessage(
+        {
+          type: "rate_limited",
+          flowType: FlowType.Login,
+          retryAfter: 5,
+          body: {
+            error: {
+              id: "login_throttled",
+              message: "too many failed login attempts",
+              details: { retry_after: 30 },
+            },
+          },
+        },
+        intl,
+      ),
+    ).toEqual({
+      id: 4010012,
+      type: "error",
+      text: "Too many failed login attempts. Please try again in 30 seconds.",
+      context: { retry_after: 30, retry_at_unix: now.getTime() / 1000 + 30 },
+    })
+  })
+
+  test("should take the seconds from the Retry-After header without error details", () => {
+    expect(
+      rateLimitedMessage(
+        {
+          type: "rate_limited",
+          flowType: FlowType.Login,
+          retryAfter: 5,
+          body: {
+            error: { id: "login_throttled", message: "too many attempts" },
+          },
+        },
+        intl,
+      ).context,
+    ).toEqual({ retry_after: 5, retry_at_unix: now.getTime() / 1000 + 5 })
+  })
+
+  test("should return the generic message when the wait is unknown", () => {
+    expect(
+      rateLimitedMessage(
+        {
+          type: "rate_limited",
+          flowType: FlowType.Login,
+          body: {
+            error: { id: "login_throttled", message: "too many attempts" },
+          },
+        },
+        intl,
+      ),
+    ).toEqual(message)
+  })
 })

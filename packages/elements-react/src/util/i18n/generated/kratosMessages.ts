@@ -782,6 +782,12 @@ export const kratosMessages = defineMessages({
     description:
       "Error message shown to the user. Shown during the login flow.",
   },
+  4010012: {
+    id: "identities.messages.4010012",
+    defaultMessage: `Too many failed login attempts. Please try again {retry_at_unix_until_relative}.`,
+    description:
+      "Error message shown to the user. Shown during the login flow.",
+  },
   4040001: {
     id: "identities.messages.4040001",
     defaultMessage: `The interaction expired. Please try again.`,

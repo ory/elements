@@ -416,6 +416,54 @@ describe("handleFlowError", () => {
     expect(opts.onRestartFlow).not.toHaveBeenCalled()
   })
 
+  it("should pass the error body of a login throttled by brute-force protection", async () => {
+    opts.onError = jest.fn()
+    mockResponse.status = 429
+    mockResponse.headers.get = jest.fn((name: string) =>
+      name === "retry-after" ? "60" : "application/json",
+    )
+    const body = {
+      error: {
+        id: "login_throttled",
+        code: 429,
+        message: "too many failed login attempts",
+        details: { retry_after: 60 },
+      },
+    }
+    mockResponse.json.mockResolvedValue(body)
+
+    const handler = handleFlowError(opts)
+
+    await expect(
+      handler(new ResponseError(mockResponse as unknown as Response)),
+    ).resolves.toBeUndefined()
+    expect(opts.onError).toHaveBeenCalledWith({
+      type: "rate_limited",
+      flowType: FlowType.Login,
+      retryAfter: 60,
+      body,
+    })
+  })
+
+  it("should emit rate_limited when a JSON 429 body cannot be decoded", async () => {
+    opts.onError = jest.fn()
+    mockResponse.status = 429
+    mockResponse.headers.get = jest.fn((name: string) =>
+      name === "content-type" ? "application/json" : null,
+    )
+    mockResponse.json.mockRejectedValue(new SyntaxError("Unexpected end"))
+
+    const handler = handleFlowError(opts)
+
+    await expect(
+      handler(new ResponseError(mockResponse as unknown as Response)),
+    ).resolves.toBeUndefined()
+    expect(opts.onError).toHaveBeenCalledWith({
+      type: "rate_limited",
+      flowType: FlowType.Login,
+    })
+  })
+
   it("should handle 429 without a retry-after header and without an onError handler", async () => {
     mockResponse.status = 429
     mockResponse.headers.get = jest.fn().mockReturnValue(null)

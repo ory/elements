@@ -100,6 +100,63 @@ test("should end the submit state after a rate-limited (429) submission so the f
   )
 })
 
+function loginThrottledResponseError() {
+  const body = {
+    error: {
+      id: "login_throttled",
+      code: 429,
+      status: "Too Many Requests",
+      message: "too many failed login attempts",
+      details: { retry_after: 30 },
+    },
+  }
+  const response = {
+    status: 429,
+    json: () => Promise.resolve(body),
+    clone: () => response,
+    headers: {
+      get: (name: string) =>
+        ({ "content-type": "application/json", "retry-after": "30" })[name] ??
+        null,
+    },
+  }
+  return Object.assign(new Error("Too Many Requests"), {
+    name: "ResponseError",
+    response,
+  })
+}
+
+test("should show the login throttle message when brute-force protection refuses the login", async () => {
+  jest
+    .spyOn(await import("../../util/client"), "frontendClient")
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    .mockReturnValue({
+      updateLoginFlowRaw: jest
+        .fn()
+        .mockRejectedValue(loginThrottledResponseError()),
+    } as any)
+
+  renderWithOryElements(
+    <IntlProvider locale="en">
+      <SubmitHarness />
+    </IntlProvider>,
+  )
+
+  await act(async () => {
+    await triggerSubmit?.()
+  })
+
+  await waitFor(() =>
+    expect(
+      screen.getByText(
+        "Too many failed login attempts. Please try again in 30 seconds.",
+      ),
+    ).toBeInTheDocument(),
+  )
+  expect(screen.queryByText(/Too many requests/i)).not.toBeInTheDocument()
+  expect(screen.getByTestId("submitting").textContent).toBe("false")
+})
+
 function locationChangeRequiredError(redirectBrowserTo: string) {
   const body = {
     error: {

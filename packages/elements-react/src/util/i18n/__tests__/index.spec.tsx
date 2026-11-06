@@ -97,6 +97,55 @@ describe("uiTextToFormattedMessage", () => {
   })
 })
 
+describe("relative wait from a _unix context value", () => {
+  const now = new Date("2026-01-01T00:00:00Z")
+
+  beforeEach(() => {
+    jest.useFakeTimers().setSystemTime(now)
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+  })
+
+  const cases = [
+    { wait: 1, rendered: "in 1 second" },
+    { wait: 90, rendered: "in 90 seconds" },
+    { wait: 120, rendered: "in 2 minutes" },
+    { wait: 121, rendered: "in 3 minutes" },
+    { wait: 3600, rendered: "in 60 minutes" },
+    { wait: 7200, rendered: "in 2 hours" },
+    { wait: 172800, rendered: "in 2 days" },
+    { wait: -30, rendered: "now" },
+  ]
+
+  cases.forEach(({ wait, rendered }) => {
+    test(`should render a wait of ${wait} seconds as "${rendered}"`, () => {
+      const throttled: UiText = {
+        id: 4010012,
+        text: "raw server text",
+        type: "error",
+        context: {
+          retry_after: wait,
+          retry_at_unix: now.getTime() / 1000 + wait,
+        },
+      }
+
+      renderWithOryElements(
+        <IntlProvider locale={"en"}>
+          <Inner uiText={throttled} />
+        </IntlProvider>,
+      )
+
+      expect(
+        screen.getByText(
+          `Too many failed login attempts. Please try again ${rendered}.`,
+        ),
+      ).toBeTruthy()
+    })
+  })
+})
+
 describe("IntlProvider", () => {
   test("should return the german locale", () => {
     renderWithOryElements(
