@@ -8,7 +8,7 @@
   },
   "type": "commonjs",
   "scripts": {
-    "build": "tsup --clean --dts",
+    "build": "tsdown --config-loader tsx",
     "prepare": "pnpm run build"
   },
   "main": "./dist/index.js",
@@ -24,7 +24,7 @@
     "babel-jest": "^29.7.0",
     "jest-esm-transformer": "^1.0.0",
     "react": "19.2.7",
-    "tsup": "8.5.0",
+    "tsdown": "0.23.3",
     "typedoc": "0.28.19",
     "typescript": "5.9.3"
   },

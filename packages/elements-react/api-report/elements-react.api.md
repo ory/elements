@@ -17,12 +17,12 @@ import { GenericError } from '@ory/client-fetch';
 import { HTMLAttributes } from 'react';
 import { Identity } from '@ory/client-fetch';
 import { IntlShape } from 'react-intl';
+import { JSX } from 'react';
 import { LoginFlow } from '@ory/client-fetch';
 import { MouseEventHandler } from 'react';
 import { OAuth2ConsentRequest } from '@ory/client-fetch';
 import { OnRedirectHandler } from '@ory/client-fetch';
 import { PropsWithChildren } from 'react';
-import * as react from 'react';
 import { ReactNode } from 'react';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
@@ -207,7 +207,7 @@ export type OnSubmitHandlerProps<T extends UpdateLoginFlowBody | UpdateRegistrat
 };
 
 // @public
-export function OryCard(input: PropsWithChildren): react.JSX.Element;
+export function OryCard(input: PropsWithChildren): JSX.Element;
 
 // @public
 export type OryCardAuthMethodListItemProps = {
@@ -217,7 +217,7 @@ export type OryCardAuthMethodListItemProps = {
 };
 
 // @public
-export function OryCardContent(input: OryCardContentProps): react.JSX.Element;
+export function OryCardContent(input: OryCardContentProps): JSX.Element;
 
 // @public
 export type OryCardContentProps = PropsWithChildren;
@@ -226,13 +226,13 @@ export type OryCardContentProps = PropsWithChildren;
 export type OryCardDividerProps = Record<string, never>;
 
 // @public (undocumented)
-export function OryCardFooter(): react.JSX.Element;
+export function OryCardFooter(): JSX.Element;
 
 // @public (undocumented)
 export type OryCardFooterProps = Record<string, never>;
 
 // @public
-export function OryCardHeader(): react.JSX.Element;
+export function OryCardHeader(): JSX.Element;
 
 // @public (undocumented)
 export type OryCardHeaderProps = Record<string, never>;
@@ -254,7 +254,7 @@ export interface OryCardSettingsSectionProps extends PropsWithChildren {
 }
 
 // @public
-export function OryCardValidationMessages(input: OryCardValidationMessagesProps): react.JSX.Element | null;
+export function OryCardValidationMessages(input: OryCardValidationMessagesProps): JSX.Element | null;
 
 // @public
 export interface OryCardValidationMessagesProps {
@@ -274,10 +274,10 @@ export interface OryClientConfiguration {
 // Warning: (ae-forgotten-export) The symbol "OryConfigurationProviderProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function OryConfigurationProvider(input: OryConfigurationProviderProps): react.JSX.Element;
+export function OryConfigurationProvider(input: OryConfigurationProviderProps): JSX.Element;
 
 // @public
-export function OryConsentCard(): react.JSX.Element;
+export function OryConsentCard(): JSX.Element;
 
 // @public
 export type OryConsentSuccessEvent = {
@@ -329,11 +329,7 @@ export type OryErrorEvent = {
 export type OryErrorHandler = (event: OryErrorEvent) => void | Promise<void>;
 
 // @public
-export type OryFlowComponentOverrides = {
-    [P in keyof OryFlowComponents]?: OryFlowComponents[P] extends object ? {
-        [K in keyof OryFlowComponents[P]]?: OryFlowComponents[P][K];
-    } : OryFlowComponents[P];
-};
+export type OryFlowComponentOverrides = { [P in keyof OryFlowComponents]?: OryFlowComponents[P] extends object ? { [K in keyof OryFlowComponents[P]]?: OryFlowComponents[P][K]; } : OryFlowComponents[P]; };
 
 // @public
 export type OryFlowComponents = {
@@ -390,13 +386,13 @@ export type OryFlowComponents = {
 export type OryFlowContainer = LoginFlowContainer | RegistrationFlowContainer | RecoveryFlowContainer | VerificationFlowContainer | SettingsFlowContainer | ConsentFlowContainer;
 
 // @public
-export function OryForm(input: OryFormProps): react.JSX.Element;
+export function OryForm(input: OryFormProps): JSX.Element;
 
 // @public
 export type OryFormBusyState = "hydrating" | "submitting" | undefined;
 
 // @public
-export function OryFormGroupDivider(): react.JSX.Element | null;
+export function OryFormGroupDivider(): JSX.Element | null;
 
 // @public
 export type OryFormGroupProps = PropsWithChildren;
@@ -429,10 +425,10 @@ export interface OryFormSectionProps extends PropsWithChildren, OrySettingsFormP
 }
 
 // @public
-export function OryFormSsoButtons(): react.JSX.Element | null;
+export function OryFormSsoButtons(): JSX.Element | null;
 
 // @public
-export function OryFormSsoForm(): react.JSX.Element | null;
+export function OryFormSsoForm(): JSX.Element | null;
 
 // @public (undocumented)
 export type OryFormSsoRootProps = PropsWithChildren<{
@@ -595,13 +591,13 @@ export type OryNodeTextProps = {
 };
 
 // @public
-export const OryPageHeader: () => react.JSX.Element;
+export const OryPageHeader: () => JSX.Element;
 
 // @public (undocumented)
 export type OryPageHeaderProps = Record<never, never>;
 
 // @public
-export function OryProvider(input: OryProviderProps): react.JSX.Element;
+export function OryProvider(input: OryProviderProps): JSX.Element;
 
 // @public
 export type OryProviderProps = {
@@ -630,10 +626,10 @@ export type OryRegistrationSuccessEvent = {
 };
 
 // @public
-export function OrySelfServiceFlowCard(): react.JSX.Element;
+export function OrySelfServiceFlowCard(): JSX.Element;
 
 // @public
-export function OrySettingsCard(): react.JSX.Element;
+export function OrySettingsCard(): JSX.Element;
 
 // @public (undocumented)
 export type OrySettingsDeviceauthnProps = {
@@ -645,7 +641,7 @@ export type OrySettingsDeviceauthnProps = {
 export type OrySettingsFormProps = Omit<ComponentPropsWithoutRef<"form">, "action" | "method" | "onSubmit">;
 
 // @public
-export function OrySettingsFormSection(input: OryFormSectionProps): react.JSX.Element;
+export function OrySettingsFormSection(input: OryFormSectionProps): JSX.Element;
 
 // @public (undocumented)
 export type OrySettingsPasskeyProps = {
@@ -899,18 +895,18 @@ export type VerificationFlowContainer = {
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:767:5 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:768:5 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:769:5 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:770:5 - (ae-forgotten-export) The symbol "ConsentResourceRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:771:5 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:772:5 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:773:5 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:774:5 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:775:5 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1149:5 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1153:5 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:1802:5 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:26:3 - (ae-forgotten-export) The symbol "ButtonRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:27:3 - (ae-forgotten-export) The symbol "SSOButtonRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:28:3 - (ae-forgotten-export) The symbol "ConsentCheckboxRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:29:3 - (ae-forgotten-export) The symbol "ConsentResourceRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:30:3 - (ae-forgotten-export) The symbol "InputRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:31:3 - (ae-forgotten-export) The symbol "CheckboxRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:32:3 - (ae-forgotten-export) The symbol "ImageRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:33:3 - (ae-forgotten-export) The symbol "TextRenderer" needs to be exported by the entry point index.d.ts
+// dist/components/form/nodes/node.d.ts:34:3 - (ae-forgotten-export) The symbol "SelectRenderer" needs to be exported by the entry point index.d.ts
+// dist/context/config.d.ts:15:3 - (ae-forgotten-export) The symbol "OrySDK" needs to be exported by the entry point index.d.ts
+// dist/util/clientConfiguration.d.ts:16:3 - (ae-forgotten-export) The symbol "Locale" needs to be exported by the entry point index.d.ts
+// dist/util/clientConfiguration.d.ts:20:3 - (ae-forgotten-export) The symbol "LocaleMap" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

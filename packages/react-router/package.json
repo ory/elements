@@ -5,7 +5,7 @@
   "license": "Apache License 2.0",
   "type": "commonjs",
   "scripts": {
-    "build": "tsup --clean --dts",
+    "build": "tsdown --config-loader tsx",
     "prepare": "pnpm run build"
   },
   "main": "./dist/index.js",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "react-router": "7.18.4",
-    "tsup": "8.5.0",
+    "tsdown": "0.23.3",
     "typescript": "5.9.3"
   },
   "peerDependencies": {

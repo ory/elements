@@ -1,5 +1,5 @@
 project.json
-tsup.config.ts
+tsdown.config.mts
 jest.config.ts
 tsconfig*.json
 !dist/

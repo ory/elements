@@ -11,9 +11,9 @@ import { OryProxyOptions } from '@ory/ssr/proxy';
 import { OryProxyState } from '@ory/ssr';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
+import { RequestMiddlewareAfterServer } from '@tanstack/react-start';
 import { Session } from '@ory/client-fetch';
 import { SettingsFlow } from '@ory/client-fetch';
-import * as _tanstack_react_start from '@tanstack/react-start';
 import { VerificationFlow } from '@ory/client-fetch';
 
 // @public
@@ -69,8 +69,8 @@ export function getVerificationFlow(config: {
 }, search?: OrySearchParams): Promise<VerificationFlow>;
 
 // @public
-export function oryProxyMiddleware(options: OryProxyMiddlewareOptions): _tanstack_react_start.RequestMiddlewareAfterServer<{}, undefined, {
-    oryProxy: OryProxyState;
+export function oryProxyMiddleware(options: OryProxyMiddlewareOptions): RequestMiddlewareAfterServer<    {}, undefined, {
+oryProxy: OryProxyState;
 }>;
 
 // @public

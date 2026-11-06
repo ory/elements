@@ -388,11 +388,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type ConsentFlow = "
+              "text": "export type ConsentFlow = "
             },
             {
               "kind": "Content",
-              "text": "{\n    created_at: "
+              "text": "{\n  created_at: "
             },
             {
               "kind": "Reference",
@@ -401,7 +401,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    expires_at: "
+              "text": ";\n  expires_at: "
             },
             {
               "kind": "Reference",
@@ -410,7 +410,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    id: \"UNSET\";\n    issued_at: "
+              "text": ";\n  id: \"UNSET\";\n  issued_at: "
             },
             {
               "kind": "Reference",
@@ -419,7 +419,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    state: \"show_form\" | \"rejected\" | \"accepted\";\n    active: \"oauth2_consent\";\n    ui: "
+              "text": ";\n  state: \"show_form\" | \"rejected\" | \"accepted\";\n  active: \"oauth2_consent\";\n  ui: "
             },
             {
               "kind": "Reference",
@@ -428,7 +428,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    consent_request: "
+              "text": ";\n  consent_request: "
             },
             {
               "kind": "Reference",
@@ -437,7 +437,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    session: "
+              "text": ";\n  session: "
             },
             {
               "kind": "Reference",
@@ -446,14 +446,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    return_to?: string;\n}"
+              "text": ";\n  return_to?: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "ConsentFlow",
           "typeTokenRange": {
@@ -468,11 +468,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type ConsentFlowContainer = "
+              "text": "export type ConsentFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -481,7 +481,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -497,7 +497,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "ConsentFlowContainer",
           "typeTokenRange": {
@@ -512,11 +512,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type ErrorFlowContainer = "
+              "text": "export type ErrorFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -525,7 +525,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -541,7 +541,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "ErrorFlowContainer",
           "typeTokenRange": {
@@ -556,7 +556,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FlowContainerSetter = "
+              "text": "export type FlowContainerSetter = "
             },
             {
               "kind": "Reference",
@@ -581,7 +581,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/flow-context.d.ts",
           "releaseTag": "Public",
           "name": "FlowContainerSetter",
           "typeTokenRange": {
@@ -596,7 +596,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FlowContextValue = "
+              "text": "export type FlowContextValue = "
             },
             {
               "kind": "Reference",
@@ -605,7 +605,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    setFlowContainer: "
+              "text": " & {\n  setFlowContainer: "
             },
             {
               "kind": "Reference",
@@ -614,7 +614,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    formState: "
+              "text": ";\n  formState: "
             },
             {
               "kind": "Reference",
@@ -623,7 +623,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    dispatchFormState: "
+              "text": ";\n  dispatchFormState: "
             },
             {
               "kind": "Reference",
@@ -641,7 +641,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    onSuccess?: "
+              "text": ">;\n  onSuccess?: "
             },
             {
               "kind": "Reference",
@@ -650,7 +650,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onValidationError?: "
+              "text": ";\n  onValidationError?: "
             },
             {
               "kind": "Reference",
@@ -659,7 +659,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onError?: "
+              "text": ";\n  onError?: "
             },
             {
               "kind": "Reference",
@@ -668,7 +668,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    transientPayload?: "
+              "text": ";\n  transientPayload?: "
             },
             {
               "kind": "Reference",
@@ -684,7 +684,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/flow-context.d.ts",
           "releaseTag": "Public",
           "name": "FlowContextValue",
           "typeTokenRange": {
@@ -699,7 +699,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FormState = "
+              "text": "export type FormState = "
             },
             {
               "kind": "Reference",
@@ -720,7 +720,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-state.d.ts",
           "releaseTag": "Public",
           "name": "FormState",
           "typeTokenRange": {
@@ -735,11 +735,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FormStateAction = "
+              "text": "export type FormStateAction = "
             },
             {
               "kind": "Content",
-              "text": "{\n    type: \"action_flow_update\";\n    flow: "
+              "text": "{\n  type: \"action_flow_update\";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -748,7 +748,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"action_select_method\";\n    method: "
+              "text": ";\n} | {\n  type: \"action_select_method\";\n  method: "
             },
             {
               "kind": "Reference",
@@ -757,7 +757,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"action_clear_active_method\";\n} | {\n    type: \"form_input_loading\";\n    group: "
+              "text": ";\n} | {\n  type: \"action_clear_active_method\";\n} | {\n  type: \"form_input_loading\";\n  group: "
             },
             {
               "kind": "Reference",
@@ -766,7 +766,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"form_input_ready\";\n    input: "
+              "text": ";\n} | {\n  type: \"form_input_ready\";\n  input: "
             },
             {
               "kind": "Reference",
@@ -775,14 +775,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"form_submit_start\";\n} | {\n    type: \"form_submit_end\";\n} | {\n    type: \"page_redirect\";\n} | {\n    type: \"page_redirect_end\";\n}"
+              "text": ";\n} | {\n  type: \"form_submit_start\";\n} | {\n  type: \"form_submit_end\";\n} | {\n  type: \"page_redirect\";\n} | {\n  type: \"page_redirect_end\";\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-state.d.ts",
           "releaseTag": "Public",
           "name": "FormStateAction",
           "typeTokenRange": {
@@ -797,11 +797,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FormStateMethodActive = "
+              "text": "export type FormStateMethodActive = "
             },
             {
               "kind": "Content",
-              "text": "{\n    current: \"method_active\";\n    method: "
+              "text": "{\n  current: \"method_active\";\n  method: "
             },
             {
               "kind": "Reference",
@@ -817,7 +817,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-state.d.ts",
           "releaseTag": "Public",
           "name": "FormStateMethodActive",
           "typeTokenRange": {
@@ -832,18 +832,18 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FormStateProvideIdentifier = "
+              "text": "export type FormStateProvideIdentifier = "
             },
             {
               "kind": "Content",
-              "text": "{\n    current: \"provide_identifier\";\n}"
+              "text": "{\n  current: \"provide_identifier\";\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-state.d.ts",
           "releaseTag": "Public",
           "name": "FormStateProvideIdentifier",
           "typeTokenRange": {
@@ -858,18 +858,18 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FormStateSelectMethod = "
+              "text": "export type FormStateSelectMethod = "
             },
             {
               "kind": "Content",
-              "text": "{\n    current: \"select_method\";\n}"
+              "text": "{\n  current: \"select_method\";\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-state.d.ts",
           "releaseTag": "Public",
           "name": "FormStateSelectMethod",
           "typeTokenRange": {
@@ -884,7 +884,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type FormValues = "
+              "text": "export type FormValues = "
             },
             {
               "kind": "Reference",
@@ -900,7 +900,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "FormValues",
           "typeTokenRange": {
@@ -915,11 +915,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type IntlConfig = "
+              "text": "export type IntlConfig = "
             },
             {
               "kind": "Content",
-              "text": "{\n    locale: "
+              "text": "{\n  locale: "
             },
             {
               "kind": "Reference",
@@ -928,7 +928,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    customTranslations?: "
+              "text": ";\n  customTranslations?: "
             },
             {
               "kind": "Reference",
@@ -953,7 +953,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/clientConfiguration.d.ts",
           "releaseTag": "Public",
           "name": "IntlConfig",
           "typeTokenRange": {
@@ -968,7 +968,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isRequestedResourceNode(node: "
+              "text": "export declare function isRequestedResourceNode(node: "
             },
             {
               "kind": "Reference",
@@ -998,7 +998,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/consent.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1024,7 +1024,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isUiNodeAnchor(node: "
+              "text": "export declare function isUiNodeAnchor(node: "
             },
             {
               "kind": "Reference",
@@ -1054,7 +1054,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1080,7 +1080,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isUiNodeDiv(node: "
+              "text": "export declare function isUiNodeDiv(node: "
             },
             {
               "kind": "Reference",
@@ -1110,7 +1110,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1136,7 +1136,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isUiNodeImage(node: "
+              "text": "export declare function isUiNodeImage(node: "
             },
             {
               "kind": "Reference",
@@ -1166,7 +1166,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1192,7 +1192,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isUiNodeInput(node: "
+              "text": "export declare function isUiNodeInput(node: "
             },
             {
               "kind": "Reference",
@@ -1222,7 +1222,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1248,7 +1248,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isUiNodeScript(node: "
+              "text": "export declare function isUiNodeScript(node: "
             },
             {
               "kind": "Reference",
@@ -1278,7 +1278,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1304,7 +1304,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isUiNodeText(node: "
+              "text": "export declare function isUiNodeText(node: "
             },
             {
               "kind": "Reference",
@@ -1334,7 +1334,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 6
@@ -1360,11 +1360,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type LoginFlowContainer = "
+              "text": "export type LoginFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -1373,7 +1373,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -1389,7 +1389,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "LoginFlowContainer",
           "typeTokenRange": {
@@ -1404,11 +1404,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function messageTestId(message: "
+              "text": "export declare function messageTestId(message: "
             },
             {
               "kind": "Content",
-              "text": "{\n    id: number | string;\n}"
+              "text": "{\n  id: number | string;\n}"
             },
             {
               "kind": "Content",
@@ -1416,14 +1416,14 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    \"data-testid\": string;\n}"
+              "text": "{\n  \"data-testid\": string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/test-id.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 4
@@ -1471,7 +1471,7 @@
             },
             {
               "kind": "Content",
-              "text": ") & {\n    Button: typeof "
+              "text": ") & {\n  Button: typeof "
             },
             {
               "kind": "Reference",
@@ -1480,7 +1480,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    SsoButton: typeof "
+              "text": ";\n  SsoButton: typeof "
             },
             {
               "kind": "Reference",
@@ -1489,7 +1489,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    ConsentCheckbox: typeof "
+              "text": ";\n  ConsentCheckbox: typeof "
             },
             {
               "kind": "Reference",
@@ -1498,7 +1498,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    ConsentResource: typeof "
+              "text": ";\n  ConsentResource: typeof "
             },
             {
               "kind": "Reference",
@@ -1507,7 +1507,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    Input: typeof "
+              "text": ";\n  Input: typeof "
             },
             {
               "kind": "Reference",
@@ -1516,7 +1516,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    Checkbox: typeof "
+              "text": ";\n  Checkbox: typeof "
             },
             {
               "kind": "Reference",
@@ -1525,7 +1525,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    Image: typeof "
+              "text": ";\n  Image: typeof "
             },
             {
               "kind": "Reference",
@@ -1534,7 +1534,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    Text: typeof "
+              "text": ";\n  Text: typeof "
             },
             {
               "kind": "Reference",
@@ -1543,7 +1543,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    Select: typeof "
+              "text": ";\n  Select: typeof "
             },
             {
               "kind": "Reference",
@@ -1555,7 +1555,7 @@
               "text": ";\n}"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/nodes/node.d.ts",
           "isReadonly": true,
           "releaseTag": "Public",
           "name": "Node_2",
@@ -1571,11 +1571,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type NodeProps = "
+              "text": "export type NodeProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    node: "
+              "text": "{\n  node: "
             },
             {
               "kind": "Reference",
@@ -1591,7 +1591,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/nodes/node.d.ts",
           "releaseTag": "Public",
           "name": "NodeProps",
           "typeTokenRange": {
@@ -1606,7 +1606,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OnSubmitHandlerProps<T extends "
+              "text": "export type OnSubmitHandlerProps<T extends "
             },
             {
               "kind": "Reference",
@@ -1655,7 +1655,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    setFlowContainer: (flowContainer: "
+              "text": "{\n  setFlowContainer: (flowContainer: "
             },
             {
               "kind": "Reference",
@@ -1664,7 +1664,7 @@
             },
             {
               "kind": "Content",
-              "text": ") => void;\n    body: T;\n    onRedirect: "
+              "text": ") => void;\n  body: T;\n  onRedirect: "
             },
             {
               "kind": "Reference",
@@ -1673,7 +1673,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onSuccess?: "
+              "text": ";\n  onSuccess?: "
             },
             {
               "kind": "Reference",
@@ -1682,7 +1682,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onValidationError?: "
+              "text": ";\n  onValidationError?: "
             },
             {
               "kind": "Reference",
@@ -1691,7 +1691,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onError?: "
+              "text": ";\n  onError?: "
             },
             {
               "kind": "Reference",
@@ -1707,7 +1707,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/submitHandler.d.ts",
           "releaseTag": "Public",
           "name": "OnSubmitHandlerProps",
           "typeParameters": [
@@ -1735,7 +1735,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCard(input: "
+              "text": "export declare function OryCard(input: "
             },
             {
               "kind": "Reference",
@@ -1747,8 +1747,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -1756,10 +1760,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/card.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1790,18 +1794,18 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardAuthMethodListItemProps = "
+              "text": "export type OryCardAuthMethodListItemProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    onClick: () => void;\n    group: string;\n    disabled?: boolean;\n}"
+              "text": "{\n  onClick: () => void;\n  group: string;\n  disabled?: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryCardAuthMethodListItemProps",
           "typeTokenRange": {
@@ -1816,7 +1820,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCardContent(input: "
+              "text": "export declare function OryCardContent(input: "
             },
             {
               "kind": "Reference",
@@ -1828,8 +1832,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -1837,10 +1845,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/content.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1871,7 +1879,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardContentProps = "
+              "text": "export type OryCardContentProps = "
             },
             {
               "kind": "Reference",
@@ -1883,7 +1891,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/content.d.ts",
           "releaseTag": "Public",
           "name": "OryCardContentProps",
           "typeTokenRange": {
@@ -1898,7 +1906,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardDividerProps = "
+              "text": "export type OryCardDividerProps = "
             },
             {
               "kind": "Reference",
@@ -1914,7 +1922,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/generic/divider.d.ts",
           "releaseTag": "Public",
           "name": "OryCardDividerProps",
           "typeTokenRange": {
@@ -1929,11 +1937,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCardFooter(): "
+              "text": "export declare function OryCardFooter(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -1941,10 +1953,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/footer.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1958,7 +1970,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardFooterProps = "
+              "text": "export type OryCardFooterProps = "
             },
             {
               "kind": "Reference",
@@ -1974,7 +1986,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/footer.d.ts",
           "releaseTag": "Public",
           "name": "OryCardFooterProps",
           "typeTokenRange": {
@@ -1989,11 +2001,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCardHeader(): "
+              "text": "export declare function OryCardHeader(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -2001,10 +2017,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/header.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2018,7 +2034,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardHeaderProps = "
+              "text": "export type OryCardHeaderProps = "
             },
             {
               "kind": "Reference",
@@ -2034,7 +2050,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/header.d.ts",
           "releaseTag": "Public",
           "name": "OryCardHeaderProps",
           "typeTokenRange": {
@@ -2049,7 +2065,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardLogoProps = "
+              "text": "export type OryCardLogoProps = "
             },
             {
               "kind": "Reference",
@@ -2065,7 +2081,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryCardLogoProps",
           "typeTokenRange": {
@@ -2080,7 +2096,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryCardRootProps = "
+              "text": "export type OryCardRootProps = "
             },
             {
               "kind": "Reference",
@@ -2092,7 +2108,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/card.d.ts",
           "releaseTag": "Public",
           "name": "OryCardProps",
           "typeTokenRange": {
@@ -2107,7 +2123,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface OryCardSettingsSectionProps extends "
+              "text": "export interface OryCardSettingsSectionProps extends "
             },
             {
               "kind": "Reference",
@@ -2119,7 +2135,7 @@
               "text": " "
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/settings-section.d.ts",
           "releaseTag": "Public",
           "name": "OryCardSettingsSectionProps",
           "preserveMemberOrder": false,
@@ -2234,7 +2250,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryCardValidationMessages(input: "
+              "text": "export declare function OryCardValidationMessages(input: "
             },
             {
               "kind": "Reference",
@@ -2246,8 +2262,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -2259,16 +2279,16 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/messages.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 5
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ hiddenMessageIds, }",
+              "parameterName": "{ hiddenMessageIds }",
               "parameterTypeTokenRange": {
                 "startIndex": 0,
                 "endIndex": 0
@@ -2293,10 +2313,10 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface OryCardValidationMessagesProps "
+              "text": "export interface OryCardValidationMessagesProps "
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/messages.d.ts",
           "releaseTag": "Public",
           "name": "OryCardValidationMessagesProps",
           "preserveMemberOrder": false,
@@ -2338,10 +2358,10 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface OryClientConfiguration "
+              "text": "export interface OryClientConfiguration "
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/clientConfiguration.d.ts",
           "releaseTag": "Public",
           "name": "OryClientConfiguration",
           "preserveMemberOrder": false,
@@ -2413,7 +2433,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "{\n        url?: string;\n        options?: "
+                  "text": "{\n    url?: string;\n    options?: "
                 },
                 {
                   "kind": "Reference",
@@ -2431,7 +2451,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": ">;\n    }"
+                  "text": ">;\n  }"
                 },
                 {
                   "kind": "Content",
@@ -2457,7 +2477,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryConfigurationProvider(input: "
+              "text": "export declare function OryConfigurationProvider(input: "
             },
             {
               "kind": "Reference",
@@ -2469,8 +2489,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -2478,16 +2502,16 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/config.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ children, sdk: initialConfig, project, }",
+              "parameterName": "{ children, sdk: initialConfig, project }",
               "parameterTypeTokenRange": {
                 "startIndex": 0,
                 "endIndex": 0
@@ -2512,11 +2536,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryConsentCard(): "
+              "text": "export declare function OryConsentCard(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -2524,10 +2552,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/card-consent.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2541,11 +2569,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryConsentSuccessEvent = "
+              "text": "export type OryConsentSuccessEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2554,7 +2582,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    consentRequest: "
+              "text": ";\n  consentRequest: "
             },
             {
               "kind": "Reference",
@@ -2570,7 +2598,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryConsentSuccessEvent",
           "typeTokenRange": {
@@ -2585,11 +2613,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryElementsConfiguration = "
+              "text": "export type OryElementsConfiguration = "
             },
             {
               "kind": "Content",
-              "text": "{\n    sdk: "
+              "text": "{\n  sdk: "
             },
             {
               "kind": "Reference",
@@ -2598,7 +2626,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    project: "
+              "text": ";\n  project: "
             },
             {
               "kind": "Reference",
@@ -2614,7 +2642,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/config.d.ts",
           "releaseTag": "Public",
           "name": "OryElementsConfiguration",
           "typeTokenRange": {
@@ -2629,11 +2657,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryErrorEvent = "
+              "text": "export type OryErrorEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    type: \"flow_expired\";\n    flowType: "
+              "text": "{\n  type: \"flow_expired\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2642,7 +2670,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    body: "
+              "text": ";\n  body: "
             },
             {
               "kind": "Reference",
@@ -2651,7 +2679,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"csrf_error\";\n    flowType: "
+              "text": ";\n} | {\n  type: \"csrf_error\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2660,7 +2688,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    body: "
+              "text": ";\n  body: "
             },
             {
               "kind": "Reference",
@@ -2669,7 +2697,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"flow_not_found\";\n    flowType: "
+              "text": ";\n} | {\n  type: \"flow_not_found\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2678,7 +2706,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"flow_replaced\";\n    flowType: "
+              "text": ";\n} | {\n  type: \"flow_replaced\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2687,7 +2715,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    body: "
+              "text": ";\n  body: "
             },
             {
               "kind": "Reference",
@@ -2696,7 +2724,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"consent_error\";\n    flowType: "
+              "text": ";\n} | {\n  type: \"consent_error\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2705,7 +2733,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    consentRequest: "
+              "text": ";\n  consentRequest: "
             },
             {
               "kind": "Reference",
@@ -2714,7 +2742,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    type: \"rate_limited\";\n    flowType: "
+              "text": ";\n} | {\n  type: \"rate_limited\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2723,7 +2751,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    retryAfter?: number;\n    body?: {\n        error: "
+              "text": ";\n  retryAfter?: number;\n  body?: {\n    error: "
             },
             {
               "kind": "Reference",
@@ -2732,7 +2760,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    };\n} | {\n    type: \"unexpected_error\";\n    flowType: "
+              "text": ";\n  };\n} | {\n  type: \"unexpected_error\";\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -2741,7 +2769,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    response?: "
+              "text": ";\n  response?: "
             },
             {
               "kind": "Reference",
@@ -2750,14 +2778,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    error: unknown;\n}"
+              "text": ";\n  error: unknown;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryErrorEvent",
           "typeTokenRange": {
@@ -2772,7 +2800,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryErrorHandler = "
+              "text": "export type OryErrorHandler = "
             },
             {
               "kind": "Content",
@@ -2801,7 +2829,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryErrorHandler",
           "typeTokenRange": {
@@ -2816,11 +2844,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFlowComponentOverrides = "
+              "text": "export type OryFlowComponentOverrides = "
             },
             {
               "kind": "Content",
-              "text": "{\n    [P in keyof "
+              "text": "{ [P in keyof "
             },
             {
               "kind": "Reference",
@@ -2838,7 +2866,7 @@
             },
             {
               "kind": "Content",
-              "text": "[P] extends object ? {\n        [K in keyof "
+              "text": "[P] extends object ? { [K in keyof "
             },
             {
               "kind": "Reference",
@@ -2856,7 +2884,7 @@
             },
             {
               "kind": "Content",
-              "text": "[P][K];\n    } : "
+              "text": "[P][K]; } : "
             },
             {
               "kind": "Reference",
@@ -2865,14 +2893,14 @@
             },
             {
               "kind": "Content",
-              "text": "[P];\n}"
+              "text": "[P]; }"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/form.d.ts",
           "releaseTag": "Public",
           "name": "OryFlowComponentOverrides",
           "typeTokenRange": {
@@ -2887,11 +2915,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFlowComponents = "
+              "text": "export type OryFlowComponents = "
             },
             {
               "kind": "Content",
-              "text": "{\n    Node: {\n        Button: "
+              "text": "{\n  Node: {\n    Button: "
             },
             {
               "kind": "Reference",
@@ -2909,7 +2937,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        SsoButton: "
+              "text": ">;\n    SsoButton: "
             },
             {
               "kind": "Reference",
@@ -2927,7 +2955,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Anchor: "
+              "text": ">;\n    Anchor: "
             },
             {
               "kind": "Reference",
@@ -2945,7 +2973,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Input: "
+              "text": ">;\n    Input: "
             },
             {
               "kind": "Reference",
@@ -2963,7 +2991,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Select?: "
+              "text": ">;\n    Select?: "
             },
             {
               "kind": "Reference",
@@ -2981,7 +3009,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        CodeInput: "
+              "text": ">;\n    CodeInput: "
             },
             {
               "kind": "Reference",
@@ -2999,7 +3027,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Image: "
+              "text": ">;\n    Image: "
             },
             {
               "kind": "Reference",
@@ -3017,7 +3045,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Label: "
+              "text": ">;\n    Label: "
             },
             {
               "kind": "Reference",
@@ -3035,7 +3063,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Checkbox: "
+              "text": ">;\n    Checkbox: "
             },
             {
               "kind": "Reference",
@@ -3053,7 +3081,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Text: "
+              "text": ">;\n    Text: "
             },
             {
               "kind": "Reference",
@@ -3071,7 +3099,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Captcha: "
+              "text": ">;\n    Captcha: "
             },
             {
               "kind": "Reference",
@@ -3089,7 +3117,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        ConsentScopeCheckbox: "
+              "text": ">;\n    ConsentScopeCheckbox: "
             },
             {
               "kind": "Reference",
@@ -3107,7 +3135,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        ConsentResource?: "
+              "text": ">;\n    ConsentResource?: "
             },
             {
               "kind": "Reference",
@@ -3125,7 +3153,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    Card: {\n        Root: "
+              "text": ">;\n  };\n  Card: {\n    Root: "
             },
             {
               "kind": "Reference",
@@ -3143,7 +3171,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Footer: "
+              "text": ">;\n    Footer: "
             },
             {
               "kind": "Reference",
@@ -3161,7 +3189,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Header: "
+              "text": ">;\n    Header: "
             },
             {
               "kind": "Reference",
@@ -3179,7 +3207,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Content: "
+              "text": ">;\n    Content: "
             },
             {
               "kind": "Reference",
@@ -3197,7 +3225,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Logo: "
+              "text": ">;\n    Logo: "
             },
             {
               "kind": "Reference",
@@ -3215,7 +3243,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Divider: "
+              "text": ">;\n    Divider: "
             },
             {
               "kind": "Reference",
@@ -3233,7 +3261,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        AuthMethodListContainer: "
+              "text": ">;\n    AuthMethodListContainer: "
             },
             {
               "kind": "Reference",
@@ -3251,7 +3279,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        AuthMethodListItem: "
+              "text": ">;\n    AuthMethodListItem: "
             },
             {
               "kind": "Reference",
@@ -3269,7 +3297,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        SettingsSection: "
+              "text": ">;\n    SettingsSection: "
             },
             {
               "kind": "Reference",
@@ -3287,7 +3315,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        SettingsSectionContent: "
+              "text": ">;\n    SettingsSectionContent: "
             },
             {
               "kind": "Reference",
@@ -3305,7 +3333,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        SettingsSectionFooter: "
+              "text": ">;\n    SettingsSectionFooter: "
             },
             {
               "kind": "Reference",
@@ -3323,7 +3351,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    Form: {\n        Root: "
+              "text": ">;\n  };\n  Form: {\n    Root: "
             },
             {
               "kind": "Reference",
@@ -3341,7 +3369,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        SsoRoot: "
+              "text": ">;\n    SsoRoot: "
             },
             {
               "kind": "Reference",
@@ -3359,7 +3387,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Group: "
+              "text": ">;\n    Group: "
             },
             {
               "kind": "Reference",
@@ -3377,7 +3405,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        SsoSettings: "
+              "text": ">;\n    SsoSettings: "
             },
             {
               "kind": "Reference",
@@ -3395,7 +3423,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        WebauthnSettings: "
+              "text": ">;\n    WebauthnSettings: "
             },
             {
               "kind": "Reference",
@@ -3413,7 +3441,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        DeviceauthnSettings: "
+              "text": ">;\n    DeviceauthnSettings: "
             },
             {
               "kind": "Reference",
@@ -3431,7 +3459,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        PasskeySettings: "
+              "text": ">;\n    PasskeySettings: "
             },
             {
               "kind": "Reference",
@@ -3449,7 +3477,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        TotpSettings: "
+              "text": ">;\n    TotpSettings: "
             },
             {
               "kind": "Reference",
@@ -3467,7 +3495,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        RecoveryCodesSettings: "
+              "text": ">;\n    RecoveryCodesSettings: "
             },
             {
               "kind": "Reference",
@@ -3485,7 +3513,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    Message: {\n        Root: "
+              "text": ">;\n  };\n  Message: {\n    Root: "
             },
             {
               "kind": "Reference",
@@ -3503,7 +3531,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Content: "
+              "text": ">;\n    Content: "
             },
             {
               "kind": "Reference",
@@ -3521,7 +3549,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n        Toast: "
+              "text": ">;\n    Toast: "
             },
             {
               "kind": "Reference",
@@ -3539,7 +3567,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n    Page: {\n        Header: "
+              "text": ">;\n  };\n  Page: {\n    Header: "
             },
             {
               "kind": "Reference",
@@ -3557,14 +3585,14 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    };\n}"
+              "text": ">;\n  };\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/form.d.ts",
           "releaseTag": "Public",
           "name": "OryFlowComponents",
           "typeTokenRange": {
@@ -3579,7 +3607,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFlowContainer = "
+              "text": "export type OryFlowContainer = "
             },
             {
               "kind": "Reference",
@@ -3636,7 +3664,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "OryFlowContainer",
           "typeTokenRange": {
@@ -3651,7 +3679,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryForm(input: "
+              "text": "export declare function OryForm(input: "
             },
             {
               "kind": "Reference",
@@ -3663,8 +3691,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -3672,10 +3704,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/form.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -3706,7 +3738,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFormBusyState = "
+              "text": "export type OryFormBusyState = "
             },
             {
               "kind": "Content",
@@ -3717,7 +3749,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-busy.d.ts",
           "releaseTag": "Public",
           "name": "OryFormBusyState",
           "typeTokenRange": {
@@ -3732,11 +3764,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormGroupDivider(): "
+              "text": "export declare function OryFormGroupDivider(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -3748,10 +3784,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/generic/divider.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 3
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -3765,7 +3801,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFormGroupProps = "
+              "text": "export type OryFormGroupProps = "
             },
             {
               "kind": "Reference",
@@ -3777,7 +3813,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryFormGroupProps",
           "typeTokenRange": {
@@ -3792,7 +3828,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface OryFormProps extends "
+              "text": "export interface OryFormProps extends "
             },
             {
               "kind": "Reference",
@@ -3804,7 +3840,7 @@
               "text": " "
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/form.d.ts",
           "releaseTag": "Public",
           "name": "OryFormProps",
           "preserveMemberOrder": false,
@@ -3851,7 +3887,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFormRootProps = "
+              "text": "export type OryFormRootProps = "
             },
             {
               "kind": "Reference",
@@ -3860,7 +3896,7 @@
             },
             {
               "kind": "Content",
-              "text": "<\"form\"> & {\n    onSubmit: "
+              "text": "<\"form\"> & {\n  onSubmit: "
             },
             {
               "kind": "Reference",
@@ -3885,7 +3921,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryFormRootProps",
           "typeTokenRange": {
@@ -3900,7 +3936,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFormSectionContentProps = "
+              "text": "export type OryFormSectionContentProps = "
             },
             {
               "kind": "Reference",
@@ -3909,14 +3945,14 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    title?: string;\n    description?: string;\n}>"
+              "text": "<{\n  title?: string;\n  description?: string;\n}>"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryFormSectionContentProps",
           "typeTokenRange": {
@@ -3931,7 +3967,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFormSectionFooterProps = "
+              "text": "export type OryFormSectionFooterProps = "
             },
             {
               "kind": "Reference",
@@ -3940,14 +3976,14 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    text?: string;\n}>"
+              "text": "<{\n  text?: string;\n}>"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryFormSectionFooterProps",
           "typeTokenRange": {
@@ -3962,7 +3998,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface OryFormSectionProps extends "
+              "text": "export interface OryFormSectionProps extends "
             },
             {
               "kind": "Reference",
@@ -3983,7 +4019,7 @@
               "text": " "
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/settings-section.d.ts",
           "releaseTag": "Public",
           "name": "OryFormSectionProps",
           "preserveMemberOrder": false,
@@ -4039,11 +4075,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormSsoButtons(): "
+              "text": "export declare function OryFormSsoButtons(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -4055,10 +4095,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/social.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 3
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -4072,11 +4112,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryFormSsoForm(): "
+              "text": "export declare function OryFormSsoForm(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -4088,10 +4132,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/social.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 3
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -4105,7 +4149,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryFormSsoRootProps = "
+              "text": "export type OryFormSsoRootProps = "
             },
             {
               "kind": "Reference",
@@ -4114,7 +4158,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    nodes: "
+              "text": "<{\n  nodes: "
             },
             {
               "kind": "Reference",
@@ -4130,7 +4174,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/social.d.ts",
           "releaseTag": "Public",
           "name": "OryFormSsoRootProps",
           "typeTokenRange": {
@@ -4153,7 +4197,7 @@
               "canonicalReference": "@ory/elements-react!~LocaleMap:type"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/locales/index.d.ts",
           "isReadonly": true,
           "releaseTag": "Public",
           "name": "OryLocales",
@@ -4169,11 +4213,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryLoginSuccessEvent = "
+              "text": "export type OryLoginSuccessEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -4182,7 +4226,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -4191,7 +4235,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    session: "
+              "text": ";\n  session: "
             },
             {
               "kind": "Reference",
@@ -4200,14 +4244,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    method: string;\n}"
+              "text": ";\n  method: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryLoginSuccessEvent",
           "typeTokenRange": {
@@ -4222,11 +4266,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryMessageContentProps = "
+              "text": "export type OryMessageContentProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    message: "
+              "text": "{\n  message: "
             },
             {
               "kind": "Reference",
@@ -4242,7 +4286,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/messages.d.ts",
           "releaseTag": "Public",
           "name": "OryMessageContentProps",
           "typeTokenRange": {
@@ -4257,7 +4301,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryMessageRootProps = "
+              "text": "export type OryMessageRootProps = "
             },
             {
               "kind": "Reference",
@@ -4269,7 +4313,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/messages.d.ts",
           "releaseTag": "Public",
           "name": "OryMessageRootProps",
           "typeTokenRange": {
@@ -4284,11 +4328,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeAnchorProps = "
+              "text": "export type OryNodeAnchorProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4297,7 +4341,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4331,7 +4375,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeAnchorProps",
           "typeTokenRange": {
@@ -4346,18 +4390,18 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeButtonButtonProps = "
+              "text": "export type OryNodeButtonButtonProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    type: \"button\" | \"submit\" | \"reset\";\n    name: string;\n    value: string | number | readonly string[] | undefined;\n    onClick: (event: any) => void;\n    disabled?: boolean;\n}"
+              "text": "{\n  type: \"button\" | \"submit\" | \"reset\";\n  name: string;\n  value: string | number | readonly string[] | undefined;\n  onClick: (event: any) => void;\n  disabled?: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeButtonButtonProps",
           "typeTokenRange": {
@@ -4372,11 +4416,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeButtonProps = "
+              "text": "export type OryNodeButtonProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4385,7 +4429,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4394,7 +4438,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    isSubmitting: boolean;\n    buttonProps: "
+              "text": ";\n  isSubmitting: boolean;\n  buttonProps: "
             },
             {
               "kind": "Reference",
@@ -4410,7 +4454,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeButtonProps",
           "typeTokenRange": {
@@ -4425,11 +4469,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeCaptchaProps = "
+              "text": "export type OryNodeCaptchaProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    node: "
+              "text": "{\n  node: "
             },
             {
               "kind": "Reference",
@@ -4445,7 +4489,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeCaptchaProps",
           "typeTokenRange": {
@@ -4460,18 +4504,18 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeCheckboxInputProps = "
+              "text": "export type OryNodeCheckboxInputProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    name: string;\n    onChange: (event: any) => void;\n    disabled?: boolean;\n    type: \"checkbox\";\n    checked: boolean;\n    value: string | number | readonly string[] | undefined;\n    ref: (instance: any) => void;\n}"
+              "text": "{\n  name: string;\n  onChange: (event: any) => void;\n  disabled?: boolean;\n  type: \"checkbox\";\n  checked: boolean;\n  value: string | number | readonly string[] | undefined;\n  ref: (instance: any) => void;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeCheckboxInputProps",
           "typeTokenRange": {
@@ -4486,11 +4530,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeCheckboxProps = "
+              "text": "export type OryNodeCheckboxProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4499,7 +4543,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4508,7 +4552,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onClick: "
+              "text": ";\n  onClick: "
             },
             {
               "kind": "Reference",
@@ -4517,7 +4561,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    inputProps: "
+              "text": ";\n  inputProps: "
             },
             {
               "kind": "Reference",
@@ -4533,7 +4577,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeCheckboxProps",
           "typeTokenRange": {
@@ -4548,11 +4592,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeConsentResourceProps = "
+              "text": "export type OryNodeConsentResourceProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    node: "
+              "text": "{\n  node: "
             },
             {
               "kind": "Reference",
@@ -4561,14 +4605,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    resource: string;\n}"
+              "text": ";\n  resource: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeConsentResourceProps",
           "typeTokenRange": {
@@ -4583,11 +4627,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeConsentScopeCheckboxProps = "
+              "text": "export type OryNodeConsentScopeCheckboxProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4596,7 +4640,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4605,14 +4649,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onCheckedChange: (checked: boolean) => void;\n    inputProps: {\n        name: string;\n        disabled?: boolean;\n        checked: boolean;\n        value: string;\n    };\n}"
+              "text": ";\n  onCheckedChange: (checked: boolean) => void;\n  inputProps: {\n    name: string;\n    disabled?: boolean;\n    checked: boolean;\n    value: string;\n  };\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeConsentScopeCheckboxProps",
           "typeTokenRange": {
@@ -4627,11 +4671,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeImageProps = "
+              "text": "export type OryNodeImageProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4640,7 +4684,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4656,7 +4700,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeImageProps",
           "typeTokenRange": {
@@ -4671,11 +4715,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeInputInputProps = "
+              "text": "export type OryNodeInputInputProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    id: string;\n    name: string;\n    value: string | number | readonly string[] | undefined;\n    onClick: "
+              "text": "{\n  id: string;\n  name: string;\n  value: string | number | readonly string[] | undefined;\n  onClick: "
             },
             {
               "kind": "Reference",
@@ -4684,7 +4728,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onChange: (event: any) => void;\n    onBlur: () => void;\n    ref: (instance: any) => void;\n    disabled?: boolean;\n    type: string;\n    autoComplete?: string;\n    inputMode?: "
+              "text": ";\n  onChange: (event: any) => void;\n  onBlur: () => void;\n  ref: (instance: any) => void;\n  disabled?: boolean;\n  type: string;\n  autoComplete?: string;\n  inputMode?: "
             },
             {
               "kind": "Reference",
@@ -4702,14 +4746,14 @@
             },
             {
               "kind": "Content",
-              "text": ">[\"inputMode\"];\n    maxLength?: number;\n    placeholder: string;\n}"
+              "text": ">[\"inputMode\"];\n  maxLength?: number;\n  placeholder: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeInputInputProps",
           "typeTokenRange": {
@@ -4724,11 +4768,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeInputProps = "
+              "text": "export type OryNodeInputProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4737,7 +4781,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4746,7 +4790,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onClick?: "
+              "text": ";\n  onClick?: "
             },
             {
               "kind": "Reference",
@@ -4755,7 +4799,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    inputProps: "
+              "text": ";\n  inputProps: "
             },
             {
               "kind": "Reference",
@@ -4771,7 +4815,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeInputProps",
           "typeTokenRange": {
@@ -4786,11 +4830,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeLabelProps = "
+              "text": "export type OryNodeLabelProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4799,7 +4843,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4808,7 +4852,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    fieldError?: object;\n} & "
+              "text": ";\n  fieldError?: object;\n} & "
             },
             {
               "kind": "Reference",
@@ -4820,7 +4864,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeLabelProps",
           "typeTokenRange": {
@@ -4835,7 +4879,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeSelectInputProps = "
+              "text": "export type OryNodeSelectInputProps = "
             },
             {
               "kind": "Reference",
@@ -4860,7 +4904,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeSelectInputProps",
           "typeTokenRange": {
@@ -4875,11 +4919,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeSelectProps = "
+              "text": "export type OryNodeSelectProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    attributes: "
+              "text": "{\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4888,7 +4932,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    node: "
+              "text": ";\n  node: "
             },
             {
               "kind": "Reference",
@@ -4897,7 +4941,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    inputProps: "
+              "text": ";\n  inputProps: "
             },
             {
               "kind": "Reference",
@@ -4906,7 +4950,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    options: "
+              "text": ";\n  options: "
             },
             {
               "kind": "Reference",
@@ -4922,7 +4966,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeSelectProps",
           "typeTokenRange": {
@@ -4937,11 +4981,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeSettingsButton = "
+              "text": "export type OryNodeSettingsButton = "
             },
             {
               "kind": "Content",
-              "text": "{\n    onClick: () => void;\n    buttonProps: "
+              "text": "{\n  onClick: () => void;\n  buttonProps: "
             },
             {
               "kind": "Reference",
@@ -4962,7 +5006,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeSettingsButton",
           "typeTokenRange": {
@@ -4977,11 +5021,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeSsoButtonProps = "
+              "text": "export type OryNodeSsoButtonProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    node: "
+              "text": "{\n  node: "
             },
             {
               "kind": "Reference",
@@ -4990,7 +5034,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    attributes: "
+              "text": ";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -4999,7 +5043,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    provider: string;\n    isSubmitting: boolean;\n    buttonProps: "
+              "text": ";\n  provider: string;\n  isSubmitting: boolean;\n  buttonProps: "
             },
             {
               "kind": "Reference",
@@ -5015,7 +5059,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeSsoButtonProps",
           "typeTokenRange": {
@@ -5030,11 +5074,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryNodeTextProps = "
+              "text": "export type OryNodeTextProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    node: "
+              "text": "{\n  node: "
             },
             {
               "kind": "Reference",
@@ -5043,7 +5087,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    attributes: "
+              "text": ";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -5059,7 +5103,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/types.d.ts",
           "releaseTag": "Public",
           "name": "OryNodeTextProps",
           "typeTokenRange": {
@@ -5077,15 +5121,19 @@
               "text": "OryPageHeader: () => "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/generic/page-header.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -5099,7 +5147,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryPageHeaderProps = "
+              "text": "export type OryPageHeaderProps = "
             },
             {
               "kind": "Reference",
@@ -5115,7 +5163,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/generic/page-header.d.ts",
           "releaseTag": "Public",
           "name": "OryPageHeaderProps",
           "typeTokenRange": {
@@ -5130,7 +5178,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OryProvider(input: "
+              "text": "export declare function OryProvider(input: "
             },
             {
               "kind": "Reference",
@@ -5142,8 +5190,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -5151,10 +5203,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/provider.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -5185,11 +5237,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryProviderProps = "
+              "text": "export type OryProviderProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    components: "
+              "text": "{\n  components: "
             },
             {
               "kind": "Reference",
@@ -5198,7 +5250,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    config: "
+              "text": ";\n  config: "
             },
             {
               "kind": "Reference",
@@ -5207,7 +5259,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onSuccess?: "
+              "text": ";\n  onSuccess?: "
             },
             {
               "kind": "Reference",
@@ -5216,7 +5268,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onValidationError?: "
+              "text": ";\n  onValidationError?: "
             },
             {
               "kind": "Reference",
@@ -5225,7 +5277,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    onError?: "
+              "text": ";\n  onError?: "
             },
             {
               "kind": "Reference",
@@ -5234,7 +5286,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    transientPayload?: "
+              "text": ";\n  transientPayload?: "
             },
             {
               "kind": "Reference",
@@ -5264,7 +5316,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/provider.d.ts",
           "releaseTag": "Public",
           "name": "OryProviderProps",
           "typeTokenRange": {
@@ -5279,11 +5331,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryRecoverySuccessEvent = "
+              "text": "export type OryRecoverySuccessEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -5292,7 +5344,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -5301,14 +5353,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    method: string;\n}"
+              "text": ";\n  method: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryRecoverySuccessEvent",
           "typeTokenRange": {
@@ -5323,11 +5375,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryRegistrationSuccessEvent = "
+              "text": "export type OryRegistrationSuccessEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -5336,7 +5388,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -5345,7 +5397,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    identity: "
+              "text": ";\n  identity: "
             },
             {
               "kind": "Reference",
@@ -5354,7 +5406,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    session?: "
+              "text": ";\n  session?: "
             },
             {
               "kind": "Reference",
@@ -5363,14 +5415,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    method: string;\n}"
+              "text": ";\n  method: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryRegistrationSuccessEvent",
           "typeTokenRange": {
@@ -5385,11 +5437,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OrySelfServiceFlowCard(): "
+              "text": "export declare function OrySelfServiceFlowCard(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -5397,10 +5453,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/card/card-two-step.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -5414,11 +5470,15 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OrySettingsCard(): "
+              "text": "export declare function OrySettingsCard(): "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -5426,10 +5486,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/settings-card.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 2
+            "endIndex": 3
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -5443,11 +5503,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsDeviceauthnProps = "
+              "text": "export type OrySettingsDeviceauthnProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    removeButtons: "
+              "text": "{\n  removeButtons: "
             },
             {
               "kind": "Reference",
@@ -5456,14 +5516,14 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    isSubmitting: boolean;\n}"
+              "text": "[];\n  isSubmitting: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsDeviceauthnProps",
           "typeTokenRange": {
@@ -5478,7 +5538,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsFormProps = "
+              "text": "export type OrySettingsFormProps = "
             },
             {
               "kind": "Reference",
@@ -5503,7 +5563,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/settings-section.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsFormProps",
           "typeTokenRange": {
@@ -5518,7 +5578,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function OrySettingsFormSection(input: "
+              "text": "export declare function OrySettingsFormSection(input: "
             },
             {
               "kind": "Reference",
@@ -5530,8 +5590,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -5539,10 +5603,10 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/settings-section.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -5573,11 +5637,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsPasskeyProps = "
+              "text": "export type OrySettingsPasskeyProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    triggerButton: "
+              "text": "{\n  triggerButton: "
             },
             {
               "kind": "Reference",
@@ -5586,7 +5650,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    removeButtons: "
+              "text": ";\n  removeButtons: "
             },
             {
               "kind": "Reference",
@@ -5595,14 +5659,14 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    isSubmitting: boolean;\n}"
+              "text": "[];\n  isSubmitting: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsPasskeyProps",
           "typeTokenRange": {
@@ -5617,11 +5681,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsRecoveryCodesProps = "
+              "text": "export type OrySettingsRecoveryCodesProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    codes: string[];\n    regenerateButton: "
+              "text": "{\n  codes: string[];\n  regenerateButton: "
             },
             {
               "kind": "Reference",
@@ -5630,7 +5694,7 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    revealButton: "
+              "text": " | undefined;\n  revealButton: "
             },
             {
               "kind": "Reference",
@@ -5639,14 +5703,14 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    onRegenerate: () => void;\n    onReveal: () => void;\n    isSubmitting: boolean;\n}"
+              "text": " | undefined;\n  onRegenerate: () => void;\n  onReveal: () => void;\n  isSubmitting: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsRecoveryCodesProps",
           "typeTokenRange": {
@@ -5661,11 +5725,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsSsoProps = "
+              "text": "export type OrySettingsSsoProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    linkButtons: "
+              "text": "{\n  linkButtons: "
             },
             {
               "kind": "Reference",
@@ -5674,7 +5738,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    unlinkButtons: "
+              "text": "[];\n  unlinkButtons: "
             },
             {
               "kind": "Reference",
@@ -5683,14 +5747,14 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    isSubmitting: boolean;\n}"
+              "text": "[];\n  isSubmitting: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsSsoProps",
           "typeTokenRange": {
@@ -5705,11 +5769,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsSuccessEvent = "
+              "text": "export type OrySettingsSuccessEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -5718,7 +5782,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -5727,14 +5791,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    method: string;\n}"
+              "text": ";\n  method: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsSuccessEvent",
           "typeTokenRange": {
@@ -5749,11 +5813,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsTotpProps = "
+              "text": "export type OrySettingsTotpProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    totpImage: "
+              "text": "{\n  totpImage: "
             },
             {
               "kind": "Reference",
@@ -5762,7 +5826,7 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    totpSecret: "
+              "text": " | undefined;\n  totpSecret: "
             },
             {
               "kind": "Reference",
@@ -5771,7 +5835,7 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    totpInput: "
+              "text": " | undefined;\n  totpInput: "
             },
             {
               "kind": "Reference",
@@ -5780,7 +5844,7 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    totpUnlink: "
+              "text": " | undefined;\n  totpUnlink: "
             },
             {
               "kind": "Reference",
@@ -5789,14 +5853,14 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    onUnlink: () => void;\n    isSubmitting: boolean;\n}"
+              "text": " | undefined;\n  onUnlink: () => void;\n  isSubmitting: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsTotpProps",
           "typeTokenRange": {
@@ -5811,11 +5875,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySettingsWebauthnProps = "
+              "text": "export type OrySettingsWebauthnProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    nameInput: "
+              "text": "{\n  nameInput: "
             },
             {
               "kind": "Reference",
@@ -5824,7 +5888,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    triggerButton: "
+              "text": ";\n  triggerButton: "
             },
             {
               "kind": "Reference",
@@ -5833,7 +5897,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    removeButtons: "
+              "text": ";\n  removeButtons: "
             },
             {
               "kind": "Reference",
@@ -5842,14 +5906,14 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    isSubmitting: boolean;\n}"
+              "text": "[];\n  isSubmitting: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/settings/index.d.ts",
           "releaseTag": "Public",
           "name": "OrySettingsWebauthnProps",
           "typeTokenRange": {
@@ -5864,7 +5928,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySuccessEvent = "
+              "text": "export type OrySuccessEvent = "
             },
             {
               "kind": "Reference",
@@ -5921,7 +5985,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OrySuccessEvent",
           "typeTokenRange": {
@@ -5936,7 +6000,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OrySuccessHandler = "
+              "text": "export type OrySuccessHandler = "
             },
             {
               "kind": "Content",
@@ -5965,7 +6029,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OrySuccessHandler",
           "typeTokenRange": {
@@ -5980,11 +6044,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryToastProps = "
+              "text": "export type OryToastProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    message: "
+              "text": "{\n  message: "
             },
             {
               "kind": "Reference",
@@ -5993,14 +6057,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    id: string | number;\n}"
+              "text": ";\n  id: string | number;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/form.d.ts",
           "releaseTag": "Public",
           "name": "OryToastProps",
           "typeTokenRange": {
@@ -6015,7 +6079,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryTransientPayload = "
+              "text": "export type OryTransientPayload = "
             },
             {
               "kind": "Reference",
@@ -6049,7 +6113,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/transientPayload.d.ts",
           "releaseTag": "Public",
           "name": "OryTransientPayload",
           "typeTokenRange": {
@@ -6064,11 +6128,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryValidationErrorEvent = "
+              "text": "export type OryValidationErrorEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6077,7 +6141,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6086,7 +6150,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    flowType: "
+              "text": ";\n} | {\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6095,7 +6159,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6104,7 +6168,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    flowType: "
+              "text": ";\n} | {\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6113,7 +6177,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6122,7 +6186,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    flowType: "
+              "text": ";\n} | {\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6131,7 +6195,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6140,7 +6204,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n} | {\n    flowType: "
+              "text": ";\n} | {\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6149,7 +6213,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6165,7 +6229,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryValidationErrorEvent",
           "typeTokenRange": {
@@ -6180,7 +6244,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryValidationErrorHandler = "
+              "text": "export type OryValidationErrorHandler = "
             },
             {
               "kind": "Content",
@@ -6209,7 +6273,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryValidationErrorHandler",
           "typeTokenRange": {
@@ -6224,11 +6288,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryVerificationSuccessEvent = "
+              "text": "export type OryVerificationSuccessEvent = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6237,7 +6301,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6246,14 +6310,14 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    method: string;\n}"
+              "text": ";\n  method: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/events.d.ts",
           "releaseTag": "Public",
           "name": "OryVerificationSuccessEvent",
           "typeTokenRange": {
@@ -6268,10 +6332,10 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface ProjectConfiguration "
+              "text": "export interface ProjectConfiguration "
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/clientConfiguration.d.ts",
           "releaseTag": "Public",
           "name": "ProjectConfiguration",
           "preserveMemberOrder": false,
@@ -6691,11 +6755,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type RecoveryFlowContainer = "
+              "text": "export type RecoveryFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6704,7 +6768,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6720,7 +6784,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "RecoveryFlowContainer",
           "typeTokenRange": {
@@ -6735,11 +6799,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type RegistrationFlowContainer = "
+              "text": "export type RegistrationFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6748,7 +6812,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6764,7 +6828,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "RegistrationFlowContainer",
           "typeTokenRange": {
@@ -6786,7 +6850,7 @@
               "text": "\"requested_resource_\""
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/consent.d.ts",
           "initializerTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -6813,7 +6877,7 @@
               "text": "\"requested_resources_title\""
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/consent.d.ts",
           "initializerTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -6833,7 +6897,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function resolvePlaceholder(text: "
+              "text": "export declare function resolvePlaceholder(text: "
             },
             {
               "kind": "Reference",
@@ -6875,7 +6939,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/i18n/index.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 8,
             "endIndex": 9
@@ -6909,11 +6973,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type SettingsFlowContainer = "
+              "text": "export type SettingsFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -6922,7 +6986,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -6938,7 +7002,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "SettingsFlowContainer",
           "typeTokenRange": {
@@ -6953,7 +7017,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeAnchor = "
+              "text": "export type UiNodeAnchor = "
             },
             {
               "kind": "Reference",
@@ -6962,7 +7026,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    type: \"a\";\n    attributes: "
+              "text": " & {\n  type: \"a\";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -6978,7 +7042,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeAnchor",
           "typeTokenRange": {
@@ -6993,7 +7057,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeDiv = "
+              "text": "export type UiNodeDiv = "
             },
             {
               "kind": "Reference",
@@ -7002,7 +7066,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    type: \"div\";\n    attributes: "
+              "text": " & {\n  type: \"div\";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -7018,7 +7082,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeDiv",
           "typeTokenRange": {
@@ -7033,7 +7097,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeFixed = "
+              "text": "export type UiNodeFixed = "
             },
             {
               "kind": "Reference",
@@ -7090,7 +7154,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeFixed",
           "typeTokenRange": {
@@ -7105,7 +7169,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeImage = "
+              "text": "export type UiNodeImage = "
             },
             {
               "kind": "Reference",
@@ -7114,7 +7178,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    type: \"img\";\n    attributes: "
+              "text": " & {\n  type: \"img\";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -7130,7 +7194,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeImage",
           "typeTokenRange": {
@@ -7145,7 +7209,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeInput = "
+              "text": "export type UiNodeInput = "
             },
             {
               "kind": "Reference",
@@ -7154,7 +7218,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    type: \"input\";\n    attributes: "
+              "text": " & {\n  type: \"input\";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -7170,7 +7234,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeInput",
           "typeTokenRange": {
@@ -7185,18 +7249,18 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeInputAttributesOption = "
+              "text": "export type UiNodeInputAttributesOption = "
             },
             {
               "kind": "Content",
-              "text": "{\n    value: unknown;\n}"
+              "text": "{\n  value: unknown;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeInputAttributesOption",
           "typeTokenRange": {
@@ -7211,7 +7275,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeInputAttributesWithOptions = "
+              "text": "export type UiNodeInputAttributesWithOptions = "
             },
             {
               "kind": "Reference",
@@ -7220,7 +7284,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    options?: "
+              "text": " & {\n  options?: "
             },
             {
               "kind": "Reference",
@@ -7229,14 +7293,14 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n    inputmode?: \"numeric\" | \"text\";\n}"
+              "text": "[];\n  inputmode?: \"numeric\" | \"text\";\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeInputAttributesWithOptions",
           "typeTokenRange": {
@@ -7251,7 +7315,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeScript = "
+              "text": "export type UiNodeScript = "
             },
             {
               "kind": "Reference",
@@ -7260,7 +7324,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    type: \"script\";\n    attributes: "
+              "text": " & {\n  type: \"script\";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -7276,7 +7340,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeScript",
           "typeTokenRange": {
@@ -7291,7 +7355,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type UiNodeText = "
+              "text": "export type UiNodeText = "
             },
             {
               "kind": "Reference",
@@ -7300,7 +7364,7 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n    type: \"text\";\n    attributes: "
+              "text": " & {\n  type: \"text\";\n  attributes: "
             },
             {
               "kind": "Reference",
@@ -7316,7 +7380,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/utilFixSDKTypesHelper.d.ts",
           "releaseTag": "Public",
           "name": "UiNodeText",
           "typeTokenRange": {
@@ -7369,7 +7433,7 @@
               "text": "string"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/i18n/index.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 8,
             "endIndex": 9
@@ -7411,7 +7475,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useComponents(): "
+              "text": "export declare function useComponents(): "
             },
             {
               "kind": "Reference",
@@ -7423,7 +7487,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/component.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -7440,7 +7504,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useNodeSorter(): "
+              "text": "export declare function useNodeSorter(): "
             },
             {
               "kind": "Content",
@@ -7462,14 +7526,14 @@
             },
             {
               "kind": "Content",
-              "text": ", ctx: {\n    flowType: string;\n}) => number"
+              "text": ", ctx: {\n  flowType: string;\n}) => number"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/component.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -7486,7 +7550,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useOryConfiguration(): "
+              "text": "export declare function useOryConfiguration(): "
             },
             {
               "kind": "Reference",
@@ -7498,7 +7562,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/config.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -7515,7 +7579,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useOryFlow(): "
+              "text": "export declare function useOryFlow(): "
             },
             {
               "kind": "Reference",
@@ -7527,7 +7591,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/flow-context.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -7544,7 +7608,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useOryFormBusy(): "
+              "text": "export declare function useOryFormBusy(): "
             },
             {
               "kind": "Reference",
@@ -7556,7 +7620,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/context/form-busy.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -7573,11 +7637,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useResendCode(): "
+              "text": "export declare function useResendCode(): "
             },
             {
               "kind": "Content",
-              "text": "{\n    resendCode: () => void;\n    resendCodeNode: "
+              "text": "{\n  resendCode: () => void;\n  resendCodeNode: "
             },
             {
               "kind": "Reference",
@@ -7593,7 +7657,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/components/form/useResendCode.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
@@ -7610,11 +7674,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type VerificationFlowContainer = "
+              "text": "export type VerificationFlowContainer = "
             },
             {
               "kind": "Content",
-              "text": "{\n    flowType: "
+              "text": "{\n  flowType: "
             },
             {
               "kind": "Reference",
@@ -7623,7 +7687,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    flow: "
+              "text": ";\n  flow: "
             },
             {
               "kind": "Reference",
@@ -7639,7 +7703,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/index.d.ts",
+          "fileUrlPath": "dist/util/flowContainer.d.ts",
           "releaseTag": "Public",
           "name": "VerificationFlowContainer",
           "typeTokenRange": {

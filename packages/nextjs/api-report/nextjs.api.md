@@ -12,7 +12,6 @@ import { LoginFlow } from '@ory/client-fetch';
 import { LogoutFlow } from '@ory/client-fetch';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import * as _ory_client_fetch from '@ory/client-fetch';
 import { ParsedUrlQuery } from 'querystring';
 import { RecoveryFlow } from '@ory/client-fetch';
 import { RegistrationFlow } from '@ory/client-fetch';
@@ -104,22 +103,22 @@ export interface OryPageParams {
 export function useError(params: ParsedUrlQuery): OryError | null;
 
 // @public
-export const useLoginFlow: () => void | _ory_client_fetch.LoginFlow | null;
+export const useLoginFlow: () => void | LoginFlow | null;
 
 // @public
 export function useLogoutFlow(): LogoutFlow | undefined;
 
 // @public
-export const useRecoveryFlow: () => void | _ory_client_fetch.RecoveryFlow | null;
+export const useRecoveryFlow: () => void | RecoveryFlow | null;
 
 // @public
-export const useRegistrationFlow: () => void | _ory_client_fetch.RegistrationFlow | null;
+export const useRegistrationFlow: () => void | RegistrationFlow | null;
 
 // @public
-export const useSettingsFlow: () => void | _ory_client_fetch.SettingsFlow | null;
+export const useSettingsFlow: () => void | SettingsFlow | null;
 
 // @public
-export const useVerificationFlow: () => void | _ory_client_fetch.VerificationFlow | null;
+export const useVerificationFlow: () => void | VerificationFlow | null;
 
 // (No @packageDocumentation comment for this package)
 

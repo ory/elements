@@ -2,7 +2,7 @@
   "name": "@ory/elements-react",
   "version": "1.3.0",
   "scripts": {
-    "build": "tsup --dts",
+    "build": "tsdown --config-loader tsx",
     "prepare": "pnpm run build"
   },
   "exports": {
@@ -44,6 +44,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
   "dependencies": {
     "@marsidev/react-turnstile": "^1.1.0",
     "@ory/client-fetch": "^1.22.65",
@@ -70,22 +73,25 @@
     "@formatjs/icu-messageformat-parser": "2.11.3",
     "@hookform/devtools": "4.4.0",
     "@ory/ssr": "workspace:^",
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
     "@svgr/plugin-svgo": "8.1.0",
     "@tailwindcss/postcss": "4.2.1",
+    "@tsdown/css": "0.23.3",
     "@types/lodash.merge": "4.6.9",
     "@types/node": "22.17.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "autoprefixer": "10.4.21",
-    "esbuild-plugin-svgr": "3.1.1",
     "eslint-plugin-react": "7.37.5",
     "postcss": "8.5.23",
+    "postcss-import": "16.1.1",
     "postcss-scope": "^1.7.4",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "tailwindcss": "4.2.1",
     "tailwindcss-animate": "1.0.7",
-    "tsup": "8.4.0",
+    "tsdown": "0.23.3",
     "typedoc": "0.28.19",
     "typescript": "5.9.3"
   },

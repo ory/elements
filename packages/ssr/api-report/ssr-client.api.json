@@ -388,7 +388,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function createLogoutFlow(req: "
+              "text": "export declare function createLogoutFlow(req: "
             },
             {
               "kind": "Reference",
@@ -414,7 +414,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdkUrl: string;\n    baseUrl: string;\n    returnTo?: string;\n}"
+              "text": "{\n  sdkUrl: string;\n  baseUrl: string;\n  returnTo?: string;\n}"
             },
             {
               "kind": "Content",
@@ -481,14 +481,14 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    flow: T | void;\n} | {\n    redirectTo: string;\n    restart: boolean;\n}"
+              "text": "{\n  flow: T | void;\n} | {\n  redirectTo: string;\n  restart: boolean;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "fileUrlPath": "dist/url-DBasrwZ_.d.ts",
           "releaseTag": "Public",
           "name": "FlowResolution",
           "typeParameters": [
@@ -520,14 +520,14 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    flow: T;\n} | {\n    redirectTo: string;\n}"
+              "text": "{\n  flow: T;\n} | {\n  redirectTo: string;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "fileUrlPath": "dist/url-DBasrwZ_.d.ts",
           "releaseTag": "Public",
           "name": "FlowResult",
           "typeParameters": [
@@ -555,7 +555,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getError(req: "
+              "text": "export declare function getError(req: "
             },
             {
               "kind": "Reference",
@@ -568,7 +568,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdkUrl: string;\n    baseUrl: string;\n}"
+              "text": "{\n  sdkUrl: string;\n  baseUrl: string;\n}"
             },
             {
               "kind": "Content",
@@ -581,7 +581,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    error: string;\n    error_description: string;\n} | "
+              "text": "<{\n  error: string;\n  error_description: string;\n} | "
             },
             {
               "kind": "Reference",
@@ -631,7 +631,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getFlow<T extends "
+              "text": "export declare function getFlow<T extends "
             },
             {
               "kind": "Content",
@@ -750,7 +750,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdkUrl: string;\n    route: string;\n    baseUrl: string;\n}"
+              "text": "{\n  sdkUrl: string;\n  route: string;\n  baseUrl: string;\n}"
             },
             {
               "kind": "Content",
@@ -772,7 +772,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getSession(req: "
+              "text": "export declare function getSession(req: "
             },
             {
               "kind": "Reference",
@@ -798,7 +798,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdkUrl: string;\n}"
+              "text": "{\n  sdkUrl: string;\n}"
             },
             {
               "kind": "Content",
@@ -861,7 +861,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function handleOryProxy(request: "
+              "text": "export declare function handleOryProxy(request: "
             },
             {
               "kind": "Reference",
@@ -938,7 +938,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function isOryProxyPath(pathname: "
+              "text": "export declare function isOryProxyPath(pathname: "
             },
             {
               "kind": "Content",
@@ -1010,7 +1010,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "fileUrlPath": "dist/url-DBasrwZ_.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 5,
             "endIndex": 6
@@ -1070,7 +1070,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function oryBaseUrlWarning(resolved: "
+              "text": "export declare function oryBaseUrlWarning(resolved: "
             },
             {
               "kind": "Reference",
@@ -1137,7 +1137,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdkUrl: string;\n    projectApiKey?: string;\n    forwardAdditionalHeaders?: string[];\n    forceCookieDomain?: string;\n    project?: "
+              "text": "{\n  sdkUrl: string;\n  projectApiKey?: string;\n  forwardAdditionalHeaders?: string[];\n  forceCookieDomain?: string;\n  project?: "
             },
             {
               "kind": "Reference",
@@ -1155,7 +1155,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    trustedOrigins?: "
+              "text": ">;\n  trustedOrigins?: "
             },
             {
               "kind": "Reference",
@@ -1239,7 +1239,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    url: string | "
+              "text": "{\n  url: string | "
             },
             {
               "kind": "Reference",
@@ -1248,7 +1248,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    headers: "
+              "text": ";\n  headers: "
             },
             {
               "kind": "Reference",
@@ -1264,7 +1264,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "fileUrlPath": "dist/url-DBasrwZ_.d.ts",
           "releaseTag": "Public",
           "name": "OryRequest",
           "typeTokenRange": {
@@ -1283,14 +1283,14 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    [key: string]: string | string[] | undefined;\n}"
+              "text": "{\n  [key: string]: string | string[] | undefined;\n}"
             },
             {
               "kind": "Content",
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "fileUrlPath": "dist/url-DBasrwZ_.d.ts",
           "releaseTag": "Public",
           "name": "QueryParams",
           "typeTokenRange": {
@@ -1325,7 +1325,7 @@
               "text": ";"
             }
           ],
-          "fileUrlPath": "dist/url-DnJNA-JQ.d.ts",
+          "fileUrlPath": "dist/url-DBasrwZ_.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
             "endIndex": 4
@@ -1355,7 +1355,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    url: string;\n    reason: "
+              "text": "{\n  url: string;\n  reason: "
             },
             {
               "kind": "Reference",
@@ -1386,7 +1386,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function resolveError(query: "
+              "text": "export declare function resolveError(query: "
             },
             {
               "kind": "Reference",
@@ -1399,7 +1399,7 @@
             },
             {
               "kind": "Content",
-              "text": "(params: {\n    id: string;\n}) => "
+              "text": "(params: {\n  id: string;\n}) => "
             },
             {
               "kind": "Reference",
@@ -1425,7 +1425,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    baseUrl: string;\n}"
+              "text": "{\n  baseUrl: string;\n}"
             },
             {
               "kind": "Content",
@@ -1438,7 +1438,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    error: string;\n    error_description: string;\n} | "
+              "text": "<{\n  error: string;\n  error_description: string;\n} | "
             },
             {
               "kind": "Reference",
@@ -1496,7 +1496,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function resolveFlow<T extends "
+              "text": "export declare function resolveFlow<T extends "
             },
             {
               "kind": "Content",
@@ -1653,7 +1653,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    baseUrl: string;\n    route: string;\n    transform?: (flow: T) => T;\n    onRawResponseError?: (error: unknown) => void;\n}"
+              "text": "{\n  baseUrl: string;\n  route: string;\n  transform?: (flow: T) => T;\n  onRawResponseError?: (error: unknown) => void;\n}"
             },
             {
               "kind": "Content",
@@ -1688,7 +1688,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function resolveOryBaseUrl(opts: "
+              "text": "export declare function resolveOryBaseUrl(opts: "
             },
             {
               "kind": "Reference",
@@ -1739,7 +1739,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    sdkUrl: string;\n    origin: string;\n    proxy: "
+              "text": "{\n  sdkUrl: string;\n  origin: string;\n  proxy: "
             },
             {
               "kind": "Reference",

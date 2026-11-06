@@ -13,7 +13,7 @@
       "dependsOn": ["lint", "typecheck"]
     },
     "dev": {
-      "command": "tsup --watch  --onSuccess 'tsup --dts-only'",
+      "command": "tsdown --config-loader tsx --watch",
       "options": {
         "cwd": "packages/elements-react"
       }

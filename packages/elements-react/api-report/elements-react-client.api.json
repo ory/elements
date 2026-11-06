@@ -388,11 +388,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type SessionContextData = "
+              "text": "export type SessionContextData = "
             },
             {
               "kind": "Content",
-              "text": "{\n    isLoading: boolean;\n    initialized: boolean;\n    session: "
+              "text": "{\n  isLoading: boolean;\n  initialized: boolean;\n  session: "
             },
             {
               "kind": "Reference",
@@ -401,7 +401,7 @@
             },
             {
               "kind": "Content",
-              "text": " | null;\n    error: "
+              "text": " | null;\n  error: "
             },
             {
               "kind": "Reference",
@@ -410,7 +410,7 @@
             },
             {
               "kind": "Content",
-              "text": " | undefined;\n    refetch: () => "
+              "text": " | undefined;\n  refetch: () => "
             },
             {
               "kind": "Reference",
@@ -441,7 +441,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function SessionProvider(input: "
+              "text": "export declare function SessionProvider(input: "
             },
             {
               "kind": "Reference",
@@ -453,8 +453,12 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"react\")."
+            },
+            {
               "kind": "Reference",
-              "text": "react.JSX.Element",
+              "text": "JSX.Element",
               "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
@@ -465,13 +469,13 @@
           "fileUrlPath": "dist/client/session-provider.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 4
+            "endIndex": 5
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ session: initialSession, children, baseUrl, }",
+              "parameterName": "{ session: initialSession, children, baseUrl }",
               "parameterTypeTokenRange": {
                 "startIndex": 0,
                 "endIndex": 0
@@ -496,11 +500,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type SessionProviderProps = "
+              "text": "export type SessionProviderProps = "
             },
             {
               "kind": "Content",
-              "text": "{\n    session?: "
+              "text": "{\n  session?: "
             },
             {
               "kind": "Reference",
@@ -509,7 +513,7 @@
             },
             {
               "kind": "Content",
-              "text": " | null;\n    baseUrl?: string;\n} & "
+              "text": " | null;\n  baseUrl?: string;\n} & "
             },
             {
               "kind": "Reference",
@@ -536,7 +540,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useSession(): "
+              "text": "export declare function useSession(): "
             },
             {
               "kind": "Reference",

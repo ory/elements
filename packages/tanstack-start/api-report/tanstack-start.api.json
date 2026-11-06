@@ -195,7 +195,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getError(search?: "
+              "text": "export declare function getError(search?: "
             },
             {
               "kind": "Reference",
@@ -222,7 +222,7 @@
             },
             {
               "kind": "Content",
-              "text": " | {\n    error: string;\n    error_description: string;\n}>"
+              "text": " | {\n  error: string;\n  error_description: string;\n}>"
             },
             {
               "kind": "Content",
@@ -255,11 +255,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLoginFlow(config: "
+              "text": "export declare function getLoginFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        login_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    login_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -331,11 +331,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLogoutFlow(options?: "
+              "text": "export declare function getLogoutFlow(options?: "
             },
             {
               "kind": "Content",
-              "text": "{\n    returnTo?: string;\n}"
+              "text": "{\n  returnTo?: string;\n}"
             },
             {
               "kind": "Content",
@@ -390,7 +390,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getOryBaseUrl(): "
+              "text": "export declare function getOryBaseUrl(): "
             },
             {
               "kind": "Content",
@@ -418,11 +418,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getRecoveryFlow(config: "
+              "text": "export declare function getRecoveryFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        recovery_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    recovery_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -494,11 +494,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getRegistrationFlow(config: "
+              "text": "export declare function getRegistrationFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        registration_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    registration_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -570,7 +570,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getServerSession(): "
+              "text": "export declare function getServerSession(): "
             },
             {
               "kind": "Reference",
@@ -612,11 +612,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getSettingsFlow(config: "
+              "text": "export declare function getSettingsFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        settings_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    settings_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -688,11 +688,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getVerificationFlow(config: "
+              "text": "export declare function getVerificationFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        verification_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    verification_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -764,7 +764,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function oryProxyMiddleware(options: "
+              "text": "export declare function oryProxyMiddleware(options: "
             },
             {
               "kind": "Reference",
@@ -776,13 +776,17 @@
               "text": "): "
             },
             {
+              "kind": "Content",
+              "text": "import(\"@tanstack/react-start\")."
+            },
+            {
               "kind": "Reference",
-              "text": "_tanstack_react_start.RequestMiddlewareAfterServer",
+              "text": "RequestMiddlewareAfterServer",
               "canonicalReference": "@tanstack/start-client-core!RequestMiddlewareAfterServer:interface"
             },
             {
               "kind": "Content",
-              "text": "<{}, undefined, {\n    oryProxy: "
+              "text": "<{}, undefined, {\n  oryProxy: "
             },
             {
               "kind": "Reference",
@@ -801,7 +805,7 @@
           "fileUrlPath": "dist/proxy/index.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 7
+            "endIndex": 8
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -842,7 +846,7 @@
             },
             {
               "kind": "Content",
-              "text": ", \"sdkUrl\" | \"projectApiKey\" | \"trustedOrigins\"> & {\n    trustedOrigins: "
+              "text": ", \"sdkUrl\" | \"projectApiKey\" | \"trustedOrigins\"> & {\n  trustedOrigins: "
             },
             {
               "kind": "Reference",
@@ -904,7 +908,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function validateOrySearch(input: "
+              "text": "export declare function validateOrySearch(input: "
             },
             {
               "kind": "Content",

@@ -388,7 +388,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function createOryMiddleware(options: "
+              "text": "export declare function createOryMiddleware(options: "
             },
             {
               "kind": "Reference",
@@ -461,7 +461,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getError(searchParams: "
+              "text": "export declare function getError(searchParams: "
             },
             {
               "kind": "Reference",
@@ -501,7 +501,7 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    error: string;\n    error_description: string;\n} | "
+              "text": "<{\n  error: string;\n  error_description: string;\n} | "
             },
             {
               "kind": "Reference",
@@ -543,7 +543,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getFlowFactory<T extends "
+              "text": "export declare function getFlowFactory<T extends "
             },
             {
               "kind": "Content",
@@ -615,7 +615,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    disableRewrite?: boolean;\n}"
+              "text": "{\n  disableRewrite?: boolean;\n}"
             },
             {
               "kind": "Content",
@@ -714,11 +714,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLoginFlow(config: "
+              "text": "export declare function getLoginFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        login_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    login_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -812,11 +812,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLogoutFlow(input?: "
+              "text": "export declare function getLogoutFlow(input?: "
             },
             {
               "kind": "Content",
-              "text": "{\n    returnTo?: string;\n}"
+              "text": "{\n  returnTo?: string;\n}"
             },
             {
               "kind": "Content",
@@ -854,7 +854,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "{ returnTo, }",
+              "parameterName": "{ returnTo }",
               "parameterTypeTokenRange": {
                 "startIndex": 0,
                 "endIndex": 0
@@ -879,7 +879,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getOryBaseUrl(): "
+              "text": "export declare function getOryBaseUrl(): "
             },
             {
               "kind": "Reference",
@@ -912,11 +912,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getRecoveryFlow(config: "
+              "text": "export declare function getRecoveryFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        recovery_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    recovery_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -1010,11 +1010,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getRegistrationFlow(config: "
+              "text": "export declare function getRegistrationFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        registration_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    registration_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -1108,7 +1108,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getServerSession(): "
+              "text": "export declare function getServerSession(): "
             },
             {
               "kind": "Reference",
@@ -1150,11 +1150,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getSettingsFlow(config: "
+              "text": "export declare function getSettingsFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        settings_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    settings_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -1248,11 +1248,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getVerificationFlow(config: "
+              "text": "export declare function getVerificationFlow(config: "
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        verification_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    verification_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -1350,7 +1350,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    forwardAdditionalHeaders?: string[];\n    forceCookieDomain?: string;\n    project?: "
+              "text": "{\n  forwardAdditionalHeaders?: string[];\n  forceCookieDomain?: string;\n  project?: "
             },
             {
               "kind": "Reference",
@@ -1368,7 +1368,7 @@
             },
             {
               "kind": "Content",
-              "text": ">;\n    trustedOrigins?: string[];\n}"
+              "text": ">;\n  trustedOrigins?: string[];\n}"
             },
             {
               "kind": "Content",
@@ -1414,7 +1414,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "<{\n        [key: string]: string | string[] | undefined;\n    }>"
+                  "text": "<{\n    [key: string]: string | string[] | undefined;\n  }>"
                 },
                 {
                   "kind": "Content",
@@ -1440,7 +1440,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useError(params: "
+              "text": "export declare function useError(params: "
             },
             {
               "kind": "Reference",
@@ -1495,11 +1495,11 @@
             },
             {
               "kind": "Content",
-              "text": "void | "
+              "text": "void | import(\"@ory/client-fetch\")."
             },
             {
               "kind": "Reference",
-              "text": "_ory_client_fetch.LoginFlow",
+              "text": "LoginFlow",
               "canonicalReference": "@ory/client-fetch!LoginFlow:interface"
             },
             {
@@ -1524,7 +1524,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function useLogoutFlow(): "
+              "text": "export declare function useLogoutFlow(): "
             },
             {
               "kind": "Reference",
@@ -1561,11 +1561,11 @@
             },
             {
               "kind": "Content",
-              "text": "void | "
+              "text": "void | import(\"@ory/client-fetch\")."
             },
             {
               "kind": "Reference",
-              "text": "_ory_client_fetch.RecoveryFlow",
+              "text": "RecoveryFlow",
               "canonicalReference": "@ory/client-fetch!RecoveryFlow:interface"
             },
             {
@@ -1594,11 +1594,11 @@
             },
             {
               "kind": "Content",
-              "text": "void | "
+              "text": "void | import(\"@ory/client-fetch\")."
             },
             {
               "kind": "Reference",
-              "text": "_ory_client_fetch.RegistrationFlow",
+              "text": "RegistrationFlow",
               "canonicalReference": "@ory/client-fetch!RegistrationFlow:interface"
             },
             {
@@ -1627,11 +1627,11 @@
             },
             {
               "kind": "Content",
-              "text": "void | "
+              "text": "void | import(\"@ory/client-fetch\")."
             },
             {
               "kind": "Reference",
-              "text": "_ory_client_fetch.SettingsFlow",
+              "text": "SettingsFlow",
               "canonicalReference": "@ory/client-fetch!SettingsFlow:interface"
             },
             {
@@ -1660,11 +1660,11 @@
             },
             {
               "kind": "Content",
-              "text": "void | "
+              "text": "void | import(\"@ory/client-fetch\")."
             },
             {
               "kind": "Reference",
-              "text": "_ory_client_fetch.VerificationFlow",
+              "text": "VerificationFlow",
               "canonicalReference": "@ory/client-fetch!VerificationFlow:interface"
             },
             {

@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/theme/default/assets/global.d.ts",
-    "tsup.config.ts",
+    "tsdown.config.mts",
     "jest.config.ts",
     "tailwind.config.ts",
     ".storybook/**/*.{ts,tsx}"

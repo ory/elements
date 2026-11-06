@@ -3,6 +3,7 @@
 
 import type { Decorator, Preview } from "@storybook/react-vite"
 import { merge } from "lodash"
+import "../src/theme/default/global.css"
 import "./global.css"
 import { mockDateDecorator } from "storybook-mock-date-decorator"
 

@@ -6,13 +6,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "command": "tsup --clean --dts",
+      "command": "tsdown --config-loader tsx",
       "options": {
         "cwd": "packages/nextjs"
       }
     },
     "dev": {
-      "command": "tsup --watch --dts",
+      "command": "tsdown --config-loader tsx --watch",
       "options": {
         "cwd": "packages/nextjs"
       }
@@ -26,7 +26,6 @@
         "coverageReporters": ["text", "cobertura"]
       }
     },
-
     "api-extractor": {
       "executor": "nx:run-commands",
       "options": {

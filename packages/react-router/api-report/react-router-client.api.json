@@ -195,7 +195,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function createOryProxyHandler(options: "
+              "text": "export declare function createOryProxyHandler(options: "
             },
             {
               "kind": "Reference",
@@ -242,7 +242,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getError(request: "
+              "text": "export declare function getError(request: "
             },
             {
               "kind": "Reference",
@@ -269,7 +269,7 @@
             },
             {
               "kind": "Content",
-              "text": " | {\n    error: string;\n    error_description: string;\n}>"
+              "text": " | {\n  error: string;\n  error_description: string;\n}>"
             },
             {
               "kind": "Content",
@@ -302,7 +302,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLoginFlow(request: "
+              "text": "export declare function getLoginFlow(request: "
             },
             {
               "kind": "Reference",
@@ -315,7 +315,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        login_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    login_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -378,7 +378,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getLogoutFlow(request: "
+              "text": "export declare function getLogoutFlow(request: "
             },
             {
               "kind": "Reference",
@@ -391,7 +391,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    returnTo?: string;\n}"
+              "text": "{\n  returnTo?: string;\n}"
             },
             {
               "kind": "Content",
@@ -454,7 +454,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getOryBaseUrl(request: "
+              "text": "export declare function getOryBaseUrl(request: "
             },
             {
               "kind": "Reference",
@@ -500,7 +500,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getRecoveryFlow(request: "
+              "text": "export declare function getRecoveryFlow(request: "
             },
             {
               "kind": "Reference",
@@ -513,7 +513,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        recovery_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    recovery_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -576,7 +576,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getRegistrationFlow(request: "
+              "text": "export declare function getRegistrationFlow(request: "
             },
             {
               "kind": "Reference",
@@ -589,7 +589,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        registration_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    registration_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -652,7 +652,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getServerSession(request: "
+              "text": "export declare function getServerSession(request: "
             },
             {
               "kind": "Reference",
@@ -712,7 +712,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getSettingsFlow(request: "
+              "text": "export declare function getSettingsFlow(request: "
             },
             {
               "kind": "Reference",
@@ -725,7 +725,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        settings_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    settings_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -788,7 +788,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function getVerificationFlow(request: "
+              "text": "export declare function getVerificationFlow(request: "
             },
             {
               "kind": "Reference",
@@ -801,7 +801,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    project: {\n        verification_ui_url: string;\n    };\n}"
+              "text": "{\n  project: {\n    verification_ui_url: string;\n  };\n}"
             },
             {
               "kind": "Content",
@@ -864,11 +864,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryProxyHandler = "
+              "text": "export type OryProxyHandler = "
             },
             {
               "kind": "Content",
-              "text": "(args: {\n    request: "
+              "text": "(args: {\n  request: "
             },
             {
               "kind": "Reference",
@@ -917,7 +917,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryProxyHandlerOptions = "
+              "text": "export type OryProxyHandlerOptions = "
             },
             {
               "kind": "Reference",
@@ -935,7 +935,7 @@
             },
             {
               "kind": "Content",
-              "text": ", \"sdkUrl\" | \"projectApiKey\" | \"trustedOrigins\"> & {\n    trustedOrigins: "
+              "text": ", \"sdkUrl\" | \"projectApiKey\" | \"trustedOrigins\"> & {\n  trustedOrigins: "
             },
             {
               "kind": "Reference",
@@ -966,11 +966,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type OryProxyRouteConfigEntry = "
+              "text": "export type OryProxyRouteConfigEntry = "
             },
             {
               "kind": "Content",
-              "text": "{\n    id: string;\n    path: string;\n    file: string;\n}"
+              "text": "{\n  id: string;\n  path: string;\n  file: string;\n}"
             },
             {
               "kind": "Content",
@@ -992,7 +992,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare function oryProxyRoutes(file: "
+              "text": "export declare function oryProxyRoutes(file: "
             },
             {
               "kind": "Content",
