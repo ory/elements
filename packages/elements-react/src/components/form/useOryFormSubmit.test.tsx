@@ -1,8 +1,15 @@
 // Copyright © 2026 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { FlowType } from "@ory/client-fetch"
+import {
+  FlowType,
+  LoginFlowFromJSON,
+  SettingsFlowFromJSON,
+} from "@ory/client-fetch"
 import { act, screen, waitFor } from "@testing-library/react"
+import { useFormContext, UseFormReturn } from "react-hook-form"
+import loginFlow from "../../../.stub-responses/login/1fa/none/initial-form.json"
+import settingsFlow from "../../../.stub-responses/settings/all-methods/initial-form.json"
 import { IntlProvider } from "../../context/intl-context"
 import { useOryFlow } from "../../context/flow-context"
 import {
@@ -178,6 +185,22 @@ function locationChangeRequiredError(redirectBrowserTo: string) {
     },
   }
   return Object.assign(new Error("Unprocessable Entity"), {
+    name: "ResponseError",
+    response,
+  })
+}
+
+function validationError(flow: object) {
+  const response = {
+    status: 400,
+    json: () => Promise.resolve(flow),
+    clone: () => response,
+    headers: {
+      get: (name: string) =>
+        name === "content-type" ? "application/json" : null,
+    },
+  }
+  return Object.assign(new Error("Bad Request"), {
     name: "ResponseError",
     response,
   })
@@ -427,5 +450,99 @@ describe("submit gates", () => {
 
     expect(submitting).not.toContain("true")
     expect(updateLoginFlowRaw).not.toHaveBeenCalled()
+  })
+})
+
+describe("one-time secrets after a submission", () => {
+  let form: UseFormReturn | undefined
+
+  function SecretHarness() {
+    form = useFormContext()
+    return <SubmitHarness />
+  }
+
+  async function mockFrontend(client: Record<string, jest.Mock>) {
+    jest
+      .spyOn(await import("../../util/client"), "frontendClient")
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      .mockReturnValue(client as any)
+    // jsdom does not implement navigation and reports location.assign as an error.
+    jest.spyOn(console, "error").mockImplementation(() => {})
+  }
+
+  async function submitPassword(data: FormValues) {
+    act(() => {
+      form?.setValue("password", "secret")
+    })
+    await act(async () => {
+      await triggerSubmit?.(data)
+    })
+  }
+
+  test("should keep the password while the browser leaves after a successful login", async () => {
+    await mockFrontend({
+      updateLoginFlowRaw: jest.fn().mockResolvedValue({
+        value: () => Promise.resolve({ session: {}, continue_with: [] }),
+      }),
+    })
+    renderWithOryElements(
+      <IntlProvider locale="en">
+        <SecretHarness />
+      </IntlProvider>,
+    )
+
+    await submitPassword({
+      method: "password",
+      identifier: "user@example.com",
+      password: "secret",
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("true")
+    expect(form?.getValues("password")).toBe("secret")
+  })
+
+  test("should clear the password after a failed login", async () => {
+    await mockFrontend({
+      updateLoginFlowRaw: jest
+        .fn()
+        .mockRejectedValue(validationError(LoginFlowFromJSON(loginFlow))),
+    })
+    renderWithOryElements(
+      <IntlProvider locale="en">
+        <SecretHarness />
+      </IntlProvider>,
+    )
+
+    await submitPassword({
+      method: "password",
+      identifier: "user@example.com",
+      password: "secret",
+    })
+
+    expect(screen.getByTestId("submitting").textContent).toBe("false")
+    expect(form?.getValues("password")).toBeFalsy()
+  })
+
+  test("should clear the password after a settings submission", async () => {
+    await mockFrontend({
+      updateSettingsFlowRaw: jest.fn().mockResolvedValue({
+        value: () => Promise.resolve(SettingsFlowFromJSON(settingsFlow)),
+      }),
+    })
+    renderWithOryElements(
+      <IntlProvider locale="en">
+        <SecretHarness />
+      </IntlProvider>,
+      {
+        flow: {
+          flowType: FlowType.Settings,
+          flow: SettingsFlowFromJSON(settingsFlow),
+        },
+      },
+    )
+
+    await submitPassword({ method: "password", password: "secret" })
+
+    expect(form?.getValues("password")).toBeFalsy()
   })
 })

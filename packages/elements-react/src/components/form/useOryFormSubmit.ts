@@ -146,7 +146,7 @@ export function useOryFormSubmit(
     })
   }
 
-  const onRedirect: OnRedirectHandler = (url, _external) => {
+  const redirectPage: OnRedirectHandler = (url, _external) => {
     flowContainer.dispatchFormState({ type: "page_redirect" })
     window.location.assign(url)
     if (opensAppleSignInSheet(url, window.navigator)) {
@@ -188,6 +188,11 @@ export function useOryFormSubmit(
       return
     }
     flowContainer.dispatchFormState({ type: "form_submit_start" })
+    let redirected = false
+    const onRedirect: OnRedirectHandler = (url, external) => {
+      redirected = true
+      redirectPage(url, external)
+    }
     try {
       const gate = await pendingGate
       if (!gate.proceed) {
@@ -385,14 +390,16 @@ export function useOryFormSubmit(
           )
         }
       }
-      if ("password" in data) {
-        methods.setValue("password", "")
-      }
-      if ("code" in data) {
-        methods.setValue("code", "")
-      }
-      if ("totp_code" in data) {
-        methods.setValue("totp_code", "")
+      if (!redirected) {
+        if ("password" in data) {
+          methods.setValue("password", "")
+        }
+        if ("code" in data) {
+          methods.setValue("code", "")
+        }
+        if ("totp_code" in data) {
+          methods.setValue("totp_code", "")
+        }
       }
       onAfterSubmit?.(data.method)
     } catch (error) {
