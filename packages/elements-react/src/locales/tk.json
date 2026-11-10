@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Bu DeviceAuthn açary ulanyjy barlagy girizilmezden öň hasaba alnypdy we indi ulanyp bolmaýar. Haýyş edýäris, enjamyňyzy täzeden hasaba alyň.",
   "messages.rate-limited": "Köpet ýa-da soraglar köp boldy. Biraz wagtalap garaýyň we gaýtadan synanyşyň.",
   "identities.messages.1010026": "Siziň hasabyňyz gurama tarapyndan dolandyrylýar. Iltimas, guramaňyzyň SSO hyzmat berijisi arkaly giriň.",
-  "identities.messages.4000047": "Dowam etmek üçin muny kabul etmelisiňiz."
+  "identities.messages.4000047": "Dowam etmek üçin muny kabul etmelisiňiz.",
+  "consent.resources.title": "Bu programma siziň adyňyzdan şu hyzmatlara girer:",
+  "identities.messages.4010012": "Ulgama girmek synanyşyklarynyň köpüsi şowsuz boldy. Haýyş edýäris, {retry_at_unix_until_relative} gaýtadan synanyşyň."
 }

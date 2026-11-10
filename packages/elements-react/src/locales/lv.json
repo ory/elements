@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Šī DeviceAuthn atslēga tika reģistrēta pirms lietotāja verifikācijas ieviešanas, un to vairs nevar izmantot. Lūdzu, reģistrējiet savu ierīci vēlreiz.",
   "messages.rate-limited": "Pārāk daudz pieprasījumu. Lūdzu, pagaidiet un mēģiniet vēlreiz.",
   "identities.messages.1010026": "Jūsu kontu pārvalda organizācija. Lūdzu, piesakieties, izmantojot savas organizācijas vienotās pieteikšanās (SSO) pakalpojumu sniedzēju.",
-  "identities.messages.4000047": "Lai turpinātu, jums jāpiekrīt tam."
+  "identities.messages.4000047": "Lai turpinātu, jums jāpiekrīt tam.",
+  "consent.resources.title": "Šī lietotne jūsu vārdā piekļūs šiem pakalpojumiem:",
+  "identities.messages.4010012": "Pārāk daudz neveiksmīgu pieteikšanās mēģinājumu. Lūdzu, mēģiniet vēlreiz {retry_at_unix_until_relative}."
 }

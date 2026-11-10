@@ -271,5 +271,7 @@
   "identities.messages.4000046": "此设备身份验证密钥是在引入用户验证之前注册的，已无法使用。请重新注册您的设备。",
   "messages.rate-limited": "请求次数过多。请稍等片刻后重试。",
   "identities.messages.1010026": "您的账户由组织管理。请使用您所在组织的单点登录 (SSO) 提供程序登录。",
-  "identities.messages.4000047": "您必须同意此条款才能继续。"
+  "identities.messages.4000047": "您必须同意此条款才能继续。",
+  "consent.resources.title": "此应用将代表您访问以下服务：",
+  "identities.messages.4010012": "登录失败次数过多。请于{retry_at_unix_until_relative}后重试。"
 }

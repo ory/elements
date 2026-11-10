@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Esi sitshixo se-DeviceAuthn sabhaliswa ngaphambi kokuba kwaziswe uqinisekiso lomsebenzisi kwaye asisenakusetyenziswa. Nceda ubhalise isixhobo sakho kwakhona.",
   "messages.rate-limited": "Kukho izicelo ezininzi. Nceda linda okomzuzwana ke ulinge ukwenza kwakhona.",
   "identities.messages.1010026": "I-akhawunti yakho iphathwa ngumbutho. Nceda ungene usebenzisa umboneleli we-SSO wombutho wakho.",
-  "identities.messages.4000047": "Kufuneka uvuma oku ukuze uqhubeke."
+  "identities.messages.4000047": "Kufuneka uvuma oku ukuze uqhubeke.",
+  "consent.resources.title": "Olu setyenziso luza kufikelela kwezi nkonzo egameni lakho:",
+  "identities.messages.4010012": "Kube neenzame ezininzi zokungena ezingaphumelelanga. Nceda uzame kwakhona {retry_at_unix_until_relative}."
 }

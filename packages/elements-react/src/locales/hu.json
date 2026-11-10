@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Ezt a DeviceAuthn-kulcsot a felhasználó-ellenőrzés bevezetése előtt regisztrálták, ezért többé nem használható. Kérjük, regisztrálja újra az eszközét.",
   "messages.rate-limited": "Túl sok kérés érkezett. Kérjük, várjon egy pillanatot, majd próbálja meg újra.",
   "identities.messages.1010026": "A felhasználói fiókját egy szervezet kezeli. Kérjük, jelentkezzen be a szervezete egyszeri bejelentkezési (SSO) szolgáltatóján keresztül.",
-  "identities.messages.4000047": "A folytatáshoz ezt el kell fogadnia."
+  "identities.messages.4000047": "A folytatáshoz ezt el kell fogadnia.",
+  "consent.resources.title": "Ez az alkalmazás az Ön nevében fog hozzáférni ezekhez a szolgáltatásokhoz:",
+  "identities.messages.4010012": "Túl sok sikertelen bejelentkezési kísérlet történt. Kérjük, próbálja meg újra {retry_at_unix_until_relative}."
 }

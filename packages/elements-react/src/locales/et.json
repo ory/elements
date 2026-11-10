@@ -271,5 +271,7 @@
   "identities.messages.4000046": "See DeviceAuthn-võti registreeriti enne kasutaja kinnituse kasutuselevõttu ja seda ei saa enam kasutada. Palun registreerige oma seade uuesti.",
   "messages.rate-limited": "Liiga palju taotlusi. Palun oota hetk ja proovi uuesti.",
   "identities.messages.1010026": "Teie kontot haldab organisatsioon. Palun logige sisse oma organisatsiooni ühtse sisselogimise (SSO) teenusepakkuja kaudu.",
-  "identities.messages.4000047": "Jätkamiseks peate selle heaks kiitma."
+  "identities.messages.4000047": "Jätkamiseks peate selle heaks kiitma.",
+  "consent.resources.title": "See rakendus pääseb teie nimel juurde järgmistele teenustele:",
+  "identities.messages.4010012": "Liiga palju ebaõnnestunud sisselogimiskatseid. Palun proovige uuesti {retry_at_unix_until_relative}."
 }

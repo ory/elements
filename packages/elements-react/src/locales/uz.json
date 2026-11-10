@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Bu DeviceAuthn kaliti foydalanuvchini tekshirish joriy etilishidan oldin ro'yxatdan o'tkazilgan va endi ishlatib bo'lmaydi. Iltimos, qurilmangizni qaytadan ro'yxatdan o'tkazing.",
   "messages.rate-limited": "Talablar juda koʻp. Iltimos, biroz kuting va yana urinib кўring.",
   "identities.messages.1010026": "Akkauntingizni tashkilot boshqaradi. Iltimos, tashkilotingizning bitta kirish nuqtasi (SSO) provayderi orqali kiring.",
-  "identities.messages.4000047": "Davom etish uchun buni tasdiqlashingiz kerak."
+  "identities.messages.4000047": "Davom etish uchun buni tasdiqlashingiz kerak.",
+  "consent.resources.title": "Bu ilova sizning nomingizdan quyidagi xizmatlardan foydalanadi:",
+  "identities.messages.4010012": "Tizimga kirishga juda ko‘p muvaffaqiyatsiz urinish bo‘ldi. Iltimos, {retry_at_unix_until_relative} qayta urinib ko‘ring."
 }

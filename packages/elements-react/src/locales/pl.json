@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Ten klucz DeviceAuthn został zarejestrowany przed wprowadzeniem weryfikacji użytkownika i nie można go już używać. Zarejestruj ponownie swoje urządzenie.",
   "messages.rate-limited": "Zbyt wiele żądań. Proszę zaczekać chwilę i spróbować ponownie.",
   "identities.messages.1010026": "Twoim kontem zarządza organizacja. Zaloguj się za pomocą dostawcy usług SSO swojej organizacji.",
-  "identities.messages.4000047": "Aby kontynuować, musisz zaakceptować te warunki."
+  "identities.messages.4000047": "Aby kontynuować, musisz zaakceptować te warunki.",
+  "consent.resources.title": "Ta aplikacja uzyska w Twoim imieniu dostęp do następujących usług:",
+  "identities.messages.4010012": "Zbyt wiele nieudanych prób logowania. Proszę spróbować ponownie {retry_at_unix_until_relative}."
 }

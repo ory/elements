@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Wɔkyerɛw saa DeviceAuthn safe yi din ansa na wɔde user verification reba, enti wuntumi mfa nni dwuma bio. Yɛsrɛ wo, san kyerɛw wo afidie no din bio.",
   "messages.rate-limited": "Ahyɛaseɛ pii. Mfa wo ho so na yɛnna wo de.",
   "identities.messages.1010026": "Wo akawnt no, kuw bi na ɛhwɛ so. Yɛsrɛ wo, fa wo kuw no SSO so hyɛn mu.",
-  "identities.messages.4000047": "Ɛsɛ sɛ wogye eyi to mu ansa na woakɔ so."
+  "identities.messages.4000047": "Ɛsɛ sɛ wogye eyi to mu ansa na woakɔ so.",
+  "consent.resources.title": "Aplikehyɛn yi bɛfa wo ananmu akɔ saa dwumadi ahorow yi so:",
+  "identities.messages.4010012": "Woabɔ mmɔden sɛ wobɛkɔ wo akontaabu mu mpɛn pii nanso antumi anyɛ yiye. Yɛsrɛ wo san yɛ bio {retry_at_unix_until_relative}."
 }

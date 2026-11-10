@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Tento kľúč DeviceAuthn bol zaregistrovaný pred zavedením overenia používateľa a už ho nie je možné použiť. Zaregistrujte svoje zariadenie znova.",
   "messages.rate-limited": "Príliš veľa žiadostí. Prosím, chvíľu počkajte a skúste to znova.",
   "identities.messages.1010026": "Váš účet spravuje organizácia. Prihláste sa prosím prostredníctvom poskytovateľa jednotného prihlásenia (SSO) vašej organizácie.",
-  "identities.messages.4000047": "Musíte s tým súhlasiť, aby ste mohli pokračovať."
+  "identities.messages.4000047": "Musíte s tým súhlasiť, aby ste mohli pokračovať.",
+  "consent.resources.title": "Táto aplikácia bude vo vašom mene pristupovať k týmto službám:",
+  "identities.messages.4010012": "Príliš veľa neúspešných pokusov o prihlásenie. Skúste to znova {retry_at_unix_until_relative}."
 }

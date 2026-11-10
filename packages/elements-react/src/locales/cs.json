@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Tento klíč DeviceAuthn byl zaregistrován před zavedením ověření uživatele a už jej nelze použít. Zaregistrujte prosím své zařízení znovu.",
   "messages.rate-limited": "Příliš mnoho požadavků. Počkejte prosím chvíli a zkuste to znovu.",
   "identities.messages.1010026": "Váš účet spravuje organizace. Přihlaste se prosím pomocí poskytovatele jednotného přihlašování (SSO) vaší organizace.",
-  "identities.messages.4000047": "Abyste mohli pokračovat, musíte to potvrdit."
+  "identities.messages.4000047": "Abyste mohli pokračovat, musíte to potvrdit.",
+  "consent.resources.title": "Tato aplikace získá vaším jménem přístup k těmto službám:",
+  "identities.messages.4010012": "Příliš mnoho neúspěšných pokusů o přihlášení. Zkuste to prosím znovu {retry_at_unix_until_relative}."
 }

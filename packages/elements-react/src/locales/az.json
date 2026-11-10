@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Bu DeviceAuthn açarı istifadəçi doğrulaması tətbiq olunmazdan əvvəl qeydiyyatdan keçirilib və artıq istifadə oluna bilməz. Zəhmət olmasa, cihazınızı yenidən qeydiyyatdan keçirin.",
   "messages.rate-limited": "Çoxlu sayda sorğu daxil edilib. Zəhmət olmasa, bir an gözləyin və yenidən cəhd edin.",
   "identities.messages.1010026": "Hesabınız bir təşkilat tərəfindən idarə olunur. Zəhmət olmasa, təşkilatınızın SSO provayderi ilə daxil olun.",
-  "identities.messages.4000047": "Davama keçmək üçün bunu qəbul etməlisiniz."
+  "identities.messages.4000047": "Davama keçmək üçün bunu qəbul etməlisiniz.",
+  "consent.resources.title": "Bu tətbiq sizin adınızdan bu xidmətlərə giriş əldə edəcək:",
+  "identities.messages.4010012": "Uğursuz giriş cəhdlərinin sayı həddən artıqdır. Zəhmət olmasa, {retry_at_unix_until_relative} yenidən cəhd edin."
 }

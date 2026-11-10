@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Ovaj ključ DeviceAuthn registriran je prije uvođenja provjere korisnika i više se ne može upotrebljavati. Ponovno registrirajte svoj uređaj.",
   "messages.rate-limited": "Previše zahtjeva. Molimo pričekajte trenutak i pokušajte ponovno.",
   "identities.messages.1010026": "Vašim računom upravlja organizacija. Molimo, prijavite se putem davatelja usluga jedinstvene prijave (SSO) vaše organizacije.",
-  "identities.messages.4000047": "Morate prihvatiti ovo da biste nastavili."
+  "identities.messages.4000047": "Morate prihvatiti ovo da biste nastavili.",
+  "consent.resources.title": "Ova će aplikacija u vaše ime pristupiti sljedećim uslugama:",
+  "identities.messages.4010012": "Previše neuspjelih pokušaja prijave. Molimo pokušajte ponovno {retry_at_unix_until_relative}."
 }

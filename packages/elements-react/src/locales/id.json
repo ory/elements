@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Kunci DeviceAuthn ini didaftarkan sebelum verifikasi pengguna diperkenalkan dan tidak dapat digunakan lagi. Silakan daftarkan kembali perangkat Anda.",
   "messages.rate-limited": "Terlalu banyak permintaan. Mohon tunggu sebentar dan coba lagi.",
   "identities.messages.1010026": "Akun Anda dikelola oleh sebuah organisasi. Silakan masuk menggunakan penyedia SSO organisasi Anda.",
-  "identities.messages.4000047": "Anda harus menyetujui ini untuk melanjutkan."
+  "identities.messages.4000047": "Anda harus menyetujui ini untuk melanjutkan.",
+  "consent.resources.title": "Aplikasi ini akan mengakses layanan berikut atas nama Anda:",
+  "identities.messages.4010012": "Terlalu banyak percobaan masuk yang gagal. Silakan coba lagi {retry_at_unix_until_relative}."
 }

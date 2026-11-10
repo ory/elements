@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Questa chiave DeviceAuthn è stata registrata prima dell'introduzione della verifica dell'utente e non può più essere utilizzata. Registra di nuovo il tuo dispositivo.",
   "messages.rate-limited": "Troppe richieste. Si prega di attendere un momento e riprovare.",
   "identities.messages.1010026": "Il tuo account è gestito da un’organizzazione. Accedi utilizzando il provider SSO della tua organizzazione.",
-  "identities.messages.4000047": "È necessario accettare questa condizione per poter proseguire."
+  "identities.messages.4000047": "È necessario accettare questa condizione per poter proseguire.",
+  "consent.resources.title": "Questa applicazione accederà ai seguenti servizi per tuo conto:",
+  "identities.messages.4010012": "Troppi tentativi di accesso non riusciti. Riprova {retry_at_unix_until_relative}."
 }

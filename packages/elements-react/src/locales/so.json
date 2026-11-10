@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Furahaan DeviceAuthn waxaa la diiwaangeliyay ka hor inta aan la soo bandhigin xaqiijinta isticmaalaha, mar dambena lama isticmaali karo. Fadlan diiwaangeli aaladaada mar kale.",
   "messages.rate-limited": "Wey badan yihiin codsiyada. Fadlan sug daqiiqad oo isku day mar kale.",
   "identities.messages.1010026": "Koontadaada waxaa maamula hay’ad. Fadlan ku gal adigoo isticmaalaya bixiyaha SSO ee hay’addaada.",
-  "identities.messages.4000047": "Waa inaad aqbaltaa si aad u sii wato."
+  "identities.messages.4000047": "Waa inaad aqbaltaa si aad u sii wato.",
+  "consent.resources.title": "Barnaamijkan ayaa adeegyada soo socda ku geli doona magacaaga:",
+  "identities.messages.4010012": "Isku dayo badan oo gelitaan ah ayaa fashilmay. Fadlan isku day mar kale {retry_at_unix_until_relative}."
 }

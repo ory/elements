@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Denne DeviceAuthn-nøkkelen ble registrert før brukerbekreftelse ble innført, og kan ikke lenger brukes. Registrer enheten din på nytt.",
   "messages.rate-limited": "For mange forespørsler. Vennligst vent et øyeblikk og prøv igjen.",
   "identities.messages.1010026": "Kontoen din administreres av en organisasjon. Logg inn med organisasjonens SSO-leverandør.",
-  "identities.messages.4000047": "Du må godta dette for å fortsette."
+  "identities.messages.4000047": "Du må godta dette for å fortsette.",
+  "consent.resources.title": "Denne applikasjonen vil få tilgang til disse tjenestene på dine vegne:",
+  "identities.messages.4010012": "For mange mislykkede innloggingsforsøk. Prøv igjen {retry_at_unix_until_relative}."
 }

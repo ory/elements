@@ -271,5 +271,7 @@
   "identities.messages.4000046": "このDeviceAuthnキーはユーザー確認が導入される前に登録されたため、使用できなくなりました。デバイスを再度登録してください。",
   "messages.rate-limited": "リクエストが多すぎます。しばらくお待ちいただき、再度お試しください。",
   "identities.messages.1010026": "お客様のアカウントは組織によって管理されています。組織のシングルサインオンプロバイダーを使用してサインインしてください。",
-  "identities.messages.4000047": "続行するには、これに同意してください。"
+  "identities.messages.4000047": "続行するには、これに同意してください。",
+  "consent.resources.title": "このアプリケーションは、あなたに代わって以下のサービスにアクセスします：",
+  "identities.messages.4010012": "ログインに何度も失敗しました。{retry_at_unix_until_relative}に再度お試しください。"
 }

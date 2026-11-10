@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Denne DeviceAuthn-nøgle blev tilmeldt, før brugerbekræftelse blev indført, og kan ikke længere bruges. Tilmeld venligst din enhed igen.",
   "messages.rate-limited": "Der er for mange forespørgsler i øjeblikket. Vent et øjeblik og prøv igen.",
   "identities.messages.1010026": "Din konto administreres af en organisation. Log venligst ind med din organisations SSO-udbyder.",
-  "identities.messages.4000047": "Du skal acceptere dette for at fortsætte."
+  "identities.messages.4000047": "Du skal acceptere dette for at fortsætte.",
+  "consent.resources.title": "Denne applikation får adgang til disse tjenester på dine vegne:",
+  "identities.messages.4010012": "For mange mislykkede loginforsøg. Prøv igen {retry_at_unix_until_relative}."
 }

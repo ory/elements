@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Lo khiye we-DeviceAuthn wabhaliswa ngaphambi kokwethulwa kokuqinisekiswa komsebenzisi futhi ngeke usasebenziseke. Sicela uphinde ubhalise idivayisi yakho.",
   "messages.rate-limited": "Kuningi izicelo. Ngiyacela ukuba nilinde okwesikhashana bese nizama futhi.",
   "identities.messages.1010026": "I-akhawunti yakho iphathwa yinhlangano. Sicela ungene ngokusebenzisa umnikezeli we-SSO wenhlangano yakho.",
-  "identities.messages.4000047": "Kufanele uvume lokhu ukuze uqhubeke."
+  "identities.messages.4000047": "Kufanele uvume lokhu ukuze uqhubeke.",
+  "consent.resources.title": "Lolu hlelo lokusebenza luzofinyelela kulezi zinsizakalo egameni lakho:",
+  "identities.messages.4010012": "Imizamo eminingi yokungena ihlulekile. Sicela uzame futhi {retry_at_unix_until_relative}."
 }

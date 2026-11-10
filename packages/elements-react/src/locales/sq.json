@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Ky çelës DeviceAuthn u regjistrua përpara se të prezantohej verifikimi i përdoruesit dhe nuk mund të përdoret më. Ju lutemi, regjistroni përsëri pajisjen tuaj.",
   "messages.rate-limited": "Ka shumë kërkesa. Ju lutemi, prisni një çast dhe provoni përsëri.",
   "identities.messages.1010026": "Llogaria juaj menaxhohet nga një organizatë. Ju lutemi, identifikohuni me furnizuesin SSO të organizatës suaj.",
-  "identities.messages.4000047": "Duhet ta pranoni këtë për të vazhduar."
+  "identities.messages.4000047": "Duhet ta pranoni këtë për të vazhduar.",
+  "consent.resources.title": "Ky aplikacion do të ketë qasje në këto shërbime në emrin tuaj:",
+  "identities.messages.4010012": "Ka pasur shumë përpjekje të pasuksesshme për t’u identifikuar. Ju lutemi, provoni përsëri {retry_at_unix_until_relative}."
 }

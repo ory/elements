@@ -271,5 +271,7 @@
   "identities.messages.4000046": "E debanyere igodo DeviceAuthn a tupu e webata nkwenye onye ọrụ, enweghịkwa ike iji ya ọzọ. Biko debanye aha ngwaọrụ gị ọzọ.",
   "messages.rate-limited": "Enwere ọtụtụ arịrịọ. Biko, chebe obere oge wee gbalịa ọzọ.",
   "identities.messages.1010026": "Otu na-elekọta akaụntụ gị. Biko jiri onye na-enye ọrụ SSO nke otu gị banye.",
-  "identities.messages.4000047": "Ị ga-ekwe ka ị gaa n'ihu."
+  "identities.messages.4000047": "Ị ga-ekwe ka ị gaa n'ihu.",
+  "consent.resources.title": "Ngwa a ga-eji ọrụ ndị a n'aha gị:",
+  "identities.messages.4010012": "Ị nwara ịbanye ọtụtụ ugboro mana ọ gara n’ihu daa. Biko gbalịa ọzọ {retry_at_unix_until_relative}."
 }

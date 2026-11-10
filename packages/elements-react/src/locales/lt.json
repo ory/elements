@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Šis „DeviceAuthn“ raktas buvo užregistruotas prieš įdiegiant naudotojo patvirtinimą, todėl jo nebegalima naudoti. Užregistruokite savo įrenginį iš naujo.",
   "messages.rate-limited": "Per daug užklausų. Prašome palaukti ir pabandykite dar kartą.",
   "identities.messages.1010026": "Jūsų paskyrą administruoja organizacija. Prisijunkite naudodami savo organizacijos vienkartinio prisijungimo (SSO) paslaugos teikėją.",
-  "identities.messages.4000047": "Norėdami tęsti, turite su tuo sutikti."
+  "identities.messages.4000047": "Norėdami tęsti, turite su tuo sutikti.",
+  "consent.resources.title": "Ši programa jūsų vardu pasieks šias paslaugas:",
+  "identities.messages.4010012": "Per daug nesėkmingų bandymų prisijungti. Bandykite dar kartą {retry_at_unix_until_relative}."
 }

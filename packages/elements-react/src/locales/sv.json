@@ -271,5 +271,7 @@
   "identities.messages.4000046": "Den här DeviceAuthn-nyckeln registrerades innan användarverifiering infördes och kan inte längre användas. Registrera din enhet igen.",
   "messages.rate-limited": "För många förfrågningar. Vänta en stund och försök igen.",
   "identities.messages.1010026": "Ditt konto hanteras av en organisation. Logga in med din organisations SSO-leverantör.",
-  "identities.messages.4000047": "Du måste godkänna detta för att fortsätta."
+  "identities.messages.4000047": "Du måste godkänna detta för att fortsätta.",
+  "consent.resources.title": "Den här applikationen kommer att få åtkomst till följande tjänster för din räkning:",
+  "identities.messages.4010012": "För många misslyckade inloggningsförsök. Försök igen {retry_at_unix_until_relative}."
 }
