@@ -1,6 +1,6 @@
 {
   "name": "@ory/elements-react",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "scripts": {
     "build": "tsdown --config-loader tsx",
     "prepare": "pnpm run build"

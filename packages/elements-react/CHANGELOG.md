@@ -1,3 +1,17 @@
+## 1.4.0
+
+### Minor Changes
+
+- **Login throttling.** When brute-force protection refuses a login, the pre-built forms show "Too many failed login attempts. Please try again in 30 seconds." (4010012) instead of the generic rate-limit message. The `rate_limited` event that `onError` receives carries the Ory error as `body`. For a throttled login, `body.error.id` is `login_throttled` and `body.error.details.retry_after` holds the seconds until the user can try again.
+  
+  Translations of a message whose context holds a `<name>_unix` timestamp can use `{<name>_unix_until_relative}`, the time left until that timestamp as a localized relative time such as "in 5 minutes".
+
+- **Smaller bundles.** The package ships one module per source file instead of one bundle per entry point. The core, `./client`, and `./theme` entries share a single copy of each module, and bundlers can drop the modules an app does not use. The First Load JS of a Next.js login page drops from 1.19 MB to 670 kB. The `./client` and `./theme` ESM entries also load in plain Node.js.
+
+### Patch Changes
+
+- The password and one-time code fields keep their value while a successful login redirects, instead of emptying before the page changes. Failed submissions still clear them.
+
 ## 1.3.0
 
 ### Minor Changes
